@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{page_title}</title>
+
+    <!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+    -->
+    <!-- 公共css，js引入 -->{pc_global_top}<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/pc/modules/common/layer/skin/layer.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/pc/modules/common/upload/1.0.0/css/style.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/global-top-bar/global-top-bar.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/layer/layer.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/json/json.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/core.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/widget.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/mouse.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/sortable.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/upload/1.0.0/yueyue_uploader.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ueditor/1.0.0/ueditor.config.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ueditor/1.0.0/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ueditor/1.0.0/third-party/zeroclipboard/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ueditor/1.0.0/ueditor.all.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ueditor/1.0.0/ueditor.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/valid/index.js"></script>
+</head>
+<body >
+
+{global_top_bar}
+
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+<form action="./module/pai_mall_certificate_service_op.php" method="post"  name="publish_form" id="publish_form" target="form_iframe">
+    <div class="content">
+        <div class="choose-type-page  w1000 font_wryh">
+            <!--<div class="mod-choose-step-zone">
+                <ul>
+                    <li class="cur">
+                        <i class="icon-radius ">1</i>
+                        <a href="javascript:;" class="step-1" onclick="return false">选择类型</a>
+                    </li>
+                    <li class="cur">
+                        <i class="icon-radius ">2</i>
+                        <a href="javascript:;" class="step-2" onclick="return false">服务标准</a>
+                    </li>
+                    <li>
+                        <i class="icon-radius ">3</i>
+                        <a href="javascript:;" class="step-3" onclick="return false">开通</a>
+                    </li>
+                </ul>
+            </div>-->
+            <div class="mod-nav-item">
+                <a href="./">约约商家主页</a>
+                &gt;
+                <a href="./normal_certificate_choose.php">认证中心</a>
+                &gt;
+                <a href="./normal_certificate_choose.php">品类认证</a>
+                &gt;
+                <span>{page_type_name}认证</span>
+            </div>
+            <div class="service-page mod-attest-page content-bg">
+                <div class="mod-listItem">
+                    <span>{page_type_name}认证</span>
+                </div>
+                <div class="form-warp" id="form-warp">
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>选择你的擅长组织的活动（不超过3个）</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-checkbox-item font_wryh clearfix J_activity_do_well_div">
+                                <!-- BEGIN certificate_activity_do_well -->
+                                <label>
+                                    <input class="J_activity_do_wel" type="checkbox" name="do_well[]" value="{text}" <!-- IF ROWCNT=="0" -->checked="checked"<!-- ENDIF -->/>
+                                    {text}
+                                </label>
+                                <!-- END certificate_activity_do_well -->
+                                <label>
+                                    <input type="text" name="do_well_other" class="checkbox-input font_wryh" placeholder="其他"  valid-rule="**0-100" valid-index='2' tabindex="1"/>
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>个人介绍：</span>
+                            <textarea name="introduce" id="J_content" style="display: none;"></textarea>
+                        </div>
+                        <!-- 加载编辑器的容器 -->
+                        <script id="container" name="introduce" type="text/plain">{introduce}</script>
+                    </div>
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>以前组织过活动吗？</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-checkbox-item font_wryh clearfix">
+                                <!-- BEGIN certificate_activity_is_past_lead -->
+                                <label>
+                                    <input class="J_is_lead_activity" type="radio" name="is_lead_activity" value="{text}" <!-- IF ROWCNT=="0" -->checked="checked"<!-- ENDIF -->/>
+                                    {text}
+                                </label>
+                                <!-- END certificate_activity_is_past_lead -->
+                            </div>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-input-item">
+                                <textarea name="past_activity_content" class="textarea-txt font_wryh" placeholder="介绍一下之前组织过的活动规模及内容。" valid-rule="**0-1000" valid-index='3' tabindex="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>上传活动照片：</span>
+                            <span style="padding-left:20px;font-size: 14px;color:#aaa">（上传5到20张图片，能让更快的审核。文件格式为jpg、jpeg、png，每张图片大小不超过3M）</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="J_upload-container_1 ui-item" style="overflow:hidden;" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-item">
+                        <a href="javascript:;" class="ui-btn ui-btn-blue" id="J_form_submit" data-lock="unlock">提交审核</a>
+                    </div>
+                    <div style="text-align:center;color:#333;padding-top:10px;font-size:16px">等待审核过程中，可先发布服务</div>
+                    <div style="text-align:center;color:#333;padding-top:10px;font-size:14px">若有问题，请联系客服4000-82-9003</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="{type_id}" name="type_id"/>
+
+</form>
+<input type="hidden" value="{user_id}" id="J_user_id">
+{footer}
+
+<script type="text/javascript" src="http://static.yueus.com/yue_ui/upload/1.0.0/webuploader.min.js"></script>
+<script type="text/javascript">
+    // 头部
+    require('common/global-top-bar/global-top-bar');
+
+    require('common/layer/layer');
+    //工具包
+    var utility_module = require('common/utility/index');
+
+    require('common/upload/1.0.0/yueyue_uploader');
+
+    require('common/ueditor/1.0.0/ueditor');
+    // 初始化生成编辑器
+    var ueditor = new Ueditor({
+        target:'#container'
+
+    });
+
+
+    //编辑框加载完成设置高度
+    ueditor.editor.addListener( 'ready', function( editor ) {
+        ueditor.editor.setHeight(300);
+    } );
+
+
+
+
+    // 表达验证类
+    var VA = require('common/valid/index');
+    // 设置容器
+    var valid = new VA($('#form-warp'));
+
+    add_collection("J_upload-container_1","1");
+
+
+    function error_tips(ele,str)
+    {
+        $("html,body").animate({scrollTop:ele.offset().top},300);
+        layer.alert(str);
+        return false;
+    }
+
+
+
+    fresh_bind();
+
+    function fresh_bind(){
+        //绑定事件
+        valid.pushfunctions
+                ([
+                    {
+                        index:'2',
+                        ValidError : function(){
+                            error_tips($("[valid-index='2']").parents(".item"),'其他内容');
+                        }
+                    },
+                    {
+                        index:'3',
+                        ValidError : function(){
+                            error_tips($("[valid-index='3']").parents(".item"), '请填写之前组织过的活动规模及内容');
+                        }
+                    }
+
+
+                ]);
+    }
+
+
+    //提交form
+    $("#J_form_submit").on("click",function(){
+        var resault = valid.checkValid();
+        if(resault.isPass)
+        {
+            var J_activity_do_wel_len = $(".J_activity_do_wel:checked").length;
+            //判断选项
+            if(J_activity_do_wel_len==0)
+            {
+
+                error_tips($('.J_activity_do_well_div').parents(".item"), '请勾选擅长活动');
+                return
+            }
+            //判断不能超过三个
+
+            if(J_activity_do_wel_len>3)
+            {
+
+                error_tips($('.J_activity_do_well_div').parents(".item"), '不能超过3个标签');
+                return
+            }
+            //判断勾选了其他后需要填写内容
+            for(var i=0;i<J_activity_do_wel_len;i++)
+            {
+                if($($(".J_activity_do_wel:checked")[i]).val()=="其他")
+                {
+
+                    //检查是否填入了空
+                    if($("[valid-index='2']").val()=="")
+                    {
+                        error_tips($("[valid-index='2']").parents(".item"),'请填写其他');
+                        //console.log(3);
+                        return
+                    }
+                }
+            }
+
+            //判断图片
+            if(!$(".J_upload-container_1 input").val())
+            {
+                error_tips($('.J_upload-container_1').parents(".item"), '请传入照片');
+                return
+            }
+
+            //判断图片张数是否够5张
+            if($(".J_upload-container_1 input").val())
+            {
+                var img_len = $(".J_upload-container_1 input").length;
+                if(img_len<5)
+                {
+                    error_tips($('.J_upload-container_1').parents(".item"), '请传入大于等于5张照片');
+                    return
+                }
+            }
+
+            var content = ueditor.editor.getContent();
+            //判断图文是否为空（2015-7-6）
+            if(!content)
+            {
+                error_tips($('#J_content').parents(".item"), '请填入图文详情');
+                return
+            }
+
+            /*****2015-10-28计算服务详情里的数据*******/
+            var editor_str_len = utility_module.count_editor_str_num(content);
+
+
+            if(editor_str_len==0)
+            {
+                error_tips($('#J_content').parents(".item"), '请在个人介绍里填入字符内容');
+                return
+            }
+
+            /*****2015-10-28计算服务详情里的数据*******/
+            $("#J_content").html(content);
+
+
+            var data_lock = $(this).attr("data-lock");
+            if(data_lock!="lock")
+            {
+                $(this).attr("data-lock","lock");//锁住
+                layer.msg("正在提交中...");
+                $("#publish_form").submit();
+            }
+            else
+            {
+                layer.msg("正在提交中...");
+                return false;
+            }
+        }
+
+    })
+
+
+    //添加作品集
+    /*
+     *ele_container:容器
+     *part_id：模块标记值
+     */
+    function add_collection(ele_container,part_id)
+    {
+        $(function()
+        {
+
+
+            //todo 使用之前要确定userid是否传递进去
+            var user_id = $("#J_user_id").val();
+            var yue_upload_obj = new yue_upload_class
+            ({
+                upload_total_limit : 20,
+                upload_container : $('.'+ele_container),
+                user_id :  user_id,
+                multiple : true,
+                imgs : [],
+                fileSizeLimit: 60 * 1024 * 1024,    // 60 M 总文件大小
+                fileSingleSizeLimit: 3 * 1024 * 1024,    // 3 M 单文件大小
+                gid : part_id
+            });
+
+            $('#popup_'+part_id).on('click', function()
+            {
+                var upload_obj = {};
+                first_layer = layer.open
+                ({
+                    type: 1,
+                    area: ['800px', '450px'],
+                    fix: false, //不固定
+                    title:'上传图片',
+                    maxmin: false,
+                    content: yue_upload_obj.tpl,
+                    success : function($el,index)
+                    {
+                        var sec_layer = null;
+                        var index = index;
+
+
+                        setTimeout(function()
+                        {
+                            upload_obj = yue_upload_obj.init_upload($el);
+
+                            upload_obj.on('uploadProgress',function()
+                            {
+
+                            })
+                                    .on('fileQueued',function(file)
+                                    {
+
+                                    })
+                                    .on('fileDequeued',function(file)
+                                    {
+
+                                    })
+                                    .on('uploadSuccess',function(file,response)
+                                    {
+                                        // response 服务端返回数据
+                                        //console.log(response);
+                                    })
+                                    .on('uploadError',function()
+                                    {
+
+                                    })
+                                    .on('uploadFinished',function()
+                                    {
+                                        layer.close(index);
+                                    })
+                        },500);
+                    },
+                    cancel : function()
+                    {
+                        if(!confirm('注意！关闭弹窗会终止上传图片'))
+                        {
+                            return false;
+                        }
+
+                        upload_obj && upload_obj.stop(true);
+                    }
+                });
+            });
+        });
+    }
+
+
+    $(".J_is_lead_activity").on("change",function(){
+
+        var cur_val = $(this).val();
+        if(cur_val=="没有组织过")
+        {
+            $("[valid-index='3']").css("display","none");
+            $("[valid-index='3']").val("");
+        }
+        else
+        {
+            $("[valid-index='3']").css("display","block");
+        }
+
+    });
+
+
+</script>
+
+
+
+
+</body>
+</html>

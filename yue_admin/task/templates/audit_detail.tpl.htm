@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>审核</title>
+</head>
+<body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<div id="TB_overlayBG"></div>
+
+<div class="box" style="display:none" id="box">
+  <h2>审核通过<a href="javascript:void(0);" class="close">关闭</a></h2>
+  <div class="table-list">
+  <form name="form" id="form" action="" method="post" target="frame">
+    <table width="100%" border="0">
+      <tbody>
+        <tr>
+          <td width="24%">推送类型:</td>
+          <td width="76%"><select name="send_type" id="send_type">
+            <!-- IF request_info.lead_status="0" --><option value="all">全部推送</option><!-- ENDIF -->
+            <option value="part">部分推送</option>
+          </select></td>
+        </tr>
+        <!-- IF request_info.lead_status="1" -->
+         <tr>
+          <td>已推荐的用户ID:</td>
+          <td><textarea name="has_send_user" id="has_send_user" cols="45" rows="5">{has_send_user}</textarea>
+           </td>
+        </tr>
+        
+        <!-- ENDIF -->
+        <tr>
+          <td>用户ID:</td>
+          <td><textarea name="user_id" id="user_id" cols="45" rows="5"></textarea>
+            (请用英文逗号分隔)</td>
+        </tr>
+        <tr>
+          <td width="24%">备注:</td>
+          <td width="76%"><textarea name="remark" id="remark" cols="45" rows="5"></textarea></td>
+        </tr>
+               
+        <tr>
+          <td colspan="2" align="center"><br />
+            <input name="" type="submit" value="添加" />
+            <br /></td>
+        </tr>
+      <input type="hidden" name="request_id" id="request_id" value="{request_info.request_id}" />
+      <!-- IF request_info.lead_status="1" --><input type="hidden" name="again" id="again" value="Y" /><!-- ENDIF -->
+      <input type="hidden" name="act" id="act" value="pass" />
+        </tbody>
+      
+    </table>
+    </form>
+  </div>
+</div>
+
+<div class="box" style="display:none" id="not_pass_box">
+  <h2>审核不通过<a href="javascript:void(0);" class="close">关闭</a></h2>
+  <div class="table-list">
+  <form name="form" id="form" action="" method="post" target="frame">
+    <table width="100%" border="0">
+      <tbody>
+      
+        <tr>
+          <td>原因:</td>
+          <td><select name="not_pass_reason" id="not_pass_reason">
+          <!-- BEGIN not_pass_text_arr -->
+            <option value="{text}">{text}</option>
+            <!-- END not_pass_text_arr -->
+          </select></td>
+        </tr>
+        <tr>
+          <td width="24%">备注:</td>
+          <td width="76%"><textarea name="remark" id="remark" cols="45" rows="5"></textarea></td>
+        </tr>
+       
+        <tr>
+          <td colspan="2" align="center"><br />
+            <input name="" type="submit" value="提交" />
+            <br /></td>
+        </tr>
+      <input type="hidden" name="request_id" id="request_id" value="{request_info.request_id}" />
+      <input type="hidden" name="act" id="act" value="not_pass" />
+        </tbody>
+      
+    </table>
+    </form>
+  </div>
+</div>
+
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:50%;">
+          <fieldset>
+            <legend>订单信息</legend>
+            <!--list-->
+            <table  cellspacing="10" width="100%">
+              <tbody>
+                <tr>
+                  <td width="150">需求发布时间:</td>
+                  <td width="440">{request_info.add_time}</td>
+                </tr>
+                <tr>
+                  <td>订单状态:</td>
+                  <td><!-- IF request_info.lead_status="0" -->未审核<!-- ELSE -->已推荐<!-- ENDIF --></td>
+                </tr>
+                <tr>
+                  <td>用户ID:</td>
+                  <td>{request_info.user_id}</td>
+                </tr>
+                <tr>
+                  <td>昵称:</td>
+                  <td>{request_info.nickname}</td>
+                </tr>
+                <tr>
+                  <td>地区:</td>
+                  <td>{request_info.where_str}</td>
+                </tr>
+                <!-- IF request_info.lead_status="1" -->
+                <tr>
+                  <td>已推荐供应商:</td>
+                  <td><a href="lead_list.php?request_id={request_info.request_id}" target="_blank">查看</a></td>
+                </tr>
+                <!-- ENDIF -->
+              </tbody>
+            </table>
+          </fieldset>
+        </div>
+        <div class="table" style="width:50%;">
+          
+          <fieldset>
+            <legend>问卷内容</legend>
+            <!--list-->
+            <table  cellspacing="10" width="100%">
+              <tbody>
+              <!-- BEGIN question.data -->
+              
+                <tr>
+                  <td >{titles}:</td>
+                  <td >
+                  <!-- BEGIN data -->
+                  {titles}<br>
+                  <!-- BEGIN data -->
+                  &nbsp;&nbsp;->{titles}<br>
+                  <!-- END data -->
+                  <!-- END data -->
+                  </td>
+                </tr>                
+                <!-- END question.data -->
+              </tbody>
+            </table>
+          </fieldset>
+        </div>
+        <!-- IF request_info.lead_status="1" --><!-- ENDIF -->
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>操作记录</legend>
+            <table  cellspacing="3" width="100%">
+              <tbody>
+                  <tr>
+                  <td width="20%" align="center" >操作日期</td>
+                  <td width="15%" align="center" >操作用户ID</td>
+                  <td width="15%" align="center" >操作用户</td>
+                  <td width="20%" align="center" >操作类型</td>
+                  <td align="center" >备注</td>
+                <!-- BEGIN log -->              
+                <tr>
+                  <td width="20%" align="center" >{add_time}</td>
+                  <td width="15%" align="center" >{admin_id}</td>
+                  <td width="15%" align="center" >{admin_name}</td>
+                  <td width="20%" align="center" >{type_name}</td>
+                  <td align="center" >{note}</td>
+                </tr>                
+                <!-- END log -->
+              <tr>
+              </tbody>
+            </table>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  
+   
+    </div>
+     <span class="btn">
+      <input type="button" value='<!-- IF request_info.lead_status="0" -->审核通过<!-- ELSE -->再次推送<!-- ENDIF -->' class="button" id="pass">
+      <!-- IF request_info.lead_status="0" --><input type="button" value="审核不通过" class="button" id="not_pass"><!-- ENDIF -->
+      </span>
+      <input type="button" value="返回列表" class="button" onclick="history.go(-1);">
+</div>
+<script type="text/javascript">
+$("#pass").click(function(){
+	$("#TB_overlayBG").css({
+		display:"block",height:$(document).height()
+	});
+	$("#box").css({
+		left:($("body").width()-$("#box").width())/2-20+"px",
+		top:($(window).height()-$("#box").height())/10+$(window).scrollTop()+"px",
+		display:"block"
+	});
+});
+
+$("#not_pass").click(function(){
+	$("#TB_overlayBG").css({
+		display:"block",height:$(document).height()
+	});
+	$("#not_pass_box").css({
+		left:($("body").width()-$("#not_pass_box").width())/2-20+"px",
+		top:($(window).height()-$("#not_pass_box").height())/10+$(window).scrollTop()+"px",
+		display:"block"
+	});
+});
+
+$(".close").click(function(){
+	$("#TB_overlayBG").css("display","none");
+	$("#box ").css("display","none");
+	$("#not_pass_box").css("display","none");
+});
+</script>
+</body>
+</html>

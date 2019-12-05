@@ -1,0 +1,12 @@
+http://yp.yueus.com/mobile/package/resource/0.0.1-beta/app-debug.js
+
+http://yp.yueus.com/mobile/package/resource/0.0.1-beta/app-debug.js
+
+http://yp.yueus.com/mobile/package/resource/0.0.1-beta/app.zip
+
+http://yp-wif.yueus.com/mobile/package/resource/0.0.1-beta/app.zip
+
+http://yp-wifi.yueus.com/mobile/package/resource/0.0.1-beta/app-debug.js
+
+http://yp-wifi.yueus.com/mobile/package/resource/0.0.1-beta/app.js
+

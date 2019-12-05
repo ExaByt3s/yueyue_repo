@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>订单信息</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/talk/index.scss">
+<body>
+
+<main role="main" >
+    <div class="page-view order-list" data-role="page-container">
+        <link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+        <div class="talk_title">{request_detail_info.title}</div>
+
+
+        <!-- IF is_archive="1" -->
+        <div class="talk_btn_con">
+            <div class="common_control_btn" data-role="no_collection">已收藏</div>
+        </div>
+        <!-- ELSE -->
+        <div class="talk_btn_con">
+            <div class="common_control_btn" data-role="collection">收藏</div>
+        </div>
+        <!-- ENDIF -->
+
+        <div class="talk_status"><div style="word-break: break-all">{feed_info.message_content}</div></div>
+        <div class="talk_send_con layout_box mgb20">
+            <!-- BEGIN quote_info -->
+            <div class="talk_send_icon layout_box">
+                <img src="{user_icon}"/>
+            </div>
+            <div class="talk_send_input layout_box_v">
+                <!--div class="talk_input_content"><input /></div-->
+                <textarea data-role="talk_content_input" class="talk_content_input" type="text" placeholder="回复给 {buyer_nickname}"></textarea>
+                <div class="talk_btn" data-role="talk_btn">发送</div>
+            </div>
+            <!-- END quote_info -->
+        </div>
+        <div class="common_first_tips fn-hide" data-role="common_first_tips" storage-value="talk_1">
+            <div class="con">
+                <div class="delta bot"></div>
+                <div class="txt">若顾客确认了你的报价，雇佣了你，我们将会通过短信通知你。</div>
+                <div class="del" data-role="common_first_close"><div class="inn"></div></div>
+            </div>
+        </div>
+        <!-- BEGIN answer_list -->
+        <!-- IF message_type="declined" -->
+        <div class="talk_tips_gray layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="refund_coins" -->
+        <div class="talk_tips_green layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="earnest" -->
+        <div class="talk_tips_orange layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="hired" -->
+        <div class="talk_tips_green layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="read_profile" -->
+        <div class="talk_tips_white layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="read_quotes" -->
+        <div class="talk_tips_blue layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="message" -->
+        <div class="talk_send_con layout_box">
+            <div class="talk_send_icon layout_box">
+                <img src="{from_user_icon}"/>
+            </div>
+            <div class="talk_send_input layout_box_v">
+                <p>{from_user_nickname}</p>
+                <p>{nl2br:message_content}</p>
+            </div>
+        </div>
+        <!-- ENDIF -->
+        <!-- END answer_list -->
+        <!-- BEGIN answer_list -->
+        <!-- IF message_type="quotes" -->
+        <div class="talk_send_con layout_box mgb50">
+
+            <div class="talk_send_icon layout_box">
+                <img src="{from_user_icon}"/>
+            </div>
+
+            <div class="talk_send_input layout_box_v">
+                <div class="inner_name layout_box"><div>{from_user_nickname}</div><div>{add_time_str}</div></div>
+                <div class="inner_title">报价估算：</div>
+                <div class="inner_content">{quotes_content}</div>
+                <div class="inner_title mgt25">信息：</div>
+                <div class="inner_content">{message_content}</div>
+            </div>
+
+        </div>
+        <!-- ENDIF -->
+        <!-- END answer_list -->
+        <div class="talk_send_con layout_box bd_or bd_gray">
+
+            <div class="talk_send_icon layout_box">
+                <!-- BEGIN quote_info -->
+                <img src="{buyer_user_icon}"/>
+                <!-- END quote_info -->
+            </div>
+            <div class="talk_send_input layout_box_v">
+                <!-- BEGIN quote_info -->
+                <div class="quests_name">{buyer_nickname}</div>
+                <!-- END quote_info -->
+                <div class="details_request" style="padding: 0px">
+                    <!-- BEGIN single -->
+                    <div class="details_request_title">
+                        <p class="exp">{titles}</p>
+                        <!-- BEGIN data -->
+                        <div class="details_request_answer">
+                            <p>{titles}</p>
+                        </div>
+                        <!-- END data -->
+                    </div>
+                    <!-- END single -->
+                    <!-- BEGIN more -->
+                    <div class="details_request_title">
+                        <p class="exp">{titles}</p>
+                        <!-- BEGIN data -->
+                        <div class="details_request_answer">
+                            <p><img src="../image/task/yes-22x16.png"/><span>{titles}</span></p>
+                        </div>
+                        <!-- END data -->
+                    </div>
+                    <!-- END more -->
+                    <!-- IF quote_info.is_pay_coins=1 -->
+                    <div class="details_request_title">
+                        <p class="exp">{request_detail_info.nickname} 的联系方式</p>
+                        <div class="details_request_answer">
+                            <p>{request_detail_info.cellphone}</p>
+                        </div>
+                    </div>
+                    <!-- ENDIF -->
+
+                </div>
+            </div>
+
+        </div>
+        <!-- BEGIN quote_info -->
+        <div id="quotes_id" style="display: none" data-quote_id="{quotes_id}"></div>
+        <!-- END quote_info -->
+        <div class="common_copyright_bottom">
+            <p>Copyright?2003-2015 YUEUS.COM</p>
+        </div>
+    </div>
+</main>
+
+
+</body>
+
+<script>
+    window.onload = function()
+    {
+        var details = JSON.parse(window.localStorage.getItem("$__storage_first_tips"));
+        console.log(details);
+        console.log(details.talk_1);
+
+        if(details && (details.talk_1 == 1))
+        {
+            $('[data-role="common_first_tips"]').removeClass('fn-hide')
+        }
+
+        $('[data-role="common_first_close"]').on('click',function()
+        {
+            $(this).parents('[data-role="common_first_tips"]').addClass('fn-hide');
+
+            details.talk_1 = 0;
+
+            window.localStorage.setItem("$__storage_first_tips",JSON.stringify(details));
+        })
+
+       var quote_id = $("#quotes_id").attr('data-quote_id');
+
+
+        $('[data-role="collection"]').on('click',function()
+        {
+            var data =
+            {
+                quotes_id:quote_id
+            };
+
+            if(window.confirm('要收藏该需求吗?'))
+            {
+                $.ajax
+                ({
+                    url : window.$__config.ajax_url+'collection.php',
+                    data:data,
+                    type: 'POST',
+                    dataType : 'json',
+                    cache: false,
+                    beforeSend: function()
+                    {
+
+                    },
+                    success: function(data)
+                    {
+                        if(data.result_data)
+                        {
+                            alert("收藏成功");
+                        }
+                        else{
+                            alert("已经收藏过了");
+                        }
+                        console.log(data);
+                    },
+                    error: function()
+                    {
+
+                    },
+                    complete: function()
+                    {
+
+                    }
+                });
+            }
+        })
+
+        $('[data-role="talk_btn"]').on('click',function()
+        {
+            var content = $('[data-role="talk_content_input"]').val();
+
+            if(content.trim() == ""){
+                alert("发送内容不能为空！");
+                return;
+            }
+
+            var data =
+            {
+                quotes_id:quote_id,
+                content : content
+            };
+
+            console.log(data);
+
+            if(window.confirm('确定发送？'))
+            {
+                $.ajax
+                ({
+                    url : window.$__config.ajax_url+'submit_message.php',
+                    data:data,
+                    type: 'POST',
+                    dataType : 'json',
+                    cache: false,
+                    beforeSend: function()
+                    {
+
+                    },
+                    success: function(data)
+                    {
+                        console.log(data);
+                        window.location.reload();
+                    },
+                    error: function()
+                    {
+
+                    },
+                    complete: function()
+                    {
+
+                    }
+                });
+            }
+        })
+    }
+</script>
+<link rel="import" href="./webcontrol/tjbottom.tpl.html?__inline">
+</html>

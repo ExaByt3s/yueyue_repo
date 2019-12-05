@@ -1,0 +1,145 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 模特风格价格 
+// 
+
+
+.edit-model-page,.edit-condition-page{
+	.price-style{
+		.content{
+		  	//padding-top: 15px;
+		  	.title{
+	   			font-size: 16px;
+	   			color: #000;
+	   			border-bottom: 1px solid #ddd;
+	   			height: 45px;
+	   			line-height: 45px;
+	   			padding:0 15px;
+	   			background: #fff;
+	   			.status{
+	   				font-size: 10px;
+	   				background: #3fc585;
+	   				color: #fff;
+	   				@include border-radius(90px);
+	   				@include float-right;
+	   				padding: 0 15px;
+					height: 20px;
+					line-height: 20px;
+					margin-top: 13px;
+	   			}
+	   		}
+		  	section{
+		   		//background: #fff;
+		   		background: #000;
+		   		border-bottom: 1px solid #d2d2d2;
+		   		margin-bottom: 20px;
+		  	}
+			.price-style-list{
+				padding: 0;
+				.ui-input-title-mod{
+					padding-left: 15px;
+					border:none; 
+					div{
+						line-height: 45px;
+						border-bottom: 1px solid #ddd;
+					}
+					div.ok{
+						color: #ff4978
+					}
+					.left{
+						//font-weight: bold;
+						//color: #666;
+					}
+					.vertical-line{
+						color: #ddd;
+						padding: 0 15px;
+					}
+					.middle{
+						@include flexbox((
+				            box-flex: 1
+				        ), $version: 1);
+				        //color: #333;
+				        overflow: hidden;
+				        text-overflow: ellipsis;
+				        input{
+				        	color: #ff5000;
+				        	//font-weight: bold;
+				        	font-size: 14px;
+				        	width: 100%;
+				        }
+					}
+					.right{
+						padding-right: 15px;
+					}
+					.icon{
+						//margin:0 15px 0 10px;
+						margin-left: 10px
+					}
+
+			    &:last-child{
+					div{
+						border: none;	
+					} 
+	            }
+
+				}
+
+				.title{
+					border-bottom: 1px solid #ddd;
+					height: 50px;
+					div{
+						border: none;
+						line-height: 50px;	
+					} 
+					.left{
+						font-size: 14px;
+					}
+					.right{
+						font-size: 12px;
+						color: #aaa;
+						padding: 0;
+					}
+					.pt5{
+						padding-top: 5px;
+					}
+	            }
+				
+			}
+			.price-style-list-other{
+				background: #eee;
+				.title{
+					border-bottom:none;
+				}
+				.wrapper-out{
+					@include box-sizing(border-box);
+		            @include flexbox((
+		                display: box
+		            ), $version: 1);
+		            margin-bottom: 6px;
+		            border-top: 1px solid #d2d2d2;
+		            border-bottom: 1px solid #d2d2d2;
+					.wrapper-left{
+						@include flexbox((
+				            box-flex: 1
+				        ), $version: 1);
+					}
+					.wrapper-right{
+						@include flexbox((
+				            box-flex: 1
+				        ), $version: 1);
+						background: #fafafa;
+						border-left: 1px solid #ddd;
+						padding: 0 15px;
+						display: table-cell;
+						height: 135px;
+						vertical-align: middle;
+					}
+				&:last-child{
+					margin-bottom:0;
+					border-bottom:none; 
+            	}
+				}
+			}
+		}
+	}
+}

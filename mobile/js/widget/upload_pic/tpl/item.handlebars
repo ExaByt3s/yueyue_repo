@@ -1,0 +1,9 @@
+{{#each pic_list}}
+<div class="{{#if ../is_cover}}cover-image{{else}}image-item{{/if}}" data-item-id="{{id}}" data-role="pic"
+data-url="{{url}}" style="width:{{../max_size}}px;height:{{../max_size_h}}px;">
+    <i class="upload-image image-img" data-lazyload="{{url}}"></i>
+    <div class="close-out" data-role="del-pic" data-id={{id}}>
+        <i class="icon close-btn"></i>
+    </div>
+</div>
+{{/each}}

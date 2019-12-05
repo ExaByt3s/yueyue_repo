@@ -1,0 +1,850 @@
+<div class="fade" style="display:none" id="J_fade_screen"></div>
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+<form action="./module/party_join_op.php" method="post" target="form_iframe" id="J_pay_join_form" name="J_pay_join_form">
+<div class="pop-signup" style="display:none" id="J_join_container">
+  <h3>{enroll_user_name}欢迎报名参加活动</h3>
+  <div class="close"><a href="javascript:void(0);" id="J_close_join_container"></a></div>
+
+  <div class="item-wrap">
+    <div class="item clearfix">
+          <div class="lbox fldi">选择场次</div>
+          <div class="rbox fldi">
+              <ul class="list clearfix f14 J_site_ul" data-mark="1">
+                    <p id="site_ajax_tips">正在加载报名场次信息...</p>
+              </ul>
+              <div class="J_site_ul_input" data-mark="1">
+              </div>
+          </div>
+    </div>
+    <div class="item clearfix">
+          <div class="lbox fldi">报名人数</div>
+          <div class="rbox fldi" id="pay_first_num_div1"><a href="javascript:void(0);">
+            <img src="http://event.poco.cn/images/icon--.jpg" class="vam fl" id="J_minus_join_num"/></a>
+            <input type="text" name="num" id="J_join_num" value="1" class="input-text-2 fl" readonly /><a href="javascript:void(0);">
+            <img src="http://event.poco.cn/images/icon-+.jpg" class="vam fl" id="J_add_join_num"/></a>
+          </div>
+          <div class="rbox fldi" style="line-height: 30px;" id="pay_first_num_div2">(每场最多申请3个名额)</div>
+          <div class="rbox fldi" style="line-height: 30px;font-size:14px;display:none;" id="pay_again_num_div"></div>
+          
+    </div>
+    <div class="item clearfix">
+          <div class="lbox fldi">手机号码</div>
+          <div class="rbox fldi" id="pay_first_phone_div"><input type="text" name="phone" id="phone" class="input-text" value="{enroll_user_phone}" /></div>
+          <span id="pay_again_phone_div" style="font-size:14px;"></span>
+    </div>
+
+    <div class="item clearfix">
+          <div class="lbox fldi">总价格</div>
+          <div class="rbox fldi">
+                <div class="num">
+                    <p class="p1  fn_wryh" id="J_total_price">0元</p>
+                    
+                    <p class="pt5" style="display:none;"><img src="http://event.poco.cn/images/icon-16x16-t.jpg"  class="vam"/> 随时退  <img src="http://event.poco.cn/images/icon-16x16-g.jpg"  class="vam ml10"/> 过期退
+                        <span class="question"><a href="#"><img src="http://event.poco.cn/images/icon-16x16-q.jpg" /></a></span>
+                    </p>
+                    
+                </div>
+          </div>
+    </div>
+    
+
+    
+    <div class="item clearfix">
+          <div class="lbox fldi">支付方式</div>
+          <div class="rbox fldi"><img src="http://event.poco.cn/images/zfb-117x36.jpg" /></div>
+    </div>
+    
+
+  </div>
+
+
+  <div class="btn">
+    <a href="javascript:void(0);" class="bm mr10" id="J_pay_join_btn">支付并报名>></a> <a href="javascript:void(0);" id="J_pay_collect_btn" style="display:none;">先收藏暂不支付</a>&nbsp;
+    <div class="error-tips"><span class="alert_error" id="enroll_action_error"></span></div>
+  </div>
+
+  <div class="des">
+      声明：约约网只是提供一个摄影活动信息发布平台，所有非约约官方组织的网友活动，活动过程中产生的一切法律纠纷，均与约约网无关，由网友活动组织者承担相关责任。
+  </div>
+
+</div>
+<input type="hidden" value="{budget}" id="J_single_price"></input>
+<input type="hidden" value="" id="J_total_price_input"></input>
+<input type="hidden" value="{event_id}" name="event_id" id="ajax_event_id"></input>
+<input type="hidden" value="{__mp_manage_branch}" name="__mp_manage_branch" id="__mp_manage_branch"></input>
+<input type="hidden" value="" id="form_control" name="form_control"></input>
+<input type="hidden" value="" id="action_control" name="action_control"></input><!--控制支付类型-->
+<input type="hidden" value="" id="pay_again_enroll_id" name="pay_again_enroll_id"></input><!--再支付的报名值-->
+<input type="hidden" value="{enroll_user_phone}" id="enroll_user_phone" name="enroll_user_phone"></input><!--当前人手机号-->
+<input type="hidden" value="{yue_login_id}" id="yue_login_id" name="yue_login_id"></input><!--当前人手机号-->
+
+</form>
+<!--支付的层-->
+
+
+
+
+
+<style>
+.pop-pay{  width:607px; height:354px; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#26000000', endColorstr='#26000000');background:rgba(0,0,0,0.15); z-index:9999; position:fixed; _position: absolute; top:50%; left:50%; margin-top:-177px; margin-left:-303px;
+    _top:expression(eval(document.compatMode &&
+     document.compatMode=='CSS1Compat') ?
+     documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+     document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+    _margin-top:0
+}
+.pop-pay .pop-bg{ background:#fff; height:344px; margin:5px;}
+.pop-pay .close{ display:block; background-position:0 -258px; height:20px; width:20px; text-indent:-9999em; position:absolute; right:25px; top:25px;}
+.pop-pay .close:hover{ background-position:-22px -258px;}
+.pop-pay .pop-item{  padding:77px 0 0}
+.pop-pay .pop-item .listItem{ font-size:24px; color:#333; line-height:45px; padding-bottom:30px; text-align:center}
+.pop-pay .pop-item .listItem .time{ color:#f9a31f}
+.pop-pay .pop-item .txt-item{ font-size:14px; color:#2c2c2c; padding-left:116px}
+.pop-pay .pop-item .txt-item h5.title{ font-weight:normal; padding-bottom:12px}
+.pop-pay .pop-item .txt-item .btn-list li{ float:left; width:213px; height:24px; line-height:24px}
+.pop-pay .pop-item .txt-item .ui-btn{ text-decoration: none;float:none; display:inline-block; *+display:inline; *+zoom:1; _display:inline; _zoom:1; width:80px; text-align:center; color:#fff; height:24px; line-height:24px; font-size:12px; }
+.pop-pay .pop-item .txt-item .ui-btn-orgh24{ background:#f9a31f}
+.pop-pay .pop-item .txt-item .ui-btn-orgh24:hover{ background:#fbbe62}
+.pop-pay .pop-item .txt-item .ui-btn-greenh24{ background:#18ae61}
+.pop-pay .pop-item .txt-item .ui-btn-greenh24:hover{ background:#5dc690}
+.common-bg{ background:url(http://event.poco.cn/images/pay_common-bg.png) no-repeat}
+
+</style> 
+<div class="pop-pay fn_wryh" id="event_show_pay_box_pop_div" style="display:none;">
+    <div class="pop-bg"><a href="javascript:void(0);" role="close_btn" class="close common-bg" id="event_show_pay_box_pop_div_close">关闭</a>
+        <div class="pop-item">
+            <div class="listItem clearfix">  系统正引导您前往支付宝网页进行支付<br>请在<span class="time">30分钟</span>内完成付款</div>
+            <div class="txt-item fn_st"><h5 class="title">请在完成付款后选择：</h5>
+                <ul class="btn-list clearfix">
+                    <li><span class="mr5">付款成功:</span><a href="./party_sign_list.php?event_id={event_id}" class="ui-btn ui-btn-orgh24 circle-3px" id="pay_success_btn"><em>确定</em></a></li>
+                    <li><span class="mr5">付款失败:</span><a href="javascript:void(0);" class="ui-btn ui-btn-greenh24 circle-3px"><em id="again_pay_btn">重新支付</em></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div> 
+<input type="hidden" id="enroll_id_str" value=""></input>
+<input type="hidden" id="check_join_mode" value=""></input>
+
+<input type="hidden" id="yue_type" value="{yue_type}"></input><!--区别活动类型-->
+
+<!--重新支付的form-->
+<!-- <form action="http://www.yueus.com/topic/party/module/party_pay_again_op.php" target="_blank" method="post" name="pay_again_form" id="pay_again_form">
+<input type="hidden" id="again_action_control" value="pay_again" name="again_action_control"></input>
+<input type="hidden" id="again_pay_again_enroll_id" value="" name="again_pay_again_enroll_id"></input>
+<input type="hidden"  value="{event_id}" name="again_pay_again_event_id"></input>
+</form> -->
+
+
+<!--弹出层-->
+<!--支付弹出层-->
+<div class="pop-pay-success font_wryh" style="display:none" id="pay_party_div"> 
+  <a href="./party_sign_list.php?event_id={event_id}" class="close"></a>
+  <div class="pop-con">
+   <div class="listItem"> 
+       <i class="icon succeed-icon"></i>
+      <h4 class="title">恭喜您，支付成功</h4>
+      <p class="l-txt" id="pay_party_div_text"></p>
+    </div>
+    <div class="pop-mod-btn clearfix">
+    <i class="pop-logo"><a href="#"></a></i>
+    <div class="btn-item"><a href="#" class="ui-btn ui-btn-rose-h35 circle-3px">立即下载</a></div>
+    </div>
+  </div>
+</div>
+<!--支付弹出层 end-->
+<!--支付弹出层暂不用-->
+<div class="pop-code font_wryh" style="display:none"> 
+  <a href="javascript:void(0);" class="close"></a>
+  <div class="pop-con">
+   <div class="listItem">扫码参加该活动</div>
+    <div class="code-list clearfix">
+    <div class="item item-1">
+    <div class="code-img"><img src="images/outdoor/code-img-150x150.jpg" /></div>
+    <h4 class="title">没有安装约yue APP </h4>
+    <p>扫码下载APP，参加活动</p>
+    </div>
+    <div class="item item-2">
+    <div class="code-img"><img src="images/outdoor/code-img-150x150.jpg" /></div>
+    <h4 class="title">已经安装约yue APP </h4>
+    <p>打开约yue 或 微信扫码工具<br />
+    扫一扫参加该活动</p>
+    </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.pop-yue-poco-bind-3{ width:480px; height:470px; z-index:999999; position:fixed; _position: absolute; top:50%; left:50%; margin-top:-235px; margin-left:-275px;
+ _top:expression(eval(document.compatMode &&
+      document.compatMode=='CSS1Compat') ?
+      documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+      document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+      _margin-top:0;
+      background: #ffffff;
+      border-radius:  5px 5px 5px 5px
+  }
+
+.pop-yue-poco-bind-3 .title{ color: #fff;background: #4d4d4d;border-radius: 5px 5px 0 0;width: 100%;height: 50px;line-height: 50px;}
+.pop-yue-poco-bind-3 .title .txt{ font-size: 16px;padding-left: 20px;}
+.pop-yue-poco-bind-3 .close{ position: absolute;top: 18px;right: 20px;z-index: 9;}
+.pop-yue-poco-bind-3 .close a{ display: block;width: 16px;height: 16px;background: url(http://event.poco.cn//images/yue-close-16x16.png) no-repeat; }
+.pop-yue-poco-bind-3 .close a:hover{ background-image: url(http://event.poco.cn//images/yue-close-16x16-hover.png);}
+.pop-yue-poco-bind-3 .now{ text-align: center;font-size: 20px;padding: 30px 0 0 0;}
+.pop-yue-poco-bind-3 .erweima{ text-align: center;padding-top: 25px;}
+.pop-yue-poco-bind-3 .lbox{ padding-left: 85px;}
+.pop-yue-poco-bind-3 .rbox{ font-size: 16px;line-height: 24px;margin-left: 20px;padding-top: 6px;}
+.pop-yue-poco-bind-3 .wbox{ height:82px;background: #fafafa;border-top: 1px solid #eeeeee;padding-top:18px;margin-top: 47px;border-radius: 0 0 5px 5px;}
+.pop-yue-poco-bind-3 .wbox .rbox{ line-height:20px; padding-top:12px}
+</style>
+<div class="pop-yue-poco-bind-3 font_wryh" id="special_party_div" style="display:none">
+    <div class="close"><a href="javascript:void(0)" id="special_party_div_close"></a></div>
+    <div class="title "><span class="txt font_wryh">扫码参加活动</span></div>
+    <div class="now font_wryh">马上扫码下载约yue参加活动</div>
+    <div class="erweima"><img src="http://event.poco.cn/images/yue-erweima.jpg" /></div>
+    <div class="wbox clearfix">
+        <div class="lbox fldi"><img src="http://event.poco.cn/images/yue.jpg" /></div>
+        <div class="rbox fldi">已经安装约yue的用户，恭喜您！ <br />
+您可以直接在手机上报名啦！</div>
+    </div>
+</div>
+<!--支付弹出层 end-->
+
+
+
+
+<script>
+
+seajs.use(['jquery'], function($) {
+    
+    $(document).ready(function(){
+        
+        
+        //初始化内容
+        var __mp_manage_branch = $("#__mp_manage_branch").val();
+        var J_single_price = $("#J_single_price").val();
+        //获取
+
+        if(__mp_manage_branch=="1" && J_single_price>0)
+        {
+            
+            $("#J_pay_join_form").attr("target","_blank");
+        }
+        
+        //检查模式
+        
+        var enroll_t = "";
+        //报名按钮
+        $("#J_join_btn").bind("click",function(){
+            //判断登陆
+            var login_res = jquery_check_is_login();
+            if(login_res)
+            {
+                
+                //跟距活动情形出不同的流程
+                var yue_type = $("#yue_type").val();
+                $("#J_fade_screen").css("display","block");
+                if(yue_type=="big_party")
+                {
+                    
+                    $("#J_join_container").css("display","block");
+                    //获取场次内容
+                    get_table_list();
+                }
+                else if(yue_type=="one_yuan_party")
+                {
+                    $("#special_party_div").css("display","block")
+                }
+            }
+        
+        
+        });
+        
+        //关闭报名层
+        $("#J_close_join_container").bind("click",function(){
+            $("#J_fade_screen").css("display","none");
+            $("#J_join_container").css("display","none");
+        
+        });
+        
+        //场次选择
+        $(".J_site_ul").on("click",function(e){
+            var target = e.target;
+            var cur_class = $(target).attr("class");
+            var cur_data_mark = $(target).attr("data-mark");
+            var cur_data_value = $(target).attr("data-value");
+            var cur_data_situation = $(target).attr("data-situation");
+            var data_class = $(target).attr("data-class");
+            var cur_data_enroll = $(target).attr("data-enroll");
+            var cur_data_num = $(target).attr("data-num");
+            var enroll_user_phone = $("#enroll_user_phone").val();
+            
+
+            
+            if(data_class=="J_site_ul_li")
+            {
+                if(cur_class=="sec")
+                {
+                    if(cur_data_situation=="open")
+                    {
+                        //重新赋值状态
+                        $(target).attr("class","");
+                        $("#site_input_"+cur_data_mark).val("0");
+                        
+                        $("#action_control").val("");
+                        $("#pay_again_enroll_id").val("0");
+                        $("#again_pay_again_enroll_id").val("0");//重新支付按钮的匹配ID
+                        //初始化
+                        $("#pay_first_num_div1").css("display","block");
+                        $("#pay_first_num_div2").css("display","block");
+                        $("#pay_first_phone_div").css("display","block");
+                        $("#pay_again_num_div").css("display","none");
+                        $("#pay_again_phone_div").css("display","none");
+                        //初始化价钱
+                        $("#J_join_num").val("1");
+                        $("#J_total_price").html("0元");
+                        $("#phone").val(enroll_user_phone);
+                        
+                        
+                    }
+                    
+                }
+                else
+                {   if(cur_data_situation=="lock")
+                    {
+                        return false;
+                    }
+                    else if(cur_data_situation=="open")
+                    {
+                        //遍历删除焦点
+                        $(".J_site_ul li").removeClass("sec");
+                        $(".sequence_num").val(0);
+                        
+                        //重新赋值确定状态
+                        $(target).attr("class","sec");
+                        $("#site_input_"+cur_data_mark).val(cur_data_value);
+                        
+                        if(cur_data_enroll!="0")
+                        {
+                            $("#action_control").val("pay_again");
+                            $("#pay_again_enroll_id").val(cur_data_enroll);
+                            $("#again_pay_again_enroll_id").val(cur_data_enroll);//重新支付按钮的匹配ID
+                            //结果做相应的处理
+                            $("#pay_first_num_div1").css("display","none");
+                            $("#pay_first_num_div2").css("display","none");
+                            $("#pay_first_phone_div").css("display","none");
+                            $("#pay_again_num_div").css("display","block");
+                            $("#pay_again_phone_div").css("display","block");
+                            $("#pay_again_num_div").html(cur_data_num);
+                            $("#pay_again_phone_div").html(enroll_user_phone);
+                            
+                            
+                            //配注手机号
+                            $("#phone").val(enroll_user_phone);
+                            //计算价钱
+                            var pay_again_single_price = $("#J_single_price").val();
+                            var cur_data_num = parseInt(cur_data_num);
+                            var pay_again_total_price = ((pay_again_single_price.replace(".",""))*cur_data_num)/100;
+                            $("#J_total_price").html(pay_again_total_price+"元");
+                                            
+                            
+                        }
+                        else
+                        {
+                            $("#action_control").val("pay_first");
+                            $("#pay_again_enroll_id").val("0");
+                            $("#again_pay_again_enroll_id").val("0");//重新支付按钮的匹配ID
+                            $("#pay_first_num_div1").css("display","block");
+                            $("#pay_first_num_div2").css("display","block");
+                            $("#pay_first_phone_div").css("display","block");
+                            $("#pay_again_num_div").css("display","none");
+                            $("#pay_again_phone_div").css("display","none");
+                            //初始化价钱
+                            $("#J_join_num").val("1");
+                            $("#J_total_price").html("0元");
+                            $("#phone").val(enroll_user_phone);
+                        }
+                    }
+                }
+            }
+            
+            if(cur_data_enroll=="0")//未参加，计算价钱
+            {
+                //计算总数
+                budget_counter();
+            }
+        });
+        
+        //加人数
+        $("#J_add_join_num").bind("click",function(){
+            
+            var new_join_num = parseInt($("#J_join_num").val())+1;
+            if(new_join_num>3)//暂时控制每个人报不超过3人
+            {
+                return false;
+            }
+            $("#J_join_num").val(new_join_num);
+            //计算总数
+            budget_counter();
+            
+        });
+        
+        //减人数
+        $("#J_minus_join_num").bind("click",function(){
+ 
+            var cur_join_num = parseInt($("#J_join_num").val());
+            if(cur_join_num<=1)
+            {
+                return false;
+            }
+            else
+            {
+                var new_join_num = cur_join_num-1;
+                $("#J_join_num").val(new_join_num);
+                //计算总数
+                budget_counter();
+               
+            }
+                
+        });
+        
+        
+       
+        
+        
+        
+        //给钱并加入按钮
+        $("#J_pay_join_btn").bind("click",function(){
+        
+            var check_res = check_form();
+            var check_join_mode = $("#check_join_mode").val();;
+            if(check_res)
+            {
+                if(__mp_manage_branch=="1")
+                {
+                    $("#form_control").val("pay");
+                }
+                else
+                {
+                    $("#form_control").val("no_pay");
+                }
+
+                
+                if(__mp_manage_branch=="1")
+                {
+                    if(check_join_mode=="Y")
+                    {
+                        $("#event_show_pay_box_pop_div").css("display","block");
+                    }
+                    else if(check_join_mode=="N")
+                    {
+                        
+                        $("#J_fade_screen").css("display","none");
+                        $("#J_pay_join_form").attr("target","form_iframe");//没有权限
+                    }
+                }
+                else
+                {
+                    $("#J_fade_screen").css("display","none");
+                }
+                $("#J_pay_join_form").submit();
+                
+                $("#J_join_container").css("display","none");
+                var J_site_ul = $(".J_site_ul[data-mark='1']");
+                var J_site_ul_input = $(".J_site_ul_input[data-mark='1']");
+                
+                
+                //锁住报名了的场次
+
+                //人数设置回1
+                $("#J_join_num").val(1);
+                //清空计算的金钱
+                $("#J_total_price").html("0元");
+                $("#J_total_price_input").val(0);
+                //手机不清空
+                //清空场次内容
+                J_site_ul.html("<p>正在加载报名场次信息...</p>");
+                J_site_ul_input.html("");
+                
+ 
+            } 
+
+            
+        });
+        
+        
+        
+        
+        //收藏不支付
+        $("#J_pay_collect_btn").bind("click",function(){
+            var check_res = check_form();
+            if(check_res)
+            {
+                $("#form_control").val("collect");
+                $("#J_pay_join_form").attr("target","form_iframe");
+                $("#J_pay_join_form").submit();
+            }
+        
+        
+        });
+        
+        
+        
+        //支付等待层关闭
+        $("#event_show_pay_box_pop_div_close").bind("click",function(){
+            
+            $("#J_fade_screen").css("display","none");
+            $("#event_show_pay_box_pop_div").css("display","none");
+            
+    
+        
+        });
+        
+        //支付层重新支付按钮
+        $("#again_pay_btn").bind("click",function(){
+            //$("#pay_again_form").submit();
+            //判断登陆
+            var login_res = jquery_check_is_login();
+            if(login_res)
+            {
+                
+                //跟距活动情形出不同的流程
+                var yue_type = $("#yue_type").val();
+                $("#J_fade_screen").css("display","block");
+                if(yue_type=="big_party")
+                {
+                    
+                    $("#J_join_container").css("display","block");
+                    //获取场次内容
+                    get_table_list();
+                    //初始化原来输入手机号跟人数
+                    $("#pay_first_num_div1").css("display","block");
+                    $("#pay_first_num_div2").css("display","block");
+                    $("#pay_first_phone_div").css("display","block");
+                    $("#pay_again_num_div").css("display","none");
+                    $("#pay_again_phone_div").css("display","none");
+                    
+                }
+                else if(yue_type=="one_yuan_party")
+                {
+                    $("#special_party_div").css("display","block")
+                }
+                
+                $("#event_show_pay_box_pop_div").css("display","none");
+            }
+        
+        });
+        
+        
+        //手机框点击处理
+        $("#phone").bind("focus",function(){
+            var cur_val = $(this).val();
+            if(cur_val=="请输入您的手机号码")
+            {
+                 $(this).val("");
+            }
+        });
+        
+        
+        //确定支付成功按钮
+        /* $("#pay_success_btn").bind("click",function(){
+            $("#pay_party_div").css("display","block");
+            $("#event_show_pay_box_pop_div").css("display","none");
+            var yue_type = $("#yue_type").val();
+            var text = "若不能参加活动，请提前两天申请退款。<br />详情请拨打 4000-82-9003";
+            if(yue_type=="big_party")
+            {
+                $("#pay_party_div_text").html(text);
+            }
+            else if(yue_type=="one_yuan_party")
+            {
+                text = "请准时参加活动。若需要取消，请提前与组织者沟通。<br />活动结束后，系统会在24小时内自动退款给未签到用户。";
+                $("#pay_party_div_text").html(text);
+            }
+        
+        }); */
+        
+        
+        //一元活动弹层关闭
+        $("#special_party_div_close").bind("click",function(){
+            $("#J_fade_screen").css("display","none");
+            $("#special_party_div").css("display","none");
+            
+        });
+        
+        
+        
+        //异步获取场次
+        function get_table_list()
+        {
+        
+            var ajax_event_id = $("#ajax_event_id").val();
+            $.ajax
+            ({
+            
+                type:'get',
+                dataType:'json',
+                timeout:3000,
+                url:'./module/party_table_get_ajax.php',
+                data:"event_id=" +ajax_event_id+"&timestamp=" + new Date().getTime(),
+                error:function(XMLHttpRequest,status)
+                {
+                    if(status=='timeout'){//超时,status还有success,error等值的情况
+
+                        //重置开关跟scroll_num的值,关闭开关
+                        $("#site_ajax_tips").html("场次加载超时，请关闭该窗口重试");
+                        return false;　　　　　 
+            　　　　}
+                },
+                success:function(json_data)
+                {
+                    var J_site_ul = $(".J_site_ul[data-mark='1']");
+                    var J_site_ul_input = $(".J_site_ul_input[data-mark='1']");
+                    if(json_data.ajax_status==1)
+                    {
+                        var J_site_ul_html = "";
+                        var J_site_ul_input_html = "";
+                        var data_situation = "";
+                        var enroll_tips = "";
+                        var table_list = $(json_data.table_list);
+                        var forbid_class = "";
+                        for(var i=0;i<table_list.length;i++)
+                        {
+                            forbid_class = "";
+                            if(table_list[i].had_enroll==2)
+                            {
+                                data_situation = "lock";
+                                enroll_tips = '<span > 已支付</span>';
+                                forbid_class = "none";
+                            }
+                            else if(table_list[i].had_enroll==1)
+                            {
+                                data_situation = "open";
+                                enroll_tips = '<span> 未支付</span>';
+                            }
+                            else
+                            {
+                                data_situation = "open";
+                                enroll_tips = "";
+                            }
+                            
+                            //超时的活动，状态处理
+                            if(table_list[i].had_began==1)
+                            {
+                                data_situation = "lock";
+                                forbid_class = "none";
+                            }
+                            
+                            
+                            //关闭状态
+                            if(table_list[i].is_open==0)
+                            {
+                                data_situation = "lock";
+                                enroll_tips = '<span > 已关闭</span>';
+                                forbid_class = "none";
+                                
+                            }
+
+                            
+                            J_site_ul_html += '<li class="'+forbid_class+'" data-mark="'+i+'" data-value="'+table_list[i].id+'" data-class="J_site_ul_li" data-situation="'+data_situation+'" data-enroll="'+table_list[i].data_enroll+'" data-num="'+table_list[i].data_num+'">第'+table_list[i].site_name+'场   '+table_list[i].begin_time+'-'+table_list[i].end_time+enroll_tips+'</li>';
+                            
+                            J_site_ul_input_html += '<input type="hidden" class="sequence_num" name="sequence_num[]" value="0" id="site_input_'+i+'"></input>';
+                        }
+                        
+                        J_site_ul.html(J_site_ul_html);
+                        J_site_ul_input.html(J_site_ul_input_html);
+                        
+                        //处理权限
+                        if(json_data.res=="Y")
+                        {
+                            $("#check_join_mode").val("Y");
+                        }
+                        else
+                        {
+                            $("#check_join_mode").val("N");
+                        }
+                        
+                        
+                        
+                    }
+                    else
+                    {
+                        var error_html = "<p>加载场次出现错误，请关闭弹框再试;</p>";
+                        J_site_ul.html(error_html);
+                        J_site_ul_input.html("");
+                        
+                    }
+                }
+                
+            });
+        }
+        
+        
+        
+        //检查填写是否符合要求
+        function check_form()
+        {
+        
+            //检查电话号码
+            var phone_value =  $("#phone").val();
+           
+            if(phone_value=="")
+            {
+                
+                enroll_alert_error("enroll_action","请填入手机号");
+                return false;
+            }
+            else
+            {
+                if(isNaN(phone_value))
+                {
+                    enroll_alert_error("enroll_action","请填入正确形式的手机号");
+                    return false;
+                }
+                
+                if(!checkPhone(phone_value))
+                {
+                    enroll_alert_error("enroll_action","请填入正确形式的手机号");
+                    return false;
+                }
+                else
+                {
+                    enroll_alert_error("enroll_action","");
+                }
+                
+            }
+            
+            //检查人数
+            var cur_join_num = $("#J_join_num").val();
+            
+            
+            if(cur_join_num==0)
+            {
+                enroll_alert_error("enroll_action","请添加报名人数");
+                return false;
+            }
+            else
+            {
+                enroll_alert_error("enroll_action","");
+            }
+            
+            
+            var site_ul_len = $(".J_site_ul li").length;
+            for(var i=0;i<site_ul_len;i++)
+            {
+                var tmp_class = $($(".J_site_ul li")[i]).attr("class");
+                if(tmp_class=="sec")
+                {
+                    break;
+                }
+            }
+            
+            
+            
+            
+            if(tmp_class!="sec")
+            {
+                enroll_alert_error("enroll_action","请选取场次");
+                return false;
+            }
+            else
+            {
+                enroll_alert_error("enroll_action","");
+            }
+            
+            return true;
+        }
+        
+        
+        //计算费用
+        function budget_counter()
+        {
+            //根据按钮类型计算
+            var single_price = $("#J_single_price").val();
+            var cur_join_num = parseInt($("#J_join_num").val());
+
+            var cur_length = parseInt($("li[class='sec']").length);
+            var total_price = ((single_price.replace(".",""))*cur_join_num*cur_length)/100;
+            //特殊处理活动ID
+            var ajax_event_id = $("#ajax_event_id").val();
+            if(ajax_event_id=="41770" && cur_length>0)
+            {
+                $("#J_total_price").html("60元起");//特殊处理活动ID
+            }
+            else
+            {
+                $("#J_total_price").html(total_price+"元");
+            }
+            $("#J_total_price_input").val(total_price);
+
+        }
+        
+        
+        //弹出错误提示
+        function enroll_alert_error(id,msg)
+        {
+            $('#'+id+'_error').html(msg);
+            if(msg!='')
+            {
+                $('#'+id+'_error').attr("class","alert_error2");
+                
+
+            }
+            else
+            {
+                $('#'+id+'_error').attr("class","alert_error");
+            }
+                
+        }
+        
+
+        //检查电话号码
+
+        function checkPhone(phone)
+        {
+            var re= /^1[0-9][0-9]\d{8,8}$/;
+            var tips = '';
+          
+            if(!re.test(phone))
+            {
+                tips = false;
+            }
+            else
+            {
+                tips = true;
+            }
+          
+          return tips;
+        }
+        
+        
+        
+        
+        
+        
+        //检查是否登录
+        function jquery_check_is_login(){	
+            var check_yue_login_id = parseInt($("#yue_login_id").val());
+            if(check_yue_login_id>0)
+            {
+                return true;
+            }
+            else
+            {
+                var ajax_event_id = $("#ajax_event_id").val();
+                window.location.href = "http://www.yueus.com/reg/login.php?r_url="+encodeURIComponent(window.location.href);;
+            }
+        
+                
+        }
+        
+        
+        
+        
+    });
+    
+});
+
+
+
+</script>

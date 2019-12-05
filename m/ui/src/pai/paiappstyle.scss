@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO约拍app
+// ------------------------------
+ 
+
+$supported-browsers: ("android", "android-chrome", "chrome", "ios-safari", "safari");
+
+$default-base-body-bg: #fff;
+
+$maxZIndex: 20000;
+
+$border-radius: 2px;
+
+@import "../mobile-common"; 
+ 
+// ===========拼图=============     
+@import "paiappstyle/icons";
+
+   
+
+// 通用
+@import "./paiappstyle/include";
+
+// ===========组件=============   
+@import "paiappstyle/component";  
+ 
+// ===========页面=============
+   
+// 首页 
+@import "paiappstyle/index";       
+   
+// 模特卡 
+@import "paiappstyle/model-car";
+
+//我要约拍
+@import "paiappstyle/commit"; 
+
+//账户
+@import "paiappstyle/account";
+
+// ===========组织者===========
+@import "paiappstyle/action";
+
+// ===========我的===========
+@import "paiappstyle/mine"; 
+
+
+@import "paiappstyle/rank"; 
+
+// =========== 搜索 ===========
+
+@import "paiappstyle/search"; 
+
+// =========== 主题 ===========
+
+@import "paiappstyle/topic"; 
+
+
+// =========== 封面图 ===========
+@import "paiappstyle/screen"; 
+
+

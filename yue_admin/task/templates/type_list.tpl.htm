@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="gbk">
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+
+<script src="js/shadowbox/shadowbox.js" type="text/javascript"></script>
+<link href="js/shadowbox/shadowbox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"> 
+Shadowbox.init({ 
+    handleOversize: "drag", 
+	overlayColor: '#000',
+    modal: true,
+    displayNav: true,
+	displayCounter: false,
+//    onClose:function(){
+//        location.reload();
+//    }
+    
+    
+}); 
+Shadowbox.setup();
+</script>
+
+<script type="text/javascript">
+
+function del(id){
+    if(confirm('确定删除吗?'))
+    {
+        window.location.href="type.php?action=del&id="+id
+    }
+}
+//无限级菜单折叠
+function show(obj)
+{
+    var id = $(obj).parent().parent().attr("id");
+    
+    var parent_id = $(obj).parent().parent().attr("parent_id");
+    
+    if($(obj).attr("src")=='images/menu_minus.gif')
+    {
+        $(obj).attr("src","images/menu_plus.gif"); 
+    }else
+    {
+        $(obj).attr("src","images/menu_minus.gif"); 
+    }
+	
+	if($('tr[parent_id='+id+']').css("display") != 'none')
+	{
+        $('tr[parent_id='+id+']').css("display","none");
+    }else
+	{
+        $('tr[parent_id='+id+']').css("display","");
+    }
+}
+
+function add(id)
+{
+    var $_add_tr = $(".add_tr");
+    
+    if($_add_tr.length>0)
+    {
+        alert("已经有一个了");
+        return false;
+    }
+    
+    var _html = "<tr class='add_tr'>\n\
+                    <td>--</td>\n\
+                    <td><input type='text' class='add_name' /></td>\n\
+                    <td><input type='text' name='step' class='add_step' value='0'/></td>\n\
+                    <td>--</td>\n\
+                    <td>--</td>\n\
+                    <td>\n\
+                        <input type='checkbox' name='stock_type' value='0'/>无库存\n\
+                        <input type='checkbox' name='stock_type' value='1'/>实物库存\n\
+                        <input type='checkbox' name='stock_type' value='2'/>地点时间库存\n\
+                        <input type='checkbox' name='stock_type' value='3'/>人物档期库存\n\
+                    </td>\n\
+                    <td><input type='button' value='保存' onclick='save("+id+")' />&nbsp;&nbsp;<input type='button' value='移除' onclick='remove_tr()'/></td>\n\
+                </tr>"
+        
+    var $_html = $(_html);
+    
+    $_html.insertAfter($("#"+id));
+    
+    return false;
+}
+function remove_tr()
+{
+    $(".add_tr").remove();
+    return false;
+}
+
+function save(id)
+{
+    var name = $(".add_name").val();
+    var $stock_type= $("input[name='stock_type']:checked");
+    var len = $stock_type.length-1;
+    
+    var step = $(".add_step").val();
+    
+    if(name=='')
+    {
+        alert("名子不能为空");
+        return false;
+    }
+    if($stock_type.length==0)
+    {
+        alert("库存模式不能为空");
+        return false;
+    }
+    
+    var stock_str = "";
+    
+    for(var i = 0; i <= len; i++)
+    {
+        stock_str += $stock_type.eq(i).val()+',';
+    }
+    
+    if(step=='')
+    {
+        alert("排序不能为空");
+        return false;
+    }
+    
+    $.ajax({
+        type: "POST",
+        url: "type.php?action=ajax_do",
+        cache:false,
+		dataType:'json',
+        data: "name="+name+"&parents_id="+id+"&step="+step+"&stock_type="+stock_str+"",
+        success: function(json){
+          if( json.status == 1 )
+          {
+              alert("成功添加");
+              window.location.reload();
+          }else{
+              alert("添加失败");
+              return false;
+          }
+              
+        }
+     });
+}
+
+</script>
+<title>商品类型列表</title>
+</head>
+<body>
+<div class="mainbox">
+<table class="search_table" width="100%">
+	<tbody>
+		
+        <tr>
+			<td width="19%" class="search">
+                <a rel="shadowbox[type_add]" href="?action=save">
+                添加
+                </a>    
+            </td>
+            <td>
+                <a target="_blank" href="http://yp.yueus.com/yue_admin/task/type_id_and_property_id_md5_desc.php">
+                查看md5值明细
+                </a> 
+            </td>
+		</tr>
+	</tbody>
+</table>
+    <div id="tabs">
+    <div class="tabbox">
+      <div class="table-list">
+        <table width="100%" cellspacing="0" id="list-table">
+            <thead>
+              <tr>
+                <th width="8%">类型ID</th>
+                <th width="14%">类型名称</th>
+                <th width="2%">排序</th>
+                <th width="14%">添加时间</th>
+                <th width="6%">添加用户Id</th>
+                <th>库存模式</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- BEGIN list -->
+                    <tr class="{level}" id="{id}" parent_id="{parents_id}"　<!-- IF parents_id="0" --> 
+<!-- ELSE --> 
+style="display:none;"
+<!-- ENDIF usergroup -->>
+                      <td width="8%" align="center">{id}</td>
+                      <td align="center">{shuo_jing}<img src="images/menu_plus.gif" id="icon_{level}_{id}" width="9" height="9" border="0" onclick="show(this)"/>&nbsp;{name}</td>
+                      <td width="14%" align="center">{step}</td>
+                      <td width="14%" align="center">{add_time}</td>
+                      <td width="6%" align="center">{user_id}</td>
+                      <td align="center">{stock_type}</td>
+                      <td align='center'>
+                          <a href="javascript:void(0)" onclick="add({id})">添加子级</a>
+                          &nbsp;&nbsp;
+                          <a rel='shadowbox[type_update]' href="?action=save&id={id}">编辑</a>
+                          &nbsp;&nbsp;
+                          <a href='javascript:void(0)' onclick='del({id});'>删除</a>
+                          &nbsp;&nbsp;
+                          <a rel='shadowbox[property_update]' href="property.php?goods_type_id={id}">属性管理</a>
+                      </td>
+                    </tr>
+               <!-- END list -->
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+</body>
+</html>

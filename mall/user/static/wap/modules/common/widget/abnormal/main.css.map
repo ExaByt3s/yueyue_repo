@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "main.css",
+    "sources": [
+        "/modules/common/widget/abnormal/main.scss"
+    ],
+    "sourcesContent": [
+        ".stream-abnormal {\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-box-pack: center;\n\n  height: 100%;\n  text-align: center;\n\n  .icon-stream-network-error{\n    width: 80px;\n    height: 80px;\n\n    display: inline-block;\n    vertical-align: middle;\n    text-align: center;\n    background-image: url('../../../../image/pai/network-error-160x160.png?__sprite');\n  }\n  .icon-stream-empty{\n    width: 80px;\n    height: 80px;\n    display: inline-block;\n    vertical-align: middle;\n    text-align: center;\n    background-image: url('../../../../image/pai/empty-160x160.png?__sprite');\n  }\n\n  h4 {\n    display: block;\n    font-size: 16px;\n    margin-bottom: 8px;\n\n    &:before {\n      margin: 0 auto 20px;\n    }\n  }\n\n  &.stream-network-error {\n    h4 {\n      color: #666;\n    }\n    p {\n      color: #666;\n    }\n  }\n  &.stream-empty {\n    h4 {\n      color: #bbb;\n    }\n  }\n}"
+    ],
+    "mappings": "AAAA,AACE,AAAS,AACT,AAAoB,AACpB,AAAkB,AAElB,AAAQ,AACR,AAAY,AAEd,AAAiB,AACb,AAAO,AACP,AAAQ,AAER,AAAS,AACT,AAAgB,AAChB,AAAY,AACZ,AAAkB,AAEtB,AAAiB,AACb,AAAO,AACP,AAAQ,AACR,AAAS,AACT,AAAgB,AAChB,AAAY,AACZ,AAAkB,AAGtB,AAAiB,AACb,AAAS,AACT,AAAW,AACX,AAAe,AAEnB,AAAiB,AAAE,AACb,AAAQ,AAKd,AAAgB,AAAsB,AAChC,AAAO,AAEb,AAAgB,AAAsB,AAChC,AAAO,AAIb,AAAgB,AAAc,AACxB,AAAO",
+    "names": []
+}

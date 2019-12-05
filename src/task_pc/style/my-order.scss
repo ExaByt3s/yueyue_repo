@@ -1,0 +1,225 @@
+.my-order-page{
+    padding-bottom: 180px;
+
+    
+
+
+    .p1th{
+        padding: 30px 0;
+        .lbox{
+            font-size: 28px;
+        }
+    }
+
+    .p2th{
+        width: 960px;
+        overflow: hidden;
+
+        .list{
+            width: 1040px;
+            li{
+                position: relative;
+                cursor: pointer;
+                &:hover{
+                    border-color: #5daaeb
+                }
+                float: left;
+                display: inline;
+                width: 300px;
+                height: 460px;
+                border: 1px solid #dddddd;
+                border-radius: 5px;
+                margin: 0  25px 25px 0;
+                // .dbox1{
+                //     text-align: right;
+                //     padding: 8px 10px 0 0;
+                //     a{
+                //         color: #aaaaaa;
+                //     }
+                // }
+                
+                .dbox1{
+                    text-align: right;
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    position: absolute;
+                    a{
+                        color: #aaaaaa;
+                    }
+                }
+
+                .dbox2{
+                    background-image: url(../image/task/yue-25x25.png);
+                    width: 30px;
+                    height: 30px;
+                    margin: 0 auto;
+                    margin-top: 30px;
+                }
+                .title{
+                    font-size: 26px;
+
+                    text-align: center;
+                    padding-top: 10px;
+                }
+                .p1{
+                    font-size: 14px;
+                    color: #aaaaaa;
+                    text-align: center;
+                    padding-top: 10px;
+                }
+
+
+
+                .main-content-1{
+                    margin-top: 50px;
+                    .closed{
+                        width: 220px;
+                        margin: 0 auto;
+                    }
+                    .dtitle{
+                        padding-top: 80px;
+                        text-align: center;
+                        font-size: 18px;
+                    }
+                    .p2{
+                        color: #666;
+                        text-align: center;
+                        padding-top: 15px;
+                    }
+                }
+
+                .main-content-2{
+                    .p3{
+                        font-size: 18px;
+                        padding-top: 30px;
+                        text-align: center;
+                    }
+                    .item-wrap{
+                        text-align: center;
+                        padding-top: 120px;
+                        height: 115px;
+                        overflow: hidden;
+                    }
+                    .item{
+                        position: relative;
+                        width: 40px;
+                        height: 40px;
+                        margin: 10px 4px 0 4px;
+                        display: inline-block;
+                        .icon-v{
+                            width: 24px;
+                            height: 24px;
+                            position: absolute;
+                            background-image: url(../image/task/icon-v-24x24.png);
+                            right: -10px;
+                            top: -10px;
+                        }
+
+                        .icon-num{
+                            width: 24px;
+                            height: 24px;
+                            position: absolute;
+                            background-image: url(../image/task/icon-num-24x24.png);
+                            right: -10px;
+                            top: -10px;
+                            text-align: center;
+                            line-height: 24px;
+                            color: #fff;
+                        }
+
+                        .icon-sec{
+                            width: 24px;
+                            height: 24px;
+                            position: absolute;
+                            background-image: url(../image/task/icon-sec-24x24.png);
+                            right: -10px;
+                            top: -10px;
+                            text-align: center;
+                            line-height: 24px;
+                            color: #fff;
+                        }
+
+
+                        
+
+                    }
+                    .user-img{
+                        display: inline-block;
+                        width: 40px;
+                        height: 40px;
+                        img{
+                            border-radius: 50%;
+                            max-height: 40px;
+                            max-width: 40px;
+
+                        }   
+                        
+                    }
+                    .p4{
+                        text-align: center;
+                        color: #666666;
+                    }
+                }
+
+                .main-content-style{
+                    .item{
+                        opacity: 1;
+                    }
+                    
+                    .is_gray{
+                        opacity: 0.5
+                    }
+                    .cur{
+                        opacity: 1;
+                    }
+
+                    .btn{
+                        margin-top: 20px;
+                        text-align: center;
+                        font-size: 16px;
+                        a{
+                            color: #5daaeb;
+                        }
+                    }
+                }
+
+                .main-content-3{
+                    padding-top: 120px;
+                    text-align: center;
+                    color: #666;
+                    .p1{
+                        color: #000;
+                        font-size: 18px;
+                        margin: 15px auto;
+                    }
+                }
+
+                .person-num{
+                    text-align: center;
+                    .btn{
+                        display:  inline-block;
+                        color: #fff;
+                        padding: 0px 20px;
+                        border-radius: 20px;
+                        margin: 0 auto;
+                        margin-top: 15px;
+                        height: 30px;
+                        font-size: 14px;
+                        line-height: 30px;
+                    }
+                }
+
+                .main-content-want-person{
+                    .item-wrap{
+                        padding-top: 50px;
+                    }
+                }
+
+
+
+            }
+        }
+    }
+
+}

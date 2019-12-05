@@ -1,0 +1,22 @@
+{{#each list}}
+
+<a href="./detail.php?order_sn={{order_sn}}">
+    <div class="item clearfix ui-border-b">
+        <div class="lbox fldi">
+            <div class="img-con">
+                <i class="img" style="background-image:url({{buyer_icon}})"></i>
+            </div>
+            <div class="txt-con">
+                <p class="img-name">{{buyer_name}}</p>
+                <p class="publish-time">{{pay_time_str}}</p>
+            </div>
+        </div>
+        <div class="rbox frdi">
+            <div class="money-con fb">
+                ￥{{prime_amount}}
+            </div>
+        </div>
+    </div>
+</a>
+
+{{/each}}

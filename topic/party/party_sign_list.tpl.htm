@@ -1,0 +1,901 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<title>{title} - {type_name} - {page_title}</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="stylesheet" type="text/css" href="{combo:event_comm_css,_dev}"/>
+<link rel="stylesheet" type="text/css" href="./css/outdoor.css?t={rand}123"/>
+<link rel="stylesheet" type="text/css" href="./css/waipai.css?t={rand}123"/>
+<script type="text/javascript" src="{combo:event_comm_js,_dev}"></script>
+
+
+<script type="text/javascript" src="http://event.poco.cn//module_common/login/login.app.js"></script>
+<script type="text/javascript" src="./js/party_enroll.js?{_dev}123"></script>
+<script type='text/javascript' src="./js/party_public.js?{_dev}"></script>
+
+
+<!-- <script src="http://cb-c.poco.cn/seajs/??2.3.0/sea.js,plugins/seajs-text/1.0.2/seajs-text.js,plugins/seajs-style/1.0.2/seajs-style.js,plugins/seajs-combo/1.0.1/seajs-combo.js"></script>
+<script src="http://www.poco.cn/js_common/channel/common/loader.js?t={_dev}"></script> -->
+<script>
+<!-- IF is_event_user !="1" -->
+document.write("<style>");
+document.write(".pay-success .p2th .item-wrap li {");
+document.write("min-height:135px;_height:135px;")
+document.write("}");
+document.write("</style>");
+<!-- ENDIF is_event_user -->
+</script>
+
+
+<style>
+.name{
+word-break:break-all;
+}
+.sh_btn{
+width:52px;
+}
+</style>
+</head>
+<body>
+{global_header_html}
+{header_html}
+<script>
+/**
+* hudw 2015.1.23
+* @param  {[type]} window    [description]
+* @param  {[type]} seajs     [description]
+* @param  {[type]} undefined [description]
+* @return {[type]}           [description]
+*/
+;(function(window, seajs, undefined)
+{
+
+
+    // 配置模块
+    seajs.config
+    ({
+
+        paths:
+        {
+            utility: 'http://cb.poco.cn/utility',
+            matcha: 'http://cb.poco.cn/matcha',
+            yueyue_global : 'http://www.yueus.com/js/global'            
+        },
+        alias:
+        {
+            handlebars: 'utility/handlebars/1.0.0/handlebars',
+            jquery: 'utility/jquery/1.11.0/jquery',                        
+            cookie: 'matcha/cookie/1.0.0/cookie',
+            topbar : 'yueyue_global/topbar/topbar'        
+        },
+        comboMaxLength: 5000,
+        charset: 'utf-8'
+    });
+
+    
+    seajs.use(['jquery','topbar'],function($,topbar)
+    {
+        var $user_state = $('#user_state');        
+
+        topbar.init
+        ({
+            container : $user_state,
+            custom_logout : "http://www.yueus.com/reg/logout.php",
+            custom_html : '<a href="http://www.yueus.com/reg/login.php?r_url='+encodeURIComponent(window.location.href)+'">登录</a><span class="pr15 pl15">|</span><a href="http://www.yueus.com/reg/register.php?r_url='+encodeURIComponent(window.location.href)+'">免费注册</a>'
+        });
+    });
+    
+   
+})(window, seajs);
+</script>
+<div class="clearfix" id="content">
+<!-- 回到顶部 -->
+<div  class="sy_f_dbox" id="backTop"><div class="sy_qhBtn" ><a href="#" title="回顶部"  class="sy-hdb"></a></div>   </div>
+<script type="text/javascript">window.addEvent('scroll',function(){backToTop()});</script>
+<!-- 回到顶部 -->
+  <div style="padding:0; margin:0;" class="t_line"></div>
+  <div class="location_index pd10">
+    <input type="hidden" value="{event_id}" id="event_id" name="event_id">
+    <input type="hidden" value="{category}" id="category" name="category">
+    <input type="hidden" value="{join_mode}" id="join_mode" name="join_mode">
+    <input type="hidden" value="{type_icon}" id="type_icon"></input>
+    <input type="hidden" value="{event_user_role}" id="event_user_role"></input>
+    <input type="hidden" value="{is_pay_return}" id="is_pay_return"></input>
+    <input type="hidden" value="{enroll_res}" id="enroll_res"></input>
+    <input type="hidden" value="{__mp_manage_branch}" id="jquery__mp_manage_branch"></input>
+    <!--报名参加使用-->
+    <input type="hidden" name="login_user_name" id="login_user_name" value="" />
+    <input type="hidden" name="is_event_admin" id="is_event_admin" value="{is_event_admin}" />
+    <input type="hidden" name="is_event_user" id="is_event_user" value="{is_event_user}" />
+    
+
+    
+    
+    
+    
+  </div>
+
+
+  <div class="pay-success">
+
+    <div class="toggles mt15 bgchange">
+        <ul class="toggle clearfix">
+          <li><a href="party_browse.php?event_id={event_id}" >活动介绍</a></li>
+          <li><a href="party_commend_act_list.php?event_id={event_id}">活动作品</a></li>
+          <li><a class="currenNow" href="party_sign_list.php?event_id={event_id}" >报名网友</a></li>
+        </ul>
+    </div>
+
+    <div class="mt15">
+        <h3 style="position:relative;" class="title"><!-- 报名网友(5/8) -->
+            <div id="enroll_button_div" class="fb_but_list hd_wybm" style="top:-10px;">
+
+                    <!-- IF event_status == "0" -->
+                        <!-- IF is_not_author == "1" -->                    
+                            <a href="javascript:void(0)" class="fb_btn" title="马上报名" id="J_join_btn">马上报名</a>
+                            <!-- IF join_mode =="0" --> 
+                            <!-- <span>(全部POCO用户可加入)</span> -->
+                            <!-- ELSEIF join_mode =="1" --> 
+                            <!-- <span>(发布者好友参加，不是好友，报名进入观望)</span> -->
+                            <!-- ELSEIF join_mode =="2" --> 
+                            <!-- <span>(发布者邀请好友参加，没被邀请，报名进入观望)</span> -->
+                            <!-- ELSEIF join_mode =="3" --> 
+                            <!-- <span>({join_level_name}用户参加，等级不够可，报名进入观望)</span> -->
+                            <!-- ELSE --> 
+                            <!-- <span>(全部POCO用户可加入)</span> -->
+                            <!-- ENDIF join_mode -->
+                        <!-- ELSE -->
+                        <span style="font-size:14px;color:red;">抱歉，组织者不能参加自己发起的活动。</span>
+                        <!-- ENDIF is_not_author -->
+                    <!-- ELSEIF event_status == "3" -->
+                         活动已取消
+                    <!-- ELSE -->
+                         活动已结束
+                         <!-- IF is_enroll -->
+                            <!-- IF check_event_over_some_days --> 
+                                活动结束30天后不能发表作品
+                            <!-- ELSE -->
+                            <a href="{publish_article_link}" target="_blank"><div class="publish_link_btn" style="display:inline-block;"></div></a>
+                            <!-- ENDIF check_event_over_some_days -->
+                         <!-- ENDIF is_enroll -->
+                    <!-- ENDIF event_status -->
+                
+                <!-- IF is_event_user -->
+                <div class="clear"></div>
+                <div class="mt10"><a href="javascript:void(0)" class="fb_btn" title="导出报名网友名单" onclick="click_export();" style="float:right">导出网友名单</a></div>
+                <script>
+                    function click_export()
+                    {
+                        var event_id = $('event_id').value;
+                        var div='<div style="text-align:center;"><a href="javascript:void(0);" title="关闭" class="fr alert_msg_box_close" onclick="close_msg_box();return false;">关闭</a><div id="enroll_msg_box">';      	
+                        div+='<div class="more_link">';
+                        div+='<a href="party_enroll_export_list.php?event_id='+event_id+'&status_type=zhengshi"  onclick="close_msg_box();return true;"/>导出正式会员</a>&nbsp;&nbsp;&nbsp;&nbsp;';
+                        div+='<a href="party_enroll_export_list.php?event_id='+event_id+'&status_type=all"  onclick="close_msg_box();return true;"/>导出全部会员</a></div>';
+                        div+='</div></div>';
+                        show_msg_box({
+                                width		:		300, 
+                                b_title		:		false,	
+                                button		:		false,		
+                                b_close_bnt	:		false,							
+                                content		:		div
+                        });
+                    }
+                </script>
+                
+                <!-- ENDIF is_event_user -->
+            </div>
+        </h3>
+    </div>
+    
+    
+    
+    
+    
+    <!-- IF pay_status -->
+    <div class="p1th" style="display:none">
+        <div class="titles fn_wryh mt20">我的活动券</div>
+        <div class="box1 f14 mt20"><span class="fb">使用方式1：</span>下载官方【约拍】APP（<span ><a href="#this" class="cor21b">点击下载</a></span>），活动现场出示您的二维码活动券签到</div>
+        <div class="box3 pt5">
+            <!-- BEGIN event -->
+            <p>第{site_name}场二维码图片：</p>
+            <!-- IF qr_url_list -->
+            <!-- BEGIN qr_url_list -->
+            <p><img src="{qr_url}" style="width:200px;"/></p>
+            <!-- END qr_url_list -->
+            <!-- ENDIF qr_url_list -->
+            <!-- END event -->
+        </div>
+        <div class="box4 f14 mt20">
+            <span class="fb">使用方式2：</span>记录下您的数字密码，活动现场提供给组织者签到。
+            <!-- BEGIN event -->
+            <p>第{site_name}场密码为：</p>
+            <!-- IF event_code_list -->
+            <!-- BEGIN event_code_list -->
+            <p class=" mm fn_wryh mt10">密码：{code}</p>
+            <!-- END event_code_list -->
+            <!-- ENDIF event_code_list -->
+            <!-- END event -->
+        </div>
+    </div> 
+    <!-- ENDIF pay_status -->
+    
+
+    <div class="p2th"> 
+        <!-- BEGIN event -->
+        <div class="titles fn_wryh mt20"><!-- IF top.only_one_site -->活动时间：<!-- ELSE -->第{site_name}场<!-- ENDIF top.only_one_site --> {begin_time}-{end_time}&nbsp;&nbsp;<span>报名网友（<span class="J_total_total_enroll_count" data-mark="{table_id}">{table_total_enroll_count}</span>/{num}）</span><!-- IF is_open == "0" --><span>该场已经关闭</span><!-- ENDIF is_open --></div>
+        <!-- IF can_logout_enroll =="1" --><!-- IF have_enroll --><!-- IF scan_res == "0" --><!-- <a title="退出该场" class="fb_btn J_quit_btn" href="javascript:void(0)" data-class="J_quit_btn" data-mark="{id}" style="float:none;" style="display:none;">退出该场</a> --><!-- ENDIF scan_res --><!-- ENDIF have_enroll --><!-- ENDIF can_logout_enroll -->
+        <div class="item-wrap">
+        
+        
+            <div class="item" style="display:block">
+                <div class="title">
+                    <div class="allow"><img src="images/outdoor/line-5x5.png" /></div>
+                    <span class="J_check_title" data-mark="{table_id}">已签到（{checked_count}人）</span>
+                </div>
+                <ul class="list clearfix J_checked_ul" data-mark="{table_id}">
+                    <!-- BEGIN checked -->
+                    <li>
+                        <div class="img"><img src="{user_icon}" /></div>
+                        <div class="txt">
+                            <p class="name">{user_name}</p>
+                            <p class="num">（{enroll_num}人）</p>
+                            <!-- IF top.is_event_user == "1" -->
+                            <p>{phone}</p>
+                            <!-- ENDIF top.is_event_user -->
+                        </div>
+                    </li>
+                    <!-- END checked -->
+                </ul>
+                <div class="clear"></div>
+                <div class="con_pg">
+                    <div class="page overh J_checked_page" data-mark="{table_id}">
+                        {checked_page_select}
+                    </div>
+                </div>                
+            </div> 
+        
+            
+            <div class="item">
+                <div class="title" >
+                    <div class="allow"><img src="images/outdoor/line-5x5.png" /></div>
+                    <span class="J_first_title" data-mark="{table_id}">正选已支付（{first_count}人）</span> 
+                      
+                </div>
+                <ul class="list clearfix J_first_ul" data-mark="{table_id}">
+                    <!-- BEGIN first -->
+                    <li>
+                        <div class="img"><img src="{user_icon}" /></div>
+                        <div class="txt">
+                            <p class="name">{user_name}</p>
+                            <p class="num">（{enroll_num}人）</p>
+                            <!-- IF top.is_event_user == "1" -->
+                            <p>{phone}</p>
+                            <!-- ENDIF top.is_event_user -->
+                            <p class="mb10">
+                                <!-- IF top.event_user_role == "author" -->
+                                <input type="button" class="sh_btn" value="设为候补" data-class="J_backup_btn" data-mark="{enroll_id}" data-table="{table_id}"><br>
+                                <!-- ELSEIF top.event_user_role == "admin" -->
+                                <input type="button" class="sh_btn" value="设为候补" data-class="J_backup_btn" data-mark="{enroll_id}" data-table="{table_id}"><br>
+                                    <!-- IF scan_res -->
+                                    <!-- ELSE -->
+                                    <input type="button" class="sh_btn" value="删除" data-class="J_del_btn" data-mark="{enroll_id}" data-table="{table_id}" style="display:none"><br>
+                                    <!-- ENDIF scan_res -->
+                                <!-- ENDIF top.event_user_role -->
+                            </p>
+                        </div>
+                    </li>
+                    <!-- END first -->
+                </ul>
+                <div class="clear"></div>
+                <div class="con_pg">
+                    <div class="page overh J_first_page" data-mark="{table_id}">
+                        {first_page_select}
+                    </div>
+                </div>                
+            </div>
+            
+
+
+            
+            <div class="item">
+                <div class="title" >
+                    <div class="allow"><img src="images/outdoor/line-5x5.png" /></div>
+                    <span class="J_backup_title" data-mark="{table_id}">候补已支付（{backup_count}人）</span>
+                </div>
+                <ul class="list clearfix J_backup_ul" data-mark="{table_id}">
+                    <!-- BEGIN backup -->
+                    <li>
+                        <div class="img"><img src="{user_icon}" /></div>
+                        <div class="txt">
+                            <p class="name">{user_name}</p>
+                            <p class="num">（{enroll_num}人）</p>
+                            <!-- IF top.is_event_user == "1" -->
+                            <p>{phone}</p>
+                            <!-- ENDIF top.is_event_user -->
+                            <p class="mb10">
+                                <!-- IF top.event_user_role == "author" -->
+                                <input type="button" class="sh_btn" value="设为正选" data-class="J_first_btn" data-mark="{enroll_id}" data-table="{table_id}"><br>
+                                <!-- ELSEIF top.event_user_role == "admin" -->
+                                <input type="button" class="sh_btn" value="设为正选" data-class="J_first_btn" data-mark="{enroll_id}" data-table="{table_id}"><br>
+                                    <!-- IF scan_res -->
+                                    <!-- ELSE -->
+                                    <input type="button" class="sh_btn" value="删除" data-class="J_del_btn" data-mark="{enroll_id}" data-table="{table_id}" style="display:none"><br>
+                                    <!-- ENDIF scan_res -->
+                                <!-- ENDIF top.event_user_role -->
+                            </p>
+                        </div>
+                    </li>
+                    <!-- END backup -->
+                </ul>
+                <div class="clear"></div>
+                <div class="con_pg">
+                    <div class="page overh J_backup_page" data-mark="{table_id}">
+                        {backup_page_select}
+                    </div>
+                </div>
+            </div>
+            
+                
+             <div class="item" style="display:block">
+                <div class="title title2">
+                    <div class="allow "><img src="images/outdoor/line-7x4.jpg" /></div>
+                    <span class="J_onlooker_title" data-mark="{table_id}">报名未支付（{onlooker_count}人）</span>
+                </div>
+                <ul class="list clearfix J_onlooker_ul" data-mark="{table_id}">
+                    <!-- BEGIN onlooker -->
+                    <li>
+                        <div class="img"><img src="{user_icon}" /></div>
+                        <div class="txt">
+                            <p class="name">{user_name}</p>
+                            <p class="num">（{enroll_num}人）</p>
+                            <!-- IF top.is_event_user == "1" -->
+                            <p>{phone}</p>
+                            <!-- ENDIF top.is_event_user -->
+                            <p class="mb10">
+                                <!-- IF top.event_user_role == "author" -->
+                                    <!-- IF check_allow == "0" -->
+                                        <!-- IF is_accept =="0" -->
+                                        <input type="button" class="sh_btn" value="通过申请" data-class="J_pass_btn" data-mark="{enroll_id}" data-table="{table_id}"><br>
+                                        <!-- ENDIF is_accept -->
+                                    <!-- ENDIF check_allow -->
+                                <!-- ELSEIF top.event_user_role == "admin" -->
+                                    <!-- IF check_allow == "0" -->
+                                        <!-- IF is_accept =="0" -->
+                                        <input type="button" class="sh_btn" value="通过申请" data-class="J_pass_btn" data-mark="{enroll_id}" data-table="{table_id}"><br>
+                                        <!-- ENDIF is_accept -->
+                                    <!-- ENDIF check_allow -->
+                                    
+                                    <input type="button" class="sh_btn" value="删除" data-class="J_del_btn" data-mark="{enroll_id}" data-table="{table_id}" style="display:none"><br>
+                                    
+                                <!-- ENDIF top.event_user_role -->
+                            </p>
+                        </div>
+                    </li>
+                    <!-- END onlooker -->
+                </ul>
+                <div class="clear"></div>
+                <div class="con_pg">
+                    <div class="page overh J_onlooker_page" data-mark="{table_id}">
+                        {onlooker_page_select}
+                    </div>
+                </div>
+            </div> 
+   
+            
+        </div>
+        <!-- END event -->
+    </div>
+    
+    <style>
+    .listtab1_2 .toggle li a.currenNow, .listtab1_2 .toggles .toggle li a:hover, .listtab1_2 .toggles .toggle li a.currenNow:hover
+    {
+        color:#ff4978!important;
+    }
+    </style>
+    <div class="p3th">
+        <div class="titles fn_wryh mt20">网友留言</div>
+        {cmt_html}
+    </div>
+  </div>
+
+
+
+
+</div>
+{partyenroll_container}
+{footer_html}
+
+
+
+
+
+
+</body>
+
+<script>
+
+
+
+seajs.use(['jquery'], function($) {
+
+    $(document).ready(function(){
+     
+        var t = "";
+        $("#content").click(function(e){
+            var target = e.target;
+            var data_class = $(target).attr("data-class");//该模块标记
+            var data_mark = $(target).attr("data-mark");//该模块标记
+            var data_table = $(target).attr("data-table");//该模块的父级标记,用作结构定位
+            //特殊处理列表异步触发
+            
+            if(data_class=="J_first_btn")
+            {
+               
+                sign_list_action_confirm("J_first_btn",data_mark,data_table);
+            }
+            else if(data_class=="J_backup_btn")
+            {
+                sign_list_action_confirm("J_backup_btn",data_mark,data_table);
+            }
+            else if(data_class=="J_del_btn")
+            {
+                sign_list_action_confirm("J_del_btn",data_mark,data_table);
+            }
+            else if(data_class=="J_pass_btn")
+            {
+                sign_list_action_confirm("J_pass_btn",data_mark,data_table);
+            }
+            else if(data_class=="J_quit_btn")
+            {
+                logout_enroll(data_mark);//退出
+            }
+            else if(data_class=="J_list_page_ajax")//异步换列表
+            {
+                var data_event = $(target).attr("data-event");//异步获取列表参数
+                var data_type = $(target).attr("data-type");//异步获取列表参数
+                var data_page = $(target).attr("data-page");//异步获取列表参数
+                
+                sign_list_get(data_event,data_table,data_type,data_page);//异步获取列表内容
+                
+            }
+        
+        
+        });
+        
+        
+        
+        //是否报名支付成功
+        var is_pay_return = $("#is_pay_return").val();
+        if(is_pay_return==1)
+        {
+            var div='<div style="text-align:center;"><div id="pay_msg_box">';      	
+            div+='<p align="center">你已经支付成功了</p>';  	
+            div+='</div></div>';
+            show_msg_box({
+                    width		:		200, 
+                    b_title		:		false,	
+                    button		:		false,		
+                    b_close_bnt	:		false,							
+                    content		:		div
+            });
+            t=setTimeout(function()
+            {
+                close_msg_box();
+                clearTimeout(t);
+                //更改COOKIE
+
+                writeCookie('is_pay_return','0',-1,'www.yueus.com','/');
+                
+            },2000);
+            
+        }
+        
+        
+        //是否报名成功
+        var enroll_res = $("#enroll_res").val();
+        if(enroll_res==1 || enroll_res==2)
+        {
+            if(enroll_res==1)
+            {
+            
+                var res_msg = "你已经成功报名了";
+            }
+            else
+            {
+                var res_msg = "你已经成功收藏了";
+            }
+            var div='<div style="text-align:center;"><div id="pay_msg_box">';      	
+            div+='<p align="center">'+res_msg+'</p>';  	
+            div+='</div></div>';
+            show_msg_box({
+                    width		:		200, 
+                    b_title		:		false,	
+                    button		:		false,		
+                    b_close_bnt	:		false,							
+                    content		:		div
+            });
+            t=setTimeout(function()
+            {
+                close_msg_box();
+                clearTimeout(t);
+                //更改COOKIE
+
+                writeCookie('enroll_res','0',-1,'www.yueus.com','/');
+            },2000);
+        }
+     
+     
+     
+    });
+     
+    //异步获取列表信息
+    function sign_list_get(event_id,table_id,list_type,page)
+    {
+        var type_icon = $("#type_icon").val();
+        
+        $.ajax
+        ({
+        
+            type:'get',
+            dataType:'json',
+            url:'./module/party_sign_list_ajax.php',
+            data:"event_id=" +event_id+"&table_id="+table_id+"&type_icon="+type_icon+"&list_type="+list_type+"&p="+page+"&timestamp=" + new Date().getTime(),
+            success:function(json_data)
+            {
+            
+                var tmp_html = "<p align='center'><img src='http://event.poco.cn/images/loading.gif' width='25'/>数据加载中...</p>";
+                    
+                if(list_type=="checked")
+                {
+                    $(".J_checked_ul[data-mark='"+table_id+"']").html(tmp_html);
+                }
+                else if(list_type=="first")
+                {
+                    $(".J_first_ul[data-mark='"+table_id+"']").html(tmp_html);
+                }
+                else if(list_type=="backup")
+                {
+                    $(".J_backup_ul[data-mark='"+table_id+"']").html(tmp_html);
+                }
+                else if(list_type=="onlooker")
+                {
+                    $(".J_onlooker_ul[data-mark='"+table_id+"']").html(tmp_html);
+                }
+                    
+                if(json_data.ajax_status==1)
+                {
+                    var list_html = json_data.list_html;
+                    var page_html = json_data.page_html;
+                    var list_count = json_data.list_count;
+                    var table_total_enroll_count = json_data.table_total_enroll_count;
+                    //构造首发跟后备结构
+                    
+                    if(list_type=="checked")
+                    {
+                        $(".J_checked_ul[data-mark='"+table_id+"']").html(list_html);
+                        //插入分页块
+                        $(".J_checked_page[data-mark='"+table_id+"']").html(page_html);
+                        $(".J_checked_title[data-mark='"+table_id+"']").html("已签到（"+list_count+"人）");
+                    }
+                    else if(list_type=="first")
+                    {
+                    
+                        $(".J_first_ul[data-mark='"+table_id+"']").html(list_html);
+                        //插入分页块
+                        $(".J_first_page[data-mark='"+table_id+"']").html(page_html);
+                        
+                        $(".J_first_title[data-mark='"+table_id+"']").html("正选已支付（"+list_count+"人）");
+                        
+                    }
+                    else if(list_type=="backup")
+                    {
+                        $(".J_backup_ul[data-mark='"+table_id+"']").html(list_html);
+                        //插入分页块
+                        $(".J_backup_page[data-mark='"+table_id+"']").html(page_html);
+                        
+                        $(".J_backup_title[data-mark='"+table_id+"']").html("候补已支付（"+list_count+"人）");
+                        
+                        
+                    }
+                    else if(list_type=="onlooker")
+                    {
+                        $(".J_onlooker_ul[data-mark='"+table_id+"']").html(list_html);
+                        //插入分页块
+                        $(".J_onlooker_page[data-mark='"+table_id+"']").html(page_html);
+                        
+                        $(".J_onlooker_title[data-mark='"+table_id+"']").html(" 报名未支付（"+list_count+"人）");
+                        
+                    }
+                    
+                    
+                    $(".J_total_total_enroll_count[data-mark='"+table_id+"']").html(table_total_enroll_count);
+                    
+                }
+            }
+            
+        });
+    }
+     
+    //确定签到按钮触发功能
+    function sign_list_btn_click(action,enroll_id,table_id)
+    {
+        
+        if(login_id>0)
+        {
+            var div='<div style="text-align:center;"><a href="javascript:void(0);" title="关闭" class="fr alert_msg_box_close" onclick="close_msg_box();return false;">关闭</a><div id="enroll_msg_box">';      	
+            div+='<p align="center"><img src="http://event.poco.cn/images/loading.gif" width="40"/></p>';  	
+            div+='</div></div>';
+            show_msg_box({
+                    width		:		200, 
+                    b_title		:		false,	
+                    button		:		false,		
+                    b_close_bnt	:		false,							
+                    content		:		div
+            });
+            var event_id = $("#event_id").val();
+            $.ajax
+            ({
+
+                type:'get',
+                dataType:'json',
+                url:'./module/party_sign_list_action_ajax.php',
+                data:"enroll_id="+enroll_id+"&table_id="+table_id+"&action="+action+"&event_id="+event_id+"&timestamp=" + new Date().getTime(),
+                success:function(json_data)
+                {
+                    if(json_data.ajax_status==1)
+                    {
+                        
+
+                        var res = json_data.res;
+                        if(res=="N")
+                        {
+                            msg = "操作失败";
+                        }
+                        else
+                        {
+                            var msg="";
+                            if(res=="Y")
+                            {
+                                msg = "操作成功";
+                                
+                                
+                            }else if(res=="F")
+                            {
+                                msg = "人数已满，进入候补";
+                                
+                            }else{
+                                msg = "操作失败";
+                            }			
+                        }
+                        
+                        
+                        if(res=="Y" || res=="F")
+                        {
+                            if(action!="del")
+                            {
+                                var jquery__mp_manage_branch = $("jquery__mp_manage_branch").val()
+                                if(action=="pass" && jquery__mp_manage_branch=="1")
+                                {
+                                    
+                                    sign_list_get(event_id,table_id,"onlooker",0);
+                                    
+                                }
+                                else
+                                {
+                                    
+                                    //重新刷新场次列表
+                                    sign_list_get(event_id,table_id,"first",0);
+                                    sign_list_get(event_id,table_id,"backup",0);
+                                    sign_list_get(event_id,table_id,"onlooker",0);
+                                }
+                            }
+                            
+                        }
+                        
+                        
+                        
+                        var change_html = '<p class="famyh f18 mb15" align="center"><strong>'+msg+'</strong></p>';
+                        $('#enroll_msg_box').html(change_html);
+
+                        t = setTimeout(function(){
+                            close_msg_box();
+                            clearTimeout(t);
+                        
+                        },2000);
+                        if(action=="del" && msg=="操作成功")
+                        {
+                            window.location.reload();
+                        }
+                        
+                        
+                        
+                    }
+                }
+                
+            });
+        }
+    }
+    
+    
+    
+    //根据按钮展示一个弹窗，处理列表按钮功能
+    function sign_list_action_confirm(btn_type,enroll_id,table_id)
+    {
+        var msg ="";
+        if(btn_type=="J_del_btn")
+        {
+            msg = "确定删除该报名者内容？";
+        }
+        else if(btn_type=="J_first_btn")
+        {
+            msg = "确定将其变成正选";
+        }
+        else if(btn_type=="J_backup_btn")
+        {
+            msg = "确定将其变成候补";
+        }
+        else if(btn_type=="J_pass_btn")
+        {
+            msg = "确定通过其申请";
+        }
+    
+    
+        var div='<div style="text-align:center;"><a href="javascript:void(0);" title="关闭" class="fr alert_msg_box_close" id="msg_box_close" onclick="close_msg_box();return false;">关闭</a><div id="enroll_msg_box">';
+        div+='<p align="left">'+msg+'</p>';
+        div+='<a href="javascript:void(0);" id="confirm_btn" onclick="close_msg_box();return false;">确定</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" id="cancel_btn" onclick="close_msg_box();return false;">取消</a>';
+        div+='</div></div>';
+        show_msg_box({
+            width		:		380,
+            b_title		:		false,
+            button		:		false,
+            b_close_bnt	:		false,
+            cover		:		false,
+            top			:		200	,
+            content		:		div
+        });
+        
+
+        
+        //确定
+        $("#confirm_btn").bind("click",function(){
+        
+            
+            if(btn_type=="J_del_btn")//删块
+            {
+                sign_list_btn_click("del",enroll_id,table_id);
+            }
+            else if(btn_type=="J_first_btn")//设为正选
+            {
+                sign_list_btn_click("first",enroll_id,table_id);
+            }
+            else if(btn_type=="J_backup_btn")//设为后备
+            {
+                sign_list_btn_click("backup",enroll_id,table_id);
+            }
+            else if(btn_type=="J_pass_btn")//设为通过申请
+            {
+                sign_list_btn_click("pass",enroll_id,table_id);
+            }
+                
+            
+        });
+    }
+    
+    
+    
+    /*-------------------------退出报名JS,结合原先封装的一些方法event_enroll.js----------------------------*/
+    function logout_enroll(table_id)
+    {
+        var div='<div style="text-align:center;"><a href="javascript:void(0);" title="关闭" class="fr alert_msg_box_close" onclick="close_msg_box();return false;">关闭</a><div id="enroll_msg_box">';
+        div+='<p align="left"><strong>退出活动原因：</strong></p>';
+        div+='<p align="left"><span class="alert_error" id="logout_enroll_reason_error"></span><br/><textarea name="logout_enroll_reason " id="logout_enroll_reason" style="width: 340px; height: 85px;" onclick="clear_text(\'logout_enroll_reason\',\'您退出活动的原因是？\');">您退出活动的原因是？</textarea></p>';
+        div+='<p align="center"><input name="logout_enroll_confirm" value="确认退出" type="button" id="logout_enroll_confirm_btn"/><input name="logout_enroll_cancel" value="取消" type="button" onclick="close_msg_box();return false;"/></p>';
+        div+='</div></div>';
+        show_msg_box({
+            width		:		360,
+            b_title		:		false,
+            button		:		false,
+            b_close_bnt	:		false,
+            content		:		div
+        });
+        
+        $("#logout_enroll_confirm_btn").click(function(){
+            confirm_enroll_logout(table_id);
+        });
+    }
+    
+    
+    //退出哪一场
+    function confirm_enroll_logout(table_id)
+    {
+        var msg ="";
+        var text = $('#logout_enroll_reason').val();
+        if(text=='您退出活动的原因是？' || text=='')
+        {
+            $('#logout_enroll_reason_error').attr("class",'alert_error3');
+            $('#logout_enroll_reason_error').html('您还没有填写退出原因');
+            return false;
+        }
+        else
+        {
+            $('#logout_enroll_reason_error').attr("class",'alert_error');
+            close_msg_box();
+            var div='<div style="text-align:center;"><a href="javascript:void(0);" title="关闭" class="fr alert_msg_box_close" onclick="close_msg_box();return false;">关闭</a><div id="enroll_msg_box">';
+            div+='<p align="center"><img src="http://event.poco.cn/images/loading.gif" width="40"/></p>';
+            div+='</div></div>';
+            show_msg_box({
+                width		:		200,
+                b_title		:		false,
+                button		:		false,
+                b_close_bnt	:		false,
+                content		:		div
+            });
+            var event_id = $('#event_id').val();
+            text = encodeURI(text);
+
+            $.ajax
+            ({
+
+                type:'get',
+                dataType:'json',
+                url:"./module/party_logout_enroll_ajax.php",
+                data:"event_id=" +event_id+"&text="+text+"&table_id="+table_id+"&timestamp=" + new Date().getTime(),
+                success:function(json_data)
+                {
+                    if(json_data.ajax_status==1)
+                    {
+                        if(json_data.res=="H")
+                        {
+                            msg = "已经发布作品，退出失败";
+                            
+                        }
+                        else if(json_data.res=="Y")
+                        {
+                            msg = "退出成功";
+
+                        }
+                        else
+                        {
+                            msg = "退出失败";
+                        }
+                        
+                        
+                        
+                    }
+                    else
+                    {
+                        msg = "退出失败";
+                    
+                    }
+                    
+                    var msg_html = '<p class="famyh f18 mb15" align="center"><strong>'+msg+'</strong></p>';
+                    $('#enroll_msg_box').html(msg_html);
+                    t=setTimeout(function(){
+                        close_msg_box();
+                        clearTimeout(t);
+                    }
+                    ,2000);
+                    if(msg=="退出成功")
+                    {
+                        window.location.reload();
+                    }
+                    
+                    
+                }
+                
+            });
+            
+
+            
+        }
+    }
+    //---------------------------------------------退出报名JS--------------------------------------------------//
+    
+});
+
+
+
+</script> 
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>刷单商家详情</title>
+<script type="text/javascript">
+$(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: false,
+            timeFormat: '',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        });
+        $("#user_id").blur(
+            function()
+            {
+                get_seller_name();
+            }
+            );
+        });
+
+function change_color(e)
+{
+    $("#color").val();
+    $("#color").attr('style','background-color:'+$("#color").val()+';');
+}
+
+function change_status(e)
+{
+    if ($("#status").val()==0) {
+        $("#status_time").val('');
+        $("#status_time").attr('disabled','disabled');
+    } else if ($("#status").val()==7) {
+        $("#status_time").val('');
+        $("#status_time").removeAttr('disabled');
+        alert('注意，该选项代表商家从未刷单');
+    } else {
+        $("#status_time").val('');
+        $("#status_time").removeAttr('disabled');
+    }
+}
+
+function get_seller_name()
+{
+    user_id=$("#user_id").val();
+    if (user_id.length>0) {
+        $("#seller_name").load("?action=get_seller_name&user_id="+user_id);
+    }
+    return false;
+}
+</script>
+</head>
+<body>
+<style>
+.J_add_btn,.J_add_cover_img{
+    overflow: hidden;
+}
+.model-img-list li{
+    float:left; width:85px; height:100px; text-align:center; margin-right:10px
+}
+</style>
+<div class="mainbox">
+    <div id="tabs" style="margin-top:10px;">
+        <div class="tabbox">
+            <div class="table-list">
+                <div class="table" style="width:100%;">
+                    <fieldset>
+                        <legend>刷单商家详情</legend>
+                        <form id="form1" name="form1" method="post" action="?" target="">
+                            <table width="90%" align="center">
+                                <tr>
+                                    <td width="26%" height="25">商家ID</td>
+                                    <td width="74%" height="25">
+                                        <input name="user_id" type="text" id="user_id" value="{seller.user_id}" <!-- IF seller.user_id -->readonly="readonly"<!-- ENDIF --> size="50" maxlength="50" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="26%" height="25">商家名称</td>
+                                    <td width="74%" height="25">
+                                        <span id="seller_name" name="seller_name">
+                                            {seller.name}
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="26%" height="25">状态</td>
+                                    <td width="74%" height="25">
+                                        <select name="status" id='status' onchange="change_status(this)" style="" >
+                                            <option value="0" <!-- IF seller.status=="0" -->selected="selected" <!-- ENDIF --> >待确认，待处理</option>
+                                            <option value="8" <!-- IF seller.status=="8" -->selected="selected" <!-- ENDIF --> >确认刷单，已处理</option>
+                                            <!-- IF seller.user_id -->
+                                            <option value="7" <!-- IF seller.status=="7" -->selected="selected" <!-- ENDIF --> >误判，正常用户</option>
+                                            <!-- ENDIF -->
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="26%" height="25"></td>
+                                    <td width="74%" height="25">
+                                        1、待确认，待处理，不可提现。<br />
+                                        2、确认刷单，已处理，商家有刷单，且已扣款。历史刷单商家。可以提现。<br />
+                                        3、误判，正常用户，商家<strong style='color:red;'>从来没有</strong>刷单。可以提现。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="26%" height="25">处理时间</td>
+                                    <td width="74%" height="25">
+                                        <input id="status_time" disabled="disabled" type="text" size="10" name="status_time" value="{seller.status_date}" class="ui_timepicker" />
+                                    </td>
+                                </tr>
+                                <!-- <tr> -->
+                                <!--     <td width="26%" height="25">标志颜色</td> -->
+                                <!--     <td width="74%" height="25"> -->
+                                <!--         <select name="color" id='color' onchange="change_color(this)" style="background-color:{seller.color}" > -->
+                                <!--             <option value="" style="background-color:#FFFFFF;">全部</option> -->
+                                <!--             <option value="#FF0000" <!-- IF seller.color=="#FF0000" -->selected="selected" <!-- ENDIF --> style="background-color:#FF0000"> -->
+                                <!--             红&nbsp;&nbsp; -->
+                                <!--             </option> -->
+                                <!--             <option value="#00FF00" <!-- IF seller.color=="#00FF00" -->selected="selected" <!-- ENDIF --> style="background-color:#00FF00"> -->
+                                <!--             绿&nbsp;&nbsp; -->
+                                <!--             </option> -->
+                                <!--             <option value="#FFF900" <!-- IF seller.color=="#FFF900" -->selected="selected" <!-- ENDIF --> style="background-color:#FFF900"> -->
+                                <!--             黄&nbsp;&nbsp; -->
+                                <!--             </option> -->
+                                <!--             <option value="#0000FF" <!-- IF seller.color=="#0000FF" -->selected="selected" <!-- ENDIF --> style="background-color:#0000FF"> -->
+                                <!--             蓝&nbsp;&nbsp; -->
+                                <!--             </option> -->
+                                <!--         </select> -->
+                                <!--     </td> -->
+                                <!-- </tr> -->
+                                <tr>
+                                    <td width="26%" height="25">刷单详情</td>
+                                    <td width="74%" height="25">
+                                        <span>
+                                            {seller.remark}
+                                        </span>
+                                        <br />
+                                        <textarea name="remark" cols="120" rows="5" id="remark"></textarea>
+                                        <br />
+                                        <font color='red'>*必填，请详细填写！</font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <input name="action" type="hidden" id="action" <!-- IF seller.user_id -->value="edit_seller"<!-- ELSE -->value="add_seller"<!-- ENDIF --> />
+                                        <input type="submit" name="button" id="button" value="提交" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

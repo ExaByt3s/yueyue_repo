@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>优惠券详情</title>
+
+    <meta charset="gbk">
+    {wap_global_top}
+    <!-- libjs 必须引用 -->
+    <script src="/lib/lib.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../../../../style/coupon/detail.scss">
+
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view page-view-coupon-detail" data-role="page-container">
+        <div data-role="wrapper" class="pt15">
+
+        </div>
+
+
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+
+</html>
+<script type="text/javascript">
+
+    var $ = require('zepto');
+
+    var abnormal = require('../../../../modules/common/widget/abnormal/index');
+
+    var frozen = require('../../../../modules/yue_ui/frozen');
+
+    var coupon_tmp = __inline('../../../../modules/coupon/coupon_detail.tmpl');
+
+    var header = require('../../../../modules/common/widget/header/main');
+
+    var data = {data}
+
+    data = data.result_data
+
+    if(data.tab == 'available')
+    {
+        data = $.extend(true,{},data,{_is_available:true,_notice_text:"有效期：" + data.start_time_str + "-" + data.end_time_str});
+
+        self.$('[data-role="btn_footer"]').removeClass('fn-hide');
+
+        self.$('[data-role="use"]').removeClass('fn-hide');
+    }
+    else if(data.tab == 'used')
+    {
+        data = $.extend(true,{},data,{_is_used:true,_notice_text:data.used_time_str + " 已使用"});
+    }
+    else if(data.tab == 'expired')
+    {
+        data = $.extend(true,{},data,{_is_used:true,_notice_text:data.end_time_str + " 已过期"});
+    }
+
+    var str = coupon_tmp({data:data})
+    $('[data-role="wrapper"]').html(str);
+
+    $(document).ready(function() {
+    header.init({
+        ele : $("#global-header"), //头部渲染的节点
+        title:"优惠券详情",
+        header_show : true , //是否显示头部
+        right_icon_show : true, //是否显示右边的按钮
+        share_icon :
+        {
+            show :false,  //是否显示分享按钮icon
+            content:""
+        },
+        omit_icon :
+        {
+            show :false,  //是否显示三个圆点icon
+            content:""
+        },
+        show_txt :
+        {
+            show :false,  //是否显示文字
+            content:"编辑"  //显示文字内容
+        }
+    })
+    });
+
+</script>

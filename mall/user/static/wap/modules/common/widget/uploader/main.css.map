@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "main.css",
+    "sources": [
+        "/modules/common/widget/uploader/main.scss"
+    ],
+    "sourcesContent": [
+        "@charset \"UTF-8\";\n\n.ui-uploader {\n  position: relative;\n  height: 90px;\n  width: 90px;\n  display: -webkit-box;\n  -webkit-box-pack: center;\n  -webkit-box-align: center;\n  &.active{\n    background: #fff;\n  }\n  .close-out{\n    position: absolute;\n    width: 40px;\n    height: 40px;\n    top: -5px;\n    right: -5px;\n    z-index: 999;\n  }\n  .close-btn {\n    position: absolute;\n    top: 0;\n    right: 0;\n    &:before{\n      background-image: url('../../../../image/pai/close-40x40.png?__sprite');\n      width: 20px;\n      height: 20px;\n      display: block;\n    }\n  }\n}"
+    ],
+    "mappings": "AAEA,AACE,AAAU,AACV,AAAQ,AACR,AAAO,AACP,AAAS,AACT,AAAkB,AAClB,AAAmB,AACrB,AAAY,AACR,AAAY,AAEhB,AAAa,AACT,AAAU,AACV,AAAO,AACP,AAAQ,AACR,AAAK,AACL,AAAO,AACP,AAAS,AAEb,AAAa,AACT,AAAU,AACV,AAAK,AACL,AAAO,AACX,AAAa,AAAU,AACjB,AAAkB,AAClB,AAAO,AACP,AAAQ,AACR,AAAS",
+    "names": []
+}

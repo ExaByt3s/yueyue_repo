@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{title}</title>
+    {web_global_top}
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline">  -->
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/seller/index.scss">
+    <script src="../../../../lib/lib.js"></script>
+</head>
+<body class="cor-bg-fff">
+
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view  service-list-page " >
+        <div class="seller-list-wrap">
+
+            <div class="list-max-one-img-mod">
+
+                <div class="render_ele" id="render_ele"></div>
+
+            </div>
+
+            <div class="more fn-hide" id="btn_more"><a href="javascript:;"  class="color-555">正在加载...</a></div>
+
+        </div>
+        <div class="order_list_container" data-role="list_container"></div>
+
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+
+<script>
+
+    var $ = require('zepto');
+    var header = require('../../../../modules/common/widget/header/main');
+    var utility = require('../../../../modules/common/utility/index');
+    var yue_ui = require('../../../../modules/yue_ui/frozen');
+    var abnormal = require('../../../../modules/common/widget/abnormal/index');
+    var LZ = require('../../../../modules/common/lazyload/lazyload');
+    var _self = {};
+
+    $(document).ready(function() {
+
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"{title}",
+            header_show : true , //是否显示头部
+            right_icon_show : false, //是否显示右边的按钮
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :true,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        })
+
+        var SELLER_AJAX_URL = window.$__ajax_domain+'get_customer_goods_list.php';
+        window.__page_params = {page_params}.result_data;
+        var page_params = window.__page_params;
+        page_params.return_query = encodeURIComponent(page_params.return_query);
+        var list_item_class = require('../../../../modules/list/list.js'); 
+        var template  = __inline('./service_list_item.tmpl');
+        var list_obj = new list_item_class(
+            {
+                //渲染目标
+                ele : $('#render_ele'),
+                //请求地址 
+                url : SELLER_AJAX_URL,
+                //传递参数
+                params : page_params,
+                //模板
+                template : template, 
+                //lz是否开启参数
+                is_open_lz_opts : false  
+            });
+    });
+
+</script>
+</html>

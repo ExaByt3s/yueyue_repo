@@ -1,0 +1,183 @@
+<div class="list_title" style="display: none" data-version="{{in_data.version}}" data-question_id="{{in_data.id}}" data-service_id="{{in_data.type}}"><span>{{in_data.titles}}</span></div>
+{{#each in_data.data}}
+    {{#compare type "==" 1}}
+        <!-- 单选 type ==1 -->
+        <div id="{{id}}" class="ques_div fn-hide" data-skip="{{skip}}" data-ques_div="ques_div" data-single-multiple="single">
+            <div class="tap_title"><span>{{titles}}</span></div>
+            {{#each data}}
+                <div class="tap_child" data-jump_id="{{jump_id}}" data-ans_id="{{id}}" data-tap="ans_child">
+                    <div class="tap_in" data-role="tap_in" data-link="{{#compare link "==" "1"}}1{{^}}0{{/compare}}">
+                        {{#compare is_input "==" "1"}}
+                            <input class="input" placeholder="{{default_titles}}" data-submit="input"/>
+                        {{^}}
+                            <div class="inner" data-role="link_inner">{{titles}}</div>
+                            <div class="icon"></div>
+                        {{/compare}}
+                    </div>
+                    {{#compare link "==" "1"}}
+                        {{#compare type "==" "1"}}
+                            <!-- 绾ц仈鍗曢? type == 1 -->
+                            {{#each data}}
+                                <div class="tap_child link_child fn-hide" data-jump_id="{{jump_id}}" data-ans_id="{{id}}" data-tap="link_ans_child" style="background:#f2f2f2" data-link-single-multiple="single">
+                                    <div class="tap_in_link" data-role="tap_in_link">
+                                        <div class="inner" data-role="link_inner">{{titles}}</div>
+                                        <div class="icon"></div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        {{/compare}}
+                        {{#compare type "==" "2"}}
+                            <!-- 绾ц仈澶氶? type == 2 -->
+                            {{#each data}}
+                                <div class="tap_child link_child fn-hide" data-jump_id="{{jump_id}}" data-ans_id="{{id}}" data-tap="link_ans_child" style="background:#f2f2f2" data-link-single-multiple="multiple">
+                                    <div class="tap_in_link" data-role="tap_in_link">
+                                        <div class="inner" data-role="link_inner">{{titles}}</div>
+                                        <div class="dd_icon fn-hide" data-role="dd_icon"></div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        {{/compare}}
+                    {{/compare}}
+                </div>
+            {{/each}}
+        </div>
+    {{/compare}}
+    {{#compare type "==" 2}}
+        <!-- 多选 type ==2 -->
+        <div id="{{id}}" class="ques_div typ_2 fn-hide" data-skip="{{skip}}" data-ques_div="ques_div" data-single-multiple="mutiple">
+            <div class="tap_title"><span>{{titles}}</span></div>
+            {{#each data}}
+                <div class="tap_child" data-jump_id="{{jump_id}}" data-ans_id="{{id}}" data-tap="ans_child" data-link="{{#compare link "==" "1"}}1{{^}}0{{/compare}}">
+                    <div class="tap_in" data-role="tap_in" data-link="{{#compare link "==" "1"}}1{{^}}0{{/compare}}"  style="display: -webkit-box;">
+                        {{#compare is_input "!=" "0"}}
+                            <input class="input" placeholder="{{default_titles}}" style="display: -webkit-box;" data-submit="input"/>
+                            <div class="icon fn-hide" data-role="just_multi"></div>
+                        {{^}}
+                            <div class="inner"  data-role="link_inner">{{titles}}</div>
+                            <div class="icon fn-hide" data-role="just_multi"></div>
+                        {{/compare}}
+                    </div>
+                    {{#compare link "==" "1"}}
+                        {{#compare type "==" "1"}}
+                            <!-- 绾ц仈鍗曢? type == 1 -->
+                            {{#each data}}
+                                <div class="tap_child link_child fn-hide" data-jump_id="{{jump_id}}" data-ans_id="{{id}}" data-tap="link_ans_child" style="background:#f2f2f2" data-link-single-multiple="single">
+                                    <div class="tap_in_link" data-role="tap_in_link">
+                                        <div class="inner" data-role="link_inner">{{titles}}</div>
+                                        <div class="icon fn-hide" data-role="dd_icon"></div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        {{/compare}}
+                        {{#compare type "==" "2"}}
+                            <!-- 绾ц仈澶氶? type == 2 -->
+                            {{#each data}}
+                                <div class="tap_child link_child fn-hide" data-jump_id="{{jump_id}}" data-ans_id="{{id}}" data-tap="link_ans_child" style="background:#f2f2f2" data-link-single-multiple="multiple">
+                                    <div class="tap_in_link" data-role="tap_in_link">
+                                        <div class="inner" data-role="link_inner">{{titles}}</div>
+                                        <div class="dd_icon fn-hide" data-role="dd_icon"></div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        {{/compare}}
+                    {{/compare}}
+                </div>
+
+            {{/each}}
+        </div>
+
+    {{/compare}}
+
+    {{#compare type "==" 4}}
+        <!-- 问答 type ==4 -->
+        <div id="{{id}}" class="ques_div typ_2 fn-hide" data-skip="{{skip}}" data-ques_div="ques_div" data-type="4">
+            <div class="tap_title"><span>{{titles}}</span></div>
+            {{#each data}}
+                <div class="tap_child" data-jump_id="{{jump_id}}" data-ans_id="{{id}}" data-tap="ans_child" data-link="{{#compare link "==" "1"}}1{{^}}0{{/compare}}">
+                    <div class="tap_in">
+                        {{#compare is_input "==" "1"}}
+                            <input class="input" placeholder="{{default_titles}}" data-submit="input"/>
+                        {{/compare}}
+                        {{#compare is_input "==" "2"}}
+                            <textarea class="input_textarea" placeholder="{{default_titles}}" data-submit="textarea"></textarea>
+                        {{/compare}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/compare}}
+
+    {{#compare type "==" 6}}
+        <!-- 地区 type ==6 -->
+        <div id="{{id}}" class="ques_div fn-hide" data-skip="{{skip}}" data-role="p_c_select" data-ques_div="ques_div" data-type="6">
+            <div class="tap_title"><span>{{titles}}</span></div>
+            {{#each data}}
+                <div class="tap_child" data-jump_id="{{jump_id}}" data-ans_id="{{id}}" data-tap="ans_child">
+                    <div class="tap_in">
+                        {{#compare is_input "==" "1"}}
+                            <input class="input" placeholder="{{default_titles}}" data-submit="input"/>
+                        {{^}}
+                            <select id="province_{{../../id}}" data-role="p_select" data-submit="select">
+                                <option value=""> - 省 - </option>
+                            </select>
+                            <select id="city_{{../../id}}" data-role="c_select" data-submit="select">
+                                <option value=""> - 市 - </option>
+                            </select>
+                        {{/compare}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/compare}}
+    {{#compare type "==" 7}}
+        <!-- 鏃ユ湡 type ==7 -->
+        <div id="{{id}}" class="ques_div fn-hide" data-skip="{{skip}}" data-role="ymdhms_select" data-ques_div="ques_div" data-type="7">
+            <div class="tap_title"><!--span>{{titles}}</span--></div>
+            {{#each data}}
+                <div class="tap_child" data-jump_id="{{jump_id}}" data-ans_id="{{id}}" data-tap="ans_child">
+
+                    <div class="tap_in"  style="background: none">
+                        {{#compare is_input "==" "1"}}
+                            <input class="input" placeholder="{{default_titles}}" data-submit="input" data-input-id="{{id}}"/>
+                        {{^}}
+                            <div class="inner exp"><span>{{titles}}</span></div>
+                            <!--div class="icon"></div-->
+                        {{/compare}}
+                    </div>
+                    <div class="tap_select" data-role="tap_select" data-has-finish="0">
+                        {{#compare type "==" "7"}}
+                            <div style="background: #fff">
+                                <select id="year_{{../../id}}" data-role="y_select" data-submit="select">
+                                    <option value=""> 年 </option>
+                                </select>
+                                <select id="month_{{../../id}}" data-role="mo_select" data-submit="select">
+                                    <option value=""> 月 </option>
+                                </select>
+                                <select id="day_{{../../id}}" data-role="da_select" data-submit="select">
+                                    <option value=""> 日 </option>
+                                </select>
+                            </div>
+                        {{/compare}}
+                        {{#compare type "==" "8"}}
+                            <div style="background: #fff">
+                                <select id="hour_{{../../id}}" data-role="ho_select" data-submit="select">
+                                    <option value=""> 时 </option>
+                                </select>
+                                <select id="min_{{../../id}}" data-role="mi_select" data-submit="select">
+                                    <option value=""> 分 </option>
+                                </select>
+                            </div>
+                        {{/compare}}
+                        {{#compare type "==" "9"}}
+                            <div style="background: #fff">
+                                <select id="during_{{../../id}}" data-role="dur_select" data-submit="select" submit-default="{{titles}}">
+                                    <option value=""> 时长({{titles}}) </option>
+                                </select>
+                            </div>
+                        {{/compare}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/compare}}
+{{/each}}

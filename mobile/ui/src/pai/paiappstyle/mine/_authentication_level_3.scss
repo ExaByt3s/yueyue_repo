@@ -1,0 +1,157 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 等级认证v3
+// ------------------------------
+
+.authentication_level_3_ready{
+  .content-body{
+    display: -webkit-box;
+    margin-top: 45px;
+    //margin-bottom: 50px;
+    padding: 0px 15px 65px 15px;
+    background: #ffffff;
+    .list-container{
+      display: -webkit-box;
+      -webkit-box-flex: 1;
+      -webkit-box-pack: center;
+      -webkit-box-orient: vertical;
+      margin-top: 15px;
+    }
+    .img-con{
+      display: -webkit-box;
+      -webkit-box-pack: center;
+      -webkit-box-orient: vertical;
+
+      text-align: center;
+
+      .title{
+        color: #000;
+        font-size: 14px;
+      }
+      .price{
+        color: #ff5000;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 5px 0px 8px 0px;
+      }
+    }
+    .pay-con{
+      display: -webkit-box;
+    }
+    .text-con{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      color: #666666;
+      margin: 30px 0px 30px 0px;
+      .title{
+        margin: 8px 0px;
+        font-size: 14px;
+        color: #000;
+      }
+      .gray{
+        color: #8f8f8f;
+        font{
+          font-weight:600;
+        }
+      }
+      .text{
+        text-align: center;
+        font-size: 14px;
+
+      }
+      .line{
+        margin-top: 10px;
+      }
+    }
+    .notice-con{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      color: #8f8f8f;
+      font-size:10px;
+    }
+    .ui-input-mod{
+      margin-top: 15px;
+    }
+  }
+}
+
+.authentication_level_3_status{
+  .content-body{
+    display: -webkit-box;
+    margin-top: 45px;
+    //margin-bottom: 50px;
+    padding: 0px 15px 65px 15px;
+    background: #ffffff;
+    .list-container{
+      display: -webkit-box;
+      -webkit-box-flex: 1;
+      -webkit-box-pack: center;
+      -webkit-box-orient: vertical;
+      margin-top: 15px;
+    }
+    .img-con{
+      display: -webkit-box;
+      -webkit-box-pack: center;
+      -webkit-box-orient: vertical;
+
+        text-align: center;
+
+      .title{
+        color: #000;
+        font-size: 14px;
+      }
+      .price{
+        color: #ff5000;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 5px 0px 8px 0px;
+      }
+      .green
+      {
+        color: #fff;
+        background: #3fc585;
+        font-size: 10px;
+        width: 60px;
+        margin: 0 auto;
+        border-radius: 15px;
+        height: 20px;
+        line-height: 19px;
+      }
+    }
+
+    .text-con{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      color: #666666;
+      margin: 70px 0px 30px 0px;
+      .title{
+        margin: 8px 0px;
+        font-size: 14px;
+        color: #000;
+      }
+      .gray{
+        color: #8f8f8f;
+        font{
+          font-weight:600;
+        }
+      }
+      .text{
+        text-align: center;
+        font-size: 14px;
+
+      }
+      .line{
+        margin-top: 10px;
+      }
+    }
+    .notice-con{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      color: #8f8f8f;
+      font-size:10px;
+    }
+    .ui-input-mod{
+      margin-top: 15px;
+    }
+  }
+}

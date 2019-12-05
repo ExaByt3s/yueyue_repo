@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="gb2312">
+<title>POCO约约 - 拍活动</title>
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link charset="utf-8" rel="stylesheet" href="../../../css/pai/paiappstyle.css">
+</head>
+
+<body>
+<div id="page-container" >
+    <div class="apps_page">
+        <main role="main" class="action-list wryh">
+
+            <header class="page-header wryh">
+                外拍活动
+                <div class="select-drop-trigger" data-role="select-more">
+                    <i class="icon icon-add-40x40 more-select-icon"></i>
+                </div>
+            </header>
+            <!-- drop module -->
+            <div class="more-select-drop">
+                <p class="more-select-choosen" data-role="sys"><i class="icon icon-sao-50x50 more-select-sys"></i>扫一扫</p>
+                <p class="more-select-choosen" data-role="module-card"><i class="icon icon-set-50x50 more-select-module-card"></i>建立模特卡</p>
+                <p class="more-select-choosen" data-role="go-act"><i class="icon icon-pub-50x50 more-select-go-act"></i>发活动</p>
+            </div>
+            <!-- drop module end-->
+            <div class="content-body">
+
+                <div class="measure-choosen">
+                    <ul class="measure-choosen-in">
+                        <i class="measure-choosen-child" data-role="style-style">时间</i>
+                        <i class="measure-choosen-child cur" data-role="style-breast">价格</i>
+                        <i class="measure-choosen-child" data-role="style-tall">发起者</i>
+                    </ul>
+                </div>
+                <div class="action-list-condition">
+                    <div class="price-condition">
+                        <div class="child"><p class="child-child">0-100元</p>
+                        </div>
+                        <div class="child"><p class="child-child">100-200元</p>
+                        </div>
+                        <div class="child"><p class="child-child">200-500元</p>
+                        </div>
+                        <div class="child"><p class="child-child">500-1000元</p>
+                        </div>
+
+                    </div>
+                    <div class="fade">1</div>
+                </div>
+                <div class="action-list-content">
+                    <div class="wrap-box">
+                        <!--loop-->
+                        <div class="child">
+                            <div class="child-img" style="background-image: url('../../assets/images/pai/test/test.jpg')">
+                                <div class="tips-con-red">
+                                    <div class="tips">官方</div>
+                                    <div class="delta"></div>
+                                </div>
+                            </div>
+                            <div class="child-text">
+                                <p class="title">夏的轻语-POCO清新校服人像拍摄活动</p>
+                                <p class="detail">发起：POCO摄影社区广州站</p>
+                                <p class="detail">时间：2014.05.27</p>
+                                <p class="detail">价格：￥60/人</p>
+                            </div>
+                        </div>
+                        <!--loop-->
+                        <div class="child">
+                            <div class="child-img" style="background-image: url('../../assets/images/pai/test/test.jpg')">
+                                <div class="tips-con-green">
+                                    <div class="tips">免费</div>
+                                    <div class="delta"></div>
+                                </div>
+                            </div>
+                            <div class="child-text">
+                                <p class="title">夏的轻语-POCO清新校服人像拍摄活动</p>
+                                <p class="detail">发起：POCO摄影社区广州站</p>
+                                <p class="detail">时间：2014.05.27</p>
+                                <p class="detail">价格：￥60/人</p>
+                            </div>
+                        </div>
+                        <div class="child">
+                            <div class="child-img" style="background-image: url('../../assets/images/pai/test/test.jpg')">
+                                <div class="tips-con-orange">
+                                    <div class="tips">推荐</div>
+                                    <div class="delta"></div>
+                                </div>
+                            </div>
+                            <div class="child-text">
+                                <p class="title">夏的轻语-活动</p>
+                                <p class="detail">发起：POCO摄影社区广州站</p>
+                                <p class="detail">时间：2014.05.27</p>
+                                <p class="detail">价格：￥60/人</p>
+                            </div>
+                        </div>
+                        <div class="child">
+                            <div class="child-img" style="background-image: url('../../assets/images/pai/test/test.jpg')">
+                                <div class="tips-con-orange">
+                                    <div class="tips">推荐</div>
+                                    <div class="delta"></div>
+                                </div>
+                            </div>
+                            <div class="child-text">
+                                <p class="title">夏的轻语-活动</p>
+                                <p class="detail">发起：POCO摄影社区广州站</p>
+                                <p class="detail">时间：2014.05.27</p>
+                                <p class="detail">价格：￥60/人</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <footer class="tab-footer" data-role="footer">
+                <ul>
+                    <li>
+                        <div class="nav-wrap current" data-role="footer-act">
+                            <i class="icon icon-act">外拍活动</i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="nav-wrap" data-role="footer-model">
+                            <i class="icon icon-model">模特约拍</i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="nav-wrap" data-role="footer-my">
+                            <i class="icon icon-my">我的</i>
+                        </div>
+                    </li>
+                </ul>
+            </footer>
+        </main>
+    </div>
+</div>
+<script>
+    window.onload = function(){
+        var click_or_not = false;
+        var a = document.getElementsByClassName("more-select-drop")[0];
+        document.getElementsByClassName("select-drop-trigger")[0].onclick = function(){
+            if(!click_or_not) {
+                a.style.webkitAnimation = '0.6s index-select forwards';
+                click_or_not = true;
+            }
+            else{
+                a.style.webkitAnimation = '0.6s index-select-back forwards';
+                click_or_not = false;
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

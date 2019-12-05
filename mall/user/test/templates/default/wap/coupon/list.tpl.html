@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>优惠券列表</title>
+
+    <meta charset="gbk">
+    {wap_global_top}
+    <!-- libjs 必须引用 -->
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/coupon/list.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/coupon/list-coupon.css">
+<style type="text/css">
+    .widget-coupon .price{
+      width: 110px;
+    }
+    </style>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/scroll.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/dragloader.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+</head>
+<body style="overflow: hidden;">
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view page-view-coupon-list" data-role="page-container">
+        <div class="taps_container">
+            <div class="inner_tap cur" data-role="tap" data-tap-type="available">
+                <p>可使用</p>
+            </div>
+            <div class="inner_tap" data-role="tap" data-tap-type="used">
+                <p>已使用</p>
+            </div>
+            <div class="inner_tap" data-role="tap" data-tap-type="expired">
+                <p>已过期</p>
+            </div>
+        </div>
+        <div>
+            <section class="coupon_con" data-role="coupon_con">
+
+            </section>
+        </div>
+        <div class="next_page_btn fn-hide" data-role="next_page_btn">
+            <p>加载更多</p>
+        </div>
+        <div class="ui-button-submit-area">
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6" style="margin: 10px auto;width: 150px;" data-role="nav-to-code">
+                <span class="ui-button-content">兑换优惠券</span>
+            </button>
+        </div>
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+<script type="text/javascript">
+    var $ = require('components/zepto/zepto.js');
+
+    var abnormal = require('common/widget/abnormal/index');
+
+    var frozen = require('yue_ui/frozen');
+
+    var coupon_tmp = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, self=this, functionType="function", escapeExpression=this.escapeExpression;
+
+function program1(depth0,data,depth1) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n    <div class=\"widget-coupon ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0._class_for_available), {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " ";
+  stack1 = helpers['if'].call(depth0, (depth1 && depth1.no_choose_btn), {hash:{},inverse:self.noop,fn:self.program(6, program6, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\" data-coupon_sn=\"";
+  if (helper = helpers.coupon_sn) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.coupon_sn); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n        <div class=\"left-border\">\r\n            <div class=\"inside\"></div>\r\n        </div>\r\n        <div class=\"price\" data-role=\"to_ticket_details_price\">\r\n            <div class=\"type\">";
+  if (helper = helpers.scope_module_type_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.scope_module_type_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n            <div class=\"contain\">\r\n                <div class=\"contain-left\">";
+  if (helper = helpers.coin) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.coin); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                <div class=\"contain-right\">";
+  if (helper = helpers.face_value) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.face_value); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n            </div>\r\n        </div>\r\n        <div class=\"split\">\r\n            <div class=\"top\"></div>\r\n            <div class=\"mid\"><div class=\"mid-in\"></div></div>\r\n            <div class=\"bottom\"></div>\r\n        </div>\r\n        <div class=\"details\" data-role=\"to_ticket_details\">\r\n            <div class=\"notice\">";
+  if (helper = helpers.batch_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.batch_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</div>\r\n            <div class=\"date\">";
+  if (helper = helpers.start_time_str) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.start_time_str); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "-";
+  if (helper = helpers.end_time_str) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.end_time_str); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n        </div>\r\n        <div class=\"choosen_btn ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.can_select), {hash:{},inverse:self.program(8, program8, data),fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\" data-role=\"choosen_btn\">\r\n            <div class=\"tap\" data-role=\"tap\">\r\n                <div class=\"tap-in\">\r\n                    <i class=\"icon icon-right-24x16 fn-hide\"></i>\r\n                    <label class=\"ui-yue-checkbox\">\r\n                        <i data-role=\"cb-btn\" ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.selected), {hash:{},inverse:self.program(10, program10, data),fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " type=\"checkbox\"  ></i>\r\n                    </label>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"right-border\">\r\n            <div class=\"inside\"></div>\r\n        </div>\r\n    </div>\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "";
+  return buffer;
+  }
+
+function program4(depth0,data) {
+  
+  
+  return "unavailable";
+  }
+
+function program6(depth0,data) {
+  
+  
+  return "no_choose_btn";
+  }
+
+function program8(depth0,data) {
+  
+  
+  return "fn-hide";
+  }
+
+function program10(depth0,data) {
+  
+  
+  return "class=\"no-selected\" checked=\"\"";
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.programWithDepth(1, program1, data, depth0),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n";
+  return buffer;
+  });
+
+    var header = require('common/widget/header/main');
+
+    var scroll = require('common/scroll/index');
+
+    var utility = require('common/utility/index');
+
+    var App = require('common/I_APP/I_APP');
+
+    var page = 1;
+
+    var tab = 'available';
+
+    var data =
+    {
+        tab:tab,
+        page:1
+    };
+
+    var _self = $({});
+
+    _self.$scroll_wrapper = $('[data-role="coupon_con"]');
+    _self.scroll_view_obj = scroll(_self.$scroll_wrapper);
+
+    var c_height = App.isPaiApp ? 91 : 136;
+
+    _self.$scroll_wrapper.height(window.innerHeight - c_height);
+
+    _self.scroll_view_obj.on('success:drag_down_load',function(e,dragger)
+    {
+        var data =
+        {
+            tab:tab,
+            page:1
+        };
+
+        fresh(data)
+    });
+
+    _self.scroll_view_obj.on('success:drag_up_load',function(e,dragger)
+    {
+        var data =
+        {
+            tab:tab,
+            page:++page
+        };
+        fresh(data)
+    });
+
+    fresh(data)
+
+    //栏目切换
+    $('[data-role="tap"]').on('click',function(){
+
+        var $con = $(this);
+
+        $con.addClass('cur').siblings().removeClass('cur');
+
+        tab = $con.attr('data-tap-type');
+
+        var data =
+        {
+            tab:$con.attr('data-tap-type'),
+            page:1
+        }
+        fresh(data)
+
+    });
+
+
+    $('[data-role="nav-to-code"]').on('click',function()
+    {
+        window.location.href = './code.php';
+    });
+
+    function fresh(submit_data)
+    {
+        var ajax_obj =$.ajax
+        ({
+            url: window.$__ajax_domain + 'get_user_coupon_list_by_tab.php',
+            data : submit_data,
+            dataType: 'json',
+            type: 'GET',
+            cache: false,
+            beforeSend: function()
+            {
+
+                 window.$loading = $.loading
+                 ({
+                 content:'发送中...'
+                 });
+
+            },
+            success: function(data)
+            {
+
+                var $btn = $('[data-role="next_page_btn"]');
+
+                $btn.addClass('fn-hide');
+
+
+
+                if(!data.result_data.list.length && submit_data.page == 1 ){
+                    abnormal.render($('[data-role="coupon_con"]')[0],{});
+                    return
+                }
+
+                submit_data
+
+                page = data.result_data.page;
+
+                 $loading.loading("hide");
+
+                $.each(data.result_data.list,function(i,obj)
+                {
+                    console.log(obj);
+                    if(obj.tab == 'available')
+                    {
+                        obj._class_for_available = true
+                    }
+                    else if (obj.tab == 'used'){
+                        obj._class_for_used = true
+                    }
+                    else if (obj.tab == 'expired') {
+                        obj._class_for_expired = true
+                    }
+                })
+
+                var str = coupon_tmp({data:data.result_data.list})
+                if(submit_data.page == 1)
+                {
+                    $('[data-role="coupon_con"]').html(str);
+
+                    window.scrollTo(0,0);
+                }
+                else
+                {
+                    $('[data-role="coupon_con"]').append(str);
+                    //$('[data-role="coupon_con"]').html(str);
+                }
+
+
+
+                if(data.result_data.has_next_page)
+                {
+                    $btn.removeClass('fn-hide');
+                }
+
+                $('[data-role="to_ticket_details"]').on('click',function()
+                {
+                    console.log("123213")
+                    var sn = $(this).parent().attr('data-coupon_sn');
+
+                    location.href = './detail.php?sn=' + sn;
+                });
+
+                _self.scroll_view_obj && _self.scroll_view_obj.dragger.reset();
+            },
+            error: function(data)
+            {
+                $loading.loading("hide");
+
+
+                _self.scroll_view_obj && _self.scroll_view_obj.dragger.reset();
+            },
+            complete: function()
+            {
+                $loading.loading("hide");
+            }
+        });
+
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"优惠券列表",
+            header_show : true , //是否显示头部
+            right_icon_show : true, //是否显示右边的按钮
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        })
+
+    }
+
+
+
+
+
+
+</script>
+</html>

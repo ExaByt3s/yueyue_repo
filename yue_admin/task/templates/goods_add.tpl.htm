@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>添加商品</title>
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $(".ui_timepicker").datetimepicker({
+        });
+        $(".ui_timepicker_time").datetimepicker({
+            showSecond: true,
+            timeFormat: '',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        });
+    })
+</script>
+
+</head>
+<body>
+<style>
+    .J_add_btn,.J_add_cover_img{
+        overflow: hidden;
+    }
+    .model-img-list li{
+        float:left; width:85px; height:100px; text-align:center; margin-right:10px
+    }
+</style>
+{global_header_html}
+<script>
+    /**
+     * hudw 2015.1.23
+     * @param  {[type]} window    [description]
+     * @param  {[type]} seajs     [description]
+     * @param  {[type]} undefined [description]
+     * @return {[type]}           [description]
+     */
+    ;(function(window, seajs, undefined)
+    {
+
+
+        // 配置模块
+        seajs.config
+        ({
+
+            paths:
+            {
+                utility: 'http://cb.poco.cn/utility',
+                matcha: 'http://cb.poco.cn/matcha',
+                yueyue_global : 'http://www.yueus.com/js/global'
+            },
+            alias:
+            {
+                handlebars: 'utility/handlebars/1.0.0/handlebars',
+                jquery: 'utility/jquery/1.11.0/jquery',
+                cookie: 'matcha/cookie/1.0.0/cookie',
+                topbar : 'yueyue_global/topbar/topbar'
+            },
+            comboMaxLength: 5000,
+            charset: 'utf-8'
+        });
+
+        seajs.use(['jquery','topbar'],function($,topbar)
+        {
+            var $user_state = $('#user_state');
+
+            topbar.init
+            ({
+                container : $user_state,
+                custom_logout : "http://www.yueus.com/reg/logout.php",
+                custom_html : '<a href="http://www.yueus.com/reg/login.php?r_url='+encodeURIComponent(window.location.href)+'">登录</a><span class="pr15 pl15">|</span><a href="http://www.yueus.com/reg/register.php?r_url='+encodeURIComponent(window.location.href)+'">免费注册</a>'
+            });
+        });
+
+
+    })(window, seajs);
+</script>
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>添加商品</legend>
+			<form id="form1" name="form1" method="post" action="" target="_blank">
+			  <table width="90%" align="center">
+                    <!-- BEGIN default_data -->
+				    <tr>
+                         <td width="26%" height="25">{name}</td>
+                         <td width="74%" height="25">
+                         <!-- IF input="3" -->
+                         <input name="default_data[{key}]" type="text" id="default_data[{key}]" value="" size="50" maxlength="50" />
+                         <!-- ELSEIF input="5" -->
+                         在线编辑器:<br>
+                         <textarea name="default_data[{key}]" cols="50" rows="5" id="default_data[{key}]">{value}</textarea>
+                         
+                         <!-- ELSEIF input="8" -->
+                         <input name="default_data[{key}]" type="hidden" id="default_data[{key}]" value="" />
+                         添加地区<!-- ELSE -->
+                         <textarea name="default_data[{key}]" cols="50" rows="5" id="default_data[{key}]"></textarea>
+                         <!-- ENDIF -->
+                         </td>
+					</tr>
+                    <!-- END default_data -->
+                    <!-- BEGIN system_data -->
+				    <tr>
+                         <td width="26%" height="25">{name}</td>
+                         <td width="74%" height="25">
+                         <!-- IF input="3" -->
+                         <input name="system_data[{key}]" type="text" id="system_data[{key}]" value="" size="50" maxlength="50" />
+                         <!-- ELSEIF input="4" -->
+                         <textarea name="system_data[{key}]" cols="50" rows="5" id="system_data[{key}]"></textarea>
+                         <!-- ELSEIF input="9" -->
+                         <input name="system_data[{key}]" type="hidden" id="system_data[{key}]" value="{value}" />
+                         <!-- BEGIN child_data --> 
+                         {name}:
+                             <!-- IF input="3" -->
+                             <input name="system_data[{parent.key}][{key}]" type="text" id="system_data[{parent.key}][{key}]" value="{value}" size="50" maxlength="50" />
+                             <!-- ELSEIF input="4" -->
+                             <textarea name="system_data[{parent.key}][{key}]" cols="50" rows="5" id="system_data[{parent.key}][{key}]">{value}</textarea>
+                             <!-- ELSEIF input="1" -->
+                                 <!-- BEGIN child_data --> 
+                                 <input type="radio" name="system_data[{parent.parent.key}][{parent.key}]" id="system_data[{parent.parent.key}][{parent.key}]" value="{name}" <!-- IF is_select -->checked="checked"<!-- ENDIF --> />{name}&nbsp;&nbsp;
+                                 <!-- END child_data -->
+                             <!-- ELSEIF input="2" -->
+                                 <!-- BEGIN child_data --> 
+                                 <!-- END child_data -->
+                             <!-- ENDIF -->
+                         {mess}<br>
+                         <!-- END child_data -->
+                         <!-- ELSEIF input="6" -->
+                         <input id="system_data[{key}]" type="text" size="20" name="system_data[{key}]" value="" class="ui_timepicker" />
+                         <!-- ELSEIF input="7" -->
+                         <input id="system_data[{key}]" type="text" size="20" name="system_data[{key}]" value="" class="ui_timepicker_time" />
+                         <!-- ELSEIF input="1" -->
+<!--                         <select name="system_data[{key}]" id="system_data[{key}]">
+                             <!-- BEGIN child_data -->
+                               <option value="{key}">{name}</option>
+                             <!-- END child_data -->
+                         </select>
+-->                         
+                         <!-- BEGIN child_data -->                         
+                           <input name="system_data[{parent.key}]" class="J_parent_type" data-mark="{id}" type="radio" id="system_data[{parent.key}]" value="{key}" />{name}
+                           <!-- IF child_data -->                           
+                           &nbsp;&nbsp;&nbsp;&nbsp;[详情:
+                           <!-- IF input="2" -->
+                           <!-- BEGIN child_data -->
+                           <input name="system_data[{parent.key}][]" class="J_child_type" data-parent="{parent.id}" type="checkbox" id="system_data[{parent.key}][]" value="{key}" />{name}&nbsp;&nbsp;
+                           <!-- END child_data -->
+                           <!-- ELSEIF input="1" -->
+                           <!-- BEGIN child_data -->
+                           <input type="radio" class="J_child_type" data-parent="{parent.id}" name="system_data[{parent.key}]" id="system_data[{parent.key}]" value="{key}" />{name}&nbsp;&nbsp;
+                           <!-- END child_data -->
+                           <!-- ENDIF -->
+                           ]
+                           <!-- ENDIF -->
+                           <br>
+                         <!-- END child_data -->
+                         
+                         <!-- ELSEIF input="2" -->
+                         <!-- BEGIN child_data -->
+                           <input name="system_data[{parent.key}][]" class="J_parent_type" data-mark="{id}" type="checkbox" id="system_data[{parent.key}][]" value="{key}" />{name}
+                           <!-- IF child_data -->                           
+                           &nbsp;&nbsp;&nbsp;&nbsp;[详情:
+                           <!-- IF input="2" -->
+                           <!-- BEGIN child_data -->
+                           <input name="system_data[{parent.key}][]" class="J_child_type" data-parent="{parent.id}" type="checkbox" id="system_data[{parent.key}][]" value="{key}"  />{name}&nbsp;&nbsp;
+                           <!-- END child_data -->
+                           <!-- ELSEIF input="1" -->
+                           <!-- BEGIN child_data -->
+                           <input type="radio" class="J_child_type" data-parent="{parent.id}" name="system_data[{parent.key}]" id="system_data[{parent.key}]" value="{key}"  />{name}&nbsp;&nbsp;
+                           <!-- END child_data -->
+                           <!-- ENDIF -->
+                           ]
+                           <!-- ENDIF -->
+                           <br><br>
+                         <!-- END child_data -->
+                         <!-- ENDIF -->
+                         </td>
+					</tr>
+                    <!-- END system_data -->
+                    <!-- BEGIN diy_data -->
+				    <tr>
+                         <td width="26%" height="25">{name}</td>
+                         <td width="74%" height="25">
+                         <!-- IF input="3" -->
+                         <input name="diy_data[{key}]" type="text" id="diy_data[{key}]" value="" size="50" maxlength="50" />
+                         <!-- ELSE -->
+                         <textarea name="diy_data[{key}]" cols="50" rows="5" id="diy_data[{key}]"></textarea>
+                         <!-- ENDIF -->
+                         </td>
+					</tr>
+                    <!-- END diy_data -->
+                    <!-- IF type_id="42" -->
+                    <!--
+				    <tr>
+                         <td width="26%" height="25">标题:</td>
+                         <td width="74%" height="25">
+                         <input name="combination_data[1439351504][titles]" type="text" id="combination_data[1439351504][titles]" value="" size="50" maxlength="50" />
+                         </td>
+					</tr>
+				    <tr>
+                         <td width="26%" height="25">正文:</td>
+                         <td width="74%" height="25">
+                         <textarea name="combination_data[1439351504][content]" cols="50" rows="5" id="combination_data[1439351504][content]"></textarea>
+                      </td>
+					</tr>
+				    <tr>
+                         <td width="26%" height="25">图片:</td>
+                         <td width="74%" height="25">
+                         <input name="combination_data[1439351504][images][]" type="text" id="combination_data[1439351504][images][]" value="" size="50" maxlength="50" /><br>
+                         <input name="combination_data[1439351504][images][]" type="text" id="combination_data[1439351504][images][]" value="" size="50" maxlength="50" />
+                         </td>
+					</tr>
+				    <tr>
+                         <td width="26%" height="25">标题2:</td>
+                         <td width="74%" height="25">
+                         <input name="combination_data[1439351504243][titles]" type="text" id="combination_data[1439351504243][titles]" value="" size="50" maxlength="50" />
+                         </td>
+					</tr>
+				    <tr>
+                         <td width="26%" height="25">正文2:</td>
+                         <td width="74%" height="25">
+                         <textarea name="combination_data[1439351504243][content]" cols="50" rows="5" id="combination_data[1439351504243][content]"></textarea>
+                      </td>
+					</tr>
+				    <tr>
+                         <td width="26%" height="25">图片2:</td>
+                         <td width="74%" height="25">
+                         <input name="combination_data[1439351504243][images][]" type="text" id="combination_data[1439351504243][images][]" value="" size="50" maxlength="50" /><br>
+                         <input name="combination_data[1439351504243][images][]" type="text" id="combination_data[1439351504243][images][]" value="" size="50" maxlength="50" />
+                         </td>
+					</tr>
+                    -->
+				    <tr>
+                         <td width="26%" height="25">联系人:</td>
+                         <td width="74%" height="25">
+                         <input name="contact_data[143935150432][name]" type="text" id="contact_data[143935150432][name]" value="" size="10" maxlength="50" />
+                         </td>
+					</tr>
+				    <tr>
+                         <td width="26%" height="25">联系方式:</td>
+                         <td width="74%" height="25">
+                         <input name="contact_data[143935150432][phone]" type="text" id="contact_data[143935150432][phone]" value="" size="20" maxlength="50" />
+                      </td>
+					</tr>
+				    <tr>
+                         <td width="26%" height="25">联系人2:</td>
+                         <td width="74%" height="25">
+                         <input name="contact_data[14393515043255][name]" type="text" id="contact_data[14393515043255][name]" value="" size="10" maxlength="50" />
+                         </td>
+					</tr>
+				    <tr>
+                         <td width="26%" height="25">联系方式2:</td>
+                         <td width="74%" height="25">
+                         <input name="contact_data[14393515043255][phone]" type="text" id="contact_data[14393515043255][phone]" value="" size="20" maxlength="50" />
+                      </td>
+					</tr>
+                    <!-- ENDIF -->
+                    <!-- IF type_stock_type="5" -->
+				    <tr>
+                         <td width="26%" height="25">场次2:</td>
+                      <td width="74%" height="25">
+                         名称:
+                           <input id="prices_diy[1439351504434665][name]" type="text" size="14" name="prices_diy[1439351504434665][name]" value=""/>
+                        <br />
+                        时间:
+                        <input id="prices_diy[1439351504434665][time_s]" type="text" size="24" name="prices_diy[1439351504434665][time_s]" value=""/>
+                      至
+                      <input id="prices_diy[1439351504434665][time_e]" type="text" size="24" name="prices_diy[1439351504434665][time_e]" value=""/>
+                      <br />
+                      名额:
+                      <input id="prices_diy[1439351504434665][stock_num]" type="text" size="14" name="prices_diy[1439351504434665][stock_num]" value=""/>
+                      <br />
+                      价格:
+                      <input id="prices_diy[1439351504434665][prices]" type="text" size="14" name="prices_diy[1439351504434665][prices]" value=""/></td>
+					</tr>
+                    <!-- ENDIF -->
+                    <!-- IF type_stock_type="7" -->
+				    <tr>
+                         <td width="26%" height="25">场次1:</td>
+                      <td width="74%" height="25">
+                         场次名称:
+                           <input id="prices_diy[1439351504434665][name]" type="text" size="14" name="prices_diy[1439351504434665][name]" value=""/>
+                        <br />
+                        时间:
+                        <input id="prices_diy[1439351504434665][time_s]" type="text" size="24" name="prices_diy[1439351504434665][time_s]" value=""/>
+                      至
+                      <input id="prices_diy[1439351504434665][time_e]" type="text" size="24" name="prices_diy[1439351504434665][time_e]" value=""/>
+                      <br />
+                      名额:
+                      <input id="prices_diy[1439351504434665][stock_num]" type="text" size="14" name="prices_diy[1439351504434665][stock_num]" value=""/>
+                      <br />
+                      价格1:
+                      名称:<input id="prices_diy[1439351504434665][detail][name][]" type="text" size="24" name="prices_diy[1439351504434665][detail][name][]" value=""/>&nbsp;&nbsp;
+                      价格:<input id="prices_diy[1439351504434665][detail][prices][]" type="text" size="6" name="prices_diy[1439351504434665][detail][prices][]" value=""/>&nbsp;&nbsp;
+                      <br />
+                      价格2:
+                      名称:<input id="prices_diy[1439351504434665][detail][name][]" type="text" size="24" name="prices_diy[1439351504434665][detail][name][]" value=""/>&nbsp;&nbsp;
+                      价格:<input id="prices_diy[1439351504434665][detail][prices][]" type="text" size="6" name="prices_diy[1439351504434665][detail][prices][]" value=""/>&nbsp;&nbsp;
+                      </td>
+					</tr>
+				    <tr>
+                         <td width="26%" height="25">场次2:</td>
+                      <td width="74%" height="25">
+                         场次名称:
+                           <input id="prices_diy[1439351504437852][name]" type="text" size="14" name="prices_diy[1439351504437852][name]" value=""/>
+                        <br />
+                        时间:
+                        <input id="prices_diy[1439351504437852][time_s]" type="text" size="24" name="prices_diy[1439351504437852][time_s]" value=""/>
+                      至
+                      <input id="prices_diy[1439351504437852][time_e]" type="text" size="24" name="prices_diy[1439351504437852][time_e]" value=""/>
+                      <br />
+                      名额:
+                      <input id="prices_diy[1439351504437852][stock_num]" type="text" size="14" name="prices_diy[1439351504437852][stock_num]" value=""/>
+                      <br />
+                      价格1:
+                      名称:<input id="prices_diy[1439351504437852][detail][name][]" type="text" size="24" name="prices_diy[1439351504437852][detail][name][]" value=""/>&nbsp;&nbsp;
+                      价格:<input id="prices_diy[1439351504437852][detail][prices][]" type="text" size="6" name="prices_diy[1439351504437852][detail][prices][]" value=""/>&nbsp;&nbsp;
+                      <br />
+                      价格2:
+                      名称:<input id="prices_diy[1439351504437852][detail][name][]" type="text" size="24" name="prices_diy[1439351504437852][detail][name][]" value=""/>&nbsp;&nbsp;
+                      价格:<input id="prices_diy[1439351504437852][detail][prices][]" type="text" size="6" name="prices_diy[1439351504437852][detail][prices][]" value=""/>&nbsp;&nbsp;
+                      </td>
+					</tr>
+                    <!-- ENDIF -->
+                    <!-- BEGIN prices_data_list -->
+				    <tr>
+                         <td width="26%" height="25">[价格]</td>
+                         <td width="74%" height="25">{name}
+                         <input id="prices_de[{key}]" type="text" size="14" name="prices_de[{key}]" value=""/></td>
+					</tr>
+                     <!-- END prices_data_list -->
+				  <tr>
+					  <td width="26%" height="25">{image_data.name}</td>
+					  <td width="74%" height="25">
+                          <div class="model-img-list clearfix">
+                              <ul class="J_li_ul" data-mark="0">
+                                  <li class="add-btn J_add_btn" data-mark="0">
+                                      <span id="img_flash_btn_0"></span>
+                                  </li>
+                              </ul>
+                          </div>
+					  </td>
+					</tr>
+				<tr>
+				  <td colspan="2" align="center"><input name="store_id" type="hidden" id="store_id" value="{store_id}" />
+			      <input name="type_id" type="hidden" id="type_id" value="{type_id}" />				    <input type="button" name="button" id="button" value="提交" /></td>
+				</tr>
+			  </table>
+			</form>
+          </fieldset>
+        </div>
+      </div>
+    </div>   
+    </div>
+     </div>
+<input type="hidden" id="add_flash_num" value="1"/><!--要增加的falsh数值，页面有一个，则数值为二，同时也作为id标示-->
+<script>
+    seajs.use(['jquery','./js/img_upload_flash.js?t=1123415239'], function($,img_upload_flash) {
+        $(document).ready(function(){
+            //初始化上传封面图按钮
+            //construct_flash("cover_img_flash_btn","cover_img_btn",1,0,0);
+            //初始化第一个模特场地上传图按钮
+            var add_flash_num = $("#add_flash_num").val();
+            for(var j=0;j<add_flash_num;j++)
+            {
+                var param_1 = "img_flash_btn_"+j;
+                var param_2 = j;
+                construct_flash(param_1,"img_btn",param_2,0,0);
+            }
+
+            //构造flash函数
+            function construct_flash(_swfPlaceholderId,flash_type,id_num,img_mark,construct_img_mark)
+            {
+                img_upload_flash.get_flash(_swfPlaceholderId,flash_type,id_num,img_mark,construct_img_mark);
+            }
+            //提交校验
+            //封面图是否上传
+            $("#button").click(function(){
+                var res = form_check();
+                //form_summit
+                if(res)
+                {
+                    $("#form1").submit();
+                }
+            });
+            function form_check()
+            {
+                if(($(".J_upload_cover_img[data-mark='1']").length)>0)
+                {
+                    if($(".J_upload_cover_img[data-mark='1']").attr("class").match("J_progress"))
+                    {
+                        alert('封面图在上传中');
+                        return false;
+                    }
+                }
+                //检查图文块
+                if(($(".J_upload_img").length)>0)
+                {
+                    var upload_imgs_len = $(".J_upload_img").length;
+                    for(var i=0;i<upload_imgs_len;i++)
+                    {
+                        var cur_class = $($(".J_upload_img")[i]).attr("class");
+
+                        if(cur_class.match("J_progress"))
+                        {
+                            alert('图片还在上传中，请稍后');
+                            return false;
+                        }
+                    }
+                }
+                return true;
+                //检查是否有图片在上传，避免flash不能使用
+            }
+			
+            /****2015-10-10-星星添加-分类初始化选择交互****/
+                //初始化处理
+                var J_parent_type_len = $(".J_parent_type").length;
+                var cur_checked,cur_data_mark;
+                for(var i=0;i<J_parent_type_len;i++)
+                {
+                    cur_checked = $($(".J_parent_type")[i]).prop("checked");
+                    if(!cur_checked)
+                    {
+                        cur_data_mark = $($(".J_parent_type")[i]).attr("data-mark");
+                        //子分类不能勾选
+                        $(".J_child_type[data-parent='"+cur_data_mark+"']").attr("disabled","disabled");
+
+                    }
+                }
+                //选择后处理
+                $(".J_parent_type").on("change",function(){
+
+                    var J_parent_type_len = $(".J_parent_type").length;
+                    var cur_checked,cur_data_mark;
+                    for(var i=0;i<J_parent_type_len;i++)
+                    {
+                        cur_checked = $($(".J_parent_type")[i]).prop("checked");
+                        cur_data_mark = $($(".J_parent_type")[i]).attr("data-mark");
+                        if(!cur_checked)
+                        {  
+                            //子分类不能勾选
+                            $(".J_child_type[data-parent='"+cur_data_mark+"']").attr("disabled","disabled");
+                            $(".J_child_type[data-parent='"+cur_data_mark+"']").prop("checked",false);
+
+                        }
+                        else
+                        {
+                            $(".J_child_type[data-parent='"+cur_data_mark+"']").removeAttr("disabled");
+                        }
+                    }
+
+                    /*var new_data_mark =  $(this).attr("data-mark");
+                    $(".J_parent_type").prop("checked",false);
+                    $(this).prop("checked",true);
+                    $(".J_child_type").attr("disabled","disabled");
+                    $(".J_child_type").prop("checked",false);
+                    //选中的可选
+                    $(".J_child_type[data-parent='"+new_data_mark+"']").removeAttr("disabled");*/
+
+
+                });
+
+            /****2015-10-10-星星添加-分类初始化选择交互****/
+        });
+    });
+</script>
+</body>
+</html>

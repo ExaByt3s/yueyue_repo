@@ -1,0 +1,73 @@
+<main role="main" class="model-card">
+    <header class="nav-header mine-model-car-header-opacity" data-role="slide-header">
+        <div class="left-button-wrap" data-role="page-back">
+            <a href="javascript:;"><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title" data-role="moteka-title"></h3>
+
+       <div class="right-button-wrap" data-role="menu">
+           <a href="javascript:;"><i class="circle-min"></i><i class="circle-min"></i><i class="circle-min"></i></a>
+        </div> 
+    </header>
+    <div class="fade-header fn-hide">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-moder-ka-back"></i></a>
+        </div>
+
+    {{#unless is_preview}}
+       <div class="right-button-wrap" data-role="menu">
+            <a><i class="circle-min"></i><i class="circle-min"></i><i class="circle-min"></i></a>
+        </div>
+    {{/unless}}
+
+    </div>
+    {{#if is_android}}
+        <style>
+            .model-card .native_scroll > *
+            {
+                -webkit-transform: translateZ(0px);
+            }
+
+            .model-card .native_scroll > * {
+                -webkit-transform: translate3d(0,0,0);
+            }
+        </style>
+    {{/if}}
+    <div  data-role="container" class="content-body" style="position: relative;">
+        <div data-role="items-container"></div>
+        <footer  class="pop-model-car-confirm fn-hide" data-role="date-footer">
+            <ul class="list clearfix">
+                <li data-role="yuepai">
+                    <button class="ui-button ui-button-size-middle ui-button-block  ui-button-size-radius-large auto_width" data-role="yuepai" style="background-color: #ccc;
+color: #fff;">
+                        {{#if is_preview}}
+                                查看我的条件
+                        {{else}}
+                        <span class="ui-button-content" data-role="yuepai"><i class="icon icon-yuepai-m"></i> 约拍</span>
+                        {{/if}}
+                    </button>
+                </li>
+                <li data-role="{{#if is_preview}}page-back{{else}}msg{{/if}}">
+                    <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width">
+                        {{#if is_preview}}
+                                返回修改
+                        {{else}}
+                        <span class="ui-button-content"><i class="icon icon-siliao-m"></i> 私聊</span>
+                        {{/if}}
+                    </button>
+                </li>
+            </ul>
+        </footer>
+
+        <div class="pop-max-dabenxiang" data-role="pop-max-dabenxiang" style="background-image:url(../mobile/images/pop-modelcar-tips.png);background-size:80%;background-repeat:no-repeat;background-position:50%">
+            
+        </div>
+
+
+    </div>
+
+
+
+</main>
+

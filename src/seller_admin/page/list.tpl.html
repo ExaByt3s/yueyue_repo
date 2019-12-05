@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>充值卡管理后台</title>
+	<meta charset="gbk">
+	{head_html}	
+	<!-- libjs 必须引用 -->
+	<script src="/lib/lib.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../style/seller-common.scss">
+	<link type="text/css" rel="stylesheet" href="../style/list/index.scss">
+	
+							
+</head>
+
+	<body>
+		<main role="main">
+			<div class="page-view login seller-page" data-role="page-container">
+                {top_html}
+                <form action="list.php" method="get" id="search-form">
+                    <div class="ui-searchbar-wrap ui-border-b item-bg">
+                        <div class="ui-searchbar">
+                            <i class="ui-icon-search" >
+                                <em class="tap-btn" data-role="search-btn"></em>
+                            </i>
+                            <div class="ui-searchbar-text">输入卡号进行搜索</div>
+                            <div class="ui-searchbar-input"><input name="keyword" value="" type="search" placeholder="输入卡号进行搜索" autocapitalize="off"></div>
+                            <i class="ui-icon-close"></i>
+                        </div>
+                        <button class="ui-searchbar-cancel">取消</button>
+                    </div>
+                </form>
+                <!-- IF list -->
+                <div data-role="has-data">
+                    <div data-role="pager-container" class="mt15 mb15"></div>
+                    <div class="list item-bg">
+
+                        <ul class="ui-list ui-list-text ui-border-tb">
+                            <li class="ui-border-t header">
+                                <div class="ui-list-info">
+                                    <h4>卡号</h4>
+                                </div>
+                                <div class="ui-list-info right-size">
+                                    <div class="tap" style="width: 120px;">操作</div>
+                                </div>
+                            </li>
+                            <!-- BEGIN list -->
+                            <li class="ui-border-t">
+                                <div class="ui-list-info">
+                                    <h3>{num_text}</h3>
+                                </div>
+                                <!-- IF status="0" -->
+                                <div class="ui-list-info right-size">
+                                    <div class="tap active" data-role="active" data-card-no="{card_no}">激活<em class="v-line"></em></div>
+                                    <div class="tap disable" data-role="disable" data-card-no="{card_no}">作废</div>
+                                </div>
+                                <!-- ELSEIF status="1" -->
+                                <div class="ui-list-info right-size">
+                                    <div class="tap has-active">已激活</div>
+                                </div>
+                                <!-- ELSEIF status="8" -->
+                                <div class="ui-list-info right-size">
+                                    <div class="tap has-active">已激活</div>
+                                </div>
+                                <!-- ELSEIF status="2" -->
+                                <div class="ui-list-info right-size">
+                                    <div class="tap has-disable">已作废</div>
+                                </div>
+                                <!-- ENDIF -->
+
+
+                            </li>
+                            <!-- END list -->
+
+                        </ul>
+                    </div>
+                    <div data-role="pager-container" class="mt15"></div>
+                    <div class="text pl15 pr15 pb15">
+                        <p>说明：</p>
+                        <p>1、销售时，请商家在后台激活卡，一旦激活，
+                            则证明该卡已被销售，同时该卡生效，可用于
+                            充值。未激活的卡无法进行充值。</p>
+                        <p>2、如丢失某卡，可进行作废操作。以避免之后
+                            误操作激活</p>
+                    </div>
+                </div>
+                <!-- ELSE -->
+                <div data-role="no-data" class="no-search-data" >
+                    没有搜索到相关信息
+                </div>
+                <!-- ENDIF -->
+
+
+			</div>            
+		</main>
+			 
+	</body>
+	
+</html>
+<!--分页参数-->
+{page_config_script}
+<script type="text/javascript">
+    require('list/index');
+</script>

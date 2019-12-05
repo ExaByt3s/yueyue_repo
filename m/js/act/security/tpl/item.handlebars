@@ -1,0 +1,20 @@
+{{#each securitys}}
+    <li>
+        <div class="item">
+            <div class="title">
+                <div class="icon icon-{{icon}}"></div>
+                <div class="text">
+                    <h2>{{title}}</h2>
+                    <h2>活动时间：{{time}}</h2>
+                </div>
+            </div>
+            <i class="icon next fn-hide"></i>
+        </div>
+        <div class="password" >
+            {{#each ticket}}
+                <div class="number">密码：<em>{{code}}</em></div>
+                <div class="picture" data-role="password" data-code="{{code}}" data-qr-code="{{this.qr_code}}"><i data-lazyload="{{this.qr_code}}" ></i></div>
+            {{/each}}
+        </div>
+    </li>
+{{/each}}

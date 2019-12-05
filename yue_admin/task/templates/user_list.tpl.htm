@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <title>用户列表</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet"/>
+    <link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet"/>
+    <link href="js/shadowbox/shadowbox.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>    
+    <script type="text/javascript" src="js/shadowbox/shadowbox.js"></script>    
+    <script type="text/javascript">
+        Shadowbox.init({
+            handleOversize: "drag",
+            overlayColor: '#000',
+            modal: true,
+            displayNav: true,
+            displayCounter: false
+        });
+        Shadowbox.setup();
+    </script>
+<script type="text/javascript">
+	 $(function () {
+    $(".ui_timepicker").datetimepicker({
+        showSecond: true,
+        timeFormat: '',
+        stepHour: 1,
+        stepMinute: 1,
+        stepSecond: 1
+    });
+});
+</script>
+</head>
+<body>
+<div class="mainbox">
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form action="" method="get">
+                  
+                    <ul style="width: 35%;">
+                  
+                    <li>
+                    <select name="search">
+                      <option value="user_id" <!-- IF search="user_id" -->selected<!-- ENDIF -->>用户ID</option>
+                      <option value="cellphone" <!-- IF search="cellphone" -->selected<!-- ENDIF -->>手机</option>
+                      <option value="nickname" <!-- IF search="nickname" -->selected<!-- ENDIF -->>昵称</option>
+                    </select>
+                 <input type="text" name="text" id="text" value="{text}" />
+                            <input type="submit" class="button" name="button" id="button" value="查询" />
+
+                        </li>
+                    </ul>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="tabs">
+        <div class="tabbox">
+            <div class="table-list">
+                <table width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th width="5%">用户ID</th>
+                        <th width="8%">昵称</th>
+                        <th width="8%">手机</th>
+                        <th width="8%">地区</th>
+                        <th width="5%">注册时间</th>
+                        <th width="10%">修改密码时间</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <!-- BEGIN list -->
+                    <tr>
+                        <td width="5%" align="center">{user_id}</td>
+                        <td width="8%" align="center">{nickname}</td>
+                        <td width="8%" align="center">{cellphone}</td>
+                        <td width="8%" align="center">{location}</td>
+                        <td width="5%" align="center">{add_time}</td>
+                        <td width="10%" align="center">{reset_pwd_time}</td>
+                      </tr>
+                    <!-- END list -->
+                    </tbody>
+                </table>
+               
+            </div>
+        </div>
+        <div id="pages" class="page"> {page}</div>
+        
+    </div>
+</div>
+</body>
+</html>

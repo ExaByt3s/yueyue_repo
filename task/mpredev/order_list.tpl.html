@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{title_txt}</title>
+
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/base.css">
+<!--基础样式 END-->
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/task-m.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__romain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : '../ajax/'
+	};
+    console.log(window.localStorage.getItem("$__storage_first_tips"))
+    if(window.localStorage.getItem("$__storage_first_tips"))
+    {
+        console.log("in")
+    }
+    else
+    {
+        console.log("in2")
+        var data =
+        {
+            "details_1":1,
+            "details_2":1,
+            "submit_1":1,
+            "pay_1":1,
+            "talk_1":1
+        }
+        window.localStorage.setItem("$__storage_first_tips",JSON.stringify(data));
+    }
+</script>  
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/order_list/index.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/frozen/frozen.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/modules/common/pager/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/modules/yue_ui/frozen.js"></script>
+</head>
+<body>
+<main role="main" style="background: #f2f2f2">
+    <div class="page-view order-list" data-role="page-container">
+
+        <div class="common_menu" >
+    <div class="common_logo"><i class="icon icon-top-logo"></i></div>
+	<div class="common_btn" data-role="common_btn_menu"><i class="icon icon-right-menu-logo"></i></div>
+    
+</div>
+<div class="common_menu_open layout_box_v fn-hide" data-role="common_menu_open">
+    <a data-role="common_menu_open_business" href="list.php">生意机会</a>
+    <a data-role="common_menu_open_list" href="order_list.php?type=pending">订单列表</a>
+    <a data-role="common_menu_open_mine" href="profile.php">个人中心</a>
+    <a data-role="common_menu_open_log_out" href="logout.php">退出登录</a>
+</div>
+<!--modjs hack 特殊处理，增加head标记-->
+<head></head>
+<!--modjs hack 特殊处理，增加head标记-->
+<script type="text/javascript">
+	
+	var cookie = require('common/cookie/index');
+	var $ = require('components/zepto/zepto.js');	
+
+	(function($,window)
+	{
+		var self = this;
+
+		var no_login = '{no_login}';
+
+		var $common_menu_open = $('[data-role="common_menu_open"]');
+		var $common_btn_menu  = $('[data-role="common_btn_menu"]');
+		var $common_menu_open_log_out = $('[data-role="common_menu_open_log_out"]');
+
+		if(!parseInt(cookie.get('yue_member_id')))
+		{
+			$common_btn_menu.hide();
+		}
+
+		$common_btn_menu.on('click',function()
+		{	
+			if(!parseInt(cookie.get('yue_member_id')))
+			{
+				return;
+			}
+			
+			$common_menu_open.toggleClass("fn-hide");
+		});
+
+		$common_menu_open_log_out.on('click',function()
+		{
+			$.ajax
+			({
+				url: window.$__config.ajax_url + 'login_out.php',
+				type: 'POST',
+				cache: false,
+				dataType: 'json',
+				beforeSend: function () {
+
+				},
+				success: function (data) {
+					window.location.href = './login.php';
+
+				},
+				error: function () {
+
+				},
+				complete: function () {
+
+				}
+			})
+    })
+
+	})($,window);
+</script> 
+        <!--order_list 的头部-->
+        <div class="common_taps">
+    <a href="order_list.php?type=pending" class="tap_child <!-- IF type ="pending" -->current<!-- ENDIF -->" data-role="process"><div >待处理订单<div class='common_red_point <!-- IF pending_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{pending_remind_num}</div></div></a>
+    <a href="order_list.php?type=process" class="tap_child <!-- IF type ="process" -->current<!-- ENDIF -->" data-role="hired"><div >进行中订单<div class='common_red_point <!-- IF process_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{process_remind_num}</div></div></a>
+    <a href="order_list.php?type=archive" class="tap_child <!-- IF type ="archive" -->current<!-- ENDIF -->" data-role="get"><div >收藏<div class='common_red_point <!-- IF archive_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{archive_remind_num}</div></div></a>
+</div>
+<div class="tap-title">{title_txt}</div>
+        <!--order_list 的头部-->
+
+        <div class="common_list_container">
+            <!-- IF show_pager="1" -->
+
+            <!-- ELSEIF show_pager="0" -->
+            <div class="common_no_list"><p>暂无订单</p></div>
+            <!-- ENDIF -->
+
+        <!-- IF type="pending" -->
+
+            <!-- BEGIN list -->
+            <div class="common_list_child" data_lead_id="{lead_id}" data_quotes_id="{quotes_id}" data-request_id="{request_id}">
+                <!-- IF status="1" -->
+                <div class="common_list_child_title status-9" data-role="to_details">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_9-52x58.png"/>
+                    <p>已选中</p>
+                </div>
+                <!-- ELSE -->
+                <!-- IF order_status="viewed" -->
+                <div class="common_list_child_title status-3" data-role="to_details">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_3-60x60.png"/>
+                    <p>已查看</p>
+                </div>
+                <!-- ELSEIF order_status="sent" -->
+                <div class="common_list_child_title status-4" data-role="to_details">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_4-60x42.png"/>
+                    <p>已发送</p>
+                </div>
+                <!-- ELSEIF order_status="refunded" -->
+                <div class="common_list_child_title status-5" data-role="to_details">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_5-60x54.png"/>
+                    <p>有退款</p>
+                </div>
+                <!-- ELSEIF order_status="pending" -->
+                <div class="common_list_child_title status-6" data-role="to_details" data-pending="1">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_6-52x58.png"/>
+                    <p>待报价</p>
+                </div>
+                <!-- ELSEIF order_status="expired" -->
+                <div class="common_list_child_title status-7" data-role="to_details" data-expired="1">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_7-52x58.png"/>
+                    <p>已作废</p>
+                </div>
+                <!-- ELSEIF order_status="closed" -->
+                <div class="common_list_child_title status-8" data-role="to_details">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_8-52x58.png"/>
+                    <p>被拒绝</p>
+                </div>
+                <!-- ENDIF -->
+                <!-- ENDIF -->
+                <div class="common_list_child_ques" data-role="to_details" <!-- IF order_status="expired" --> data-expired="1"<!-- ENDIF --> <!-- IF is_pay_coins="0" --> data-pending="1"<!-- ENDIF -->>
+                <p class='name <!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{buyer_nickname}</p>
+                <p class='<!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{title}</p>
+                <!--p>{when_str}</p-->
+
+                <!--p class="more_line_text_dotdotdot">
+                    <!-- BEGIN answer -->
+                <!-- BEGIN data -->
+
+                <!-- END data -->
+                <!-- END answer -->
+                <!--/p-->
+            </div>
+                    <div class="common_list_child_control">
+                        <p>{time_format}</p>
+                        <div class="common_list_child_control_delete_btn" data-role="delete" <!-- IF is_archive=="1" -->data-has-get="1"<!-- ELSE --><!-- ENDIF -->  ><!-- IF is_archive=="1" -->已收藏<!-- ELSE -->收藏<!-- ENDIF --></div>
+                </div>
+            </div>
+            <!-- END list -->
+
+        <!-- ELSEIF type="process" -->
+
+            <!-- BEGIN list -->
+            <div class="common_list_child" data_lead_id="{lead_id}" data_quotes_id="{quotes_id}" data-request_id="{request_id}">
+                <!-- IF status="1" -->
+                <div class="common_list_child_title status-9" data-role="to_details">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_9-52x58.png"/>
+                    <p>已选中</p>
+                </div>
+                <!-- ELSE -->
+                <!-- IF order_status="viewed" -->
+                <div class="common_list_child_title status-3" data-role="to_details">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_3-60x60.png"/>
+                    <p>已查看</p>
+                </div>
+                <!-- ELSEIF order_status="sent" -->
+                <div class="common_list_child_title status-4" data-role="to_details">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_4-60x42.png"/>
+                    <p>已发送</p>
+                </div>
+                <!-- ELSEIF order_status="refunded" -->
+                <div class="common_list_child_title status-5" data-role="to_details">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_5-60x54.png"/>
+                    <p>有退款</p>
+                </div>
+                <!-- ELSEIF order_status="pending" -->
+                <div class="common_list_child_title status-6" data-role="to_details" data-pending="1">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_6-52x58.png"/>
+                    <p>待报价</p>
+                </div>
+                <!-- ELSEIF order_status="expired" -->
+                <div class="common_list_child_title status-7" data-role="to_details" data-expired="1">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_7-52x58.png"/>
+                    <p>已作废</p>
+                </div>
+                <!-- ELSEIF order_status="closed" -->
+                <div class="common_list_child_title status-8" data-role="to_details">
+                    <img src="http://static.yueus.com/task/mpredev/static/image/task/status_8-52x58.png"/>
+                    <p>被拒绝</p>
+                </div>
+                <!-- ENDIF -->
+                <!-- ENDIF -->
+                <div class="common_list_child_ques" data-role="to_details" <!-- IF order_status="expired" --> data-expired="1"<!-- ENDIF --> <!-- IF is_pay_coins="0" --> data-pending="1"<!-- ENDIF -->>
+                <p class='name <!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{buyer_nickname}</p>
+                <p class='<!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{title}</p>
+
+
+            </div>
+            <div class="common_list_child_control">
+                <p>{time_format}</p>
+                <div class="common_list_child_control_delete_btn" data-role="delete" <!-- IF is_archive=="1" -->data-has-get="1"<!-- ELSE --><!-- ENDIF -->  ><!-- IF is_archive=="1" -->已收藏<!-- ELSE -->收藏<!-- ENDIF --></div>
+        </div>
+        </div>
+        <!-- END list -->
+
+
+    <!-- ELSEIF type="archive" -->
+
+        <!-- BEGIN list -->
+        <div class="common_list_child" data_lead_id="{lead_id}" data_quotes_id="{quotes_id}" data-request_id="{request_id}">
+            <!-- IF status="1" -->
+            <div class="common_list_child_title status-9" data-role="to_details">
+                <img src="http://static.yueus.com/task/mpredev/static/image/task/status_9-52x58.png"/>
+                <p>已选中</p>
+            </div>
+            <!-- ELSE -->
+            <!-- IF order_status="viewed" -->
+            <div class="common_list_child_title status-3" data-role="to_details">
+                <img src="http://static.yueus.com/task/mpredev/static/image/task/status_3-60x60.png"/>
+                <p>已查看</p>
+            </div>
+            <!-- ELSEIF order_status="sent" -->
+            <div class="common_list_child_title status-4" data-role="to_details">
+                <img src="http://static.yueus.com/task/mpredev/static/image/task/status_4-60x42.png"/>
+                <p>已发送</p>
+            </div>
+            <!-- ELSEIF order_status="refunded" -->
+            <div class="common_list_child_title status-5" data-role="to_details">
+                <img src="http://static.yueus.com/task/mpredev/static/image/task/status_5-60x54.png"/>
+                <p>有退款</p>
+            </div>
+            <!-- ELSEIF order_status="pending" -->
+            <div class="common_list_child_title status-6" data-role="to_details">
+                <img src="http://static.yueus.com/task/mpredev/static/image/task/status_6-52x58.png"/>
+                <p>待报价</p>
+            </div>
+            <!-- ELSEIF order_status="expired" -->
+            <div class="common_list_child_title status-7" data-role="to_details" data-expired="1">
+                <img src="../image/task/img/status_7-52x58.png"/>
+                <p>已作废</p>
+            </div>
+            <!-- ELSEIF order_status="closed" -->
+            <div class="common_list_child_title status-8" data-role="to_details">
+                <img src="http://static.yueus.com/task/mpredev/static/image/task/status_8-52x58.png"/>
+                <p>被拒绝</p>
+            </div>
+            <!-- ENDIF -->
+            <!-- ENDIF -->
+            <div class="common_list_child_ques" data-role="to_details" <!-- IF order_status="expired" -->data-expired="1"<!-- ENDIF -->>
+            <p class='name <!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{buyer_nickname}</p>
+            <p class='<!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{title}</p>
+
+        </div>
+        <div class="common_list_child_control">
+            <p>{time_format}</p>
+            <div class="common_list_child_control_delete_btn fn-hide" data-role="delete">取消收藏</div>
+        </div>
+        </div>
+        <!-- END list -->
+
+    <!-- ENDIF -->
+
+
+        </div>
+
+    <!--分页参数-->
+    {page_config_script}
+    <!-- IF show_pager="1" -->
+    <div class="common_list_bottom" data-role="pager-container">
+
+    </div>
+    <script>
+        // 处理分页
+        var p = require('common/pager/index');
+        var pager = window._Pager;
+        var pager_obj = new pager
+        ($('[data-role="pager-container"]'),{
+            total_page : window.__page_config.total_page,
+            pre : window.__page_config.pre,
+            next : window.__page_config.next,
+            cur_page : window.__page_config.cur_page
+        });
+    </script>
+    <!-- ELSEIF show_pager="0" -->
+
+    <!-- ENDIF -->
+
+    </div>
+</main>
+
+</body>
+
+<script>
+    var yue_ui = require('yue_ui/frozen');
+    $(function()
+    {
+
+        $('[data-role="to_details"]').on('click',function()
+        {
+            var list = $(this).parent(); //订单元素
+
+            var quotes_id = $(this).parent().attr('data_quotes_id');
+
+            var request_id =  $(this).parent().attr('data-request_id');
+
+            var lead_id =  $(this).parent().attr('data_lead_id');
+
+            if($(this).attr("data-expired") == 1)
+            {
+                return
+            }
+
+            if($(this).attr("data-pending") == 1)
+            {
+                location.href = './details.php?lead_id=' + lead_id;
+
+                return
+            }
+
+            var quotes_id = $(this).parent().attr('data_quotes_id');
+
+            var request_id =  $(this).parent().attr('data-request_id');
+
+            location.href = './talk.php?quotes_id=' + quotes_id;
+        });
+
+        $('[data-role="delete"]').on('click',function(ev)
+        {
+            var list = $(this).parents("[data_quotes_id]");
+
+
+
+            var data_quotes_id = list.attr('data_quotes_id');
+
+            var lead_id = $(this).parent().attr('lead_id');
+
+            // hudw 修改收藏后的交互
+            var $cur_btn = $(ev.currentTarget);
+
+            var data =
+            {
+                quotes_id:data_quotes_id
+            };
+
+            if($cur_btn.attr('data-has-get') == 1)
+            {
+                return;
+            }
+
+            if(window.confirm('要收藏该需求吗?'))
+            {
+                $.ajax
+                ({
+                    url : window.$__config.ajax_url+'collection.php',
+                    data:data,
+                    type: 'POST',
+                    dataType : 'json',
+                    cache: false,
+                    beforeSend: function()
+                    {
+                        $.loading
+                        ({
+                            content:'加载中...'
+                        })
+                    },
+                    success: function(data)
+                    {
+                        $.loading.loading("hide");
+
+                        if(data.result_data)
+                        {
+                            var str = '收藏成功！';
+
+                            $cur_btn.html('已收藏');
+
+                            $cur_btn.attr('data-has-get',1);
+                        }
+                        else
+                        {
+                            var str = "该需求已被收藏！"
+
+                        }
+
+                        $.tips
+                        ({
+                            content : str,
+                            stayTime:3000,
+                            type:"success"
+                        });
+                    },
+                    error: function()
+                    {
+                        $.loading.loading("hide");
+                    }
+                });
+            }
+        });
+    });
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9fa08589aee02a0d763d50fe4dca33cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</html>

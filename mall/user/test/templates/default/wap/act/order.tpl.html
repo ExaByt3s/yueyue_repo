@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>活动报名</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/act/order.css">
+<!-- libjs 必须引用 -->
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/menu/index.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/add_reduction/add_reduction.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/menu/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/act/order.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/add_reduction/add_reduction.js"></script>
+</head>
+<body>
+<main role="main" >
+    <input type="hidden" value="{event_id}" id="event_id" />
+    <section id="global-header"></section>
+    <div class="page-view action-apply secondary" data-role="page-container">
+        <div class="content-body">
+            <div class="action-apply-content">
+
+                <section class="action-apply-list">
+                    <div class="item">选择场次：</div>
+                    <ul data-role="table-items" class="group">
+                        <!-- BEGIN act_arrange.table_info -->
+                        <li >
+                            <a class="db w-100">
+                                <button <!-- IF table_btn_jump ="1" -->data-jump-to-pay="1"<!-- ENDIF --> class="ui-button  ui-button-block ui-button-100per ui-button-size-x ui-button-bg-fff" <!-- IF table_btn_enable ="0" -->disabled<!-- ENDIF -->>
+                                    <span class="ui-button-content">{text}</span>
+                                    <!-- IF table_text -->
+                                    <span class="table_text">{table_text}</span>
+                                    <!-- ENDIF -->
+                                    <input type="hidden" value="{id}" data-role="table_id" />
+                                    <input type="hidden" value="{enroll_id}" data-role="enroll_id">
+                                </button>
+                            </a>
+                        </li>
+                        <!-- END -->
+                    </ul>
+                </section>
+                <section class="pay-items-container" data-role="pay-items-container">
+                    <div  class="box-vertical mb20">
+                        <div class="item">报名人数：</div>
+                        <div class="item-input" data-role="amount">
+
+                        </div>
+                    </div>
+                    <div class="ui-input-info-mod">
+                        <div >电话号码：</div>
+                        <div class="item " style="margin-bottom: 70px;">
+                            <input id="tel" type="tel" class="ui-input-info" placeholder="手机号码" value="{user_info.phone}">
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+        <footer class="ui-button-submit-area v2">
+            <div class="clearfix">
+                <button data-role="go-pay-btn" class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555">
+                    <span class="ui-button-content">去支付</span>
+                </button>
+            </div>
+        </footer>
+    </div>
+    {wap_global_footer}
+</main>
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+
+    var order = require('act/order');
+
+    // 载入组件
+    var add_reduction = require('common/widget/add_reduction/add_reduction');
+
+    // 人数组件
+    var people = new add_reduction
+    ({
+        ele : $('[data-role="amount"]'),//渲染模板节点
+        is_show_operate_btn : true,
+        param_val :
+        {
+            input_val : '1',  //要默认显示的值
+            max_val : '3', //最大值
+            min_val : '1'  //最小值
+        }
+    });
+
+    order.init();
+
+
+</script>
+</html>

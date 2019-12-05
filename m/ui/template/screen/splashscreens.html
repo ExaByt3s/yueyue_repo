@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="gb2312">
+<title>POCO摄影 - 开机画面</title>
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link charset="utf-8" rel="stylesheet" href="../../../css/pai/paiappstyle.css">
+</head>
+
+<body>
+<main id="J-splashscreens" class="splashscreens-page" role="main">
+    <div class="splashscreens-container" data-role="container">
+        <hgroup>
+            <h1 class="icon icon-logo">约约</h1>
+            <h2 class="icon icon-introduction-text">模特邀请第一平台</h2>
+        </hgroup>
+        <div class="splashscreens-notice">
+            <div class="left">页面加载中<span id="J-splashscreens-right" class="left-inside"></span></div>
+        </div>
+        <div class="fn-hide">
+            <div class="progress-wrap">
+                <div id="J-splashscreens-progress-radial" class="progress-radial">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <i class="icon icon-text-logo"></i>
+        </footer>
+    </div>
+</main><!-- end main.splashscreens -->
+<script>
+(function() {
+    /*
+    var $splashscreens = document.getElementById('J-splashscreens');
+    var $progressRadial = document.getElementById('J-splashscreens-progress-radial');
+
+    var AnimationEnd = function() {
+        $progressRadial.className = 'progress-radial complete';
+        $progressRadial.removeAttribute('style');
+
+        $progressRadial.removeEventListener('animationend', AnimationEnd);
+        $progressRadial.removeEventListener('webkitAnimationEnd', AnimationEnd);
+    };
+
+    $progressRadial.addEventListener('animationend', AnimationEnd, false);
+    $progressRadial.addEventListener('webkitAnimationEnd', AnimationEnd, false);
+
+    setTimeout(function() {
+        var timeArr = [1, 1.5, 2, 2.25, 2.5, 3, 3.25, 3.5];
+        timeArr = timeArr.sort(function() {return Math.random()>0.5?-1:1;});
+
+        var timeMS = (timeArr[0]*1000) + 'ms';
+
+        $progressRadial.style.animationDuration = timeMS;
+        $progressRadial.style.webkitAnimationDuration = timeMS;
+        $progressRadial.className = 'progress-radial running';
+    }, 0);
+     */
+    var $dots = document.getElementById('J-splashscreens-right');
+
+    setInterval(function()
+    {
+        if($dots.innerHTML.length >= 3)
+        {
+            $dots.innerHTML = ''
+        }
+        else{
+            $dots.innerHTML = $dots.innerHTML + '.'
+        }
+    },300)
+})();
+</script>
+</body>
+</html>

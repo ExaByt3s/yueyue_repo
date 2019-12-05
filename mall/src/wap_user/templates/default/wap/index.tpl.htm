@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>约约</title>
+    {wap_global_top}
+    <!-- <link rel="import" href="./webcontrol/head.tpl.html?__inline"> -->
+    <link charset="utf-8" rel="stylesheet" href='../../../style/index/index.scss'>
+    <link charset="utf-8" rel="stylesheet" href="../../../style/swiper3.07.min.scss">
+    <link charset="utf-8" rel="stylesheet" href="../../../style/swiper_fix.scss">
+    <!-- <meta name="wap-font-scale" content="no"> -->
+    <script src="../../../lib/lib.js"></script>
+    
+</head>
+<body>
+<main role="main" style="padding:0">
+    <section id="global-header"></section>
+
+    <div class="page-view" data-role="page-container">
+        
+        <div class="header-index global-header">
+            <div class="fl place color-666" data-role='header_choosen_city'><span class="city-name" data-role="hearder_city"></span></div>
+            <div class="logo-center">
+                
+            </div>
+            <div class="search" data-role="right-btn">
+                <i class="icon-search"></i>
+            </div> 
+        </div>
+
+        <!-- 首页  -->
+        <div class="index-page">
+            <div class="p1th">
+                <div class="item-wrap clearfix">
+
+                
+                <!-- BEGIN ret_index_v2.category_list -->
+                    <div class="item">
+                        <div class="title">{title}</div>
+                        <ul class="list clearfix color-333">
+
+                        <!-- BEGIN items -->
+                            <a href="{url}">
+                                <li class='<!-- IF ROWBIT = "0" -->ui-border-r<!-- ENDIF -->  
+                                <!-- IF is_open -->
+                                    is_open
+                                <!-- ELSE -->
+                                        no_open
+                                <!-- ENDIF -->'>
+                                    <div class="icon " style="background-image: url({default.small}) "></div>
+                                    <div class="title-2">{title}</div>
+                                </li>
+                            </a>
+                        <!-- END items -->
+
+
+                           
+                        </ul>        
+                    </div> 
+                <!-- END ret_index_v2.category_list -->    
+
+                    
+                </div>     
+            </div>
+
+            <div class="p2th">
+                <div class="pics_container">
+  
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+          
+                        
+                        
+                        <!-- BEGIN ret_index_v2.carousel_list -->
+                            <div class="swiper-slide"  data-role="swipe">
+                                <a href="{url}"><i class="slide-items-bg" style="background-image: url('{img}');background-size: cover;"></i></a>
+                            </div>
+                        <!-- END ret_index_v2.carousel_list -->   
+
+      
+                        </div>
+                        <!-- 如果需要分页器 -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+          
+
+
+                </div>
+            </div>
+
+            <div class="p3th">
+                <!-- BEGIN ret_index_v2.module_list -->
+                <div class="item-wrap">
+                    <div class="item">
+                        <div class="title-top clearfix f14 color-333">
+                            <div class="fl pl15 pt15 title">{title}</div>
+
+                            <!-- IF more -->               
+                            <div class="fr  more"><a href="{more}" class="color-333">更多 <em class="icon-allow-grey"></em></a></div>
+                            <!-- ENDIF -->
+
+                        </div>
+
+                        <div class="list-wrap">
+                            <ul class="list clearfix">
+                            <!-- BEGIN exhibit -->
+                                <a href="{url}">
+                                    <li>
+                                        <div class="img">
+                                            <i data-lazyload-url="{img}"  class="img image-img min-height"  style="background-size: cover;"></i>
+                                        </div>
+                                        <h3 class="color-333 title">{title}</h3>
+                                        <p class="p1 color-666">{desc}</p>
+                                    </li>
+                                </a>
+                                <!-- END exhibit -->
+                            </ul>  
+                        </div>
+
+                        
+                        <!-- BEGIN banner -->
+                        <div class="banner">
+                            <a href="{url}"><img src="{img}" /></a>
+                        </div>  
+                        <!-- END banner -->
+                    </div> 
+                    
+                </div>   
+
+                <!-- END ret_index_v2.module_list -->
+
+            </div>
+
+
+
+            <!-- IF ret_index_v2.billboard.list -->               
+            
+                <div class="p4th">
+                <!-- BEGIN ret_index_v2.billboard -->
+                    <div class="title-top f16">{title}</div>
+                    <div class="item-wrap">
+                    
+                    <!-- BEGIN list -->
+                    <a href="{url}">
+                        <div class="item">
+                           <div class="img"><img src="{img}" /></div>
+                           <div class="des">
+                                <div class="title f14 color-333">{title}</div>
+                                <p class="p1 color-666">{desc}</p>
+                           </div>
+                        </div> 
+                    </a>
+                    <!-- END list -->
+                    </div>    
+                <!-- END ret_index_v2.billboard -->
+
+                </div>
+
+            <!-- ENDIF -->
+            
+            <div class="p5th">
+                <!-- 私人定制 模块 -->
+                <div id="personal-made-ele"></div>
+            </div>
+
+
+        </div>
+        <!-- 首页 end  -->
+
+        <!-- 底部 -->
+        <div id="footer"></div>
+
+    </div>
+    <!-- 弹出层 -->
+    <div class="search-category" data-role="search-category">
+            <div class="categroy" data-role="category">
+                <div class="title ui-border-b">选择搜索品类</div>
+                <div class="categroy-content">
+                    <ul class="box clearfix">
+                    <!-- BEGIN search_icon_arr -->
+                        <li class="menu clearfix">
+                            <a href="{url}">
+                                <div class="tc">
+                                    <div class="img mt10"><i class="icon {class}"></i></div><span class=" f18 msg">{con}</span>
+                                </div>
+                            </a>
+                        </li>
+                    <!-- END -->
+                    </ul>
+                </div>
+                <div class="icon close-icon" data-role="close-icon"></div>
+            </div>
+        </div>
+
+    {wap_global_footer}
+    
+</main>
+</body>
+<!--SCRIPT_PLACEHOLDER-->
+
+<script>
+
+    var $ = require('zepto');
+    var utility = require('../../../modules/common/utility/index');
+    var cookie = require('../../../modules/common/cookie/index');
+    var header = require('../../../modules/common/widget/header/main');
+    var WeiXinSDK = require('../../../modules/common/I_WX_SDK/I_WX_SDK');
+    var yue_ui = require('../../../modules/yue_ui/frozen');
+    var LZ = require('../../../modules/common/lazyload/lazyload');
+
+    $(document).ready(function() {
+        
+        // 假如微信杀死后，清除cookie 
+        if(WeiXinSDK.isWeiXin())
+        {
+            var loc = utility.storage.get('location');
+            if(!cookie.get("yue_location_id")&& loc &&loc.location_id)
+            {
+                window.$loading = $.loading
+                ({
+                    content:'正在读取上次地区数据...'
+                });
+                cookie.set("yue_location_id",loc.location_id);
+
+                window.location.href = window.location.href;
+            }
+        }
+
+        // 地区
+        $('[data-role="header_choosen_city"]').on('click',function()
+        {
+            location.href = './location/location.php?r_url=' + encodeURIComponent(location.href);
+        })
+
+        //搜索分类
+        var $page_container = $('[data-role="page-container"]');
+        var $earch_category = $('[data-role="search-category"]');
+
+
+       $('[data-role="right-btn"]').on('click',function(){
+           $earch_category.removeClass('fn-hide');
+           function popup_show()
+           {
+               $earch_category.css({'-webkit-transform' : 'translate3d(0,0,0)'})
+           }
+           setTimeout(popup_show,10);
+
+        });
+       $('[data-role="close-icon"]').on('click',function(){
+            $earch_category.css({'-webkit-transform' : 'translate3d(100%,0,0)'});
+           function popup_hide()
+           {
+               $earch_category.addClass('fn-hide')
+           }
+            setTimeout(popup_hide,500);
+
+
+       });
+        var s = require('../../../modules/common/widget/swiper/1.0.0/swiper3.07.min'); //3.07.min
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: false,
+            autoplay : 3000,
+
+            // 如果需要分页器
+            pagination: '.swiper-pagination'
+        });
+
+        // 私人定制
+        var personal_made = require('../../../modules/common/personal_made/personal_made');
+        var personal_made_obj = new personal_made({
+            ele : $('#personal-made-ele'),
+            content:{
+                title : '{ret_index_v2.individual.title}',
+                desc : '{ret_index_v2.individual.desc}',
+                ico : '{ret_index_v2.individual.ico}',
+                link : '{ret_index_v2.individual.link}'
+            } 
+           
+        })
+        // 底部
+        var footer = require('../../../modules/common/widget/footer/footer');
+        var footer_obj = new footer({
+            ele : $('#footer'),
+            content : {
+                index_link : '{index_link}',
+                my_link : '{my_link}',
+                current : 0 
+            }
+        })
+
+        // layzload
+        new LZ($('body'),
+                {
+                    // size : window.innerWidth
+        });
+
+        //微信版本判断
+        if( WeiXinSDK.isWeiXin() &&  !utility.storage.get('has_use_gps'))
+        {
+            /*window.$loading = $.loading
+            ({
+                content:'定位中...'
+            });*/
+
+
+            setTimeout(function()
+            {
+                $('[data-role="hearder_city"]').html('定位中');
+            },0);
+
+            wx.ready(function()
+            {
+                //获取地区
+                wx.getLocation(
+                    {
+                        success : function(res)
+                        {
+                            //var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                            //var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                            //var speed = res.speed; // 速度，以米/每秒计
+                            //var accuracy = res.accuracy; // 位置精度
+
+                            console.log(res)
+
+                            
+                            utility.ajax_request
+                            ({
+                                url: window.$__ajax_domain + 'get_location_by_gps.php',
+                                data:{long:res.longitude,lat:res.latitude},
+                                cache : false,
+                                success : function(response, xhr, options)
+                                {
+                                    //$loading.loading("hide");
+                                 
+                                    var location_id = response.result_data.data.location_id;
+                                    var city = response.result_data.data.city;
+                                    var address = response.result_data.data.address;
+                                    var province = response.result_data.data.province;
+
+
+                                    cookie.set("yue_location_id",location_id);
+
+                                    var location_obj =
+                                    {
+                                        location_id : location_id,
+                                        location_name : city
+                                    };
+
+                                    $('[data-role="hearder_city"]').html(city);
+
+                                    utility.storage.set('location',location_obj);
+                                    utility.storage.set('has_use_gps',1);
+                                   
+                                },
+                                error : function(collection, response, options)
+                                {
+                                    $.tips
+                                    ({
+                                        content:'网络异常',
+                                        stayTime:3000,
+                                        type:'warn'
+                                    });
+
+                                    $('[data-role="hearder_city"]').html('广州');
+
+                                    utility.storage.set('has_use_gps',0);
+                                }
+                            });
+                        },
+                        cancel : function()
+                        {
+                            //$loading.loading("hide");
+
+                            alert('您不允许GPS定位当前城市，默认显示广州');
+
+                            utility.storage.set('has_use_gps',1);
+
+                            $('[data-role="hearder_city"]').html('广州');
+                            
+                        },
+                        fail : function(xhr,status)
+                        {
+                            //$loading.loading("hide");
+
+                            alert('定位失败，请开启设备的定位功能');
+
+                            utility.storage.set('has_use_gps',1);
+
+                            $('[data-role="hearder_city"]').html('定位失败');
+                            
+                        }
+                    });
+
+
+            });
+        }
+        /*** 微信定位 end ***/
+
+        if(utility.storage.get('location')&&utility.storage.get('location').location_name)
+        {
+            $('[data-role="hearder_city"]').html(utility.storage.get('location').location_name)
+        }
+        else{
+            $('[data-role="hearder_city"]').html("广州");
+
+            cookie.set('yue_location_id',101029001);
+        }
+
+        $('[data-url]').on('click',function()
+        {
+            location.href = $(this).attr('data-url');
+        })
+
+        $('[data-role="header_choosen_city"]').on('click',function()
+        {
+            location.href = '{index_link}'+'/location/location.php?r_url=' + encodeURIComponent(location.href);
+        })
+
+    });
+document.body.addEventListener('touchstart',function(){});
+
+</script>
+
+<!-- 底部统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d3f6d15244a0b41207c934710304445d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+</script>
+<!-- 底部统计 end -->
+<!-- poco log start -->
+<script type="text/javascript">__poco_site_stat_request_filename = 'yueus.css';</script>
+<script type="text/javascript" src="//www.yueus.com/js/site_stat_code.js"></script>
+<!-- poco log end; -->
+
+<!-- 2015 App下载位 start -->
+{wap_global_tips}
+<!-- 2015 App下载位 end -->
+
+</html>

@@ -1,0 +1,29 @@
+{{#if data}}
+<li data-role="li-tap" data-id="{{data.user_id}}">
+    <div class="list_container">
+        <div class="container_left">
+            <div class="lbox">{{data.index_count}}</div>
+            <div class="cbox">
+                <div class="avatar-size-mod avatar-size-mod-50">
+                    <span class="icon avatar-size-area"></span>
+                    <i class="avatar-size-img" style="background-image: url({{data.user_icon}}); background-size:cover"></i>
+                </div>
+                <p class="user_name">{{data.nickname}}</p>
+            </div>
+        </div>
+        <div class="container_right">
+            <div class="rbox">
+
+                {{#if data.is_date}}
+                    <p class="score">x{{data.num}}</p>
+                    <span class="score-txt">次</span>
+                {{/if}}
+                {{#if data.is_score}}
+                    <p class="score">{{data.num}}</p>
+                    <span class="score-txt">魅力</span>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</li>
+{{/if}}

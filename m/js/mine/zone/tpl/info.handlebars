@@ -1,0 +1,89 @@
+<section class="group-items no-top " style="border:none" >
+    <ul>
+        <li data-role="grid-container" class="grid-pic-content" >
+
+        </li>
+    </ul>
+</section>
+<section class="group-items no-top" >
+    <ul>
+        <li data-role="user-info" class="item user-info">
+            <div data-role="head-icon" class="head-icon-items">
+                <i class="img circle-img head-icon" style="background-image:url('{{user_icon}}');"></i>
+                <div class="user-name">{{nickname}}</div>
+            </div>
+        </li>
+    </ul>
+</section>
+<section class="group-items no-top" >
+    <ul>
+        <li class="item rel-count">
+            <div data-role="follow" class="counts">
+                <em>{{follow}}</em>
+                关注
+            </div>
+            <div data-role="meber-lv" class="counts">
+                <em>VIP_{{user_level}}</em>
+                会员等级
+            </div>
+            <div data-role="fans" class="counts fn-hide">
+                <em>{{fans}}</em>
+                粉丝
+            </div>
+        </li>
+    </ul>
+</section>
+<section class="group-items ">
+    <ul>
+        <li data-role="items " class="item location">
+            <div class="container"  >
+                <div class="com">
+                    <span class="txt">地区 : {{city_name}}</span>
+                </div>
+            </div>
+        </li>
+        <li data-role="items " class="item score">
+            <div class="container"  data-role="go-comment">
+                <div class="com">
+                    <span class="txt">评价 : </span>
+                    {{#each comment_stars_list}}
+                        {{#if is_red}}
+                            <i class="icon icon-red"></i>
+                        {{else}}
+                            <i class="icon icon-grey"></i>
+                        {{/if}}
+                    {{/each}}
+                    <span class="red">{{comment_score}}分</span>
+                </div>
+                <div>
+                        <span class="">{{comment_num}}人评价
+                            <i class="icon icon-r"></i>
+                        </span>
+                </div>
+            </div>
+        </li>
+        <li data-role="items" class="item score">
+            <div class="container no-border-style">
+                <div class="com">
+                    <span>出勤率 : </span>
+                    {{#each attendance_stars_list}}
+                        {{#if is_red}}
+                            <i class="icon icon-red"></i>
+                        {{else}}
+                            <i class="icon icon-grey"></i>
+                        {{/if}}
+                    {{/each}}
+                    <span class="red">{{attendance}}%</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+<section class="group-items fn-hide" style="padding-bottom: 45px;">
+    <ul>
+        <li data-role="items photo-lv-container" class="item photo-lv">
+            <div class="name">摄影等级：</div>
+            <div class="txt">{{zone_info.intro}}</div>
+        </li>
+    </ul>
+</section>

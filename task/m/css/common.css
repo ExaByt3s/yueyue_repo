@@ -1,0 +1,210 @@
+body{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Microsoft YaHei', 'Verdana', 'SimSun';
+    background: #eeeeee;
+}
+.layout_box{
+    display: -webkit-box;
+}
+.layout_box_v{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+p{
+    margin: 0px;
+}
+/* 通用顶部栏 */
+.common_menu{
+    display: -webkit-box;
+    -webkit-box-pack:justify;
+    padding: 5px 15px;
+    height: 25px;
+    border-bottom: 1px solid #e6e6e6;
+    background: #fff;
+}
+.common_logo{
+    height: 25px;
+}
+.common_logo > img{
+    height: 100%;
+}
+.common_btn{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack:center;
+    padding-top: 1px;
+}
+.common_btn > img{
+    height: 14px;
+}
+/* 通用顶部栏 */
+/* 通用顶部进程点击 */
+.common_taps{
+    display: -webkit-box;
+    background: #fff;
+    height: 45px;
+    line-height: 44px;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 12px;
+    color: #aaaaaa;
+    padding: 0px 15px;
+}
+.common_taps > .tap_child{
+    padding-right:15px;
+}
+.common_taps > .current{
+    color: #000;
+}
+/* 通用顶部进程点击 */
+/* 通用列表样式 */
+.common_list_container{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    padding: 0px 15px;
+    border-top:1px solid #e6e6e6;
+    background: #fff;
+}
+.common_list_child{
+    display: -webkit-box;
+    -webkit-box-pack:justify;
+    padding-top: 14px;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 14px;
+
+}
+.common_list_child_title{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-align: center;
+    width: 60px;
+    font-size:10px;
+    color:#999999;
+    padding-top: 8px;
+}
+.common_list_child_title > img{
+    height: 22px;
+}
+.status-3 > img{
+    width: 30px;
+    height: auto;
+}
+.status-4 > img{
+    width: 30px;
+    height: auto;
+}
+.status-5 > img{
+    width: 30px;
+    height: auto;
+}
+.status-6 > img{
+    width: 26px;
+    height: auto;
+}
+.status-7 > img{
+    width: 26px;
+    height: auto;
+}
+.status-8 > img{
+    width: 26px;
+    height: auto;
+}
+.status-9 > img{
+    width: 30px;
+    height: auto;
+}
+.common_list_child_ques{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-flex:1;
+
+}
+.common_list_child_ques > .name{
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 4px;
+}
+.common_list_child_ques > p {
+    margin: 1px 0px;
+    font-size: 12px;
+    color: #666666;
+}
+.common_list_child_ques > .exp{
+    margin-top: 3px;
+    font-size: 12px;
+    color: #aaaaaa;
+}
+.common_list_child_control{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    width: 50px;
+    font-size:10px;
+    color: #b0b0b0;
+}
+.common_list_child_control > p{
+    text-align: end;
+    margin-bottom: 12px;
+}
+.common_list_child_control_delete_btn{
+    width:48px;
+    height:20px;
+    line-height: 20px;
+    border: 1px solid #aaaaaa;
+    background: #f2f2f2;
+    text-align: center;
+    color: #000;
+    border-radius: 3px;
+}
+/* 通用列表样式 */
+.common_list_bottom{
+    display: -webkit-box;
+    height: 61px;
+    background: #fff;
+}
+.common_copyright_bottom{
+    display: -webkit-box;
+    height: 85px;
+    background: #f2f2f2;
+    -webkit-box-pack: center;
+}
+.common_copyright_bottom > p{
+    text-align: center;
+    color: #aaaaaa;
+    font-size: 12px;
+    line-height: 60px;
+}
+.common_control_btn{
+    width:65px;
+    height:30px;
+    line-height: 30px;
+    border: 1px solid #aaaaaa;
+    background: #f2f2f2;
+    text-align: center;
+    color: #000;
+    border-radius: 3px;
+
+}
+.mgt10{
+    margin-top: 10px;
+}
+.mgt15{
+    margin-top: 15px;
+}
+.mgt20{
+    margin-top: 20px;
+}
+.mgt40{
+    margin-top: 40px;
+}
+.mgb20{
+    margin-bottom: 20px;
+}
+.mgt25{
+    margin-top: 25px;
+}
+.mgb50{
+    margin-bottom: 50px;
+}
+

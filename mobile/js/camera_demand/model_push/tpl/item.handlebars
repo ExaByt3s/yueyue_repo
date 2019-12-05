@@ -1,0 +1,38 @@
+{{#each datas}} 
+
+
+<li >
+
+    <div class="img_container" data-user-id="{{user_id}}">
+        
+        <i class="img image-img avatar-size-img inner_img loaded" style="background-size: cover; background-image: url( {{img_url}} );"></i>
+    </div>
+    <div class="details">
+        <div class="item-wrap">
+            <div class="item ">
+                <div class="lbox  name">{{nickname}}</div>
+
+            </div>
+
+
+            <div class="item ">
+                <div class="lbox ">她的标价：</div>
+                <div class="rbox "><span class="cor2">￥<em>{{price}}</em></span></div>
+            </div>
+
+
+            <div class="item ">
+                <div class="lbox ">接拍次数：</div>
+                <div class="rbox ">{{take_photo_times}}</div>
+            </div>
+
+
+            <div class="item ">
+                <div class="lbox ">擅长风格：</div>
+                <div class="rbox ">{{style}}</div>
+            </div>
+        </div>
+    </div>
+</li>  
+
+{{/each}}

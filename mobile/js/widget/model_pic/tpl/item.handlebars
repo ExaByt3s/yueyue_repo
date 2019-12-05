@@ -1,0 +1,5 @@
+{{#each custom_model}}
+{{#if title}}<p class="grid-title" data-role="japan">#{{title}}</p>{{/if}}
+{{#each img_list}}<div data-alumn-img="{{big_user_icon}}" data-user-role="{{role}}" class="grid-pic {{mid_class}}" data-user-id="{{user_id}}" data-role="grid-pic-container" style="width:{{width}}px;height:{{height}}px;"> <i class="img image-img {{#if no_use_lazyload}}loaded{{/if}}" {{#if no_use_lazyload}}style="background-image: url('{{user_icon}}');text-align: center;"{{else}} data-is-lazyload data-lazyload="{{user_icon}}"{{/if}}  ></i></div><!---->{{/each}}
+{{/each}}
+

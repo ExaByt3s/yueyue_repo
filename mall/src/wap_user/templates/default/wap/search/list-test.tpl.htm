@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{type_name}</title>
+    
+    <!-- {wap_global_top} -->
+    <link rel="import" href="../webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/search/list.scss">
+    <script src="/lib/lib.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view" data-role="page-container">
+        <div>
+
+            <div class="search-list-page">   
+                <div class="service_list" data-role="service_list">
+
+                    <div id="render_ele"></div>
+
+                </div>
+
+                <div data-role="list_container"></div>
+            </div>    
+
+            <div class="order_list_container" data-role="list_container"></div>
+
+        </div>
+    </div>
+</main>
+</body>
+<script>
+
+var $ = require('zepto');
+var utility = require('../../../../modules/common/utility/index');
+var header = require('../../../../modules/common/widget/header/main');
+var frozen = require('../../../../modules/yue_ui/frozen');
+var WeiXinSDK =  require('../../../../modules/common/I_WX_SDK/I_WX_SDK.js');
+
+
+var header = require('../../../../modules/common/widget/header/main');
+$(document).ready(function() {
+
+
+    var _self = $({});
+
+    var page_params = {page_params}.result_data;
+    // 转码
+    page_params.keyword = decodeURIComponent(page_params.keyword);
+
+    _self.type = page_params.type ;
+
+
+    // php 接口切换
+    switch (_self.type)
+    {
+        case 'seller': 
+            console.log('seller');
+            //_self.php_url = 'customer/search_sellers.php' ;
+            _self.title = '商家列表';
+            var template  = __inline('./seller_item.tmpl');
+        break;
+
+        case 'goods': 
+            console.log('goods');
+            //_self.php_url = 'customer/search_services.php' ;
+            _self.title = '服务列表';
+            var template  = __inline('./goods_item.tmpl');
+        break;
+    }  
+
+    // 渲染头部
+    header.init({
+        ele : $("#global-header"), //头部渲染的节点
+        title: _self.title,
+        header_show : true , //是否显示头部
+        mt_0_ele : $('#seller-detail-page'), //如果头部隐藏，要把当前页节点margin-top改为0
+        right_icon_show : false, //是否显示右边的按钮
+        share_icon : 
+        {
+            show :false,  //是否显示分享按钮icon
+            content:""
+        },
+        omit_icon :
+        {
+            show :false,  //是否显示三个圆点icon
+            content:""
+        },
+        show_txt :
+        {
+            show :true,  //是否显示文字
+            content:"编辑"  //显示文字内容
+        }
+    })
+
+    var SELLER_AJAX_URL = window.$__ajax_domain+'get_trade_search_list.php';
+    var search_list_class = require('../../../../modules/list/list.js');
+    var search_list_obj = new search_list_class(
+    {
+        ele : $('#render_ele'),
+        url : SELLER_AJAX_URL, 
+        params : page_params,
+        template : template,
+        is_open_lz_opts : false
+    })
+
+});
+
+</script>
+</html>

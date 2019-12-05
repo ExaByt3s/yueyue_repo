@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "common.css",
+    "sources": [
+        "/style/pay/common.scss"
+    ],
+    "sourcesContent": [
+        "@charset \"UTF-8\";\r\n\r\n$main-color : #63ce76;\r\n$main-font-color : #fff;\r\n"
+    ],
+    "mappings": "",
+    "names": []
+}

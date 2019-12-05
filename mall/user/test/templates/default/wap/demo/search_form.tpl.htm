@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title id="specc">{title}</title>
+
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/search/search.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/search/search_form.js"></script>
+</head>
+<body class="bg-cfff">
+<main role="main">
+    <div class="page-view " data-role="page-container">
+        <div data-role="render-search-page">
+            
+        </div>
+        
+</main>
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+    var yue_ui = require('yue_ui/frozen');
+    $(function()
+    {
+        document.body.addEventListener('touchstart',function(){});
+
+        window.__service_tags = {service_tags}.result_data;
+        window.__seller_tags = {seller_tags}.result_data;
+        window.__type_id = {type_id};
+
+
+        var search_form = require('search/search_form');
+
+        var search_form_obj =  search_form.init
+        ({
+            ele : $('[data-role="render-search-page"]')
+        });
+        
+    });
+</script>
+</html>

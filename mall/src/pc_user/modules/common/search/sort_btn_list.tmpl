@@ -1,0 +1,32 @@
+<div class="w1000">
+    {{#if is_no_data}}
+    <p data-res="" class="data_res"><i class="icon-tips mr10" style="background-image:url('{{icon_tips}}');"></i>{{no_data_text}}</p>
+    {{else}}
+        {{#if keywords}}
+        <p data-res="" class="data_res">搜索到 {{keywords}} {{#if is_seller}}商家{{else}}服务{{/if}}</p>
+        {{/if}}
+    {{/if}}
+    
+</div>
+
+{{#unless is_no_data}}
+<div class="w1000" data-role="achor-sort-btn" >
+    {{#if is_seller}} 
+    <ul class="search-order clearfix">        
+        {{#each sort_btn}}
+        <li class="fldi {{#if selected}}cur{{/if}}">
+        <a class="db" href="javacript:;" data-sort-arr="{{sort}}" data-orderby="{{orderby}}">{{text}}<i class="{{arrow}} ml5"></a></i></li>            
+        {{/each}}
+        
+    </ul>
+    {{else}}
+    <ul class="search-order clearfix">        
+        {{#each sort_btn}}
+        <li class="fldi {{#if selected}}cur{{/if}}">
+        <a class="db" href="javacript:;" data-sort-arr="{{sort}}" data-orderby="{{orderby}}">{{text}}<i class="{{arrow}} ml5"></a></i></li>            
+        {{/each}}
+    </ul>
+    {{/if}}
+
+</div>
+{{/unless}}

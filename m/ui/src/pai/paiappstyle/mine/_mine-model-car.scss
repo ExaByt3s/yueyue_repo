@@ -1,0 +1,285 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app -模特卡
+// ------------------------------
+.mine-model-car-btn{
+    position: absolute;
+    right: 5px;
+    top: -2px;
+    i{
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #ff0052;
+        @include border-radius(5px);
+        margin-right: 5px;
+    }
+    &:active{
+        i{
+            background: #ff7fa8;
+        }
+    }
+    
+}
+.mine-model-car{
+    .grid-pic-content{
+        position: relative;
+        .grid-pic{
+            @include float-left;
+        }
+    }
+    padding-bottom: 120px;
+    .back{
+        position: absolute;
+        z-index: 9;
+        top: 20px;
+        left: 5px;
+        padding: 10px;
+        
+    }
+    .list-img{
+        @include clearfix;
+        li{
+            width: 33.3%;
+            @include float-left;
+            img{
+                width: 100%;
+                display: block;
+            }
+        }
+        li:nth-child(4){
+            width: 66.6%;
+        };
+    }
+    .bar{
+            position: relative;
+            z-index: 1;
+            background: #ff0052;
+            color: #fff;
+            font-size: 15px;
+            @include box-sizing(border-box);
+            @include flexbox((
+                display: box
+            ), $version: 1);
+            li{
+                padding-left: 10px;
+               height: 44px;
+               line-height: 44px;
+                @include flexbox((
+                    box-flex: 1
+                ), $version: 1);
+                text-align: center;
+                .icon-yuepai{
+                    // @include get-icon('sizhao-50x50', true, block);
+                    vertical-align: bottom;
+                    margin-right: 3px;
+                }
+                .icon-sizhao{
+                    @include get-icon('yuepai-50x50', true, block);
+                    vertical-align: bottom;
+                    margin-right: 3px;
+                }
+                &:nth-child(1){
+                    // border-right: 1px solid #fff;
+                }
+                &:active{
+                    background-color: #ff266c;
+                };
+                .icon-r-16x26-white{
+                    @include float-right;
+                    margin: 16px 10px 0 0;
+                }
+            }
+
+
+         
+    }
+
+    .bar-hover{
+        li{
+            text-align: left;
+            .icon-r-16x26-white{
+                    @include float-right;
+                    -webkit-transform:rotate(90deg);
+            }
+        }
+        .pop-info{
+            display: block;
+        }
+    }
+
+
+    .pop-info{
+
+            .wrap-box{
+                padding: 10px;
+            }
+
+            font-size: 14px;
+
+            width: 100%;
+            background: #fff;
+            padding-bottom: 10px;
+            color: #000;
+            .box1{
+                color: #666666;
+            }
+            .box2{
+                margin-top: 10px;
+            }
+            .item{
+                @include clearfix;
+                width: 100%;
+                border: 1px solid #cccccc;
+
+
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                color: #666666;
+                margin-top: 10px;
+                @include border-radius($border-radius);
+            }
+            .lbox{
+                @include float-left;
+                margin-left: 15px;
+            }
+            .rbox{
+                @include float-right;
+                margin-right: 15px;
+                .font{
+                    font-size: 12px;
+                }
+                .cor{
+                    color: #ff5000;
+                }
+            }
+    } 
+
+    .img-area{
+        clear: both;
+        @include clearfix;
+        padding: 22px 0px 17px;
+        div{
+            // @include float-left;
+        }
+        .user-img{
+            width: 78px;
+            height: 78px;
+            margin: 0 auto;
+        }
+        .icon-add{
+            @include get-icon('add-98x98', true, block);
+            &:active{
+                @include get-icon('add-98x98-active', true, block);
+            };
+            margin-right: 20px;
+            margin-top: 13px;
+        }
+        .icon-msg{
+            // @include get-icon('msg-98x98', true, block);
+            &:active{
+                // @include get-icon('msg-98x98-active', true, block);    
+            };
+            margin-left: 20px;
+            margin-top: 13px;
+        }
+        .user-img{
+            width: 78px;
+            height: 78px;
+            @include border-radius(50px);
+            overflow: hidden;
+            border: 1px solid #ff0052;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .model-info{
+        text-align: center;
+    }
+    .p1{
+        color: #434343;
+        font-size: 15px;
+        .icon-person{
+            @include get-icon('person-20x20', true, block);
+        }
+        .icon-place{
+            // @include get-icon('place-14x20', true, block);
+            margin-left: 10px;
+        }
+    }
+    .p2{
+        padding-top: 5px;
+        color: #aeaeae;
+        font-size: 10px;
+    }
+    .model-size{
+        font-size: 15px;
+        padding-top: 20px;
+        li{
+            width: 25%;
+            @include float-left;
+            text-align: center;
+
+            // icons
+            &:before {
+                    margin: 0px auto 0px;
+                    width: 76px;
+                    height: 76px;
+                    margin-bottom: 5px;
+            }
+            &:nth-child(1){
+                @include get-icon('shengao-76x76', true, block);
+            }
+            &:nth-child(2){
+                @include get-icon('tizhong-76x76', true, block);
+            }
+            &:nth-child(3){
+                @include get-icon('xiongwei-76x76', true, block);
+            }
+            &:nth-child(4){
+                @include get-icon('yaowei-76x76', true, block);
+            }
+        }
+    }
+    .wrap-box{
+        clear: both;
+        font-size: 14px;
+        padding: 12px 10px 12px 10px;
+        .com{
+            @include float-left;
+            .icon-red{
+                @include get-icon('start-red-26x26', true, block);
+                vertical-align: middle;
+            }
+            .icon-grey{
+                @include get-icon('start-grey-26x26', true, block);
+                vertical-align: middle;
+            }
+            .red{
+                color: #ff0052;
+            }
+        }
+        .num{
+            @include float-right;
+            .icon-r{
+                @include get-icon('r-16x26', true, block);
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

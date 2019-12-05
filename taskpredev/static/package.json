@@ -1,0 +1,7 @@
+{
+    "author" : "zky",
+    "dev_domain" : "http://localhost/yue/taskdev",
+    "predev_domain" : "http://static.yueus.com/taskpredev",
+    "pub_test_domain" : "http://localhost/yue/taskpt",
+    "pub_domain" : "http://static.yueus.com/task"
+}

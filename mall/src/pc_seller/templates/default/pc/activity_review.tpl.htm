@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{page_title}</title>
+
+    <!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+    -->
+    <!-- 公共css，js引入 -->{pc_global_top}</head>
+
+<body>
+{global_top_bar}
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+<form action="./module/activity_review_op.php" method="post"  name="publish_form" id="publish_form" target="form_iframe">
+
+<div class="editing-from-page w1000 font_wryh content">
+    <div class="msg_info mt10 font_wryh f14" id="system_msg_div" style="<!-- IF hide_system_msg == "1" -->display:none;<!-- ENDIF hide_system_msg -->">
+    <ul class="list clearfix">
+
+        <li>
+            <a href="javascript:;" class="close" id="system_msg_close"></a>
+            {system_msg}
+            <!--<a href="#">去看看</a>-->
+        </li>
+    </ul>
+
+</div>
+<div class="mod-nav-item">
+    <a href="./">约约商家主页</a>
+    &gt;
+    <a href="./activity_list.php">活动管理</a>
+    &gt;
+    <span>编辑服务</span>
+</div>
+<div class="editing-from-wrap mod-attest-page content-bg">
+    <div class="mod-listItem">
+        <span>{page_title}</span>
+    </div>
+    <div class="form-warp" id="form-warp">
+        <div class="item clearfix">
+            <h3 class="title" style="width:800px;text-align:left;">活动类别：{activity_type_name}</h3>
+        </div>
+        <div class="clearfix">
+            <h3 class="title" style="width:800px;text-align:left;">活动标题：{activity_title}</h3>
+        </div>
+        <div class="item">
+            <div class="mod-form-title">
+                <span>活动回顾：</span>
+                <textarea name="introduce" id="J_content" style="display: none;"></textarea>
+            </div>
+            <!-- 加载编辑器的容器 -->
+            <script id="container" name="container" type="text/plain">{introduce}</script>
+            <div class="item-con fn-hide" style="display:none;">
+                <div class="mod-imgtext-item">
+                    <div class="tool-item clearfix">
+                        <div class="tool-bar">
+                            <ul>
+                                <li>
+                                    <a href="javascript:;"> <i class="icon img-icon"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"> <i class="icon vedio-icon"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="text-item"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="btn-item">
+            <a href="javascript:;" class="ui-btn ui-btn-blue J_form_submit" data-type="{action}" id="J_form_submit" data-lock="unlock">发布</a>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+
+
+<input type="hidden" value="{type_id}" name="type_id" id="type_id">
+<input type="hidden" value="{goods_id}" name="goods_id">
+</form>
+<input type="hidden" value="{user_id}" id="J_user_id">
+
+
+{footer}
+
+
+
+
+<script type="text/javascript" src="http://static.yueus.com/yue_ui/upload/1.0.0/webuploader.min.js"></script>
+<script type="text/javascript">
+// 头部
+require('../../../modules/common/global-top-bar/global-top-bar');
+
+require('../../../modules/common/layer/layer');
+//工具包
+var utility_module = require('../../../modules/common/utility/index');
+
+
+
+
+
+function error_tips(ele,str)
+{
+    $("html,body").animate({scrollTop:ele.offset().top},300);
+    layer.alert(str);
+    return false;
+}
+
+
+// 表达验证类
+var VA = require('../../../modules/common/valid/index');
+// 设置容器
+var valid = new VA($('#form-warp'));
+
+
+
+require('../../../modules/common/ueditor/1.0.0/ueditor');
+// 初始化生成编辑器
+var ueditor = new Ueditor({
+    target:'#container'
+
+});
+
+//提交form
+$(".J_form_submit").on("click",function(e){
+
+    var resault = valid.checkValid();
+    if(resault.isPass)
+    {
+
+
+
+        var data_lock = $(this).attr("data-lock");
+        if(data_lock!="lock")
+        {
+
+
+            var content = ueditor.editor.getContent();
+            //判断图文是否为空（2015-7-6）
+            if(!content)
+            {
+                error_tips($('#J_content').parents(".item"), '请填入活动回顾');
+                return
+            }
+
+            /*****2015-10-27计算服务详情里的数据*******/
+            /*var editor_str_len = utility_module.count_editor_str_num(content);
+            var editor_img_len = utility_module.count_editor_img_num(content);
+
+
+            if(editor_str_len>5000)
+            {
+                error_tips($('#J_content').parents(".item"), '填入图文详情文字不能超过5000字');
+                return
+            }
+            //图片张数前后端处理
+            if(editor_img_len>20)
+            {
+                error_tips($('#J_content').parents(".item"), '填入图文详情图片不能超过20张');
+                return
+            }*/
+            /*****2015-10-27计算服务详情里的数据*******/
+
+
+            $("#J_content").html(content);
+
+            $(this).attr("data-lock","lock");//锁住
+            layer.msg("正在提交中...");
+
+
+            $("#publish_form").submit();
+
+
+        }
+        else
+        {
+            layer.msg("正在提交中...");
+            return false;
+        }
+    }
+})
+
+
+
+
+
+
+$("#system_msg_close").on("click",function(){
+
+    /*var type_id = $("#type_id");
+     var cookie_name = "mall_pai_goods_edit_"+type_id;
+     cookie.set(cookie_name,"hide_system_msg",{
+     expires :1000,
+     domain : 'yueus.com',
+     path : '/'
+     });*/
+
+    $("#system_msg_div").css("display","none");
+
+
+});
+
+
+
+</script>
+
+</body>
+</html>

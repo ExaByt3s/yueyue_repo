@@ -1,0 +1,59 @@
+<div class="global-top-bar global-top-bar-seller" id="global-top-bar-seller">
+
+    <div class="top-bar clearfix w1000 font_wryh">
+
+        <div class="logo fldi">
+            <a href="{index_url_link}"></a>
+        </div>
+
+
+        <div class="nav nav_left clearfix">
+            <a href="{project_root}/goods_list.php"><div class="item">服务管理</div></a>
+            <div class="item "   menu-item-trigger>    <!-- 触发样式 dropdown-menu-hover -->
+
+                <a href="javascript:;"><span class="txt">账户管理</span><b class="ui-triangle ui-triangle-bottom-min-white"></b></a>
+                <div class="dropdown-menu">
+                    <ul class="list clearfix">
+                        <li><a href="javascript:;">账户余额：￥{user_available_balance}</a></li>
+                        <li>提现（仅限app提现）</li>
+                    </ul>         
+                </div>
+            </div> 
+        </div> 
+ 
+        <div class="nav clearfix seller-info">
+            <!-- IF no_login -->               
+                <div class="no_login" id="no_login"><a href="http://www.yueus.com/pc/login.php?r_url={r_url}">登录</a> <span class="line">|</span> <a href="http://www.yueus.com/pc/register.php?r_url={r_url}">注册</a></div>
+            <!-- ELSE -->
+                <div  id="seller-info-area" class="info-area">
+
+                    <!-- IF index_value -->        
+                        <div class="item " id="btn-down"><a href="javascript:;">商家版APP下载</a></div>
+                    <!-- ELSE -->
+                        <div class="item " ><a href="{index_url_link}/index.php#jqqd">商家版APP下载</a></div>
+                    <!-- ENDIF -->
+
+
+                    <div class="item "  menu-item-trigger>    <!-- 触发样式 dropdown-menu-hover -->
+                    
+                        <a href="javascript:;"><span class="txt long-txt-cut">{cutstr:user_name,7,'...'}</span><b class="ui-triangle ui-triangle-bottom-min-white"></b></a>
+                        <div class="dropdown-menu">
+                            <ul class="list clearfix">
+                                <a href="{project_root}/personal_center_edit.php"><li>编辑个人资料</li></a>
+                                <a href="{project_root}/normal_certificate_choose.php"><li>认证中心</li></a>
+                                <a href="http://www.yueus.com/pc/logout.php"><li>退出</li></a>
+                            </ul>        
+                        </div>
+                    </div>
+                </div>
+            <!-- ENDIF -->
+            
+
+        </div>  
+
+  
+    </div>
+
+          
+
+</div>

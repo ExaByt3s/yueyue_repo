@@ -1,0 +1,90 @@
+ @charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 等级验证
+// 
+
+.level_verification{
+    padding: 20px 10px 0 10px;
+    margin-top: 45px;
+    .item-wrap{
+        .item{
+            .p1{
+                font-size: 14px;
+                color: #333333;
+            }
+            .p2{
+                color: #959595;
+                padding-top: 7px;
+            }
+
+            .list{
+                @include clearfix;
+                margin-top: 20px;
+                li{
+                    float: left;
+                    width: 30%;
+                    height: 40px;
+                    line-height: 40px;
+                    margin-right: 5%;
+                    text-align: center;
+                    color: #333333;
+                    font-size: 14px;
+                    background: #cccccc;
+                    @include float-left;
+                     @include border-radius($border-radius);
+                }
+                li:nth-child(3){
+                    margin-right: 0px;
+                } 
+            }
+
+        }
+        .item2{
+            margin-top: 40px;
+        }
+    }
+    .btn{
+        clear: both;
+        
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+        background: #ff0052;
+        font-size: 14px;
+        width: 150px;
+        margin: 22px auto;
+        @include border-radius($border-radius);
+        .icon-sty{
+            vertical-align: middle;
+            margin-right: 3px;
+        }
+    }
+    .btn-success{
+        .icon-sty{
+            @include get-icon('icon-success-s',true,block);
+        }
+    }
+    .btn-error{
+        .icon-sty{
+            @include get-icon('error-s',true,block);
+        }
+    }
+    .btn-loading{
+        .icon-sty{
+            @include get-icon('loading-s',true,block);
+        }
+    }
+    .btn-photo{
+        .icon-sty{
+            @include get-icon('take-photo',true,block);
+        }
+        
+    }
+    .tips{
+        text-align: center;
+        color: #959595;
+        line-height: 24px;
+
+    }
+}

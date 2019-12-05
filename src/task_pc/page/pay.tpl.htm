@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>任务</title>
+
+<!-- 公共css，js引入 -->
+{pc_task_top}
+
+<!-- 当前页面css-->
+<link type="text/css" rel="stylesheet" href="../style/pay/index.scss">
+
+<!-- js 库-->
+<script type="text/javascript" src="../lib/lib.js"></script>
+</head>
+<body>
+
+{pc_global_nav}
+
+
+
+<div class="need-b-page font_wryh">
+    <div class="p1th">
+        你的生意卡不足支付本次报价 <br />
+        本次提交报价需支付{quote_info.pay_coins}生意卡
+    </div>
+<form name="form" id="form" action="pay_act.php" method="post" target="_blank">
+    <div class="p2th">
+        <span class="buy">购买生意卡数量：
+            <select name="num">
+                <option value="20">20</option>
+            </select>
+        </span> 
+
+        <div class="need-money">需要支付金额：￥70.00</div>
+        <div class="alipay">选择支付方式：<img src="../image/task/zfbx129x40.jpg" /></div>
+        
+    </div>
+
+    <div class="p3th">
+        <p><span class="icon-r"></span>本次购买后剩余的生意卡可用于支付其他报价</p>
+        <p><span class="icon-r"></span>只需为报价花费生意卡，保证无佣金，无隐藏费用</p>
+    </div>
+
+<input type="hidden" name="quotes_id" value="{quotes_id}" />
+    <div class="btn" id="pay">支付并提交报价</div>
+</form>
+</div>
+
+
+
+{footer_html}
+
+<!--  遮罩弹窗口  -->
+<div class="fade" style="display:none" id="fade"></div>
+<div class="pop-pay" style="display:none;" id="pop">
+    <div class="pop-item font_wryh">
+                <div class="close" id="close"></div>
+                <div class="listItem clearfix">  系统正引导您前往支付宝网页进行支付<br>请在<span class="time">30分钟</span>内完成付款</div>
+                <div class="txt-item fn_st"><h5 class="title">请在完成付款后选择：</h5>
+                    <ul class="btn-list clearfix">
+                        <li><span class="mr5">付款成功:</span><a href="http://www.yueus.com/task/order_list.php" class="ui-btn ui-btn-orgh24 circle-3px"><em>确定</em></a></li>
+                        <li><span class="mr5">付款失败:</span><a href="javascript:void(0);" class="ui-btn ui-btn-greenh24 circle-3px"><em id="again_pay_btn">重新支付</em></a></li>
+                    </ul>
+                </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+	var $ = require('jquery');
+	var header = require('../modules/common/widget/header/main');
+
+	$(function() 
+	{
+		// 渲染头部
+		var $header_container = $('#yue-topbar-userinfo-container');
+		header.render($header_container[0]);
+		
+	});
+
+	$('#pay').click(function() 
+    {
+          $('#form').submit();
+	  	  $('#pop').show();
+	      $('#fade').show();
+    });
+	
+	$('#close').click(function() 
+    {
+         $('#pop').hide();
+		 $('#fade').hide();
+    });
+	
+	$('#again_pay_btn').click(function() 
+    {
+         $('#pop').hide();
+		 $('#fade').hide();
+    });
+
+</script>
+
+</body>
+</html>

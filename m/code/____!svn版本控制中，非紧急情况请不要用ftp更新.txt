@@ -1,0 +1,17 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/code
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+avatar.php
+friend.php
+login_db.php
+login_nodb.php
+logout.php
+pmlist.php
+pmwin.php
+register_db.php
+register_nodb.php
+
+--EOF--

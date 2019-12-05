@@ -1,0 +1,157 @@
+{YUE_ADMIN_V2_ADMIN_TEST_HEADER}
+<div id="page-wrapper">
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row breadcrumb">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <button type="button" class="btn btn-primary">订单列表</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='order_list.php?act=export&puid={puid}'">导出数据</button>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>订单ID</th>
+                            <th>订单编号</th>
+                            <th>商家昵称</th>
+                            <th>商家ID</th>
+                            <th>买家昵称</th>
+                            <th>买家ID</th>
+                            <th>商品品类</th>
+                            <th>商品ID</th>
+                            <th>商品名</th>
+                            <th>交易额</th>
+                            <th>套餐码</th>
+                            <th>优惠码</th>
+                            <th>优惠券金额</th>
+                            <th>付款时间</th>
+                            <th>签到时间</th>
+                            <th>服务时间</th>
+                            <th>服务地点</th>
+                            <th>订单状态</th>
+                            <th>商家机构归属</th>
+                            <th>商家审核人员</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- BEGIN list -->
+                        <tr>
+                            <td>{order_id}</td>
+                            <td>{order_sn}</td>
+                            <td>{seller_name}</td>
+                            <td>{seller_user_id}</td>
+                            <td>{buyer_name}</td>
+                            <td>{buyer_user_id}</td>
+                            <td>{type_name}</td>
+                            <td>{detail_list.0.goods_id}</td>
+                            <td>{detail_list.0.goods_name}</td>
+                            <td>{total_amount}</td>
+                            <td>{package_sn}</td>
+                            <td>{coupon_sn}</td>
+                            <td>{discount_amount}</td>
+                            <td>{pay_time_str}</td>
+                            <td>
+                                <!-- IF sign_time -->{dateformat:sign_time,'Y-m-d H:i:s'}<!-- ELSE -->--<!-- ENDIF -->
+                            </td>
+                            <td>{dateformat:detail_list.0.service_time,'Y-m-d H:i:s'}</td>
+                            <td><a href="javascript:void(0);" class="desc" data="{detail_list.0.service_address}">{detail_list.0.service_address_cut}</a></td>
+                            <td><!-- IF status="0" --><font color="red">{status_str2}</font><!-- ELSEIF status="1" --><font color="orange">{status_str2}</font><!-- ELSEIF status="2" --><font color="#ffd700">{status_str2}</font><!-- ELSEIF status="7" --><font color="green">{status_str2}</font><!-- ELSEIF status="8" --><font color="blue">{status_str2}</font><!-- ENDIF --></td>
+                            <td>{org_user_name}</td>
+                            <td>{audit_name}</td>
+                        </tr>
+                        <!-- END list -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="dataTables_paginate paging_simple_numbers" id="pages">
+                    {page}
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="./resources/bootstrap/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="./resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="./resources/bootstrap/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="./resources/bootstrap/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<!--图片插件-->
+<link rel="stylesheet" type="text/css" href="./js/preview/css/preview.css">
+<script type="text/javascript" src="./js/preview/preview.js"></script>
+<script type="text/javascript" src="./js/preview/preview_load.js"></script>
+<script type="text/javascript" src="./js/table/table_html.js"></script>
+<!--图片插件-->
+<!--弹出框插件-->
+<script type="text/javascript" src="./js/layer/layer.min.js"></script>
+<script type="text/javascript">
+    $('.form_date').datetimepicker({
+        language:  'zh-CN',
+        format: 'yyyy-mm-dd',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $('.mysubmit').on('click', function () {
+        var $btn = $(this).button('loading')
+        //$btn.button('reset')
+        window.alert("ok");
+        return false;
+    })
+    $(function(){
+        $("button.btn-success").html("查找").removeAttr("disabled");
+    });
+    function del($url)
+    {
+        $.layer
+        ({
+            shade: [0.3, '#000'],
+            area: ['auto','auto'],
+            dialog:
+            {
+                msg: '您确定要删除该数据？',
+                btns: 2,
+                type: 4,
+                btn: ['确定','取消'],
+                yes: function()
+                {
+                    location.href = $url;
+                },
+                no: function()
+                {
+                    layer.msg('取消成功', 1, 1);
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+
+</html>

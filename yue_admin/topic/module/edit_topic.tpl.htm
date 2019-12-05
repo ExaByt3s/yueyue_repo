@@ -1,0 +1,38 @@
+<table width="100%" border="0">
+      <tbody>
+        <tr>
+          <td width="24%">价格专题名称:</td>
+          <td width="76%"><input type="text" name="title" id="title" value="{title}" /></td>
+        </tr>
+        <tr>
+          <td>生效时间时间:</td>
+          <td><input type="text" name="begin_time" id="begin_time" readonly="readonly" class="ui_timepicker" value="{begin_time}" />至<input type="text" name="end_time" id="end_time" readonly="readonly" class="ui_timepicker" value="{end_time}" /></td>
+        </tr>
+
+        <tr>
+          <td colspan="2" align="center"><br />
+            <input name="" type="submit" value="提交" />
+            <br /></td>
+        </tr>
+        </tbody>
+<!-- IF type="edit" -->
+ <input name="act" type="hidden" value="edit" />
+  <input name="alter_topic_id" type="hidden" value="{alter_topic_id}" />
+<!-- ELSE -->
+<input name="act" type="hidden" value="add" />
+<!-- ENDIF -->
+    </table>
+	<script type="text/javascript">
+    $(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: 'hh:mm',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        })
+    })
+    </script>

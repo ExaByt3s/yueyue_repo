@@ -1,0 +1,17 @@
+.item {
+  background: #ccc;
+  position: relative;
+  padding: 15px 0 15px 0;
+  border-bottom: 1px solid #e6e6e6;
+  display: -webkit-box; }
+  .item .lbox {
+    position: relative;
+    width: 100px;
+    height: 100px; }
+  .item .rbox {
+    margin-left: 15px;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-orient: vertical; }

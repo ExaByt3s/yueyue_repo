@@ -1,0 +1,28 @@
+<div class="dt">
+{{#each list}}
+    <div class="child" data-goods-id="{{goods_id}}" >
+        <div class="pics_con" data-url="{{link}}" >
+            <a href="{{link}}" class="db">
+                <i data-lazyload-url="{{images}}" class="img image-img min-height" style="height: {{height}}px"></i>
+                <div class="ui-tips-list">
+                    <i class="ui-tips-content">官方</i>
+                    <i class="ui-tips-triangle"></i>
+                </div>
+                <div class="txt">{{titles}}
+                {{#if abate}}
+                    <span class="tags">促</span>
+                {{/if }}
+                </div>
+            </a>
+        </div>
+        <div class="notice">
+            <div class="price">{{prices}}
+                {{#if abate}}
+                <span class="price-tips">{{abate}}</span>
+                {{/if }}
+            </div>
+            <div class="name">{{seller}}</div>
+        </div>
+    </div>
+{{/each}}
+</div>

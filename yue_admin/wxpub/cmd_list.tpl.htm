@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<!-- BEGIN JS_FILES -->
+<script type="text/javascript" src="{js_link}?{top._dev}"></script>
+<!-- END JS_FILES -->
+<!-- BEGIN STYLE_FILES -->
+<link rel="stylesheet" type="text/css" href="{css_link}?{top._dev}">
+<!-- END STYLE_FILES -->
+<script src="../js/DatePicker/WdatePicker.js"></script>
+<title>关键字列表 Powered by hai - Powered by hai</title>
+</head>
+<body>
+<div class="mainbox">
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="./cmd.php?act=list" class="on">关键字列表</a>|
+		<a href="./cmd.php?act=add">添加关键字</a>|
+	</ul>
+</div>
+<iframe id="mcfrm" name="mcfrm" frameborder="0" width="0" height="0" src="" style="display:none;"></iframe>
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form action="cmd.php" method="get">
+					关键字：<input id="cmd_val" type="text" size="14" class="input-text" name="cmd_val" value="{cmd_val}">
+					添加时间：
+					<input type="hidden" name="act" value="list">
+					<input type="submit" value="查询" class="button">
+					<input type="reset" value="重置" class="button">
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<form name="list_form" id="list_form" action="" method="post">
+	<div class="table-list">
+		<table width="100%" cellspacing="0">
+			<thead>
+			<tr>
+				<th width="40">编号</th>
+				<th width="300">关键字</th>
+				<th width="50">匹配类型</th>
+				<th width="50">回复类型</th>
+				<th>备注</th>
+				<th width="100">操作</th>
+			</tr>
+			</thead>
+			<tbody>
+				<!-- IF cmd_list -->
+			    <!-- BEGIN cmd_list -->
+				<tr>
+				<td align="center">{cmd_id}</td>
+				<td align="center" title="{cmd_val}">{short_cmd_val}</td>
+				<td>{cmd_type_desc}</td>
+				<td>{exec_type_desc}</td>
+				<td>{remark}</td>
+				<td align="center">
+				<a href="./cmd.php?act=modify&cmd_id={cmd_id}&cmd_type={cmd_type}">编辑</a>
+				<a href="./cmd.php?act=del&cmd_id={cmd_id}" target="mcfrm">删除</a>
+				</td>
+				</tr>
+				<!-- END cmd_list -->
+				<!-- ELSE -->
+				暂无数据
+				<!-- ENDIF -->
+			</tbody>
+		</table>
+	</div>
+</form>
+<div id="pages" class="page">
+{page_select}
+</div>
+</div>
+</body>
+</html>

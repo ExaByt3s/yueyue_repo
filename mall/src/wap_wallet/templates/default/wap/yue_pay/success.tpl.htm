@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>支付完成</title>
+    <!-- {wap_global_top} -->
+    <link rel="import" href="../webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/yue_pay/success.scss">
+    <script src="/lib/lib.js"></script>
+</head>
+
+<body class="cor-bg-fff">
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view topic-end-page ">
+      
+        <div class="success-page">
+          
+            <div class="p1th">
+                <div class="icon-success">
+                    
+                </div>
+                <div class="p1 color-333 f16 tc">支付成功！</div>
+                <div class="tips color-666 f14" >
+                    你可以在账单里查询付款信息，或者在 <br />
+                    聊天界面里和商家进行沟通
+                </div>
+      
+            </div>
+
+            <div class="p2th f16">
+                <div class="btn-1">
+              
+                    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555">
+                            <span class="ui-button-content">查看付款明细</span>
+                        </button>
+               
+                </div>
+                <div class="btn-2">
+                    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555">
+                            <span class="ui-button-content">随便逛逛</span>
+                        </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+<!-- {wap_global_footer} -->
+    
+</body>
+<script>
+    var $ = require('zepto');
+    var utility = require('../../../../modules/common/utility/index');
+    var header = require('../../../../modules/common/widget/header/main');
+
+    $(document).ready(function() {
+
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"支付完成",
+            header_show : true , //是否显示头部
+            right_icon_show : false, //是否显示右边的按钮
+
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        });
+
+    });
+</script>
+</html>

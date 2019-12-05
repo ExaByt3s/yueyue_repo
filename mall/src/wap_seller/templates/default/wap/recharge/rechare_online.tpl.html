@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>在线充值</title>
+
+    <meta charset="gbk">
+    {head_html}
+    <!-- libjs 必须引用 -->
+    <script src="/lib/lib.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../../style/recharge/index.scss">
+
+</head>
+<body>
+<main role="main">
+    <div class="page-view recharge-online" data-role="page-container">
+        <div class="container mt20 pt20">
+
+            <div class="h-title ml15 mb10">
+                充值金额
+            </div>
+            <ul class="ui-list ui-list-text mt20 ">
+                <li data-role="select-recharge-price" data-price="100" class="ui-border-t">
+                    <div class="ui-txt-default ">￥100</div>
+                    <div class="ui-edge-right">
+                        <span class="count-money-color" data-role="less-money"></span>
+                        <i class="icon icon-select-active" data-role="yes-tag"></i>
+                    </div>
+                </li>
+                <li data-role="select-recharge-price" data-price="300" class="ui-border-t">
+                    <div class="ui-txt-default ">￥300</div>
+                    <div class="ui-edge-right">
+                        <span class="count-money-color" data-role="less-money"></span>
+                        <i class="icon icon-select-no" data-role="yes-tag"></i>
+                    </div>
+                </li>
+                <li data-role="select-recharge-price" data-price="500" class="ui-border-t">
+                    <div class="ui-txt-default ">￥500</div>
+                    <div class="ui-edge-right">
+                        <span class="count-money-color" data-role="less-money"></span>
+                        <i class="icon icon-select-no" data-role="yes-tag"></i>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="h-title mt25 ml15 mb10">
+                支付方式
+            </div>
+            <!--支付模块-->
+            <ul class="ui-list ui-list-text last-container" data-role="other-pay-container">
+                <!-- IF is_weixin -->
+                <li class="ui-border-t" data-pay-type="tenpay_wxpub" data-role="pay-li">
+                    <div class="ui-txt-default ">
+                        <div class="pay-type">
+                            <i class="icon icon-wx-pay"></i>
+                            <div class="ui-list-info ">
+                                <h4 class="ui-nowrap" >微信公众号支付</h4>
+                                <p class="ui-nowrap">安装微信5.0及以上版本的使用</p>
+                            </div>
+                        </div>
+                        <div class="ui-edge-right">
+                            <i class="icon icon-select-active" data-role="yes-tag"></i>
+                        </div>
+                    </div>
+                </li>
+                <!-- ELSE -->
+                <li class="ui-border-t" data-pay-type="alipay_purse" data-role="pay-li">
+                    <div class="ui-txt-default ">
+                        <div class="pay-type">
+                            <i class="icon icon-zhifubao"></i>
+                            <div class="ui-list-info ">
+                                <h4 class="ui-nowrap" >支付宝支付</h4>
+                                <p class="ui-nowrap">推荐有支付宝账号的用户使用</p>
+                            </div>
+                        </div>
+                        <div class="ui-edge-right">
+                            <i class="icon icon-select-active" data-role="yes-tag"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="ui-border-t" data-pay-type="tenpay_wxapp" data-role="pay-li">
+                    <div class="ui-txt-default ">
+                        <div class="pay-type">
+                            <i class="icon icon-wx-pay"></i>
+                            <div class="ui-list-info ">
+                                <h4 class="ui-nowrap" >微信支付</h4>
+                                <p class="ui-nowrap">安装微信5.0及以上版本的使用</p>
+                            </div>
+                        </div>
+                        <div class="ui-edge-right">
+                            <i class="icon icon-select-no" data-role="yes-tag"></i>
+                        </div>
+                    </div>
+                </li>
+                <!-- ENDIF -->
+            </ul>
+            <!--支付模块-->
+
+        </div>
+        <div class="bottom-container">
+            <button class="recharge-btn" data-role="recharge-btn">马上充值</button>
+        </div>
+    </div>
+</main>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    require('recharge/online');
+</script>

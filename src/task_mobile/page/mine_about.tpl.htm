@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>关于我</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/mine/mine.scss">
+<body>
+
+<main role="main" style="background: #f2f2f2">
+    <div class="page-view order-list" data-role="page-container">
+        <link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+        <div class="mine_inner_about layout_box_v">
+            <div class="mine_inner_about_icon">
+                <img src="{user_icon}"/>
+            </div>
+            <div class="mine_inner_about_title layout_box">
+                <p>关于我</p>
+            </div>
+            <!-- BEGIN profile_info -->
+            <p class="mine_inner_about_text">{bio_desc}</p>
+            <p class="mine_inner_about_text">{nl2br:bio_content}</p>
+            <!-- END profile_info -->
+        </div>
+    </div>
+</main>
+
+</body>
+
+</html>

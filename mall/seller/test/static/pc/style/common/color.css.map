@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "color.css",
+    "sources": [
+        "/style/common/color.scss"
+    ],
+    "sourcesContent": [
+        "// 字体颜色\n.cor-409{color: #4092f1;}\n.cor-fe9{color: #fe9920;}\n.cor-000{color: #000;}\n.cor-666{color: #666;}\n.cor-333{color: #333;}\n.cor-aaa{color: #aaaaaa;}\n.cor-17b{color: #17b535;}\n.cor-faa{color: #faa34e;}\n.cor-409{color: #4092f1;}\n.cor-f14{color: #f14040;}\n\n// 背景颜色\n.bg-color-f2f{background-color: #f2f2f2}\n.bg-color-fff{background-color: #fff}\n.bg-color-000{background-color: #000}\n\n// 边框颜色\n\n"
+    ],
+    "mappings": "AACA,AAAS,AAAO,AAChB,AAAS,AAAO,AAChB,AAAS,AAAO,AAChB,AAAS,AAAO,AAChB,AAAS,AAAO,AAChB,AAAS,AAAO,AAChB,AAAS,AAAO,AAChB,AAAS,AAAO,AAChB,AAAS,AAAO,AAChB,AAAS,AAAO,AAGhB,AAAc,AAAkB,AAChC,AAAc,AAAkB,AAChC,AAAc,AAAkB",
+    "names": []
+}

@@ -1,0 +1,200 @@
+// @import "../widget/animation";
+// @import "../widget/ui-dialog";
+// @import "../widget/ui-tips";
+// @import "../widget/ui-poptips";
+// @import "../widget/ui-tooltips";
+// @import "../widget/ui-loading";
+// @import "../widget/ui-notice";
+// @import "../widget/ui-slider";
+// @import "../widget/ui-progress";
+// @import "../widget/ui-checkbox";
+// @import "../widget/ui-form";
+// @import "../widget/ui-searchbar";
+// @import "../widget/ui-icon";
+// @import "../widget/atom";
+
+.page-name-order-list{
+  display: -webkit-box;
+
+  -webkit-box-orient:vertical;
+  .taps_container{
+    display: -webkit-box;
+    background: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+    .inner_tap{
+      display: -webkit-box;
+      -webkit-box-pack:center;
+      -webkit-box-orient:vertical;
+      -webkit-box-flex:1;
+      height: 39px;
+      text-align: center;
+      margin:0px 10px;
+      color: #999999;
+      position:relative;
+      .red_dot{
+        width: 5px;
+        height: 5px;
+        background: red;
+        position: absolute;
+        right: 0px;
+        top: 10px;
+        border-radius: 2px;
+      }
+      &.cur{
+        color: #333333;
+        border-bottom: 1px solid #333333;
+      }
+    }
+
+  }
+  .order_list_container{
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    .child{
+      background: #fff;
+      display: -webkit-box;
+      -webkit-box-orient:vertical;
+      margin-top: 15px;
+      a:visited{
+        color:#333;
+      }
+      .item_info{
+        display: -webkit-box;
+        padding: 15px;
+        position: relative;
+        &.top-info{
+            padding: 10px 15px 10px 0;
+            position: relative;
+            margin-left: 15px;
+            position:relative;
+          .status{
+            position: absolute;
+            z-index: 1;
+            right: 15px;
+            top: 10px;
+            &.color-fe9920{
+              color:#fe9920;
+            } 
+          }
+        }
+        .pics{
+          width: 70px;
+          height: 70px;
+          overflow: hidden;
+          .ui-list-item-tips{
+            left: 7px;
+            top: 15px;
+            z-index: 1;
+          }
+          img{
+            width: 70px;
+
+          }
+        }
+        .notice_contain{
+          display: -webkit-box;
+          -webkit-box-flex:1;
+          -webkit-box-orient:vertical;
+          margin-left: 15px;
+          .notice{
+            display: -webkit-box;
+            -webkit-box-flex:1;
+            -webkit-box-orient: vertical;
+            -webkit-box-pack: start;
+            line-height: 14px;
+            overflow: hidden;
+            color: #333333;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+          }
+          .o_price{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-box-pack: center;
+            color: #666666;
+            font-size: 12px;
+            height: 16px;
+            color: #aaa;
+          }
+        }
+
+
+      }
+      .r_pay{
+        display: -webkit-box;
+        -webkit-box-pack:end;
+        padding: 12px 15px;
+        margin: 0px 0 0 15px;
+
+        .info{
+          display: -webkit-box;
+          .tex{
+            color: #aaaaaa;
+            font-size: 12px;
+          }
+          .re_price{
+            color: #ff6a6e;
+            font-size: 12px;
+          }
+        }
+
+      }
+      .btns{
+        display: -webkit-box;
+        -webkit-box-pack:end;
+
+        margin: 0 0 0 15px;
+        padding-right: 15px;
+        .btn{
+          display: -webkit-box;
+          -webkit-box-orient:vertical;
+          -webkit-box-pack:end;
+          text-align: center;
+          margin: 0px 10px;
+        }
+        button{
+          background: #ffffff;
+          margin: 10px 0px 10px 10px;
+          &.bad{
+            width: 75px;
+          }
+          &.good{
+            width: 150px;
+          }
+        }
+        .btn_del{
+          background: #f2f2f2;
+        }
+        .btn_close{
+
+        }
+        .btn_pay{
+ 
+        }
+        .btn_return{
+
+        }
+        .btn_ewm{
+
+        }
+        .btn_comment{
+
+        }
+        .btn_hid{
+
+        }
+      }
+    }
+  }
+  .next_page_btn{
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-box-pack:center;
+    text-align: center;
+    margin-top: 15px;
+    height: 45px;
+    background: #fff;
+  }
+}

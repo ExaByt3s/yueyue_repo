@@ -1,0 +1,18 @@
+{{#each list}}
+    <div class="ui-uploader-items-container " {{#if_equal is_add_btn "1"}}data-role="plus"{{else}}data-role="upload-items"{{/if_equal}}>
+        <div class="ui-uploader-items {{is_active}}" style="width:{{width}};height:{{height}};display: inline-block;" >
+            {{#if_equal is_add_btn "1"}}
+                <div id="upload-flag">
+                    <img src="{{default_img_url}}" style="max-height: 100%;max-width: 100%;">
+                </div>
+            {{else}}
+                <i data-lazyload-url="{{img_url}}" class="image-img"></i>
+                <div class="close-out " data-role="del-pic" ><i class="icon close-btn"></i></div>
+                <input type="text" class="fn-hide" value="{{img_url}}" data-role="img-input-url">
+            {{/if_equal}}
+
+        </div>
+        <!---->
+    </div>
+
+{{/each}}

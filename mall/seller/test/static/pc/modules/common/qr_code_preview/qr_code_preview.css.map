@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "qr_code_preview.css",
+    "sources": [
+        "/modules/common/qr_code_preview/qr_code_preview.scss"
+    ],
+    "sourcesContent": [
+        "// 手机预览\r\n.qr_code_preview_ele{\r\n    position: fixed;\r\n    top: 210px;\r\n    cursor: pointer;\r\n    .qr_code_preview{\r\n       position: relative;\r\n        .phone{\r\n            .img{\r\n                background: url(../../../images/perview-50x90.png)  no-repeat;\r\n\r\n                width: 50px;\r\n                height: 90px;\r\n               \r\n            }\r\n            &:hover .img{\r\n                background: url(../../../images/perview-50x90-hover.png)  no-repeat;\r\n            }\r\n        }\r\n        .qr{\r\n            position: absolute;\r\n            // right:-50px;\r\n            top: 0px;\r\n            right:52px;\r\n            .img{\r\n                \r\n                // background: url(../../../images/qr_code_150x150.png)  no-repeat;\r\n                width: 150px;\r\n                height: 150px;\r\n                display: inline-block;\r\n                margin-top: 5px;\r\n                img{\r\n                    max-width: 150px;\r\n                    max-height: 150px;\r\n                }\r\n\r\n\r\n\r\n            }\r\n            text-align: center;\r\n            width: 160px;\r\n            height: 210px;\r\n            border: 1px solid #cccccc;\r\n            border-radius: 5px;\r\n            background: #fff;\r\n        }\r\n        .p1{\r\n            line-height: 20px;\r\n            padding-top: 8px;\r\n            font-weight: bold;\r\n        }\r\n        \r\n    }\r\n\r\n\r\n}\r\n"
+    ],
+    "mappings": "AACA,AACI,AAAU,AACV,AAAK,AACL,AAAQ,AACZ,AAAqB,AACd,AAAU,AAEjB,AAAqB,AAAiB,AAAO,AAC7B,AAAiD,AAEjD,AAAO,AACP,AAAQ,AAGxB,AAAqB,AAAiB,AAAM,AAAO,AACnC,AAAuD,AAGvE,AAAqB,AAAiB,AAC1B,AAAU,AAEV,AAAK,AACL,AAAM,AAgBN,AAAY,AACZ,AAAO,AACP,AAAQ,AACR,AAAQ,AACR,AAAe,AACf,AAAY,AApBxB,AAAqB,AAAiB,AAAI,AAG1B,AAAO,AACP,AAAQ,AACR,AAAS,AACT,AAAY,AAC5B,AAAqB,AAAiB,AAAI,AAAK,AAC3B,AAAW,AACX,AAAY,AAahC,AAAqB,AAAiB,AAC1B,AAAa,AACb,AAAa,AACb,AAAa",
+    "names": []
+}

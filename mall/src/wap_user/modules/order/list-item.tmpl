@@ -1,0 +1,104 @@
+{{#each list}}
+<div class="child" order_id="{{order_id}}" order_sn="{{order_sn}}" goods_id="{{detail_list}}" >
+    {{#each code_list}}
+    <div data-role-code="contain" style="display: none" >
+        <input type="hidden" data-code-url="{{qr_code_url}}">
+        <input type="hidden" data-code-number="{{code_sn}}">
+        <input type="hidden" data-code-name="{{name}}">
+        <input type="hidden" data-code-img-url="{{qr_code_url_img}}">
+    </div>
+    {{/each}}
+    {{#each detail_list}}
+    <input type="hidden" data-goods-id="{{goods_id}}">
+    {{/each}}
+
+
+    <div class="item_info top-info ui-border-b" data-role="nav-to-seller" data-seller-user-id="{{seller_user_id}}" >
+        <span>{{seller_name}}</span>
+        <i class="icon-allow-grey"></i>
+        {{#compare status "==" "8"}}
+            {{#compare is_buyer_comment "==" "0"}}
+            <span class="status color-fe9920">待评价</span>
+            {{/compare}}
+        {{/compare}}
+    </div>
+    <a href="./detail.php?order_sn={{order_sn}}" class="dib w-100" >
+        <div class="item_info" data-role="item_info">
+             
+                <div class="pics">
+                    <i data-lazyload-url="{{goods_images}}"  class="img image-img min-height"></i>
+                    {{#each activity_list}}
+                        {{#compare is_official "==" "1"}}
+                        <div class="ui-list-item-tips">
+                            <i class="ui-tips-content">官方</i>
+                            <i class="ui-list-item-tips-triangle"></i>
+                        </div>
+                        {{/compare}}
+                    {{/each}}
+                </div>
+                <div class="notice_contain">
+                    <div class="notice {{#if activity_list}}mb15{{/if}}" >{{goods_name}}</div>
+                    {{#if activity_list}}
+                        {{#each activity_list}}
+                        <div class="o_price mb5">{{formatDateTime "Y.m.d H:i" service_start_time}} {{stage_title}}</div>
+                        {{/each}}
+                    {{/if}}
+                    <div class="o_price">￥{{total_amount}} {{#each activity_list}}{{prices_spec}}{{/each}}</div>
+                </div>
+            
+        </div>
+    </a>
+    <div class="r_pay ui-border-t">
+        <div class="info">
+            <p class="tex">实付：</p>
+            <p class="re_price">￥{{pending_amount}}</p>
+        </div>
+    </div>
+    <div class="btns ui-border-t">
+        {{#each btn_action}}
+            {{#compare request "==" "close"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="close" data-role="close">
+                <span >关闭</span>
+            </button>
+            {{/compare}}
+            {{#compare request "==" "pay"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good" data-action-type="pay" data-role="pay">
+                <span >支付</span>
+            </button>
+            {{/compare}}
+
+            {{#compare request "==" "cancel"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="cancel" data-role="cancel">
+                <span >取消订单</span>
+            </button>
+            {{/compare}}
+
+            {{#compare request "==" "refund"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="refund" data-role="refund">
+                <span >申请退款</span>
+            </button>
+            {{/compare}}
+            {{#if_equal request "sign"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good" data-action-type="ewm" data-role="ewm" >
+                <span >
+                    {{#if_equal order_type "activity"}}活动签到{{else}}出示二维码{{/if_equal}}
+                </span>
+            </button> 
+            {{/if_equal}}
+            {{#compare request "==" "delete"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="delete" data-role="delete">
+                <span >删除订单</span>
+            </button>
+            {{/compare}}
+
+            {{#compare request "==" "appraise"}}
+            <a href="../comment/index.php?order_sn={{order_sn}}" class="dib">
+                <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good" data-action-type="comment" data-role="comment">
+                    <span >评价</span>
+                </button>
+            </a>
+            {{/compare}}
+        {{/each}}
+    </div>
+</div>
+{{/each}}

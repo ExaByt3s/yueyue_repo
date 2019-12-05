@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>我的</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/profile/profile.scss">
+    <script src="../lib/lib.js"></script>
+</head>
+<body style="background: #f2f2f2">
+<main>
+    <div class="page-view " data-role="page-container">
+        <link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+        <!--select id="province">
+            <option value=""> -- </option>
+        </select>
+        <select id="city">
+            <option value=""> -- </option>
+        </select-->
+        <div class="profile_container" data-role="profile_container" style="margin-top: 15px">
+            <div class="profile_list_container_common_style l_w">
+                <div class="child">
+                    <div class="central" data-go="mine">
+                        <div class="left_box">
+                            <div class="icon_profile_1"></div>
+                            <p>我的资料</p>
+                        </div>
+                        <div class="right_box">
+                            <div class="txt fn-hide">待审核</div>
+                            <div class="icon_arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="child" data-go="pocket">
+                    <div class="central">
+                        <div class="left_box">
+                            <div class="icon_profile_2"></div>
+                            <p>我的钱包</p>
+                        </div>
+                        <div class="right_box">
+                            <div class="txt fn-hide">待审核</div>
+                            <div class="icon_arrow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+<script>
+
+$(function()
+{
+    $('[data-go="pocket"]').on('click',function()
+    {
+        location.href = './pocket.php';
+    })
+
+    $('[data-go="mine"]').on('click',function()
+    {
+        location.href = './mine.php';
+    })
+});
+</script>
+<link rel="import" href="./webcontrol/tjbottom.tpl.html?__inline">
+</html>

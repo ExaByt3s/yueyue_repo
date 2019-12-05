@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/login.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/model_audit.css">
+<title>榜单管理后台</title>
+<style type="text/css">
+.table-list
+{
+	min-width: 990px;
+	margin-bottom: 20px;
+}
+.table-list tbody td
+{
+
+	/* border: #eee 1px solid; */
+	border-left: #eee 1px solid;
+}
+.album img
+{
+	margin:2px;
+}
+.button
+{
+	background: url('resources/images/uploadify.png');
+	height: 28px;
+	width: 75px;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	text-shadow:none;
+	box-shadow:none;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list">
+       <h1><b><a href="?act=list" style="cursor:pointer">返回</a></b></h1>
+       <form method="post" action="?" id="myform">
+	   <div class="table" style="width:98%;" id="occu">
+		    <!--list-->
+		    <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+		    	<tbody>
+		    	<tr>
+				<td>城市:</td>
+				<td>
+				   <select name="province" class="prov">
+				 		<option value="0">请选择</option>
+  		                 <!-- BEGIN province_list -->
+  		                 <option value="{c_id}" {selected_prov}>{c_name}</option>
+  		                 <!-- END province_list -->
+  		            </select>
+    	            <select class="city" name="location_id" id="location_id">
+    	                <option value="0">请选择</option>
+    	                 <!-- BEGIN city_list -->
+  		                 <option value="{c_id}" {selected_city}>{c_name}</option>
+  		                 <!-- END city_list -->
+    	            </select>  <font color="red">*</font>
+				</td>
+				</tr>
+				<tr>
+				<td width="80">榜单:</td>
+				<td>
+				   <select name="channel_id" class="channel_id">
+				      <option value="0">请选择</option>
+				   	  <!-- BEGIN channel_list -->
+				   	  <option value="{channel_id}" {channel_selected}>{channel_name}</option>
+				   	  <!-- END channel_list -->
+				   </select>
+				   <select name="rank_id" class="rank_id">
+				      <option value="0">请选择</option>
+				   	  <!-- BEGIN rank_list -->
+				   	  <option value="{rank_id}" {rank_selected}>{rank_name}</option>
+				   	  <!-- END rank_list -->
+				   </select>
+				   <font color="red">*</font>
+				</td>
+				</tr>
+				<!-- <tr>
+				<td>名称:</td>
+				<td>
+				  <input type="text" name="rank_name" value="{rank_name}" class="input-text" id="rank_name" /><font color="red">*</font>
+				</td>
+				</tr> -->
+				<tr>
+				<td>单位:</td>
+				<td>
+				  <select name="unit">
+				  	 <option value="0">无</option>
+				  	 <option value="1" {unit_1}>魅力</option>
+				  	 <option value="2" {unit_2}>分</option>
+				  	 <option value="3" {unit_3}>小时</option>
+				  	 <option value="4" {unit_4}>备注</option>
+				  </select>
+				</td>
+				</tr>
+				<tr>
+				<td>说明:</td>
+				<td>
+				 	<textarea name="rank_desc" style="width:400px;height:100px;">{rank_desc}</textarea>
+				</td>
+				</tr>
+				<tr>
+				<td>APP排序:</td>
+				<td>
+				   <select name="app_sort">
+				  	 <option value="0">默认</option>
+				  	 <option value="1" {sort_1}>数值正序</option>
+				  	 <option value="2" {sort_2}>数值倒序</option>
+				   </select>
+				</td>
+				</tr>
+				<tr>
+				<td>促销ID:</td>
+				<td>
+				   <input type="text" name="dmid" value="{dmid}" class="input-text" id="dmid" style="width:40px;" /><!-- <input type="button" class="button" onclick="checkDmid('dmid_for.php?act=check')" value="促销ID是否存在"  /> --> <a href="dmid_for.php?act=list" target="_blank" >查看促销</a>
+				</td>
+				</tr>
+				<tr>
+				<td>角色:</td>
+				<td>
+				    <select name="role">
+				  	 <option value="">全部</option>
+				  	 <option value="model" {role_1}>模特</option>
+				  	 <option value="cameraman" {role_2}>摄影师</option>
+				   </select>
+				</td>
+				</tr>
+				<tr>
+				  <td>url:</td>
+				  <td>
+				  	<input type="text" class="input-text" name="url" value="{url}" style="width: 400px;"/>
+				  </td>
+				</tr>
+				<tr>
+				<td>排序:</td>
+				<td>
+				   <input type="text" name="sort_order" value="{sort_order}" class="input-text" id="sort_order" style="width:40px;"/>(值越大排序越前)
+				</td>
+				</tr>
+				<tr>
+				<td>操作:</td>
+				<td>
+			       <input type="button" value="提交" class="button" onclick="sub()" />
+                   <input type="reset"  value="重置" class="button"/>
+				</td>
+				</tr>  	
+			    </tbody>
+		    </table>
+	   </div>
+	   <input type="hidden" value="{act}" name="act" />
+	   <input type="hidden" value="{id}" name="id" />
+	   </form>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	//获取密码
+	function getPwd()
+	{
+		var $val = generateMixed(6);
+		$("#pwd_hash").val($val);
+	}
+    $(function(){
+	   //获取城市数据
+		$(".prov").change(function(){
+			var $prov_val = $(this).val();
+			$.ajax({
+			   type:"POST",
+			   url:"get_city.php",
+			   dataType: 'json',
+			   data : {'prov_id': $prov_val},
+			   success:function(data)
+			  {
+			  	if (data.ret) 
+			  	{
+			  		var $ret = data.ret;
+			  		var $str = "<option value='0'>请选择</option>";
+			  		for (var i = 0; i < $ret.length; i++) 
+			  		{
+			  			$str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";		
+			  		}
+			  		$(".city").html($str);
+
+			  	}
+
+			  },
+			  error:function(data)
+			 {
+
+			 }
+			});
+		});
+	   //获取所有榜单
+		$(".channel_id").change(function(){
+			var $channel_id = $(this).val();
+			$.ajax({
+			   type:"POST",
+			   url:"rank_event.php",
+			   dataType: 'json',
+			   data : {'act': 'rank', 'channel_id': $channel_id},
+			   success:function(data)
+			  {
+			  	if (data.ret) 
+			  	{
+			  		var $ret = data.ret;
+			  		var $str = "<option value='0'>请选择</option>";
+			  		for (var i = 0; i < $ret.length; i++) 
+			  		{
+			  			$str +="<option value='"+$ret[i]['rank_id']+"'>"+$ret[i]['rank_name']+"</option>";		
+			  		}
+			  		$(".rank_id").html($str);
+
+			  	}
+
+			  },
+			  error:function(data)
+			 {
+
+			 }
+			});
+		});
+
+});
+	//测试Dmid是否存在
+	/*function checkDmid($url)
+	{
+		var $dmid = $("#dmid").val();
+		if ($dmid == '' || $dmid == 0) 
+		{
+			layer.msg('促销ID不能为空');
+			return false;
+		}
+		var $url = $url+'&id='+$dmid;
+		$.ajax({
+			type     : 'POST',
+			dataType : 'html',
+			url      : $url,
+			success:function(data)
+			{
+				var $msg = '';
+				if (data) 
+				{
+					if (data == 'success') 
+					{
+						layer.msg('促销ID存在', 1,1);
+					}
+					else
+					{
+						layer.msg('促销ID不存在');
+					}
+					$msg = data == 'success' ? '' : ;
+					layer.msg($msg,1,1);
+				};
+			},
+			error:function(data)
+			{
+				window.alert(data);
+			}
+		})
+	}*/
+</script>
+</html>

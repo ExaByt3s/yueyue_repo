@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: 'hh:mm',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        })
+    })
+    </script>
+<style type="text/css">
+.input-text {
+	width:500px;
+}
+.table-list {
+	clear: both;
+}
+.table-list .input-text {
+	width: 100px;
+}
+.table-list .table {
+	float: left;
+	margin-top: 20px;
+ +margin-left:5px;
+}
+.box {
+	position:absolute;
+	width:600px;
+	left:50%;
+	height:auto;
+	z-index:100;
+	background-color:#fff;
+	border:1px #8FA4F5 solid;
+	padding:1px;
+}
+.box h2 {
+	height:25px;
+	font-size:14px;
+	background-color:#3366cc;
+	position:relative;
+	padding-left:10px;
+	line-height:25px;
+	color:#fff;
+}
+.box h2 a {
+	position:absolute;
+	right:5px;
+	font-size:12px;
+	color:#fff;
+}
+.box .mainlist {
+	padding:10px;
+}
+.box .mainlist li {
+	height:24px;
+	line-height:24px;
+	list-style:none
+}
+.box .mainlist li span {
+	margin:0 5px 0 0;
+	font-family:"宋体";
+	font-size:12px;
+	font-weight:400;
+	color:#ddd;
+}
+#TB_overlayBG {
+	background-color:#666;
+	position:absolute;
+	z-index:99;
+	left:0;
+	top:0;
+	display:none;
+	width:100%;
+	height:100%;
+	opacity:0.5;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+}
+.ajax_load {
+	height:100px;
+}
+.ajax_load img {
+	margin:30px 0 0 180px;
+}
+</style>
+<title></title>
+
+</head>
+<body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<div id="TB_overlayBG"></div>
+
+<div class="box" style="display:none" id="box">
+  <h2>价格专题<a href="javascript:void(0);" class="close">关闭</a></h2>
+  <div class="table-list">
+  <form action="./module/topic_act.php" method="post" target="frame">
+<span id='edit_topic'>
+
+</span>
+    </form>
+  </div>
+</div>
+
+<div class="box" style="display:none" id="import">
+  <h2>导入<a href="javascript:void(0);" class="close">关闭</a></h2>
+  <div class="table-list">
+  <form action="./module/import_act.php" method="post" target="frame">
+     <table width="100%" border="0">
+      <tbody>
+        <tr>
+          <td width="24%">导入链接:</td>
+          <td width="76%"><input type="text" name="import_url" id="import_url" size="50" /></td>
+        </tr>
+        <tr>
+          <td>导入模特ID:</td>
+          <td><textarea name="import_user_id" cols="50" rows="10"></textarea><br />多个ID用英文逗号分隔</td>
+        </tr>
+
+        <tr>
+          <td colspan="2" align="center"><br />
+            <input name="" type="submit" value="提交" />
+            <br /></td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="hidden" name="alter_topic_id" value="{alter_topic_id}"  />
+    </form>
+  </div>
+</div>
+
+
+<div class="box" style="display:none" id="alter_price">
+  <h2>修改价格<a href="javascript:void(0);" class="close">关闭</a></h2>
+  <div class="table-list">
+  <form action="./module/alter_price_act.php" method="post" target="frame">
+  <span id="alter_price_html">
+  
+   </span>
+   </form>
+  </div>
+</div>
+
+<div class="box" style="display:none" id="modify_tag">
+  <h2>修改前台标签<a href="javascript:void(0);" class="close">关闭</a></h2>
+  <div class="table-list">
+  <form action="./module/modify_tag_act.php" method="post" target="frame">
+  <span id="modify_tag_html">
+    
+   </span>
+   </form>
+  </div>
+</div>
+
+<div class="box" style="display:none" id="alter_price_topic">
+  <h2>修改价格<a href="javascript:void(0);" class="close">关闭</a></h2>
+  <div class="table-list">
+  <form action="./module/alter_price_topic_act.php" method="post" target="frame">
+   <table width="100%" border="0">
+      <tbody>
+      <tr>
+          <td>标签:</td>
+          <td><input type="text" name="tag" id="tag" value="" />
+           </td>
+        </tr>
+        <tr>
+          <td width="24%">修改类型:</td>
+          <td width="76%"><select name="alter_type" id="alter_type">
+          <option value="" >请选择</option>
+            <option value="alter_price">改价</option>
+            <option value="discount_price">打折</option>
+            <option value="reduce_price">减价</option>
+          </select></td>
+        </tr>
+        <tr>
+          <td>修改值:</td>
+          <td><input type="text" name="type_value" id="type_value" value="" />
+            &nbsp;(单位：折或元)</td>
+        </tr>
+
+        <tr>
+          <td colspan="2" align="center"><br />
+            <input name="" type="submit" value="提交" />
+            <br /></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <input type="hidden" name="alter_topic_id" value="{alter_topic_id}"  />
+   </form>
+  </div>
+</div>
+
+<div class="mainbox">
+<table class="search_table" width="100%">
+	<tbody>
+		<form action="" method="get">
+        <tr> 
+			<td class="search">
+				当前专题:{topic_title}<br />
+
+                选择价格专题:
+                  <select name="alter_topic_id" id="alter_topic_id" onchange="window.location.href='alter_price_list.php?alter_topic_id='+this.value">
+                  <option value="">请选择</option>
+                  <!-- BEGIN topic_list -->
+                    <option value="{alter_topic_id}" <!-- IF top.alter_topic_id=alter_topic_id -->selected="selected"<!-- ENDIF -->>{title}</option>
+                    <!-- END topic_list -->
+                  </select>         
+                  <!-- 风格筛选:     
+             <select name="style" id="style">
+             <option value="">全部</option>
+             <!-- BEGIN model_style_arr -->
+               <option value="{style}" <!-- IF style=top.style -->selected="selected"<!-- ENDIF -->>{style}</option>
+               <!-- END model_style_arr -->
+             </select>       -->
+                  <input type="submit" value="查找" class="button" />
+                <input type="button" value="新建" class="button" id="add_topic" onclick="edit_topic('add',0)" />
+                <input type="button" value="编辑" class="button" onclick="edit_topic('edit',{alter_topic_id})" />
+                <input type="button" value="删除" class="button" id="del_topic" onclick="if(!confirm('是否确认删除')) return false;frame.location.href='./module/topic_act.php?alter_topic_id={alter_topic_id}&act=del';" />
+			</td>
+		</tr>
+        </form>
+         <tr> 
+		   <td class="search"> 
+          
+             <input type="button" value="导入" class="button" id="import_button" />
+            <input type="button" value="导出" class="button" onclick='window.open("output_alter_price.php?alter_topic_id={alter_topic_id}","_blank")'; />
+                <input type="button" value="修改价格" class="button" id="alter_price_topic_button" /></td>
+		</tr>
+	</tbody>
+</table>
+  <form name="add_form" id="add_form" action="" method="post" target="frame">
+    <div id="tabs">
+    <div class="tabbox">
+      <div class="table-list">
+        <table width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>前台标签</th>
+              <th>用户ID</th>
+              <th>昵称</th>
+              <th>风格</th>
+              <th>原价格</th>
+             
+               <th>修改后价格</th>
+              <th>操作</th>
+                </tr>
+          </thead>
+          <tbody>
+            <!-- BEGIN list -->
+            <tr>
+              <td align="center"><!-- IF first="1" -->{tag}<!-- ELSE --><!-- ENDIF --></td>
+              <td align="center"><!-- IF first="1" -->{user_id}<!-- ELSE --><!-- ENDIF --></td>
+              <td align="center"><!-- IF first="1" -->{nickname}<!-- ELSE --><!-- ENDIF --></td>
+              <td align="center">{style}</td>
+              <td align="center">{old_price}</td>
+              
+               <td align="center">{alter_price}</td>
+              <td align="left"><a href="javascript:void(0);" onclick="alter_price({alter_topic_id},{user_id},'{style}',{log_id})">修改价格</a> &nbsp;&nbsp;
+              <!-- IF log_id -->
+              <a href="./module/del_log_id.php?log_id={log_id}&alter_topic_id={alter_topic_id}" target="frame">清空修改</a>
+               &nbsp;&nbsp;
+              <!-- ENDIF -->
+              
+              <!-- IF first="1" -->
+              <a href="javascript:void(0);" onclick="modify_tag({id})">前台标签</a>
+              &nbsp;&nbsp;
+              <!-- ENDIF -->
+              
+			  <!-- IF first="1" -->
+              <a href="./module/del_log_user_id.php?user_id={user_id}&alter_topic_id={alter_topic_id}" target="frame">删除用户</a>
+              &nbsp;&nbsp;
+              <!-- ENDIF -->
+              </td>
+             <!-- END list --> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="pages" class="page"> {page} </div>
+  </form>
+</div>
+<script type="text/javascript">
+
+$("#import_button").click(function(){
+	$("#TB_overlayBG").css("display","block");
+	$("#import ").css("display","block");
+	
+	$("#import").css({
+		left:($("body").width()-$("#box").width())/2-20+"px",
+		top:($(window).height()-$("#box").height())/10+$(window).scrollTop()+"px",
+		display:"block"
+	});
+});
+
+$("#alter_price_topic_button").click(function(){
+	$("#TB_overlayBG").css("display","block");
+	$("#alter_price_topic ").css("display","block");
+	
+	$("#alter_price_topic").css({
+		left:($("body").width()-$("#box").width())/2-20+"px",
+		top:($(window).height()-$("#box").height())/10+$(window).scrollTop()+"px",
+		display:"block"
+	});
+});
+
+
+
+$(".close").click(function(){
+	$("#TB_overlayBG").css("display","none");
+	$("#box ").css("display","none");
+	$("#import ").css("display","none");
+	$("#alter_price ").css("display","none");
+	$("#alter_price_topic ").css("display","none");
+	$("#modify_tag ").css("display","none");
+});
+
+
+function edit_topic(type,alter_topic_id){
+	
+	$('#edit_topic').html('<div class="ajax_load"><img src="images/ajax-loader.gif" /></div>');
+	$("#TB_overlayBG").css({
+		display:"block",height:$(document).height()
+	});
+	$("#box").css({
+		left:($("body").width()-$("#box").width())/2-20+"px",
+		top:($(window).height()-$("#box").height())/10+$(window).scrollTop()+"px",
+		display:"block"
+	});
+	
+	$.ajax({
+			url: './module/edit_topic.php?alter_topic_id='+alter_topic_id+'&type='+type,
+			type: 'GET',
+			timeout: 30000,
+			error: function() { alert('请求超时'); },
+			success: function(msg) {
+				$('#edit_topic').html(msg);
+			}
+	});	
+}
+
+
+function alter_price(alter_topic_id,user_id,style,log_id){
+	
+	
+	$('#alter_price_html').html('<div class="ajax_load"><img src="images/ajax-loader.gif" /></div>');
+	$.ajax({
+			url: './module/alter_price_log.php?alter_topic_id='+alter_topic_id+'&user_id='+user_id+'&style='+style+'&log_id='+log_id,
+			type: 'GET',
+			timeout: 30000,
+			error: function() { alert('请求超时'); },
+			success: function(msg) {
+				$('#alter_price_html').html(msg);
+			}
+	});	
+	
+	$("#TB_overlayBG").css({
+		display:"block",height:$(document).height()
+	});
+	$("#alter_price").css({
+		left:($("body").width()-$("#box").width())/2-20+"px",
+		top:($(window).height()-$("#box").height())/10+$(window).scrollTop()+"px",
+		display:"block"
+	});
+}
+
+
+function modify_tag(id){
+	$('#modify_tag_html').html('<div class="ajax_load"><img src="images/ajax-loader.gif" /></div>');
+	$.ajax({
+			url: './module/modify_tag.php?id='+id,
+			type: 'GET',
+			timeout: 30000,
+			error: function() { alert('请求超时'); },
+			success: function(msg) {
+				$('#modify_tag_html').html(msg);
+			}
+	});	
+	
+	$("#TB_overlayBG").css({
+		display:"block",height:$(document).height()
+	});
+	$("#modify_tag").css({
+		left:($("body").width()-$("#box").width())/2-20+"px",
+		top:($(window).height()-$("#box").height())/10+$(window).scrollTop()+"px",
+		display:"block"
+	});
+}
+
+
+</script>
+</body>
+</html>

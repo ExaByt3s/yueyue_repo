@@ -1,0 +1,14 @@
+{{#each data.data}}
+    <div class="child">
+        <div class="left">
+            <p class="name">{{subject}}</p>
+            <p class="date">{{add_date}}</p>
+        </div>
+        <div class="right">
+            <p class="red">{{#if flow_type}}-{{^}}+{{/if}}{{amount}}</p>
+            <p {{#compare status_color "==" 1}}class="green"{{/compare}}
+               {{#compare status_color "==" 2}}class="gray"{{/compare}}>{{status}}</p>
+        </div>
+    </div>
+{{/each}}
+

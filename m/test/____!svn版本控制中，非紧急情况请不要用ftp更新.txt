@@ -1,0 +1,25 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/test
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+cache/
+cl/
+css/
+demos/
+images/
+js/
+pull_d/
+boder-css.html
+boder.html
+border-radius.html
+index.html
+index_test.html
+input.html
+localstorage_cookie.html
+login.html
+onload.html
+ua_input.html
+
+--EOF--

@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/*Ö§¸¶*/
+.pop-pay {
+  width: 607px;
+  height: 354px;
+  position: fixed;
+  _position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -177px;
+  margin-left: -303px;
+  _margin-top: 0;
+  z-index: 99;
+  background: #fff;
+  border-radius: 3px; }
+
+.pop-pay .pop-bg {
+  background: #fff;
+  height: 344px;
+  margin: 5px; }
+
+/*.pop-pay .close{ display:block; background-position:0 -258px; height:20px; width:20px; text-indent:-9999em; position:absolute; right:25px; top:25px;}*/
+/*.pop-pay .close:hover{ background-position:-22px -258px;}*/
+.pop-pay .pop-item {
+  padding: 77px 0 0; }
+
+.pop-pay .pop-item .listItem {
+  font-size: 24px;
+  color: #4092f1;
+  line-height: 45px;
+  padding-bottom: 30px;
+  text-align: center; }
+
+.pop-pay .pop-item .listItem .time {
+  color: #f9a31f; }
+
+.pop-pay .pop-item .txt-item {
+  font-size: 14px;
+  color: #2c2c2c;
+  padding-left: 116px; }
+
+.pop-pay .pop-item .txt-item h5.title {
+  font-weight: normal;
+  padding-bottom: 12px; }
+
+.pop-pay .pop-item .txt-item .btn-list li {
+  float: left;
+  width: 213px;
+  height: 24px;
+  line-height: 24px; }
+
+.pop-pay .pop-item .txt-item .ui-btn {
+  text-decoration: none;
+  float: none;
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+  color: #fff;
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+  border-radius: 3px; }
+
+.pop-pay .pop-item .txt-item .ui-btn-orgh24 {
+  background: #4092f1; }
+
+.pop-pay .pop-item .txt-item .ui-btn-orgh24:hover {
+  background: #66a8f4; }
+
+.pop-pay .pop-item .txt-item .ui-btn-greenh24 {
+  background: #ff6763; }
+
+.pop-pay .pop-item .txt-item .ui-btn-greenh24:hover {
+  background: #ff8582; }
+
+.pop-pay .close {
+  background: url(http://static.yueus.com/taskpredev/static/image/task/close-16x16.png);
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer; }
+
+/*# sourceMappingURL=index.css.map */

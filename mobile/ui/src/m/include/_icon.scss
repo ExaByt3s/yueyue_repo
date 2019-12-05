@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+
+// -------------------------------------------------
+// icon部分
+// -------------------------------------------------
+
+$icons: sprite-map("m/icons/*.png", $layout: smart, $spacing: 1px, $clean-up: false);
+
+$icons-ie: sprite-map("m/icons-ie/*.png", $layout: smart, $spacing: 1px, $clean-up: false);
+
+@mixin get-icon($sprite, $dimensions: false) {
+    @include sprite($icons, $sprite, $dimensions);
+}
+
+
+
+.icon {
+    background: sprite-url($icons) no-repeat -999px -999px;
+    _background-image: sprite-url($icons-ie);
+}

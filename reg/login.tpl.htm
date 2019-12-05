@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>登录页</title>
+<!-- 头部公共 -->
+{Party_global_header}
+<link rel="stylesheet" type="text/css" href="../model/css/zt.css?t={rand}123"/>
+<link rel="stylesheet" type="text/css" href="../topic/party/css/waipai.css?t={rand}"/>
+</head>
+
+<body>
+<style type="text/css">
+.login-page-content{ height: 520px; }
+/*  =======  以下css才需要 ========= */
+.login-box-area{ 
+    width: 360px;border: 1px solid #d2d2d2;border-radius: 4px;background: #fff; 
+}
+.login-box-area .tab{ 
+}
+.login-box-area .tab li{ 
+    float:left;display:inline; width: 180px;text-align: center;height: 50px;line-height: 50px;border-bottom: 1px solid #d2d2d2;font-size: 16px;background: #fafafa;color: #aaaaaa; cursor: pointer; 
+}
+.login-box-area .tab li.none{
+    border-left: 1px solid #d2d2d2;width: 179px; 
+}
+
+.login-box-area .tab li.none_1{
+    width: 179px; 
+}
+
+.login-box-area .tab li.cur{ 
+    border-bottom: 1px solid #fff;background: #fff;color: #333333; 
+}
+.login-box-area .p2th{ 
+    padding: 25px 30px 25px 30px; 
+}
+.login-box-area .list li{ 
+}
+.login-box-area .list .input-text{ 
+    width: 288px;height: 22px;line-height: 22px;padding: 10px 5px;border: 1px solid #d2d2d2;border-radius: 4px;font-size: 14px; 
+}
+.login-box-area .btn{ 
+    width: 100%;height: 50px;line-height: 50px;background: #ff4978;border-radius: 4px;margin-top: 20px;cursor: pointer;text-align: center;font-size: 18px;color: #fff;        }
+.login-box-area .btn:hover{ 
+    background: #ffa4bb; 
+}
+.login-box-area .txt{ 
+    font-size: 14px;color: #999999;padding: 10px 0 0px 0; 
+}
+
+
+.login-page-content{
+    background: url(http://www.yueus.com/model/images/ty-img-10.jpg) no-repeat  490px 90px #fff;
+}
+</style>
+
+<!-- 顶栏 -->
+{header_html}
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+
+<div class="login-page">
+    <div class="w1000">
+        <div class="login-page-content font_wryh">
+            <div class="wbox clearfix">
+                <div class="lbox fldi">
+                    <div class="login-box-area font_wryh">
+                        <ul class="tab clearfix ">
+                            <li class="none_1 cur" id="yue_login_btn">用户登录</li>
+                            <li class="none" id="supplier_yue_login_btn">合作商家登录</li>
+                        </ul>
+                        <form action="./module/login_register_op.php" method="post" name="yue_login_form" id="yue_login_form" target="form_iframe">
+                        <div class="p2th" id="yue_login_div">
+                            <ul class="list clearfix">
+                                 <li><input type="text" name="yue_phone" id="yue_phone" class="input-text"  placeholder="手机号码"/></li>
+                                 <li class="mt20"><input type="password" name="yue_password" id="yue_password" class="input-text"  placeholder="密码"/></li>
+                             </ul> 
+                             <div class="btn" id="yue_submit_btn">登录</div>   
+                             <div class="txt">忘记密码，请通过约yue App端找回。</div>
+                             <div class="txt" style="color:red;display:none" id="yue_error_tips"></div>
+                        </div>
+                        <input type="hidden" value="cameraman_model" name="login_modle"></input>
+                        <input type="hidden" value="login" name="yue_action_type"></input>
+                        <input type="hidden" value="{r_url}" name="r_url"></input>
+                        </form>
+                        
+                        
+                        <form action="./module/login_register_op.php" method="post" name="supplier_yue_login_form" id="supplier_yue_login_form" target="form_iframe">
+                        <div class="p2th" id="supplier_yue_login_div" style="display:none;">
+                            <ul class="list clearfix">
+                                 <li><input type="text" name="supplier_yue_id" id="supplier_yue_id" class="input-text"  placeholder="商家ID"/></li>
+                                 <li class="mt20"><input type="password" name="supplier_yue_password" id="supplier_yue_password" class="input-text"  placeholder="密码"/></li>
+                             </ul> 
+                             <div class="btn" id="supplier_yue_submit_btn">登录</div>   
+                             <div class="txt" style="color:red;display:none" id="supplier_yue_error_tips"></div>
+                        </div>
+                        <input type="hidden" value="supplier" name="login_modle"></input>
+                        <input type="hidden" value="login" name="yue_action_type"></input>
+                        <input type="hidden" value="{r_url}" name="r_url"></input>
+                        </form>
+                    </div>  
+                </div>
+                <div class="rbox fldi">
+                    <div class="box1" id="yue_box1"><img src="./images/txt-des.jpg" id="intro_img"/></div>
+                    <div class="box1" style="display:none;padding-left:120px;padding-top:170px;" id="supplier_yue_box1"><img src="./images/ty-img-196x78.jpg"/></div>
+                    <div class="box2" id="yue_box2"><a href="./register.php?r_rul={encode_r_url}">还没有约yue账号？</a></div>
+                    <div class="box3" id="yue_box3"><a href="./register.php?r_rul={encode_r_url}">免费注册</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="footer boder-top-none">
+    <div class="w1000">
+        <a href="javascript:void(0);">关于约约</a> <span class="pr5 pl5">|</span> Copyright 2003-2015 YUEUS.COM 
+    </div>
+</div>
+
+
+
+
+
+</body>
+<script>
+
+/**
+* hudw 2015.1.23
+* @param  {[type]} window    [description]
+* @param  {[type]} seajs     [description]
+* @param  {[type]} undefined [description]
+* @return {[type]}           [description]
+*/
+;(function(window, seajs, undefined)
+{
+
+
+    // 配置模块
+    seajs.config
+    ({
+
+        paths:
+        {
+            utility: 'http://cb.poco.cn/utility',
+            matcha: 'http://cb.poco.cn/matcha',
+            yueyue_global : 'http://www.yueus.com/js/global'            
+        },
+        alias:
+        {
+            handlebars: 'utility/handlebars/1.0.0/handlebars',
+            jquery: 'utility/jquery/1.11.0/jquery',                        
+            cookie: 'matcha/cookie/1.0.0/cookie',
+            topbar : 'yueyue_global/topbar/topbar'        
+        },
+        comboMaxLength: 5000,
+        charset: 'utf-8'
+    });
+
+    seajs.use(['jquery','topbar'],function($,topbar)
+    {
+        var $user_state = $('#user_state');        
+        var encode_r_url = '{encode_r_url}';
+        topbar.init
+        ({
+            container : $user_state,
+            custom_logout : "http://www.yueus.com/reg/logout.php",
+            //custom_html : '<a href="http://www.yueus.com/reg/login.php?r_url='+encodeURIComponent(window.location.href)+'">登录</a><span class="pr15 pl15">|</span><a href="http://www.yueus.com/reg/register.php?r_url='+encodeURIComponent(window.location.href)+'">免费注册</a>'
+            custom_html : '<a href="http://www.yueus.com/reg/login.php?r_url='+encode_r_url+'">登录</a><span class="pr15 pl15">|</span><a href="http://www.yueus.com/reg/register.php?r_url='+encode_r_url+'">免费注册</a>'
+        });
+    });
+
+    seajs.use(['jquery','cookie','handlebars'], function($,cookie)
+    {
+        var self = this;
+        
+        //检查电话号码
+        function checkPhone(phone)
+        {
+            var re= /^1[0-9][0-9]\d{8,8}$/;
+            var tips = '';
+          
+            if(!re.test(phone))
+            {
+                tips = false;
+            }
+            else
+            {
+                tips = true;
+            }
+          
+          return tips;
+        }
+        
+        //检查是否ID值
+        function checkId(id)
+        {
+            var re= /[0-9]/;
+            var tips = '';
+          
+            if(!re.test(id))
+            {
+                tips = false;
+            }
+            else
+            {
+                tips = true;
+            }
+          
+            return tips;
+        }
+        
+        
+        
+        //切换按钮
+        
+        
+        $("#yue_login_btn").bind("click",function(){
+            if(!($("#yue_login_btn").hasClass("cur")))
+            {
+                $("#yue_login_btn").addClass("cur");
+                $("#yue_login_div").css("display","block");
+                $("#supplier_yue_login_btn").removeClass("cur");
+                $("#supplier_yue_login_div").css("display","none");
+                
+                $("#yue_box1").css("display","block");
+                $("#yue_box2").css("display","block");
+                $("#yue_box3").css("display","block");
+                $("#supplier_yue_box1").css("display","none");
+                
+                
+            }
+        });
+        
+        $("#supplier_yue_login_btn").bind("click",function(){
+            if(!($("#supplier_yue_login_btn").hasClass("cur")))
+            {
+                $("#supplier_yue_login_btn").addClass("cur");
+                $("#supplier_yue_login_div").css("display","block");
+                $("#yue_login_btn").removeClass("cur");
+                $("#yue_login_div").css("display","none");
+                
+                
+                $("#yue_box1").css("display","none");
+                $("#yue_box2").css("display","none");
+                $("#yue_box3").css("display","none");
+                $("#supplier_yue_box1").css("display","block");
+                
+
+            }
+            
+        });
+        
+        
+        //表单提交
+        $("#yue_submit_btn").bind("click",function(){
+            submit_function("yue_");
+        });
+        
+        $("#supplier_yue_submit_btn").bind("click",function(){
+            submit_function("supplier_yue_");
+        });
+        
+        
+        //提交前检索
+        function submit_function(first_word)
+        {
+            var yue_password = $("#"+first_word+"password").val();
+            if(first_word=="yue_")
+            {
+                var yue_phone = $("#"+first_word+"phone").val();
+                var ret = '';
+                //检索处理
+                ret = checkPhone(yue_phone)
+                if(ret)
+                {
+                    if($.trim(yue_password)=="")
+                    {
+                        $("#"+first_word+"error_tips").css("display","block");
+                        $("#"+first_word+"error_tips").html("请输入密码，密码不能为空格");
+                        return false;
+                    }
+                    else
+                    {
+                        $("#"+first_word+"login_form").submit();
+                        //过渡处理
+                        $("#"+first_word+"submit_btn").html("登录中，请稍后...");
+                        //清理相关信息
+                        $("#"+first_word+"error_tips").css("display","none");
+                        $("#"+first_word+"error_tips").html("");
+                        
+                    }
+                }
+                else
+                {
+                    $("#"+first_word+"error_tips").css("display","block");
+                    if($.trim(yue_phone)=="")
+                    {
+                        $("#"+first_word+"error_tips").html("请输入手机号");
+                    }
+                    else
+                    {
+                        $("#"+first_word+"error_tips").html("手机号格式有误");
+                    }
+                    
+                    return false;
+                    
+                }
+            }
+            else if(first_word=="supplier_yue_")
+            {
+                var yue_id = $("#"+first_word+"id").val();
+                var ret = '';
+                //检索处理
+                ret = checkId(yue_id)
+                if(ret)
+                {
+                    if($.trim(yue_password)=="")
+                    {
+                        $("#"+first_word+"error_tips").css("display","block");
+                        $("#"+first_word+"error_tips").html("请输入密码，密码不能为空格");
+                        return false;
+                    }
+                    else
+                    {
+                        $("#"+first_word+"login_form").submit();
+                        //过渡处理
+                        $("#"+first_word+"submit_btn").html("登录中，请稍后...");
+                        //清理相关信息
+                        $("#"+first_word+"error_tips").css("display","none");
+                        $("#"+first_word+"error_tips").html("");
+                        
+                    }
+                }
+                else
+                {
+                    $("#"+first_word+"error_tips").css("display","block");
+                    if($.trim(yue_id)=="")
+                    {
+                        $("#"+first_word+"error_tips").html("请输入商家ID");
+                    }
+                    else
+                    {
+                        $("#"+first_word+"error_tips").html("商家ID格式有误");
+                    }
+                    
+                    return false;
+                    
+                }
+            }
+        }
+        
+        //enter键盘处理
+        $(document).keypress(function(e)  
+        {
+            if(e.keyCode==13)
+            {
+            
+                var yue_display_status = $("#yue_login_div").css("display");
+                if(yue_display_status=="block")
+                {
+                    submit_function("yue_");
+                }
+                else
+                {
+                    submit_function("supplier_yue_");
+                }
+            }
+        });
+        
+    });
+
+    
+   
+})(window, seajs);
+
+</script>
+</html>

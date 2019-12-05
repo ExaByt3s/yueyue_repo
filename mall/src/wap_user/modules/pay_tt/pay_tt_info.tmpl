@@ -1,0 +1,199 @@
+<div id="global-header"></div>
+
+{{#if data.detail_list}}
+    {{#each data.detail_list}}
+    <ul class="info ui-list ui-list-text pt15 pr15 pb5">
+    	<li>
+    		<p>商品名称：{{goods_name}}</p>
+    	</li>
+        <li>
+            <div>规格：{{#if prices_spec}}{{prices_spec}}{{else}}无{{/if}}</div>
+        </li>
+        <li>
+            <div>全额：￥{{../data.total_amount}}</div>
+        </li>
+        <li>
+            <div>日期：{{service_time_str}}</div>
+        </li>
+    </ul>
+    {{/each}}
+{{/if}}
+{{#if data.activity_list}}
+    {{#each data.activity_list}}
+    <ul class="info ui-list ui-list-text pt15 pr15 pb5">
+        <li>
+            <p>活动名称：{{activity_name}}</p>
+        </li>
+        <li>
+            <div>时间/场次：{{formatDateTime "Y.m.d H:i" service_start_time}} {{stage_title}}</div>
+        </li>
+        <li>
+            <div>全额：￥{{../data.total_amount}}</div>
+        </li>
+        <li>
+            <div>报名人数：{{quantity}}</div>
+        </li>
+        <li>
+            <div>手机号码：{{service_cellphone}}</div>
+        </li>
+    </ul>
+    {{/each}}
+{{/if}}
+{{#if data.payment_list}}
+    {{#each data.payment_list}}
+    <ul class="info ui-list ui-list-text pt15 pr15 pb5">
+        <li>
+            <div class="ui-avatar-icon ui-avatar-icon-m">
+                <i style="background-image:url({{seller_icon}})"></i>
+            </div>
+            <div class="payment-info">
+                <div class="name f16">{{seller_name}}</div>
+                <div class="num">{{seller_user_id}}</div>
+            </div>
+        </li>
+    </ul>
+    {{/each}}
+{{/if}}
+
+<div class="mt30 pl15 mb10">应付金额</div>
+
+<!--支付模块-->
+<ul class="ui-list ui-list-text " class="ui-border-t">
+    <li class="ui-border-t">
+        <div class="ui-txt-default ">支付总价：<span >￥<label data-role="pay-amount">{{data.total_amount}}</label></span></div>
+    </li>
+    {{#if data.goods_promotion_info}}
+    <li class="ui-border-t vertical">
+        <div class="ui-txt-default ">已使用优惠：</div>
+        <div class="ui-txt-default ">
+            <i class="icon icon-pay-cu-36x36"></i>
+            {{{data.goods_promotion_info}}}
+        </div>
+    </li>
+    {{/if}}
+    {{#if data.activity_promotion_info}}
+    <li class="ui-border-t vertical">
+        <div class="ui-txt-default ">已使用优惠：</div>
+        <div class="ui-txt-default ">
+            <i class="icon icon-pay-cu-36x36"></i>
+            {{{data.activity_promotion_info}}}
+        </div>
+    </li>
+    {{/if}}
+
+    {{#unless data.is_allow_coupon}}
+    <input type="hidden" value="{{data.no_allow_coupon_text}}" id="no_allow_coupon_text" />
+    {{/unless}}
+
+    
+    <li data-role="coupon-money" class="ui-border-t">
+        <div class="ui-txt-default ">使用/兑换优惠券：<span><div class="ui-nowrap" style="width: 200px;" data-role="coupon-money-tag">
+            
+        </div></span></div>
+        <div class="ui-edge-right">
+            <span class="count-money-color" data-role="coupon-money-text"></span>
+            <i class="icon icon-select-no" data-role="yes-tag"></i>
+        </div>
+    </li>
+    <li data-role="select-available-balance" class="ui-border-t">
+		<div class="ui-txt-default ">钱包<span>（￥<label data-role="available_balance">{{data.available_balance}}</label></span>）：<span class="count-money-color" data-role="less-money"></span></div>
+		<div class="ui-edge-right">
+
+			<i class="icon icon-select-no" data-role="yes-tag"></i>
+		</div>
+	</li>
+    <li class="ui-border-t">
+        <div class="ui-txt-default ">还需支付：<span class="count-money-color_v2 fb">￥<label data-role="need-price">{{data.pay_amount}}</label></span></div>
+    </li>
+</ul>
+<ul class="ui-list ui-list-text ui-border-b mt20 fn-hide" style="margin-bottom: 0;"  data-role="must-pay-container"></ul>
+
+<div data-role="other-pay-container" class="fn-hide">
+    <div class="mt30 pl15 mb10">支付方式</div>
+    <ul class="ui-list ui-list-text " >
+        {{#if data.is_yueyue_app}}
+        <li class="ui-border-t" data-pay-type="alipay_purse" data-role="pay-li">
+            <div class="ui-txt-default ">
+                <div class="pay-type">
+                    <i class="icon icon-zhifubao"></i>
+                    <div class="ui-list-info ">
+                        <h4 class="ui-nowrap" >支付宝支付</h4>
+                        <p class="ui-nowrap">推荐有支付宝账号的用户使用</p>
+                    </div>
+                </div>
+                <div class="ui-edge-right">
+                    <i class="icon icon-select-no" data-role="yes-tag"></i>
+                </div>
+            </div>
+        </li>
+        <li class="ui-border-t" data-pay-type="tenpay_wxapp" data-role="pay-li">
+            <div class="ui-txt-default ">
+                <div class="pay-type">
+                    <i class="icon icon-wx-pay"></i>
+                    <div class="ui-list-info ">
+                        <h4 class="ui-nowrap" >微信支付</h4>
+                        <p class="ui-nowrap">安装微信5.0及以上版本的使用</p>
+                    </div>
+                </div>
+                <div class="ui-edge-right">
+                    <i class="icon icon-select-no" data-role="yes-tag"></i>
+                </div>
+            </div>
+        </li>
+        {{/if}}
+        {{#if data.is_weixin}}
+            <li class="ui-border-t" data-pay-type="tenpay_wxpub" data-role="pay-li">
+                <div class="ui-txt-default ">
+                    <div class="pay-type">
+                        <i class="icon icon-wx-pay"></i>
+                        <div class="ui-list-info ">
+                            <h4 class="ui-nowrap" >微信支付</h4>
+                            <p class="ui-nowrap">安装微信5.0及以上版本的使用</p>
+                        </div>
+                    </div>
+                    <div class="ui-edge-right">
+                        <i class="icon icon-select-no" data-role="yes-tag"></i>
+                    </div>
+                </div>
+            </li>
+        {{/if}}
+        {{#if data.is_zfb_wap}}
+        <li class="ui-border-t" data-pay-type="alipay_wap" data-role="pay-li">
+                <div class="ui-txt-default ">
+                    <div class="pay-type">
+                        <i class="icon icon-zhifubao"></i>
+                        <div class="ui-list-info ">
+                            <h4 class="ui-nowrap" >支付宝支付</h4>
+                            <p class="ui-nowrap">推荐有支付宝账号的用户使用</p>
+                        </div>
+                    </div>
+                    <div class="ui-edge-right">
+                        <i class="icon icon-select-no" data-role="yes-tag"></i>
+                    </div>
+                </div>
+            </li>
+        {{/if}}
+    </ul>
+
+   
+
+</div>
+
+
+
+<div style="height:55px;"></div>
+<div class="last-container fn-hide"></div>
+<!--支付模块-->
+<div class="buttom-btn-wrap ui-border-t">
+    <div class="pl10 text-info">
+        还需支付：<span class="count-money-color_v2 red-font" style="font-size: 18px;">￥<label data-role="need-price" id="bottom-need-price">{{data.pay_amount}}</label></span>
+    </div>
+    <div class="right">
+        <button class="ui-tt-pay-btn ui-button  ui-button-inline-block  ui-button-size-x ui-button-bg-ff6 " id="pay-btn">
+            <span class="ui-button-content" style="padding:0px" ><i class="icon icon-btn-icon-fk "></i></span>
+            <span class="txt">去支付</span>
+        </button>
+    </div>
+
+
+</div>

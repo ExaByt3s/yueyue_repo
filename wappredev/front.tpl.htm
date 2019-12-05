@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>约约首页</title>
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/static/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/wappredev/static/style/base.css">
+<!--基础样式 END-->
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/wappredev/static/style/task-m.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__romain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : '../ajax/'
+	};
+</script>  
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/wappredev/static/style/front/front.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/static/lib/lib.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/static/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/static/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/static/modules/common/utilitys/index.js"></script>
+</head>
+<body class="body_color">
+<main>
+    <div class="page-view page-name-front" data-role="page-container">
+        <div class="common_menu" >
+    <div class="common_logo"><i class="icon icon-top-logo"></i></div>
+    <div class="common_direct"><div>注册</div><div>登录</div></div>
+</div>
+<div class="common_menu_open layout_box_v fn-hide" data-role="common_menu_open">
+    <a data-role="common_menu_open_business" href="list.php">生意机会</a>
+    <a data-role="common_menu_open_list" href="order_list.php?type=pending">订单列表</a>
+    <a data-role="common_menu_open_mine" href="profile.php">个人中心</a>
+    <a data-role="common_menu_open_log_out" href="logout.php">退出登录</a>
+</div>
+<!--modjs hack 特殊处理，增加head标记-->
+<head></head>
+<!--modjs hack 特殊处理，增加head标记-->
+<script type="text/javascript">
+	
+	var cookie = require('common/cookie/index');
+	var $ = require('components/zepto/zepto.js');	
+
+	(function($,window)
+	{
+		var self = this;
+
+		var no_login = '{no_login}';
+
+		var $common_menu_open = $('[data-role="common_menu_open"]');
+		var $common_btn_menu  = $('[data-role="common_btn_menu"]');
+		var $common_menu_open_log_out = $('[data-role="common_menu_open_log_out"]');
+
+		if(!parseInt(cookie.get('yue_member_id')))
+		{
+			$common_btn_menu.hide();
+		}
+
+		$common_btn_menu.on('click',function()
+		{	
+			if(!parseInt(cookie.get('yue_member_id')))
+			{
+				return;
+			}
+			
+			$common_menu_open.toggleClass("fn-hide");
+		});
+
+		$common_menu_open_log_out.on('click',function()
+		{
+			$.ajax
+			({
+				url: window.$__config.ajax_url + 'login_out.php',
+				type: 'POST',
+				cache: false,
+				dataType: 'json',
+				beforeSend: function () {
+
+				},
+				success: function (data) {
+					window.location.href = './login.php';
+
+				},
+				error: function () {
+
+				},
+				complete: function () {
+
+				}
+			})
+    })
+
+	})($,window);
+</script> 
+        <div class="page-begin" data-role="page-begin">
+            <div class='container_null'>
+                <div class='container_1'>
+                    <div class='container_2'>
+                        <div class='container_3 list exp'>
+                            <img style="width:100%;" src="http://static.yueus.com/wappredev/static/image/front.png"/>
+                            <div class="notice"><div class="yueyue"></div><p>最高效的摄影服务平台</p></div>
+                        </div>
+                    </div>
+                    <div class='container_7'>
+                        <div class='container_8' data-role="down_apple">
+                            <div class="apple">
+
+                            </div>
+                            <div class="notice">
+                                <p>iPhone版</p>
+                                <p class="exp">v {app_ver}</p>
+                            </div>
+                        </div>
+                        <div class='container_9' data-role="down_apple_v2">
+                            <div class="android">
+
+                            </div>
+                            <div class="notice">
+                                <p>Android版</p>
+                                <p class="exp">v {app_ver}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='container_4'>
+                        <div class='container_5' data-role="down_android">iPhone备用版下载</div>
+                        <div class='container_6' data-role="down_android_v2">Android备用版下载</div>
+                    </div>
+                    <div class='container_10'>
+                        <div class='container_11'><p>寻找一种体验</p></div>
+                        <div class='container_12'><p>在约约可以解决掉你所有的摄影需求</p></div>
+                        <div class='container_12'><p>找模特？找活动？找场地？找化妆？找培训？</p></div>
+                        <div class='container_12'><p>再也不需要一个个分开来找</p></div>
+                        <div class='container_12'><p>再也不用头疼怎么才能找到合适</p></div>
+                    </div>
+                    <!-- BEGIN topic_data -->
+                    <div class='container_13 list' data-mark="{b_id}">
+                        <i class="slide-items-bg" style="background-image: url('{wap_img}');background-size: cover;"><div class="notice"><p>{title}</p></div></i>
+                    </div>
+                    <!-- END topic_data -->
+
+                </div>
+            </div>
+            {footer_html}
+        </div>
+    </div>
+</main>
+</body>
+<script>
+    var utility = require('common/utilitys/index');
+    var $ = require('components/zepto/zepto.js');
+    $(function()
+    {
+        $('[data-role="down_apple"]').on('click',function()
+        {
+            location.href = 'http://yp.yueus.com/download/download_iphone_plist.php';
+        })
+
+        $('[data-role="down_apple_2"]').on('click',function()
+        {
+            location.href = 'http://yp.yueus.com/download/download_iphone_plist_v2.php';
+        })
+
+        $('[data-role="down_android"]').on('click',function()
+        {
+            location.href = 'http://yp.yueus.com/download/download_android.php';
+        })
+
+        $('[data-role="down_android_v2"]').on('click',function()
+        {
+            location.href = 'http://yp.yueus.com/download/download_android_v2.php';
+        })
+
+        $('[data-mark]').on('click',function()
+        {
+            location.href = './category.php?b_id=' + $(this).attr('data-mark');
+        })
+
+        console.log(utility.get_view_port_height("nav"))
+        $('[data-role="page-begin"]').height(utility.get_view_port_height());
+
+    });
+</script>
+</html>

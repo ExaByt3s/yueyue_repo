@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="gbk">
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<title>YUE </title>		
+
+	<!-- modjs 必须引用 -->
+	<script src="/lib/mod.js" data-no-ls></script>
+	<script src="/lib/lib.js" data-no-ls></script>
+	<script src="/lib/basket.js" data-no-ls></script>
+
+	<!--基础样式 START-->
+	<link type="text/css" rel="stylesheet" href="style/base.scss"> 
+	<!--基础样式 END-->
+
+	<link type="text/css" rel="stylesheet" href="style/index.scss"> 
+
+</head>
+	<body>
+		<div id="header"></div>
+		<h1><a href="#">Welcome to YUE!!!!你好啊啊啊啊啊啊！！！！！</a></h1>
+		<i class="icon-camera"></i>
+		<i class="icon-model"></i>
+		<div id="footer"></div>	
+		<a href="about.html">关于我们</a> 
+	</body>
+	
+</html>
+
+
+<!-- IF MALL_LOCASTORAGE -->
+<!--RESOURCEMAP_PLACEHOLDER-->
+<!-- ELSE -->
+<!--SCRIPT_PLACEHOLDER-->
+<script>
+//window.__OPEN_LOCALSTORAGE = true;
+</script>
+<!-- ENDIF -->
+
+<script data-ls-end>
+(function()
+{
+	var temp_script_arr = document.getElementsByTagName('script');
+	var load_script_arr = [];
+	for(var i=0;i<temp_script_arr.length;i++)
+	{	
+		var script_obj = temp_script_arr[i];
+
+		console.log(script_obj.src)
+
+		if(!script_obj.src || /mod.js|lib.js|basket.js|livereload.js/.test(script_obj.src))
+		{
+			continue;
+		}
+		
+		if(script_obj.attributes.length>0 && /data-ls-end/.test(script_obj.attributes[0].name) )
+		{
+			break;
+		}
+
+		load_script_arr.push({'url':temp_script_arr[i].src});
+		//Env.pushNeedLoad(temp_script_arr[i].src);
+	}
+
+	//Env.batchLoad().batchExec();
+
+	jsCache.domReady(function () 
+	{
+		jsCache.detect("if lt IE 9", function () {
+			// Include some IE 8 or lower specific code
+			alert("IE 8 or lower!");
+		}).load(
+			{url:'http://localhost/new_yueyue/mobile/m2dev/static/modules/index/index.js '}
+		).then(function () {
+			// Load image and append to element that is gotten by use of jQuery!
+			console.log(111)
+		});
+	});
+
+
+	var storage = window.localStorage;
+	if(storage)
+	{
+		console.log(require.getAllResMap());
+	}
+
+})();
+</script>
+
+
+<script type="text/javascript">
+   require('index');
+</script>   

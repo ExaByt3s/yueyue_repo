@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/model_audit.css">
+<title>模板选择</title>
+<style type="text/css">
+.table-list
+{
+	min-width: 990px;
+	margin-bottom: 20px;
+}
+.table-list tbody td
+{
+	border-left: #eee 1px solid;
+}
+.album img
+{
+	margin:2px;
+}
+.button
+{
+	background: url('../resources/images/uploadify.png');
+	height: 28px;
+	width: 75px;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	text-shadow:none;
+	box-shadow:none;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list">
+       <form method="post" action="pic_examine_edit.php" id="myform">
+	   <div class="table" style="width:98%;" id="occu">
+		    <!--list-->
+		    <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+		    	<tbody>
+				<tr>
+				<td>模板选择:</td>
+				<td>
+				 <select name="tpl_id" id="select_tpl">
+				    <option value="0">请选择模板</option>
+				    <!-- BEGIN list -->
+				 	<option value="{id}">{tpl_name}</option>
+				    <!-- END list -->
+				 </select>
+				</td>
+				</tr>
+				<tr>
+				 <td>内容:</td>
+				 <td>
+				    <textarea name="tpl_detail" style="width:400px;height:200px;" id="tpl_detail"></textarea>
+				 </td>	
+				</tr>
+				<tr>
+				<td>操作:</td>
+				<td>
+			       <input type="submit" value="提交" class="button" id="t_submit" />
+                   <input type="reset"  value="重置" class="button"/>
+
+				</td>
+				</tr>  	
+			    </tbody>
+		    </table>
+	   </div>
+	   <input type="hidden" value="del" name="act" />
+	   <input type="hidden" value="{ids}" name="ids" />
+	   <input type="hidden" value="{url}" name="img_type" />
+	   </form>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		//模板数据获取
+		$("#select_tpl").change(function(){
+			var $id = $("#select_tpl").val();
+			if ($id == 0) 
+			{
+				$("#tpl_detail").val('');
+				return;
+			}
+			//window.alert($id);
+			$.ajax
+			({
+   		      contentType:"application/x-www-form-urlencoded;charset=GB2312",
+   		      type:"POST",
+   		      url:'template_select.php',
+   		      dataType: "json",
+   		      data:{'id': $id,'act':'info'},
+		      success:function(data)
+		      {
+		      	var $tpl_detail = '';
+		      	if (data.ret) 
+		      	{
+                   $tpl_detail = data.ret;
+		      	}
+		      	$("#tpl_detail").val($tpl_detail);
+		      },
+		      error:function(data)
+		      {
+
+		      }
+   	        })
+		});
+	});
+</script>
+</html>

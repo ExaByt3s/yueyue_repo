@@ -1,0 +1,96 @@
+<!--筛选列表-->
+{{#if_equal popup_type "filter"}}
+<div class="popup popup-hide" data-role="popup">
+    <header class="popup-header">
+        <div class="wbox clearfix">
+            <div id="option-back" class="back header-btn left0" data-role="option-back">
+                <i class="icon-back">取消</i>
+            </div>
+            <h3 class="title">筛选</h3>
+            <div id="confirm" class="confirm header-btn right0" data-role="page-confirm">
+                <i class="icon-confirm">确定</i>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="content native-scroll">
+            {{#each filter_data}}
+            <ul class="f14 filter-a" data-role="filter-a">
+                <li>
+                    <div class="name ui-border-b" >
+                        <span class="layout_box boxflex">{{text}}</span>
+                        <div>
+                            <div class="colorff6a6e filter-ab-name " ><span class="text" data-role="select-content" data-selected-name="{{selected_name}}" data-selected-key="{{selected_key}}" data-third-selected-name="{{selected_third_name}}" data-third-selected-key="{{selected_third_key}}">{{selected_content}}</span></div>
+                        </div>
+                        {{#if data}}
+                        <i class="icon-allow-grey icon-allow-grey-bottom ml15 icon-filter" data-role="filter-icon"></i>
+                        {{/if}}
+                    </div>
+                    {{#if data}}
+                    <ul class="filter-b fn-hide" data-role='filter-b'>
+                        {{#each data}}
+                        <li class="item {{#if selected}}colorff6a6e{{/if}} {{#if_equal rel_key "self"}}fn-hide{{/if_equal}}" data-role="item-a" data-val="{{val}}" data-key="{{rel_key}}" data-name="{{../name}}">
+                            <div class="ui-border-b pb15 pt15 item-name pr15" >
+                                <span data-role="a-btn-a" class="layout_box ">{{val}}</span>
+                                {{#if child_data.data}}
+                                <i class="icon-allow-grey icon-allow-grey-bottom ml15" data-role="item-icon"></i>
+                                {{/if }}
+                            </div>
+                            {{#if child_data.data}}
+                            <div class="nav-content ui-border-b {{#if child_data.is_show_child_data}}{{else}}fn-hide{{/if}}" data-role="item-b" data-name="{{child_data.name}}">
+
+                                {{#each child_data.data}}
+                                <button data-role="search-type-btn" data-type="" class="ui-button ui-button-size-x ui-button-bg-fff search-type-btn {{#if selected}}on-btn{{/if}}" data-key="{{key}}" data-val="{{val}}" data-parent-val="{{../val}}" >
+                                    <span data-role="a-btn-b">{{val}}</span>
+                                </button>
+                                {{/each}}
+                            </div> 
+                            {{/if }}
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    
+
+                </li>
+                
+            </ul>
+            {{/each}}
+
+            
+        </div>
+    </div>
+</div>
+{{/if_equal}}
+
+<!--排序列表-->
+{{#if_equal popup_type "sort"}}
+<div class="popup popup-hide" data-role="popup">
+    <header class="popup-header">
+        <div class="wbox clearfix">
+            <div id="option-back" class="back header-btn left0" data-role="option-back">
+                <i class="icon-back">取消</i>
+            </div>
+            <h3 class="title">排序</h3>
+            <div id="confirm" class="confirm header-btn right0 fn-hide" data-role="page-confirm">
+                <i class="icon-confirm">确定</i>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="content native-scroll">
+            {{#each sort_data}}
+            <ul class="f14 filter-a" data-role="filter-a">
+                <li data-role="orderby" data-val="{{orderby}}" class="{{#if selected}}colorff6a6e selected{{/if}}" >
+                    <div class="name ui-border-b "  >
+                        <span class="layout_box boxflex">{{text}}</span>
+                    </div>
+
+                </li>
+                
+            </ul>
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{/if_equal}}

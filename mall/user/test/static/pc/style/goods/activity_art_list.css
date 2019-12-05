@@ -1,0 +1,103 @@
+.search-page-body .ui-selectbox-option {
+  text-align: center; }
+.search-page-body .ui-search-com .search-form-container .search-text {
+  width: 420px; }
+.search-page-body .page {
+  padding-top: 60px; }
+.search-page-body .ui-search-com .search-form-container .search-text .text {
+  width: 362px; }
+
+.search_con_2 {
+  padding-top: 7px;
+  padding-left: 10px; }
+
+.search_text > img {
+  margin: 9px; }
+
+.data_res {
+  color: #333333;
+  font-size: 20px;
+  margin-top: 20px; }
+  .data_res img {
+    margin-right: 10px; }
+
+.search-page .search-filter {
+  margin-top: 40px; }
+
+.search-page-item {
+  width: 100px; }
+  .search-page-item .ui-close-icon {
+    background: url("http://static.yueus.com/mall/user/test/static/pc/images/ui/ui-close-32x32.png") no-repeat; }
+  .search-page-item .search-page-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    z-index: 9; }
+  .search-page-item .des {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff; }
+    .search-page-item .des .des-con {
+      padding: 0 15px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden; }
+  .search-page-item .search_seller_info {
+    font-size: 14px;
+    color: #000;
+    padding: 20px;
+    background: #fff; }
+    .search-page-item .search_seller_info .item-li .span-1 {
+      padding: 9px 0; }
+    .search-page-item .search_seller_info .item-li .f26-color-ff5959 {
+      font-size: 26px;
+      color: #ff5959; }
+    .search-page-item .search_seller_info .item-li .color-ff5959 {
+      color: #ff5959; }
+    .search-page-item .search_seller_info .item-li .name {
+      position: relative;
+      top: -4px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 130px;
+      display: inline-block; }
+    .search-page-item .search_seller_info .item-li .m0 {
+      margin: 0; }
+    .search-page-item .search_seller_info .item-li .list-name {
+      float: left;
+      margin-left: 10px;
+      width: 200px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      line-height: 34px; }
+    .search-page-item .search_seller_info .item-li .seller-info-1 {
+      margin-left: 15px; }
+      .search-page-item .search_seller_info .item-li .seller-info-1 .seller-name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 120px; }
+    .search-page-item .search_seller_info .item-li .seller-info-2 {
+      text-align: right; }
+      .search-page-item .search_seller_info .item-li .seller-info-2 .child-1 {
+        margin-top: 1px; }
+      .search-page-item .search_seller_info .item-li .seller-info-2 .child-2 {
+        margin-top: 6px; }
+    .search-page-item .search_seller_info .item-li.title {
+      padding: 7px 0 15px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 280px; }

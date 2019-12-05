@@ -1,0 +1,198 @@
+.act-detail-page-v2 .p1th .swiper-container {
+  height: 107px; }
+.act-detail-page-v2 .p1th .slide-items-bg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fafafa;
+  -webkit-background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  box-sizing: border-box; }
+.act-detail-page-v2 .p1th .swiper-pagination-bullet {
+  border: 1px solid #fff;
+  width: 5px;
+  height: 5px;
+  background: none;
+  border-radius: 50%;
+  margin: 0 1px;
+  opacity: .7; }
+.act-detail-page-v2 .p1th .swiper-pagination-bullet-active {
+  background: #f2f2f2; }
+.act-detail-page-v2 .p2th {
+  background: #fff; }
+  .act-detail-page-v2 .p2th .p-a {
+    padding: 10px; }
+    .act-detail-page-v2 .p2th .p-a .lbox {
+      width: 220px; }
+      .act-detail-page-v2 .p2th .p-a .lbox .title {
+        font-size: 18px; }
+    .act-detail-page-v2 .p2th .p-a .rbox {
+      height: 50px;
+      border-left: 1px solid #dddddd;
+      width: 60px;
+      text-align: center;
+      position: relative; }
+    .act-detail-page-v2 .p2th .p-a .collect-mod {
+      position: absolute;
+      width: 60px;
+      height: 50px;
+      top: 0;
+      left: 0; }
+      .act-detail-page-v2 .p2th .p-a .collect-mod .ui-button-content {
+        position: absolute;
+        top: 22px;
+        text-align: center;
+        width: 100%;
+        padding: 0px;
+        color: #ff6a6e;
+        left: 4px; }
+    .act-detail-page-v2 .p2th .p-a .collect-mod .ui-button {
+      background: url(http://static.yueus.com/mall/user/test/static/wap/image/collect-30x30.png);
+      width: 15px;
+      height: 15px;
+      background-size: 15px 15px;
+      display: block;
+      border: none;
+      margin: 10px 0 0 25px; }
+    .act-detail-page-v2 .p2th .p-a .collect-mod .has-collect {
+      background-image: url(http://static.yueus.com/mall/user/test/static/wap/image/collect-30x30-has.png); }
+  .act-detail-page-v2 .p2th .p-b {
+    padding: 15px 15px; }
+.act-detail-page-v2 .p3th {
+  background: #fff;
+  margin-top: 15px;
+  padding: 15px; }
+  .act-detail-page-v2 .p3th .list {
+    padding-top: 5px; }
+    .act-detail-page-v2 .p3th .list li {
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      color: #ff6a6e;
+      border: 1px solid #ff6a6e;
+      border-radius: 5px;
+      margin-top: 10px; }
+      .act-detail-page-v2 .p3th .list li.cur {
+        background: #ff6a6e;
+        color: #fff; }
+  .act-detail-page-v2 .p3th .more {
+    text-align: center;
+    padding: 15px 0 5px 0; }
+.act-detail-page-v2 .p4th {
+  background: #fff;
+  margin-top: 15px; }
+  .act-detail-page-v2 .p4th .item {
+    display: -webkit-box;
+    display: box;
+    padding: 12px 15px; }
+    .act-detail-page-v2 .p4th .item .lbox {
+      width: 72px; }
+    .act-detail-page-v2 .p4th .item .rbox {
+      display: -webkit-box;
+      display: box;
+      -webkit-box-flex: 1;
+      box-flex: 1; }
+  .act-detail-page-v2 .p4th .more {
+    text-align: center;
+    padding: 15px 0 15px 0; }
+.act-detail-page-v2 .p5th {
+  background: #fff;
+  margin-top: 15px; }
+  .act-detail-page-v2 .p5th .p-a {
+    padding: 15px 15px 0px 15px; }
+  .act-detail-page-v2 .p5th .p-b .user-info-item {
+    padding-left: 0px;
+    padding-right: 0; }
+  .act-detail-page-v2 .p5th .p-b .ui-user-info-mod {
+    margin-left: 15px;
+    margin-right: 15px; }
+    .act-detail-page-v2 .p5th .p-b .ui-user-info-mod .place {
+      position: absolute;
+      right: 15px;
+      top: 35px; }
+  .act-detail-page-v2 .p5th .p-b .item {
+    background: none;
+    padding-left: 0px;
+    padding-right: 0; }
+  .act-detail-page-v2 .p5th .p-b .des {
+    padding: 5px 15px 15px 15px;
+    line-height: 24px; }
+  .act-detail-page-v2 .p5th .p-b .user-info-con .title {
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+.act-detail-page-v2 .p6th-wrap {
+  padding-bottom: 75px; }
+.act-detail-page-v2 .p6th {
+  background: #fff;
+  margin-top: 15px;
+  padding-bottom: 15px; }
+  .act-detail-page-v2 .p6th .nav .list {
+    display: -webkit-box;
+    display: box; }
+    .act-detail-page-v2 .p6th .nav .list li {
+      -webkit-box-flex: 1;
+      box-flex: 1;
+      text-align: center;
+      background: #fbfbfb;
+      text-align: center;
+      border: 1px solid #dddddd;
+      height: 44px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      line-height: 44px;
+      font-size: 14px;
+      color: #666666;
+      border-left: none; }
+      .act-detail-page-v2 .p6th .nav .list li.cur {
+        border-top: 2px solid #333333;
+        background: none;
+        color: #333;
+        border-bottom: none; }
+  .act-detail-page-v2 .p6th .act-des {
+    padding: 15px;
+    line-height: 26px; }
+    .act-detail-page-v2 .p6th .act-des img {
+      width: 100%; }
+  .act-detail-page-v2 .p6th .act-user .list {
+    padding-bottom: 15px; }
+    .act-detail-page-v2 .p6th .act-user .list li {
+      margin: 15px 15px 0px 15px;
+      border: 1px solid #ddd;
+      padding: 13px;
+      border-radius: 5px; }
+      .act-detail-page-v2 .p6th .act-user .list li .p2 {
+        padding-top: 5px; }
+      .act-detail-page-v2 .p6th .act-user .list li.cur {
+        background: #f9f9f9; }
+  .act-detail-page-v2 .p6th .act-hg {
+    padding: 15px;
+    line-height: 26px; }
+    .act-detail-page-v2 .p6th .act-hg .no-content {
+      text-align: center; }
+    .act-detail-page-v2 .p6th .act-hg .icon-32x32-error {
+      background: url(http://static.yueus.com/mall/user/test/static/wap/image/icon-32x32-error.png);
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      background-size: 16px 16px;
+      vertical-align: middle;
+      margin-right: 5px; }
+.act-detail-page-v2 .btn-area {
+  height: 55px;
+  border-top: 1px solid #ddd;
+  background: #fafafa;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 8px 25px 0 25px; }

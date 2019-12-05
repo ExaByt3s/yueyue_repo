@@ -1,0 +1,44 @@
+ 
+
+.login-register-page-body{
+    background: #f2f2f2;
+    .login-register-page-wrap{
+        padding-top: 55px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        min-height: 515px;
+        background: url(../images/bg-1000x515.jpg) center top no-repeat;
+        width: 100%;
+    }
+    .err-tips{
+        width: 268px;
+        padding-left: 10px;
+        color: #ff6763;
+        border: 1px solid #fadcd3;
+        background: #fff1ed;
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: 20px;
+        .icon-error{
+            display: inline-block;
+            background: url(../images/error-tips-15x15.png) ;
+            width: 15px;
+            height: 15px;
+            vertical-align: -3px;
+            margin: 0 5px 0 0px
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

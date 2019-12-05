@@ -1,0 +1,7 @@
+{
+	"author" : "hudw",
+	"dev_domain" : "http://localhost/yueyue_mobile/m2dev",
+	"predev_domain" : "http://yp.yueus.com/mobile/m2predev",
+	"pub_test_domain" : "http://localhost/yueyue_mobile/m2pt",
+	"pub_domain" : "http://yp.yueus.com/mobile/m2"
+}

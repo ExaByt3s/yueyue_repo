@@ -1,0 +1,47 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 组件
+// --
+
+// 下拉
+$border:#cccccc;
+$green:#18cea7;
+$pink:#ff0052;
+$background:#ffffff;
+$choosen_font:#666666;
+.ui-choosen-group {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-flex: 1;
+  .ui-choosen-line{
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-flex: 1;
+  }
+  .ui-choosen-btn {
+    overflow: hidden;
+    height: 34px;
+    border: 1px solid $border;
+    line-height: 34px;
+    font-size: 14px;
+    color:$choosen_font;
+    text-align: center;
+    @include border-radius(2px);
+    &.current {
+      color: $pink;
+      border-color: $pink;
+      background-image: image-url($domain-name+'images/sec-24x24.png');
+      background-position: right bottom;
+      background-repeat: no-repeat;
+      background-size: 12px 12px;
+    }
+    &.disabled{
+      background: #E2E2E2;
+    }
+  }
+
+}
+.refuse_page_style
+{
+  width: 80px;
+}

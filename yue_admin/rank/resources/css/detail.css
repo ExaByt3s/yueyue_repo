@@ -1,0 +1,9 @@
+/*图片去掉颜色*/
+#pic_table table tbody tr:hover
+{
+	background: #fff;
+}
+#file_upload_pic object
+{
+	right: -2px;
+}

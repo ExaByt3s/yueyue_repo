@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "topic.css",
+    "sources": [
+        "/style/topic/topic.scss"
+    ],
+    "sourcesContent": [
+        ".topic-page{\n    width: 740px;\n    margin: 0 auto;\n    \n    a.db{\n        &:hover{\n            text-decoration: none;\n        }\n    }\n\n\n    .ui-button{\n        margin-top: 15px !important; \n        &:hover{\n            cursor: pointer;\n        }\n    }\n\n\n\n    // 大小 兼容wap专题\n    .ui-button-size-x{\n        height: 30px;\n        line-height: 30px;\n        .ui-button-content{\n            padding: 0px 15px;\n        }\n    }\n\n\n    .ui-button-size-m{\n        height: 35px;\n        line-height: 35px;\n        .ui-button-content{\n            padding: 0px 15px;\n        }\n    }\n\n    .ui-button-size-l{\n        height: 40px;\n        line-height: 40px;\n        .ui-button-content{\n            padding: 0px 15px;\n        }\n    }\n\n\n    .ui-button-size-xl{\n        height: 45px;\n        line-height: 45px;\n        .ui-button-content{\n            padding: 0px 15px;\n        }\n    }\n\n    \n}\n\n"
+    ],
+    "mappings": "AAAA,AACI,AAAO,AACP,AAAQ,AAGZ,AAAY,AAAC,AAAG,AACJ,AAAiB,AAK7B,AAAY,AACJ,AAAY,AACpB,AAAY,AAAU,AACV,AAAQ,AAOpB,AAAY,AACJ,AAAQ,AACR,AAAa,AACrB,AAAY,AAAkB,AAClB,AAAS,AAKrB,AAAY,AACJ,AAAQ,AACR,AAAa,AACrB,AAAY,AAAkB,AAClB,AAAS,AAIrB,AAAY,AACJ,AAAQ,AACR,AAAa,AACrB,AAAY,AAAkB,AAClB,AAAS,AAKrB,AAAY,AACJ,AAAQ,AACR,AAAa,AACrB,AAAY,AAAmB,AACnB,AAAS",
+    "names": []
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>{ret.title}</title>
+		<!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+		-->
+		<!-- 公共css，js引入 -->
+		{pc_global_top}
+		<!-- 当前页面css-->
+		<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/pc/style/index-page.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/global-top-bar/global-top-bar.js"></script>
+</head>
+	<body class="index-bg">
+		{global_top_bar}
+		
+		<!-- <div class="content" style="">		 -->
+		<!-- 模板start -->
+		<div class="index-page font_wryh">
+			<style type="text/css">
+			.topic-info{
+				width: 800px;
+				margin:10px auto;
+			}
+			</style>
+			<div class="topic-info">
+				{ret.content}
+			</div>
+	
+			<!-- IF formal_is_hide -->
+			<div class="down-app-item w1000 "  id="jqqd" >
+				<div class="index-listItem">
+					<span class="title">下载约约商家APP</span>
+					<em class="tips">
+					根据不同平台下载不同版本的约约商家APP<br />
+					或用手机扫描二维码直接下载
+					</em>
+				</div>
+				<div class="item clearfix">
+					<div class="lbox fldi">
+						<div class="code-item">
+							<div class="code-con"><img src="http://static.yueus.com/mall/seller/test/static/pc/images/test/code-177x177.jpg"></div>
+							<div class="txt-con">
+								<p>手机扫描二维码下载</p>
+							</div>
+						</div>
+					</div>
+					<div class="rbox fldi">
+						<div class="icon-item">
+							<a href="{down_iPhone_app}" class="icon-con"  onclick="javascript:download_apk();">
+								<i class="icon iphone-icon"></i>
+								<em>iPhone版本下载</em>
+							</a>
+							<a href="{down_android_app}" class="icon-con"  onclick="javascript:download_apk();">
+								<i class="icon android-icon"></i>
+								<em>Android版本下载</em>
+							</a>
+						</div>
+						<div class="txt-item">
+							下载到电脑
+						</div>
+						<!--临时处理ios9提示-->
+						<style type="text/css">
+						.ios9-warning
+						{
+						text-align: center;
+						clear: both;
+						
+						padding-top: 10px;
+						}
+						.ios9-warning a
+						{
+						font-size: 16px;
+						color: #2e78f1;
+						padding-left: 5px;
+						}
+						</style>
+						<div class="ios9-warning txt-item"><img src="http://static.yueus.com/mall/user/test/static/pc/images/red-warn-icon-29x24.png" /><a href="http://www.yueus.com/mall/user/topic/index.php?topic_id=656
+						" target="_blank">IOS9 安装提示!</a></div>
+					</div>
+				</div>
+			</div>
+			<!-- ENDIF -->
+			<!-- IF wait_is_hide -->
+			<div class="jqqd "  id="jqqd" >
+				<div class="nr w1000">
+					<img src="http://static.yueus.com/mall/seller/test/static/pc/images/test/jqxd-1000x600.jpg" />
+				</div>
+			</div>
+			<!-- ENDIF -->
+		</div>
+		<!-- 模板end -->
+		<!-- </div> -->
+		<div class="footer font_wryh">
+			<div class="w1000">
+				<div class="yue-info-item clearfix">
+					<div class="info-item">
+						<h1 class="logo"><a href="javascript:;"></a></h1>
+						<div class="txt">
+							<p>约约是由资深投资人士和摄影行业大咔联手重金打造的平台，在成立短短半年，就已经获得天使轮和PreA轮合计近5000万的投资。内测阶段已经获得了许多大师级的认可，同时也和POCO摄影社区形成了战略合作，并且得到众多摄影网站的推荐。</p>
+						</div>
+					</div>
+					<div class="code-item">
+						<div class="code-img"><img src="http://static.yueus.com/mall/seller/test/static/pc/images/test/test-code-148x148.png" alt=""></div>
+						<p>扫一扫 关注微信服务号</p>
+					</div>
+				</div>
+				<div class="mes-item">
+					
+					<div class="text-item clearfix">
+						<div class="l-item">
+							<h4 class="title">广州摩幻时信息技术有限公司</h4>
+							<p class="pt5"><span>工作时间 9:00 - 18:00</span><span class="pl20">电话 4000-82-9003</span></p>
+						</div>
+						<div class="r-item">
+							<p><a href="http://www.yueus.com/about.php">关于约约 </a> | Copyright &copy; 2003-2015 YUEUS.COM</p>
+							<p class="pt5">帮助说明： <a href="http://s.yueus.com/download_pdf.php?type=seller">新进驻商家请下载</a> <span class="pl5 pr5">|</span> <a href="http://s.yueus.com/download_pdf.php?type=model">原约约模特请下载</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			// 头部
+			require('common/global-top-bar/global-top-bar');
+			
+			// 弹窗口
+			// require('../../../modules/common/layer/layer');
+			// 首页商家案例弹层
+			$(document).ready(function(){
+				$("#CaseList li").hover(function(){
+					$(this).find('.show-box-pop').hide();
+					$(this).find('.text-item').stop().animate({bottom:0},300);
+				}, function() {
+					$(this).find('.show-box-pop').show();
+					$(this).find('.text-item').stop().animate({bottom:-340},300);
+				});
+				$('#btn-down').on('click', function() {
+					$("html,body").animate({scrollTop:$("#jqqd").offset().top},600);
+				});
+			});
+			// 微信下载提示
+			function isWeiXin()
+			{
+				var ua = window.navigator.userAgent.toLowerCase();
+				if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+					return true;
+				}else{
+					return false;
+				}
+			}
+			
+			function download_apk()
+			{
+				if(isWeiXin()){
+					alert('微信用户，请点击页面右上角“┇”—>“在浏览器中打开”，进行安装，谢谢~');
+					return false ;
+				}
+			}
+		</script>
+	</body>
+	<!-- 底部统计 -->
+	<script type="text/javascript">__poco_site_stat_request_filename = 'poco_tj.css';</script>
+	<script type="text/javascript" src="//www1.poco.cn/site_stat_code.js"></script>
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-67307238-1', 'auto');
+	ga('send', 'pageview');
+	</script>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	var hm = document.createElement("script");
+	hm.src = "//hm.baidu.com/hm.js?d3f6d15244a0b41207c934710304445d";
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</html>

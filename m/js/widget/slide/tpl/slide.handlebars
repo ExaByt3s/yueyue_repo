@@ -1,0 +1,16 @@
+<div class="scroll-area" data-role="ad-pic" data-prevent-scroll="slider">
+<ul data-role="ad-pic-inner">
+        {{#each contents}}
+        <li>{{{content}}}</li>
+        {{/each}}
+</ul>
+{{#if no_single}}
+<div class="ad-pic-point-out">
+        <ul data-role="ad-pic-point" class="ad-pic-point">
+        {{#each contents}}
+            <li data-index="{{@index}}" class="{{class}}"></li>
+        {{/each}}
+        </ul>
+</div>
+{{/if}}
+</div>

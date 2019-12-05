@@ -1,0 +1,94 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 活动 我的活动劵
+// ------------------------------
+
+.action-security{
+  .action-security-content{
+    //padding-top: $content-margin-top;
+    .action-security-list{
+      padding: 10px;
+      overflow: hidden;
+      li{
+        margin-bottom: 10px;
+        @include border-radius($border-radius);
+        border: 1px solid #cccccc;
+        .item{
+          @include flexbox((
+                display: box
+            ), $version: 1);
+          padding: 15px 10px;
+          // height: 30px;
+          .title{
+            @include flexbox((
+                display: box,
+                box-flex: 1,
+                box-align: center
+            ), $version: 1);
+            .icon{
+              @include flexbox((
+                box-align: center
+            ), $version: 1);
+              margin-right: 10px;
+              height: 30px;
+              width: 30px;
+            }
+            .icon-hd{
+              @include get-icon('hd-60x60', true, block);
+            }
+            .icon-time{
+              @include get-icon('time-48x46', true, block);
+            }
+            .text{
+              // white-space: nowrap;
+              font-size: 10px;
+              h2{
+                line-height: 1.6;
+                
+                width: 218px;
+                // overflow: hidden;
+                font-size: 14px;
+                &:last-child{
+                  margin-top: 4px;
+                  color: #aaa;
+                }
+              }
+            }
+          }
+          .next{
+            @include flexbox((
+                display: box,
+                box-align: center
+            ), $version: 1);
+            @include get-icon('r-16x26', true, block);
+          }
+        }
+        .password{
+          padding: 15px 10px 10px 50px;
+          border-top: 1px solid #cccccc;
+          .number{
+             margin-bottom: 15px;
+             em{
+              color: #ff5000;
+             }
+          }
+          .picture{
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            i{
+              display: block;
+              width: 100%;
+              height: 100%;
+              background-position:50%;
+              background-size: cover;
+              background-repeat: no-repeat;
+            }
+          }
+
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{{#each data.data}}
+<div class="child" order_id="{{order_id}}" order_sn="{{order_sn}}" goods_id="{{detail_list}}" >
+    {{#each code_list}}
+    <div data-role-code="contain" style="display: none" >
+        <input type="hidden" data-code-url="{{qr_code_url}}">
+        <input type="hidden" data-code-number="{{code_sn}}">
+        <input type="hidden" data-code-name="{{name}}">
+        <input type="hidden" data-code-img-url="{{qr_code_url_img}}">
+    </div>
+    {{/each}}
+    {{#each detail_list}}
+    <input type="hidden" data-goods-id="{{goods_id}}">
+    {{/each}}
+    <div class="item_info" data-role="item_info">
+        <div class="pics">
+            <img src="{{goods_images}}"/>
+        </div>
+        <div class="notice_contain">
+            <div class="notice">{{goods_name}}</div>
+            <div class="o_price">￥{{total_amount}}</div>
+        </div>
+    </div>
+    <div class="r_pay ui-border-t">
+        <div class="info">
+            <p class="tex">实付：</p>
+            <p class="re_price">￥{{pending_amount}}</p>
+        </div>
+    </div>
+    <div class="btns ui-border-t">
+        {{#each btn_action}}
+            {{#compare request "==" "close"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="close" data-role="2">
+                <span class="">关闭</span>
+            </button>
+            {{/compare}}
+            {{#compare request "==" "pay"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good" data-action-type="pay" data-role="3">
+                <span class="">支付</span>
+            </button>
+            {{/compare}}
+
+            {{#compare request "==" "cancel"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="cancel" data-role="1">
+                <span class="">取消订单</span>
+            </button>
+            {{/compare}}
+
+            {{#compare request "==" "refund"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="refund" data-role="4">
+                <span class="">申请退款</span>
+            </button>
+            {{/compare}}
+            {{#compare request "==" "sign"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good" data-action-type="ewm" data-role="5" >
+                <span class="">出示二维码</span>
+            </button>
+            {{/compare}}
+            {{#compare request "==" "delete"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="delete" data-role="7">
+                <span class="">删除订单</span>
+            </button>
+            {{/compare}}
+            {{#compare request "==" "appraise"}}
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good" data-action-type="comment" data-role="6">
+                <span class="">评价</span>
+            </button>
+            {{/compare}}
+        {{/each}}
+    </div>
+</div>
+{{/each}}

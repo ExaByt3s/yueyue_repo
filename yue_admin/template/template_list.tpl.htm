@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>模板管理后台</title>
+<style type="text/css">
+#quick_search .input-text
+{
+  width: 60px;
+}
+#quick_search tr
+{
+  line-height: 30px;
+}
+
+.table-list-search td
+{
+  padding-left: 10px;
+}
+.table-list-search .button_search
+{
+  width: 100px;
+  height: 50px;
+}
+#quick_search .table_search
+{
+  border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+  <ul>
+    <a href="template_add.php" class="on">添加模板</a>
+  </ul>
+</div>
+<!--top-->
+  <div class="table-list" id="table-list">
+    <div class="btn">
+      符合条件的个数为:{total_count}
+    </div>
+    <table width="100%" cellspacing="0" style="min-width: 900px;">
+      <thead>
+        <tr>
+           <th>ID</th>
+           <th>名称</th>
+           <th>内容</th>
+           <th>排序</th>
+           <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- BEGIN list -->
+        <tr>
+        <td align="center">{id}</td>
+        <td align="center">{tpl_name}</td>
+        <td align="center"><a href="javascript:void(0);" class="desc" data="{tpl_detail}">{desc}</a></td>
+        <td align="center">{sort_order}</td>
+        <td align="center"><a href="template_edit.php?id={id}">编辑</a>| <a href="template_edit.php?id={id}&act=delete">删除</a></td>
+        </tr> 
+        <!-- END list -->       
+      </tbody>
+    </table>
+  </div>
+<div id="pages" class="page">
+  {page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+  $(function()
+  {
+      //显示所有文字
+      $("#table-list tbody td").find(".desc").mouseover(function(){
+        var $dmid_desc = $(this).attr('data');
+        layer.tips($dmid_desc, this, {
+            style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+            //maxWidth:185,
+            time: 3,
+            closeBtn:[0, false]
+        });
+
+      });
+       $("#table-list tbody td").find(".desc").mouseleave(function(){
+        layer.closeTips();
+
+      });
+  });
+</script>
+</html>

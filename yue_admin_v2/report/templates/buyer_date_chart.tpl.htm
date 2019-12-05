@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <title>登录折线图(日)</title>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <script src="../js/echarts2/dist/echarts.js" charset="GBK"></script>
+</head>
+<body>
+<div class="mainbox" style="width:1024px;margin:10px auto">
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="250">
+                        <tbody>
+                        <tr>
+                            <td>
+                                年月:
+                                <input type="text" name="month" class="input-text" id="date" value="{month}" size="10" onfocus="WdatePicker( {dateFmt: 'yyyy-MM'} )" readonly="true"/>
+                            </td>
+                            <td>
+                                <p><input type="submit" class="button" value="查看"/></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+</div>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="height:400px;"></div>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths:{
+            echarts: '../js/echarts2/dist'
+        }
+    });
+
+
+    // 使用
+    require(
+            [
+                'echarts',
+                'echarts/theme/macarons',
+                'echarts/chart/line'
+            ],
+            function (ec,theme) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main'),theme);
+
+                var option = {
+                    title : {
+                        text: '消费者登录折线图(日)',
+                        subtext: ''
+                    },
+                    tooltip : {
+                        trigger: 'axis',
+                        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                            type : false      // 默认为直线，可选为：'line' | 'shadow'
+                        }
+                    },
+                    legend: {
+                        data:['一周有上线的用户','三十天有上线的用户']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: false},
+                            dataView : {show: false, readOnly: false},
+                            magicType : {show: false, type: ['line', 'bar']},
+                            restore : {show: false},
+                            saveAsImage : {
+                                show: true,
+                                title : '保存为图片',
+                                type : 'png',
+                                lang : ['点击保存']
+                            }
+                        }
+                    },
+                    calculable : false,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : [ {date_str} ]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            'name':'元'
+                        },
+
+
+                    ],
+                    series : [
+                        {
+                            name:'一周有上线的用户',
+                            type:'line',
+                            data:[ {buyer_7_login_str} ],
+                            markPoint : {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name: '平均值'}
+                                ]
+                            },
+                            itemStyle :
+                            {
+                                normal :
+                                {
+                                    color: '#B6A2DE',
+                                    label :
+                                    {
+                                        show : false
+                                    },
+                                    labelLine :{
+                                        show: false
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            name:'三十天有上线的用户',
+                            type:'line',
+                            data:[ {buyer_30_login_str} ],
+                            markPoint : {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name: '平均值'}
+                                ]
+                            },
+                            itemStyle :
+                            {
+                                normal :
+                                {
+                                    color: '#2EC7C9',
+                                    label :
+                                    {
+                                        show : false
+                                    },
+                                    labelLine :{
+                                        show: false
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                };
+
+                // 为echarts对象加载数据 
+                myChart.setOption(option);
+            }
+    );
+
+</script>
+</body>

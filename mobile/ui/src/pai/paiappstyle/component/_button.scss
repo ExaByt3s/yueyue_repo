@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+// -------------------------------------------------
+// 按钮集
+// -------------------------------------------------
+
+
+// --------------------------------------------------
+// 按钮基本结构
+// --------------------------------------------------
+#{$default-base-button-namespace} {
+    @include inline-block;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(#000, 0);
+    outline: 0;
+
+    @include button-size($default-base-button-height, $default-base-button-padding, $default-base-font-size, $default-base-button-border-radius);
+
+    font-weight: $default-base-button-font-weight;
+    text-decoration: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    cursor: pointer;
+    text-align: center;
+    background-image: none;
+
+    @include box-shadow(#000, 0.05);
+
+    @include user-select(none);
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        cursor: not-allowed;
+        pointer-events: none; // Future-proof disabling of clicks
+        @include opacity(0.5);
+        @include box-shadow(none);
+    }
+}
+
+
+// --------------------------------------------------
+// 按钮配色
+// --------------------------------------------------
+@each $btn-variant in $default-base-button-variant {
+    $btn-name: map-get($btn-variant, "name");
+
+    #{$default-base-button-namespace}-#{$btn-name} {
+        // normal
+        $btn-normal: map-get($btn-variant, "normal");
+
+        $normal-txt-color: map-get($btn-normal, "txt");
+        $normal-background-color: map-get($btn-normal, "background");
+        $normal-border-color: map-get($btn-normal, "border");
+        @include button-variant($normal-txt-color, $normal-background-color, $normal-border-color);
+
+        // hover
+        $btn-hover: map-get($btn-variant, "hover");
+        @if $btn-hover {
+            &:hover, 
+            &.hover {
+                $hover-txt-color: map-get($btn-hover, "txt");
+                $hover-background-color: map-get($btn-hover, "background");
+                $hover-border-color: map-get($btn-hover, "border");
+                @include button-variant($hover-txt-color, $hover-background-color, $hover-border-color);
+            }
+        }
+        // active
+        $btn-active: map-get($btn-variant, "active");
+        @if $btn-active {
+            &:active,
+            &.active {
+                $active-txt-color: map-get($btn-active, "txt");
+                $active-background-color: map-get($btn-active, "background");
+                $active-border-color: map-get($btn-active, "border");
+                @include button-variant($active-txt-color, $active-background-color, $active-border-color);
+            }
+        }
+        // focus
+        $btn-focus: map-get($btn-variant, "focus");
+        @if $btn-focus {
+            &:focus,
+            &.focus {
+                $focus-txt-color: map-get($btn-focus, "txt");
+                $focus-background-color: map-get($btn-focus, "background");
+                $focus-border-color: map-get($btn-focus, "border");
+                @include button-variant($focus-txt-color, $focus-background-color, $focus-border-color);
+            }
+        }
+
+        // disabled
+        &.disabled,
+        &[disabled],
+        fieldset[disabled] & {
+            &,
+            &:hover,
+            &:focus,
+            &:active,
+            &.active {
+                @include button-variant($normal-txt-color, $normal-background-color, $normal-border-color);
+            }
+        }
+    }
+}
+
+
+
+// --------------------------------------------------
+// 按钮尺寸 (默认26px)
+// --------------------------------------------------
+@each $btn-size in $default-base-button-size {
+    $size: map-get($btn-size, "size");
+
+    // .ui-button-primary .ui-button-size-small etc.
+    #{$default-base-button-namespace}-size-#{$size} {
+        $height: map-get($btn-size, "height");
+        $padding: map-get($btn-size, "padding");
+        $font-size: map-get($btn-size, "font-size");
+        $border-radius2: map-get($btn-size, "border-radius");
+        
+        @include button-size($height, $padding, $font-size, $border-radius2);
+    }
+}
+
+
+
+
+#{$default-base-button-namespace}-block {
+    display: block;
+    width: 100%;
+    @include box-sizing(border-box);
+}

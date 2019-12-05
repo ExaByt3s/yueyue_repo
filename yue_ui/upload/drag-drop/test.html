@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jQuery动画特效</title>
+    <link href="css/pcsp.css"type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/core.js" type="text/javascript"></script>
+    <script src="js/widget.js" type="text/javascript"></script>
+    <script src="js/mouse.js" type="text/javascript"></script>
+    <script src="js/sortable.js" type="text/javascript"></script>
+</head>
+<p>图片上传控件</p>
+<div class="ui-item">
+    <!--上传完成--><!--上传完成 触发-->
+    <div id="sortable" class="ui-sortable">
+        <div class="ui-upload ui-btn bg-color list-group-item">
+            <a href="#" class=""><img src="img/upload-img.png" title=""/></a>
+            <div class="ui-upload-shadow"><a href="#"  class="close-img"></a></div>
+        </div>
+
+
+        <div class="ui-upload ui-btn bg-color list-group-item">
+            <a href="#" class=""><img src="img/upload-img1.png" title=""/></a>
+            <div class="ui-upload-shadow"><a href="#"  class="close-img"></a></div>
+        </div>
+        <div class="ui-upload ui-btn bg-color">
+            <a href="#" class=""><img src="img/upload-img.png" title=""/></a>
+            <div class="ui-upload-shadow"><a href="#"  class="close-img"></a></div>
+        </div>
+        <div class="ui-upload ui-btn bg-color">
+            <a href="#" class=""><img src="img/upload-img.png" title=""/></a>
+            <div class="ui-upload-shadow"><a href="#"  class="close-img"></a></div>
+        </div>
+        <div class="ui-upload ui-btn bg-color">
+            <a href="#" class=""><img src="img/upload-img.png" title=""/></a>
+            <div class="ui-upload-shadow"><a href="#"  class="close-img"></a></div>
+        </div>
+        <!--上传进行中-->
+        <div class="ui-upload-ongo ui-btn bg-color">
+            <a href="#" class=""><img src="img/upload-img.png"/>
+                <div class="ui-upload-progress  ">60%</div>
+            </a>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+</div>
+<script>
+    $(function() {
+        $( "#sortable" ).sortable();
+        $( "#sortable" ).disableSelection();
+    });
+</script>
+</body>
+</html>

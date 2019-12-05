@@ -1,0 +1,100 @@
+.global-topbar-account {
+    height: 41px;
+    @include float-right;
+    border-left: 1px solid #0a0a0a;
+    border-right: 1px solid #323232;
+
+    .global-dropdown-menu {
+        padding: 8px 0;
+
+        li {
+            display: inline;
+        }
+
+        a {
+            line-height: 32px;
+            padding: 0 20px;
+            display: block;
+            color: #333;
+
+            &:hover {
+                background-color: #f0f0f0;
+                color: #333;
+            }
+        }
+    }
+
+    // .item-trigger {
+    // }
+
+    .global-topbar-item {
+        .item-content {
+            padding: 0 10px 0 9px;
+        }
+    }
+    .photoapp-item {
+        .item-content {
+            padding-right: 25px;
+        }
+        .icon-angle {
+            right: 13px;
+        }
+        .new-icon {
+            left:18px;
+            top: 3px;
+        }
+    }
+
+    // .search-item {
+    // }
+    // .publish-item {
+    // }
+    // .notice-item {
+    // }
+    .profile-item {
+        .item-content {
+            padding-right: 20px;
+        }
+    }
+
+    %publish-and-notice-icon-size {
+        width: 20px;
+        height: 16px;
+        margin: 13px 0 0;
+        overflow: hidden;
+    }
+    .avatar {
+        @include float-left;
+        width: 20px;
+        height: 20px;
+        margin: 11px 0 0;
+        @include border-radius(2px);
+
+        vertical-align: middle;
+    }
+
+    .icon-notice {
+        @extend %publish-and-notice-icon-size;
+        @include get-icon('notice');
+    }
+
+    .icon-publish {
+        @extend %publish-and-notice-icon-size;
+        margin-right: 5px;
+        @include get-icon('publish');
+    }
+    .icon-search {
+        width: 17px;
+        height: 17px;
+        margin: 12px 0 0;
+        @include get-icon('search');
+    }
+
+
+    .icon-mobile-l {
+        width: 12px;
+        height: 20px;
+        margin: 10px 0 0;
+        @include get-icon('mobile-l');
+    }
+}

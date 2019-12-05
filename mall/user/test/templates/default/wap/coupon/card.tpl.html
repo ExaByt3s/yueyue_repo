@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>优惠劵</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/coupon/card.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view " data-role="page-container">
+        <div class="card">
+            <div class="coupons_options">
+                <div class="options-box-f  "><p class="bor-b000">约惠卡</p></div>
+                <a href="./list.php" class="options-box-f">
+                    <div >我的优惠卡</div>
+                </a>
+            </div>
+            <div class="content">
+                <div class="acticle">
+                    <span class="content-title">约约er专属VIP卡</span>
+                    <p>约惠卡充值</p>
+                    <p>方便快捷 即充即用</p>
+                    <p>充300送300 史上最抵</p>
+                    <a href="http://mp.weixin.qq.com/bizmall/malldetail?id=&pid=pNHJqs3anc-tmaWyrZe-uowLS_14&biz=MzAxMDA5NzcxNg==&scene=&action=show_detail&showwxpaytitle=1&ptlang=2052&ADUIN=819859253&ADSESSION=1439427372&ADTAG=CLIENT.QQ.5413_.0&ADPUBNO=26485#wechat_redirect">
+                    <button class="acticle-btn">立即领取</button>
+                    </a>
+                </div>
+                <div class="tips">
+                    <p class="tips-f">充值的300元，在约约APP上立即使用</p>
+                    <p class="tips-f">赠送的300元，全场通用，可享受以下福利：</p>
+                    <p class="tips-f icon-left">◎ 和POCO摄友玩转最火爆的外拍活动，尽情创作</p>
+                    <p class="tips-f icon-left">◎ 和网络当红美女边拍边摄，各种风格主题，想拍就拍</p>
+                    <p class="tips-f icon-left">◎ 和摄影大咖学习摄影，前期后期，技能全get</p>
+                </div>
+            </div>
+            <div class="border-b"></div>
+            <div class="footer">
+                <i class="foot-icon"></i>
+                <div class="foot-f">
+                    <span class="foot-f-l">更多优惠、精彩活动</span>
+                    <span>请下载约约APP</span>
+                </div>
+                <a class="db" href="http://app.yueus.com">
+                    <button class="foot-btn">下载约约</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    {wap_global_footer}
+    
+</main>
+</body>
+<script>
+    var header = require('common/widget/header/main');
+    //头部插件
+    $(document).ready(function() {
+        header.init({
+            ele        : $("#global-header"), //头部渲染的节点
+            title      : "优惠劵",
+            header_show: true, //是否显示头部
+            mt_0_ele   : $("#seller-list-page"), //如果头部隐藏，要把当前页节点margin-top改为0
+            right_icon_show: true, //是否显示右边的按钮
+            share_icon : {
+                show   : false,  //是否显示分享按钮icon
+                content: ""
+            },
+            omit_icon  : {
+                show   : false,  //是否显示三个圆点icon
+                content: ""
+            },
+            show_txt   : {
+                show   : true,  //是否显示文字
+                content: ""  //显示文字内容
+            }
+        });
+        console.log(__index_url_link);
+        document.body.addEventListener('touchstart', function ()
+        {
+
+        });
+    });
+</script>
+</html>

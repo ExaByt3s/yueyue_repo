@@ -1,0 +1,29 @@
+<div class="ad-pic-out" data-role="ad-pic-out">
+
+</div>
+<div class="choose">
+    <div class="line">
+        <div class="boxes first" ><img style="width: 100%" src="{{data.four_grid_one.img}}" data-role="img-tap" data-url="{{data.four_grid_one.url}}" data-link-type="{{data.four_grid_one.link_type}}"/></div>
+        <div class="line_pixel"></div>
+        <div class="boxes" ><img style="width: 100%" src="{{data.four_grid_two.img}}" data-role="img-tap" data-url="{{data.four_grid_two.url}}" data-link-type="{{data.four_grid_two.link_type}}"/></div>
+    </div>
+    <div class="line exp">
+        <div class="boxes" ><img style="width: 100%" src="{{data.four_grid_thr.img}}" data-role="img-tap" data-url="{{data.four_grid_thr.url}}" data-link-type="{{data.four_grid_thr.link_type}}"/></div>
+        <div class="line_pixel"></div>
+        <div class="boxes last" ><img style="width: 100%" src="{{data.four_grid_fur.img}}" data-role="img-tap" data-url="{{data.four_grid_fur.url}}" data-link-type="{{data.four_grid_fur.link_type}}"/></div>
+    </div>
+</div>
+<div class="hot_topic">
+    <div class="title">
+        <div>{{data.topic_name}}</div>
+        <div class="more_tap" data-role="more_tap" data-more="{{data.topic_more_link}}">
+            <div>{{data.topic_more_text}}</div>
+            <div data-role="more_arr"><i class="icon icon-allow-22x12"></i></div>
+        </div>
+    </div>
+    {{#each data.topic_list.list}}
+        <img src="{{img}}" style="width: 100%;margin-bottom: 5px" data-role="topic_details" data-details-hash="{{url}}"/>
+    {{/each}}
+    <div class="more_more" data-role="more_more">查看全部</div>
+</div>
+<div class="footer_empty"></div>

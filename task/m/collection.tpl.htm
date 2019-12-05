@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>收藏</title>
+    {m_global_top}
+    <link charset="utf-8" rel="stylesheet" href="./css/process.css">
+    <script type="application/javascript" src="js/pager.js?v3"></script>
+<body>
+{m_task_top}
+<div class="common_taps">
+    <div class="tap_child" data-role="process">待处理订单<div class='common_red_point <!-- IF pending_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{pending_remind_num}</div></div>
+    <div class="tap_child " data-role="hired">进行中订单<div class='common_red_point <!-- IF process_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{process_remind_num}</div></div>
+    <div class="tap_child current" data-role="get">收藏<div class='common_red_point <!-- IF archive_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{archive_remind_num}</div></div>
+</div>
+<div class="process_title">收藏</div>
+<div class="common_list_container">
+    <!-- IF show_pager="1" -->
+
+    <!-- ELSEIF show_pager="0" -->
+    <div class="common_no_list"><p>暂无订单</p></div>
+    <!-- ENDIF -->
+    <!-- BEGIN list -->
+    <div class="common_list_child" data_lead_id="{lead_id}" data_quotes_id="{quotes_id}" data-request_id="{request_id}">
+        <!-- IF status="1" -->
+        <div class="common_list_child_title status-9" data-role="to_details">
+            <img src="./img/status_9-52x58.png"/>
+            <p>已选中</p>
+        </div>
+        <!-- ELSE -->
+        <!-- IF order_status="viewed" -->
+        <div class="common_list_child_title status-3" data-role="to_details">
+            <img src="./img/status_3-60x60.png"/>
+            <p>已查看</p>
+        </div>
+        <!-- ELSEIF order_status="sent" -->
+        <div class="common_list_child_title status-4" data-role="to_details">
+            <img src="./img/status_4-60x42.png"/>
+            <p>已发送</p>
+        </div>
+        <!-- ELSEIF order_status="refunded" -->
+        <div class="common_list_child_title status-5" data-role="to_details">
+            <img src="./img/status_5-60x54.png"/>
+            <p>有退款</p>
+        </div>
+        <!-- ELSEIF order_status="pending" -->
+        <div class="common_list_child_title status-6" data-role="to_details">
+            <img src="./img/status_6-52x58.png"/>
+            <p>待报价</p>
+        </div>
+        <!-- ELSEIF order_status="expired" -->
+        <div class="common_list_child_title status-7" data-role="to_details" data-expired="1">
+            <img src="./img/status_7-52x58.png"/>
+            <p>已作废</p>
+        </div>
+        <!-- ELSEIF order_status="closed" -->
+        <div class="common_list_child_title status-8" data-role="to_details">
+            <img src="./img/status_8-52x58.png"/>
+            <p>被拒绝</p>
+        </div>
+        <!-- ENDIF -->
+        <!-- ENDIF -->
+        <div class="common_list_child_ques" data-role="to_details" <!-- IF order_status="expired" -->data-expired="1"<!-- ENDIF -->>
+            <p class='name <!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{buyer_nickname}</p>
+            <p class='<!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{title}</p>
+        <!-- BEGIN answer -->
+            <!-- IF default_titles -->
+
+            <!-- ENDIF -->
+            <!-- IF data -->
+            <!-- BEGIN data -->
+                <!-- IF default_titles -->
+                <!--p class="k">{default_titles}</p-->
+                <!-- ENDIF -->
+            <!-- END data -->
+            <!-- ENDIF -->
+        <!-- END answer -->
+            <!--p>{when_str}</p>
+            <p>{where_str}</p-->
+
+            <!--p class=" more_line_text_dotdotdot">
+                <!-- BEGIN answer -->
+                <!-- BEGIN data -->
+
+                <!-- END data -->
+                <!-- END answer -->
+            <!--/p-->
+        </div>
+        <div class="common_list_child_control">
+            <p>{time_format}</p>
+            <div class="common_list_child_control_delete_btn fn-hide" data-role="delete">取消收藏</div>
+        </div>
+    </div>
+    <!-- END list -->
+
+
+</div>
+<!--分页参数-->
+{page_config_script}
+<!-- IF show_pager="1" -->
+<div class="common_list_bottom" data-role="pager-container">
+
+</div>
+<!-- ELSEIF show_pager="0" -->
+
+<!-- ENDIF -->
+</body>
+{m_global_bot}
+<script>
+    window.onload = function()
+    {
+        $('[data-role="process"]').on('click',function()
+        {
+            location.href = './process.php';
+        })
+
+        $('[data-role="hired"]').on('click',function()
+        {
+            location.href = './hired.php';
+        })
+
+        $('[data-role="get"]').on('click',function()
+        {
+            location.href = './collection.php';
+        })
+
+        $('[data-role="to_details"]').on('click',function()
+        {
+            var list = $(this).parent(); //订单元素
+
+            if($(this).attr("data-expired") == 1)
+            {
+                return
+            }
+
+            var quotes_id = $(this).parent().attr('data_quotes_id');
+
+            var request_id =  $(this).parent().attr('data-request_id');
+
+            location.href = '../m/talk.php?quotes_id=' + quotes_id;
+        });
+
+        $('[data-role="delete"]').on('click',function()
+        {
+            var list = $(this).parents("[data_quotes_id]");
+
+            var lead_id = $(this).parent().attr('lead_id');
+
+            var data_quotes_id = list.attr("data_quotes_id");
+
+            var data =
+            {
+                lead_id:data_quotes_id
+            };
+
+            if(window.confirm('要收藏该需求吗?'))
+            {
+                $.ajax
+                ({
+                    url : '../ajax/collection.php',
+                    data:data,
+                    type: 'POST',
+                    dataType : 'json',
+                    cache: false,
+                    beforeSend: function()
+                    {
+
+                    },
+                    success: function(data)
+                    {
+                        console.log(data);
+                    },
+                    error: function()
+                    {
+
+                    },
+                    complete: function()
+                    {
+
+                    }
+                });
+            }
+        });
+
+        // 使用分页类
+
+        var pager = window._Pager;
+        var pager_obj = new pager
+        ($('[data-role="pager-container"]'),{
+            total_page : window.__page_config.total_page,
+            pre : window.__page_config.pre,
+            next : window.__page_config.next,
+            cur_page : window.__page_config.cur_page
+        });
+    }
+</script>
+</html>

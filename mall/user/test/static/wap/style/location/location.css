@@ -1,0 +1,69 @@
+.location-page .p1th {
+  padding-top: 22px; }
+  .location-page .p1th .title {
+    padding-left: 15px; }
+  .location-page .p1th .item-wrap {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    color: #333333;
+    padding: 0px 15px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+    position: relative; }
+  .location-page .p1th .cur-city {
+    position: absolute;
+    right: 13px;
+    top: -2px; }
+.location-page .p2th {
+  padding-top: 22px; }
+  .location-page .p2th .title {
+    padding-left: 15px;
+    margin-bottom: 10px; }
+  .location-page .p2th .item {
+    border-bottom: 1px solid #eeeeee;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    color: #333333;
+    padding: 0px 15px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+    position: relative; }
+    .location-page .p2th .item:active {
+      background: #fafafa; }
+    .location-page .p2th .item .icon {
+      background: url(http://static.yueus.com/mall/user/test/static/wap/image/right-32x32.png) no-repeat;
+      width: 16px;
+      height: 16px;
+      background-size: 16px 16px;
+      position: absolute;
+      right: 15px;
+      top: 20px; }
+.location-page .p3th {
+  margin-bottom: 50px;
+  padding-top: 25px; }
+  .location-page .p3th .title-top {
+    padding-left: 15px;
+    padding-bottom: 10px; }
+  .location-page .p3th .item-wrap {
+    padding: 10px 0;
+    background: #fff; }
+    .location-page .p3th .item-wrap .title {
+      padding: 0px 0 10px 0px; }
+    .location-page .p3th .item-wrap .item {
+      padding: 10px 15px 15px 15px; }
+      .location-page .p3th .item-wrap .item li {
+        display: inline-block;
+        margin-right: 15px; }
+    .location-page .p3th .item-wrap .ui-button:active {
+      background: #ff686a;
+      color: #fff;
+      border-color: #ff686a; }
+    .location-page .p3th .item-wrap .ui-button .ui-button-content {
+      padding: 0px 25px; }

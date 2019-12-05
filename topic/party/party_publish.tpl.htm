@@ -1,0 +1,1942 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<title>约约外拍发布页</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="stylesheet" type="text/css" href="{combo:event_comm_css,_dev}"/>
+<link rel="stylesheet" type="text/css" href="./css/outdoor.css?t=1212"/>
+<script type="text/javascript" src="{combo:event_comm_js,_dev}"></script>
+<link rel="stylesheet" type="text/css" href="./css/waipai.css?t={rand}"/>
+
+
+
+<script type='text/javascript' src="./js/DatePickerV2/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="http://food.poco.cn/js/linkage_merge.js"></script>
+<script type="text/javascript" src="http://food.poco.cn/js/locate_var.js"></script>
+<script type='text/javascript' src="./js/party_public.js?{_dev}"></script>
+
+<!-- <script src="http://www.poco.cn/js_common/seajs/2.0.0/sea.js"></script>  -->
+<!-- <script src="http://cb-c.poco.cn/seajs/??2.3.0/sea.js,plugins/seajs-text/1.0.2/seajs-text.js,plugins/seajs-style/1.0.2/seajs-style.js,plugins/seajs-combo/1.0.1/seajs-combo.js"></script>
+<script src="http://www.poco.cn/js_common/channel/common/loader.js?t={_dev}"></script>  -->
+<style>
+.J_add_btn,.J_add_cover_img{
+overflow:hidden;
+}
+
+.activity-page .item-info .table-item .textarea-detail-txt{
+height:100px;
+}
+
+.add_model_btn{
+font-size: 12px;
+position: absolute;
+top: 51px;
+right: -166px;
+}
+
+.activity-page .item-info .model-img-list li.cancle-btn{
+width:34px;
+}
+</style>
+
+
+
+</head>
+<body>
+{global_header_html}
+{header_html}
+<script>
+/**
+* hudw 2015.1.23
+* @param  {[type]} window    [description]
+* @param  {[type]} seajs     [description]
+* @param  {[type]} undefined [description]
+* @return {[type]}           [description]
+*/
+;(function(window, seajs, undefined)
+{
+
+
+    // 配置模块
+    seajs.config
+    ({
+
+        paths:
+        {
+            utility: 'http://cb.poco.cn/utility',
+            matcha: 'http://cb.poco.cn/matcha',
+            yueyue_global : 'http://www.yueus.com/js/global'            
+        },
+        alias:
+        {
+            handlebars: 'utility/handlebars/1.0.0/handlebars',
+            jquery: 'utility/jquery/1.11.0/jquery',                        
+            cookie: 'matcha/cookie/1.0.0/cookie',
+            topbar : 'yueyue_global/topbar/topbar'        
+        },
+        comboMaxLength: 5000,
+        charset: 'utf-8'
+    });
+
+    seajs.use(['jquery','topbar'],function($,topbar)
+    {
+        var $user_state = $('#user_state');        
+
+        topbar.init
+        ({
+            container : $user_state,
+            custom_logout : "http://www.yueus.com/reg/logout.php",
+            custom_html : '<a href="http://www.yueus.com/reg/login.php?r_url='+encodeURIComponent(window.location.href)+'">登录</a><span class="pr15 pl15">|</span><a href="http://www.yueus.com/reg/register.php?r_url='+encodeURIComponent(window.location.href)+'">免费注册</a>'
+        });
+    });
+    
+    
+    
+
+    
+   
+})(window, seajs);
+</script>
+<script type="text/javascript">
+
+
+window.addEvent('domready', function(){
+
+    //默认活动城市
+    select_location('location_radio');
+
+
+});
+
+
+
+
+/*选择地区的JS*/
+function removeSelectItem(sel_obj){
+
+    sel_obj.options[sel_obj.selectedIndex] = null;
+
+}
+
+function jsSelectIsExitItem(objSelect, objItemValue) 
+{        
+    var isExit = false;        
+    for (var i = 0; i < objSelect.options.length; i++) 
+    {        
+        if (objSelect.options[i].value == objItemValue) 
+        {        
+            isExit = true;        
+            break;        
+        }        
+    }        
+    return isExit;        
+}   
+
+//向select选项中 加入一个Item        
+function jsAddItemToSelect(objSelect, objItemText, objItemValue) 
+{             
+    if (jsSelectIsExitItem(objSelect, objItemValue)) 
+    {      
+        return false;
+
+    } else {
+    
+        var varItem = new Option(objItemText, objItemValue);      
+        objSelect.options.add(varItem);
+        return true;
+    }        
+}  
+
+function updateSelectVal(objSelect){
+    
+    var itemArr = new Array();
+    itemOption  = objSelect.getElementsByTagName("option");
+    for( i=0;i< itemOption.length;i++ ){
+        
+        itemArr[i] = itemOption[i].value;    
+    }
+
+    idString = itemArr.join('#');
+    return idString;
+}
+
+/*选择地区的JS*/
+
+
+//检查结束时间也否小于开始时间
+    function check_time()
+    {
+        
+        var d1 = new Date($('start_time').value.replace(/\-/g, "\/"));
+        var d2 = new Date($('end_time').value.replace(/\-/g, "\/"));    
+        
+        if(d1 >= d2) {
+            
+            alert_error('end_time',"开始日期必须小于结束日期！");
+            return false;
+        }else{
+        
+            alert_error('end_time',"");
+            return true;
+        } 
+    }
+
+//检查场次结束时间是否小于开始时间
+    function check_site_time(num)
+    {
+        
+        var d1 = new Date(($('site_start_time_'+num).value).replace(/\-/g, "\/"));
+        var d2 = new Date(($('site_end_time_'+num).value).replace(/\-/g, "\/"));    
+        
+        
+        //判断是否在开始结束时间区间里
+        var match_site_time_d1 = new Date(($("start_time").value).replace(/\-/g, "\/"));
+        var match_site_time_d2 = new Date(($("end_time").value).replace(/\-/g, "\/"));
+        
+
+        
+        
+        //判断场次跟上场次结束时间对比
+        if(parseInt(num)>1)
+        {
+            var last_num = parseInt(num)-1;
+            var last_d2 = new Date(($('site_end_time_'+last_num).value).replace(/\-/g, "\/"));
+            if(last_d2>d1)
+            {
+                alert_error('site_end_time_'+num,"该场开始时间须大于上场时间");
+                return false;
+            }
+        }
+        
+        if(d1 >= d2) {
+            
+            alert_error('site_end_time_'+num,"开始时间 要小于结束时间！");
+            return false;
+        }else{
+        
+            alert_error('site_end_time_'+num,"");
+            return true;
+        } 
+    }
+
+
+
+//活动地区选择全国城市或指定城市
+function select_location(RadioName)
+{
+    var obj;   
+    obj=document.getElementsByName(RadioName);
+    if(obj!=null)
+    {
+        
+        for(var i=0;i<obj.length;i++){
+            if(obj[i].checked){
+                var value=obj[i].value;         
+            }
+        }
+    }
+    var arr = new Array('location_id1','location_id2');
+    if(value=='0'){	
+        display_array_id(arr,"none");
+        show_locate_select_v2([0, 0, 0], 'locate_dataSrc', MenuInfoArr);
+        //清掉城市提示语
+        alert_error('location_id1',"");
+    }else{
+        display_array_id(arr,"");
+        
+    }	
+}
+
+//显示或关闭数组中的对象
+function display_array_id(arr,value)
+{
+    var len = arr.length;
+    for(i=0;i<len;i++)
+    {
+        $(arr[i]).style.display=value;
+    }
+}
+</script>
+<div class="clearfix" id="content">
+  <div style="padding:0; margin:0;" class="t_line"></div>
+  <div class="location_index pd10">
+    <a href="javascript:void(0);" class="open" id="short_tips" data-class="short_tips_btn" <!-- IF event_edit_tips_close == "Y" -->style=""<!-- ELSE -->style="display:none;"<!-- ENDIF -->>+ 发布前必读</a>
+  </div>
+    <iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+    <form action="./module/event_publish_op.php" method="post" target="_blank" name="publish_form" id="publish_form">
+      <input type="hidden" name="act" value="{act}" id="act"></input>
+      <input type="hidden" name="event_id" value="{event_id}"></input>
+      
+      
+    
+      <!--活动发布-->
+      <div class="activity-page" id="activity_info" style="display:block;">
+        <div class="mod-item-read" id="long_tips" <!-- IF event_edit_tips_close == "Y" -->style="display:none;"<!-- ELSE -->style=""<!-- ENDIF -->>
+          <div class="listItem clearfix"><h4 class="title">发布前必读</h4><span class="close"><a href="javascript:void(0)" data-class="long_tips_btn">- 收起</a></span></div>
+          <div class="con-txt">
+            <div class="txt">
+              <ol>
+                <li>发布摄影外拍活动召集的网友需是POCO注册网友，注册时间达到上1个月（30天），且摄影积分不低于200分、摄影级别为乐园一级（包含乐园一级）以上者，积分等级不足请尽快获取积分。</li>
+                <li>发布美食活动需要达到新星食神二级（100分）。</li>
+                <li>发布宠物聚会活动需是POCO注册网友，注册时间必须满90天。</li>
+                <li>召集的活动帖内容（包含文字、图片等超链接在内）不得包含除POCO网以外的其它网站的链接等内容，否则管理员有权对其内容进行修改、删除。</li>
+                <li>禁止模特以组织者身份组织拍摄模特的外拍活动。</li>
+                <li>活动帖发布并顺利开展活动后的需完善该活动的活动回顾。</li>
+                <li>网友召集活动只能以活动帖的形式发布，任何以其他方式或版块出现相关活动信息，管理员有权进行修改、删除处理。</li>
+                <li>活动召集帖中须上传相关照片，比如人像类拍摄活动必须有模特照片及其POCO空间，并明确注明活动拍摄类型。</li>
+                <li>活动只限网友个人性质，未经允许，不能发布任何具有商业性质或广告性质的活动。</li>
+                <li>原则上禁止发布关于人体、丝袜、美腿、内衣、泳装等违禁主题，以及活动的花絮。如有发现将视情节处以暂停发帖至删除账号的处罚。</li>
+                <li>POCO网只是提供一个摄影活动信息发布平台，所有非POCO官方组织的网友活动，活动过程中产生的一切法律纠纷，均与POCO网无关，由网友活动组织者承担相关责任。</li>
+              </ol>
+            </div>
+            <div class="tips mod-link-none">发布活动后，将有POCO工作人员在每周的周二周三工作时间内进行审核，审批通过后就会在活动区显示，具体的审核规则及工作人员联系方式请见<br />《<a href="#">摄影外拍活动发布细则</a>》。</div>
+          </div>
+        </div>
+        
+        <div class="item-send">
+            <div class="s-nav hd-bg-1 clearfix">
+                <ul>
+                  <li class="cur">活动信息</li>
+                  <li>活动介绍</li>
+                  <li>活动流程</li>
+                </ul>
+            </div>
+          <table cellpadding="0" cellspacing="0" class="table-item">
+            <tr>
+              <td class="title" valign="top">标题：</td>
+              <td><input type="text" class="input-txt" id="title" name="title" value="{title}"/><span id='title_error' class="alert_error"></span></td>
+            </tr>
+            <tr id="time_tr_construct" style="display:none;">
+              <td class="title" valign="top">时间：</td>
+              <td>
+                <div class="select-item clearfix" style="width:600px;">
+                    <input id="start_time" onclick="check_time();{wdate}"  class="fldi" name="start_time" <!-- IF start_time --> value="{dateformat:start_time, 'Y-m-d H:i'}" <!-- ENDIF --> readonly>
+                    <span class="to fldi pl15 pr15">到</span>
+                    <input id="end_time" onclick="check_time();{wdate}" class="fldi" name="end_time" <!-- IF end_time --> value="{dateformat:end_time, 'Y-m-d H:i'}" <!-- ENDIF --> readonly>
+                    <span id='end_time_error' class="alert_error"></span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="title" valign="top">地址：</td>
+              <td><div class="adree-item clearfix" style="height:34px;">
+                  <label>
+                    <input type="radio" name="location_radio" id="location_radio_0" value="0" onclick="select_location('location_radio')" checked/>
+                    全国
+                  </label>              
+                  <label>
+                    <input type="radio" name="location_radio" id="location_radio_1" value="1" onclick="select_location('location_radio')" <!-- IF location_id1 != "0" -->checked<!-- ENDIF -->/>
+                    <span class="choose-place">地区选择</span>
+                  </label>
+                  
+                  
+                  <div class="other-adree" id="other-adree">
+                    <select name="location_id1" id="location_id1" usedata="locate_dataSrc" subclass="1" size="1" class="fldi" style="display:none;"></select> 
+                    <select name="location_id2" id="location_id2" usedata="locate_dataSrc" subclass="2" size="1" class="fldi" style="display:none;"></select> 
+                    <select name="location_id3" id="location_id3" usedata="locate_dataSrc" subclass="3" size="1" class="fldi" style="display:none;"></select> 
+                    
+                    <script type="text/javascript" language="javascript">
+                        show_locate_select_v2([{location_id1}, {location_id2}, {location_id3}], 'locate_dataSrc', MenuInfoArr);
+                        
+                    </script>
+                    <input type="text" id="address" class="input-txt addree-txt fldi" placeholder="请输入详细地址" value="{address}" name="address"/>
+                    <span id="location_id1_error" class="alert_error"></span>
+                    <span id='address_error' class="alert_error"></span>
+                  </div>
+                  
+                </div></td>
+            </tr>
+
+            <tr>
+              <td class="title" valign="top">费用：</td>
+              <td class="clearfix">
+                <input type="text" class="input-txt input-pay" value="<!-- IF act == "add" --><!-- ELSEIF act == "update" -->{budget}<!-- ENDIF act -->" id="budget" name="budget" <!-- IF act == "update" -->readonly<!-- ENDIF act --> />
+                <span id='budget_error' class="alert_error"></span>
+              </td>
+            </tr>
+            
+            
+
+          </table>
+          <div class="btn-item"><a href="javascript:void(0)" class="ui-btn ui-btn-green-h50 circle-3px" data-class="next_step" data-mark="1"><em data-class="next_step" data-mark="1">下一步</em></a></div>
+        </div>
+      </div>
+      <!--活动发布 end-->
+
+
+
+      <!--活动介绍-->
+      <div class="activity-page" id="activity_intro" style="display:none">
+        <div class="item-send item-info">
+          <div class="s-nav hd-bg-2 clearfix">
+                <ul>
+                  <li data-class="back_step" data-mark="1" style="cursor:pointer">活动信息</li>
+                  <li class="cur">活动介绍</li>
+                  <li>活动流程</li>
+                </ul>
+          </div>
+          <table cellpadding="0" cellspacing="0" class="table-item">
+            <tr>
+              
+              <td class="title" valign="top">封面图：</td>
+              <td style="padding-bottom:30px" colspan="2"><div class="model-img-list clearfix">
+                    <ul class="J_cover_img_ul" data-mark="1">
+                      <!-- IF act == "update" -->
+                      <li class="J_upload_cover_img_li" data-mark="1">
+                        <img class="J_upload_cover_img" src="{cover_image_145}" style="width:80px;" data-mark="1"/>
+                        <input class="J_upload_cover_img_input_item" id="J_upload_cover_img_input_item" type="hidden" value="{cover_image_item_id}" name="cover_image_item_id" data-mark="1"></input>
+                        <input class="J_upload_cover_img_input" id="J_upload_cover_img_input" type="hidden" value="{cover_image}" name="cover_image" data-mark="1"></input>
+                        <a href="javascript:void(0);" class="cancle" data-class="J_delete_upload_cover_img" data-mark="1">删除</a>
+                      </li>
+                      <!-- ENDIF act -->
+                      <li class="add-btn J_add_cover_img" data-mark="1" <!-- IF act =="update" -->style="width:1px;height:1px;"<!-- ENDIF act -->>
+                        <span id="cover_img_flash"></span>
+                      </li>                  
+                    </ul>
+                  </div>
+                  <span id='J_upload_cover_img_error' class="alert_error"></span>
+                </td>
+            </tr>
+            <tr>
+              <td class="title" valign="top">主题介绍：</td>
+              <td colspan="2">
+                <textarea class="textarea-txt" name="content" id="topic_content">{content}</textarea>
+                <span id='topic_content_error' class="alert_error"></span>
+              </td>
+            </tr>
+            <tr id="model_container">
+              <td class="title" valign="top">图文介绍：</td>
+              <td>
+                <!-- IF act == "add" -->
+                    <div class="model-item re J_model_item" data-class="model_div" data-mark="1">
+                      <div class="add_model_btn">
+                        <div class="add-btn mt20"><a href="javascript:void(0);" class="ui-btn ui-btn-gray-h40 circle-3px" data-class="J_add_model_btn" data-mark="1"><i class="icon" data-class="J_add_model_btn" data-mark="1"></i><em data-class="J_add_model_btn" data-mark="1">插入图文模块</em></a>
+                        </div>
+                      </div>
+                      <div class="textarea-detail-txt J_textarea_div" contenteditable="true" data-mark="1" style="display:none">场地/模特介绍…</div> 
+                      <textarea class="textarea-detail-txt J_textarea" placeholder="" name="text[]"  data-mark="1">场地/模特介绍…</textarea>
+                      <input type="hidden" name="model_part[]" value="1"></input>
+                      <div class="model-img-list clearfix">
+                        <ul class="J_li_ul" data-mark="1">
+                          <li class="add-btn J_add_btn" data-mark="1">
+                            <span id="model_flash_btn_1"></span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                <!-- ELSEIF act == "update" -->
+                    <!-- BEGIN model_part_img_list -->
+                    <div class="model-item re J_model_item" data-class="model_div" data-mark="{data_mark}">
+                      <div class="add_model_btn">
+                        <div class="add-btn mt20"><a href="javascript:void(0);" class="ui-btn ui-btn-gray-h40 circle-3px" data-class="J_add_model_btn" data-mark="{data_mark}"><i class="icon" data-class="J_add_model_btn" data-mark="{data_mark}"></i><em data-class="J_add_model_btn" data-mark="{data_mark}">插入图文模块</em></a>
+                        </div>
+                      </div>
+                      <div class="textarea-detail-txt J_textarea_div" contenteditable="true" data-mark="{data_mark}" style="display:none">{text}</div> 
+                      <textarea class="textarea-detail-txt  J_textarea" placeholder="" name="text[]" data-mark="{data_mark}">{text}</textarea>
+                      <input type="hidden" name="model_part[]" value="{data_mark}"></input>
+                      <div class="model-img-list clearfix">
+                        <ul class="J_li_ul" data-mark="{data_mark}">
+                          <!-- BEGIN img_arr -->
+                            <li class="J_upload_img_li" data-mark="{data_mark}_{ROWCNT}" data-index="SWFUpload_{data_mark}_{ROWCNT}">
+                                <img class="J_upload_img" src="{img_value_145}" style="width:80px;" data-mark="{data_mark}_{ROWCNT}"/>
+                                <a href="javascript:void(0);" class="cancle" data-class="J_delete_upload_img" data-mark="{data_mark}_{ROWCNT}" data-mark-par="{data_mark}" data-index="SWFUpload_{data_mark}_{ROWCNT}">删除</a>
+                                <input class="J_upload_img_input" type="hidden" name="upload_imgs_{data_mark}[]" value="{img_value}" data-mark="{data_mark}_{ROWCNT}"/>
+                            </li>   
+                          <!-- END img_arr -->
+                          <li class="add-btn J_add_btn" data-mark="{data_mark}" <!-- IF fit_swf -->style="width:1px;height:1px;"<!-- ENDIF fit_swf -->>
+                            <span id="model_flash_btn_{data_mark}"></span>
+                          </li>
+                          <!-- IF data_mark !="1" --><li class="cancle-btn"><a href="javascript:void(0);" class="cancle" data-class="J_delete_model_btn" data-mark="{data_mark}">删除</a></li><!-- ENDIF data_mark -->
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- END model_part_img_list -->
+                <!-- ENDIF act -->
+                
+                <span id='image_and_text_error' class="alert_error"></span>
+                <span id='image_error' class="alert_error"></span>
+                
+              </td>
+              <td valign="top"><div class="a-tips">（建议图片宽度≥750像素）</div></td>
+            </tr>
+          </table>
+          <div class="btn-item mod-link-none"><a href="javascript:void(0);" class="ui-btn ui-btn-green-h50 circle-3px" data-class="next_step" data-mark="2"><em data-class="next_step" data-mark="2">下一步</em></a><a href="javascript:void(0);" class="back" data-class="back_step" data-mark="1">返回修改</a></div>
+        </div>
+      </div>
+      
+      <input type="hidden" id="add_model_btn_num" value="<!-- IF act == "add" -->2<!-- ELSEIF act == "update" -->{model_part_img_list_count_add}<!-- ENDIF act -->"></input><!--记录模特场地标记-->
+      
+      
+      <!--活动发布 end-->
+
+
+
+
+      <!--活动流程-->
+      <div class="activity-page" id="activity_arrange" style="display:none;">
+        <div class="item-send item-info ">
+          <div class="s-nav hd-bg-3 clearfix">
+                <ul>
+                  <li data-class="back_step" data-mark="1" style="cursor:pointer">活动信息</li>
+                  <li data-class="back_step" data-mark="2" style="cursor:pointer">活动介绍</li>
+                  <li class="cur">活动流程</li>
+                </ul>
+          </div>
+          <div class="event-item" id="site_div">
+            <div class="listItem">场次安排：</div>
+            <div class="item clearfix">
+              <table cellpadding="0" cellspacing="0"  class="table-item" id="site_container">
+              
+                <!-- IF act == "add" -->
+                    <tr class="J_site_tr" data-mark="1">
+                      <td class="title" valign="top">第一场：</td>
+                      <td class="clearfix" style="width: 900px;">
+                        <div class="select-item">
+                          <input onclick="check_site_time(1);{hm_wdate}"  class="fldi" id="site_start_time_1" name="site_start_time[]" readonly <!-- IF start_time --> value="{dateformat:start_time, 'H:i'}" <!-- ENDIF --> />
+                          <span class="to fldi pl15 pr15">至</span>
+                          <input onclick="check_site_time(1);{hm_wdate}"  class="fldi" id="site_end_time_1" name="site_end_time[]" readonly <!-- IF end_time --> value="{dateformat:end_time, 'H:i'}" <!-- ENDIF -->/>
+                        </div>
+                        <div class="pay-item">
+                          <input type="text" class="pay-txt J_pay_txt" value="名额" id="site_join_num_1" name="site_join_num[]" data-old="0" data-mark="1"/>
+                        </div>
+                        <span>（活动审核成功后， 名额只能增加、 不能减少， 请准确填写）</span>
+                        <!-- <a href="javascript:void(0);" class="cancle" data-class="delete_site_btn" data-mark="1">删除</a> -->
+                        <span id="site_end_time_1_error" class="alert_error"></span>
+                        <span id="site_join_num_1_error" class="alert_error"></span>
+                        <input type="hidden" name="table_id[]" value=""></input>
+                        </td>
+                    </tr>
+                <!-- ELSEIF act == "update" -->
+                    <!-- BEGIN table_part_list -->  
+                    <tr class="J_site_tr" data-mark="{data_mark}">
+                      <td class="title" valign="top">第{site_name}场：</td>
+                      <td class="clearfix" style="<!-- IF ROWCNT == "0" -->width:900px;<!-- ELSE -->width:800px;<!-- ENDIF ROWCNT -->">
+                        <div class="select-item">
+                          <input  class="fldi" id="site_start_time_{data_mark}" name="site_start_time[]" readonly value="{begin_time}"/>
+                          <span class="to fldi pl15 pr15">至</span>
+                          <input  class="fldi" id="site_end_time_{data_mark}" name="site_end_time[]" readonly value="{end_time}"/>
+                        </div>
+                        <div class="pay-item">
+                          <input type="text" class="pay-txt J_pay_txt" value="{num}" id="site_join_num_{data_mark}" name="site_join_num[]" data-old="{num}" data-mark="{data_mark}"/>
+                        </div>
+                        <a href="javascript:void(0);" class="cancle J_site_operation" data-class="<!-- IF is_open == "1" -->J_close_site_btn<!-- ELSE -->J_open_site_btn<!-- ENDIF is_open -->" data-mark="{data_mark}" data-id="{id}"><!-- IF is_open == "1" -->关闭场次<!-- ELSE -->打开场次<!-- ENDIF is_open --></a>
+                        <!-- IF ROWCNT == "0" --><span>(活动审核成功后，名额只能增加、不能减少，请准确填写)</span><!-- ENDIF ROWCNT -->
+                        <span id="site_end_time_{data_mark}_error" class="alert_error"></span>
+                        <span id="site_join_num_{data_mark}_error" class="alert_error"></span>
+                        <span></span>
+                        <input type="hidden" name="table_id[]" value="{id}"></input>
+                        </td>
+                    </tr>
+                    <!-- END table_part_list -->
+                <!-- ENDIF act -->
+                    <tr id="site_postion_holder">
+                        <td colspan="2">
+                            <div class="add-btn" id="add_site_btn"><a href="javascript:void(0);" class="ui-btn ui-btn-gray-h40 circle-3px" data-class="J_add_site_btn"><i class="icon" data-class="J_add_site_btn"></i><em data-class="J_add_site_btn">增加场次</em></a></div>
+                            <span id="site_error_tips" style="display:none;color:red;padding-left:86px;" >暂时限定最多为十场，请合理安排</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top"><div class="listItem" valign="top">注意事项：</td>
+                        <!-- <td><input type="text" class="input-txt" placeholder="添加总备注" name="remark" value="{remark}" /></div></td> -->
+                        <td><textarea class="textarea-txt" name="remark">{remark}</textarea></div></td>
+                    </tr>
+              </table>
+            </div>
+            
+                
+            
+            
+          </div>
+          <div class="event-item captain-item">
+            <div class="listItem">活动领队：</div>
+            
+            <!-- IF act == "add" -->
+                <div class="item clearfix J_leader_div" data-mark="1">
+                  <table cellpadding="0" cellspacing="0"  class="table-item">
+                    <tr>
+                      <td class="title" valign="top">联系人：</td>
+                      <td><input type="text" class="input-txt" placeholder="昵称" id="leader_nickname_1" name="leader_nickname[]" /></td>
+                    </tr>
+                    <tr>
+                      <td class="title" valign="top">联系方式：</td>
+                      <td><input type="text" class="input-txt" placeholder="请填写联系方式" id="leader_phone_1" name="leader_phone[]" /></td>
+                    </tr>
+                  </table>
+                  <!-- <a href="javascript:void(0);" class="cancle J_delete_leader_btn" data-mark="1">删除</a> -->
+                  <span id="leader_1_error" class="alert_error"></span>
+                </div>
+            <!-- ELSEIF act == "update" -->
+                <!-- BEGIN leader_part_list -->
+                <div class="item clearfix J_leader_div" data-mark="{data_mark}">
+                  <table cellpadding="0" cellspacing="0"  class="table-item">
+                    <tr>
+                      <td class="title" valign="top">联系人：</td>
+                      <td><input type="text" class="input-txt" placeholder="昵称" id="leader_nickname_{data_mark}" name="leader_nickname[]" value="{name}"/></td>
+                    </tr>
+                    <tr>
+                      <td class="title" valign="top">联系方式：</td>
+                      <td><input type="text" class="input-txt" placeholder="请填写手机号码" id="leader_phone_{data_mark}" name="leader_phone[]" value="{mobile}"/></td>
+                    </tr>
+                  </table>
+                  <!-- IF the_end_one --><a href="javascript:void(0);" class="cancle J_delete_leader_btn" data-class="J_delete_leader_btn" data-mark="{data_mark}">删除</a><!-- ENDIF the_end_one -->
+                  <span id="leader_{data_mark}_error" class="alert_error" style="height:92px;line-height:92px;"></span>
+                </div>
+                <!-- END leader_part_list -->
+            <!-- ENDIF act -->
+            
+            <div class="add-btn" id="add_leader_btn"><a href="javascript:void(0);" class="ui-btn ui-btn-gray-h40 circle-3px" data-class="J_add_leader_btn"><i class="icon" data-class="J_add_leader_btn"></i><em data-class="J_add_leader_btn">增加领队</em></a></div>
+            
+          </div>
+          <div class="btn-item mod-link-none"><a href="javascript:void(0);" class="ui-btn ui-btn-green-h50 circle-3px fb" data-class="next_step" data-mark="3" id="add_update_btn" data-btn-act="{act}"><em data-class="next_step" data-mark="3"><!-- IF act == "add" -->发布<!-- ELSEIF act == "update" -->提交<!-- ENDIF act --></em></a><a href="javascript:void(0)" class="ui-btn ui-btn-green-h50 circle-3px fb ml20" data-class="next_step" data-mark="4" id="preview_btn" data-btn-act="preview"><em data-class="next_step" data-mark="4">预览</em></a><a href="javascript:void(0);" class="back" data-class="back_step" data-mark="2">返回修改</a></div>
+        </div>
+      </div>
+      
+      <!--活动发布 end-->
+    </form>
+</div>
+<input type="hidden" value="{category}" id="category"></input>
+<input type="hidden" name="is_event_admin" id="is_event_admin" value="{is_event_admin}">
+<input type="hidden" value="<!-- IF start_time -->{dateformat:start_time, 'H:i'}<!-- ENDIF start_time -->" id="site_start_time_input"></input>
+<input type="hidden" value="<!-- IF end_time -->{dateformat:end_time, 'H:i'}<!-- ENDIF end_time -->" id="site_end_time_input"></input>
+<input type="hidden" id="add_site_btn_num" value="<!-- IF act == "add" -->2<!-- ELSEIF act == "update" -->{table_part_list_count_add}<!-- ENDIF act -->"></input><!--记录场次标记-->
+<input type="hidden" id="add_leader_btn_num" value="<!-- IF act == "add" -->2<!-- ELSEIF act == "update" -->{leader_part_list_count_add}<!-- ENDIF act -->"></input><!--记录领队标记-->
+<input type="hidden" id="update_site_btn_num" value="{table_part_list_count_add}"></input><!--更新时候的标记-->
+<input type="hidden" id="match__mp_manage_branch" value="{__mp_manage_branch}"></input>
+<input type="hidden" id="event_status" value="event_status"></input>
+
+
+
+{footer_html}
+</body>
+
+<script>
+
+seajs.use(['jquery','./js/party_publish_flash.js?t=1234567819'], function($,event_publish_flash) {
+//flash 上传相关事件
+//flash上传组件
+
+    var t;
+    $(document).ready(function(){
+        var act_value = $("#act").val();
+        var add_model_btn_num_value = $("#add_model_btn_num").val();//用作循环初始化swfload的次数
+        
+        
+         //初始化上传封面图按钮
+        construct_flash("cover_img_flash","cover_img_btn",1,0,0);
+        
+        if(act_value=="add")
+        {
+        
+            //初始化第一个模特场地上传图按钮
+            construct_flash("model_flash_btn_1","model_btn",1,0,0);
+            
+        }
+        else if(act_value=="update")
+        {
+            //循环初始化swfload
+            
+            for(var j=1;j<add_model_btn_num_value;j++)
+            {
+                var tmp_param_1 = "model_flash_btn_"+j;
+                var tmp_param_3 = j;
+                var tmp_len = $(".J_li_ul[data-mark='"+j+"'] > .J_upload_img_li").length;
+                var tmp_param_4 = parseInt(tmp_len);
+                var tmp_param_5 = parseInt(tmp_len);
+                //alert(tmp_len);
+                construct_flash(tmp_param_1,"model_btn",tmp_param_3,tmp_param_4,tmp_param_5);
+            }
+        }
+        
+        //构造flash函数
+        function construct_flash(_swfPlaceholderId,flash_type,id_num,img_mark,construct_img_mark)
+        {
+            
+            event_publish_flash.get_flash(_swfPlaceholderId,flash_type,id_num,img_mark,construct_img_mark);
+                
+            
+        }
+        
+        //防止冒泡
+        function eventHalt(event) 
+        {
+            event.preventDefault && event.preventDefault();
+            event.stopPropagation && event.stopPropagation();
+        }
+        
+        
+
+        //页面点击绑定
+        $("body").click(function(e)
+        {
+            var config_arr = new Array("零","一","二","三","四","五","六","七","八","九","十");
+            var target = e.target;
+            var data_class = $(target).attr("data-class");//该模块标记
+            var data_mark = $(target).attr("data-mark");//该模块标记
+            var data_mark_par = $(target).attr("data-mark-par");//该模块的父级标记,模特图上传特殊处理
+            
+            
+            if(data_class=="J_add_model_btn")//添加一个模特/场地块
+            {
+                eventHalt(e);
+                var add_model_btn_num = $("#add_model_btn_num").val();
+                var flash_container_id_str = "model_flash_btn_"+add_model_btn_num;
+                //插入内容
+                var model_insert_html = '<div class="model-item re J_model_item" data-class="model_div" data-mark="'+add_model_btn_num+'">'+
+                    '<div class="add_model_btn">'+
+                        '<div class="add-btn mt20"><a href="javascript:void(0);" class="ui-btn ui-btn-gray-h40 circle-3px" data-class="J_add_model_btn" data-mark="'+add_model_btn_num+'"><i class="icon" data-class="J_add_model_btn" data-mark="'+add_model_btn_num+'"></i><em data-class="J_add_model_btn" data-mark="'+add_model_btn_num+'">插入图文模块</em></a>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="textarea-detail-txt J_textarea_div" contenteditable="true" data-mark="'+add_model_btn_num+'" style="display:none">场地/模特介绍…</div>'+
+                    '<textarea class="textarea-detail-txt J_textarea" placeholder="" name="text[]" data-mark="'+add_model_btn_num+'">场地/模特介绍…</textarea>'+
+                    '<input type="hidden" name="model_part[]" value="'+add_model_btn_num+'"></input>'+
+                    '<div class="model-img-list clearfix">'+
+                        '<ul class="J_li_ul" data-mark="'+add_model_btn_num+'">'+
+                            '<li class="add-btn J_add_btn" data-mark="'+add_model_btn_num+'">'+
+                                '<span id="'+flash_container_id_str+'"></span>'+
+                            '</li>'+
+                            '<li class="cancle-btn"><a href="javascript:void(0);" class="cancle" data-class="J_delete_model_btn" data-mark="'+add_model_btn_num+'">删除</a></li>'+
+                        '</ul>'+
+                    '</div>'+
+                '</div>';
+                
+                //定位
+                //$("#add_model_btn").before(model_insert_html);
+                $(".J_model_item[data-mark='"+data_mark+"']").after(model_insert_html);
+                
+                
+                //构造flash
+                construct_flash(flash_container_id_str,"model_btn",add_model_btn_num,0,0);
+                
+                //更改标记值
+                var new_add_model_btn_num = parseInt(add_model_btn_num)+1;
+                $("#add_model_btn_num").val(new_add_model_btn_num);
+                
+            }
+            else if(data_class=="J_delete_model_btn")//删除一个模特/场地块
+            {
+                eventHalt(e);
+                del_module_check("J_delete_model_btn",data_mark);
+                
+                
+            }
+            else if(data_class=="J_add_site_btn")//添加一个场次
+            {
+                eventHalt(e);
+                var click_value = "{hm_wdate}";
+                var add_site_btn_num = parseInt($("#add_site_btn_num").val());
+                var old_add_site_btn_num = add_site_btn_num-1;//上一块的标记值
+                //获取上一块结束时间
+                var match_site_time_id = "site_end_time_"+old_add_site_btn_num;
+                var match_site_time = $("#"+match_site_time_id).val();
+                
+                var site_start_time_input = match_site_time;
+                var site_end_time_input = match_site_time;
+                
+
+                if(add_site_btn_num>10)
+                {
+                    
+                    return false;
+                }
+                
+                //处理删除按钮
+                if(add_site_btn_num>2)
+                {
+                    
+                    $("[data-class='J_delete_site_btn'][data-mark='"+old_add_site_btn_num+"']").css("display","none");
+                    
+                }
+                
+                var site_name = config_arr[add_site_btn_num];
+                
+                var site_insert_html = '<tr class="J_site_tr" data-mark="'+add_site_btn_num+'">'+
+                      '<td class="title" valign="top">第'+site_name+'场：</td>'+
+                      '<td class="clearfix" style="width: 800px;">'+
+                        '<div class="select-item">'+
+                          '<input onclick="check_site_time('+add_site_btn_num+');'+click_value+'"  class="fldi" id="site_start_time_'+add_site_btn_num+'" name="site_start_time[]" readonly value="'+site_start_time_input+'"/>'+
+                          '<span class="to fldi pl15 pr15">至</span>'+
+                          '<input onclick="check_site_time('+add_site_btn_num+');'+click_value+'"  class="fldi" id="site_end_time_'+add_site_btn_num+'" name="site_end_time[]" readonly value="'+site_end_time_input+'"/>'+
+                        '</div>'+
+                        '<div class="pay-item">'+
+                          '<input type="text" class="pay-txt J_pay_txt" value="名额" id="site_join_num_'+add_site_btn_num+'" name="site_join_num[]" data-old="0" data-mark="'+add_site_btn_num+'"/>'+
+                        '</div>'+
+                        '<a href="javascript:void(0);" class="cancle" data-class="J_delete_site_btn" data-mark="'+add_site_btn_num+'">删除</a>'+
+                        '<span id="site_end_time_'+add_site_btn_num+'_error" class="alert_error"></span>'+
+                        '<span id="site_join_num_'+add_site_btn_num+'_error" class="alert_error"></span>'+
+                        '<input type="hidden" name="table_id[]" value=""></input>'+
+                        '</td>'+
+                    '</tr>';
+                    
+                //$("#site_container").append(site_insert_html);
+                $("#site_postion_holder").before(site_insert_html);
+
+                //更改标记值
+                var new_add_site_btn_num = parseInt(add_site_btn_num)+1;
+                if(new_add_site_btn_num>10)
+                {
+                    $("#site_error_tips").css("display","block");
+                }
+                $("#add_site_btn_num").val(new_add_site_btn_num);
+                
+            }
+            else if(data_class=="J_add_leader_btn")//添加一个领队信息
+            {
+                eventHalt(e);
+                var add_leader_btn_num = $("#add_leader_btn_num").val();
+                
+                //处理删除按钮
+                if(add_leader_btn_num>2)
+                {
+                    var old_add_leader_btn_num = add_leader_btn_num-1;
+                    //alert(old_add_leader_btn_num);
+                    $("[data-class='J_delete_leader_btn'][data-mark='"+old_add_leader_btn_num+"']").css("display","none");
+                    
+                }
+                
+                var leader_insert_html = '<div class="item clearfix J_leader_div" data-mark="'+add_leader_btn_num+'">'+
+                  '<table cellpadding="0" cellspacing="0"  class="table-item">'+
+                    '<tr>'+
+                      '<td class="title" valign="top">联系人：</td>'+
+                      '<td><input type="text" class="input-txt" placeholder="昵称" id="leader_nickname_'+add_leader_btn_num+'" name="leader_nickname[]"/></td>'+
+                    '</tr>'+
+                    '<tr>'+
+                      '<td class="title" valign="top">联系方式：</td>'+
+                      '<td><input type="text" class="input-txt" placeholder="请填写手机号码" id="leader_phone_'+add_leader_btn_num+'" name="leader_phone[]"/></td>'+
+                    '</tr>'+
+                  '</table>'+
+                  '<a href="javascript:void(0);" class="cancle" data-class="J_delete_leader_btn" data-mark="'+add_leader_btn_num+'">删除</a>'+
+                  '<span id="leader_'+add_leader_btn_num+'_error" class="alert_error" style="height:92px;line-height:92px;"></span>'+
+                '</div>';
+                
+                $("#add_leader_btn").before(leader_insert_html); 
+                
+                
+                //更改标记值
+                var new_add_leader_btn_num = parseInt(add_leader_btn_num)+1;
+                $("#add_leader_btn_num").val(new_add_leader_btn_num);
+            }
+            else if(data_class=="J_delete_site_btn")//删除一个场次
+            {
+                eventHalt(e);
+                del_module_check("J_delete_site_btn",data_mark);
+                
+   
+            }
+            else if(data_class=="J_close_site_btn")//关闭一个场次
+            {
+                eventHalt(e);
+                del_module_check("J_close_site_btn",data_mark);
+            }
+            else if(data_class=="J_open_site_btn")//打开一个场次
+            {
+                eventHalt(e);
+                del_module_check("J_open_site_btn",data_mark);
+            }
+            else if(data_class=="J_delete_leader_btn")//删除一个领队信息
+            {
+                eventHalt(e);
+                del_module_check("J_delete_leader_btn",data_mark);
+
+            }
+            else if(data_class=="long_tips_btn")//导航长tips点击
+            {
+                eventHalt(e);
+                display_event_tips("close");
+            }
+            else if(data_class=="short_tips_btn")//导航短信息点击
+            {
+                eventHalt(e);
+                display_event_tips("open");
+            }
+            else if(data_class=="next_step")//一下步点击，加判断内容
+            {
+                eventHalt(e);
+                if(data_mark=="1")
+                {
+                    //活动信息检查处理
+                    var info_check_res = event_info_check();
+                    if(info_check_res==false)
+                    {
+                        return false;
+                    }
+
+                
+                    $("#activity_info").css("display","none");
+                    $("#short_tips").css("display","none");
+                    $("#activity_intro").css("display","block");
+                    //特殊处理,初始化场次安排时间
+                    var act = $("#act").val();
+                    if(act=="add")
+                    {
+                        var match_site_time = $("#start_time").val();
+                        //var match_site_time_arr = match_site_time.split(' ');
+                        if(!($("#site_start_time_1").val().match(/-/g)))//如果不符合时间格式，就赋值新的时间2015/1/28
+                        {
+                            $("#site_start_time_1").val(match_site_time);
+                            $("#site_end_time_1").val(match_site_time);
+                        }
+                    }
+                    
+                    
+                    
+                    $("#site_div").css("display","block");
+                    
+                    
+                }
+                else if(data_mark=="2")
+                {
+                    //把对应的内容加置到textarea里
+                    //活动介绍检查处理
+                    var intro_check_res = event_intro_check();
+                    if(intro_check_res==false)
+                    {
+                        return false;
+                    }
+                    
+                    
+                    $("#activity_intro").css("display","none");
+                    $("#activity_arrange").css("display","block");
+                    
+                }
+                else if(data_mark=="3")
+                {
+                    //发布按钮再次检查前两步
+                    var info_check_res = event_info_check();
+                    if(info_check_res==false)
+                    {
+                        $("#activity_info").css("display","block");
+                        $("#activity_intro").css("display","none");
+                        $("#activity_arrange").css("display","none");
+                        return false;
+                    }
+                    
+                    var intro_check_res = event_intro_check();
+                    if(intro_check_res==false)
+                    {
+                        $("#activity_info").css("display","none");
+                        $("#activity_intro").css("display","block");
+                        $("#activity_arrange").css("display","none");
+                        return false;
+                    }
+                    
+                    
+                
+                    //场次安排相关检查处理
+                    var arrange_check_res = event_arrange_check();
+                    if(arrange_check_res==false)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                    
+                        var page_act = $("#add_update_btn").attr("data-btn-act");
+                        $("#publish_form").attr("target","form_iframe");
+                        $("#act").val(page_act);
+                        $("#publish_form").submit();
+                        //弹层
+                        var msg = "正在发布，请耐心等候......";
+                        publish_show_msg_box(msg);
+                        
+                    }
+                }
+                else if(data_mark=="4")
+                {
+                
+                    //预览按钮再次检查前两步
+                    var info_check_res = event_info_check();
+                    if(info_check_res==false)
+                    {
+                        $("#activity_info").css("display","block");
+                        $("#activity_intro").css("display","none");
+                        $("#activity_arrange").css("display","none");
+                        return false;
+                    }
+                    
+                    var intro_check_res = event_intro_check();
+                    if(intro_check_res==false)
+                    {
+                        $("#activity_info").css("display","none");
+                        $("#activity_intro").css("display","block");
+                        $("#activity_arrange").css("display","none");
+                        return false;
+                    }
+
+                    //场次安排相关检查处理
+                    var arrange_check_res = event_arrange_check();
+                    if(arrange_check_res==false)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        var page_act = $("#preview_btn").attr("data-btn-act");
+                        $("#publish_form").attr("target","_blank");
+                        $("#act").val(page_act);
+                        $("#publish_form").submit();
+                    }
+                }
+                
+                
+                $(document).scrollTop($("#content").offset().top);    
+                
+            }
+            else if(data_class=="back_step")//返回上一步
+            {
+                eventHalt(e);
+                if(data_mark=="1")
+                {
+                    $("#activity_info").css("display","block");
+                    if($("#long_tips").css("display")=="block")
+                    {
+                        $("#short_tips").css("display","none");
+                    }
+                    else
+                    {
+                        $("#short_tips").css("display","block");
+                    }
+                    
+                    
+                    $("#activity_intro").css("display","none");
+                    $("#activity_arrange").css("display","none");
+                    
+                }
+                else if(data_mark=="2")
+                {
+                    $("#activity_intro").css("display","block");
+                    $("#activity_arrange").css("display","none");
+                    
+                    
+                }
+                $(document).scrollTop($("#content").offset().top);
+                    
+            }
+            else if(data_class=="confirm_btn")//删除模块确认处理
+            {
+                eventHalt(e);
+                var module_type = $(target).attr("module-type");
+                if(module_type=="J_delete_model_btn")//删除一个模特/场地块
+                {
+                    $(".J_model_item[data-mark='"+data_mark+"']").remove();
+                }
+                else if(module_type=="J_delete_site_btn")
+                {
+                    //场次结构块特殊处理
+                    var event_id = $("#event_id").val();
+                    var update_site_btn_num = parseInt($("#update_site_btn_num").val());
+                    
+                    var old_data_mark = data_mark-1;
+                    
+                    if(event_id>0)//编辑时候，场次不能少于原来
+                    {
+                        //编辑场次处理
+                        if(old_data_mark>=update_site_btn_num)
+                        {
+                            $("[data-class='J_delete_site_btn'][data-mark='"+old_data_mark+"']").css("display","block"); 
+                        }
+                        
+                    }
+                    else
+                    {
+                        //场次处理删除按钮
+                        if(old_data_mark>1)
+                        {
+                            $("[data-class='J_delete_site_btn'][data-mark='"+old_data_mark+"']").css("display","block"); 
+                        }
+                    }
+                    
+
+                    $("#add_site_btn_num").val(data_mark);
+                    
+                    $(".J_site_tr[data-mark='"+data_mark+"']").remove();
+                    $("#site_error_tips").css("display","none");
+                }
+                else if(module_type=="J_delete_leader_btn")
+                {
+                    //领队处理删除按钮
+                    var old_data_mark = data_mark-1;
+                    if(old_data_mark>1)
+                    {  
+                        $("[data-class='J_delete_leader_btn'][data-mark='"+old_data_mark+"']").css("display","block");       
+                    }
+                    $("#add_leader_btn_num").val(data_mark);
+                    
+                    $(".J_leader_div[data-mark='"+data_mark+"']").remove();
+                }
+                else if(module_type=="J_open_site_btn")
+                {
+                    open_close_site("open",data_mark);
+                }
+                else if(module_type=="J_close_site_btn")
+                {
+                    open_close_site("close",data_mark);
+                }
+                
+                msg_box_close();
+            }
+            
+            
+  
+        });
+        
+        
+        //检测场次人数
+        $(".J_pay_txt").bind("change",function(){
+            var act = $("#act").val();
+            var cur_data_mark = $(this).attr("data-mark");
+            jquery_site_join_num(cur_data_mark,act);
+        });
+        
+        
+        
+        //标题操作
+        $("#title").keydown(function(){
+            
+            check_string($(this).val());
+        });
+        
+        $("#title").keyup(function(){
+            check_string($(this).val());
+        });
+        
+        $("#title").change(function(){
+            check_string($(this).val());
+        });
+        
+        
+        
+        $("#model_container").on("focusin",function(e){
+            
+            var target = e.target;
+            var cur_target_class = $(target).attr("class");
+            
+
+            //console.log(cur_target_class);
+            if(typeof(cur_target_class)=="undefined")
+            {
+                return false;
+            }
+            else
+            {
+                if(cur_target_class!="")
+                {
+                    if(cur_target_class.match("J_textarea"))
+                    {
+                        var cur_target_html = $(target).val().toString();
+                        
+                        if($.trim(cur_target_html)=="场地/模特介绍…")
+                        {
+                            $(target).val("");
+                        }
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        });
+        
+        $("#site_container").on("focusin",function(e){
+            
+            var target = e.target;
+            var cur_target_class = $(target).attr("class");
+            
+            if(typeof(cur_target_class)=="undefined")
+            {
+                return false;
+            }
+            else
+            {
+                if(cur_target_class!="")
+                {
+                    if(cur_target_class.match("J_pay_txt"))
+                    {
+                        var cur_target_html = $(target).val().toString();
+                        
+                        if($.trim(cur_target_html)=="名额")
+                        {
+                            $(target).val("");
+                        }
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            
+
+        });
+        
+        
+        
+        
+        
+
+    });
+    
+    
+    
+    
+    
+////活动信息相关操作
+    
+    
+    //检索标题长度，中英混合的长度
+    function charlen(str)
+    {
+        var this_str = str.toString();
+        var len = this_str.match(/[^ -~]/g) == null ? this_str.length : this_str.length + this_str.match(/[^ -~]/g).length; 
+        return len;
+    };
+
+    
+    
+    //活动信息检查
+    function event_info_check()
+    {
+        //标题检查
+        if($.trim($('#title').val())=="")
+        {
+            alert_error('title','活动标题不能为空！');
+            return false;
+        }
+        else
+        {
+            var title = $('#title').val();
+            if(!check_string(title)){
+                return false;
+            }
+        
+        }
+        
+        
+        //判断结束时间不能早过或等于开始时间
+        //如果是发布时候就判断当前时间，编辑时候不判断
+        
+        
+        var time_check_act = $("#act").val();
+        var time_check_event_status = parseInt($("#event_status").val());
+        var check_time_bigger = false;
+        if(time_check_act=="add")
+        {
+            check_time_bigger = true;
+        }
+        
+        if(time_check_act=="update" && time_check_event_status==0)
+        {
+            check_time_bigger = true;
+        }
+        
+        
+        
+
+        
+        //活动的城市
+        if($('#location_radio_1').is(":checked"))
+        {
+            
+            if($('#location_id1').val()=="")
+            {
+                alert_error('location_id1','请选择城市');
+                return false;
+            }else{
+                alert_error('location_id1','');
+            }
+        }
+        
+        //判断详细地址
+        if($.trim($("#address").val())=="")
+        {
+            alert_error('address','请填入地址');
+            return false;
+        }
+        else
+        {
+            alert_error('address','');
+            
+        }
+        
+        
+        
+        
+        //活动费用检查
+        if($.trim($('#budget').val())=="")
+        {
+            alert_error('budget','请输入费用');
+            return false;
+        }
+        else
+        {
+            if(isNaN($('#budget').val()))
+            {
+                alert_error('budget','请输入正确费用');
+                return false;
+            }
+            else 
+            {
+                
+                
+                
+                //发活动的时候检查金额
+                var event_act = $("#act").val();
+                if(event_act=="add")
+                {
+                    if($('#budget').val()<0)
+                    {
+                        
+                        alert_error('budget','请输入大于0的费用');
+                        return false;
+
+                    }
+                    else
+                    {
+                        if($('#budget').val()>0)
+                        {
+                            
+                            //支付版最小金额为1
+                            
+                            if($('#budget').val()<1)
+                            {
+                                alert_error('budget','请输入大于等于1的费用');
+                                return false;
+                            }
+                            
+                            
+                            if($('#budget').val()>1000000)
+                            {
+                                alert_error('budget','请勿输入过大的金额费用');
+                                return false;
+                            }
+                            
+                        }
+                        else
+                        {
+                            
+                            alert_error('budget','请输入大于等于1的费用');
+                            return false;
+                            
+                        }
+                        
+                        
+                    }
+                }
+                
+                var true_budget = Math.abs($('#budget').val());
+                $('#budget').val(true_budget);
+                alert_error('budget','');
+                
+            }
+        }
+        
+   
+    }
+    
+    //活动介绍检查
+    function event_intro_check()
+    {
+        //封面图
+        if(($('.J_upload_cover_img_input[data-mark="1"]').val())==undefined || ($('.J_upload_cover_img_input[data-mark="1"]').val())=="")
+        {
+
+            alert_error('J_upload_cover_img','活动封面图不能为空！');
+            return false;
+        }
+        else
+        {
+
+            alert_error('J_upload_cover_img','');
+        }
+        
+
+        
+        
+        //封面图是否上传
+        if($(".J_upload_cover_img[data-mark='1']").attr("class").match("J_progress"))
+        {
+            alert_error('J_upload_cover_img','封面图在上传中');
+            return false;
+        }
+        else
+        {
+            alert_error('J_upload_cover_img','');
+        }
+        
+        
+        //主题
+        if($.trim($('#topic_content').val())=="")
+        {
+            alert_error('topic_content','主题内容不能为空');
+            return false;
+        }
+        else
+        {
+            alert_error('topic_content','');
+        }
+        
+        
+        
+        //判断是否有图片正在上传
+
+        var upload_imgs_len = $(".J_upload_img").length;
+        for(var i=0;i<upload_imgs_len;i++)
+        {
+            var cur_class = $($(".J_upload_img")[i]).attr("class");
+            
+            if(cur_class.match("J_progress"))
+            {
+                alert_error('image','图片还在上传中，请稍后');
+                return false;
+                break;
+            }
+            else
+            {
+                alert_error('image','');
+            }
+            
+        }
+        
+
+        
+        //图文模块
+        var textarea_detail_txt_len = $(".J_textarea").length;
+        for(var j=0;j<textarea_detail_txt_len;j++)
+        {
+            if($.trim($($(".J_textarea")[j]).val())=="" || $.trim($($(".J_textarea")[j]).val())=="场地/模特介绍…")
+            {
+                alert_error('image_and_text','请把图文内容补充完整');
+                return false;
+            }
+            else
+            {
+                alert_error('image_and_text','');
+            }
+        }
+        
+        
+        
+        
+        
+        
+    }
+    
+    //场次流程检查
+    function event_arrange_check()
+    {
+        
+        var add_site_btn_num = parseInt($("#add_site_btn_num").val());
+        var act = $("#act").val();
+        for(var i=1;i<add_site_btn_num;i++)
+        {
+            var time_res = jquery_check_site_time(i);
+            
+            if(!time_res)
+            {
+                
+                return false;
+                break;
+            }
+            
+            
+            var site_join_res = jquery_site_join_num(i,act);
+            if(!site_join_res)
+            {
+                return false;
+                break;
+            }
+            
+            
+            
+        }
+    
+        
+        //检查领队内容
+        var add_leader_btn_num = parseInt($("#add_leader_btn_num").val());
+        for(var i=1;i<add_leader_btn_num;i++)
+        {
+            var leader_res = jquery_leader_content_check(i);
+            if(leader_res==false)
+            {
+                return false;
+                break;
+            }
+        
+        }
+        
+        
+        return true;
+        
+        
+    }
+    
+    
+    //字符串变时间戳
+    function strtotime(strings){ 
+
+        var arr = strings.split(" "); 
+
+        var arr1 = arr[0].split("-"); 
+
+        var arr2 = arr[1].split(":"); 
+
+        var year = arr1[0]; 
+
+        var month = arr1[1]-1; 
+
+        var day = arr1[2]; 
+
+        var hour = arr2[0]; 
+
+        var mon = arr2[1]; 
+
+        var timestamp = new Date(year,month,day,hour,mon).getTime();  
+
+        return timestamp; 
+
+    }
+    
+    
+    //检查电话号码(暂时注释不用)
+
+    function checkPhone(phone)
+    {
+        var re= /^1[3|4|5|8][0-9]\d{8,8}$/;
+        var tips = '';
+      
+        if(!re.test(phone))
+        {
+            tips = false;
+        }
+        else
+        {
+            tips = true;
+        }
+        
+        
+        return tips;
+    }
+    
+    
+    
+    //jquery检查时间，跟mt不冲突
+    function jquery_check_time()
+    {
+        
+        var d1 = new Date($('#start_time').val().replace(/\-/g, "\/"));
+        var d2 = new Date($('#end_time').val().replace(/\-/g, "\/"));    
+        
+        if(d1 >= d2) 
+        {
+            
+            alert_error('end_time',"开始日期必须小于结束日期！");
+            return false;
+        }
+        else
+        {
+        
+            alert_error('end_time',"");
+            return true;
+        } 
+    }
+    
+    //jquery检查场地时间，跟mt不冲突
+    function jquery_check_site_time(num)
+    {
+        
+        var d1 = new Date(($('#site_start_time_'+num).val()).replace(/\-/g, "\/"));
+        var d2 = new Date(($('#site_end_time_'+num).val()).replace(/\-/g, "\/"));
+
+        //判断是否在开始结束时间区间里
+        var match_site_time_d1 = new Date(($("#start_time").val()).replace(/\-/g, "\/"));
+        var match_site_time_d2 = new Date(($("#end_time").val()).replace(/\-/g, "\/"));
+        
+        
+
+        //判断场次跟上场次结束时间对比
+        if(parseInt(num)>1)
+        {
+            var last_num = parseInt(num)-1;
+            var last_d2 = new Date(($('#site_end_time_'+last_num).val()).replace(/\-/g, "\/"));
+            if(last_d2>d1)
+            {
+                alert_error('site_end_time_'+num,"该场开始时间须大于上场时间");
+                return false;
+            }
+        }
+        
+        if(d1 >= d2) 
+        {
+            
+            alert_error('site_end_time_'+num,"开始时间必须小于结束时间");
+            return false;
+        }
+        else
+        {
+        
+            alert_error('site_end_time_'+num,"");
+            return true;
+        } 
+    }
+    
+    
+    //检查场次人数
+    function jquery_site_join_num(num,act)
+    {
+        var join_num = $("#site_join_num_"+num).val();
+        var old_join_num = parseInt($("#site_join_num_"+num).attr("data-old"));
+        var cur_obj = $("#site_join_num_"+num);
+        if(act=="add" || act=="update" || act=="preview")
+        {
+            if(old_join_num>0)//有原始值
+            {
+               
+                if(isNaN(join_num))
+                {
+                    
+                    alert_error('site_join_num_'+num,"请正确填入要改变的人数");
+                    //cur_obj.val(old_join_num);
+                    return false;
+                }
+                else
+                {
+                    if(join_num<1)
+                    {
+                        alert_error('site_join_num_'+num,"请正确填入要改变的人数");
+                        //cur_obj.val(old_join_num);
+                        return false;
+                    }
+                    else if(join_num<old_join_num)
+                    {
+                        
+                        alert_error('site_join_num_'+num,"请填入大于等于原来"+old_join_num+"个的人数");
+                        //cur_obj.val(old_join_num);
+                        return false;  
+                    }
+                    else
+                    {
+                        
+                        alert_error('site_join_num_'+num,"");
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                if(isNaN(join_num))
+                {
+                    alert_error('site_join_num_'+num,"请填入场次人数");
+                    return false;
+                }
+                else
+                {
+                    if(join_num<1)
+                    {
+                    
+                        alert_error('site_join_num_'+num,"场次人数不能小于1");
+                        return false;
+                    }
+                    else
+                    {
+                        alert_error('site_join_num_'+num,"");
+                        return true;
+                    }
+                }
+            }
+        }
+
+        
+        
+    
+    }
+    
+    
+    function open_close_site(action,data_mark)
+    {
+        //获取当前按钮dom
+        var table_id = $(".J_site_operation[data-mark='"+data_mark+"']").attr("data-id");
+        //异步处理
+        $.ajax
+        ({
+        
+            type:'get',
+            dataType:'json',
+            url:'./module/event_site_open_close_ajax.php',
+            data:"table_id="+table_id+"&action="+action+"&timestamp=" + new Date().getTime(),
+            success:function(json_data)
+            {
+                if(json_data.ajax_status==1)
+                {
+                    if(json_data.res=="Y")
+                    {
+                        //修改成功
+                        if(action=="open")
+                        {
+                            $(".J_site_operation[data-mark='"+data_mark+"']").attr("data-class","J_close_site_btn");
+                            $(".J_site_operation[data-mark='"+data_mark+"']").html("关闭场次");
+                            
+                        }
+                        else
+                        {
+                            $(".J_site_operation[data-mark='"+data_mark+"']").attr("data-class","J_open_site_btn");
+                            $(".J_site_operation[data-mark='"+data_mark+"']").html("打开场次");
+                        }
+                    }
+                    else if(json_data.res=="N")
+                    {
+                        //人数满了
+                        open_close_site_alert("已有网友报名，请通知其退出该场后才关闭");
+                    }
+                }
+                else
+                {
+                    //操作失败
+                    open_close_site_alert("操作失败，参数有误");
+                }
+            }
+            
+        });
+        
+    }
+    
+    function open_close_site_alert(msg)
+    {
+        //弹提示层
+        publish_show_msg_box(msg);
+        t=setTimeout(function()
+        {
+            close_msg_box();
+            clearTimeout(t);
+        },3000);
+        
+    }
+    
+    
+    
+    
+    //检查领导人内容
+    function jquery_leader_content_check(num)
+    {
+        var nickname_value = $("#leader_nickname_"+num).val();
+        var phone_value = $("#leader_phone_"+num).val();
+
+        
+        if($.trim(nickname_value)=="")
+        {
+            alert_error('leader_'+num,"请完善领队昵称");
+            return false;
+        }
+        else if($.trim(phone_value)=="")
+        {
+            alert_error('leader_'+num,"请完善领队联系信息");
+            return false;
+        }
+        else if($.trim(phone_value)!="")
+        {
+            
+            /* var check_phone_res = checkPhone(phone_value);
+            if(check_phone_res)
+            {
+                alert_error('leader_'+num,"");
+                return true;
+            }
+            else
+            {
+                alert_error('leader_'+num,"手机号格式不正确");
+                return false;
+            } */
+        }
+        else
+        {
+            alert_error('leader_'+num,"");
+            return true;
+        }
+    }
+    
+
+        
+    
+    //关闭弹出层
+    function msg_box_close()
+    {
+        close_msg_box();
+        close_location_arr();
+        clearTimeout(t);
+    }
+    
+    
+    
+    function close_location_arr()
+    {
+        if($('#location_radio_1').is(":checked"))
+        {
+            $('#location_id1').css("display","block");
+            $('#location_id2').css("display","block");
+
+        }
+        else
+        {
+            $('#location_id1').css("display","none");
+            $('#location_id2').css("display","none");
+        }
+        $('#location_id3').css("display","none");
+    }
+    
+    //显示或关闭数组中的对象
+    function jquery_display_array_id(arr,value)
+    {
+        var len = arr.length;
+        for(i=0;i<len;i++)
+        {
+            $("#"+arr[i]).css("display",value);
+        }
+    }
+    
+    
+    
+    //检查标题
+    function check_string(str)
+    {
+
+        var len = charlen(str);
+            if(len>50){
+                alert_error('title','活动标题字数不能超过25个字');
+                return false;
+            }else{
+                alert_error('title','');
+                return true;
+            }
+    }
+    
+    
+    function display_event_tips(type)
+    {
+        var category = $('#category').val();
+        if(type=="close")
+        {
+            $.ajax
+            ({
+                
+
+                type:'get',
+                dataType:'json',
+                url:'./module/set_tip_cookie.php',
+                data:"type=" +"event_edit_tips_close_"+category+"&category="+category+"&timestamp=" + new Date().getTime(),
+                cache:false,
+                success:function(json_data)
+                {
+                    $('#long_tips').css("display","none");
+                    $('#short_tips').css("display","block");
+                }
+                
+            });
+        }
+        else
+        {
+
+            $('#long_tips').css("display","block");
+            $('#short_tips').css("display","none");
+            
+            
+        }
+
+    }
+    
+    
+    //删除,关闭,打开模块统一检索
+    function del_module_check(module_type,data_mark)
+    {
+        var msg ="";
+        if(module_type=="J_delete_model_btn")
+        {
+            msg = "确定删除该图文内容？";
+        }
+        else if(module_type=="J_delete_site_btn")
+        {
+            msg = "确定删除该场次内容？";
+        }
+        else if(module_type=="J_delete_leader_btn")
+        {
+            msg = "确定删除该领队内容？";
+        }
+        else if(module_type=="J_open_site_btn")
+        {
+            msg = "确定打开场次？";
+        }
+        else if(module_type=="J_close_site_btn")
+        {
+            msg = "确定关闭场次？";
+        }
+    
+        var div='<div style="text-align:center;"><a href="javascript:void(0);" title="关闭" class="fr alert_msg_box_close" onclick="close_msg_box();return false;">关闭</a><div id="enroll_msg_box">';
+        div+='<p align="left">'+msg+'</p>';
+        div+='<a href="javascript:void(0);" data-class="confirm_btn" module-type="'+module_type+'" data-mark="'+data_mark+'">确定</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="close_msg_box();return false;">取消</a>';
+        div+='</div></div>';
+        show_msg_box({
+            width		:		380,
+            b_title		:		false,
+            button		:		false,
+            b_close_bnt	:		false,
+            cover		:		true,
+            top			:		200	,
+            content		:		div
+        });
+
+        
+    }
+    
+
+////活动信息相关操作
+
+    //弹出错误提示
+    function alert_error(id,msg)
+    {
+        $('#'+id+'_error').html(msg);
+        if(msg!='')
+        {
+            $('#'+id+'_error').attr("class","alert_error2");
+            
+            //mypoco_scroll_move(id,80);
+                //$("#"+id).focus();
+            //alert($('#'+id+'_error').offset);
+            $(document).scrollTop($('#'+id+'_error').offset().top);
+            
+        }
+        else
+        {
+            $('#'+id+'_error').attr("class","alert_error");
+        }
+            
+    }
+    
+    //发布页弹层(可共用)
+    function publish_show_msg_box(msg)
+    {
+        var div='<div style="text-align:center;"><a href="javascript:void(0);" title="关闭" class="fr alert_msg_box_close" onclick="close_msg_box();return false;">关闭</a><div id="enroll_msg_box">';
+        div+='<p align="left">'+msg+'</p>';
+        div+='</div></div>';
+        show_msg_box({
+            width		:		380,
+            b_title		:		false,
+            button		:		false,
+            b_close_bnt	:		false,
+            cover		:		true,
+            top			:		200	,
+            content		:		div
+        });
+    }
+    
+    
+    
+    
+});
+
+
+
+
+
+</script>
+</html>

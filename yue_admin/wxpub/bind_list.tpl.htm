@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/admin.js?x"></script>
+<script type="text/javascript" src="./js/admin.js?x000"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<title>公众号列表 Powered by hai - Powered by hai</title>
+</head>
+<body>
+<div class="mainbox">
+<form name="list_form" id="list_form" action="" method="post">
+	<div class="table-list">
+	<div id="infobox">请选择公众号进行管理</div>
+		<table width="100%" cellspacing="0">
+			<thead>
+			<tr>
+				<th width="40">编号</th>
+				<th width="70">公众号</th>
+				<th width="80">APPID</th>
+				<th width="80">操作</th>
+				<th>备注</th>
+			</tr>
+			</thead>
+			<tbody>
+				<!-- IF bind_list -->
+			    <!-- BEGIN bind_list -->
+				<tr>
+				<td align="center">{bind_id}</td>
+				<td align="center">{remark}</td>
+				<td>{app_id}</td>
+				<td><a href="#this" onclick="set_cur_bind({bind_id},'{remark}')" class="button">管理</a></td>
+				<td> </td>
+				</tr>
+				<!-- END bind_list -->
+				<!-- ELSE -->
+				暂无数据
+				<!-- ENDIF -->
+			</tbody>
+		</table>
+	</div>
+</form>
+</div>
+</body>
+<script>
+function set_cur_bind(bind_id,bind_user){
+
+	writeCookie('cur_bind_id',bind_id);
+	writeCookie('cur_bind_user',bind_user);
+	top.location.href = 'index.php?bind_id='+bind_id;
+
+}
+</script>
+</html>

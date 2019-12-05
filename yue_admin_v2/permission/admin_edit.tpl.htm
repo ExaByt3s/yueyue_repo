@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="application/javascript" src="jq.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/model_audit.css">
+    <title>权限管理后台</title>
+    <style type="text/css">
+        .table-list
+        {
+            min-width: 990px;
+            margin-bottom: 20px;
+        }
+        .table-list tbody td
+        {
+            border-left: #eee 1px solid;
+        }
+        .album img
+        {
+            margin:2px;
+        }
+        .button
+        {
+            background: url('../resources/images/uploadify.png');
+            height: 28px;
+            width: 75px;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            text-shadow:none;
+            box-shadow:none;
+        }
+        .gary-ui
+        {
+            background: url("") #808080;
+
+        }
+    </style>
+</head>
+<body>
+<div class="mainbox">
+    <div class="table-list">
+        <h1><b><a href="admin_list.php" style="cursor:pointer">返回</a></b></h1>
+        <iframe name="frame" id="frame" style="display:none"></iframe>
+        <form method="post" action="?" id="myform" target="frame">
+            <div class="table" style="width:98%;" id="occu">
+                <!--list-->
+                <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+                    <tbody>
+                    <tr>
+                        <td width="80">约约ID:</td>
+                        <td>
+                            <input type="text" name="user_id" value="{user_id}" class='input-text <!-- IF act="update" -->gary-ui<!-- ENDIF -->' id="J_user_id" <!-- IF act="update" -->readonly<!-- ENDIF --> />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>昵称:</td>
+                        <td>
+                            <input type="text" value="{nickname}" class="input-text gary-ui" id="nickName" disabled />(不用填写)<input type="button" class="button" value="获取昵称" onclick="getNickname()"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>真实姓名:</td>
+                        <td>
+                            <input type="text" name="real_name" value="{real_name}" class="input-text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>部门名称:</td>
+                        <td>
+                            <input type="text" name="department" value="{department}" class="input-text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>状态:</td>
+                        <td>
+                            <input type="radio" name="status" value="1" <!-- IF status="0" --><!-- ELSE -->checked='true'<!-- ENDIF -->/>&nbsp;开启
+                            &nbsp;<input type="radio" name="status" value="0" <!-- IF status="0" -->checked='true'<!-- ENDIF -->/>&nbsp;关闭
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>角色:</td>
+                        <td>
+                            <!-- BEGIN role_ret -->
+                            <input type="checkbox" name="role_id" value="{role_id}" <!-- IF selected -->checked='true'<!-- ENDIF --> /> {role_name} &nbsp;&nbsp;
+                            <!-- END role_ret -->
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>个人权限:</td>
+                        <td><font color="red">如果用户有角色权限,会优先考虑角色关联的权限</font></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <div id="role_op_list">
+                                {option}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>操作:</td>
+                        <td>
+                            <input type="submit" value="提交" class="button"/>
+                            <input type="reset"  value="重置" class="button"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input type="hidden" value="{act}" name="act" />
+        </form>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    function getNickname()
+    {
+        var $user_id = $("#J_user_id").val();
+        $.ajax({
+            type: "post",
+            url: 'admin_edit.php',
+            dataType: "json",
+            data: {'user_id': $user_id,'act': 'params'},
+            success: function($data) {
+                var $state = $data.state;
+                if($state == 1)
+                {
+                    $("#nickName").val($data.msg);
+                }
+                else if($state == -1)
+                {
+                    $("#nickName").val('');
+                    window.alert('约约ID不能为空');
+                }
+                else if($state == -2)
+                {
+                    $("#nickName").val('');
+                    window.alert('获取到的用户名为空');
+                }
+                else
+                {
+                    window.alert('非法操作');
+                }
+            },
+            error:function()
+            {
+               window.alert('网络超时');
+            }
+        })
+    }
+</script>
+</html>

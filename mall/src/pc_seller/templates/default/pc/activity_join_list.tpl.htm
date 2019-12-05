@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{page_title}</title>
+
+    <!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+    -->
+    <!-- 公共css，js引入 -->{pc_global_top}
+
+    <link type="text/css" rel="stylesheet" href="../../../style/activity-sign-name-list.scss">
+
+
+</head>
+<body>
+{global_top_bar}
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+    <div class="editing-from-page w1000 font_wryh content">
+        <div class="msg_info mt10 font_wryh f14" id="system_msg_div" style="<!-- IF hide_system_msg == "1" -->display:none;<!-- ENDIF hide_system_msg -->">
+        <ul class="list clearfix">
+
+            <li>
+                <a href="javascript:;" class="close" id="system_msg_close"></a>
+                {system_msg}
+                <!--<a href="#">去看看</a>-->
+            </li>
+        </ul>
+
+        </div>
+        <div class="mod-nav-item">
+            <a href="./">约约商家主页</a>
+            &gt;
+            <a href="./activity_list.php">活动管理</a>
+            &gt;
+            <span>报名名单</span>
+        </div>
+
+
+
+            <div class="activity-sign-name-page content-bg  font_wryh">
+                <h3 class="f16 mb10">活动类别：{activity_type_name}</h3>
+                <h3 class="f16">活动标题：{activity_title}</h3>
+                <div class="item-wrap font_wryh" id="join_list_container">
+                    <h4 class="title f16">{page_title}</h4>
+                    <!-- IF new_price_list -->
+                        <!-- BEGIN new_price_list -->
+                            <div class="item">
+                                <div class="item-title f14 cor-333">
+                                    <span class="number-txt">{data_mark}</span>
+                                    <span class="time-txt">{dateformat:time_s, "Y-m-d H:i"} 至 {dateformat:time_e, "Y-m-d H:i"}</span>
+                                    <span class="sign-name-txt"> 已付款： {paid_num}/{stock_num_total}人</span>
+                                    <!-- IF join_list --><a href="./module/activity_export_join_list_op.php?goods_id={top.goods_id}&type_id={type_id}" class="export-btn cor-409">导出名单</a><!-- ELSE --><span class="export-btn cor-409">暂无名单</span><!-- ENDIF join_list -->
+                                    <div class="ui-triangle-item J_show_hide_btn" data-class="J_join_list_show_hide" data-mark="{data_mark}" data-action="show">
+                                        <b class="ui-triangle ui-triangle-bottom-min-grey J_join_btn_style J_show_hide_btn" data-class="J_join_list_show_hide" data-mark="{data_mark}" data-action="show"></b>
+                                    </div>
+                                </div>
+                                <div class="item-con cor-333 J_join_list" data-mark="{data_mark}" style="display:none;">
+                                    <!-- IF join_list -->
+                                    <table class="sign-name-table">
+                                        <tr>
+                                            <th width="50px;">序号</th>
+                                            <th width="100px;">昵称</th>
+                                            <th width="100px;">电话</th>
+                                            <th width="80px;">用户ID</th>
+                                            <th width="80px;">规格</th>
+                                            <th width="140px;">报名时间</th>
+                                            <th width="60px;">人数</th>
+                                            <th width="140px;">备注</th>
+                                        </tr>
+                                            <!-- BEGIN join_list -->
+                                            <tr>
+                                                <td>
+                                                    <p>{sequence_num}</p>
+                                                </td>
+                                                <td>{buyer_user_name}</td>
+                                                <td>{buyer_user_cellphone}</td>
+                                                <td>{buyer_user_id}</td>
+                                                <td>{prices_spec}</td>
+                                                <td>{dateformat:add_time, "Y-m-d H:i"}</td>
+                                                <td>{quantity}</td>
+                                                <td>
+                                                    <div class="remark-txt">
+                                                        <div class="remark-txt-con">
+                                                            {description}
+                                                        </div>
+                                                        <div class="more-txt dn">
+                                                            {description}
+                                                            <b class="triangle-icon-bg"></b>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- END join_list -->
+
+                                    </table>
+                                    <!-- ELSE -->
+                                    <div class="tc f14">暂时没有报名名单</div>
+                                    <!-- ENDIF join_list -->
+                                </div>
+                            </div>
+                        <!-- ENDIF new_price_list -->
+                    <!-- END new_price_list -->
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+{footer}
+
+<script type="text/javascript">
+    // 头部
+    require('../../../modules/common/global-top-bar/global-top-bar');
+
+
+
+
+    $("#system_msg_close").on("click",function(){
+
+        /*var type_id = $("#type_id");
+         var cookie_name = "mall_pai_goods_edit_"+type_id;
+         cookie.set(cookie_name,"hide_system_msg",{
+         expires :1000,
+         domain : 'yueus.com',
+         path : '/'
+         });*/
+
+        $("#system_msg_div").css("display","none");
+
+
+    });
+
+
+    //移动到备注交互
+    $('.item table tr').find("td:last").hover(function() {
+        $(this).find('.more-txt').removeClass('dn');
+
+    }, function() {
+        /* Stuff to do when the mouse leaves the element */
+        $(this).find('.more-txt').addClass('dn');
+    });
+
+    //报名人数收展交互
+    $("#join_list_container").on("click",function(e){
+        var target = e.target;
+        var data_mark = $(target).attr("data-mark");
+        var data_class = $(target).attr("data-class");
+        var data_action = $(target).attr("data-action");
+        if(data_class=="J_join_list_show_hide")
+        {
+            if(data_action=="hide")
+            {
+
+                $(".J_join_list[data-mark='"+data_mark+"']").css("display","none");
+                $(".J_join_btn_style[data-mark='"+data_mark+"']").removeClass("ui-triangle-top-min-grey").addClass("ui-triangle-bottom-min-grey");
+                $(".J_show_hide_btn[data-mark='"+data_mark+"']").each(function(index,ele){
+
+                    $(ele).attr("data-action","show");
+                });
+
+            }
+            else if(data_action=="show")
+            {
+                $(".J_join_list[data-mark='"+data_mark+"']").css("display","block");
+                $(".J_join_btn_style[data-mark='"+data_mark+"']").removeClass("ui-triangle-bottom-min-grey").addClass("ui-triangle-top-min-grey");
+                $(".J_show_hide_btn[data-mark='"+data_mark+"']").each(function(index,ele){
+
+                    $(ele).attr("data-action","hide");
+                });
+
+            }
+        }
+
+    });
+
+
+
+
+</script>
+</body>
+</html>

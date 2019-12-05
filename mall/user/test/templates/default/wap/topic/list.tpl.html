@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>专题列表</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/topic/list.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/scroll.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/menu/index.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/dragloader.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/menu/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/topic/list.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view " data-role="page-container">
+        <div data-role="wrapper">
+                <div class="apps_page">
+                    <div class="native_scroll">
+                        <div class="scoll-wrapper ">
+                            <ul class="topic-list-container" data-role="insert">
+
+                            </ul>
+                            <div class="space-bottom"></div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    {wap_global_footer}
+    
+</main>
+<script>
+    require('topic/list');
+    var header = require('common/widget/header/main');
+    var $ = require('components/zepto/zepto.js');
+
+    $(function()
+    {
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"专题列表",
+            header_show : true , //是否显示头部
+            right_icon_show : false, //是否显示右边的按钮
+
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{{#each datas}}
+    {{#if list}}
+        <div class="item">
+            <div class="part-a">
+                <div class="lbox ">{{title}}</div>
+                <div class="rbox more {{#unless more}}fn-hide{{/unless}}" data-to-rank data-role="to_{{rank_id}}">{{text}}<i class="icon icon-allow-22x12"></i></div>
+            </div>
+            <div class="part-b">
+                <ul class="new-list" data-role="{{key}}">
+                    {{#each list}}
+                        <li data-user-id="{{user_id}}" data-role="grid" data-url="{{url}}" data-link-type="{{link_type}}">
+                            <div class="avatar-size-mod" style="width:{{../../../max_w}}px;height:{{../../../max_h}}px;">
+                                <i class="img image-img avatar-size-img" style="background-size: cover;" data-lazyload="{{user_icon}}"></i>
+                                {{#if txt1}}
+                                    <div>
+                                        <span class="score">{{txt1}}</span>
+                                        <span class="text">{{txt2}}</span>
+                                    </div>
+                                {{/if}}
+                            </div>
+                            <div class="avatar-info">
+                                <h3>{{txt3}}</h3>
+                                {{#if txt4}}<label>{{txt4}}</label>{{/if}}
+                            </div>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        {{#if has_next_page}}
+            <div class="btn-option" data-role="more" data-add="{{key}}"><i class="icon icon-r-16x26-cur"></i></div>
+        {{/if}}
+    {{/if}}
+{{/each}}

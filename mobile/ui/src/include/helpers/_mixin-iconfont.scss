@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+// --------------------------------------------------
+// iconfont
+// 
+// 参数
+//  - selector 选择器
+//  - font-name 字体名称
+//  - font-file-name 字体文件名
+// --------------------------------------------------
+@mixin iconfont($selector: '.global-iconfont', $font-name: 'global-iconfont', $font-file-name: 'iconfont') {
+    @include font-face(quote($font-name),
+        font-files('#{$font-file-name}.woff', '#{$font-file-name}.ttf',
+            '#{$font-file-name}.svg##{$font-file-name}'
+            ), '#{$font-file-name}.eot'
+    );
+
+    #{$selector} {
+        font-family: quote($font-name);
+        font-weight: 400;
+        font-style: normal;
+        cursor: inherit;
+        -webkit-font-smoothing: antialiased; // 最佳平滑效果
+        -moz-osx-font-smoothing: grayscale;
+    }
+}

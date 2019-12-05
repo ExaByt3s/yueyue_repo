@@ -1,0 +1,176 @@
+<script id="normal-form-template" type="text/x-handlebars-template">
+    <div class="entry" data-view-id="{{ id}}" data-tpl-name="{{ tpl_type}}">
+        <select name="type" data-role="normal-select" class="pd10 entry-select">
+            {{#each select_arr}}
+            <option name="type" value="{{value}}" {{#if selected}}selected{{/if}}>{{ text}}</option>
+            {{/each}}
+
+        </select>
+
+        <div data-role="from-type" class="from-type">
+            <span class="from-page">表格</span>
+            <input type="text" value="1" class="from-num" data-role="form-num" readonly="readonly">
+            <div data-role="child-item-tpl-container" class="child-item-content"></div>
+            <input type="button" value="添加" data-role="add"  class="btn-bg169fe6 entry-btn "/>
+            <input type="button" value="删除" data-role="remove" data-normal-num="{{ id}}" class="btn-bgff5e52 entry-btn"/>
+        </div>
+    </div>
+</script>
+
+<script id="img_tpl" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td width="78" align="right">（图片模版）</td>
+            <td width="324"><label for="textfield"></label>
+                图片链接: <input type="text" name="img_tpl[]" id="textfield" value="{{ img_url}}"/></td>
+            <td width="84">排序:<input type="text" name="img_tpl_sort[]" id="textfield" value="{{ sort}}" size="5"/></td>
+        </tr>
+    </table>
+</script>
+
+<script id="text_tpl" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td width="146" align="right">（文案模版）文案内容:</td>
+            <td width="848"><label for="textarea"></label>
+                <textarea name="text_tpl_text[]" id="textarea" cols="45" rows="5" value="{{ text}}">{{ text}}</textarea>
+                <label for="textfield"></label>
+            </td>
+            <td width="84">排序:<input type="text" name="text_tpl_sort[]" id="textfield" value="{{ sort}}" size="5"/></td>
+        </tr>
+    </table>
+</script>
+
+
+<!--商品模版1一-->
+<script id="goods_tpl1" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10" data-role="tb">
+        <tr>
+            <td align="right">（商品模版一）</td>
+            <td colspan="3"><input type="button" name="button" data-role="add-goods-child" value="点击新增商品" class="btn-bg169fe6"/>排序:<input type="text" data-role="sort" name="goods_tpl1_sort[]" id="textfield" value="{{ sort}}" size="5"/></td>
+
+        </tr>
+
+    </table>
+</script>
+<!--商品模版1-子模板-->
+<script id="goods1-child-template" type="text/x-handlebars-template">
+    {{#each tr_list}}
+    <tr data-row-id="{{id}}" data-name="goods">
+        <td align="right" data-role="goods_sort">商品{{name}}：</td>
+        <td width="252"><label for="goods_tpl1_id[{{ id}}][]"></label>
+            商品ID:
+            <input type="text" name="goods_tpl1_id[{{ id}}][]" value="{{ goods_id}}"  /></td>
+        <td width="284">促销文案:
+            <input type="text" name="goods_tpl1_text[{{ id}}][]" value="{{ goods_text}}" /></td>
+        <td width="268">角标:
+            <label for="select"></label>
+            <select name="goods_tpl1_tag[{{ id}}][]" id="select">
+                {{#each select_options}}
+                <option value="{{ value}}" {{#if selected}}selected{{/if}}>{{ value}}</option>
+                {{/each}}
+            </select>
+            <button data-role="del-items" data-num="{{ id}}">删除</button>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+<!--商品模版2一-->
+<script id="goods_tpl2" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td align="right">（商品模版二）</td>
+            <td>排序:<input type="text" name="goods_tpl2_sort[]" id="textfield" value="{{ sort}}" size="5"/></td>
+        </tr>
+        <tr>
+            <td align="right">商品ID:</td>
+            <td><input type="text" name="goods_tpl2_id[]" id="textfield3" value="{{ goods_id}}" /></td>
+        </tr>
+        <tr>
+            <td width="146" align="right">促销文案:</td>
+            <td width="848"><label for="textfield">
+                <input type="text" name="goods_tpl2_text[]" id="textfield5" value="{{ goods_text}}" />
+            </label></td>
+        </tr>
+    </table>
+</script>
+<script id="goods_tpl3" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td align="right">（商品模版三）</td>
+            <td>排序:<input type="text" name="goods_tpl3_sort[]" id="textfield" value="{{ sort}}" size="5"/></td>
+        </tr>
+        <tr>
+            <td align="right">商品ID:</td>
+            <td><input type="text" name="goods_tpl3_id[]" id="textfield3" value="{{ goods_id}}" /></td>
+        </tr>
+        <tr>
+            <td width="146" align="right">促销文案:</td>
+            <td width="848"><label for="textfield">
+                <input type="text" name="goods_tpl3_text[]" id="textfield5" value="{{ goods_text}}" />
+            </label></td>
+        </tr>
+    </table>
+</script>
+<script id="list_tpl1" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td align="right">（列表模版一）</td>
+            <td>排序:<input type="text" name="list_tpl1_sort[]" id="textfield" value="{{ sort}}" size="5"/></td>
+        </tr>
+        <tr>
+            <td align="right">图片链接:</td>
+            <td><input type="text" name="list_tpl1_img[]" id="textfield3" value="{{ img_url}}" /></td>
+        </tr>
+        <tr>
+            <td align="right">主标题:</td>
+            <td><input type="text" name="list_tpl1_title[]" id="textfield6"  value="{{ title}}" /></td>
+        </tr>
+        <tr>
+            <td width="146" align="right">副标题:</td>
+            <td width="848"><label for="textfield">
+                <input type="text" name="list_tpl1_subtitle[]" id="textfield5" value="{{ subtitle}}" />
+            </label></td>
+        </tr>
+    </table>
+</script>
+
+<script id="list_tpl2" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td align="right">（列表模版二）</td>
+            <td>排序:<input type="text" name="list_tpl2_sort[]" id="textfield" value="{{ sort}}" size="5"/></td>
+        </tr>
+        <tr>
+            <td align="right">图片链接:</td>
+            <td><input type="text" name="list_tpl2_img[]" id="textfield3" value="{{ img_url}}" /></td>
+        </tr>
+        <tr>
+            <td align="right">主标题:</td>
+            <td><input type="text" name="list_tpl2_title[]" id="textfield6" value="{{ title}}" /></td>
+        </tr>
+
+        <tr>
+            <td width="146" align="right">副标题:</td>
+            <td width="848"><label for="textfield">
+                <input type="text" name="list_tpl2_subtitle[]" id="textfield5" value="{{ subtitle}}" />
+            </label></td>
+        </tr>
+        <tr>
+            <td align="right">跳转按钮链接:</td>
+            <td><input type="text" name="list_tpl2_button[]" id="textfield7" value="{{ button}}" /></td>
+        </tr>
+    </table>
+</script>
+
+<script id="attr_goods_tpl" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td width="162" align="right">（商品属性模版）商品ID:</td>
+            <td width="832"><label for="textfield"></label>
+                <input type="text" name="attr_goods_id_tpl[]" id="textfield" value="{{ goods_id}}"  /></td>
+            排序:<input type="text" name="attr_tpl_sort[]" id="textfield" value="{{ sort}}" size="5"/>
+        </tr>
+    </table>
+</script>

@@ -1,0 +1,45 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 绑定支付宝
+// 
+.bind-alipay{
+    padding: 20px;
+    .des{
+        padding-top: 15px;
+        font-size: 12px;
+        color: #333333;
+        p{
+            padding-top: 1px;
+            line-height: 24px;
+        }
+        .num{
+            color: #0060ff;
+        }
+    }
+}
+.bind-alipay-success{
+    padding-top: 50px;
+    text-align: center;
+    line-height: 24px;
+    .p1{
+        color: #333333;
+        font-size: 14px;
+    }
+    .p2{
+        color: #000000;
+        font-size: 22px;
+        padding-top: 10px;
+    }
+    .p3{
+        color: #666666;
+        font-size: 12px;
+        padding-top: 50px;
+    }
+    .p4{
+        color: #0060ff;
+        font-size: 12px;
+        .num{
+            color: #0060ff;
+        }
+    }
+}

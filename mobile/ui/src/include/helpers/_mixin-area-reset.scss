@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+// -------------------
+// 区域性reset
+// -------------------
+@mixin area-reset($selector: '.global-reset') {
+    #{$selector} {
+        // 内外边距通常让各个浏览器样式的表现位置不同
+        div, span, applet, object, iframe,
+        dl, dt, dd, ul, ol, li,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        fieldset, form, label, legend,
+        input, textarea, button, hr,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            @include reset-box-model;
+            @include reset-font;
+            //font-size: 100%;
+            //vertical-align: baseline;
+        }
+
+        // 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG)
+        article, aside, details,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, section, summary { 
+            display: block;
+        }
+
+        // HTML5 媒体文件跟 img 保持一致
+        audio, canvas, video {
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+        }
+
+        // 去掉各Table  cell 的边距并让其边重合
+        table {
+            @include reset-table;
+        }
+        caption, th, td {
+            @include reset-table-cell;
+        }
+
+        // IE bug fixed: th 不继承 text-align*/
+        th {
+            text-align: inherit;
+        }
+
+        // ie6 7 8(q) bug 显示为行内表现
+        iframe {
+            display: block;
+        }
+
+        // 去掉 firefox 下此元素的边框
+        abbr, acronym {
+            font-variant: normal;
+        }
+
+        // 一致的 del 样式
+        del {
+            text-decoration: line-through;
+        }
+
+        address, caption, cite, code, dfn, em, th, var {
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        // 去掉列表前的标识, li 会继承
+        ol, ul {
+            @include reset-list-style;
+        }
+
+        // 来自yahoo, 让标题都自定义, 适应多个系统应用
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 400;
+        }
+
+        q, blockquote {
+            @include reset-quotation;
+        }
+
+        a img {
+            @include reset-image-anchor-border;
+        }
+
+        // 统一上标和下标
+        sup {
+            @extend %reset-sub-and-sup;
+            top: -0.5em;
+        }
+        sub {
+            @extend %reset-sub-and-sup;
+            bottom: -0.25em;
+        }
+        %reset-sub-and-sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+
+        // 正常链接 未访问
+        // a {
+        //     @include hover-link;
+        // }
+
+        // 默认不显示下划线，保持页面简洁
+        ins {
+            text-decoration: none;
+        }
+
+        // 代码字体
+        code, kbd, pre, samp {
+            font-family: monospace, serif;
+            font-size: 1em;
+        }
+
+        &, button, input, select, textarea {
+            font: #{$default-base-font-weight} #{$default-base-font-size}/#{$default-base-line-height} #{$default-base-font-family};;
+        }
+
+        // 解决webkit 闪烁bug
+        -webkit-backface-visibility: hidden;
+
+        // -------------------------------------------------
+        // 功能
+        // -------------------------------------------------
+        .fn-clear {
+            @include pie-clearfix;
+        }
+        .fn-left {
+            @include float-left;
+        }
+        .fn-right {
+            @include float-right;
+        }
+        .fn-hide {
+            display: none!important;
+        }
+    }
+}

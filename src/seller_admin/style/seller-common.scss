@@ -1,0 +1,24 @@
+.top-bar{
+  .user-info{
+    p{
+      color: #666;
+      font-size: 14px;
+    }
+    span{
+      font-size: 16px;
+    }
+  }
+  .icon-logo:before{
+    width: 24px;
+    height: 24px;
+    display: block;
+    background: url('../image/seller/logo-48x48.png?__sprite');
+  }
+  .logout{
+    line-height: 50px;
+    a{
+      color: #007aff;
+      font-size: 14px;
+    }
+  }
+}

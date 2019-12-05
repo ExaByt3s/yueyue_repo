@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>私人定制</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/person_order/index_d8654ca.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<!--script src="/lib/debuggap.js"></script-->
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_79cae42.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/common/date/calendar_1c38a52.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+</head>
+<body>
+<style>
+input[disabled]{
+-webkit-opacity:1;
+color:#000;
+}
+
+</style>
+<main role="main" data-role="form">
+    <section id="global-header"></section>
+    <div class="page-view person-order" data-role="page-container">
+        <div class="content">
+            <div class="order-type-title">所要订制的品类（可多选）</div>
+            <div data-role="type-content">
+                <!-- BEGIN type_arr -->
+                <button data-role="order-btn" data-type="{id}" class="{class}">
+                    <span>{name}</span>
+                </button>
+                <!-- END -->
+                <input type="text" class="fn-hide" data-role="order-type" value="{type_id}">
+            </div>
+            <div class="order-type-title">订制需求</div>
+            <div class="ui-title-info-mod mb10">
+                <div class="item">
+                    <span class="title color-666">地区</span>
+                    <div class="ui-title-info-con" data-role="location">
+                        <input type="text" class=" ui-title-info " placeholder="请选择地区" data-role="location-name" value="{location_name}" readonly="readonly" disabled="disabled">
+                        <input type="text" class="fn-hide" id="city_id" value="{location_id}" placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="ui-title-info-mod mb10">
+                <div class="item">
+                    <span class="title color-666">时间</span>
+                    <div class="ui-title-info-con position-r" data-role="time">
+                        <input type="text" class="calendars ui-title-info " placeholder="点击选择起始时间" format="yy-mm-dd" readonly="true" hours hours-past past>
+                        <i class="time-icon"></i>
+                    </div>
+                </div>
+
+            </div>
+            <div class="ui-title-info-mod mb10">
+                <div class="item">
+                    <span class="title color-666">时长</span>
+                    <div class="ui-title-info-con"><input type="tel" class=" ui-title-info " placeholder="以小时为单位" data-role="time-span"></div>
+                </div>
+
+            </div>
+            <div class="ui-title-info-mod mb10">
+                <div class="item">
+                    <span class="title color-666">数量/规格</span>
+                    <div class="ui-title-info-con"><input type="tel" class=" ui-title-info " placeholder="填写所需的数量或规格" data-role="order-number"></div>
+                </div>
+            </div>
+
+            <div class="ui-title-info-mod mb10 person-order-ui-mod">
+                <div class="item item-w-55">
+                    <span class="title color-666">预算</span>
+                    <div class="ui-title-info-con"><input type="tel" class=" ui-title-info " placeholder="下限" data-role="lower-limit"></div>
+                </div>
+                <span class="symbol">-</span>
+                <div class="item item-w-38">
+                    <span class="title color-666 plr10"></span>
+                    <div class="ui-title-info-con"><input type="tel" class=" ui-title-info " placeholder="上限" data-role="ceiling"></div>
+                </div>
+            </div>
+
+            <div class="ui-title-info-mod mb10">
+                <div class="item h100">
+                    <span class="title color-666">描述/备注</span>
+                    <div class="ui-title-info-con text-hi"><textarea class="text-content " placeholder="请详细描述您的需求内容" data-role="remark"></textarea></div>
+                </div>
+            </div>
+
+        </div>
+        <button id="order-submit" data-role="order-submit" class="submit">提交订单</button>
+        
+    </div>
+
+
+</main>
+<main id="location" class="fn-hide" role="main">
+    <section data-role="global-header"></section>
+    <div  data-role="location-page" ></div>
+</main>
+
+</body>
+<script>
+    var header = require('common/widget/header/main');
+    //var hours = require('../../../../modules/time_picker/index');
+    //var Picker = require('../../../../modules/date_picker/index');
+    var utility = require('common/utility/index');
+    var App =  require('common/I_APP/I_APP');
+    //var hash_control = require('../../../../modules/hash_control/index');
+    var date = require('common/date/calendar');
+
+    var $ = require('components/zepto/zepto.js');
+    var _self = $({});
+    var $form_page = $('[data-role="form"]');
+    var $location_page = $('#location');
+
+    $(function()
+    {
+
+
+        // 解决键盘遮挡
+        $(document).on('focus', 'input', function () {
+            $(".navbar-fixed-top").addClass('fixfixed');
+        });
+        $(document).on('blur', 'input', function () {
+            $(".navbar-fixed-top").removeClass('fixfixed');
+        });
+        // 解决键盘遮挡 end
+
+
+        
+
+        var _self = $({});
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"私人定制",
+            header_show : true , //是否显示头部
+            right_icon_show : true, //是否显示右边的按钮
+
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:""  //显示文字内容
+            }
+        });
+
+        $('[data-role="order-btn"]').on('click',function()
+        {
+            var $this = $(this);
+            if($this.hasClass('on-btn'))
+            {
+                $this.removeClass('on-btn');
+            }
+            else
+            {
+                $this.addClass('on-btn');
+            }
+        });
+
+
+        /**
+         * 时间按钮
+         */
+        /*var $time_btn = $('[data-role="time"]');
+        var day_res;
+        var hour_res;
+		var mouth_range = ['{now_range}','{next_range}']
+        var pick = new Picker
+        ({
+            CAN_NOT_CHOOSE_A_DAY_BEFORE:'',
+            CHOOSE_PAST_DAYS : false,
+            DEFAULT_DAY : '',
+            MONTH_RANGE : mouth_range,
+            RETURN_SEPARATOR : '-',
+            SKIP_DAYS : ''
+        });
+
+        hash_control.reg_hash
+        ([
+            {
+                hash : '#date',
+                func : function()
+                {
+                    pick.slide_show();
+                }
+            },
+            {
+                hash : '',
+                func : function()
+                {
+                    pick.slide_hide();
+                }
+            }
+        ])
+
+
+        $time_btn.on('click',function()
+        {
+            pick.slide_show();
+        });
+        pick.get_obj().on('finish',function(event,str)
+        {
+            day_res = str;
+            hours.show();
+        });
+        hours.create
+        ({
+            span : 60,
+            custom_time : [],
+            container : $('body'),
+            title: '请选择具体时间'
+        });
+        hours.get_obj().on('time-hour-finish',function(event,str_time)
+        {
+            hour_res = str_time;
+
+            hours.hide();
+
+            pick.slide_hide();
+
+            $('[data-role="time"]').find('input').val(day_res+" "+hour_res);
+        });*/
+
+        /**
+         * 地区按钮
+         */
+        // 载入组件
+        var location_class = require('common/widget/location/location_main');
+
+        // 实例化
+        var location_btn = $('[data-role="location" ]');
+        location_btn.on('click',function()
+        {
+			if(App.isPaiApp)
+			{
+				var location_id = $('#city_id').val() || '{location_id}';
+				var city = $('[data-role="location-name"]').val() || '{location_name}';
+				App.show_selectcity({locationid:location_id,city:city},function(data)
+				{
+					if(data.code == '0000')
+					{
+						$('#city_id').val(data.locationid);
+						$('[data-role="location-name"]').val(data.city);
+
+					}
+
+				});
+			}
+			else
+			{
+				$form_page.addClass('fn-hide');
+				$location_page.removeClass('fn-hide');
+
+                if(!_self.location_obj)
+                {
+                    _self.location_obj = new location_class({
+                        ele : $('[data-role="location-page"]'), //渲染地区总节点
+                        // 热门城市配置
+                        hot_city : {
+                            is_show : true  // 是否显示热门城市 true显示
+                            
+                        },
+                        callback : function(res)
+                        {
+                            // 点击选中城市回调
+                            $('#city_id').val(res.location_id);
+                            $('[data-role="location-name"]').val(res.city);
+                            $form_page.removeClass('fn-hide');
+                            $location_page.addClass('fn-hide');
+                            console.log(res);
+                        },
+                        city_history_num: "",  //控制浏览历史记录个数，默认12个
+                        is_search : false  // 是否开启搜索城市功能 默认不开启
+                    });
+                }
+				
+
+                if(!_self.location_page_header_obj)
+                {
+                    _self.location_page_header_obj = header.init
+                    ({
+                        ele        : $('#location').find('[data-role="global-header"]'), //头部渲染的节点
+                        title      : "选择地区",
+                        use_page_back : false ,
+                        header_show: true, //是否显示头部
+                        right_icon_show: true, //是否显示右边的按钮
+                        share_icon :
+                        {
+                            show   : false,  //是否显示分享按钮icon
+                            content: ""
+                        },
+                        omit_icon  :
+                        {
+                            show   : false,  //是否显示三个圆点icon
+                            content: ""
+                        },
+                        show_txt   :
+                        {
+                            show   : false,  //是否显示文字
+                            content: ""  //显示文字内容
+                        }
+                    });
+                }
+
+                
+
+
+                if(_self.location_obj)
+                {
+                    _self.location_page_header_obj.$el.on('click:left_btn',function()
+                    {
+                        $form_page.removeClass('fn-hide');
+                        $location_page.addClass('fn-hide');
+                    });
+                }
+                
+			}
+
+        });
+
+        
+
+        /**
+         * 提交按钮
+         */
+        var $submit_btn = $('#order-submit');
+        $('.content').find('input').on('input',function()
+        {
+            if($(this).val())
+            {
+                $submit_btn.addClass('can-submit');
+            }else
+            {
+                $submit_btn.removeClass('can-submit');
+            }
+        });
+
+        $submit_btn.on('click',function()
+        {
+            var location_id = $('#city_id').val();
+            var time_text = $('[data-role="time"]').find('input').val();
+            var time_span = $('[data-role="time-span"]').val();
+            var order_num = $('[data-role="order-number"]').val();
+            var remark = $('[data-role="remark"]').val();
+            //var about_budget = lower_limit.val() + "-" + ceiling.val();
+            var $ceiling = $('[data-role="ceiling"]');
+            var $lower_limit =$('[data-role="lower-limit"]');
+            var lower_limit_num = parseInt($lower_limit.val());
+            var ceiling_num = parseInt($ceiling.val());
+            var lower_limit_v = $lower_limit.val();
+            var ceiling_v = $ceiling.val();
+            var self = this
+
+            /**
+             * 预算上下限输入框
+             */
+            if(isNaN(lower_limit_v)||isNaN(ceiling_v)||isNaN(time_span)||isNaN(order_num))
+            {
+                alert("时长、数量/规格、预算必须输入数字");
+                return;
+            }
+            var type_on_btn = $('[data-role="type-content"]').find("button").hasClass('on-btn');
+            if(!type_on_btn)
+            {
+                alert("请选择品类");
+                return;
+            }
+            else if(!location_id)
+            {
+                alert("请选择地区");
+                return;
+            }
+            else if(!time_text)
+            {
+                alert("请选择时间");
+                return;
+            }
+            else if(!time_span)
+            {
+                alert("请输入时长");
+                return;
+            }
+            else if(!order_num)
+            {
+                alert("请输入数量/规格");
+                return;
+            }
+            else if(lower_limit_num>=ceiling_num||!lower_limit_v||!ceiling_v)
+            {
+                var dialog = utility.dialog({
+                    "title" : "提交失败" ,
+                    "content" : "预算为空，或下限超过等于上限",
+                    "buttons" : ["关闭"]
+                });
+                return;
+            }
+            if(!remark)
+            {
+                alert("请输入描述/备注");
+                return;
+            }
+
+            if($submit_btn.hasClass('can-submit'))
+            {
+                var type_id_str = [];
+                var order_obj = $('.on-btn');
+                $.each(order_obj,function(i,obj)
+                {
+                    type_id_str.push($(obj).attr("data-type"));
+                });
+                type_id_str = type_id_str.toString();
+                console.log();
+
+                utility.ajax_request
+                ({
+                    type : "POST",
+                    url :  window.$__ajax_domain+'submit_person_order.php',
+                    data :
+                    {
+                        location_id : location_id,
+                        time_text : time_text,
+                        time_span : time_span,
+                        order_num : order_num,
+                        remark : remark,
+                        type_id_str : type_id_str,
+                        lower_limit_v : lower_limit_v,
+                        ceiling_v : ceiling_v
+                    },
+                    beforeSend: function ()
+                    {
+                        self._sending = true;
+
+                        _self.$loading = $.loading
+                        ({
+                            content:'加载中...'
+                        });
+                    },
+                    success : function(data)
+                    {
+                        self._sending = false;
+                        _self.$loading.loading("hide");
+
+                        var dialog = utility.dialog
+                        ({
+                            "title" : data.result_data.title ,
+                            "content" : data.result_data.msg,
+                            "buttons" : ["确定"]
+                        });
+
+                        dialog.on('confirm',function(event,args)
+                        {
+                            if(App.isPaiApp)
+                            {
+                                App.switchtopage({page:'hot'});
+                            }
+                            else
+                            {
+                                window.location.href = "../index.php" ;
+                            }
+                        });
+
+
+                        console.log(data);
+                    },
+                    error : function(err)
+                    {
+                        self._sending = false;
+                        _self.$loading.loading("hide");
+                        $.tips
+                        ({
+                            content : err.result_data.msg,
+                            stayTime:3000,
+                            type:'warn'
+                        });
+                        throw err;
+                    }
+                });
+            }
+        });
+    });
+
+
+</script>
+</html>

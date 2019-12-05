@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="gbk">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>代运营后台</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../css/sb-admin.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div id="wrapper"> 
+  
+  <!-- Navigation -->
+  {MOBILE_ADMIN_TOP}
+  <div id="page-wrapper">
+    <div class="container-fluid">
+      
+      <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                       
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="admin_list.php">管理员列表</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-edit"></i> 添加/编辑
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+      <div class="row">
+        <div class="col-md-3">
+          <iframe name="frame" id="frame" style="display:none"></iframe>
+          <form action="" method="post" role="form" target="frame">
+           
+            <div class="form-group">
+              <label for="">管理员名称</label>
+              <input type="text" name="name" class="form-control" id="" placeholder="管理员名称" value="{name}">
+            </div>
+            <div class="form-group">
+             <label for="">约约ID</label>
+              <input type="text" name="admin_user_id" class="form-control" id="" placeholder="约约ID" value="{admin_user_id}" <!-- IF act="edit" -->readonly<!-- ENDIF -->>
+            </div>
+            <div class="form-group">
+             <label for="">品类</label>
+              <select name="type_name" class="form-control">
+              <option  value="全部品类" <!-- IF type_name="全部品类" -->selected<!-- ENDIF -->>全部品类</option>
+          <option value="模特服务" <!-- IF type_name="模特服务" -->selected<!-- ENDIF -->>模特服务</option>
+          <option value="摄影服务" <!-- IF type_name="摄影服务" -->selected<!-- ENDIF -->>摄影服务</option>
+          <option value="摄影培训" <!-- IF type_name="摄影培训" -->selected<!-- ENDIF -->>摄影培训</option>
+          <option value="化妆服务" <!-- IF type_name="化妆服务" -->selected<!-- ENDIF -->>化妆服务</option>
+          <option value="影棚租赁" <!-- IF type_name="影棚租赁" -->selected<!-- ENDIF -->>影棚租赁</option>
+          <option value="约美食" <!-- IF type_name="约美食" -->selected<!-- ENDIF -->>约美食</option>
+          <option value="约有趣" <!-- IF type_name="约有趣" -->selected<!-- ENDIF -->>约有趣</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+             <label for="">备注</label>
+              <textarea class="form-control" name="remark" cols="" rows="5">{remark}</textarea>
+            </div>
+           
+            <input type="hidden" name="act" value="{act}" />
+            <button name="" type="submit" class="btn btn-success">提交</button>
+          </form>
+        </div>
+        <!-- /.col-md-12 --> 
+      </div>
+      <!-- /.row --> 
+      
+    </div>
+    <!-- /.container-fluid --> 
+    
+  </div>
+  <!-- /#page-wrapper --> 
+  
+</div>
+<!-- /#wrapper --> 
+
+<!-- jQuery --> 
+<script src="../js/jquery.min.js"></script> 
+
+<!-- Bootstrap Core JavaScript --> 
+<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+.comment-list {
+    .comment-main {
+        margin-bottom: 14px;
+    }
+    .user-avatar {
+        a {
+            width: 32px;
+            height: 32px;
+            margin-right: 0;
+            _margin-right: -3px;
+        }
+        img {
+            max-width: 32px;
+            max-height: 32px;
+            _width: 32px;
+            _height: 32px;
+        }
+    }
+
+    .delete-button,.reply-button {
+        visibility: hidden;
+        _visibility: visible;
+    }
+    .reply-button{
+        margin-left: 10px
+    }
+
+    .comments-body {
+        width: 441px;
+        margin-left: 42px;
+        _margin-left: 39px;
+        word-wrap: break-word;
+        word-break: break-all;
+
+        &:hover {
+            .delete-button,.reply-button {
+                visibility: visible;
+            }
+        }
+    }
+    .comments-content {
+        color: #333;
+        margin-bottom: 5px;
+        .content-txt{
+            .emoticon{
+                vertical-align: text-bottom; 
+            }
+        }
+    }
+    .comments-op {
+        &, a {
+            color: #999;
+        }
+    }
+
+    .reply-time {
+        margin-right: 7px;
+    }
+
+    .highlight {
+        .comments-content {
+            font-weight: 700;
+        }
+    }
+    .margin0{
+        margin: 0;
+        .content-txt{
+            line-height: 1.5; 
+        } 
+    }
+    .margin-bottom5{
+        margin-bottom: 5px 
+    }
+}
+.comment-sub-list {
+    margin-left: 42px;
+
+    .comment-item {
+        margin-bottom: 7px;
+    }
+}
+.single-comment {
+    .comment-main {
+        margin-bottom: 5px;
+    }
+    .comments-body {
+        margin-left: 0;
+    }
+}

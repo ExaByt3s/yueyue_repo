@@ -1,0 +1,26 @@
+<div class="wrapper-out">
+    <div class="wrapper-left">
+        <div class="ui-input-title-mod ui-input-title-size-large item">
+            <div class="left">价格</div>
+            <div class="vertical-line">|</div>
+            <div class="middle"><input type="tel" data-input="input" data-role="model-style-price" value="{{price}}" placeholder="必填"></div>
+            <div class="right" data-role="set-hour" data-target="set-hour" data-id="{{id}}">元/<span data-role="model-style-hour">{{hour}}</span>小时<i class="icon icon-triangle-grey"></i></div>
+        </div>
+        <div class="ui-input-title-mod ui-input-title-size-large item">
+            <div class="left">续拍</div>
+            <div class="vertical-line">|</div>
+            <div class="middle"><input type="tel" data-input="input" data-role="model-style-continue-price" value="{{continue_price}}" placeholder="必填"></div>
+            <div class="right">元/小时</div>
+        </div>
+        <div class="ui-input-title-mod ui-input-title-size-large item" data-role="to-select-style" data-style="{{style}}" data-id="{{id}}" data-type="{{#if is_other}}other{{else}}main{{/if}}">
+            <div class="left">风格</div>
+            <div class="vertical-line">|</div>
+<div class="middle" data-role="model-style" data-type="{{#if is_other}}other{{else}}main{{/if}}">{{style}}</div>
+            <div class="right"><i class="icon icon-r-grey-m"></i></div>
+        </div>
+    </div>
+
+    {{#if is_other}}
+    <div class="wrapper-right" data-role="minus-other-style" data-style="{{style}}" data-id="{{id}}"><i class="icon icon-circle-minus"></i></div>
+    {{/if}}
+</div>

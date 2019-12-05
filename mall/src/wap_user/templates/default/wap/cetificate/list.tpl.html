@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>信用等级认证</title>
+    {wap_global_top}
+
+    <meta charset="gbk">
+    <!-- libjs 必须引用 -->
+    <script src="../../../../lib/lib.js"></script>
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/cetificate/list.scss">
+</head>
+<body>
+<main role="main" >
+    <section id="global-header"></section>
+    <div class="page-view cetificate" data-role="page-container">
+        <section class="authentication-list">
+            <ul class="ui-list ui-list-text ">
+                <!-- BEGIN list -->
+
+                <li class="ui-input-title-mod ui-border-t" data-role="loca" data-lv="{level}">
+ 
+                    <div class="left">{level}</div>
+                    <div class="vertical-line">|</div>
+                    <div class="middle">{name}</div>
+                    <div class="right">{status}
+                        <i class="icon"></i>
+                    </div>
+                </li>
+
+                <!-- END -->
+            </ul>
+        </section>
+        <span class="tip">提示：等级越高，越容易约拍模特</span>
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    //require('cetificate');
+    var $ = require('zepto');
+    var header = require('../../../../modules/common/widget/header/main');
+    var App = require('../../../../modules/common/I_APP/I_APP');
+
+    //var level_detail = {level_detail}.result_data;
+
+    App.isPaiApp && App.showtopmenu(false);
+
+    $(function()
+    {
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"信用等级认证",
+            header_show : true , //是否显示头部
+            right_icon_show : false, //是否显示右边的按钮
+
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        });
+
+        $('[data-role="loca"]').on('click',function(ev)
+        {
+            var $cur_btn = $(ev.currentTarget);
+
+            var message = '{message}';
+
+            var lv = $cur_btn.attr('data-lv');
+
+            if(lv == 'V1')
+            {
+                return;
+            }
+
+
+
+            location.href="./index.php?lv="+lv;
+        })
+
+    });
+</script>

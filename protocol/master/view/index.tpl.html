@@ -1,0 +1,167 @@
+<?php if(pm_is_admin()):?>
+<div class="rows-title">
+    <h1>协议数据分析&nbsp;<small><small>@willike</small></small></h1>
+</div>
+<?php if($fr_cache == 0):?>
+<div class="col-md-12 p-message">
+	<label>协议数据缓存失败,请联系<a href="mailto:chenwb@yueus.com?subject=data%20cache%20error&body=...">@willike</a></label>
+</div>
+<?php endif;?>
+<div class="col-md-12 col-xs-12">
+	<div class="col-md-3 col-xs-12">
+		<ul class="graphic-text">
+			<?php foreach($stat_list as $data): ?>
+			<li><?php echo $data['name'];?> (<span><?php echo $data['id'];?></span>)&nbsp;
+				<label><?php echo $data['num'];?><small>/人次</small></label></li>
+			<?php endforeach;?>
+		</ul>
+	</div>
+	<div class="col-md-9 col-xs-12">
+	    <div id="graphic" style="height:450px;width: 100%;"></div>
+	</div>
+</div>
+<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+<script type="application/javascript">
+		var stat_ = <?php echo $stat;?>,
+			max_ = parseInt(<?php echo $max;?>),
+			date_ = "<?php echo $date;?>";
+		var option = {
+		    title : {
+		        text: '协议请求频率分布( ' + date_ + ' )',
+		        subtext: 'FR: APP@YUEUS.com',
+		        x:'center'
+		    },
+		    tooltip : {
+		        trigger: 'item'
+		    },
+		    dataRange: {
+		        min: 0,
+		        max: max_,
+		        x: 'left',
+		        y: 'bottom',
+		        text:['高','低'], // 文本，默认为数值文本
+		        calculable : true
+		    },
+		    toolbox: {
+		        show: true,
+		        orient : 'vertical',
+		        x: 'right',
+		        y: 'center',
+		        feature : {
+		            saveAsImage : {show: true}
+		        }
+		    },
+		    series : [
+		        {
+		            name: '请求统计(次)',
+		            type: 'map',
+		            mapType: 'china',
+		            roam: false,
+		            itemStyle:{
+		                normal:{label:{show:true}},
+		                emphasis:{label:{show:true}}
+		            },
+		            data:stat_
+		        }
+		    ]
+			};
+      var editor = echarts.init(document.getElementById("graphic"));
+      editor.setOption(option);
+	</script>
+</script>
+<?php else:?>
+<div class="rows-title">
+    <h1>接口&amp;协议辅助后台&nbsp;<small><small>@willike</small></small></h1>
+</div>
+<div class="col-md-12">
+	<div class="col-md-4 col-xs-12">
+		<div class="avatar">
+			<a href="#"><img src="http://seller-icon-e.yueus.com/11/117452_468.jpg" id="avatar-img"/></a>
+			<span>Hi,&nbsp;<label id="user-name">游客</label></span>
+		</div>
+	</div>
+	<div class="col-md-8 col-xs-12">
+		<ul class="list-group">
+			<?php foreach($user_log as $log):?>
+				<li class="list-group-item">
+					<?php if($log['method'] == 'POST'):?>
+						<span class="label label-warning"><?php echo $log['method'];?></span>
+					<?php else: ?>
+						<span class="label label-primary"><?php echo $log['method'];?></span>
+					<?php endif; ?>
+					<label><?php echo $log['time'];?></label>
+					&nbsp;&nbsp;<?php echo $log['url'];?>
+					<span class="badge"><?php echo $log['agent']['browser'];?></span>
+					<span class="badge"><?php echo $log['agent']['os'];?></span>
+				</li>
+			<?php endforeach;?>
+		</ul>
+	</div>
+</div>
+<hr>
+<div class="col-xs-12">
+		<div class="col-md-4 col-xs-6">
+			<div class="offer offer-success">
+				<div class="shape">
+					<div class="shape-text">
+						<a href="#" class="text text-white">
+							<span class="glyphicon glyphicon-fullscreen"></span>								
+						</a>
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">API调试</h3>
+					<span>该功能可用于APP相关接口调试，支持约约商家版和约约消费者版。</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-xs-6">
+			<div class="offer offer-primary">
+				<div class="shape">
+					<div class="shape-text">
+						<a href="#" class="text text-white">
+							<span class="glyphicon glyphicon-fullscreen"></span>								
+						</a>
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">日志检索</h3>
+					<span>该功能可用于APP接口数据输入检索，支持约约商家版和约约消费者版。</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-xs-6">
+			<div class="offer offer-warning">
+				<div class="shape">
+					<div class="shape-text">
+						<a href="#" class="text text-white">
+							<span class="glyphicon glyphicon-send"></span>								
+						</a>
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">BUG系统</h3>
+					<span>非本系统功能，将跳转到BUG系统。</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="application/javascript">
+		$(function(){
+			$(".offer-success").on("click",function(){
+				comfunc.jump("/protocol/master/?c=api");
+			});
+			$(".offer-primary").on("click",function(){
+				comfunc.jump("/protocol/master/?c=search");
+			});
+			$(".offer-warning").on("click",function(){
+				comfunc.jump("http://sv.magbox.cn/dotproject/www/index.php?m=index&f=index");
+			});
+			var avatar_src = localData.getData('avatar');
+		    if(avatar_src !== '' && avatar_src !== null && avatar_src !== undefined){
+			    $("#avatar-img").attr("src",avatar_src);
+		    }
+		    $("#user-name").html($("input[name='user_name']").val());
+		});
+	</script>
+<?php endif;?>

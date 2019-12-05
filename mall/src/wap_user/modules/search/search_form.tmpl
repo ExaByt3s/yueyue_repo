@@ -1,0 +1,62 @@
+<div class="search">
+
+            <header class="global-header">
+                <div class="wbox clearfix">
+                    <a href="javascript:void(0);">
+                        <div class="back" data-role="page-back">
+                            <i class="icon-back"></i>
+                        </div>
+                    </a>
+                    <div class="search-head title ">
+                        <div class="search-box">
+                            <div class="search-type" data-role="search-type">
+                                <input value="服务" readonly="readonly" class="search-type-btn">
+                                <input value="" type="text" id="search-type-init" style="display: none;">
+                                <i class="r-icon"></i>
+                            </div>
+                            <input type="text" style="color: #000;" placeholder="请输入关键词" value="" class="search-text" data-role="search-text">
+                        </div>
+                    </div>
+                    <div class="side-txt" style="" data-role="right-btn">
+                        搜索
+                    </div>
+                </div>
+                <div class="type-select fn-hide" id="type-select">
+                    <i class="type-select-i"></i>
+                    <span class="t-span type-select-span" data-role="type-btn" data-type="seller">商家名称</span>
+                    <span class="b-span type-select-span" data-role="type-btn" data-type="goods">服务名称</span>
+                </div>
+            </header>
+            <div class="seach-content">
+                <div class="hot seach-title fn-hide" data-role="hot">
+                    <p class="hot-title ">热门</p>
+                    <div data-role="hot-service-content">
+
+                    </div>
+                    <div data-role="hot-seller-content" class="fn-hide">
+
+                    </div>
+                </div>
+                <!--搜索历史-->
+                <div class="history seach-title fn-hide" data-role="history" >
+                    <p class="hot-title">历史搜索</p>
+                    <div data-role="history-service-content">
+
+                    </div>
+                    <div data-role="history-seller-content" class="fn-hide">
+                        {{#each data.btn_list}}
+                            <button data-role="btn" class="ui-button ui-button-size-x ui-button-bg-fff hot-btn" data-code-name="{{name}}">
+                                <span>{{name}}</span>
+                            </button>
+                        {{/each}}
+                    </div>
+                </div>
+                <!--清空历史-->
+                <button class="ui-button ui-button-size-x ui-button-bg-fff empty fn-hide" data-role="empty" >
+                    <span class="ui-button-content">清空搜索历史</span>
+                </button>
+
+            </div>
+            
+        </div>
+    </div>

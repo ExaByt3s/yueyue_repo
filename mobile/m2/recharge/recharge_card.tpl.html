@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>充值卡充值</title>
+
+    <meta charset="gbk">
+    {head_html}
+    <!-- libjs 必须引用 -->
+    <script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/lib/lib_880856d.js"></script>
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/style/recharge/index_7c1db94.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/style/libs/common_b54bda3.css">
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/components/zepto/zepto_9261738.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/js/common/common_3c4ec94.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/components/fastclick/fastclick_8c3e8ee.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/modules/recharge/card_f30433f.js"></script>
+</head>
+<body>
+<main role="main">
+    <div class="page-view recharge-card" data-role="page-container">
+        <div class="container mt20 pl20 pr20 pt20">
+            <div class="ui-form-table">
+                <div class="ui-input-mod ">
+                    <div class="item">
+                        <input type="tel" class="ui-input  ui-input-size-large ui-input-block ui-input-border-bottom-none ui-input-top-left ui-input-top-right" placeholder="卡号" data-role="account-number">
+                        <!--type="text"-->
+                    </div>
+                    <div class="item"><input type="password" class="ui-input  ui-input-size-large ui-input-block ui-input-bottom-left ui-input-bottom-right" placeholder="密码" data-role="account-pwd"></div>
+                </div>
+            </div>
+            <div class="ui-btn-wrap">
+                <button class="ui-button ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555" data-role="confrim">
+                    确定充值
+                </button>
+            </div>
+            <p style="padding-top: 15px;color: #666;">
+                说明：
+                <br />
+                1、约约充值卡用于约约钱包充值服务
+                <br />
+                2、充值后金额将打入钱包，可用于所有摄影服务
+                <br />
+                3、充值金额暂时不支持提现
+            </p>
+
+        </div>
+    </div>
+</main>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    require('recharge/card');
+</script>

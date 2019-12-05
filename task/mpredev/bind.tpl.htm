@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>绑定</title>
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/base.css">
+<!--基础样式 END-->
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/task-m.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__romain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : '../ajax/'
+	};
+    console.log(window.localStorage.getItem("$__storage_first_tips"))
+    if(window.localStorage.getItem("$__storage_first_tips"))
+    {
+        console.log("in")
+    }
+    else
+    {
+        console.log("in2")
+        var data =
+        {
+            "details_1":1,
+            "details_2":1,
+            "submit_1":1,
+            "pay_1":1,
+            "talk_1":1
+        }
+        window.localStorage.setItem("$__storage_first_tips",JSON.stringify(data));
+    }
+</script>  
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/bind/bind.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/frozen/frozen.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/modules/yue_ui/frozen.js"></script>
+</head>
+<body style="background: #f2f2f2">
+<main>
+    <div class="page-view" data-role="page-container">
+        <div class="common_menu" >
+    <div class="common_logo"><i class="icon icon-top-logo"></i></div>
+	<div class="common_btn" data-role="common_btn_menu"><i class="icon icon-right-menu-logo"></i></div>
+    
+</div>
+<div class="common_menu_open layout_box_v fn-hide" data-role="common_menu_open">
+    <a data-role="common_menu_open_business" href="list.php">生意机会</a>
+    <a data-role="common_menu_open_list" href="order_list.php?type=pending">订单列表</a>
+    <a data-role="common_menu_open_mine" href="profile.php">个人中心</a>
+    <a data-role="common_menu_open_log_out" href="logout.php">退出登录</a>
+</div>
+<!--modjs hack 特殊处理，增加head标记-->
+<head></head>
+<!--modjs hack 特殊处理，增加head标记-->
+<script type="text/javascript">
+	
+	var cookie = require('common/cookie/index');
+	var $ = require('components/zepto/zepto.js');	
+
+	(function($,window)
+	{
+		var self = this;
+
+		var no_login = '{no_login}';
+
+		var $common_menu_open = $('[data-role="common_menu_open"]');
+		var $common_btn_menu  = $('[data-role="common_btn_menu"]');
+		var $common_menu_open_log_out = $('[data-role="common_menu_open_log_out"]');
+
+		if(!parseInt(cookie.get('yue_member_id')))
+		{
+			$common_btn_menu.hide();
+		}
+
+		$common_btn_menu.on('click',function()
+		{	
+			if(!parseInt(cookie.get('yue_member_id')))
+			{
+				return;
+			}
+			
+			$common_menu_open.toggleClass("fn-hide");
+		});
+
+		$common_menu_open_log_out.on('click',function()
+		{
+			$.ajax
+			({
+				url: window.$__config.ajax_url + 'login_out.php',
+				type: 'POST',
+				cache: false,
+				dataType: 'json',
+				beforeSend: function () {
+
+				},
+				success: function (data) {
+					window.location.href = './login.php';
+
+				},
+				error: function () {
+
+				},
+				complete: function () {
+
+				}
+			})
+    })
+
+	})($,window);
+</script> 
+        <!--select id="province">
+            <option value=""> -- </option>
+        </select>
+        <select id="city">
+            <option value=""> -- </option>
+        </select-->
+        <div class="has_bind_container fn-hide" data-role="has_bind_container">
+            <p style="margin-top: 50px">您已成功绑定支付宝账号</p>
+            <p><h2 data-role="account-name">{status_resault.account}</h2></p>
+            <p style="margin-top: 50px">如需解绑，请联系客服</p>
+            <p><a href="tel:400-082-9003" class="common_on_tel">400-082-9003</a></p>
+        </div>
+        <div class="check_bind_container fn-hide" data-role="check_bind_container">
+            <p style="margin-top: 50px">提交绑定成功,待工作人员审核</p>
+            <p><h2 data-role="account-name">{status_resault.account}</h2></p>
+            <p style="margin-top: 50px">如需解绑，请联系客服</p>
+            <p><a href="tel:400-082-9003" class="common_on_tel">400-082-9003</a></p>
+        </div>
+        <div class="bind_container fn-hide" data-role="bind_container">
+            <div class="bind_inputs">
+                <div class="input_in account">
+                    <input placeholder="支付宝账号" data-role="pay_account" value=""/>
+                </div>
+                <div class="input_in name">
+                    <input placeholder="姓名" data-role="pay_name" value=""/>
+                </div>
+            </div>
+            <div class="upload_container">
+                <div class="upload_ok fn-hide" data-role="upload_finish" >
+                    <div style="height:90px;overflow: hidden">
+                    <img src="" data-finish-src="" style="width: 90px;"/>
+                    </div>
+                    <div class="close" data-role="upload_finish_close"></div>
+                </div>
+                <div class="upload_btn" data-role="upload_btn"></div>
+                <div class="notice">
+                    <p>请上传身份证照片(正面)</p>
+                </div>
+            </div>
+            <div class="bind_btn" data-role="bind_btn">提交绑定</div>
+            <div class="bind_notice">
+                <p>注意：</p>
+                <p>1、此账户为约约平台与您进行现金结算的通道。</p>
+                <p>2、请确认支付宝及姓名为本人使用账户。</p>
+                <p>3、为确保您的资金安全，如需要解绑账户，请联系人工客服认证。客服电话：<a href="tel:400-082-9003" class="common_on_tel">400-082-9003</a></p>
+            </div>
+        </div>
+        <div class="upload_pic_container fn-hide" data-role="upload_pic_container">
+            <div class="notice_title">请确保身份证四角完整，文字清晰可辨认</div>
+            <div class="img_con">
+                <img class="" src="static/image/task/id_noSprite-540x340.png" style="width: 100%;overflow: hidden" data-role="upload_pic"/>
+            </div>
+            <div class="upload_close_btn" data-role="upload_close_btn" >拍摄</div>
+            <input id="uploadBtn" type="file" accept="image/*" style="visibility: hidden; width: 0px; height: 0px">
+        </div>
+    </div>
+    <div id="user_id" style="visibility: hidden; width: 0px; height: 0px" data-user-id="{info.user_id}"></div>
+    <div id="code" style="visibility: hidden; width: 0px; height: 0px" code="{status_resault.code}"></div>
+
+</main>
+</body>
+<script>
+
+var frozen = require('yue_ui/frozen');
+$(function()
+{
+    var code = $('#code').attr('code');
+
+	var account_name = $('[data-role="account-name"]').html();
+
+	//支付宝星星匹配
+    var reg_alipay_account = function (str) 
+	{
+		var self = this;
+		var str = str.toString();
+		var email = new RegExp(/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/);
+		var email_test = email.test(str);
+		if (email_test)
+		{
+			var ret = str.replace(/[\d\w]{1,4}@{1}/g, "****@");
+			return ret;
+		}
+		else
+		{
+			var ret = str.replace(/[\d]{4}([\d]{4})$/g, "****$1");
+			return ret;
+		}
+	};
+
+    if(code == 1)
+    {   //已绑定
+        console.log("已绑定")
+        $('[data-role="has_bind_container"]').removeClass('fn-hide');
+		$('[data-role="account-name"]').html(reg_alipay_account(account_name));
+    }
+    else if (code == -2)
+    {   //待审核
+        console.log("待审核")
+        $('[data-role="check_bind_container"]').removeClass('fn-hide');
+		$('[data-role="account-name"]').html(reg_alipay_account(account_name));
+    }
+    else
+    {
+        console.log("其他")
+        $('[data-role="bind_container"]').removeClass('fn-hide');
+    }
+    var data_ready = false;
+
+    var submit_data;
+
+    var pic_uploading = false;
+
+    var submitting = false;
+	var submit_file = '';
+
+	
+
+    $('[data-role="bind_btn"]').on('click',function()
+    {
+        var get_alipay = $('[data-role="pay_account"]').val(); //支付宝
+
+        var email_reg = new RegExp(/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/);
+
+        var phone_reg = new RegExp(/^[0-9]{11}$/);
+
+        // || !(email_reg.test(get_alipay) || phone_reg.test(get_alipay))
+
+        if( get_alipay.trim() == '')
+        {
+            alert('请正确输入支付宝账号！');
+            return ;
+        }
+
+        var name = $('[data-role="pay_name"]').val();
+
+        if( name.trim() == '')
+        {
+            alert('请正确输入姓名！');
+            return ;
+        }
+
+        var src = $('[data-finish-src]').attr('data-finish-src');
+
+        if(src == '')
+        {
+            alert('请上传照片！');
+            return ;
+        }
+
+        if(pic_uploading)
+        {
+            console.log("上传中")
+            return
+        }
+
+        var data =
+        {
+            email : get_alipay,
+            name : name,
+            url:src
+        }
+
+        $('[data-role="bind_btn"]').html('提交中...')
+        //模拟formData对象
+        var oMyForm = new FormData();
+        
+		//2015.5.20 ljy实现传图方式，可用于img-up传图接口
+        //转二进制        				
+		//var blob = new window.Blob([binary_result], {type: 'text/plain'});
+        //oMyForm.append("opus", blob);
+		//oMyForm.append("poco_id", $('#user_id').attr('data-user-id'));
+
+		//2015.5.20 hudw实现传图方式，可用于sendmedia传图接口
+		oMyForm.append("opus", submit_file);
+		oMyForm.append("poco_id", $('#user_id').attr('data-user-id'));
+
+        var oReq = new XMLHttpRequest();
+
+        oReq.open("POST", 'http://sendmedia.yueus.com:8079/upload.cgi', true);
+
+        oReq.onreadystatechange = ShowResult;
+
+        oReq.send(oMyForm); 
+
+        pic_uploading = true;
+
+        function ShowResult()
+        {
+            pic_uploading = false; 
+
+            if(oReq.readyState==4)
+            {
+               if(oReq.status==200)
+               {
+                   var response_data = JSON.parse(oReq.response);
+
+                   console.log(response_data)
+
+                   //整合提交结果
+                   submit_data =
+                   {
+                       type : "bind_act",
+                       third_account : get_alipay,
+                       real_name : name,
+                       pic:response_data.url[0]
+                   }
+
+                   if(submit_data.pic && submit_data.pic != "")
+                   {
+                       data_ready = true
+                   }
+
+                   submit_bind()
+
+               }
+            }
+        }
+
+    })
+
+	
+
+    function submit_bind ()
+    {
+        if(submitting){console.log("提交中");return}
+
+        console.log(submit_data);
+        submitting = true;
+
+
+        $.ajax
+        ({
+            url : window.$__config.ajax_url+'bind_alipay.php',
+            data:submit_data,
+            type: 'POST',
+            cache: false,         
+            success: function(data)
+            {
+
+                data = JSON.parse(data);
+
+                console.log(data);
+
+                location.reload();
+            },
+            error: function()
+            {
+                alert("提交失败，请重试")
+            },
+            complete: function()
+            {
+                submitting = false;
+
+                $('[data-role="bind_btn"]').html('提交绑定')
+            }
+        });
+    }
+
+    $('[data-role="upload_btn"]').on('click',function()
+    {
+        $('[data-role="bind_container"]').addClass('fn-hide');
+        $('[data-role="upload_pic_container"]').removeClass('fn-hide');
+    })
+
+    var default_pic = 'static/image/task/id_noSprite-540x340.png';
+
+    $('[data-role="upload_close_btn"]').on('click',function()
+    {
+        document.getElementById('uploadBtn').click();
+    })
+
+    $('[data-role="upload_finish_close"]').on('click',function()
+    {
+        $('[data-role="upload_finish"]').addClass('fn-hide');
+
+        $('[data-role="upload_btn"]').removeClass('fn-hide');
+
+        $('[data-finish-src]').attr('src','').attr('data-finish-src','');
+
+        $('[data-role="upload_pic"]').attr('src',default_pic);
+    })
+
+    var binary_result;
+
+    var what;
+
+    document.getElementById("uploadBtn").addEventListener("change", function()
+    {
+        var file = this.files[0];
+
+		submit_file = file;
+
+        var reader = new FileReader();
+
+        reader.onload = function()
+        {
+            console.log(this);
+
+            $('[data-role="upload_pic"]').attr('src',this.result)
+
+            var pic_url = $('[data-role="upload_pic"]').attr('src');
+
+            $('[data-finish-src]').attr('src',pic_url).attr('data-finish-src',pic_url);
+
+            $('[data-role="upload_finish"]').removeClass('fn-hide');
+
+            $('[data-role="upload_btn"]').addClass('fn-hide');
+
+            $('[data-role="bind_container"]').removeClass('fn-hide');
+
+            $('[data-role="upload_pic_container"]').addClass('fn-hide');
+
+            var binary_reader = new FileReader();
+
+            binary_reader.readAsArrayBuffer(file);
+
+            binary_reader.onload = function()
+            {
+                binary_result = this.result
+
+				console.log(binary_result);
+
+                //what = new FormData(binary_result)
+            }
+            //console.log(binary_reader)
+
+            //binary_obj = binary_reader
+
+            //console.log(binary_obj)
+        };
+        reader.readAsDataURL(file);//base64
+    });
+
+});
+</script>
+</html>

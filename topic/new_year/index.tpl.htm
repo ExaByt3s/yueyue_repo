@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>约约-50座城市联动 上百名模特可 “约"</title>
+<meta name="keywords" content="约约,yueyue,约,约拍,模特,约女神,私拍,外拍,美女" />
+<meta name="description" content="新春大吉，约桃花女神行大运！200名约yue精选桃花女神，等你来约拍！喜庆“羊羊”，桃花女神给你捎好运！约起来！" />
+<link href="css/zt.css?v12" type="text/css" rel="stylesheet" />
+<script src="http://www.poco.cn/js_common/jquery/1.8.3/jquery.js"></script>
+<style type="text/css">
+.hide1 { display:none}
+.hide2 { display:none}
+.hide3 { display:none}
+.hide4 { display:none}
+.hide5 { display:none}
+.hide6 { display:none}
+.hide7 { display:none}
+
+.item-list .item-cur .img-item .share-btn,.item-list .item-cur .img-item .img-txt
+{
+  display: none;
+}
+
+</style>
+</head>
+<body>
+
+<div class="xnzt-page font_wryh">
+  <div class="nav-bar">
+    <div class="container w1000 clearfix">
+      <h2 class="logo" id="logo"><a href="#this"></a></h2>
+      <div class="contact"> <span>客服电话：4000-82-9003</span> 
+        <!--  <span><a href="#">体验师论坛</a></span> --> 
+        | <span class="code-nav-item"><a href="#this">微信公众号</a> 
+        <!--微信弹出层-->
+        <div class="pop-weixin"> <i class="top-icon"></i>
+          <div class="pop-con font_wryh circle-5px clearfix">
+            <div class="s-item item">
+              <div class="img"><img src="images/s-code-img-150x150.png" /></div>
+              <p>我是摄影师，我要约拍!</p>
+            </div>
+            <div class="m-item item">
+              <div class="img"><img src="images/m-code-img-150x150.png" /></div>
+              <p>我是模特，我要变现!</p>
+            </div>
+          </div>
+        </div>
+        <!--微信弹出层 end--> 
+        </span> </div>
+    </div>
+  </div>
+  <div class="w1000">
+    <div class="header">
+      <div class="info-txt">
+        <div class="txt">新春大吉，约桃花女神行大运！200名约yue精选桃花女神， <br />等你来约拍！喜庆“羊羊”，桃花女神给你捎好运！约起来！</div>
+        <div class="btn"><a href="#this" onclick="show_pop('intro');show_pop('fade')">活动规则&gt;&gt;</a></div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="city-item">
+        <div class="listItem clearfix">
+          <h3 class="title">当前地区: {current_city}</h3>
+          <div class="rim-navList">
+            <ul class="list">
+            <!-- BEGIN recommend_city -->
+              <li><a href="index.php?location={city}"><span>{city}</span></a></li>
+            <!-- END recommend_city -->
+              
+              <li class="more"><a href="#this" onclick="show_pop('fade');show_pop('pop_city');"><span>更多城市</span><i class="icon"></i></a></li>
+            </ul>
+            <span class="n-title">周边城市推荐：</span> </div>
+        </div>
+        <div class="item-list clearfix">
+          <div class="list clearfix"> 
+            <!-- BEGIN current_location_arr -->
+            <div class="item item-cur">
+              <div class="img-item">
+                <div class="img"><a href="http://www.yueus.com/model/card.php?user_id={user_id}" target="_blank"><img src="{img_url}" /></a></div>
+                <div class="share-btn"><a href="#this" onclick="show_pop('fade');show_pop('pop_share');get_share({user_id})"></a></div>
+                <div class="img-txt">空档期：{time}</div>
+              </div>
+              <div class="txt-item">
+                <h4 class="title"><a href='index.php?location={city_name}'>{city_name}</a></h4>
+                <p class="txt">约拍人数：<!-- IF num="0" -->不限<!-- ELSE -->不超过{num}<!-- ENDIF -->人</p>
+              </div>
+              <div class="btn-item"><a href="http://www.yueus.com/model/card.php?user_id={user_id}" class="ui-btn ui-btn-red" target="_blank">立即约她</a></div>
+            </div>
+            <!-- END current_location_arr -->
+            <!-- IF download -->
+            <div class="item code-item">
+              <div class="code-img"><img src="images/test/code-img-116x116.jpg" /></div>
+              <div class="code-txt">
+                <p>扫码下载<br />
+                  来发现更多</p>
+              </div>
+              <div class="btn-item"><a href="http://www.yueus.com/" target="_blank" class="ui-btn ui-btn-red">下载APP</a></div>
+            </div>
+            <!-- ENDIF -->
+          </div>
+        </div>
+      </div>
+      
+      <!-- BEGIN area_arr -->
+      <!-- IF city_arr -->
+      <div class="order-city-item">
+        <div class="listItem"><span>{area}</span></div>
+        <div class="item-list clearfix">
+          <div class="list">
+          
+          <!-- BEGIN city_arr -->
+          <!-- IF display="block" -->
+            <div class="item">
+            <!-- ELSE -->
+            <div class="item hide{area_id}">
+            <!-- ENDIF -->
+              <div class="img-item">
+                <div class="img"><a href="http://www.yueus.com/model/card.php?user_id={user_id}" target="_blank"><img src="{img_url}" /></a></div>
+                <div class="share-btn"><a href="#this" onclick="show_pop('fade');show_pop('pop_share');get_share({user_id})"></a></div>
+                <div class="img-txt">空档期：{time}</div>
+              </div>
+              <div class="txt-item">
+                <h4 class="title"><a href='index.php?location={city_name}'>{city_name}</a></h4>
+                <p class="txt">约拍人数：<!-- IF num="0" -->不限<!-- ELSE -->不超过{num}<!-- ENDIF -->人</p>
+              </div>
+              <div class="btn-item"><a href="http://www.yueus.com/model/card.php?user_id={user_id}" class="ui-btn ui-btn-red" target="_blank">立即约她</a></div>
+            </div>
+          <!-- END city_arr -->
+           
+          </div>
+        </div>
+        <!-- IF city_count>"8" -->
+        <div class="load-more-item mod-item" id="more{area_id}"> <a href="javascript:void(0);" onclick="show_area({area_id})">
+          <div class="con-item">查看更多</div>
+          <div class="btm-item"></div>
+          </a> </div>
+          <!-- ENDIF -->
+      </div>
+      <!-- ENDIF -->
+      <!-- END -->
+      <div class="mod-info-item mod-item">
+        <div class="con-item">
+          <div class="item item-1">
+            <div class="listItem">活动介绍</div>
+            <div class="list">
+              <ul>
+                <li class="top1">模特约拍哪家强，百名女神陪你过新年；</li>
+                <li class="top2">根据您的档期与所在地，约拍属于你的桃花女神； </li>
+                <li class="top3">模特将根据你的要求，与你进行沟通，成就一场大片之旅；</li>
+                <li class="top4">成功约拍，即有机会获取约约新春大红包。</li>
+              </ul>
+            </div>
+          </div>
+          <div class="item item-2">
+            <div class="listItem">活动流程</div>
+            <div class="list">
+              <ul>
+                <li class="clearfix"><span class="num">1</span><span>下载约yue APP，立刻开始新春开运拍摄之旅； </span></li>
+                <li class="clearfix"><span class="num">2</span><span>用APP扫描模特二维码，即可与模特私聊、约拍；</span></li>
+                <li class="clearfix"><span class="num">3</span><span>在线支付成功，即可在约定的时间、地点进行拍摄； </span></li>
+                <li class="clearfix"><span class="num">4</span><span>完成约拍，评价模特，可参与约约新年大红包抽奖。</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="btm-item"></div>
+      </div>
+      <div class="contact-item mod-item">
+        <div class="con-item">没找到合适的？拨打客服电话：<span class="fb">4000-82-9003</span></div>
+        <div class="btm-item"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Copyright&copy; 2003-2015 YUEUS.COM</p>
+    </div>
+  </div>
+</div>
+<!--浮动层-->
+<div class="back-top">
+  <div class="share-list">
+    <ul>
+      <li><a href="#this" onmouseover="show_pop('code_pop');" onmouseout="hide_pop('code_pop')"><i class="icon wx-icon"></i></a>
+        <div class="code-pop clearfix" style="display:none" id="code_pop">
+          <div class="code-pop-con font_wryh" data-erweima = "erweima">
+            <div class="img"><img src="http://qr.liantu.com/api.php?text=http://www.yueus.com/topic/new_year/" width="116" height="116" /></div>
+            <p>扫一扫，微信分享</p>
+          </div>
+          <i class="point-icon"></i> </div>
+      </li>
+      <li><a href="#this" onclick="share('sina')"><i class="icon wb-icon"></i></a></li>
+      <li><a href="#this" onclick="share('qzone')"><i class="icon qzone-icon"></i></a></li>
+      <li><a href="#this" onclick="share('qq')"><i class="icon qq-icon"></i></a></li>
+    </ul>
+  </div>
+  <div class="top-btn"> <a href="#"></a> </div>
+</div>
+<!--浮动层 end--> 
+<!--弹出层-->
+<div class="fade" id="fade" style="display:none"></div>
+<div class="pop-info" style="display:none" id="intro"> <a href="javascript:void(0);" class="close" onclick="hide_pop('intro');hide_pop('fade');"></a>
+  <div class="pop-con font_wryh">
+    <div class="mod-info-item">
+      <div class="con-item">
+        <div class="item item-1">
+          <div class="listItem">活动介绍</div>
+          <div class="list">
+            <ul>
+              <li class="top1">模特约拍哪家强，百名女神陪你过新年；</li>
+              <li class="top2">根据您的档期与所在地，约拍属于你的桃花女神； </li>
+              <li class="top3">模特将根据你的要求，与你进行沟通，成就一场大片之旅；</li>
+              <li class="top4">成功约拍，即有机会获取约约新春大红包。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="item item-2">
+          <div class="listItem">活动流程</div>
+          <div class="list">
+            <ul>
+              <li class="clearfix"><span class="num">1</span><span>下载约yue APP，立刻开始新春开运拍摄之旅； </span></li>
+              <li class="clearfix"><span class="num">2</span><span>用APP扫描模特二维码，即可与模特私聊、约拍；</span></li>
+              <li class="clearfix"><span class="num">3</span><span>在线支付成功，即可在约定的时间、地点进行拍摄； </span></li>
+              <li class="clearfix"><span class="num">4</span><span>完成约拍，评价模特，可参与约约新年大红包抽奖。</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--弹出层 end--> 
+
+<!--地区弹出层-->
+<div class="pop-city" style="display:none" id="pop_city"> <a href="#this" class="close" onclick="hide_pop('fade');hide_pop('pop_city');"></a>
+  <div class="pop-con font_wryh">
+  <div class="city-con">
+  
+  <!-- BEGIN get_city -->
+    <div class="city-item">
+    
+      <div class="listItem">{area}</div>
+      <div class="city-list">
+        <div class="list clearfix">
+         
+          <ul>
+          <!-- BEGIN city -->
+            <li><a href="index.php?location={city}">{city}</a></li>
+           <!-- END city -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- END get_city -->
+    
+  </div>
+  </div>
+</div>
+<!--地区弹出层 end-->
+
+
+<!--分享弹出层-->
+<div class="pop-codeshare" style="display:none" id="pop_share">
+<a href="#this" onclick="hide_pop('fade');hide_pop('pop_share');" class="close"></a>
+  <div class="pop-con font_wryh">
+  <span id="share_text"></span> 
+  </div>
+  </div>
+</div>
+<!--分享弹出层 end-->
+
+
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+
+    //  二维码判断显示
+    // $("body").on('click', function(ev) {
+    //     event.preventDefault();
+    //     var target = $(ev.target)
+    //     var data_erweima = target.attr('data-erweima');
+    //     if (data_erweima) 
+    //     {
+    //      xxx    
+    //     }
+
+    //     /* Act on the event */
+    // });
+
+
+
+    $('.code-nav-item').hover(function()
+    {
+        $(this).addClass('code-nav-item-cur');
+    },function()
+    {
+        $(this).removeClass('code-nav-item-cur');
+    });
+});
+
+
+
+function show_area(area_id)
+{
+	$('.hide'+area_id).show();
+	$('#more'+area_id).hide();
+}
+
+function show_pop(id)
+{
+	$('#'+id).show();
+}
+
+function hide_pop(id)
+{
+	$('#'+id).hide();
+}
+
+$(function(){
+   $(".item-list").find(".item").mouseover(function(){
+      $(this).find(".share-btn").animate({ opacity: 'show'},500);
+      $(this).find(".img-txt").animate({ opacity: 'show'},500);
+   });
+    $(".item-list").find(".item").mouseleave(function(){
+      $(this).find(".share-btn").animate({ opacity: 'hide'},500);
+      $(this).find(".img-txt").animate({ opacity: 'hide'},500);
+   })
+})
+
+function get_share(user_id){
+		$.ajax({
+			url: './module/get_share.php?user_id='+user_id,
+			type: 'GET',
+			timeout: 30000,
+			error: function() { alert('Error loading data!'); },
+			success: function(msg) {
+				$("#share_text").html(msg);       
+			}
+		});
+}
+
+function share(sign){
+	var go_url = encodeURIComponent('http://www.yueus.com/topic/new_year/') ;
+
+	
+	var pic = 'http://image16-c.poco.cn/yueyue/cms/20150213/73382015021310071957303836.jpg';
+	
+	if(sign=='sina')
+	{
+		var title = encodeURIComponent('200位美女春节无休等你来约，上约约，"拍"个美女过春节  http://www.yueus.com/topic/new_year/');
+	}
+	else
+	{
+		var title = encodeURIComponent('200位美女春节无休等你来约');
+	}
+	var content = encodeURIComponent('200位美女春节无休等你来约，上约约，"拍"个美女过春节  http://www.yueus.com/topic/new_year/');
+	
+	var url = 'http://www.yueus.com/module/share.php?sign='+sign+'&url='+go_url+'&pic='+pic+'&title='+title+'&type=other&content='+content;
+	
+	window.open(url);
+}
+
+</script>
+
+<div style='display:none'>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254408097'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1254408097%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

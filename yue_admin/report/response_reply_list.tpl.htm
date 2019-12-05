@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/laydate/laydate.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/table.css">
+<title>工作监控报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">信息回复</a> 
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform">
+					<table class="table-list-search" id="quick_search" width="400">
+					      <tbody>
+							       <tr>
+							       		<td>
+							       			选择年月:
+							       		   <input type="text" name="month" class="input-text" id="month" value="{month}" size="8"/>
+							       		</td>
+									   <td>
+									    <p><input type="button" class="button" value="查找" onclick="com_export('list')"/> <input type="button" class="button" value="导出" onclick="com_export('export')"></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+					<input type="hidden" name='act' id="act" value="list" />
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+	<div class="table-list" id="table-list">
+		<!--list-->
+		<table width="100%" cellspacing="0" style="min-width: 1000px;">
+			<thead>
+			    <tr>
+				<th>&nbsp;</th>
+				<th colspan="93">信息回复</th>
+				<!-- <th colspan="2">商品互动</th>
+				<th colspan="4">商品销售</th> -->
+				</tr>
+			</thead>
+			<tbody>
+			    <tr>
+				<td align="center">日期</td>
+				<td align="center">5分钟回复</td>
+				<td align="center">10分钟回复</td>
+				<td align="center">20分钟回复</td>
+				<td align="center">30分钟回复</td>
+				<td align="center">1小时回复</td>
+				<td align="center">12小时回复</td>
+				<td align="center">24小时回复</td>
+				<td align="center">无回复</td>
+				<td align="center">回复百分比</td>
+				</tr>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center">{add_time}</td>
+				<td align="center">{5i}<font color='red'>({pre_5i}%)</font></td>
+				<td align="center">{10i}<font color='red'>({pre_10i}%)</font></td>
+				<td align="center">{20i}<font color='red'>({pre_20i}%)</font></td>
+				<td align="center">{30i}<font color='red'>({pre_30i}%)</font></td>
+				<td align="center">{1h}<font color='red'>({pre_1h}%)</font></td>
+				<td align="center">{12h}<font color='red'>({pre_12h}%)</font></td>
+				<td align="center">{24h}<font color='red'>({pre_24h}%)</font></td>
+				<td align="center">{no_response}<font color='red'>({pre_no_response}%)</font></td>
+				<td align="center">{pre_reply}%</td>
+				</tr>
+				<!-- END list -->
+				<tr>
+				<td align="center">累计</td>
+				<td align="center">{5i_up}<font color='red'>({pre_5i_up}%)</font></td>
+				<td align="center">{10i_up}<font color='red'>({pre_10i_up}%)</font></td>
+				<td align="center">{20i_up}<font color='red'>({pre_20i_up}%)</font></td>
+				<td align="center">{30i_up}<font color='red'>({pre_30i_up}%)</font></td>
+				<td align="center">{1h_up}<font color='red'>({pre_1h_up}%)</font></td>
+				<td align="center">{12h_up}<font color='red'>({pre_12h_up}%)</font></td>
+				<td align="center">{24h_up}<font color='red'>({pre_24h_up}%)</font></td>
+				<td align="center">{no_response_up}<font color='red'>({pre_no_response_up}%)</font></td>
+				<td align="center">/</td>
+				</tr>
+				<tr>
+				<td align="center">日均</td>
+				<td align="center">{5i_day}<font color='red'>({pre_5i_day}%)</font></td>
+				<td align="center">{10i_day}<font color='red'>({pre_10i_day}%)</font></td>
+				<td align="center">{20i_day}<font color='red'>({pre_20i_day}%)</font></td>
+				<td align="center">{30i_day}<font color='red'>({pre_30i_day}%)</font></td>
+				<td align="center">{1h_day}<font color='red'>({pre_1h_day}%)</font></td>
+				<td align="center">{12h_day}<font color='red'>({pre_12h_day}%)</font></td>
+				<td align="center">{24h_day}<font color='red'>({pre_24h_day}%)</font></td>
+				<td align="center">{no_response_day}<font color='red'>({pre_no_response_day}%)</font></td>
+				<td align="center">{pre_reply_day}%</td>
+				</tr>  	
+			</tbody>
+		</table>
+	</div>
+	<div id="pages" class="page">
+	{page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+  //导出和查询触动
+  function com_export($actval)
+  {
+  	$("#act").val($actval);
+	//$("#myform").attr("action", $url);
+	//return;
+	$("#myform").submit();
+ }
+ 
+ laydate({
+    elem: '#month',
+    istime: true,
+    format: 'YYYY-MM',
+});
+
+</script>
+</html>

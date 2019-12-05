@@ -1,0 +1,90 @@
+<main role="main" class="procedure-pay">
+    
+    <!-- <header class="page-header wryh">
+                <div class="page-back" data-role="page-back"><i class="icon icon-back-40x40"></i></div>
+                支付
+    </header> -->
+
+    <header class="nav-header mine-nav-header">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title">支付</h3>
+        
+        <div class="right-button-wrap">
+            <a><i class="icon icon-cog"></i></a>
+        </div>
+    </header>
+
+
+    <div class="content-body secondary" style="background: none;">
+        <div data-role="container">
+            <div>
+            <div class="procedure-header-mod">
+                <ul class="step">
+                    <li class="current">提交约拍申请</li>
+                    <li>模特接受约拍</li>
+                    <li>拍摄/完成</li>
+                </ul>
+                <ul class="num">
+                    <li class="common  current">
+                        <i class="num-icon">1</i>
+                        <div class="line-grey"></div>
+                        <div class="line-red"></div>
+                    </li>
+                    <li class="common ">
+                        <i class="num-icon">2</i>
+                        <div class="line-grey"></div>
+                        <div class="line-red"></div>
+                    </li>
+                    <li class="common ">
+                        <i class="num-icon">3</i>
+                        <div class="line-grey"></div>
+                        <div class="line-red"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="pay-details-info" style="background-color: #fff;margin-top: 12px;border-bottom: 1px solid #dddddd;">
+                <div class="pay-details-info-line f12 " style="border-bottom: none;line-height: 30px;height:30px;text-indent: 8px;">
+                    <div style="margin:0;">模特：</div>
+                    <div data-role="pay-details-info-line-name" style="margin-top: 0;">
+                        {{#if model_selected_info.user_name}}
+                            {{model_selected_info.user_name}}
+                        {{else}}
+                            {{user_name}}
+                        {{/if}}
+                        </div>
+
+                </div>
+                <div class="pay-details-info-line f12 " style="line-height: 30px;height:30px;text-indent: 8px;">
+                    <div style="margin:0;">风格：</div>
+                    <div data-role="pay-details-info-line-style" style="margin-top: 0;">{{model_selected_info.style}}</div>
+                </div>
+                <!--div class="pay-details-module-info-content">
+                    <p class="pay-details-module-info-notice">风格：</p>
+                    <p class="pay-details-module-info-style">内衣</p>
+                </div-->
+            </div>
+            <div data-role="pay-items-container"></div>
+            <div class="pay-details-notice">
+                <p>提示：</p>
+                <p>支付的款项会在现场签到后才支付给模特。</p>
+                <p>现场发现模特货不对板可拒绝签到，并申请退款。</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="pay-details-btn">
+        <div class="left">
+            <p class="data-pay-rest_notice">还需支付：</p>
+            <p class="data-pay-rest">￥<label  data-role="data-pay-rest">0</label></p>
+        </div>
+        <div class="right">
+            <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large" data-role="pay-btn">
+                <span class="ui-button-content"><i class="icon icon-btn-icon-fk"></i>去支付</span>
+            </button>
+        </div>
+        <!-- <div class="pay-details-btn-tap">支付</div> -->
+    </div>
+</main>

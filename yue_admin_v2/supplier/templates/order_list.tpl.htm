@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <title>订单列表</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet"/>
+    <link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet"/>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+    <link href="js/shadowbox/shadowbox.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/shadowbox/shadowbox.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".ui_timepicker").datetimepicker({
+                //showOn: "button",
+                //buttonImage: "./css/images/icon_calendar.gif",
+                //buttonImageOnly: true,
+                showSecond: true,
+                timeFormat: '',
+                stepHour: 1,
+                stepMinute: 1,
+                stepSecond: 1
+            });
+            $(".pay_time_timepicker").datetimepicker({
+                //showOn: "button",
+                //buttonImage: "./css/images/icon_calendar.gif",
+                //buttonImageOnly: true,
+                showSecond: true,
+                timeFormat: '',
+                stepHour: 1,
+                stepMinute: 1,
+                stepSecond: 1
+            });
+            $(".add_time_timepicker").datetimepicker({
+                //showOn: "button",
+                //buttonImage: "./css/images/icon_calendar.gif",
+                //buttonImageOnly: true,
+                showSecond: true,
+                timeFormat: '',
+                stepHour: 1,
+                stepMinute: 1,
+                stepSecond: 1
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        Shadowbox.init({
+            handleOversize: "drag",
+            overlayColor: '#000',
+            modal: true,
+            displayNav: true,
+            displayCounter: false
+        });
+        Shadowbox.setup();
+    </script>
+    <style type="text/css">
+        .table-list thead th {
+            line-height: 20px;
+        }
+        input[type=text] {
+            width: 95px;
+        }
+        input[type=number] {
+            width: 70px;
+        }
+        .input-group {
+            padding: 0 10px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="mainbox">
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form action="" method="post">
+                    <div class="input-group">
+                        订单状态:
+                        <select name="status" id="status">
+                            <option value="-1">全部</option>
+                            <option <!-- IF filter.status = "0" -->selected="selected"<!-- ENDIF --> value="0">待支付</option>
+                            <option <!-- IF filter.status = "1" -->selected="selected"<!-- ENDIF --> value="1">待确认</option>
+                            <option <!-- IF filter.status = "2" -->selected="selected"<!-- ENDIF --> value="2">待签到</option>
+                            <option <!-- IF filter.status = "7" -->selected="selected"<!-- ENDIF --> value="7">已关闭</option>
+                            <option <!-- IF filter.status = "8" -->selected="selected"<!-- ENDIF --> value="8">已完成</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        类型:
+                        <select name="type_id" id="type_id">
+                            <option value="">全部</option>
+                            {options:type_list,type_id}
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        是否支付:
+                        <select name="is_pay">
+                            <option value="-1">全部</option>
+                            <option <!-- IF filter.is_pay = "1" -->selected<!-- ENDIF --> value="1">是</option>
+                            <option <!-- IF filter.is_pay = "0" -->selected<!-- ENDIF --> value="0">否</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        订单ID/订单编号:
+                        <input type="text" size="20" name="keyword" placeholder="订单id/订单编号" value="{filter.keyword}"/>
+                    </div>
+                    <div class="input-group">
+                        总价区间:
+                        <input type="number" size="10" name="min_total" value="{filter.min_total}"/>
+                        至
+                        <input type="number" size="10" name="max_total" value="{filter.max_total}"/>
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        消费者ID:
+                        <input type="text" size="10" name="buyer_user_id" value="{filter.buyer_user_id}"/>
+                    </div>
+                    <div class="input-group">
+                        商家ID:
+                        <input type="text" size="10" name="seller_user_id" value="{filter.seller_user_id}"/>
+                    </div>
+                    <div class="input-group">
+                        优惠区间:
+                        <input type="number" size="10" name="min_discount" value="{filter.min_discount}"/>
+                        至
+                        <input type="number" size="10" name="max_discount" value="{filter.max_discount}"/>
+                    </div>
+                    <div class="input-group">
+                        机构搜索:
+                        <input type="text" size="10" name="org_user_id" value="{filter.org_user_id}"/>
+                    </div>
+
+                    <div class="input-group">
+                        签到日期:
+                        <input id="sign_time_begin" type="text" size="14" name="sign_time_begin"
+                               value="{filter.sign_time_begin}" class="ui_timepicker">
+                        至
+                        <input id="sign_time_end" type="text" size="14" name="sign_time_end" value="{filter.sign_time_end}"
+                               class="ui_timepicker"/>
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        下单时间:
+                        <input id="add_time_begin" type="text" size="14" name="add_time_begin"
+                               value="{filter.add_time_begin}" class="add_time_timepicker">
+                        至
+                        <input id="add_time_end" type="text" size="14" name="add_time_end" value="{filter.add_time_end}"
+                               class="add_time_timepicker"/>
+                    </div>
+                    <div class="input-group">
+                        付款时间:
+                        <input id="pay_time_begin" type="text" size="14" name="pay_time_begin"
+                               value="{filter.pay_time_begin}" class="pay_time_timepicker">
+                        至
+                        <input id="pay_time_end" type="text" size="14" name="pay_time_end" value="{filter.pay_time_end}"
+                               class="pay_time_timepicker"/>
+                    </div>
+
+                    <input type="submit" name="button" id="button" value="查询"/>
+                    <a class="button" href="order.php?{filter.url}">导出</a>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div id="tabs">
+        <div class="tabbox">
+            <div class="table-list">
+                <table width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th width="8%">订单编号</th>
+                        <th width="5%">状态</th>
+                        <th width="5%">是否支付</th>
+                        <th width="8%">交易品类</th>
+                        <th width="8%">商品</th>
+                        <th width="5%">商品数量</th>
+                        <th width="8%">买家用户id</th>
+                        <th width="8%">卖家用户id</th>
+                        <th width="5%">总金额</th>
+                        <th width="5%">优惠金额</th>
+                        <th width="5%">实际支付</th>
+                        <th width="5%">用优惠卷</th>
+                        <th width="5%">优惠码</th>
+                        <th width="5%">签到人</th>
+                        <th width="10%">入库时间</th>
+                        <th width="10%">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- BEGIN list -->
+                    <tr>
+                        <td width="8%" align="center">{order_sn}</td>
+                        <td width="5%" align="center">{status}</td>
+                        <td width="5%" align="center">{is_pay}</td>
+                        <td width="8%" align="center">{type_name}</td>
+                        <td width="8%" align="center">{goods_name}</td>
+                        <td width="5%" align="center">{goods_number}</td>
+                        <td width="8%" align="center">{buyer_user_name}</td>
+                        <td width="8%" align="center">{seller_user_name}</td>
+                        <td width="5%" align="center">{total_amount}</td>
+                        <td width="5%" align="center">{discount_amount}</td>
+                        <td width="5%" align="center">{pending_amount}</td>
+                        <td width="5%" align="center">{is_use_coupon}</td>
+                        <td width="5%" align="center">{coupon_sn}</td>
+                        <td width="5%" align="center">
+                            <!-- IF sign_by = "sys" -->
+                            系统自动签到
+                            <!-- ELSEIF sign_by = "buyer" -->
+                            商家签到
+                            <!-- ELSE -->
+                            未签到
+                            <!-- ENDIF -->
+                        </td>
+                        <td width="10%" align="center">{add_time}</td>
+                        <td width="10%" align="center">-----</td>
+                    </tr>
+                    <!-- END list -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tabbox">
+            <div class="table-list">
+                <table width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th align="center">总金额：{order_amount}</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div id="pages" class="page"> {page}</div>
+        <div style="color: #ffffff">{url}</div>
+    </div>
+</div>
+</body>
+</html>

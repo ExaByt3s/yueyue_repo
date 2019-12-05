@@ -1,0 +1,223 @@
+<div  class="model-car-v2">
+
+
+    <div  data-role="container-img-list" class="grid-pic-content">
+
+    </div>
+    <div class="part-two">
+        <div class="item bdtp_none">
+            <ul class="model-size">
+                <li class="icon" data-role="model_data_height">{{height}}cm</li>
+                <li class="icon" data-role="model_data_weight">{{weight}}kg</li>
+                <li class="icon" data-role="model_data_bust">{{cup_v2}}</li>
+                <li class="icon" data-role="model_data_BWH">{{BWH}}</li>
+            </ul>
+        </div>
+
+        <div class="line-top w-100"></div>
+        <div class="item pdbt_exp" data-role="nav-to-comment">
+            <ul class="info">
+                <i class="icon icon-r-16x26-cur"></i>
+                <li>
+                    <div class="lbox ">综合评价</div>
+                    <div class="rbox fldi">
+                        <span data-role="starts"></span>
+                        <span class="cor-5" data-role="model_data_score" style="color:#ff9c00">{{score}}分</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="lbox ">拍片次数</div>
+                    <div class="rbox fldi" data-role="model_data_take_photo_times">{{take_photo_times}}</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="line-top w-100"></div>
+        <div class="item mgbt_none bdbt_none">
+            <ul class="info">
+                <li>
+                    <div class="lbox ">擅长风格</div>
+                    {{#each model_style_combo.main}}
+                        <div class="rbox fldi"><span class=""><label data-role="cameraman-require">{{style}}</label></span></div>
+                    {{/each}}
+
+                </li>
+                <li>
+
+                    <div class="lbox ">价格</div>
+                    {{#each model_style_combo.main}}
+                        <div class="rbox fldi"><span class="cor-y">{{price}}元（{{hour}}小时）</span></div>
+                    {{/each}}
+
+                </li>
+                <!--li>
+                    <div class="lbox ">拍摄类型</div>
+                    <div class="rbox fldi" data-role="model_data_style">{{model_type_list}}</div>
+                </li-->
+            </ul>
+        </div>
+
+        <div class="item to_more_style" data-role="to_more_style">
+            <div class="more">查看全部风格和价格</div>
+        </div>
+
+
+
+
+        <div class="line-top w-100"></div>
+        <div class="item spe-box">
+            <div class="notice">
+                <div class="l">信用要求</div>
+                <div class="l">人数要求</div>
+                {{#if intro}}
+                    <div class="l">备注</div>
+                {{/if}}
+            </div>
+            <div class="details">
+                <div class="r">
+                    <span class="">
+                        <label data-role="cameraman-require">
+                            {{#if level_r_1}}
+                                <i class="icon icon-v1-cam-r"></i>
+                            {{/if}}
+                            {{#if level_r_2}}
+                                <i class="icon icon-v2-cam-r"></i>
+                            {{/if}}
+                            {{#if level_r_3}}
+                                <i class="icon icon-v3-cam-r"></i>
+                            {{/if}}
+
+                        </label>
+                    </span>
+                </div>
+                <div class="r">不超过<span class="">{{limit_num}}</span>人</div>
+                {{#if intro}}
+                    <div class="r exp"><span class="">{{{intro}}}</span></div>
+                {{/if}}
+            </div>
+            <ul class="info fn-hide">
+                <li>
+                    <div class="lbox ">信用要求</div>
+                    <div class="rbox fldi"><span class=""><label data-role="cameraman-require">{{level_require_text}}</label></span></div>
+                </li>
+                <li>
+                    <div class="lbox ">拍摄人数</div>
+                    <div class="rbox fldi">不超过<span class="">{{limit_num}}</span>人</div>
+                </li>
+
+                <!--li>
+                    <div class="lbox ">拍摄类型</div>
+                    <div class="rbox fldi" data-role="model_data_style">{{model_type_list}}</div>
+                </li-->
+            </ul>
+        </div>
+
+        {{#if date_log}}
+            <div class="line-top w-100"></div>
+            <div class="item master mgbt_none">
+                <div class="title">这些大师约拍过</div>
+                <div class="ph_contain" data-role="ph_contain">
+                    {{#each date_log}}
+                        <div class="cam_icon_contain" data-role="cam_icon" data-cam_id="{{user_id}}">
+                            <div class="cam_icon"  style="background-image: url({{user_icon}}); width: 50px; height: 50px;"></div>
+                            {{#if level1}}
+                                <div class="icon icon-v1-cam"></div>
+                            {{/if}}
+                            {{#if level2}}
+                                <div class="icon icon-v2-cam"></div>
+                            {{/if}}
+                            {{#if level3}}
+                                <div class="icon icon-v3-cam"></div>
+                            {{/if}}
+
+                        </div>
+                    {{/each}}
+                </div>
+
+            </div>
+        {{/if}}
+
+
+        <header class="partc">
+            <div class="avatar">
+                <a data-role="profile">
+                    <i class="img avatar-img" data-role="user-img" style="background-image:url('{{user_icon}}')"></i>
+                </a>
+            </div>
+            <div class="meta-info">
+                <div class="model_nickname_sexy_line">
+                    <div class="nickname" data-role="model-info-name">{{user_name}}</div>
+                    <div class="sexy fn-hide">男女</div>
+                </div>
+                <div class="model_id_city_line">
+                    <div class="model_id">ID ：<label data-role="model-id">{{user_id}}</label></div>
+                    <div class="model_city">{{city_name}}</div>
+                </div>
+                <div>
+                    {{#unless is_preview}}
+                        {{#if is_follow_each_other}}
+                            <div class="ui-follow-mod ui-eachotherfollow-mod" data-role="focus" data-focus-type="each">
+                                <i class="icon icon-ui-eachotherfollow-m"></i> <span class="txt">相互关注</span>
+                            </div>
+                            <div class="ui-follow-mod ui-hasfollow-mod fn-hide" data-role="focus" data-focus-type="focused">
+                                <i class="icon icon-ui-hasfollow-m"></i> <span class="txt">已关注</span>
+                            </div>
+                            <div class="ui-follow-mod fn-hide" data-role="focus" data-focus-type="to_focuse">
+                                <i class="icon icon-ui-follow-m"></i> <span class="txt">关注</span>
+                            </div>
+                        {{^}}
+                            {{#if is_follow_single}}
+                                <div class="ui-follow-mod ui-eachotherfollow-mod fn-hide" data-role="focus" data-focus-type="each">
+                                    <i class="icon icon-ui-eachotherfollow-m"></i> <span class="txt">相互关注</span>
+                                </div>
+                                <div class="ui-follow-mod ui-hasfollow-mod" data-role="focus" data-focus-type="focused">
+                                    <i class="icon icon-ui-hasfollow-m"></i> <span class="txt">已关注</span>
+                                </div>
+                                <div class="ui-follow-mod fn-hide" data-role="focus" data-focus-type="to_focuse">
+                                    <i class="icon icon-ui-follow-m"></i> <span class="txt">关注</span>
+                                </div>
+                                {{^}}
+                                <div class="ui-follow-mod ui-eachotherfollow-mod fn-hide" data-role="focus" data-focus-type="each">
+                                    <i class="icon icon-ui-eachotherfollow-m"></i> <span class="txt">相互关注</span>
+                                </div>
+                                <div class="ui-follow-mod ui-hasfollow-mod fn-hide" data-role="focus" data-focus-type="focused">
+                                    <i class="icon icon-ui-hasfollow-m"></i> <span class="txt">已关注</span>
+                                </div>
+                                <div class="ui-follow-mod" data-role="focus" data-focus-type="to_focuse">
+                                    <i class="icon icon-ui-follow-m"></i> <span class="txt">关注</span>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+
+
+                        <!--div class="focus-contain fn-hide" data-role="focus-contain">
+                            <div class="add-inside fn-hide" data-role="follow">
+                                <i class="icon icon-focus-yes"></i>
+                            </div>
+                            <div class="des-inside fn-hide" data-role="unfollow">
+                                <i class="icon icon-focus-yes-no"></i>
+                            </div>
+                        </div-->
+                    {{/unless}}
+                </div>
+                <p class="user-data fn-hide">
+                    <span class="area" data-role="model-info-city_name" style="color:#786a63">{{city_name}}</span>
+                </p>
+                <p class="action fn-hide">
+
+                </p>
+            </div>
+
+        </header>
+
+        <div class="line-top w-100"></div>
+        <section class="score-info">
+            <a data-role="go_fans"><em data-role="be_follow_count">{{be_follow_count}}</em>粉丝</a>
+            <div class="line"></div>
+            <a data-role="level"><em >Lv{{level}}</em>级别</a>
+            <div class="line"></div>
+            <a data-role="jifen"><em >{{jifen}}</em>魅力值</a>
+        </section>
+
+    </div>
+</div>

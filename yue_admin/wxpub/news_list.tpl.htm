@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<!-- BEGIN JS_FILES -->
+<script type="text/javascript" src="{js_link}?{top._dev}"></script>
+<!-- END JS_FILES -->
+<!-- BEGIN STYLE_FILES -->
+<link rel="stylesheet" type="text/css" href="{css_link}?{top._dev}">
+<!-- END STYLE_FILES -->
+<script src="../js/DatePicker/WdatePicker.js"></script>
+<title>图文列表 Powered by hai - Powered by hai</title>
+</head>
+<body>
+<div class="mainbox">
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="./news.php?act=list" class="on">图文列表</a>|
+		<a href="./news.php?act=add">添加图文</a>|
+	</ul>
+</div>
+<iframe id="mcfrm" name="mcfrm" frameborder="0" width="0" height="0" src="" style="display:none;"></iframe>
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form action="news.php" method="get">
+					标题：<input id="title" type="text" size="14" class="input-text" name="title" value="{title}">
+					添加时间：
+					<input type='text' size="15" name='min_add_time' id="min_add_time" onClick="WdatePicker()" <!-- IF min_add_time -->value="{dateformat:min_add_time, 'Y-m-d'}"<!-- ENDIF --> /> - 
+				    <input type='text' size="15" name='max_add_time' id="max_add_time" onClick="WdatePicker()" <!-- IF max_add_time -->value="{dateformat:max_add_time, 'Y-m-d'}"<!-- ENDIF --> />											  
+					<input type="hidden" name="act" value="list">
+					<input type="submit" value="查询" class="button">
+					<input type="reset" value="重置" class="button">
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<form name="list_form" id="list_form" action="" method="post">
+	<div class="table-list">
+		<table width="100%" cellspacing="0">
+			<thead>
+			<tr>
+				<th width="40">编号</th>
+				<th width="350">标题</th>
+				<th width="200">描述</th>
+				<th width="80">添加时间</th>
+				<th>操作</th>
+			</tr>
+			</thead>
+			<tbody>
+				<!-- IF news_list -->
+			    <!-- BEGIN news_list -->
+				<tr>
+				<td align="center">{news_id}</td>
+				<td align="center">{title}</td>
+				<td>{short_description}</td>
+				<td>{add_time}</td>
+				<td>
+				<a href="./news.php?act=modify&news_id={news_id}">编辑</a>
+				<a href="./news.php?act=del&news_id={news_id}" target="mcfrm">删除</a>
+				</td>
+				</tr>
+				<!-- END news_list -->
+				<!-- ELSE -->
+				暂无数据
+				<!-- ENDIF -->
+			</tbody>
+		</table>
+	</div>
+</form>
+<div id="pages" class="page">
+{page_select}
+</div>
+</div>
+</body>
+</html>

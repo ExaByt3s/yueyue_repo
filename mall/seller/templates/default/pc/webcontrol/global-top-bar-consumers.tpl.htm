@@ -1,0 +1,49 @@
+<div class="global-top-bar global-top-bar-consumers" id="global-top-bar-seller">
+
+    <div class="top-bar clearfix w1000 font_wryh">
+
+        <div class="logo fldi">
+            <a href="{index_url_link}"></a>
+        </div>
+
+
+        <div class="nav clearfix seller-info">
+            
+            <!-- IF no_login -->       
+
+                <!-- IF index_value -->        
+                    <div class="item fldi mr15" id="btn-down"><a href="javascript:;">商家版APP下载</a></div>
+                <!-- ELSE -->
+                    <div class="item fldi mr20" ><a href="{index_url_link}/index.php#jqqd">商家版APP下载</a></div>
+                <!-- ENDIF -->
+
+
+                <div class="no_login fldi" id="no_login"><a href="http://www.yueus.com/pc/login.php?r_url={r_url}">登录</a> <span class="line">|</span> <a href="http://www.yueus.com/pc/register.php?r_url={r_url}">注册</a></div>
+            <!-- ELSE -->
+                <div  id="consumers-info-area" class="info-area">
+
+
+
+                    <div class="item "  menu-item-trigger>    <!-- 触发样式 dropdown-menu-hover -->
+                    
+                        <a href="javascript:;"><span class="txt long-txt-cut">{cutstr:user_name,7,'...'}</span><b class="ui-triangle ui-triangle-bottom-min-white"></b></a>
+                        <div class="dropdown-menu">
+                            <ul class="list clearfix">
+                                <!-- <a href="./personal_center_edit.php"><li>编辑个人资料</li></a> -->
+                                <a href="{project_root}/normal_certificate_choose.php"><li>认证中心</li></a>
+                                <a href="http://www.yueus.com/pc/logout.php"><li>退出</li></a>
+                            </ul>        
+                        </div>
+                    </div>
+                </div>
+            <!-- ENDIF -->
+           
+
+        </div>  
+
+  
+    </div>
+
+          
+
+</div>

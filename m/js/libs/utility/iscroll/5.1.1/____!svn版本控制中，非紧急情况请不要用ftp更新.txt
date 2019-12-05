@@ -1,0 +1,18 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/js/libs/utility/iscroll/5.1.1
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+iscroll-debug.js
+iscroll-infinite-debug.js
+iscroll-infinite.js
+iscroll-lite-debug.js
+iscroll-lite.js
+iscroll-probe-debug.js
+iscroll-probe.js
+iscroll-zoom-debug.js
+iscroll-zoom.js
+iscroll.js
+
+--EOF--

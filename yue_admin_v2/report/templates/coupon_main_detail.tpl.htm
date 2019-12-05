@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/model_audit.css">
+    <title>报表后台</title>
+    <style type="text/css">
+        #occu p
+        {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list" id="table-list">
+<h1><b><a href="coupon_main_list.php" style="cursor:pointer">返回列表</a></b>&nbsp;<b>套餐码详情[{coupon}]</b></h1>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<form method="post" action="?" id="myform" target="frame">
+<div class="table" style="width:98%;" id="occu">
+    <!--list-->
+    <table cellspacing="0" width="100%">
+        <tbody>
+        <tr>
+            <td width="100" align="center">登录行为:</td>
+            <td align="left">
+                <p>登录1次个数：{login_1_num}个；比例：{login_1_num_scala}%</p>
+                <p>登录2次个数：{login_2_num}个；比例：{login_2_num_scala}%</p>
+                <p>登录3次个数：{login_3_num}个；比例：{login_3_num_scala}%</p>
+                <p>登录4次个数：{login_4_num}个；比例：{login_4_num_scala}%</p>
+                <p>登录5次以上个数：{login_5_up_num}个；比例：{login_5_up_scala}%</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">兑换行为:</td>
+            <td>
+                <p>兑换数：{trade_num}；<a href="copon_order_list.php?id={id}&act=mall_order&type=user" target="_blank">查看兑换用户的所有订单</a></p>
+                <p>有购买用户数：{first_total_user_num}个；<a href="copon_order_list.php?id={id}&act=mall_order&type=first_order" target="_blank">查看首次下单订单</a></p>
+                <p>首次下单使用优惠券用户数：{first_use_coupon_num}</p>
+                <p>总优惠金额：{first_total_discount_price}</p>
+                <p>订单总金额：{first_total_price}</p>
+                <p>兑换比例：{trade_to_order_scala}%</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">二次行为:</td>
+            <td>
+                <p>二次购买用户数：{resell_total_user_num}个；<a href="copon_order_list.php?id={id}&act=mall_order&type=resell_order" target="_blank">查看第二次下单订单</a></p>
+                <p>二次购买用户数使用优惠券数：{resell_use_coupon_num}</p>
+                <p>总优惠金额：{resell_total_discount_price}</p>
+                <p>订单总金额：{resell_total_price}</p>
+                <p>二次购买比例：{resell_to_user_scala}%</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">用户来源:</td>
+            <td>
+                <p>APP注册个数：{app_reg_num}</p>
+                <p>PC注册个数：{pc_reg_num}</p>
+                <p>微信注册个数：{weixin_reg_num}</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<input type="hidden" value="insert" name="act" id="act"/>
+</form>
+</div>
+</div>
+</body>
+</html>

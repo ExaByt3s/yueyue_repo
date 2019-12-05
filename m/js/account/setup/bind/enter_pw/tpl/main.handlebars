@@ -1,0 +1,91 @@
+<main role="main">
+    {{#if is_form_setup}}
+    <header class="nav-header reset-pw-nav-header">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-back"></i></a>
+        </div>
+        <h3 class="title">修改密码</h3>
+        <div class="right-button-wrap">
+        </div>
+    </header>
+    {{^}}
+    <header class="nav-header mine-setting-nav-header">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title">设定密码</h3>
+
+        <div class="right-button-wrap">
+        </div>
+    </header>
+    {{/if}}
+    <div data-role="container" class="change-password-container">
+        <div class="warp-box">
+    {{#if is_form_setup}}
+            <div class="change-password">
+                <!-- <ul class="list">
+                    <li>
+                        <span class="btn-get" data-role="get_code">获取验证码</span>
+                        <input type="text" name=" " id=" " class="input-text exp" placeholder="手机号" data-role="enter_phone">
+                       
+                    </li>
+                    <li>
+                        <input type="text" name=" " id=" " class="input-text"  placeholder="验证码" data-role="enter_code">
+                    </li>
+                    <li>
+                        <input type="password" name=" " id=" " class="input-text"  placeholder="新密码" data-role="new_pw">
+                    </li>
+                </ul> -->
+
+
+                <div class="ui-input-mod">
+                    <div class="item">
+                        <input type="tel" class="ui-input  ui-input-size-large ui-input-block ui-input-border-bottom-none ui-input-top-left ui-input-top-right"  placeholder="手机号" data-role="enter_phone">
+                        <div class="pop-tips">
+                            <button class="ui-button ui-button-primary ui-button-size-min " data-role="get_code">
+                                <span class="ui-button-content">获取验证码</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="item"><input type="text" class="ui-input  ui-input-size-large ui-input-block  ui-input-border-bottom-none ui-input-bottom-left ui-input-bottom-right" placeholder="验证码" data-role="enter_code"></div>
+
+                    <div class="item"><input type="password" class="ui-input  ui-input-size-large ui-input-block ui-input-bottom-left ui-input-bottom-right"  placeholder="新密码" data-role="new_pw"></div>
+                </div>
+
+
+            <!--     <div class="btn" data-role="finish-change">确认修改</div> -->
+
+                <button style="margin-top:10px" data-role="finish-change" class="ui-button ui-button-primary ui-button-size-large ui-button-block">
+                    <span class="ui-button-content">确认修改</span>
+                </button>
+
+            </div>
+    {{^}}
+            <div class="set-password">
+               <!--  <ul class="list clearfix">
+                    <li>
+                        <input type="password" name=" " id=" " class="input-text"  placeholder="密码" data-role="submit_pw">
+                    </li>
+                </ul> -->
+
+                <div class="ui-input-mod">
+                    <div class="item">
+                        <input type="password" class="ui-input  ui-input-size-large ui-input-block  ui-input-top-left ui-input-top-right"  placeholder="密码"   data-role="submit_pw">
+                    </div>        
+                </div>
+
+
+                <!-- <div class="btn" data-role="finish-reg">完成</div> -->
+
+                <button  data-role="finish-reg" style="margin-top:10px" data-role="finish-change" class="ui-button ui-button-primary ui-button-size-large ui-button-block">
+                    <span class="ui-button-content">完成</span>
+                </button>
+
+
+                <p class="p1">该密码将用于您的登录，并保护您的账户安全。</p>
+            </div>
+    {{/if}}
+        </div>
+    </div>
+</main>

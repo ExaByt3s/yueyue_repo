@@ -1,0 +1,70 @@
+<style>
+    .action-apply-content .action-apply-list.payment-list
+    {
+        padding: 20px 15px 20px 15px;
+
+    }
+    .action-apply-content .action-apply-list.payment-list li
+    {
+        margin-bottom: 0px;
+        font-size: 12px;
+        color:#666;
+    }
+    .action-apply-content .action-apply-list.payment-list li .item{
+        font-size: 12px;
+        height: 30px;
+        line-height: 30px;
+    }
+</style>
+<main role="main" class="action-apply wryh" >
+    <header class="nav-header ">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title">支付活动</h3>
+
+        <div class="right-button-wrap">
+            <!--             <a class="ui-button ui-button-dark ui-button-size-default reg-button">注册</a> -->
+        </div>
+    </header>
+    <div data-role="container" class="content-body">
+        <div class="action-apply-content">
+            <section class="action-apply-list payment-list" style="background-color: #fff;">
+                <ul>
+                    <li>
+                        <div class="item">活动名称：</div>
+                        <div class="item-input" data-role="event_title" style="line-height: 30px;">无</div>
+                    </li>
+                    <li>
+                        <div class="item">手机号码：</div>
+                        <div class="item-input" data-role="tel" style="line-height: 30px;">0000</div>
+                    </li>
+                    <li>
+                        <div class="item">活动价格：</div>
+                        <div class="item-input" data-role="budget" style="line-height: 30px;">￥0</div>
+                    </li>
+                    <li>
+                        <div class="item">报名人数：</div>
+                        <div class="item-input" data-role="amount" style="line-height: 30px;">0人</div>
+                    </li>
+                    <li>
+                        <div class="item">选择场次：</div>
+                        <div class="item-input" data-role="session" style="line-height: 30px;"></div>
+                    </li>
+                </ul>
+            </section>
+            <section data-role="pay-items-container" class="pb10">
+            </section>
+
+
+
+        </div>
+
+    </div>
+    <div class="pay" >
+        <button data-role="pay" class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width">
+            <span class="ui-button-content">去支付</span>
+        </button>
+    </div>
+</main>

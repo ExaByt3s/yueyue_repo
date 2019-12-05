@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{page_title}</title>
+
+    <!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+    -->
+    <!-- 公共css，js引入 -->{pc_global_top}<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/modules/common/layer/skin/layer_d032379.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/modules/common/upload/1.0.0/css/style_26e92d7.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/components/jquery/jquery_27c977b.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/js/common/common_26d9479.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/layer/layer_906feb7.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/core_83840a8.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/widget_4835767.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/mouse_6ef99af.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/sortable_65d00c0.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/upload/1.0.0/yueyue_uploader_f4eddec.js"></script>
+</head>
+<body >
+
+{global_top_bar}
+
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+<form action="./module/pai_mall_certificate_service_op.php" method="post"  name="publish_form" id="publish_form" target="form_iframe">
+    <div class="content">
+        <div class="choose-type-page  w1000 font_wryh">
+            <!--<div class="mod-choose-step-zone">
+                <ul>
+                    <li class="cur">
+                        <i class="icon-radius ">1</i>
+                        <a href="javascript:;" class="step-1" onclick="return false">选择类型</a>
+                    </li>
+                    <li class="cur">
+                        <i class="icon-radius ">2</i>
+                        <a href="javascript:;" class="step-2" onclick="return false">服务标准</a>
+                    </li>
+                    <li>
+                        <i class="icon-radius ">3</i>
+                        <a href="javascript:;" class="step-3" onclick="return false">开通</a>
+                    </li>
+                </ul>
+            </div>-->
+            <div class="mod-nav-item">
+                <a href="./">约约商家主页</a>
+                &gt;
+                <a href="./normal_certificate_choose.php">认证中心</a>
+                &gt;
+                <a href="./normal_certificate_choose.php">品类认证</a>
+                &gt;
+                <span>{page_type_name}认证</span>
+            </div>
+            <div class="service-page mod-attest-page content-bg">
+                <div class="mod-listItem">
+                    <span>{page_type_name}认证</span>
+                </div>
+                <div class="form-warp" id="form-warp">
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>选择你的身份标签（不超过3个）</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-checkbox-item font_wryh clearfix J_other_identifine_div">
+                                <!-- BEGIN certificate_other_identifine_label -->
+                                <label>
+                                    <input class="J_other_identifine" type="checkbox" name="other_identifine[]" value="{value}" <!-- IF ROWCNT=="0" -->checked="checked"<!-- ENDIF -->/>
+                                    {value_name}
+                                </label>
+                                <!-- END certificate_other_identifine_label -->
+                                <label>
+                                    <input type="text" name="other_other_identifine" class="checkbox-input font_wryh" placeholder="其他"  valid-rule="**0-100" valid-index='2' tabindex="1"/>
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>自我介绍</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="textarea-item">
+                                <textarea name="other_self_desc" class="textarea-txt font_wryh" placeholder="自我介绍" valid-rule="**1-1000" valid-index='1' tabindex="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>你的职业身份是？</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-input-item">
+                                <textarea name="other_job" class="textarea-txt font_wryh" placeholder="示例：烘焙师、酿酒师、服装设计师、花艺师、潜水教练等" valid-rule="**1-1000" valid-index='3' tabindex="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>请描述您提供的服务</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="textarea-item">
+                                <textarea name="other_service_desc" class="textarea-txt font_wryh" placeholder="示例：古法香水订制，调制属于自己的味道" valid-rule="**1-1000" valid-index='4' tabindex="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-item">
+                        <a href="javascript:;" class="ui-btn ui-btn-blue" id="J_form_submit" data-lock="unlock">提交审核</a>
+                    </div>
+                    <div style="text-align:center;color:#333;padding-top:10px;font-size:16px">等待审核过程中，可先发布服务</div>
+                    <div style="text-align:center;color:#333;padding-top:10px;font-size:14px">若有问题，请联系客服4000-82-9003</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="{type_id}" name="type_id"/>
+
+</form>
+<input type="hidden" value="{user_id}" id="J_user_id">
+{footer}
+
+<script type="text/javascript" src="http://static.yueus.com/yue_ui/upload/1.0.0/webuploader.min.js"></script>
+<script type="text/javascript">
+    // 头部
+    require('common/global-top-bar/global-top-bar');
+
+    require('common/layer/layer');
+
+    require('common/upload/1.0.0/yueyue_uploader');
+
+
+
+    // 表达验证类
+    var VA = require('common/valid/index');
+    // 设置容器
+    var valid = new VA($('#form-warp'));
+
+
+
+
+    function error_tips(ele,str)
+    {
+        $("html,body").animate({scrollTop:ele.offset().top},300);
+        layer.alert(str);
+        return false;
+    }
+
+
+
+    fresh_bind();
+
+    function fresh_bind(){
+        //绑定事件
+        valid.pushfunctions
+                ([
+                    {
+                        index:'1',
+                        ValidError : function(){
+                            error_tips($("[valid-index='1']").parents(".item"),'请填写自我介绍');
+                        }
+                    },
+                    {
+                        index:'2',
+                        ValidError : function(){
+                            error_tips($("[valid-index='2']").parents(".item"),'其他内容');
+                        }
+                    },
+                    {
+                        index:'3',
+                        ValidError : function(){
+                            error_tips($("[valid-index='3']").parents(".item"), '请填写您的职业身份');
+                        }
+                    },
+                    {
+                        index:'4',
+                        ValidError : function(){
+                            error_tips($("[valid-index='4']").parents(".item"), '请填写您提供的服务');
+                        }
+                    }
+
+
+                ]);
+    }
+
+
+    //提交form
+    $("#J_form_submit").on("click",function(){
+        var resault = valid.checkValid();
+        if(resault.isPass)
+        {
+            var J_other_identifine_len = $(".J_other_identifine:checked").length;
+            //判断选项
+            if(J_other_identifine_len==0)
+            {
+
+                error_tips($('.J_other_identifine_div').parents(".item"), '请勾选身份标签');
+                return
+            }
+            //判断不能超过三个
+
+            if(J_other_identifine_len>3)
+            {
+
+                error_tips($('.J_other_identifine_div').parents(".item"), '不能超过3个标签');
+                return
+            }
+            //判断勾选了其他后需要填写内容
+            for(var i=0;i<J_other_identifine_len;i++)
+            {
+                if($($(".J_other_identifine:checked")[i]).val()==17)
+                {
+
+                    //检查是否填入了空
+                    if($("[valid-index='2']").val()=="")
+                    {
+                        error_tips($("[valid-index='2']").parents(".item"),'请填写其他');
+                        //console.log(3);
+                        return
+                    }
+                }
+            }
+
+
+
+            var data_lock = $(this).attr("data-lock");
+            if(data_lock!="lock")
+            {
+                $(this).attr("data-lock","lock");//锁住
+                layer.msg("正在提交中...");
+                $("#publish_form").submit();
+            }
+            else
+            {
+                layer.msg("正在提交中...");
+                return false;
+            }
+        }
+
+    })
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

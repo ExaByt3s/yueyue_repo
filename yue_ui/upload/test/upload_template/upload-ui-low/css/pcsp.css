@@ -1,0 +1,820 @@
+/**
+ * POCO CSS Reset
+ * @author: JH.L
+ * Based on YUI & Eric Meyer
+ */
+/* padding & margin */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+/* border */
+fieldset,
+img {
+    border: 0;
+}
+abbr,
+acronym {
+    border: 0;
+    font-variant: normal;
+}
+/* outline */
+:focus {
+    outline: 0;
+}
+/* font */
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var,
+optgroup {
+    font-style: inherit;
+    font-weight: inherit;
+}
+big,
+small,
+code,
+kbd,
+samp,
+tt {
+	font-size: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+/* @purpose To enable resizing for IE */
+/* @branch For IE6-Win, IE7-Win */
+input,
+button,
+textarea,
+select {
+    *font-size: 100%;
+}
+/* list */
+ol,
+ul {
+    list-style: none;
+}
+/* table , still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+caption,
+th {
+    text-align: left;
+}
+/* sub & sup */
+sup,
+sub {
+    font-size: 100%;
+    vertical-align: baseline;
+}
+/* ins & del */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+/* quote */
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+}
+
+/**
+ * POCO Layout Style
+ * @author: JH.L
+ */
+.clearfix:after {
+	content: " ";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+
+/**
+ * POCO Typography Style
+ * @author: JH.L
+ * Based on YUI & taobao
+ */
+body {
+	font: 12px/1.5 Helvetica, Tahoma, Arial, sans-serif;
+}
+/* form elements */
+select,
+input,
+button,
+textarea {
+	font: 100% Helvetica, Tahoma, Arial, sans-serif;
+}
+/* To help tables remember to inherit */
+table {
+	font-size: inherit;
+	font: 100%;
+}
+/* fixed-width elements */
+pre,
+code,
+kbd,
+samp,
+tt {
+	font-family: 'Courier New', Courier, monospace;
+}
+/* Headings */
+h1 {
+	font-size: 18px;  
+}
+h2 {
+	font-size: 16px; 
+}
+h3 {
+	font-size: 14px;  
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+	font-weight: bold; 
+}
+
+/**
+ * POCO Grid Style
+ * @author: JH.L
+ */
+/* shadow */
+.shadow_header_top,
+.shadow_top,
+.shadow_bottom {
+	min-width: 994px;
+	height: 4px;
+	overflow: hidden;
+	background: url(http://www.poco.cn/module_common/header_v2/header_bg.png) center -166px no-repeat #6BC631;
+}
+.shadow_header_top {
+	height:8px;
+	background-position: center -178px;
+}
+* html .shadow_header_top div {
+	width: 994px;
+	height: inherit;
+	margin: 0 auto;
+	background: inherit;
+}
+.shadow_bottom {
+	height: 3px;
+	background-position: center -172px;
+}
+
+/* grids */
+#wrapper,
+#header,
+#content,
+#footer {
+	width: 994px;
+	margin: 0 auto;
+	background-color: #FFF;
+}
+
+/*
+by hou
+
+Flying Swing Grids Layout
+Copyright (c) 2008-2100, Tpoco.con Inc. Some rights reserved.
+Doc Link: http://lifesinger.org/blog/?p=448
+*/
+
+/**
+ * Update Log:
+ * 2009-05-18   yubo    修正Chrome和Safari下，20090211解决bug时，引入的另一个bug. 不能用display: inline-block
+ * 2009-02-11   yubo    解决Chrome和Safari下选取文字时，背景区域不对的bug
+ * 2008-12-23   yubo    调整position: relative的影响区域
+ * 2008-12-18	yubo	margin: 0 auto; -> margin-left: auto; margin-right: auto;
+ * 2008-11-02	yubo	created initial version
+ */
+.col_main { float: left; width: 100%; }
+.col_sub, .col_extra { float: left; }
+
+/* 2 Columns: .grid_c2_s5 */
+.grid_c2 .main_wrap { margin-left: 225px; }
+.grid_c2 .col_sub { width: 205px; margin-left: -100%; }
+.grid_c2f .main_wrap { margin-right: 225px; }
+.grid_c2f .col_sub { width: 205px; margin-left: -205px; }
+.grid_c2_s312 .main_wrap { margin-left: 332px; }
+.grid_c2_s312 .col_sub { width: 312px; margin-left: -100%; }
+.grid_c2f_s312 .main_wrap { margin-right: 332px; }
+.grid_c2f_s312 .col_sub { width: 312px; margin-left: -312px; }
+ 
+/**
+ * Clear float
+ */
+.grid_c:after,
+.grid_c2_s4:after, .grid_c2_s4f:after,
+.grid_c2:after, .grid_c2f:after,
+.grid_c2_s312:after, .grid_c2f_s312:after,
+.main_wrap:after, .col_sub:after, .col_extra:after {
+	content: '\0020';
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+.grid_c,
+.grid_c2_s4, .grid_c2_s4f,
+.grid_c2, .grid_c2f,
+.grid_c2_s312 .grid_c2f_s312,
+.main_wrap, .col_sub, .col_extra {
+	zoom: 1;
+}
+/* bug fix: 当主栏没有内容时，在ff和chrome等浏览器下，布局不对 */
+.col_main {
+	min-height: 1px;
+}
+
+/**
+ * POCO 常用图片尺寸
+ * @author: JH.L
+ *
+ * 命名约定: i代表image, 994x90为尺寸；
+ * IE垂直居中：font-size 约为height的0.873
+ * 图片已采取水平垂直居中处理，以及等比缩放处理(ie6除外)
+ */
+.i994x90 {
+	width: 994px;
+	height: 90px;
+	*font-size: 78.57px;
+}
+.i768x80 {
+	width: 768px;
+	height: 80px;
+	*font-size: 69.84px;
+}
+.i750 { /* 定宽不定高 */
+	width: 750px;
+}
+.i478x210 {
+	width: 478px;
+	height: 210px;
+	*font-size: 183.33px;
+}
+.i326x205 {
+	width: 326px;
+	height: 205px;
+	*font-size: 178.965px;
+}
+.i312x214  {
+	width: 312px;
+	height: 214px;
+	*font-size: 186.822px;
+}
+.i312x135  {
+	width: 312px;
+	height: 135px;
+	*font-size: 117.855px;
+}
+.i280x210 {
+	width: 280px;
+	height: 210px;
+	*font-size: 183.33px;
+}
+.i205x80 {
+	width: 205px;
+	height: 80px;
+	*font-size: 69.84px;
+}
+.i200x580 {
+	width: 200px;
+	height: 580px;
+	*font-size: 506.34px;
+}
+.i165x165 {
+	width: 165px;
+	height: 165px;
+	*font-size: 144.045px;
+}
+.i145x145 {
+	width: 145px;
+	height: 145px;
+	*font-size: 126.585px;
+}
+.i120x120 {
+	width: 120px;
+	height: 120px;
+	*font-size: 104.76px;
+}
+.i100x120 {
+	width: 100px;
+	height: 120px;
+	*font-size: 104.76px;
+}
+.i100x100 {
+	width: 100px;
+	height: 100px;
+	*font-size: 87.3px;
+}
+.i86x86 {
+	width: 86px;
+	height: 86px;
+	*font-size: 75.078px;
+}
+.i85x85 {
+	width: 85px;
+	height: 85px;
+	*font-size: 74.205px;
+}
+.i64x64 {
+	width: 64px;
+	height: 64px;
+	*font-size: 55.872px;
+}
+/* 等比缩放 */
+.i994x90 img {
+	max-width: 994px;
+	max-height: 90px;
+}
+.i768x80 img {
+	max-width: 768px;
+	max-height: 80px;
+}
+.i750 img {
+	max-width: 750px;
+}
+.i478x210 img {
+	max-width: 478px;
+	max-height: 210px;
+}
+.i326x205 img {
+	max-width: 326px;
+	max-height: 205px;
+}
+.i312x214 img {
+	max-width: 312px;
+	max-height: 214px;
+}
+.i312x135 img {
+	max-width: 312px;
+	max-height: 135px;
+}
+.i280x210 img {
+	max-width: 280px;
+	max-height: 210px;
+}
+.i205x80 img {
+	max-width: 205px;
+	max-height: 80px;
+}
+.i200x580 img {
+	max-width: 200px;
+	max-height: 580px;
+}
+.i165x165 img {
+	max-width: 165px;
+	max-height: 165px;
+}
+.i145x145 img {
+	max-width: 145px;
+	max-height: 145px;
+}
+.i120x120 img {
+	max-width: 120px;
+	max-height: 120px;
+}
+.i100x120 img {
+	max-width: 100px;
+	max-height: 120px;
+}
+.i100x100 img {
+	max-width: 100px;
+	max-height: 100px;
+}
+.i86x86 img {
+	max-width: 86px;
+	max-height: 86px;
+}
+.i85x85 img {
+	max-width: 85px;
+	max-height: 85px;
+}
+.i64x64 img {
+	max-width: 64px;
+	max-height: 64px;
+}
+/* 垂直居中 */
+.i994x90,
+.i768x80,
+.i750,
+.i478x210,
+.i326x205,
+.i312x214,
+.i312x135,
+.i280x210,
+.i205x80,
+.i200x580,
+.i165x165,
+.i145x145,
+.i120x120,
+.i100x120,
+.i100x100,
+.i86x86,
+.i85x85,
+.i64x64 {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	*display: block;
+	overflow: hidden;
+}
+.i994x90 img,
+.i768x80 img,
+.i750 img,
+.i478x210 img,
+.i326x205 img,
+.i312x214 img,
+.i312x135 img,
+.i280x210 img,
+.i205x80 img,
+.i200x580 img,
+.i218x80 img,
+.i200x160 img,
+.i165x165 img,
+.i145x145 img,
+.i120x120 img,
+.i100x120 img,
+.i100x100 img,
+.i86x86 img,
+.i85x85 img,
+.i64x64 img {
+	vertical-align: middle;
+}
+
+/**
+ * Header Style V2
+ * @author: JH.L
+ */
+#header,
+#header .poco_logo a,
+#header .mainnav li,
+#header .mainnav li.current_nav,
+#header .mainnav li.hour24,
+#header .subnav li,
+#header .mylink,
+#header .header_search .input_text {
+	background: url(http://www.poco.cn/module_common/header_v2/header_bg.png) no-repeat; 
+}
+#header  a {
+	text-decoration: none;
+}
+#header a:hover {
+	text-decoration: underline;
+}
+#header {
+	height: 110px;
+	overflow: hidden;
+	margin: 0 auto;
+	color: #4D4D4D;
+	background-position: 885px -187px;
+	background-color: #FFF;
+}
+#header .header_top_bar {
+	height: 30px;
+	line-height: 30px;
+	margin: 7px 0;
+}
+#header .poco_logo a {
+	display: block;
+	width: 220px;
+	height: 30px;
+	overflow: hidden;
+	float: left;
+	text-indent: -9999px;
+	background-position: 0 3px;
+}
+#header .header_top_nav {
+	float: right;
+	color: #4D4D4D;
+}
+#header .header_top_nav a {
+	color: #4D4D4D;
+}
+#header .mainnav {
+	height: 39px;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+}
+#header .mainnav li {
+	float: left;
+	width: 94px;
+	height: 34px;
+	line-height: 34px;
+	margin: 5px 3px 0 0;
+	text-align: center;
+	background-position: 0 -72px;
+}
+#header .mainnav li a {
+	color: #4D4D4D;
+}
+#header .mainnav li.current_nav {
+	width: 120px;
+	height: 39px;
+	line-height: 39px;
+	margin-top: 0;
+	background-position: 0 -31px;
+}
+#header .mainnav li.current_nav .channel {
+	margin-left: 6px;
+	font-size: 12px;
+	font-weight: normal;
+}
+#header .mainnav li.current_nav .channel a {
+	text-decoration: underline;
+}
+#header .mainnav li.hour24 {
+	width: 70px;
+	margin-top: 0;
+	padding-top: 4px;
+	background-position: -295px 0;
+}
+#header .mainnav li.hour24 a {
+	text-decoration: underline;
+	color: #4D4D4D;
+}
+#header .mainnav li.hour24 a:hover {
+	text-decoration: none;
+}
+#header .header_search {
+	float: right;
+}
+#header .subnav_bar {
+	height: 27px;
+	line-height: 27px;
+	background-color: #6AC333;
+	font-size: 14px;
+	font-weight: bold;
+}
+#header .subnav {
+	float: left;
+}
+#header .subnav li {
+	float: left;
+	width: 90px;
+	height: 27px;
+	overflow: hidden;
+	line-height: 29px;
+	text-align: center;
+	background-position: -30px -107px; /* 首页 */
+	/*background-position: right 0; 社区*/
+}
+#header .subnav .subnav_last {
+	background: none;
+}
+#header .mylink {
+	float: right;
+	width: 166px;
+	height: 27px;
+	line-height: 27px;
+	background-position: 0 -107px;
+}
+#header .mylink li {
+	float: left;
+	width: 83px;
+	text-align: center;
+}
+#header .mainnav li.current_nav a,
+#header .subnav li a,
+#header .mylink li a {
+	color: #FFF;
+}
+#header .header_search {
+	float: right;
+	margin-right: 105px;
+	_display: inline;
+}
+#header .header_search select {
+	width: 76px;
+	vertical-align: middle;
+	color: #4D4D4D;
+}
+#header .header_search .input_text {
+	width: 211px;
+	padding: 3px;
+	border: 1px solid #6AC333;
+	background-position: 0 -136px;
+	vertical-align: middle;
+	color: #4D4D4D;
+}
+#header .header_search .button {
+	width: 62px;
+	height: 23px; 
+	border: 0;
+	background-color: #6AC333;
+	color: #FFF;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+/**
+ * Footer Style
+ * 包含footer_search与footer
+ * @author: JH.L
+ */
+/* 脚部搜索 */
+#footer_search .footer_search_main,
+#footer_search .footer_btn_search,
+#footer_search .footer_link_top,
+#footer .sitemap_my,
+#footer .sitemap_help {
+	background: url(http://www.poco.cn/module_common/footer/footer_bg.jpg) no-repeat;
+}
+#footer_search,
+#footer_search .footer_search_main {
+	background-color: #6DC734;
+}
+#footer_search .footer_search_main {
+	position: relative;
+	width: 994px;
+	height: 110px;
+	margin: 0 auto;
+	overflow: hidden;
+	background-position: left top;
+}
+#footer_search .footer_search_main form {
+	width: 455px;
+	height: 75px;
+	margin: 25px auto auto;
+	text-align: left;
+}
+#footer_search .footer_search_main li {
+	float: left;
+	width: 40px;
+	height: 25px;
+	line-height: 25px;
+	color: #FFF;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	border-right: 1px solid #3C880C;
+}
+#footer_search .footer_search_main li a {
+	color: #FFF;
+	text-decoration: none;
+}
+/* 当前标签 */
+#footer_search .current_search_tag { 
+	background-color: #337214;
+}
+/* 文本框 */
+#footer_search .footer_input_key { 
+	width: 370px;
+	height: 23px;
+	line-height: 23px;
+	border: none;
+	padding: 0 2px;
+	vertical-align: middle;
+	font-size: 14px;
+}
+/* 搜索按钮 */
+#footer_search .footer_btn_search { 
+	width: 67px;
+	height: 25px;
+	border: none;
+	cursor: pointer;
+	vertical-align: middle;
+	background-position: left -137px;
+}
+/* 热门关注 */
+#footer_search .footer_hot_concern { 
+	line-height: 25px;
+	color: #FFF;
+}
+#footer_search .footer_hot_concern a {
+	color: #FFF;
+	text-decoration: underline;
+	margin: 0 6px;
+}
+/* 返回顶部 */
+#footer_search .footer_link_top {
+	display: block;
+	position: absolute;
+	top: 10px;
+	right: 0;
+	width: 31px;
+	height: 7px;
+	background-position: left -193px;
+}
+#footer {
+	overflow: hidden;
+}
+/* sitemap */
+#footer .sitemap_my,
+#footer .sitemap_help {
+	background-position: -158px -132px;
+}
+#footer .sitemap {
+	margin: 15px auto;
+	line-height: 20px;
+}
+#footer .sitemap_my,
+#footer .sitemap_help,
+#footer .sitemap_about {
+	width: 233px;
+	float: left;
+	padding: 0 48px;
+}
+#footer .sitemap strong {
+	color: #1D3C00;
+	margin-bottom: 5px;
+}
+#footer .sitemap a {
+	display: block;
+	float: left;
+	padding-right: 28px;
+	white-space: nowrap;
+	color: #1D3C00;
+	text-decoration: none;
+}
+#footer .sitemap a:hover {
+	text-decoration: underline;
+}
+/* copyright */
+#footer .copyright {
+	border-top: #C1C1C1 dashed 1px;
+	padding: 10px 0;
+	color: #1D3C00;
+	line-height: 22px;
+}
+#footer .copyright a {
+	color: #1D3C00;
+}
+a {
+text-decoration: none;
+color: #fff;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>举报管理系统</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">举报列表</a> 
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform">
+					<table class="table-list-search" id="quick_search" width="900">
+					      <tbody>
+							       <tr>
+										<td width="260">举报日期: <input type="text" class="input-text Wate" name="start_time" value="{start_time}" onFocus="WdatePicker()" style="width:80px;" readonly="true" />~ <input type="text" class="input-text Wate" name="end_time" value="{end_time}" onFocus="WdatePicker()" style="width:80px;" readonly="true"/>
+										</td>
+										<td width="150">举报者ID:
+										<input type="text" class="input-text" name="by_informer" value="{by_informer}" style="width:60px;" />
+										</td>
+										<td width="150">被举报者ID:
+										<input type="text" class="input-text" name="to_informer" value="{to_informer}" style="width:60px;" />
+										</td>
+									   <td>
+									    <p><input type="submit" class="button" value="查找"/></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+	<div class="table-list" id="table-list">
+		<div class="btn">
+			总条数:{total_count}
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th width="120">时间</th>
+				<th width="100">举报者ID</th>
+				<th width="100">被举报者ID</th>
+				<th width="300">举报类型</th>
+				<th width="100">状态</th>
+				<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center">{add_time}</td>
+				<td align="center">{by_informer}</td>
+				<td align="center">{to_informer}</td>
+				<td align="center">{cause_str}</td>
+				<td align="center"><!-- IF info="0" -->正常<!-- ELSEIF info="1" --><font color="red">已被屏蔽</font><!-- ENDIF --></td>
+				<td align="center">
+				<a href="inform.php?role=by&id={id}">查看</a></td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+	</div>
+	<div id="pages" class="page">
+	{page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+	//导出和查询触动
+  function com_export($actval)
+  {
+  	$("#act").val($actval);
+	//$("#myform").attr("action", $url);
+	//return;
+	$("#myform").submit();
+  }
+</script>
+</html>

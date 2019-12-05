@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<title>版本添加</title>
+<style type="text/css">
+.input-text{ width:500px;}
+</style>
+</head>
+<body>
+<div class="mainbox">
+  <form id="version_add" action="version_act.php" method="post">
+  <input name="step" type="hidden" value="{step}" />
+  <input name="id" type="hidden" value="{id}" />
+    <div id="tabs" style="margin-top:10px;">
+      <div class="tabbox">
+        <fieldset>
+          <legend>版本添加</legend>
+          <!--list-->
+          <table  cellspacing="10" width="100%">
+            <tbody>
+              <tr>
+                <td width="179">软件版本:</td>
+                <td width="1089">{software_version}</td>
+              </tr>
+              <tr>
+                <td width="179">系统:</td>
+                <td width="1089">{software_sys}</td>
+              </tr>
+              <tr>
+                <td width="179">备注:</td>
+                <td width="1089">{software_remark}</td>
+              </tr>
+              <tr>
+                <td colspan="2">状态：<font color=red>{step_str}</font><!-- IF next_step_str --> >>> <font color=red>{next_step_str}</font><!-- ENDIF --></td>
+              </tr>
+              <tr>
+                <td width="179">软件MD5:</td>
+                <td width="1089"><input type="text" class="input-text" name="software_md5" value="" id="software_md5"/><font color='red'>*</font></td>
+              </tr>            
+            </tbody>
+          </table>
+        </fieldset>
+        <br />
+      </div>
+      <div class="btn">
+        <!-- IF next_step_str --><input type="submit" value="提交" class="button" /><!-- ENDIF -->
+      </div>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+new SelectLocal('#province', '#city');
+</script>
+</body>
+</html>

@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>代运营wap{yue_login_id}</title>
+    <meta charset="gbk">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="wap-font-scale" content="no">
+    <link href="../../../../style/base.scss" rel="stylesheet" type="text/css">
+    <link href="../../../../style/face-m/face.scss" rel="stylesheet" type="text/css">
+    <script src="../../../../lib/mod.js"></script>
+    <script src='../../../../lib/vue.js'></script>
+    <script src="../../../../lib/mqttws31.js"></script>
+    <script src="../../../../lib/inflate.min.js"></script>
+    <script src="../../../../lib/md5-min.js"></script>
+    <script src="../../../../lib/IMSDK.js"></script>
+    <script src="../../../../lib/lib.js"></script>
+    <style>
+        .exc_input{position:absolute; right:0; top:0;font-size:0px; width:40px;height:40px;opacity:0; filter:alpha(opacity=0);cursor: pointer}
+    </style>
+</head>
+<body>
+<main  role="main">
+    <div class="fn-hide" style="color: #ff0000" data-role="error" style="position: absolute;top:0px;left:0px;">链接关闭,账号异常,请检查是否有重复登录或断网了</div>
+
+    <div class="face-side-bar ds-box orient-v" data-role="side-bar">
+        <div class="ds-box orient-h pack-justify align-center header">
+            <div class="options"></div>
+            <div>代运营客服助手: {yue_login_id}</div>
+            <div class="options" data-role="header_right">收起</div>
+        </div>
+        <div class="ds-box orient-h seller_buyer_list" data-role="seller_buyer_list">
+            <div class="ds-block seller_list flex-1" data-role="seller_list"></div>
+
+        </div>
+
+    </div>
+    <div class="face-page ds-box">
+
+        <div class="face-window ds-box flex-1 orient-v">
+            <div class="ds-box orient-h title_warp align-center pack-justify" >
+                <div class="options" data-role="title_left" style="text-align: end">退出</div>
+                <div data-role="title_warp"></div>
+                <div class="options" data-role="title_right">列表<div class="point fn-hide" data-role="title_right_point"></div></div>
+            </div>
+            <div class="ds-block info-flu flex-1" data-role="window">
+                <div class="ds-box orient-h pack-center window_empty" data-role="window_empty">未选择聊天</div>
+            </div>
+            <div class="ds-box orient-v options-bars fn-hide"></div>
+            <div class="ds-box orient-v inputs-area">
+                <div class="ds-box area-content flex-1">
+                    <textarea class="ds-box flex-1" data-role="client_inputs"></textarea>
+                </div>
+                <div class="ds-box area-bot orient-h pack-justify">
+                    <div class="ds-box options-btn pack-center align-center" data-role="options_panel"><i class="ds-block options-btn-icon"></i></div>
+                    <div class="send-btn" data-role="send_btn">发送</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="options_panel fn-hide" data-role="panel_body">
+        <div class="ds-block inner_options options_service" data-role="options-service">服务</div>
+        <div class="ds-block inner_options options_picture" data-role="options-picture"  style="position: relative">
+            <input type="file" value="浏览" id="uploadBtn" name="photo" class="exc_input"/>
+            <font>图片</font>
+        </div>
+    </div>
+    <div class="ds-box orient-v pack-center img_pre_look fn-hide" data-role="img_pre_look">
+        <img style="width:100%" data-role="img_pre_look_img"/>
+    </div>
+    <div class="fn-hide" style="position: absolute;bottom:0px;left:0px;z-index: 100">
+        <div>发送：<input value="100029" data-role="sender"/></div>
+        <div>接收：<input value="100001" data-role="getter"/></div>
+        <div>信息：<input data-role="inputs"/></div>
+        <div data-role="btn" style="cursor: pointer;">send</div>
+        <div class="text_contant" data-role="contant"></div>
+    </div>
+</main>
+
+</body>
+<script>
+
+window.__test__str = /test/.test(window.location.href)?'test/':'';
+
+window.$__ajax_domain = 'http://www.yueus.com/im/client/'+__test__str + 'ajax/';
+
+var seller_item_tpl = __inline('./seller_item.tmpl');
+
+var buyer_list_tpl = __inline('./buyer_list.tmpl');
+
+var buyer_item_tpl = __inline('./buyer_item.tmpl');
+
+var msg_item_tpl = __inline('./msg.tmpl');
+
+var buyer_item_empty_tpl = __inline('./buyer_item_empty.tmpl');
+
+var $ = require('jquery');
+
+var choosen_client_id = '';
+
+var ss = {sellers};
+
+var current_seller = '';
+
+var current_buyer = '';
+
+var msg_en = require('../../../../modules/msg_engine/msg_engine');//用于聊天消息的储存，取出
+
+var input_en = require('../../../../modules/msg_engine/input_engine'); //用于输入框的状态储存，取出
+
+var user_async = require('../../../../modules/async_data/user_async'); //用于异步获取user信息，包括buyer和seller
+
+var option_service_part = require('../../../../modules/option_service/wap/option_service');
+
+$(function(){
+
+    render_seller(ss); //渲染商家列表
+
+    render_buyer_list(ss); //渲染空的买家列表
+
+    buyer_list_set_default();
+
+    options_panel_init(ss);
+
+    var service_id = {yue_login_id};
+    var client_id = '100001';
+    var custom_id = '100029';
+
+    var send_url =
+    {
+        text : 'http://sendtxt-wifi.yueus.com/sendtxt.cgi',
+        media : 'http://sendmedia.yueus.com:8000/sendmedia.cgi',
+        test_url : 'http://14.29.52.13/sendtxt.cgi'
+    };
+
+    $('[data-role="send_btn"]').on('click',function()
+    {
+        msg_sender('text');
+    });
+
+    function msg_sender(type,mix_obj,preview)
+    {
+        var window_obj = $('[data-role="window"]');
+
+        var seller = window_obj.attr('seller_id');
+
+        var buyer = window_obj.attr('buyer_id');
+
+        if(!seller|| !buyer)return;
+
+        var send_obj = {};
+
+        var media_obj ={};
+
+        switch (type)
+        {
+            case 'text':
+                //客户发送到商家，后被客服拦截
+                send_obj =
+                {
+                    send_user_id : seller,
+                    to_user_id : buyer,
+                    media_type : 'text',
+                    msg_key : hex_md5(seller+buyer+'J&&#3435WS#KSJDF'),
+                    content : $('[data-role="client_inputs"]').val(),
+                    send_user_role : 'yueseller',
+                    from:"agent"
+                };IMSDK.send_msg(send_obj,send_url.test_url);break;
+            case 'merchandise':
+                //客户发送到商家，后被客服拦截  {"send_user_id":"10002","to_user_id":"100008","media_type":"merchandise"//card,"card_style":"1","card_text1":"1111111111","card_text2":"2222222222","card_title":"33333333333"}
+                send_obj =
+                {
+                    send_user_id : seller,
+                    to_user_id : buyer,
+                    media_type : 'merchandise',
+                    card_style :"3",
+                    card_text1 : mix_obj.titles,
+                    card_text2 : "￥" + mix_obj.prices,
+                    file_small_url : mix_obj.images,
+                    msg_key : hex_md5(seller+buyer+'J&&#3435WS#KSJDF'),
+                    send_user_role : 'yueseller',
+                    from:"agent",
+                    link_url : mix_obj.link_url,
+                    wifi_url : mix_obj.wifi_url
+                };IMSDK.send_msg(send_obj,send_url.test_url);break;
+            case 'picture':
+                send_obj =
+                {
+                    send_user_id : seller,
+                    to_user_id : buyer,
+                    media_type : 'photo',
+                    msg_key : hex_md5(seller+buyer+'J&&#3435WS#KSJDF'),
+                    send_user_role : 'yueseller',
+                    from:"agent"
+                };IMSDK.send_media(send_obj,mix_obj,send_url.media,preview);break;
+        }
+    }
+
+    $('[data-role="title_left"]').on('click',function()
+    {
+        $.ajax
+        ({
+            url: window.$__ajax_domain + 'agent_logout.php',
+            data : {},
+            dataType: 'json',
+            type: 'POST',
+            cache: false,
+            beforeSend: function()
+            {
+
+            },
+            success: function(data)
+            {
+                location.href = '../index.php'
+            },
+            error: function(data)
+            {
+
+            },
+            complete: function()
+            {
+
+            }
+        });
+    })
+
+    $('[data-role="title_right"]').on('click',function()
+    {
+        $('[data-role="side-bar"]').removeClass('fn-hide');
+    })
+
+    $('[data-role="header_right"]').on('click',function()
+    {
+        $('[data-role="side-bar"]').addClass('fn-hide');
+    })
+
+    user_async.init
+    ({
+        ajax_success : function(data)
+        {
+            $.each(data.result_data,function(i,obj)
+            {
+                //异步回调的渲染，组件内储存用户信息，
+                var id = obj.id;
+                var name = obj.name;
+                var icon = obj.icon;
+                var target = $('[data-async-buyer="'+ obj.id + '"]');
+
+                target.find('[data-async="name"]').html(name);
+                target.find('[data-async="icon"]').attr('src',icon);
+            })
+
+            console.log(data)
+        }
+    });
+
+
+    IMSDK.init
+    ({
+        hostname : 'online-wifi.yueus.com',
+        port : 8983,
+        //url:'ws://online-wifi.yueus.com:8983',
+        client_id:service_id,//client_id,
+        connect_fail : function(e)
+        {
+            //IMSDK.connect();
+            //IMSDK.get_msg();
+
+            console.log(e);
+
+            $('[data-role="error"]').removeClass('fn-hide');
+        },
+        message_connect_success : function(data)
+        {
+
+            console.log(data);
+
+            var pack;
+
+            $.each(data,function(i,obj)
+            {
+                pack = obj;
+
+                pack.default_img =  __uri('../../../../image/pai/default_icon.png')//默认用户图标
+
+                update_seller(pack); //更新seller状态【加红点】
+
+                update_buyer(pack); //更新buyer状态【消息数、buyer数】
+
+                msg_en.put_msg(pack);//储存消息进缓存
+
+                if($('[data-role="window"]').attr('seller_id') == pack.to_user_id && $('[data-role="window"]').attr('buyer_id') == pack.send_user_id)
+                {
+                    //整合结构 和 取出记录一样
+                    var obj =
+                            [
+                                {
+                                    direct : "yuebuyer",
+                                    pack : pack
+                                }
+                            ]
+
+                    render_msgs(obj); //渲染当前聊天
+                }
+                //异步取用户信息，若存在池中，则不再次发送请求，有需要的话可以改成每次请求。
+                user_async.get_info([pack.send_user_id])
+            })
+
+        },
+        message_receive : function(data)
+        {
+
+            console.log(data);
+
+            var pack = data;
+
+            pack.img =  __uri('../../../../image/pai/default_icon.png')//默认用户图标
+
+            update_seller(pack); //更新seller状态【加红点】
+
+            update_buyer(pack); //更新buyer状态【消息数、buyer数】
+
+            msg_en.put_msg(pack);//储存消息进缓存
+
+            if($('[data-role="window"]').attr('seller_id') == pack.to_user_id && $('[data-role="window"]').attr('buyer_id') == pack.send_user_id)
+            {
+                //整合结构 和 取出记录一样
+                var obj =
+                        [
+                            {
+                                direct : "yuebuyer",
+                                pack : pack
+                            }
+                        ]
+
+                render_msgs(obj); //渲染当前聊天
+            }
+            //异步取用户信息，若存在池中，则不再次发送请求，有需要的话可以改成每次请求。
+            user_async.get_info([pack.send_user_id])
+        },
+        message_send_success : function(send_data,xhr)
+        {
+            console.log(send_data);
+
+            var window_obj = $('[data-role="window"]');
+
+            var pack = send_data;
+
+            switch (pack.media_type)
+            {
+                case 'photo':
+                    //重置input
+                    var stc = '<input type="file" value="浏览" id="uploadBtn" name="photo" class="exc_input"/>';
+                    $('[data-role="options-picture"]').append(stc);
+                    upload_media_event_bind();
+
+                    if(JSON.parse(xhr).code != 1)
+                    {
+                        //参数异常
+                    }
+                    else
+                    {
+                        //发送成功
+                    }break;
+            }
+            //测试
+            if(pack.aa == 'test')
+            {
+
+            }
+            else
+            {
+                //聊天窗口中的商家头像
+                pack.default_img = $('[data-role="seller_icon_'+ pack.send_user_id +'"]').attr('src');
+
+                msg_en.put_msg(pack);
+
+                //发送过程切换商家过滤
+                if(window_obj.attr('seller_id') == pack.send_user_id && window_obj.attr('buyer_id') == pack.to_user_id)
+                {
+                    //整合结构 和 取出记录一样
+                    var obj =
+                            [
+                                {
+                                    direct : "yueseller",
+                                    pack : pack
+                                }
+                            ]
+
+                    render_msgs(obj,true); //渲染当前聊天
+                }
+
+            }
+            $('[data-role="client_inputs"]').val("");
+
+        },
+        message_send_fail : function(send_data,xhr)
+        {
+            console.log(xhr)
+
+            alert('信息发送失败，请重试');
+        }
+    });
+    IMSDK.connect();
+
+
+
+    //渲染seller列表，绑定事件
+    function render_seller(obj)
+    {
+        $('[data-role="seller_list"]').html(seller_item_tpl
+        ({
+            data:obj.result_data
+        }));
+
+        $('[data-role="seller_list_item"]')
+                .unbind('click')
+                .on('click',function()
+                {
+
+
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+
+                    var list_obj = $('[buyer_list="'+ $(this).attr('seller_user_id')+'"]');
+
+                    var open_obj = $('[data-open="open"]');
+
+                    if(list_obj.length != 0)
+                    {
+                        if(open_obj.length != 0)
+                        {
+                            //有已打开的buyer_list
+
+                            if(open_obj.attr('buyer_list') == $(this).attr('seller_user_id'))
+                            {
+                                //打开的是自己
+                            }
+                            else
+                            {
+                                //收起已打开的
+                                open_obj.animate
+                                ({
+                                    width:'0px'
+                                },500,function()
+                                {
+                                    $(this).addClass('fn-hide')
+
+                                    $('[buyer_list]').attr('data-open','close');
+                                    //打开新的
+                                    list_obj.removeClass('fn-hide').animate
+                                    ({
+                                        width:'150px'
+                                    },500,function()
+                                    {
+                                        //动画回调
+                                        $(this).animate({},500)
+                                    })
+                                    list_obj.attr('data-open','open')
+
+                                })
+
+                            }
+                        }
+                        else
+                        {
+                            //没有已打开的，去打开
+                            list_obj.removeClass('fn-hide').animate
+                            ({
+                                width:'150px'
+                            },500,function()
+                            {
+                                //动画回调
+                                $(this).animate({},500)
+                            })
+
+                            list_obj.attr('data-open','open')
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                })
+    }
+
+    //渲染buyer列表
+    function render_buyer_list(obj)
+    {
+        $('[data-role="seller_buyer_list"]').append(buyer_list_tpl({data:obj.result_data}))
+    }
+
+    function buyer_list_set_default()
+    {
+        $('[data-role="buyer_list"]').append(buyer_item_empty_tpl({}));
+    }
+
+    function render_msgs(obj,scroll_to_bot)
+    {
+        var window_obj = $('[data-role="window"]');
+
+        //阅读在最新消息时，接收到消息自动滚动
+        var ch = window_obj[0].clientHeight;
+
+        var st = window_obj[0].scrollTop;
+
+        var sh = window_obj[0].scrollHeight;
+        //窗体消息
+        window_obj.append(msg_item_tpl({data:obj}));
+
+        if(ch + st + 100 >= sh || scroll_to_bot){window_obj.scrollTop(sh)}
+
+
+
+        //重置头像
+        $.each($('[data-async-window-img]'),function(i,obj)
+        {
+            var id = $(obj).attr('data-async-window-img')
+
+            var form_base = user_async.get_user_base(id);
+
+            $(obj).attr('src',form_base.icon)
+        })
+
+
+        //----------------音频事件-------------------------
+        $.each($('[data-role="sound_line"]'),function(k,k_obj)
+        {
+            var con = $(k_obj);
+
+            var ogg = con.parents('[data-sound-url]').attr('data-sound-url');
+
+            var res = window.btoa(JSON.stringify({url:ogg}));
+
+            con[0].onloadedmetadata = function()
+            {
+                //手机端切换app后会重load
+                if(con.siblings('[data-role="sound_click"]').find('font').length == 0)
+                {
+                    con.siblings('[data-role="sound_click"]').append('<font>'+ con[0].duration.toFixed(1) + '"' + '</font>');
+                }
+
+            }
+            con.attr('src','http://14.29.52.16:8055/ogg2mp3?req='+ res)
+        })
+
+        $('[data-role="play_sound"]')
+                .unbind('click')
+                .on('click',function()
+                {
+                    var con = $(this);
+
+                    var sound_obj = con.find('[data-role="sound_line"]');
+
+                    //有音频
+                    if(sound_obj[0].paused)
+                    {
+                        sound_obj[0].play();
+                    }
+                    else
+                    {
+                        sound_obj[0].pause();
+                    }
+                })
+        //----------------音频事件 END-------------------------
+
+        //----------------预览大图-------------------------
+        $('[data-role="img_look"]').unbind('click').on('click',function()
+        {
+            var con = $(this);
+            $('[data-role="img_pre_look_img"]').attr('src',con.find('img').attr('src'));
+
+            $('[data-role="img_pre_look"]').removeClass('fn-hide');
+        })
+        //----------------预览大图 END-------------------------
+    }
+    $('[data-role="img_pre_look"]').on('click',function()
+    {
+        $(this).addClass('fn-hide');
+    })
+
+    function update_seller(obj)
+    {
+        $('[data-role="title_right_point"]').removeClass('fn-hide');
+
+        $('[seller_user_id="'+obj.to_user_id + '"]').find('.point').removeClass('none').addClass('red')
+    }
+
+
+    function update_buyer(obj)
+    {
+//        content: "34345"
+//        img: "http://static.yueus.com/im/client/test/static/pc/image/pai/d9.jpg"
+//        media_type: "text"
+//        notice_id: 2526367
+//        send_time: 1446022701
+//        send_user_id: "100029"
+//        send_user_role: "yuebuyer"
+//        to_user_id: "100001"
+
+        var node = $('[buyer_list="'+ obj.to_user_id +'"]');
+
+        render_buyer(obj,node)
+    }
+
+    function render_buyer(obj,node)
+    {
+
+        //渲染商家列表至对应的buyer_list
+        var append_node = node;
+
+        append_node.find('[data-role="buyer_item_empty"]').remove();
+
+        if(append_node.children('[send_user_id="' + obj.send_user_id +'"]').length == 0)
+        {
+            //买家未存在
+            append_node.append(buyer_item_tpl
+            ({
+                data:[obj],
+                nums:1
+                //img : __uri('../../../../image/pai/d9.jpg')
+            }));
+
+            $('[data-role="buyer_list_item"]')
+                    .unbind('click')
+                    .on('click',function()
+                    {
+                        var textarea_obj = $('[data-role="client_inputs"]');
+
+                        var window_obj = $('[data-role="window"]');
+
+                        $('[data-role="window_empty"]').remove();
+
+                        var con = $(this);
+
+                        //去除其他买家高亮，当前高亮。
+                        $('[data-role="buyer_list_item"]').removeClass('active');
+                        con.siblings().removeClass('active');
+                        con.addClass('active');
+
+                        var buyer_id = con.attr('send_user_id')
+
+                        var seller_id = con.attr('to_user_id')
+
+                        if(seller_id != window_obj.attr('seller_id') || buyer_id != window_obj.attr('buyer_id'))
+                        {
+                            if(!window_obj.attr('seller_id')|| !window_obj.attr('buyer_id'))
+                            {
+                                //首次打开时 undefined
+
+                            }
+                            else
+                            {
+                                //不是首次打开 储存输入文本 再根据买家取出
+                                input_en.put_msg(window_obj.attr('seller_id')+window_obj.attr('buyer_id'),textarea_obj.val())
+
+                                textarea_obj.val("");
+
+                                var input_str = input_en.get_msg(seller_id+buyer_id);
+
+                                if(input_str.length!= 0)
+                                {
+                                    textarea_obj.val(input_str[input_str.length-1].storage)
+                                }
+
+
+                            }
+
+                            //未打开窗口，或已打开不是应该打开的窗口
+                            window_obj.html("");
+                            //接收的信息后缀是 'yuebuyer'
+                            var send_type = 'yuebuyer';
+                            //取出信息
+                            var msg_arr = msg_en.get_msg('who_to_who',buyer_id + seller_id); // + send_type
+                            //渲染信息
+                            render_msgs(msg_arr);
+                        }
+                        else
+                        {
+                            //打开正确，不动。
+                        }
+                        //标记当前窗口
+                        $('[data-role="window"]').attr('seller_id',seller_id).attr('buyer_id',buyer_id);
+                        //设置窗口标题
+                        $('[data-role="title_warp"]').html(buyer_id);
+
+                        //当前买家选项更新红点
+                        con.find('[data-role="nums"]').removeClass('red').addClass('none').attr('data-nums',0).html("0")
+
+                        if(con.parents('[data-role="buyer_list"]').find('.red').length == 0)
+                        {
+                            $('[data-seller_list_item="'+seller_id + '"]').find('.red').removeClass('red').addClass('none')
+                        }
+
+                        if($('[data-seller_list_item]').find('.red').length == 0)
+                        {
+                            $('[data-role="title_right_point"]').addClass('fn-hide');
+                        }
+
+
+                        $('[data-role="side-bar"]').addClass('fn-hide');
+
+                        //商家服务切换
+                        option_service_part.load(seller_id);
+
+                        //从信箱移除已读信息
+                        var has_read = msg_en.get_msg('who_to_who',buyer_id + seller_id);
+
+                        var notice_arr = [];
+
+                        $.each(has_read,function(r,r_obj)
+                        {
+                            notice_arr.push(r_obj.pack.notice_id)
+                        })
+
+                        console.log(notice_arr);
+
+                        IMSDK.has_read(notice_arr);
+
+                    })
+        }
+        else
+        {
+            //买家已存在
+            if($('[data-role="window"]').attr('seller_id') == obj.to_user_id && $('[data-role="window"]').attr('buyer_id') == obj.send_user_id)
+            {
+                //若是当前聊天窗口，则不增加红点
+            }
+            else
+            {
+                //若不是当前聊天窗口，则找到已存在的买家，红点数+1
+                var change_nums_obj = $('[data-buyer-list-item="'+obj.send_user_id + obj.to_user_id+'"]').find('[data-role="nums"]');
+
+                var num = parseInt(change_nums_obj.attr('data-nums'))+1;
+
+                change_nums_obj.removeClass('none').addClass('red').attr('data-nums',num).html(num);
+            }
+
+        }
+    }
+
+    function options_panel_init(obj)
+    {
+        //工具栏初始化 -----服务-----------
+        $('[data-role="options-service"]').on('click',function()
+        {
+            var con = $(this);
+
+            if(!con.attr('open'))
+            {
+                option_service_part.show();
+
+                $('[data-role="panel_body"]').addClass('fn-hide');
+
+                con.attr('open',true)
+            }
+            else
+            {
+                option_service_part.hide();
+
+                con.attr('open',false)
+            }
+        })
+
+        option_service_part.init
+        ({
+            data:obj,
+            bar : $('[role="main"]'),
+            click_send : function(obj)
+            {
+                msg_sender('merchandise',obj);
+            },
+            click_link : function(obj)
+            {
+                window.open('../../../../mall/user/goods/service_detail.php?seller_user_id=' + $('[data-role="window"]').attr('seller_id') + '&goods_id=' + $(obj).parents('[data-role="part_service_item"]').attr('data_goods_id'));
+            }
+        })
+
+        //工具栏初始化 -----服务 END-----------
+
+        //工具栏初始化 -----图片-----------
+        $('[data-role="options-picture"]').on('click',function()
+        {
+            var con = $(this);
+
+            if(!con.attr('open'))
+            {
+                con.attr('open',true)
+            }
+            else
+            {
+                con.attr('open',false)
+            }
+        })
+        //工具栏初始化 -----图片 END-----------
+    }
+
+    function upload_media_event_bind()
+    {
+        document.getElementById("uploadBtn").addEventListener("change",function()
+        {
+            var file = this.files[0];
+
+            var reader = new FileReader();
+
+            reader.onload = function(e)
+            {
+                msg_sender('picture',document.getElementById('uploadBtn'),e.target.result)
+
+            }
+
+            reader.readAsDataURL(file);
+        })
+    }
+    upload_media_event_bind();
+
+    $('[data-role="options_panel"]').on('click',function()
+    {
+        $('[data-role="panel_body"]').toggleClass('fn-hide');
+
+    })
+
+
+
+    $('[data-role="window"]').on('click',function (event) {
+        $('[data-role="options_service_panel"]').addClass('fn-hide');
+
+        $('[data-role="options-service"]').attr('open',false);
+
+        event.stopPropagation();
+    });
+
+    $('[data-role="btn"]').on('click',function()
+    {
+        var send_str = $('[data-role="sender"]').val();
+
+        var receive_str = $('[data-role="getter"]').val();
+        //客户发送到商家，后被客服拦截
+        var obj =
+        {
+            aa : 'test',
+            send_user_id : send_str,
+            to_user_id : receive_str,
+            media_type : 'text',
+            msg_key : hex_md5(send_str+receive_str+'J&&#3435WS#KSJDF'),
+            content : $('[data-role="inputs"]').val(),
+            send_user_role : 'yuebuyer',//'yueseller',
+            from:"agent"
+        };
+
+        console.log(obj);
+
+        IMSDK.send_msg(obj,send_url.test_url);
+    })
+});
+
+</script>
+
+</html>

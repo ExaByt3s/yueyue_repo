@@ -1,0 +1,26 @@
+/*  
+Theme Name:poco ued theme
+Author URI:poco.cn
+Description: poco
+*/
+
+/** 清除内外边距 **/
+
+
+body{
+    background-color: #f5f5f8 !important;
+}
+
+.register-page{
+    margin-top: 55px;
+    height: 680px;
+}
+
+
+.list-role{}
+.list-role li{ float:left;display:inline; cursor: pointer;width: 150px;height: 50px;text-align: center;line-height: 50px;border: 1px solid #d2d2d2;border-radius: 5px;margin-right: 12px; color: #666666;font-size: 16px;background: url(../images/all-24x24.png) right bottom no-repeat;}
+.list-role li.cur{border: 1px solid #ff4978;color: #ff4978;background-image:  url(../images/all-24x24-hover.png)}
+
+.register-page .rbox .tips{color: #ff4978;font-size: 14px;}
+
+

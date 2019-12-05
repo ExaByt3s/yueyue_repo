@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+#list p
+{
+	line-height:auto;
+	margin:0px;
+}
+.table-list table {
+  border-left: #dadcdd 1px solid;
+}
+.table-list tbody td, .table-list thead th {
+  border-right: #dadcdd 1px solid;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		   <li> 
+		     <input type="button" class="button" onclick="location.href='cameraman_label_cat_list.php'" value='返回标签类目'/>
+		     <a href="javascrip:void(0);" class="on">{cat_name}</a>
+		     &nbsp;
+		     
+		   </li>
+	</ul>
+</div>
+<!--top-->
+	<div class="table-list">
+		<div class="btn">
+		   <iframe name="frame" id="frame" style="display:none"></iframe>
+		    <form method="post" target="frame">
+			   <input type="text" name="label" class="input-text" value="" />
+			   <input type="hidden" name="act" value="insert"/>
+			   <input type="hidden" name="cat_id" value="{cat_id}"/>
+			   <input type="submit" class="button" value="添加标签"/>
+			</form>
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0" id="list">
+			<thead>
+				<tr>
+					<th>标签</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+					<td align="center">
+					  {label}
+					</td>
+					<td align="center">
+				     <input type="button" class="button" value="删除" onclick="frame.location.href='cameraman_label_list.php?act=delete&id={id}'"/>
+					</td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+		<!--list end-->
+	</div>
+</div>
+</body>
+</html>

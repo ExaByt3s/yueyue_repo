@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gb2312" />
+    <meta http-equiv = "X-UA-Compatible" content ="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>约约--最高效的时间电商平台</title>
+    <meta name="keywords" content="约约，模特，摄影师，约拍，私拍，外拍，摄影，交易" />
+    <meta name="Description" content="约约是最美的O2O产品，在这里，每个美女都利用自己的零碎时间，用美丽来变现。信用机制让交易更安心，私聊机制确保摄影师与模特真实沟通，多维度搜索帮摄影师到自己想拍的模特，支持一人约多人拍从此创作不再孤单。" />
+    <link href="http://static-c.yueus.com/mall/seller//static/wap/style/s_app_style/wap.css?5" type="text/css" rel="stylesheet" />
+    <meta content="telephone=no" name="format-detection" />
+</head>
+<script>__pocoStieStat={prt:'0.05138',pst:new Date().getTime()};</script>
+
+
+<body>
+<script type="text/javascript">
+    // 临时处理IOS9
+    function get_ua(){var d={};var f=window;var g=f.navigator;var b=g.appVersion;d.isMobile=(/(iphone|ipod|android|ios|ipad|nokia|blackberry|tablet|symbian)/).test(g.userAgent.toLowerCase());d.isAndroid=(/android/gi).test(b);d.isIDevice=(/iphone|ipad/gi).test(b);d.isTouchPad=(/hp-tablet/gi).test(b);d.isIpad=(/ipad/gi).test(b);d.otherPhone=!(d.isAndroid||d.isIDevice);d.is_uc=(/uc/gi).test(b);d.is_chrome=(/CriOS/gi).test(b)||(/Chrome/gi).test(b);d.is_qq=(/QQBrowser/gi).test(b);d.is_real_safari=(/safari/gi).test(b)&&!d.is_chrome&&!d.is_qq;d.is_standalone=(window.navigator.standalone)?true:false;d.window_width=window.innerWidth;d.window_height=window.innerHeight;if(d.isAndroid){var c=parseFloat(b.slice(b.indexOf("Android")+8));d.android_version=c}else{if(d.isIDevice){var a=(b).match(/OS (\d+)_(\d+)_?(\d+)?/);var e=a[1];if(a[2]){e+="."+a[2]}if(a[3]){e+="."+a[3]}d.ios_version=e}}d.is_iphone_safari_no_fullscreen=d.isIDevice&&d.ios_version<"7"&&!d.isIpad&&d.is_real_safari&&!d.is_standalone;d.is_yue_app=(/yue_pai/).test(b);d.is_weixin=(/MicroMessenger/gi).test(b);d.is_normal_wap=!d.is_yue_app&&!d.is_weixin;return d};
+</script>
+<script>
+    document.addEventListener('touchstart',function(){},false);
+    function isWeiXin(){
+        var ua = window.navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function download_ios_apk(){
+        if(isWeiXin()){
+            alert('微信用户，请点击页面右上角“...”—>“在浏览器中打开”，进行安装，谢谢~');
+        }
+
+        var ua = get_ua();
+
+        var d_link = 'http://app.yueus.com/dl_merchant_for_i.php';
+
+        if(ua.isIDevice &&  parseInt(ua.ios_version) >= 9)
+        {
+            window.location.href = 'http://www.yueus.com/mall/user/topic/index.php?topic_id=655';
+            return false;
+        }
+        else
+        {
+            window.location.href = d_link;
+        }
+    }
+
+    function download_apk(){
+        if(isWeiXin()){
+            alert('微信用户，请点击页面右上角“┇”―>“在浏览器中打开”，进行安装，谢谢~');
+			return false;
+        }
+    }
+</script>
+<div class="download-page">
+    <div class="download-item">
+        <div class="img-title"><img src="http://static-c.yueus.com/mall/seller//static/wap/image/s_app_image/title-img.png" /></div>
+
+        <div class="btn-link"><a href="http://s.yueus.com/index.php?pc=1">马上认证，成为商家</a></div>
+        <div class="txt-box"><img src="http://static-c.yueus.com/mall/seller//static/wap/image/s_app_image/title-img-txt.png" /></div>
+        <div class="download-btn-con">
+            <div class="iphone-con">
+                <a  class="ui-btn iphone-btn" onclick="javascript:download_ios_apk();">
+                    <i class="icon"></i>
+                    <div class="txt">
+                        <p class="i-versions">iPhone版</p>
+                        <p class="versions"></p>
+                    </div>
+                </a>
+                <p class="tips"><a href="http://yp.yueus.com/mall/user/topic/index.php?topic_id=655&online=1">重要：ios9 系统安装提示!</a></p>
+            </div>
+           <div class="android-con clearfix">
+            <a href="http://app.yueus.com/dl_merchant_for_a.php" class="ui-btn android-btn" onclick="javascript:download_apk();">
+                <i class="icon"></i>
+                <div class="txt">
+                    <p class="i-versions">Android版</p>
+                    <p class="versions"></p>
+                </div>
+            </a>
+            <p class="tips"><!-- <a href="#">Android版备用下载</a> --></p>
+           </div>
+        </div>
+    </div>
+
+ 
+    <div class="info-item">
+        <p>公司介绍：广州摩幻时信息技术有限公司，创办于2014年8月，已获得千万天使轮资金和3000多万Pre A轮融资。</p>
+        <p>产品介绍：项目“约约”以打造时间电商为目标，帮助每一个人经营自己的业余时间，让兴趣和时间成为可变现的资源，为第三产业实现更个性化的供需对接。第一阶段，“约约”致力于打造摄影服务和模特邀约第一平台。未来，约约将扩张至技能、娱乐、商业服务等更多品类，让每个人都能找到价值变现的机会，同时满足用户个性化的需求。</p>
+        <p>客服电话：4000-82-9003</p>
+        <p>Copyright 2015 &copy Yueus.com</p>
+    </div>
+</div>
+</body>
+
+</html>

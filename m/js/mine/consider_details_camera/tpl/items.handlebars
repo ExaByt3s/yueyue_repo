@@ -1,0 +1,134 @@
+{{#if top_title}}
+    <div class="top_notice"><span class="notice">{{{top_title}}}</span><span class="notice_cancel fn-hide">X</span></div>
+{{/if}}
+<!--div class="top_notice fn-hide"><span class="notice">取消约拍提交成功，请静候回复。</span><span class="notice_cancel">X</span></div>
+<div class="top_notice fn-hide"><span class="notice">对方已接受取消约拍</span><span class="notice_cancel">X</span></div>
+<div class="top_notice fn-hide"><span class="notice">对方拒绝取消约拍</span><span class="notice_cancel">X</span></div>
+<div class="top_notice fn-hide"><span class="notice">已退款成功</span><span class="notice_cancel">X</span></div-->
+
+<div class="cam-head secondary" data-role="cam-dead" data-from_date_id="{{from_date_id}}" data-to_date_id="{{to_date_id}}">
+    <div class="cam-head-inside">
+    {{#if date_role_is_model}}
+        <div class="avatar-size-mod avatar-size-mod-50">
+            <span class="icon avatar-size-area"></span>
+            <i class="avatar-size-img" style="background-image: url({{model_user_icon}});background-size:cover;background-repeat: no-repeat;background-position: 50%;"></i>
+        </div>
+        <div class="cam-space">
+            <div class="cam-right">
+                <div class="user-name" data-role="user-name">{{model_nickname}}</div>
+                <div class="location">
+                    <!--i class="icon icon-place"></i-->
+                    <span data-role="location-name">{{city_name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="icon icon-r-16x26 arrow"></div>
+    {{else}}
+        <div class="avatar-size-mod avatar-size-mod-50">
+            <span class="icon avatar-size-area"></span>
+            <i class="avatar-size-img" style="background-image: url({{cameraman_user_icon}});background-size:cover;background-repeat: no-repeat;background-position: 50%;"></i>
+        </div>
+        <div class="cam-space">
+            <div class="cam-right">
+                <div class="user-name" data-role="user-name">{{cameraman_nickname}}</div>
+                <div class="location">
+                    <!--i class="icon icon-place"></i-->
+                    <span data-role="location-name">{{city_name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="icon icon-r-16x26 arrow"></div>
+    {{/if}}
+    </div>
+</div>
+
+<ul class="list1 secondary">
+    <li>
+        <div class="l">价格：</div>
+        <div class="r">{{total_price_v2}}</div>
+    </li>
+    <!--li>
+        <div class="l">时长：</div>
+        <div class="r">{{date_hour}}小时</div>
+    </li-->
+    <li>
+        <div class="l">到场拍摄人数：</div>
+        <div class="r">{{limit_num}}</div>
+    </li>
+    <li>
+        <div class="l">风格：</div>
+        <div class="r">{{date_style}}</div>
+    </li>
+    <!--li data-role="nav-to-zone" data-user-id="{{from_date_id}}">
+        <div class="icon icon-r-16x26"></div>
+        <div class="l">摄影师：</div>
+        <div class="r">{{cameraman_nickname}}</div>
+    </li-->
+</ul>
+
+<ul class="list2 secondary">
+    <li>
+        <div class="l">到场拍摄时间：</div>
+        <div class="r">{{date_time}}</div>
+    </li>
+    <li>
+        <div class="l">地点：</div>
+        <div class="r">{{date_address}}</div>
+    </li>
+    <li>
+        <div class="l">单号：</div>
+        <div class="r">{{date_id}}</div>
+    </li>
+    <!--li>
+        <div class="l">时间：</div>
+        <div class="r">{{date_time}}</div>
+    </li>
+    <li>
+        <div class="l">类型：</div>
+        <div class="r">{{date_type}}</div>
+    </li>
+    <li>
+        <div class="l">地点：</div>
+        <div class="r">{{date_address}}</div>
+    </li-->
+</ul>
+{{#if date_log}}
+    <div class="step_container secondary" data-role="step_container">
+        <div class="line"></div>
+        <div class="step_side">
+            {{#each date_log}}
+                <div class="child">
+                    <div class="cirle"></div>
+                    <div class="user_icon">
+                        <div class="avatar-size-mod avatar-size-mod-32">
+                            <!--span class="icon avatar-size-area"></span-->
+                            <i class="avatar-size-img radius-af" style="background-image: url({{user_icon}});background-size:cover;background-repeat: no-repeat;background-position: 50%;"></i>
+                        </div>
+                    </div>
+                    <div class="log_side">
+                        <div class="title">{{{text}}}</div>
+                        {{#if reason}}<div class="reason">理由：{{reason}}</div>{{/if}}
+                        <div class="time">{{add_time}}</div>
+                        <div class="btn_talk fn-hide" data-role="btn_talk_container">
+                            <button data-role="btn_talk" class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large">
+                                <span class="ui-button-content"><i class="icon icon-siliao-m"></i> 私聊一下</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}
+
+<div class="fn-hide" data-role="reject-notice" style="font-size: 12px;color: #666666;padding: 15px 10px 30px 10px;">莫灰心，大批靓模在等你，拨打4000-82-9003，我们帮你！</div>
+
+
+<div class="submit_notice fn-hide" data-role="date_cancel_notice">
+    <p class="title">温馨提示：</p>
+    <p>1、约拍24小时之前取消，直接默认，全额退款。</p>
+    <p>2、约拍24小时之内取消，需要获得模特确认。模特12小时内不回复，系统将默认退款。</p>
+    <p>3、在约拍24小时之内取消，模特不同意取消的，将退还总价的70%。</p>
+</div>
+
+

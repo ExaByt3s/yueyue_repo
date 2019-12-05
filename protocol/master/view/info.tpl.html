@@ -1,0 +1,26 @@
+<h2>&nbsp;</h2>
+<div class="col-md-12">
+    <div class="error-template">
+        <h1>Oops&nbsp;<span class="label label-danger">(⊙o⊙)</span></h1>
+        <h2>
+        	<?php if(empty($info)):?>
+        		糟糕,没找到野生<span class="text text-danger">页面</span>！
+        	<?php else: echo $info; endif;?>
+        </h2>
+        <div class="error-details">
+            Sorry, an error has occured!
+        </div>
+        <div class="error-actions">
+        	<?php if(!isset($button_left)):?>
+	            <a href="/protocol/master/?c=index" class="btn btn-primary btn-lg">
+	                <span class="glyphicon glyphicon-home"></span>&nbsp;返回首页
+	            </a>
+        	<?php else: echo $button_left; endif;?>
+        	<?php if(!isset($button_right)):?>
+	            <a href="mailto:chenwb@yueus.com?subject=master%20404error&body=<?php echo $_GET['c'];?>%20,This%20page%20has%20flown%20away...." class="btn btn-default btn-lg">
+	                <span class="glyphicon glyphicon-envelope"></span>&nbsp;投诉willike
+	            </a>
+        	<?php else: echo $button_right; endif;?>
+        </div>
+    </div>
+</div>

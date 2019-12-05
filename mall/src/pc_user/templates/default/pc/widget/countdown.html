@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>倒计时</title>
+
+<!--基础样式 START-->
+<link rel="import" href="../webcontrol/head.tpl.htm?__inline">
+<!--基础样式 END-->
+
+<!-- 当前页css -->
+
+</head>
+
+<style type="text/css">
+
+    body{
+        padding: 20px
+    }
+    *{
+        padding: 0; 
+        margin: 0;
+    }
+    .normal{
+        width: 80px;
+        height: 38px;
+        border-radius: 5px;
+        background: #4949f0;
+        font-size: 14px;
+        text-align: center;
+        line-height: 38px;
+        cursor: pointer;
+        color: #fff;
+    }
+    .normal:hover{
+        background: #5353f8;
+    }
+    .stop
+    {
+        background: #99999c;
+    }
+    .stop:hover{
+        background: #a7a7a9;
+    }
+
+    .input-text{
+        border: 1px solid #ddd;
+        height: 30px;
+        margin: 15px 0;
+
+    }
+
+</style>
+
+<body>
+
+    <br />
+    <br />
+    倒计时组件
+    <br />
+    <br />
+    输入手机号：<input type="text" name=" " id=" " class="input-text" phone_number_1  />
+    <div class="normal" demo1 >1</div>
+
+    <br />
+    <br />
+
+    输入手机号：<input type="text" name=" " id=" " class="input-text" phone_number_2  />
+    <div class="normal" demo2 >2</div>
+
+    <br />
+    <br />
+
+
+    <script type="text/javascript">
+
+        var $ = require('jquery');
+        var countdown = require('../../../../modules/common/countdown/countdown');
+
+        // 实例化1
+        var obj_1 = new countdown({
+            _phone_number_ele : $('[phone_number_1]') ,//要接受验证码的手机号码
+            _time_limit : 60 , //倒计时多少秒
+            _ele : $('[demo1]'), //要倒计时的节点
+            _stop_class : 'stop', //停止的样式
+            _again_txt : '重新获取' ,//显示的文字
+            // ajax 请求
+            _ajax : 
+            {
+                url : "countdown_test.php",  
+                dataType: 'html',
+                data : {
+                    action : 'change_pwd'
+                },
+                beforeSend : function()
+                {
+
+                },
+                callback : function(res)
+                {
+                    // 请求回调
+                    // console.log(res);
+
+                },
+                error : function()
+                {
+                   
+                }
+            }
+        })
+
+
+        // 实例化2
+        var obj_2 = new countdown({
+            _phone_number_ele : $('[phone_number_2]') ,//要接受验证码的手机号码
+            _time_limit : 5 , //倒计时多少秒
+            _ele : $('[demo2]'), //要倒计时的节点
+            _stop_class : 'stop', //停止的样式
+            _again_txt : '重新获取', //显示的文字
+            // ajax 请求
+            _ajax : 
+            {
+                url : "countdown_test.php",  //请求地址
+                dataType: 'html',
+               
+                beforeSend : function()
+                {
+
+                },
+                callback : function(res)
+                {
+                    // 请求回调
+                },
+                error : function()
+                {
+                   
+                }
+            }
+        })
+
+    </script>
+
+
+</body>
+</html>

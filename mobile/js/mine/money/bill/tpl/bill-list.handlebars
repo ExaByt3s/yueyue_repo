@@ -1,0 +1,12 @@
+{{#each data}}
+<div class="child">
+    <div class="child-left">
+        <div class="subject">{{subject}}</div>
+        <div class="add_date">{{add_date}}</div>
+    </div>
+    <div class="child-right">
+        <div class="amount">{{#if flow_type}}-{{^}}+{{/if}}{{amount}}</div>
+        <div class="status {{#if status_success}}success{{/if}}">{{status}}</div>
+    </div>
+</div>
+{{/each}}

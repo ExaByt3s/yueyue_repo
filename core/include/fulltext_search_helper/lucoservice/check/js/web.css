@@ -1,0 +1,22 @@
+TABLE { BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 2px}
+SELECT {
+	FONT-SIZE: 9pt;
+	COLOR: #000000; background-color: #E0E2F1;
+}
+a { TEXT-DECORATION: none; color:#000000}
+a:hover{ text-decoration: underline;}
+BODY {font-family:Verdana;FONT-SIZE: 12px;MARGIN: 0;color: #000000;background: #F5F5FF}
+textarea,input,object	{
+	font-family: Tahoma, Verdana;
+	font-size: 12px;
+	color: #000000;
+	font-weight: normal;
+background-color: #ffffff ; 
+}
+TD { BORDER-RIGHT: 1px; BORDER-TOP: 0px; FONT-SIZE: 9pt; COLOR: #000000;}
+TH { BORDER-RIGHT: 1px; BORDER-TOP: 0px; FONT-SIZE: 9pt; COLOR: #000000;}
+.t     {	LINE-HEIGHT: 1.4}
+.head { color: #ffffff;background: #6A71A3 url();}
+.head a{ color: #ffffff;}
+.bold {font-weight:bold;}
+.smalltxt {font-family: Tahoma, Verdana; font-size: 8pt;color: #000000;}

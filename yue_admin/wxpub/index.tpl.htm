@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<!-- BEGIN JS_FILES -->
+<script type="text/javascript" src="{js_link}?{top._dev}"></script>
+<!-- END JS_FILES -->
+<!-- BEGIN STYLE_FILES -->
+<link rel="stylesheet" type="text/css" href="{css_link}?{top._dev}">
+<!-- END STYLE_FILES -->
+<title>欢迎使用微信公众号管理平台 Powered by hai - Powered by hai</title>
+</head>
+<body style="background:#E2E9EA">
+<!--header-->
+{header_html}
+<!--header-->
+<script>
+function nav_switch(cur,count){
+
+	for(i=0;i<count;i++){
+		
+		$('#nav_'+i).removeClass('on');
+	
+	}
+	$('#nav_'+cur).addClass('on');
+
+}
+</script>
+<!--main-->
+<div id="Main_content">
+	<div id="MainBox">
+	    <div class="main_box">
+			<iframe name="main" id="Main" src="menu.php" frameborder="false" scrolling="auto" width="100%" allowtransparency="true" height="700"></iframe>
+		</div>
+    </div>
+	<div id="leftMenuBox">
+    	<div id="leftMenu" style="height: 100%; display: block;">
+			<div style="padding-left:12px;_padding-left:10px;">				
+				<dl style="display: block;">
+					<dt>[<span id="bind_user"></span>]管理</dt>
+					<dd class="on" id="nav_0">
+						<span><a href="menu.php" target="main" onclick="nav_switch(0,8)">菜单列表</a></span>
+					</dd>
+					<dd id="nav_1">
+						<span><a href="news.php" target="main" onclick="nav_switch(1,8)">图文列表</a></span>
+					</dd>						
+					<dd id="nav_2">
+						<span><a href="cmd.php?act=modify&cmd_type=subscribe" target="main" onclick="nav_switch(2,8)">被添加的自动回复</a></span>
+					</dd>
+					<dd id="nav_3">
+						<span><a href="cmd.php?act=modify&cmd_type=default" target="main" onclick="nav_switch(3,8)">消息自动回复</a></span>
+					</dd>
+					<dd id="nav_4">
+						<span><a href="cmd.php?act=list" target="main" onclick="nav_switch(4,8)">关键字列表</a></span>
+					</dd>
+					<dd id="nav_5">
+						<span><a href="mass_send.php" target="main" onclick="nav_switch(5,8)">群发列表(测试)</a></span>
+					</dd>
+					<dd id="nav_6">
+						<span><a href="material.php?act=list" target="main" onclick="nav_switch(6,8)">素材列表</a></span>
+					</dd>
+					<dd id="nav_7">
+						<span><a href="#this" onclick="top.location.href='main.php'" target="main" onclick="nav_switch(5,8)">返回选择公众号</a></span>
+					</dd>						
+				</dl>
+			</div>
+		</div>
+		<div id="Main_drop">
+			<a href="javascript:toggle_leftbar(1);" class="on" style="display: inline;"><img src="../images/admin_barclose.gif" width="11" height="60" border="0"></a>   
+			<a href="javascript:toggle_leftbar(0);" class="off" style="display: none;"><img src="../images/admin_baropen.gif" width="11" height="60" border="0"></a>  
+		</div>
+    </div>
+</div>
+<!--main-->
+</body>
+<script>
+$('#bind_user').html(readCookie('cur_bind_user'));
+</script>
+</html>

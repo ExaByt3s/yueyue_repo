@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/table.css">
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/js/admin.js"></script>
+    <title>优惠券后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="javascript:void(0);" class="on">优惠券总表</a>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form action="?" method="get">
+                    名称:
+                    <input type="text" size="14" class="input-text" name="batch_name" value="{batch_name}">
+                    <!-- 至
+                    <input type="text" size="10" class="input-text" name="start_time" value="" readonly="true">
+                    优惠券类型:
+                    <select name="scope_module_type">
+                        <option value="all">全部</option>
+                        <option value="yuepai">约拍券</option>
+                        <option value="waipai">外拍券</option>
+                        <option value="id">专题券</option>
+                    </select> -->
+                    <input type="submit" value="查询" class="button">
+                    <input type="reset" value="重置" class="button">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+
+    <div class="table-list" id="table-list">
+        <!--list-->
+        <table width="100%" cellspacing="0" style="min-width: 1000px;">
+            <thead>
+            <tr>
+                <th>申请日期</th>
+                <th>批次ID</th>
+                <th>包含优惠券</th>
+                <th>优惠券名</th>
+                <th>满X元</th>
+                <th>优惠券面值</th>
+                <th>总申请张数</th>
+                <th>发送数量</th>
+                <th>剩余数量</th>
+                <th>已补贴金额</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center">{add_time}</td>
+                <td align="center">{batch_id}</td>
+                <td align="center">{scope_module_type_name}</td>
+                <td align="center">{batch_name}</td>
+                <td align="right">{scope_order_total_amount}</td>
+                <td align="right">{coupon_face_value}</td>
+                <td align="center">{plan_quantity}</td>
+                <td align="center">{real_quantity}</td>
+                <td align="center">{remain_quantity}</td>
+                <td align="right">{cash_amount}</td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<div class="rows-title">
+    <h1>API接口调试&nbsp;
+        <small>
+            <small>@willike</small>
+        </small>
+    </h1>
+</div>
+<?php if($result == 1):?>
+<div class="api-post">
+    <div class="col-md-12 col-xs-12 api-url">
+    	<div class="col-md-3 col-xs-12">
+    		<div class="input-group">
+			  	<span class="input-group-addon" id="basic-addon1">API</span>
+	        	<input type="text" name="search" class="form-control" placeholder="请输入想要查询的API接口">
+			</div>
+			<div class="api-url-search">
+				<ul class="dropdown-menu">
+				  <li role="separator" class="divider"></li>
+				</ul>
+			</div>
+        </div>
+        <div class="col-md-3 col-xs-12 fit-select">
+            <select name="type" class="form-control">
+                <option value="customer">消费者版 (customer)</option>
+                <option value="merchant">商家版 (merchant)</option>
+            </select>
+        </div>
+        <?php foreach($list as $name => $apis):?>
+        <div id="<?php echo $name;?>" class="col-md-6 col-xs-12 sub-select">
+            <select name="category" class="form-control">
+                <option value="">请选择API接口 (<?php echo $name;?>)</option>
+                <?php foreach($apis as $key => $val):?>
+                <option value="<?php echo $key;?>"><?php echo $key.' '.$val;?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+        <?php endforeach;?>
+    </div>
+    <form method="POST" action="#" class="margin-base-vertical api-form" role="form">
+    <div class="col-md-12 api-contents">
+        <div class="api-fileds col-md-4">
+            <div id="post">
+                <div class="input-group">
+                    <span class="input-group-addon">接口</span>
+                    <input type="text" class="form-control" name="user_id" value="" placeholder="请选择API接口  ↑">
+                </div>
+                <textarea class="form-control" placeholder="API接口调试@YUEUS.com"></textarea>
+            </div>
+            <hr>
+            <input type="hidden" name="path" value="">
+            <div class="input-group">
+                <span class="input-group-addon">APP版本</span>
+                <input type="text" name="version" value="" class="form-control" placeholder="APP版本">
+		            <span class="input-group-btn">
+		                <button type="submit" class="btn btn-primary">
+                            &nbsp;&nbsp;&nbsp;&nbsp;发&nbsp;&nbsp;送&nbsp;&nbsp;&nbsp;&nbsp;
+                        </button>
+		            </span>
+            </div>
+        </div>
+        <div class="api-result col-md-8">
+            <span class="api-copy">复制</span>
+            <pre id="api-result">
+                <span>API调试结果展示</span>
+            </pre>
+        </div>
+    </div>
+    </form>
+</div>
+<?php else: ?>
+<div class="error">
+    <span><?php echo $message;?></span>
+    <span class="glyphicon glyphicon-refresh"></span>
+</div>
+<?php endif;?>
+<script type="text/javascript" src="/protocol/master/script/min/bejson.min.js"></script>
+<script type="application/javascript">
+    var postman = <?php echo $postman;?>;
+    var api = <?php echo $api;?>;
+    var version = <?php echo $version;?>;
+</script>

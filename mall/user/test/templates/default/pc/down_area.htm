@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>无标题文档</title>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/lib/mod.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<!-- modjs 必须引用 -->
+<!--RESOURCE_lib/mod.js_PLACEHOLDER--><script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/lib/lib.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/style/common/base.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/style/common/button.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/style/common/color.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/style/common/common.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/style/common/global-top-bar.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/style/common/footer.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/style/widget/down-app-area.css">
+<!--基础样式 END-->
+
+
+<script>
+(function()
+{
+    if(!window.console){
+        console = (function(){
+            var instance = null;
+            function Constructor(){
+                
+            }
+            Constructor.prototype = {
+                log : function(str){
+
+                }
+            }
+            function getInstance(){
+                if(instance == null){
+                    instance =  new Constructor();
+                }
+                return instance;
+            }
+            return getInstance();
+        })()
+    }
+
+    String.prototype.trim = function() {
+        return this.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+})();
+</script>
+
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/jquery/jquery.js"></script>
+<!--配置全局变量-->
+<script>
+	window.$__domain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : './ajax/'
+	};
+
+    var $ = require('components/jquery/jquery.js');
+    window.jQuery = $ ;
+
+    (function()
+    {
+        var cur_pathname = window.location.pathname;
+
+        if(/test/.test(cur_pathname))
+        {
+            document.title = '测试-'+document.title;
+        }
+    })();
+</script>  
+
+<!-- 当前页css -->
+<!-- <link type="text/css" rel="stylesheet" href="../../../style/login-page.scss">  -->
+
+
+</head>
+
+<body>
+
+
+
+	<div class="down-app-area">
+		<div class="mod-1">
+			<div class="w1000 ">
+
+				<h3 class="mod-title font_wryh">下载约约体验更多服务</h3>
+				<div class="wbox clearfix">
+					<div class="lbox fldi">
+						<img src="../../../../images/down-app-130x130.png" />
+					</div>
+					<div class="rbox fldi">
+						<ul class="list clearfix">
+							<a href="http://yp.yueus.com/download/download_iphone.php">
+								<li>
+									<div class="icon-mod icon-iphone"></div>
+									<div class="txt">
+										<p class="f20">iPhone版</p>
+										<p class="f14">v{app_ver_str}</p>
+									</div>
+								</li>
+							</a>
+							<a href="http://yp.yueus.com/download/download_android.php">
+								<li>
+									<div class="icon-mod icon-Android"></div>
+									<div class="txt">
+										<p class="f20">Android版</p>
+										<p class="f14">v{app_ver_str}</p>
+									</div>
+								</li>
+							</a>
+							
+						</ul>        
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="mod-2 w1000">
+			<h3 class="mod-title font_wryh">与我们互动</h3>
+			<ul class="list clearfix">
+				<li>
+					<div class="img"><img src="../../../../images/s-code-img-150x150.png" /></div>
+					<!-- <p class="txt">我是摄影师，我要约拍！</p> -->
+				</li>
+			   
+			</ul>   
+			<div class="tel font_wryh cor-333">
+				<div class="box-a">
+					<p>想便捷浏览约约上的服务？想立刻获得最新的活动信息？想随时调戏客服妹纸？</p>
+					<p>动动手指扫一扫，关注约约服务号，你懂的~</p>
+				</div>
+				<div class="box-b">
+					<p>客服电话：4000-82-9003</p>
+				</div>
+			
+	</div>     
+		</div>
+	</div>
+
+
+
+
+<!--  新 -->
+
+<div class="down-app-area-mod">
+	
+	<div class="pathA">
+		<div class="w1000">
+			<h3 class="mod-title font_wryh">随时随地  体验服务</h3>
+			<div class="item-wrap clearfix">
+				<div class="item left-item fldi clearfix">
+					<h4 class="title color-333 font_wryh">扫我下载“约约”APP</h4>
+					<div class="code-img-con fldi"><img src="http://static.yueus.com/mall/user/test/static/pc/images/code-img-149x149.jpg"/></div>
+					<div class="btn-con fldi">
+						<ul class="list">
+							<a href="#">
+								<li>
+									<div class="icon-mod icon-iphone"></div>
+									<div class="txt">
+										<p class="f20">iPhone版</p>
+										<p class="f14">V3.1.0</p>
+									</div>
+								</li>
+							</a>
+							<a href="#">
+								<li>
+									<div class="icon-mod icon-Android"></div>
+									<div class="txt">
+										<p class="f20">Android版</p>
+										<p class="f14">V3.1.0</p>
+									</div>
+								</li>
+							</a>
+							
+						</ul>       
+					</div>
+				</div>
+				<div class="item right-item fldi">
+					<h4 class="title color-333 font_wryh">关注“约约”微信号</h4>
+					<div class="code-img-con fldi"><img src="http://static.yueus.com/mall/user/test/static/pc/images/code-img-113x113.jpg"/></div>
+					<div class="txt-con fldi">
+						<ul class="list font_wryh color-666">
+							<li>想便捷浏览约约服务？</li>
+							<li>想立刻获得活动信息？</li>
+							<li>想调戏客服妹纸？</li>
+							<li>扫一扫，你懂的~</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pathB">
+		<div class="w1000">
+			<h3 class="mod-title font_wryh">成就第一代时间变现弄潮儿</h3>
+			<div class="item-wrap font_wryh">
+				<div class="item">
+					<p class="tips color-333">赚别人赚不到的钱  让订单源源不断</p>
+					<div class="btn-item">
+						<a class="tdn" href="http://s.yueus.com" target="_blank">
+						        <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block font_wryh">
+						            <span class="ui-button-content">立刻成为商家</span>
+						        </button>
+						 </a>
+					</div>
+					<p class="phone-txt">
+						客服电话：4000-82-9003
+					</p>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+</body>
+
+</html>

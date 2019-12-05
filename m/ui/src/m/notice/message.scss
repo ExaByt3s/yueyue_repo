@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@import "../m_common";
+
+// -------------------------------------------------
+// 私信
+// -------------------------------------------------
+
+html{
+    *overflow: hidden;
+}
+
+@import "./nav";
+
+.message-content{
+    border: 1px solid #d8d8d8;
+    background: #efefef;
+    opacity: 0;
+    overflow: hidden;
+
+    //@include background(image-url('loading.gif') no-repeat 67% 22px);
+    @include transition(opacity .3s ease-in);
+
+    @import "./message/index";
+    @import "./message/contact";
+    @import "./message/chat";
+}

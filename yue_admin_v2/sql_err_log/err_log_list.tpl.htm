@@ -1,0 +1,83 @@
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+body, td, th, div, input {
+	font-size:12px;
+}
+-->
+</style>
+<style type="text/css">
+<!--
+.white_font {
+	color: #FFFFFF;
+}
+.green_font {
+	color: #009900
+}
+.gray_font {
+	color: #999999
+}
+.act_title {
+	font-size:14px;
+	font-weight:bold;
+}
+.full_art_link {
+	font-size:14px;
+	font-weight:bold;
+}
+-->
+</style>
+<table width="98%" border="0" cellspacing="0" cellpadding="3" style="font-size:12px">
+  <tr class="bg_color4">
+    <td align="left" style="border-bottom:1px dotted #999999;vertical-align:top;line-height:16px;"><span style="font-size:14px">当前列出&nbsp;&nbsp;<font color="red">{day}</font>&nbsp;&nbsp;第&nbsp;&nbsp;<font color="red">{page}</font>&nbsp;&nbsp;页
+      </sapn>
+      <BR>
+      <!-- BEGIN arr_page_list -->
+      <!-- IF parent.page == page_show -->
+      <B>{page_show}</B>&nbsp;
+      <!-- ELSE -->
+      <a href="?day={parent.day}&page={page}&err_code={parent.err_code}">{page_show}</a>&nbsp;
+      <!-- ENDIF -->
+      <!-- END arr_page_list --></td>
+  </tr>
+</table>
+<table width="98%" border="0" cellspacing="0" cellpadding="3" style="font-size:12px">
+  <!-- BEGIN arr_err_log -->
+  <tr class="bg_color4">
+    <td align="left" style="border-bottom:1px dotted #999999;vertical-align:top;line-height:16px;"><div style="margin-bottom:10px;"> <font face="Webdings" class="font_color1">4</font> 发生错误页面： <a class="act_title" href="{page_url}" target="_blank" >{page_url}</a> <BR>
+        <span>&nbsp;&nbsp;&nbsp;初次错误时间：<font color="green">{first_err_time}</font>
+        <!-- IF first_err_time <> last_err_time -->
+        &nbsp;&nbsp;&nbsp;&nbsp;最后错误时间：<font color="green">{last_err_time}</font>
+        <!-- ENDIF -->
+        </span><BR>
+        &nbsp;&nbsp;&nbsp;错误信息：<font color="green">{mysql_err_msg}</font><BR>
+        <table border="0" cellspacing="0" cellpadding="3">
+          <tr>
+            <td><strong>错误代码：</strong><font color="#FF00FF">{mysql_err_code}</font></td>
+            <td>数据库：<font color="green">{mysql_host}</font></td>
+            <td>数据库用户：<font color="green">{mysql_user}</font></td>
+            <td>约约用户：<font color="green">{login_id}
+              <!-- IF login_nickname!="" -->
+              ({login_nickname})
+              <!-- ENDIF -->
+              </font></td>
+            <td>用户IP：<font color="green">{ip_str}</font></td>
+            <td>HTTP_REFERER：<font color="green">{referer}</font></td>
+          </tr>
+        </table>
+      </div></td>
+  </tr>
+  <!-- END arr_err_log -->
+</table>
+<!-- BEGIN arr_page_list -->
+<!-- IF parent.page == page_show -->
+<B>{page_show}</B>&nbsp;
+<!-- ELSE -->
+<a href="?day={parent.day}&page={page}&err_code={parent.err_code}">{page_show}</a>&nbsp;
+<!-- ENDIF -->
+<!-- END arr_page_list -->

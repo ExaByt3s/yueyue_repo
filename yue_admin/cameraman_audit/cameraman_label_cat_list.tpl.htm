@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+#list p
+{
+	line-height:auto;
+	margin:0px;
+}
+.table-list table {
+  border-left: #dadcdd 1px solid;
+}
+.table-list tbody td, .table-list thead th {
+  border-right: #dadcdd 1px solid;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		   <li>
+		     <input type="button" class="button" onclick="top.location.href='cameraman_quick_search_v2.php'" value='返回摄影师列表'/>
+		     <a href="javascrip:void(0);" class="on">标签类目</a>
+		   </li>
+	</ul>
+</div>
+<!--top-->
+	<div class="table-list">
+		<div class="btn">
+		   <iframe name="frame" id="frame" style="display:none"></iframe>
+		    <form method="post" target="frame">
+			   <input type="text" name="cat_name" class="input-text" value="" />
+			   <input type="hidden" name="act" value="insert"/>
+			   <input type="submit" class="button" value="添加标签类目"/>
+			</form>
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0" id="list">
+			<thead>
+				<tr>
+					<th>标签类目名称</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+					<td align="center">
+                        <a href="cameraman_label_list.php?cat_id={cat_id}">{cat_name}</a>
+					</td>
+					<td align="center">
+				     <!--<input type="button" class="button" value="修改" onclick=""/>-->
+				     <input type="button" class="button" value="删除" onclick="frame.location.href='?act=delete&cat_id={cat_id}'"/>
+					</td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+		<!--list end-->
+	</div>
+<div id="pages" class="page">
+	{page}
+</div>
+</div>
+</body>
+</html>

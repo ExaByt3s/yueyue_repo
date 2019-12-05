@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+
+
+<link rel="import" href="../webcontrol/head.tpl.htm?__inline">
+
+<!-- modjs 必须引用 -->
+<script src="../../../../lib/mod.js"></script>
+<script src="../../../../lib/lib.js"></script>
+<!-- 当前页css -->
+
+
+</head>
+
+<body style="padding:50px; height:2000px;">
+
+
+
+## 源码地址  <br /><br />
+##  <a href="http://aui.github.io/popupjs/doc/selectbox.html"  target="_blank">http://aui.github.io/popupjs/doc/selectbox.html</a>
+
+<br />
+<br />
+
+实例：
+
+
+<div style="height:500px"></div>
+
+
+
+<div class=" font_wryh ">
+    <select id="demo-basic" style="width:100px" class="font_wryh">
+        <option selected value="0">--请选择--</option>
+        <option value="1">选项一</option>
+        <option value="2">选项二</option>
+        <option value="3">选项三</option>
+        <option value="4">选项四</option>
+        <option value="5">选项五</option>
+    </select>
+</div>
+
+
+<br />
+<br />
+
+
+
+<script type="text/javascript">
+
+// 引入模拟下拉组件
+var selectbox = require('../../../../modules/yue_ui/selectbox/selectbox');
+
+$(document).ready(function() {
+
+    selectbox($('#demo-basic')[0]); // 初始化
+
+    $("#demo-basic").change(function(){
+
+        alert( $("#demo-basic").val() ) //为Select添加事件
+
+    });   
+
+});
+
+</script>
+
+</body>
+
+</html>
+
+		

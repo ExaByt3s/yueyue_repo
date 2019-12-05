@@ -1,0 +1,163 @@
+@charset "UTF-8";
+/*  
+Theme Name:poco ued theme
+Author URI:poco.cn
+Description: poco
+*/
+body{
+	background: none !important;
+}
+
+
+.w1000{margin: 0 auto;width: 1000px;position: relative;z-index: 1;}
+.top-bar{height: 60px;background: #1c2022;color: #fff;}
+.top-bar a{color: #fff;}
+.top-bar .lbox{padding-top: 6px;}
+.top-bar .rbox{padding-top: 20px;}
+
+
+/* 公共 */
+.ui-btn{ display:inline-block; *+display:inline; *+zoom:1; _display:inline; _zoom:1; color:#fff; text-align:center}
+.ui-btn:hover{  text-decoration:none}
+.ui-btn-rose-h35{ height:35px; line-height:35px; text-align:center; background:#ff4978; color:#fff; font-size:16px; padding:0 19px;}
+.ui-btn-rose-h35:hover{ background:#ffa4bb}
+.ui-btn-rose-h45{ height:45px; line-height:45px; text-align:center; background:#ff4978; color:#fff; font-size:14px; padding:0 19px;}
+.ui-btn-rose-h45:hover{ background:#ffa4bb}
+
+.pop-mod-btn{ border-top:1px solid #eee; background:#fafafa; height:94px;}
+.pop-mod-btn .pop-logo{ float:left; width:238px; height:64px; padding:15px 0 0 44px}
+.pop-mod-btn .pop-logo a{ background:url(../images/outdoor/pop-logo-238x64.png) no-repeat; display:block; width:238px; height:64px;}
+.pop-mod-btn .btn-item{ float:right; padding:29px 38px 0 0}
+
+.circle-3px{-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+
+.font_wryh {
+font-family: '微软雅黑','黑体','宋体';
+}
+
+
+/* 支付弹出层 */
+.pop-pay-success{ background:#fff;  width:600px; height:447px; z-index:999999; position:fixed; _position: absolute; top:50%; left:50%; margin-top:-224px; margin-left:-300px;
+_top:expression(eval(document.compatMode &&
+	 document.compatMode=='CSS1Compat') ?
+	 documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+	 document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+	 _margin-top:0}
+.pop-pay-success .close{ display:block; background:url(../images/outdoor/close-icon-16x16.png) no-repeat; width:16px; height:16px; position:absolute; top:20px; right:20px;}
+.pop-pay-success .pop-con .listItem{  padding:50px 0 0; height:302px; text-align:center}
+.pop-pay-success .pop-con .listItem .icon{ display:block; margin:0 auto}
+.pop-pay-success .pop-con .listItem .succeed-icon{ background:url(../images/outdoor/succeed-icon-100x100.png) no-repeat; width:100px; height:100px;}
+.pop-pay-success .pop-con .listItem h4.title{ padding:28px 0 5px; color:#3fc585; font-size:32px; font-weight:normal;}
+.pop-pay-success .pop-con .listItem p.l-txt{ font-size:18px; line-height:24px; color:#666}
+
+/* 领取优惠卷弹出层 */
+.pop-receive{ background:#fff; width:600px; height:405px; z-index:999999; position:fixed; _position: absolute; top:50%; left:50%; margin-top:-203px; margin-left:-300px;
+_top:expression(eval(document.compatMode &&
+	 document.compatMode=='CSS1Compat') ?
+	 documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+	 document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+	 _margin-top:0}
+.pop-receive .close{ display:block; background:url(../images/outdoor/close-icon-16x16.png) no-repeat; width:16px; height:16px; position:absolute; top:20px; right:20px;}
+.pop-receive .pop-con .txt-item{ padding:60px 0 0; text-align:center; height:250px;}
+.pop-receive .pop-con .listItem{ color:#3fc585; font-size:28px; padding-bottom:30px }
+.pop-receive .pop-con .txt-item h4.title{ font-weight:normal; font-size:20px; color:#666; padding-bottom:15px}
+.pop-receive .pop-con .txt-item .input-item{ padding:0 0 25px 0}
+.pop-receive .pop-con .txt-item .input-item .input-txt{ border:1px solid #ccc; width:200px; height:38px; font-size:18px; color:#000; padding:0 14px; -moz-box-shadow:0px 2px 3px rgba(0,0,0,.1) inset; -webkit-box-shadow:0px 2px 3px rgba(0,0,0,.1) inset; box-shadow:0px 2px 3px rgba(0,0,0,.1) inset; margin:0 auto 10px;}
+.pop-receive .pop-con .txt-item .input-item .ui-btn-rose-h45{ display:block; margin:0 auto; padding:0; width:230px;}
+.pop-receive .pop-con .txt-item p.tips{ color:#999; font-size:12px; font-family:"SimSun", Tahoma, Arial, sans-serif}
+.pop-receive .pop-con .txt-item .l-txt{ color:#666; font-size:12px; font-family:"SimSun", Tahoma, Arial, sans-serif}
+.pop-receive .pop-con .txt-item .l-txt a{ color:#118dd0}
+.pop-r-phone{}
+.pop-r-coupon{ height:396px; margin-top:-178px;}
+.pop-r-coupon .pop-con .txt-item{ height:241px;}
+.pop-r-coupon .pop-con .txt-item h4.title span.num{ color:#ff4978}
+.pop-receive .pop-con .txt-item h4.title{ padding-bottom:10px}
+.pop-receive .pop-con .txt-item .l-txt{ padding-top:5px}
+
+/* 扫描弹出层 */
+.pop-code{  background:#fff;  width:700px; height:427px; z-index:999999; position:fixed; _position: absolute; top:50%; left:50%; margin-top:-214px; margin-left:-350px;
+_top:expression(eval(document.compatMode &&
+	 document.compatMode=='CSS1Compat') ?
+	 documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+	 document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+	 _margin-top:0}
+.pop-code .close{ display:block; background:url(../images/outdoor/close-icon-16x16.png) no-repeat; width:16px; height:16px; position:absolute; top:17px; right:20px;}
+.pop-code .listItem{ height:50px; line-height:50px; background:#f5f5f5; padding-left:20px; font-size:16px; color:#000}
+.pop-code .code-list{ padding-top:60px}
+.pop-code .code-list .item{ float:left; width:349px; text-align:center}
+.pop-code .code-list .item-1{ border-right:1px solid #ddd; height:266px;}
+.pop-code .code-list .item .code-img{ border:1px solid #ddd; width:150px; height:150px; padding:4px; margin:0 auto}
+.pop-code .code-list .item h4.title{ padding:26px 0 10px; color:#333; font-size:20px; font-weight:normal;}
+.pop-code .code-list .item p{ color:#666; font-size:16px; line-height:20px;}
+
+
+
+.footer_outdoor{width: 100%;background-color: #fafafa;border-top: 1px solid #eeeeee;margin-top: 60px;}
+.footer_outdoor .down_app{background: url(../images/title-bg-587x47.png) no-repeat  center 76px;}
+.footer_outdoor .down_app .download-item{ width:411px; margin:0 auto; padding-top:170px;padding-bottom: 80px;}
+.footer_outdoor .down_app .download-item .code-img{ background:#fff; width:120px; height:120px; padding:8px; float:left}
+.footer_outdoor .down_app .download-item .btn-item{ float:left; padding-left:5px; width:230px;padding-top: 8px;}
+.footer_outdoor .down_app .download-item .btn-item .ui-btn-fb{ margin-bottom:10px}
+.footer_outdoor .down_app .download-item .btn-item .ui-btn-fb .icon{ width:25px; height:29px; vertical-align:middle;margin: 12px 0 0 18px;}
+.footer_outdoor .down_app .download-item .btn-item .iphone-btn .icon{ background:url(../images/outdoor/btn-icon-i-25x29.png) no-repeat}
+.footer_outdoor .down_app .download-item .btn-item .android-btn .icon{ background:url(../images/outdoor/btn-icon-a-25x29.png) no-repeat}
+.footer_outdoor .down_app .footer{ position:absolute; bottom:20px; left:0; width:100%; text-align:center; color:#51575c; font-size:14px; }
+
+.footer_outdoor .ui-btn{ display:inline-block; *+display:inline; *+zoom:1; _display:inline; _zoom:1; color:#fff; text-align:center}
+.footer_outdoor .ui-btn:hover{  text-decoration:none}
+.footer_outdoor .ui-btn-bf{ height:50px; line-height:50px; width:178px; border:2px solid #fff; text-align:center; color:#fff; font-size:18px; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px;}
+.footer_outdoor .ui-btn-bf:hover{ background:#ff4978; border:2px solid #ff4978 }
+.footer_outdoor .ui-btn-fb{ height:55px; line-height:55px; width:180px; background:#ff4978; text-align:center; color:#fff; font-size:16px; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px;padding-right: 10px;}
+.footer_outdoor .ui-btn-fb:hover{ background:#ffa4bb;}
+.footer_outdoor .ui-btn .icon,  
+.footer_outdoor .ui-btn .icon em{ display:inline-block; *+display:inline; *+zoom:1; _display:inline; _zoom:1;}
+
+.footer_outdoor .foot_bar{background-color: #202428;color: #51575c;font-size: 14px;width: 100%;height: 80px;}
+.footer_outdoor .foot_bar a{color: #51575c; text-decoration: none;}
+
+.footer_outdoor .foot_bar a:hover{color: #51575c;text-decoration: underline;}
+.footer_outdoor .foot_bar .cp{text-align: center;line-height: 80px;}
+
+
+/* 侧栏 */
+.sidebar_outdoor{}
+.sidebar_outdoor .p2th{width: 203px;border: 1px solid #f0f0f0;border-top: none;}
+
+/* 分享通用模块 */
+.share-mod{padding: 7px 0 0 10px;height: 32px;}
+.share-mod .lbox3{padding: 2px 10px 0 0;color: #666;font-size: 12px;}
+.share-mod .share-icon{display: inline-block;width: 24px;height: 24px;background: url(../images/outdoor/s-126x24.png) no-repeat;cursor: pointer;margin-right: 6px;}
+.share-mod .share-icon:hover{background-image: url(../images/outdoor/s-126x24-hover.png);}
+.share-mod .share-sina{background-position:  -34px 0;}
+.share-mod .share-zone{background-position: -68px  0;}
+.share-mod .share-qq{background-position: -102px  0;}
+
+.sidebar_outdoor .p3th{width: 203px;border: 1px solid #f0f0f0;background-color: #fafafa;margin-top: 20px;}
+.sidebar_outdoor .p3th .box1{text-align: center;border-bottom: 1px solid #f0f0f0;padding: 22px 0;}
+.sidebar_outdoor .p3th .box2{text-align: center;padding-top: 25px;}
+.sidebar_outdoor .p3th .box3{text-align: center;padding: 8px 0 15px 0;}
+.sidebar_outdoor .p3th .box3 a{color: #ff4978;}
+
+.sidebar_outdoor .p4th{margin-top: 20px;}
+.sidebar_outdoor .p5th{padding: 10px 0;}
+.sidebar_outdoor .p5th .p1{font-size: 14px;font-weight: bold;color: #6ac334;padding-top: 5px;}
+.sidebar_outdoor .p5th .p1 a{color: #6ac334;}
+.sidebar_outdoor .p5th .wbox{padding-top: 10px;}
+.sidebar_outdoor .p5th .rbox{padding-left: 10px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

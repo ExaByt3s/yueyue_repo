@@ -1,0 +1,73 @@
+.global-header {
+  height: 45px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid #cdcdd1;
+  position: fixed;
+  z-index: 9;
+  background: #fafafa;
+  width: 100%;
+  top: 0px;
+  left: 0px; }
+  .global-header .title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 45px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 60%;
+    margin: 0 auto; }
+  .global-header .back {
+    width: 50px;
+    height: 44px;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px; }
+    .global-header .back .icon-back {width: 11px;
+      height: 20px;
+      display: block;
+      
+      margin: 12px auto 0 auto;background-repeat: no-repeat;}
+    .global-header .back:active .icon-back {background-repeat: no-repeat;}
+  .global-header .share {
+    width: 50px;
+    height: 44px;
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px; }
+    .global-header .share .icon-share {width: 18px;
+      height: 19px;
+      
+      margin: 13px auto 0 auto;
+      display: block;background-repeat: no-repeat;}
+    .global-header .share:active .icon-share {background-repeat: no-repeat;}
+  .global-header .side-txt {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-size: 16px;
+    color: #333;
+    line-height: 44px;
+    width: 50px;
+    text-align: center; }
+    .global-header .side-txt:active {
+      color: #666; }
+  .global-header .omit {
+    width: 50px;
+    height: 44px;
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px; }
+    .global-header .omit .icon-omit {width: 19px;
+      height: 5px;
+      
+      margin: 22px auto 0 auto;
+      display: block;background-repeat: no-repeat;}
+    .global-header .omit:active .icon-omit {background-repeat: no-repeat;}
+.global-header .back .icon-back{background-position:-8px 0px}.global-header .back:active .icon-back{background-position:-8px -25px}.global-header .share .icon-share{background-position:-1px -50px}.global-header .share:active .icon-share{background-position:-1px -74px}.global-header .omit .icon-omit{background-position:0px -98px}.global-header .omit:active .icon-omit{background-position:0px -108px}.global-header .back .icon-back,.global-header .back:active .icon-back,.global-header .share .icon-share,.global-header .share:active .icon-share,.global-header .omit .icon-omit,.global-header .omit:active .icon-omit{background-size: 19px 113px;background-image: url(http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header_0.5_z.png)}

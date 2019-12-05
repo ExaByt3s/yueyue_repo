@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/laydate/laydate.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/table.css">
+<title>工作监控报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">时间:{begin_time} 到 {end_time}的数据</a>  <input type="button" value="导出数据" class="button" onclick="location.href='?act=export'" />
+	</ul>
+</div>
+<!--top-->
+	<div class="table-list" id="table-list">
+		<!--list-->
+		<table width="100%" cellspacing="0" style="min-width: 1000px;">
+			<thead>
+			    <tr>
+				<th>&nbsp;</th>
+				<th colspan="93">回复响应榜</th>
+				<!-- <th colspan="2">商品互动</th>
+				<th colspan="4">商品销售</th> -->
+				</tr>
+			</thead>
+			<tbody>
+			    <tr>
+				<td align="center">用户ID</td>
+				<td align="center">5分钟回复</td>
+				<td align="center">10分钟回复</td>
+				<td align="center">20分钟回复</td>
+				<td align="center">30分钟回复</td>
+				<td align="center">1小时回复</td>
+				<td align="center">12小时回复</td>
+				<td align="center">24小时回复</td>
+				<td align="center">无回复</td>
+				<td align="center">回复百分比</td>
+				</tr>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center">{user_id}</td>
+				<td align="center">{5i}<font color='red'>({pre_5i}%)</font></td>
+				<td align="center">{10i}<font color='red'>({pre_10i}%)</font></td>
+				<td align="center">{20i}<font color='red'>({pre_20i}%)</font></td>
+				<td align="center">{30i}<font color='red'>({pre_30i}%)</font></td>
+				<td align="center">{1h}<font color='red'>({pre_1h}%)</font></td>
+				<td align="center">{12h}<font color='red'>({pre_12h}%)</font></td>
+				<td align="center">{24h}<font color='red'>({pre_24h}%)</font></td>
+				<td align="center">{no_response}<font color='red'>({pre_no_response}%)</font></td>
+				<td align="center">{pre_reply}%</td>
+				</tr>
+				<!-- END list -->
+			</tbody>
+		</table>
+	</div>
+	<div id="pages" class="page">
+	{page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+  //导出和查询触动
+  function com_export($actval)
+  {
+  	$("#act").val($actval);
+	//$("#myform").attr("action", $url);
+	//return;
+	$("#myform").submit();
+ }
+ 
+ laydate({
+    elem: '#month',
+    istime: true,
+    format: 'YYYY-MM',
+});
+
+</script>
+</html>

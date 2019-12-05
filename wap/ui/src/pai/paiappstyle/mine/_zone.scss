@@ -1,0 +1,174 @@
+ @charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 空间
+// 
+
+$border-style:1px solid #e6e6e6;
+$bg-color : #f5f5f5;
+$font-color:#ff266c;
+$grey-color:#959595;
+.zone{
+	//background: $bg-color;
+	.group-items{
+		
+		background: #fff;
+		margin-top: 15px;
+		//border-top : $border-style;
+		//border-bottom : $border-style;
+
+        @include image-border-m(top);
+        @include image-border-m(bottom);
+
+		@include flexbox((
+                display: box                
+        	), $version: 1);
+		.item{			
+			padding: 0 10px;
+			@include flexbox((
+                display: box,                
+                box-flex: 1,
+                box-align: center
+            ), $version: 1);
+            .head-icon-items{
+                // margin: 0 auto;
+                width: 100%;
+                text-align: center;
+                display: block;
+                // width: 66px;
+            }
+            .circle-img{
+                 display: inline-block;
+            }
+            .head-icon{
+            	width: 66px;
+            	height: 66px;
+            	@include border-radius(33px);
+            }
+            &:active{
+            	background: $bg-color;
+            }
+
+            .container{
+            	width: 100%;
+            	height: 50px;
+            	line-height: 50px;
+            	//border-bottom : $border-style;
+
+                @include image-border-m(bottom);
+
+            	@include flexbox((
+                display: box,                
+                box-pack: justify
+            	), $version: 1);
+            	
+            }
+            .no-border-style{
+				border: none;
+			}
+			.icon{
+					margin-right: 10px;
+			}
+			
+
+		}
+		.rel-count{
+				@include flexbox((
+                display: box,                
+                box-pack: justify,                
+            	), $version: 1);
+            	width: 100%;
+            	height: 50px; 
+            	padding:0;           	
+            	.counts{
+            		text-align: center;
+            		font-size: 10px;
+            		@include flexbox((	                     
+	                box-flex : 1	                                
+	            	), $version: 1);
+	            	em{
+	            		font-size: 14px;
+	            		display: block;
+	            		color: $font-color;
+	            	}
+            	}
+		}
+		.user-info{
+			padding: 15px 0;
+			.user-name{
+				text-align: center;
+				font-size: 12px;
+				margin-top: 10px;
+			}
+		}
+		.score{
+			.com{	            
+	            .icon-red{
+	                @include get-icon('start-red-26x26', true, block);
+	                vertical-align: middle;
+	                margin-right: 3px;
+	            }
+	            .icon-grey{
+	                @include get-icon('start-grey-26x26', true, block);
+	                vertical-align: middle;
+	                margin-right: 3px;
+	            }
+	            .red{
+	                color: $font-color;
+	            }	 
+	            .txt{
+	            	margin-right: 14px;
+	            }           
+	        }	 
+	        .icon{
+	            	margin-right: 0;
+	            }      
+		}		
+		.photo-lv{
+			padding-top: 15px;
+			padding-bottom: 17px;
+			.txt{
+				color:$grey-color;
+				font-size: 14px;					
+			}
+		}	
+		.icon-r{
+			@include get-icon('r-16x26', true, block);
+            vertical-align: middle;
+		}
+		ul{
+			width: 100%;
+			li{
+				
+			}
+		}
+		&.first
+		{
+			margin-top: 45px;			
+			
+		}
+		&.no-top
+		{			
+			margin-top: 0;
+			//border-bottom : $border-style;
+            @include image-border-m(bottom);
+			border-top : none;
+			
+		}
+		
+
+		
+	}
+	
+}
+
+
+.ui-popup-content{
+	a{
+		display: block;
+		width: 100%;
+		text-align: center;
+		color: #ff0052;
+		line-height: 50px;
+		border-bottom:1px solid #dddddd;
+	}
+}

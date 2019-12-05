@@ -1,0 +1,130 @@
+{{#each data}}
+    {{#compare direct "==" "yuebuyer"}}
+        {{#compare pack.media_type "==" "text"}}
+            <div class="ds-box orient-h pack-end window_child receive">
+                <div class="ds-box orient-v icon_list">
+                    <img src="{{pack.default_img}}" style="height: 40px;width: 40px" data-async-window-img="{{pack.send_user_id}}"/>
+                </div>
+                <div class="ds-box flex-1 info pack-start">
+                    <div class="info-content flex-1">
+                        {{pack.content}}
+                    </div>
+                </div>
+
+            </div>
+        {{/compare}}
+        {{#compare pack.media_type "==" "photo"}}
+            <div class="ds-box orient-h pack-end window_child receive">
+                <div class="ds-box orient-v icon_list">
+                    <img src="{{pack.default_img}}" style="height: 40px;width: 40px" data-async-window-img="{{pack.send_user_id}}"/>
+                </div>
+                <div class="ds-box flex-1 info pack-start" data-full-url="{{pack.file_url}}">
+                    <div class="info-content flex-1">
+                        <img src="{{pack.file_url}}" style="width: 30%"/>
+                    </div>
+                </div>
+            </div>
+        {{/compare}}
+        {{#compare pack.media_type "==" "sound"}}
+            <div class="ds-box orient-h pack-end window_child receive">
+                <div class="ds-box orient-v icon_list">
+                    <img src="{{pack.default_img}}" style="height: 40px;width: 40px" data-async-window-img="{{pack.send_user_id}}"/>
+                </div>
+                <div class="ds-box flex-1 info pack-start" data-full-url="{{pack.file_url}}">
+                    <div class="info-content flex-1">
+                        <div data-role="play_sound" data-sound-url="{{pack.file_url}}">
+                            <div class="sound_click" data-role="sound_click">语音</div>
+                            <audio class="fn-hide" controls="controls" type="audio/mp3" src="" data-role="sound_line"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/compare}}
+        {{#compare pack.media_type "==" "merchandise"}}
+            <div class="ds-box orient-h pack-end window_child receive">
+                <div class="ds-box orient-v icon_list">
+                    <img src="{{pack.default_img}}" style="height: 40px;width: 40px" data-async-window-img="{{pack.send_user_id}}"/>
+                </div>
+                <div class="ds-box flex-1 info pack-start">
+                    <div class="ds-box info-content flex-1 pack-start">
+                        <div class="ds-box merchandise_con">
+                            <div class="ds-box align-center" style="font-size: 0px">
+                                <img src="{{pack.file_small_url}}" style="width: 60px"/>
+                            </div>
+                            <div class="ds-box orient-v flex-1 merchandise_con_info pack-center">
+                                <div class="info_title">{{pack.card_text1}}</div>
+                                <div class="info_price">{{pack.card_text2}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/compare}}
+        {{#compare pack.media_type "==" "card"}}
+            <div class="ds-box orient-h pack-end window_child receive">
+                <div class="ds-box orient-v icon_list">
+                    <img src="{{pack.default_img}}" style="height: 40px;width: 40px" data-async-window-img="{{pack.send_user_id}}"/>
+                </div>
+                <div class="ds-box flex-1 info pack-start">
+                    <div class="ds-box info-content flex-1 pack-start">
+                        <div class="ds-box merchandise_con">
+                            <div class="ds-box orient-v flex-1 merchandise_con_info pack-center">
+                                <!--div class="info_title">{{pack.card_title}}</div-->
+                                <div class="info_title">{{pack.card_text1}}</div>
+                                <div class="info_price">{{pack.card_text2}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/compare}}
+    {{/compare}}
+    {{#compare direct "==" "yueseller"}}
+        {{#compare pack.media_type "==" "text"}}
+            <div class="ds-box orient-h pack-start window_child send">
+                <div class="ds-box flex-1 info pack-end">
+                    <div class="info-content flex-1">
+                        {{pack.content}}
+                    </div>
+                </div>
+                <div class="ds-box orient-v icon_list">
+                    <img src="{{pack.default_img}}" style="height: 40px;width: 40px"/>
+                </div>
+            </div>
+        {{/compare}}
+        {{#compare pack.media_type "==" "merchandise"}}
+            <div class="ds-box orient-h pack-end window_child send">
+                    <div class="ds-box flex-1 info pack-start">
+                        <div class="ds-box info-content flex-1 pack-end">
+                            <div class="ds-box merchandise_con">
+                                <div class="ds-box align-center" style="font-size: 0px">
+                                    <img src="{{pack.file_small_url}}" style="width: 60px"/>
+                                </div>
+                                <div class="ds-box orient-v flex-1 merchandise_con_info pack-center">
+                                    <div class="info_title">{{pack.card_text1}}</div>
+                                    <div class="info_price">{{pack.card_text2}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="ds-box orient-v icon_list">
+                    <img src="{{pack.default_img}}" style="height: 40px;width: 40px"/>
+                </div>
+            </div>
+        {{/compare}}
+        {{#compare pack.media_type "==" "photo"}}
+            <div class="ds-box orient-h pack-end window_child send">
+                <div class="ds-box flex-1 info pack-end">
+                    <div class="info-content flex-1">
+                        <img src="{{pack.preview_src}}" style="width: 30%"/>
+                    </div>
+                </div>
+                <div class="ds-box orient-v icon_list">
+                    <img src="{{pack.default_img}}" style="height: 40px;width: 40px"/>
+                </div>
+            </div>
+        {{/compare}}
+
+    {{/compare}}
+
+{{/each}}

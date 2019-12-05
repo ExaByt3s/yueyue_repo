@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>我的收款</title>
+	{wap_global_top}
+	<!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+	<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/wallet-test/static/wap/style/yue_pay/show_my_collection.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/wallet-test/static/wap/modules/list/list.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/widget/abnormal/main.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/list/list.js"></script>
+</head> 
+<body>
+<main role="main">
+	<section id="global-header"></section>
+	<div class="page-view topic-end-page ">
+	  
+		<div class="show_my_collection-page">
+				<div class="taps_container" id="taps_container">
+					<div class="inner_tap cur" data-time="today">
+					             <p>本日</p>
+					 </div>
+					 <div class="inner_tap "  data-time="week">
+					              <p>一周内</p>
+					 </div>
+					 <div class="inner_tap "  data-time="month">
+					               <p>本月内</p>
+					 </div>
+					 <div class="inner_tap "  data-time="all">
+					                <p>全部</p>
+					 </div>
+				</div>
+
+				<div class="item-wrap">
+					
+						<!-- <div id="render_ele">
+							
+						</div> -->
+					<div class="order-list-wrapper"  >
+					    <div  data-role="order-list-wrapper"></div>
+					</div>
+
+
+				</div>
+
+
+				
+
+		</div>
+	</div>
+</main>
+{wap_global_footer} 
+	
+</body>
+<script>
+	var $ = require('components/zepto/zepto.js');
+	var utility = require('common/utility/index');
+	var header = require('common/widget/header/main');
+	var list_item_class = require('list'); 
+
+
+
+	$(document).ready(function() {
+
+		// 渲染头部
+		header.init({
+			ele : $("#global-header"), //头部渲染的节点
+			title:"我的收款",
+			header_show : true , //是否显示头部
+			right_icon_show : false, //是否显示右边的按钮
+
+			share_icon :
+			{
+				show :false,  //是否显示分享按钮icon
+				content:""
+			},
+			omit_icon :
+			{
+				show :false,  //是否显示三个圆点icon
+				content:""
+			},
+			show_txt :
+			{
+				show :false,  //是否显示文字
+				content:"编辑"  //显示文字内容
+			}
+		});
+
+
+
+		// 构造函数 
+		var list_fn  = function() 
+		{
+		    var self = this ;
+		    self.type = 'today';
+		    self.$el  = $('body'); 
+
+		    self.init();
+		}
+
+		// 添加方法与属性
+		list_fn.prototype = 
+		{
+		    init : function () 
+		    {
+		        var self = this ;
+
+		        // 列表队列
+		        self.list_queue = {};
+
+		        self.refresh(self.type,
+		        {
+		            params : 
+		            {
+		                option_time : self.type,
+		                page : 1
+		            }
+		            
+		        });
+
+		        self.setup_top_bar();
+		    },
+
+		    refresh : function(type,options)
+		    {
+		        var self = this;
+
+		        options = options || {};
+
+		        var $list_container_by_type = self.$el.find('[data-role="'+type+'-list-container"]');
+
+		        self.$el.find('.order_list_container').addClass('fn-hide');
+		        $list_container_by_type.removeClass('fn-hide');
+
+		        // 已经存在的列表，直接调用刷新方法
+		        if(self.list_queue && typeof(self.list_queue[type]) != 'undefined')
+		        {
+		            if(self.list_queue[type].$el.rq_status == 'error')
+		            {
+		                self.list_queue[type].refresh();
+		            }
+
+		            return;
+		            //self.list_queue[type].refresh();
+		        }
+		        else
+		        {
+		            // 渲染列表
+		            var SELLER_AJAX_URL = window.$__ajax_domain+'yue_fu_get_pay_list.php';    
+		            // 不存在的列表，就创建
+		            var $list_container = self.create_list(type);
+
+		            var template  = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n\r\n<a href=\"./detail.php?order_sn=";
+  if (helper = helpers.order_sn) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.order_sn); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n    <div class=\"item clearfix ui-border-b\">\r\n        <div class=\"lbox fldi\">\r\n            <div class=\"img-con\">\r\n                <i class=\"img\" style=\"background-image:url(";
+  if (helper = helpers.buyer_icon) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.buyer_icon); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + ")\"></i>\r\n            </div>\r\n            <div class=\"txt-con\">\r\n                <p class=\"img-name\">";
+  if (helper = helpers.buyer_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.buyer_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n                <p class=\"publish-time\">";
+  if (helper = helpers.pay_time_str) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.pay_time_str); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n            </div>\r\n        </div>\r\n        <div class=\"rbox frdi\">\r\n            <div class=\"money-con fb\">\r\n                ￥";
+  if (helper = helpers.prime_amount) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.prime_amount); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\r\n            </div>\r\n        </div>\r\n    </div>\r\n</a>\r\n\r\n";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
+  });
+
+		            // 列表组件
+		            var list_obj = new list_item_class(
+		            {
+		                //渲染目标
+		                ele : $list_container, 
+		                //请求地址 
+		                url : SELLER_AJAX_URL,
+		                //传递参数
+		                params : options.params,
+		                //模板
+		                template : template,
+		                //lz是否开启参数
+		                is_open_lz_opts : false  
+		            });
+
+		            self.list_queue[type] = list_obj;
+
+		            self.list_queue[type].$el.on('list_render:after',function(events,$list_container,data,$list)
+		            {
+		                
+		                // self.setup_event();
+
+		                // var $list_container_by_type = self.$el.find('[data-role="'+type+'-list-container"]');
+		               
+		            });
+
+
+		        }
+		        
+		    },
+
+		    create_list : function(type)
+		    {
+		        var self = this;
+
+		        var list_wrapper_html = '<div class="order_list_container" data-role="'+type+'-list-container" ></div>';
+
+		        self.$el.find('[data-role="order-list-wrapper"]').append(list_wrapper_html);
+
+		        return self.$el.find('[data-role="'+type+'-list-container"]');
+
+		    },
+
+
+		    setup_top_bar : function()
+		    {
+		        var self = this;
+
+		        //栏目切换
+		        self.$el.find('[data-time]').on('click',function()
+		        {
+		            $(this).addClass('cur').siblings().removeClass('cur');
+
+		            var type = $(this).attr('data-time');
+		            self.type = type;
+
+		            self.refresh(type,
+		            {
+		                params : 
+		                {
+		                	option_time : self.type,
+		                	page : 1
+		                }
+		                
+		            });
+
+		            //self.ajax_control();
+
+		        });
+		    }
+
+
+
+		}
+
+		// 实例
+		var list_obj = new list_fn() ;
+
+
+
+		// var option_time = 'today' ;
+
+		// var taps_container_li = $('#taps_container').find('.inner_tap');
+		
+		// taps_container_li.on('click', function(event) {
+		//     event.preventDefault();
+		//     taps_container_li.removeClass('cur');
+		//     $(this).addClass('cur')
+
+		//     option_time = $(this).attr("data-time");
+
+		// });
+
+
+		// var _page_params = 
+		// {
+		// 	option_time : option_time
+		// }
+
+		// var SELLER_AJAX_URL = window.$__ajax_domain+'yue_fu_get_pay_list.php';
+		// var list_item_class = require('../../../../modules/list/list.js'); 
+		// var template  = __inline('./pay-list-item.tmpl');
+		// var list_obj = new list_item_class(
+		//     {
+		//         //渲染目标
+		//         ele : $('#render_ele'),
+		//         //请求地址
+		//         url : SELLER_AJAX_URL,
+		//         //传递参数
+		//         params : _page_params,
+		//         //模板
+		//         template : template,
+		//         //lz是否开启
+		//         is_open_lz_opts : ''
+		//     });
+
+
+	});
+</script>
+</html>

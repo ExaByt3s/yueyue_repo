@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "page-control.css",
+    "sources": [
+        "/modules/common/widget/page_control/page-control.scss"
+    ],
+    "sourcesContent": [
+        "\r\n// 图片列表模块 start\r\n.list-max-img-mod\r\n{\r\n    .item{\r\n        .img-box{\r\n            width: 100%;\r\n            position: relative;\r\n            padding-top: 149.47%;\r\n            i{\r\n                width: 100%;\r\n                height: 100%;\r\n                position: absolute;\r\n                top: 0;\r\n                left: 0;\r\n                z-index: 2;\r\n                background-position: 50%;\r\n                background-repeat: no-repeat;\r\n                -webkit-background-size:cover;\r\n            }\r\n        }\r\n        margin-top: 15px;\r\n       \r\n        float: left;\r\n        width:50%;\r\n       \r\n        box-sizing:border-box;\r\n        -webkit-box-sizing: border-box;\r\n        \r\n        img{\r\n            width: 100%;\r\n            max-height: 133px;\r\n\r\n        }\r\n        \r\n        -webkit-box-sizing: border-box;\r\n        .item-area{\r\n            border: 1px solid #eeeeee;\r\n        }\r\n        padding-right: 5px;\r\n        &:nth-child(2n+0){\r\n \r\n            padding-right: 0px;\r\n            padding-left: 5px;\r\n        }\r\n        .txt-area{\r\n            padding: 15px 10px 15px 10px;\r\n            .price{\r\n                margin-bottom: 8px;\r\n                color: #333;\r\n                white-space: nowrap;\r\n                overflow: hidden;\r\n                text-overflow: ellipsis;\r\n            }\r\n            .des{\r\n                color: #666;\r\n                white-space: nowrap;\r\n                overflow: hidden;\r\n                text-overflow: ellipsis;\r\n            }\r\n        }\r\n    }\r\n\r\n}\r\n// 图片列表模块 end"
+    ],
+    "mappings": "AAIA,AAAkB,AAiBV,AAAY,AAEZ,AAAO,AACP,AAAM,AAEN,AAAW,AACX,AAAoB,AAQpB,AAAoB,AAIpB,AAAe,AAlCvB,AAAkB,AAAM,AACZ,AAAO,AACP,AAAU,AACV,AAAa,AACzB,AAAkB,AAAM,AAAS,AACjB,AAAO,AACP,AAAQ,AACR,AAAU,AACV,AAAK,AACL,AAAM,AACN,AAAS,AACT,AAAqB,AACrB,AAAmB,AACnB,AAAwB,AAWxC,AAAkB,AAAM,AACZ,AAAO,AACP,AAAY,AAKxB,AAAkB,AAAM,AACZ,AAAQ,AAGpB,AAAkB,AAAK,AAEX,AAAe,AACf,AAAc,AAE1B,AAAkB,AAAM,AACZ,AAAS,AACrB,AAAkB,AAAM,AAAU,AAClB,AAAe,AACf,AAAO,AACP,AAAa,AACb,AAAU,AACV,AAAe,AAE/B,AAAkB,AAAM,AAAU,AAClB,AAAO,AACP,AAAa,AACb,AAAU,AACV,AAAe",
+    "names": []
+}

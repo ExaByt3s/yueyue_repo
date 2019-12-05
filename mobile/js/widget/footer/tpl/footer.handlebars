@@ -1,0 +1,28 @@
+<footer class="tab-footer-new"  data-role="footer">
+    <ul>
+        <li data-role="nav" data-nav-url="act/list" >
+            <div class="nav-wrap {{#if is_out_pai}}current{{/if}}"  data-role="footer-act">
+                <i class="icon icon-act">外拍</i>
+            </div>
+        </li>
+        <li data-role="nav" data-nav-url="hot">
+            <div class="nav-wrap {{#if is_model_pai}}current{{/if}}" data-role="footer-model">
+                <i class="icon icon-model">约拍</i>
+            </div>
+        </li>
+
+        <li data-role="nav" data-nav-url="message" class="msg" data-flag="footer-msg">
+            <div class="nav-wrap {{#if is_msg}}current{{/if}}"  data-role="footer-msg">
+                <span class="new-tips fn-hide" data-role="num">0</span>
+                <i class="icon icon-msg-f">消息</i>
+            </div>
+        </li>
+
+
+        <li data-role="nav" data-nav-url="mine" data-flag="footer-mine">
+            <div class="nav-wrap {{#if is_my_pai}}current{{/if}}" data-role="footer-my">
+                <i class="icon icon-my">我的</i>
+            </div>
+        </li>
+    </ul>
+</footer>

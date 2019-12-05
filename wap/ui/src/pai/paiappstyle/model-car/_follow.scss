@@ -1,0 +1,45 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app -模特卡
+// ------------------------------
+
+.follow-page{
+
+    .grid-pic-content{
+
+        .grid-pic{
+            @include float-left;
+        }
+    }
+
+    .list-img{
+
+        @include clearfix;
+        li{
+            width: 33.3%;
+            @include float-left;
+            img{
+                width: 100%;
+                display: block;
+            }
+        }
+        li:nth-child(4){
+            width: 66.6%;
+        };
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

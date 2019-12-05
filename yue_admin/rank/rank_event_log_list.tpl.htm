@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>榜单管理系统</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<!-- -<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">榜单列表</a> 
+		<a href="rank_event.php?act=add">榜单添加</a>
+	</ul>
+</div> -->
+<!--top-->
+	<div class="table-list" id="table-list">
+		<div class="btn">
+			总条数:{total_count}
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th>ID</th>
+				<th>操作事件</th>
+				<th>操作人</th>
+				<th>操作时间</th>
+				<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center">{id}</td>
+				<td align="center"><!-- IF act="list" -->查询<!-- ELSEIF act="insert" --><font color="red">添加</font><!-- ELSEIF act="update" --><font color="red">修改</font><!-- ELSEIF act="del" --><font color="red">删除</font><!-- ENDIF act --></td>
+				<td align="center">{nick_name}</td>
+				<td align="center">{audit_time}</td>
+				<td align="center"><!-- IF act="list" -->不可恢复<!-- ELSE --><a href="javascript:void(0);" onclick="restore('rank_event_log.php?act=restore&id={id}');"><font color="red">恢复</font></a><!-- ENDIF act --></td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+	</div>
+	<div id="pages" class="page">
+	{page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+	//导出和查询触动
+  function com_export($actval)
+  {
+  	$("#act").val($actval);
+	//$("#myform").attr("action", $url);
+	//return;
+	$("#myform").submit();
+ }
+     $(function(){
+ 	   //获取城市数据
+ 		$(".prov").change(function(){
+ 			var $prov_val = $(this).val();
+ 			$.ajax({
+ 			   type:"POST",
+ 			   url:"get_city.php",
+ 			   dataType: 'json',
+ 			   data : {'prov_id': $prov_val},
+ 			   success:function(data)
+ 			  {
+ 			  	if (data.ret) 
+ 			  	{
+ 			  		var $ret = data.ret;
+ 			  		var $str = "<option value='0'>请选择</option>";
+ 			  		for (var i = 0; i < $ret.length; i++) 
+ 			  		{
+ 			  			$str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";		
+ 			  		}
+ 			  		$(".city").html($str);
+
+ 			  	}
+
+ 			  },
+ 			  error:function(data)
+ 			 {
+
+ 			 }
+ 			});
+ 		});
+    });
+
+   //恢复
+   function restore($url)
+   {
+   	 	$.layer
+   	 	 ({
+   	       shade: [0],
+   	       area: ['auto','auto'],
+   	       dialog: 
+   	       {
+   	          msg: '请再确认一下信息再确定',
+   	          btns: 2,                    
+   	          type: 4,
+   	          btn: ['确定','取消'],
+   	          yes: function()
+   	         {
+   	           //layer.msg('重要', 1, 1);
+   	           //$("#myform").submit();
+   	           location.href = $url;
+   	         }, 
+   	         no: function()
+   	         {
+   	           layer.msg('取消成功', 1, 1);
+   	         }
+   	        }
+   	     });
+   }
+</script>
+</html>

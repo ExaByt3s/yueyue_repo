@@ -1,0 +1,28 @@
+<div class="authentication_level_2_status"  data-role="photo">
+    <div class="content-body " data-role="content-body">
+        <div class="list-container" data-role="list-container" style="margin-top: 0px;">
+            <div class="img-con icon icon-success-level">
+            </div>
+            <div class="text-con">
+                <div class="title" style="border-bottom: none">提交成功，已经进入审核队列</div>
+                <div>若你的证件模糊，照片证件模糊，V2实名认证将不能通过身份信息审核，请重新按照页面示例图上传照片。</div>
+                <div class="text">感谢你的配合</div>
+            </div>
+        </div>
+    </div>
+    {{#if authentications.from_chat}}
+        <div class="authentication_btn-con status fn-hide" data-role="btn-con">
+            <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width" data-role="chat">
+                <span class="ui-button-content">继续聊天</span>
+            </button>
+        </div>
+        {{else}}
+        <div class="authentication_btn-con status fn-hide" data-role="btn-con">
+            <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width" data-role="{{#if authentications.from_date}}page-back{{else}}have-a-see{{/if}}">
+                <span class="ui-button-content">{{#if authentications.from_date}}继续约拍{{else}}随便看看{{/if}}</span>
+            </button>
+        </div>
+    {{/if}}
+
+
+</div>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://css-tricks.com/examples/LazyLoading/ -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+
+	<title>Lazy Loading</title>
+
+	<link rel="stylesheet" href="./LazyLoading_files/index.css">
+
+	<style>
+		.zone img {
+				margin: 800px 0;
+				display: block;
+		}
+	</style>
+
+	<script type="text/javascript" src="./LazyLoading_files/jquery.min.js"></script>
+	<script>
+	/* lazyload.js (c) Lorenzo Giuliani
+	 * MIT License (http://www.opensource.org/licenses/mit-license.html)
+	 *
+	 * expects a list of:
+	 * `<img src="blank.gif" data-src="my_image.png" width="600" height="400" class="lazy">`
+	 */
+	 $(function() {
+	  var $q = function(q, res){
+	        if (document.querySelectorAll) {
+	          res = document.querySelectorAll(q);
+	        } else {
+	          var d=document
+	            , a=d.styleSheets[0] || d.createStyleSheet();
+	          a.addRule(q,'f:b');
+	          for(var l=d.all,b=0,c=[],f=l.length;b<f;b++)
+	            l[b].currentStyle.f && c.push(l[b]);
+
+	          a.removeRule(0);
+	          res = c;
+	        }
+	        return res;
+	      },
+              addEventListener = function(evt, fn){
+                  window.addEventListener
+                          ? this.addEventListener(evt, fn, false)
+                          : (window.attachEvent)
+                          ? this.attachEvent('on' + evt, fn)
+                          : this['on' + evt] = fn;
+	      }
+	    , _has = function(obj, key) {
+	        return Object.prototype.hasOwnProperty.call(obj, key);
+	      }
+	    ;
+
+	  function loadImage (el, fn) {
+	    var img = new Image()
+	      , src = el.getAttribute('data-src');
+	    img.onload = function() {
+	      if (!! el.parent)
+	        el.parent.replaceChild(img, el)
+	      else
+	        el.src = src;
+
+	      fn? fn() : null;
+	    }
+	    img.src = src;
+	  }
+
+	  function elementInViewport(el) {
+	    var rect = el.getBoundingClientRect()
+
+	    return (
+	       rect.top    >= 0
+	    && rect.left   >= 0
+	    && rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+	    )
+	  }
+
+	    var images = new Array()
+	      , query = $q('img.lazy')
+	      , processScroll = function(){
+	          for (var i = 0; i < images.length; i++) {
+	            if (elementInViewport(images[i])) {
+	              loadImage(images[i], function () {
+	                images.splice(i, i);
+	              });
+	            }
+	          };
+	        }
+	      ;
+	    // Array.prototype.slice.call is not callable under our lovely IE8
+	    for (var i = 0; i < query.length; i++) {
+	      images.push(query[i]);
+	    };
+
+	    processScroll();
+	    addEventListener('scroll',processScroll);
+
+	  });
+	</script>
+<style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://ibogfemlnclpecapkojhmanpiebldbnk/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://ibogfemlnclpecapkojhmanpiebldbnk/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style></head>
+
+<body>
+
+<div id="demo-top-bar">
+
+  <div id="demo-bar-inside">
+
+    <h2 id="demo-bar-badge">
+      <a href="https://css-tricks.com/">CSS-Tricks Example</a>
+    </h2>
+
+    <div id="demo-bar-buttons">
+          </div>
+
+  </div>
+
+</div>
+	<div id="page-wrap">
+
+		<h1>Lazy Loading Images</h1>
+
+		<p>Scroll down...</p>
+
+		<div class="zone">
+			<img width="100%" height="" data-src="http://img5.poco.cn/yueyue/cms/20150605/69662015060516560045182192.png" src="" class="lazy">
+
+			<img width="100%" height="" data-src="http://img5.poco.cn/yueyue/cms/20150605/13132015060516593641687084.png" src="" class="lazy">
+
+			<img width="100%" height="" data-src="http://img5.poco.cn/yueyue/cms/20150605/51062015060516583459286619.png" src="" class="lazy">
+
+			<img width="100%" height="" data-src="http://img5.poco.cn/yueyue/cms/20150605/921720150605165855436022.png" src="" class="lazy">
+
+		</div>
+
+	</div>
+
+ <style type="text/css" style="display: none !important;">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		overflow-x: hidden;
+	}
+	#demo-top-bar {
+		text-align: left;
+		background: #222;
+		position: relative;
+		zoom: 1;
+		width: 100% !important;
+		z-index: 6000;
+		padding: 20px 0 20px;
+	}
+	#demo-bar-inside {
+		width: 960px;
+		margin: 0 auto;
+		position: relative;
+		overflow: hidden;
+	}
+	#demo-bar-buttons {
+		padding-top: 10px;
+		float: right;
+	}
+	#demo-bar-buttons a {
+		font-size: 12px;
+		margin-left: 20px;
+		color: white;
+		margin: 2px 0;
+		text-decoration: none;
+		font: 14px "Lucida Grande", Sans-Serif !important;
+	}
+	#demo-bar-buttons a:hover,
+	#demo-bar-buttons a:focus {
+		text-decoration: underline;
+	}
+	#demo-bar-badge {
+		display: inline-block;
+		width: 302px;
+		padding: 0 !important;
+		margin: 0 !important;
+		background-color: transparent !important;
+	}
+	
+	#demo-bar-badge:before, #demo-bar-badge:after {
+		display: none !important;
+	}
+</style>
+
+
+</body></html>

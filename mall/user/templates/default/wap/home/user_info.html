@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>个人中心</title>
+    <!-- {wap_global_top} -->
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/wap/lib/mod_327a0b0.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/wap/style/libs/common_da1a661.css">
+<!-- 通用 -->
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/wap/style/common/common_01d00d4.css">
+<!-- 颜色配置 -->
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/wap/style/common/ui-colcor_561acda.css">
+<!-- 按钮配置 -->
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/wap/style/common/ui-button_1a3ee3b.css">
+<!--基础样式 END-->
+
+<!--App bridge-->
+<script>
+{app_bridge_script}
+</script>  
+
+<script>
+
+    var wifi_link = /yp-wifi/.test(window.location.host)?'-wifi':'';
+
+    var test = /test/.test(window.location.href)?'test/':'';
+
+	window.$__ajax_domain = 'http://yp'+wifi_link+'.yueus.com/mall/user/'+test + 'ajax/';
+    window.$__ajax_common_url = 'http://yp'+wifi_link+'.yueus.com/mall/user/'+test + 'ajax_url_transit.php';
+
+	window.$__config = 
+	{				
+		ajax_url :
+		{
+            get_tt_pay_info : window.$__ajax_domain + 'get_tt_pay_info.php',
+            pay_tt_action : window.$__ajax_domain + 'pay_tt_action.php',
+			list_control : window.$__ajax_domain + 'order_list_control.php',
+            order_submit : window.$__ajax_domain + 'order_submit.php',
+            get_user_coupon_list_by_check : window.$__ajax_domain + 'get_user_coupon_list_by_check.php',
+            get_topic_info : window.$__ajax_domain + 'get_topic_info.php',
+            get_topic_list : window.$__ajax_domain + 'get_topic_list.php',
+            list_pay_judge : window.$__ajax_domain + 'order_list_pay_judge.php',
+            submit_comment : window.$__ajax_domain + 'submit_comment.php'
+
+		}
+
+	};
+    
+    document.addEventListener('touchstart',function(){},false);
+
+</script>
+
+<!-- 判断微信 -->
+<!-- IF is_weixin -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<!--配置微信全局变量-->
+<script>
+    (function()
+    {
+        var __wx_common_share = {};
+        var __wx_common_timeline = {};
+        var loc = window.location;
+
+        __wx_common_share =
+        {
+            title: "【约yue】 100000+模特随心约", // 分享标题
+            desc: "来模特邀约第一移动平台，不经意的遇上最美丽的风景", // 分享描述
+            link: window.location.href,
+            imgUrl:'http://yp.yueus.com/m/images/weixi_yueyue_icon.png?' + new Date().getTime(), // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                //alert("分分分成功")
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        };
+
+        __wx_common_timeline =
+        {
+            title: "【约yue】 100000+模特随心约", // 分享标题
+            desc: "来模特邀约第一移动平台，不经意的遇上最美丽的风景", // 分享描述
+            link: loc.origin + loc.pathname + loc.search + "&for_share=timeline", // 分享链接
+            imgUrl:'http://yp.yueus.com/m/images/weixi_yueyue_icon.png?' + new Date().getTime(), // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        };
+
+        window.__wx_common_share = __wx_common_share;
+        window.__wx_common_timeline = __wx_common_timeline
+
+        var wx_json = {wx_json};
+        var debug = '{debug}' == 1 ? true:false;
+
+        wx.config
+        ({
+            debug: debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: wx_json.appId, // 必填，公众号的唯一标识
+            timestamp: wx_json.timestamp, // 必填，生成签名的时间戳
+            nonceStr: wx_json.nonceStr, // 必填，生成签名的随机串
+            signature: wx_json.signature,// 必填，签名，见附录1
+            jsApiList: ['checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo',
+                'hideMenuItems',
+                'showMenuItems',
+                'hideAllNonBaseMenuItem',
+                'showAllNonBaseMenuItem',
+                'getNetworkType',
+                'openLocation',
+                'getLocation',
+                'hideOptionMenu',
+                'showOptionMenu',
+                'closeWindow',
+                'scanQRCode',
+                'chooseWXPay',
+                'openProductSpecificView'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        wx.ready(function()
+        {
+            wx.onMenuShareAppMessage(window.__wx_common_share);
+
+            wx.onMenuShareTimeline(window.__wx_common_timeline);
+
+            wx.onMenuShareQQ(window.__wx_common_share);
+
+
+        });
+    })();
+</script>
+<!-- ENDIF -->
+    <link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/wap/style/home/user_info_9f1c97a.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/wap/lib/lib_c74996d.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/wap/modules/common/widget/header/header_0fe33d9.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/components/zepto/zepto_9261738.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/wap/js/common/common_f112a50.js"></script>
+</head>
+<body class="cor-bg-fff">
+<main role="main">
+    <div id="global-header"></div>
+    <div class="page-view " data-role="page-container">
+        <div class="user-info-page">
+            <div class="p1th">
+                <div class="user-icon" style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></div>
+
+                <div class="des">
+                    <p class="p1">ID：100046</p>
+                    <p class="p2">广东 广州</p>
+                </div>
+
+                <div class="level">
+                    <i class="icon-v1-level"></i>
+                </div>
+                <p class="des">
+                    生冷不忌，男女通吃。ins：wms0508，著名平面模特，网络红人，因外表酷似日本著名模特及歌手藤井莉娜故人称小藤井莉娜
+                </p>
+            </div>
+
+            <div class="p2th">
+                <ul class="list clearfix">
+                    <li>
+                        <div class="circle">
+                            <div class="hold hold1">
+                                <div class="pie pie1" style="-webkit-transform: rotate(0deg);"></div>
+                            </div>
+                            <div class="cor-bg"></div>
+                            <div class="time">13</div>
+                        </div>
+                        <p class="txt">会员等级</p>
+
+                    </li>
+                    <li>
+                        <div class="circle">
+                            <div class="hold hold1">
+                                <div class="pie pie1" style="-webkit-transform: rotate(100deg);"></div>
+                            </div>
+                            <div class="cor-bg"></div>
+                            <div class="time">42</div>
+                        </div>
+                        <p class="txt">交易次数</p>
+                    </li>
+                    <li>
+                       <div class="circle">
+                           <div class="hold hold1">
+                               <div class="pie pie1" style="-webkit-transform: rotate(300deg);"></div>
+                           </div>
+                           <div class="cor-bg"></div>
+                           <div class="time">13K</div>
+                       </div>
+                        <p class="txt">消费金额</p>
+                    </li>
+                </ul>        
+            </div>
+
+
+            <div class="p3th">
+                <div class="title tc">消费记录</div>
+                <ul class="list clearfix">
+                    <li style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></li>
+                    <li style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></li>
+                    <li style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></li>
+                    <li style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></li>
+                    <li style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></li>
+                </ul>    
+                
+                <div class="comment tc">评价</div>
+
+                <div class="ui-start-mod">
+                    <i class="icon-s-mod  icon-start-yellow"></i>
+                    <i class="icon-s-mod  icon-start-yellow"></i>
+                    <i class="icon-s-mod  icon-start-yellow"></i>
+                    <i class="icon-s-mod icon-start-grey"></i>
+                    <i class="icon-s-mod icon-start-grey"></i>
+                </div>
+
+                <div class="zhxq color-ff6 tc f14">
+                    综合详情
+                </div>
+
+            </div>
+
+            <div class="p4th">
+                <div class="title tc f16">精彩图集</div>
+                <ul class="list clearfix">
+                    <li>
+                        <div class="wrap">
+                            <div class="img" style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wrap">
+                            <div class="img" style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wrap">
+                            <div class="img" style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wrap">
+                            <div class="img" style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wrap">
+                            <div class="img" style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wrap">
+                            <div class="img" style="background-image: url(http://yue-icon.yueus.com/10/100001_165.jpg?201508011808)"></div>
+                        </div>
+                    </li>
+                </ul>        
+            </div>
+        
+        </div>
+
+
+    </div>
+</main>
+</body>
+<script>
+    var header = require('common/widget/header/main');
+    //头部插件
+    $(document).ready(function() {
+
+        header.init({
+            ele        : $("#global-header"), //头部渲染的节点
+            title      : "xxx",
+            header_show: true, //是否显示头部
+            mt_0_ele   : $("#seller-list-page"), //如果头部隐藏，要把当前页节点margin-top改为0
+            right_icon_show: true, //是否显示右边的按钮
+            share_icon : {
+                show   : true,  //是否显示分享按钮icon
+                content: ""
+            },
+            omit_icon  : {
+                show   : false,  //是否显示三个圆点icon
+                content: ""
+            },
+            show_txt   : {
+                show   : false,  //是否显示文字
+                content: ""  //显示文字内容
+            }
+        });
+
+
+
+       
+
+
+
+    });
+</script>
+</html>

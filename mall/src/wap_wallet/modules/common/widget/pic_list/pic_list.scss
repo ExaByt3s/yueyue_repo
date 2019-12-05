@@ -1,0 +1,65 @@
+
+// 图片列表模块 start
+.list-max-img-mod
+{
+    .item{
+        .img-box{
+            width: 100%;
+            position: relative;
+            padding-top: 100%;//149.47%
+            i{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                background-position: 50%;
+                background-repeat: no-repeat;
+                -webkit-background-size:cover;
+            }
+        }
+        margin-top: 15px;
+       
+        float: left;
+        width:50%;
+       
+        box-sizing:border-box;
+        -webkit-box-sizing: border-box;
+        
+        img{
+            width: 100%;
+            max-height: 133px;
+
+        }
+        
+        -webkit-box-sizing: border-box;
+        .item-area{
+            border: 1px solid #eeeeee;
+        }
+        padding-right: 5px;
+        &:nth-child(2n+0){
+ 
+            padding-right: 0px;
+            padding-left: 5px;
+        }
+        .txt-area{
+            padding: 15px 10px 15px 10px;
+            .price{
+                margin-bottom: 8px;
+                color: #333;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .des{
+                color: #666;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+}
+// 图片列表模块 end

@@ -1,0 +1,793 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<script type="text/javascript" src="js/layer/extend/layer.ext.js"></script>
+<script type="text/javascript" src="resources/js/audit.js"></script>
+<script type="text/javascript" src="js/laydate/laydate.js"></script>
+<script type="text/javascript" src="resources/js/model.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/detail.css">
+<script language="javascript" type="text/javascript">  
+    //防止客户端缓存文件，造成uploadify.js不更新，而引起的“喔唷，崩溃啦”  
+    document.write("<script type='text/javascript' "  
+            + "src='js/uploadify/jquery.uploadify.min.js?" + new Date()  
+            + "'></s" + "cript>");  
+</script>
+<!--复制插件-->
+<script type="text/javascript" src="js/copy/jquery.zclip.min.js"></script>
+<link rel="stylesheet" type="text/css" href="js/uploadify/uploadify.css">
+<title>约约APP后台</title>
+<style type="text/css">
+.table-list
+{
+	clear: both;
+	min-width: 888px;
+}
+.table-list .input-text
+{
+	width: 100px;
+} 
+.table-list .table
+{
+	float: left;
+	margin-top: 20px;
+	+margin-left:5px;
+}
+.table-list .btn
+{
+	clear: both;
+}
+/*上传图片按钮*/
+.uploadify 
+{
+	margin-top: 10px;
+}
+#file_upload_thumb object
+{
+	left: 0px;
+}
+.uploadify-button {
+background:url('resources/images/uploadify.png');
+height: 28px;
+width: 75px;
+border-radius:inherit;
+border:none;
+}
+.uploadify:hover .uploadify-button {
+background:url('resources/images/uploadify.png');
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<form name="list_form" id="list_form" action="model_add.php" method="post" onsubmit="return add_model()">
+<input type="hidden" name="uid" value="{user_id}" />
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<input type="button" class="button" onclick="javascript:history.back();" value="返回"/>
+		<input type="submit" class="button" value="保存"/>
+		<input type="button" class="button" value="去到APP展示页" onclick="top.location.href='http://www.yueus.com/yue_admin/model_audit/model_audit_edit.php?user_id={user_id}'"/>
+		<!-- IF recycle -->
+		<input type="button" class="button" value="移出回收站" onclick="location.href='model_quick_search.php?uid={user_id}&act=recy&recycle=0'"/>
+		<!-- ELSE -->
+		<input type="button" class="button" value="移入回收站" onclick="subcheck('model_quick_search.php?uid={user_id}&act=recy&recycle=1')"/>
+		<!-- ENDIF recycle -->
+	</ul>
+</div>
+<!--top-->
+	<div class="table-list">
+		<div class="table" style="width:30%;" id="pic_table">
+	       <fieldset>
+	       <legend>图片信息</legend>
+		    <table  cellspacing="0" width="100%">
+		    	<tbody>
+				<tr>
+				<td width="400" align="center" colspan="2">UID:{user_id}</td>
+				</tr>
+				<tr>
+				<td>
+				<img src="{img_url}" id="img_show" width="145" height="145" />
+				</td>
+				<td width="200">
+		            <input id="file_upload_pic" name="opus" type="file" multiple="true">
+					<a href="model_pic_show.php?uid={user_id}" target="_blank">查看相册</a>
+					<a href="javascript:void(0);" onclick="check_pic('model_check_pic.php?uid={user_id}');">查看APP头像</a>
+		            </td>
+				</tr>
+				<tr><td colspan="2"><div id="queue"></div></td></tr>  	
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	   <div class="table" style="width:30%;">
+	       <fieldset>
+	       <legend>模特名称</legend>
+		    <!--list-->
+		    <table  cellspacing="0" width="100%">
+		    	<tbody>
+			    <!--while data-->
+				<tr>
+				<td width="70">姓  名:</td>
+				<td><input type="text" class="input-text" name="name" value="{name}" id="name"/></td>
+				</tr>
+				<tr>
+				<td>昵  称:</td>
+				<td><input type="text" class="input-text" name="nick_name" value="{nick_name}" id="nick_name"/></td>
+				</tr>
+				<tr>
+				<td>微信名称:</td>
+				<td><input type="text" class="input-text" name="weixin_name" value="{weixin_name}" id="weixin_name"/></td>
+				</tr>
+				<tr>
+				<td>论坛名称:</td>
+				<td><input type="text" class="input-text" name="discuz_name" value="{discuz_name}" id="discuz_name"/></td>
+				</tr>
+				<tr>
+				<td>POCO名称:</td>
+				<td><input type="text" class="input-text" name="poco_name" value="{poco_name}" id="poco_name"/></td>
+				</tr>
+				<tr>
+				<td>APP用户名:</td>
+				<td><input type="text" class="input-text" name="app_name" value="{app_name}" id="app_name"/><!-- IF nickname --><font color="red">{nickname}</font><a href="javascript:void(0)" class="same">同步</a><!-- ENDIF nickname --></td>
+				</tr>
+				<!--while data-->    	
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	   <div class="table" style="width:38%;">
+	       <fieldset>
+	       <legend>联系方式</legend>
+		    <!--list-->
+		    <table  cellspacing="0" width="100%">
+		    	<tbody>
+			    <!--while data-->
+				<tr>
+				<td width="60">手机号码:</td>
+				<td><input type="text" class="input-text" name="phone" value="{cellphone}" id="phone" readonly="readonly" /></td>
+				</tr>
+				<tr>
+				<td>微信:</td>
+				<td><input type="text" class="input-text" name="weixin_id" value="{weixin_id}" id="weixin_id"/></td>
+				</tr>
+				<tr>
+				<td>QQ:</td>
+				<td><input type="text" class="input-text" name="qq" value="{qq}" id="qq"/></td>
+				</tr>
+				<tr>
+				<td>邮箱:</td>
+				<td><input type="text" class="input-text" name="email" value="{email}" id="email" style="width:130px;" /></td>
+				</tr>
+				<tr>
+				<td>POCOID:</td>
+				<td><input type="text" class="input-text" name="poco_id" value="{poco_id}" id="poco_id"/></td>
+				</tr>
+				<tr>
+			    <td colspan="2"><a href="http://www.yueus.com/{user_id}" target="_blank" id="weixin">微信分享链接</a> <span id="copyBtn" style="position: relative;">复制链接</span></td>
+			    </tr>
+				<!--while data-->    	
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	</div>
+	<!--基本信息2 start-->
+	<div class="table-list">
+	   <div class="table" style="width:98%;" id="occu">
+	       <fieldset>
+	       <legend>职业信息</legend>
+		    <!--list-->
+		    <table  cellspacing="0" width="100%">
+		    	<tbody>
+			    <!--while data-->
+				<tr>
+				<td width="60">职业状态:</td>
+				<td width="200">
+					<select name="p_state">
+						<option value="0">未填</option>
+						<option value="1" {p_state_1}>兼职</option>
+						<option value="2" {p_state_2}>全职</option>
+						<option value="3" {p_state_3}>学生</option>
+					</select>
+				</td>
+				<td width="60">入行时间:</td>
+				<td width="200">
+				<span>
+				<input type="text" class="input-text" name="p_join_time" value="{p_join_time}" id="endtime"/>
+				</span>
+				<input type="text" class="input-text" name="join_score" value="{join_score}" id="join_score" style="width:50px;"/>分
+				</td>
+				<td width="60" align="center">样  貌:</td>
+				<td width="200">
+				<input type="text" class="input-text" name="appearance_score" value="{appearance_score}" id="appearance_score" style="width:50px;" />分</td>
+				</tr>
+				<tr>
+				<td width="60">样片链接:</td>
+				<td>
+				<span id="list_purl">{p_url}</span>
+				<a href="javascript:void(0)" title="添加样片链接" class="add_pUrl" onclick="add_pUrl('model_add_purl.php?uid={user_id}')">+</a>
+				<!-- <input type="text" class="input-text" name="p_url" value="{p_url}" id="p_url" style="width:150px;"/> -->
+				</td>
+				<td width="60">资历荣誉:</td>
+				<td>
+				<input type="text" class="input-text" name="p_honor" value="{p_honor}" id="p_honor"/><input type="text" class="input-text" name="honor_score" value="{honor_score}" id="honor_score" style="width:50px;"/>分</td>
+				<td width="60" align="center">化  妆:</td>
+				<td>
+				<input type="text" class="input-text" name="makeup_score" value="{makeup_score}" style="width:50px;"/>分</td>
+				</tr>
+				<tr>
+				<td width="60">拍摄风格:</td>
+				<td>
+				<span id="list_style">{str}</span>
+				 <a href="javascript:void(0)" title="添加风格" class="add_style" onclick="add_style('model_edit_style.php?uid={user_id}')">+</a>
+				</td>
+				<td width="60">学校名称:</td>
+				<td>
+				<input type="text" class="input-text" name="p_school" value="{p_school}" id="p_school"/>
+				</td>
+				<td width="60" align="center">表现力:</td>
+				<td>
+				<input type="text" class="input-text" name="expressiveness_score" value="{expressiveness_score}" id="expressiveness_score" style="width:50px;"/>分</td>
+				</tr>
+				<tr>
+				<td width="60">&nbsp;</td>
+				<td width="60">&nbsp;</td>
+				<td width="60">专业名称:</td>
+				<td>
+				<input type="text" class="input-text" name="p_specialty" value="{p_specialty}" id="p_specialty"/>
+				</td>
+				<td width="60">&nbsp;</td>
+				<td width="60">&nbsp;</td>
+				</tr>
+				<tr>
+				<td width="60"><!-- 换算价格 -->&nbsp;</td>
+				<td>&nbsp;</td>
+				<td width="60">入学年份:</td>
+				<td>
+				<span>
+				<input type="text" class="input-text" name="p_enter_school_time" value="{p_enter_school_time}" id="p_enter_school_time"/></span>
+				</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				</tr>
+				<!--while data-->    	
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	</div>
+	<!--基本信息2 end-->
+	<!--其他信息 start-->
+	<div class="table-list">
+	   <div class="table" style="width:30%;">
+	       <fieldset>
+	       <legend>其他信息</legend>
+		    <!--list-->
+		    <table  cellspacing="0" width="100%">
+		    	<tbody>
+			    <!--while data-->
+				<tr>
+				<td width="70">来 源:</td>
+				<td><input type="text" class="input-text" name="information_sources" value="{information_sources}" id="information_sources"/></td>
+				</tr>
+				<tr>
+				<td width="70">机 构:</td>
+				<td><span id="list_org">{org_name}</span><a href="javascript:void(0)" title="添加机构" class="add_org" onclick="add_org('model_relate_org.php?uid={user_id}')">+</a></td>
+				</tr>
+				<tr>
+				<td>活动入围:</td>
+				<td><span id="list_enter">{activity_enter}</span> <a href="javascript:void(0)" title="添加活动入围" class="add_activEnter" onclick="add_activEnter('model_add_activenter.php?uid={user_id}')">+</a></td>
+				</tr>
+				<tr>
+				<td>活动报名:</td>
+				<td><span id="list_join">{activity_join}</span> <a href="javascript:void(0)" title="添加活动报名" class="add_activJoin" onclick="add_activJoin('model_add_activjoin.php?uid={user_id}')">+</a></td>
+				</tr>
+				<tr>
+				<td>常驻城市:</td>
+				<td>
+  		         <select class="prov" name="province">
+  		         	<option value="">请选择</option>
+  		         	<!-- BEGIN province_list -->
+  		            <option value="{c_id}" {selected_prov}>{c_name}</option>
+  		            <!-- END province_list -->
+  		         </select> 
+    	          <select class="city" name="location_id">
+    	           <option value="">请选择</option>
+    	          	<!-- BEGIN city_list -->
+  		            <option value="{c_id}" {selected_city}>{c_name}</option>
+  		            <!-- END city_list -->
+    	          </select>
+    	          <font color="red">{city}</font> <a href="javascript:void(0);" onclick="same_city('{location_id}')">同步</a>
+				<!-- <select name="city">
+				  <option value="0">广州</option>
+				  <option value="1" {city_1}>上海</option>
+				  <option value="2" {city_2}>北京</option>
+				  <option value="3" {city_3}>成都</option>
+				  <option value="4" {city_4}>武汉</option>
+				  <option value="5" {city_5}>深圳</option>
+				</select> -->
+				</td>
+				</tr>
+				<tr>
+				<td>录入者:</td>
+				<td><input type="text" class="input-text" name="inputer_name" value="{inputer_name}" id="inputer_name" disabled="disabled"/></td>
+				</tr>
+				<tr>
+				<td>录入时间:</td>
+				<td><input type="text" class="input-text" name="inputer_time" value="{inputer_time}" id="inputer_time" style="width:140px;" disabled="disabled" /></td>
+				</tr>
+				<tr>
+				<td>支付宝账号:</td>
+				<td><input type="text" class="input-text" name="alipay_info" value="{alipay_info}"/>
+				<!-- IF user_alipay -->
+				<font color="red">{user_alipay}</font><a href="javascript:void(0);" class="same">同步</a>
+				<!-- ENDIF user_alipay -->
+				</td>
+				</tr>
+				<tr>
+				<td>标签:</td>
+				<td><span id="list_label">{label}</span> <a href="javascript:void(0)" title="添加标签" class="add_label" onclick="add_label('model_add_label.php?uid={user_id}')">+</a></td>
+				</tr>
+				<!--while data-->    	
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	   <div class="table" style="width:48%;">
+	       <fieldset>
+	       <legend>身材信息</legend>
+		    <!--list-->
+		    <table  cellspacing="0" width="100%">
+		    	<tbody>
+			    <!--while data-->
+				<tr>
+				<td width="80">性  别:</td>
+				<td width="100">
+					<select name="sex" class="sex">
+						<!-- <option value="0">请选择性别</option> -->
+						<option value="0">女</option>
+						<option value="1" {p_sex_1}>男</option>
+					</select>
+					<font color="red">女</font>
+					<a href="javascript:void(0)" onclick="same_sex(0)">同步</a>
+				</td>
+				<td width="200">&nbsp;</td>
+				</tr>
+				<tr>
+				<td>出生年月:</td>
+				<td><span><input type="text" class="input-text" name="age" value="{age}" id="age" style="width:60px;"/></span></td>
+				</tr>
+				<tr>
+				<td>身  高:</td>
+				<td><input type="text" class="input-text" name="height" value="{height}" id="height" style="width:50px;"/>CM &nbsp;&nbsp; <!-- IF m_height --><font color="red">{m_height}</font><a href="javascript:void(0)" class='same'>同步</a><!-- ENDIF m_height -->
+				</td>
+				<td>
+				<input type="text" class="input-text" name="height_score" value="{height_score}" id="height_score" style="width:50px;"/>分</td>
+				</tr>
+				<tr>
+				<td>体  重:</td>
+				<td><input type="text" class="input-text" name="weight" value="{weight}" id="weight" style="width:50px;"/>KG  &nbsp;&nbsp;<!-- IF m_weight --><font color="red">{m_weight}</font><a href="javascript:void(0)" class='same'>同步</a>
+				<!-- ENDIF m_weight -->
+				</td>
+				<td>
+				<input type="text" class="input-text" name="weight_score" value="{weight_score}" id="weight_score" style="width:50px;"/>分</td>
+				</tr>
+				<tr>
+				<td>罩  杯:</td>
+				<td>
+				<select class="select-text" name="cup_id" id="cup_id">
+				  <option value="0">未填</option>
+				  <option value="1" {p_cupid_1}>28</option>
+				  <option value="2" {p_cupid_2}>30</option>
+				  <option value="3" {p_cupid_3}>32</option>
+				  <option value="4" {p_cupid_4}>34</option>
+				  <option value="5" {p_cupid_5}>36</option>
+				  <option value="6" {p_cupid_6}>38</option>
+				</select>
+				<select class="select-text" name="cup_a" id="cup_a">
+				  <option value="0">未填</option>
+				  <option value="1" {p_cupa_1}>A</option>
+				  <option value="2" {p_cupa_2}>B</option>
+				  <option value="3" {p_cupa_3}>C</option>
+				  <option value="4" {p_cupa_4}>D</option>
+				  <option value="5" {p_cupa_5}>E</option>
+				  <option value="6" {p_cupa_6}>F</option>
+				</select>
+				CUP &nbsp;
+				<!-- IF m_cup --><font color="red" class="same_cup_id">{m_chest_inch}</font>
+				<font color="red" class="same_cup_a">{m_cup}</font>
+				<a href="javascript:void(0)" class='cup'>同步</a>
+				<!-- ENDIF m_cup -->
+				</td>
+				<td>
+				<input type="text" class="input-text" name="cup_score" value="{cup_score}" id="cup_score" style="width:50px;"/>分</td>
+				</tr>
+				<tr>
+				<td>三  围:</td>
+				<td width="250"><input type="text" class="input-text chest" name="chest" value="{chest}" style="width:30px;"/><input type="text" class="input-text waist" name="waist" value="{waist}" style="width:30px;"/><input type="text" class="input-text chest_inch" name="chest_inch" value="{chest_inch}" style="width:30px;"/>&nbsp;&nbsp;<!-- IF m_chest --><font color="red">{m_chest}-{m_waist}-{m_hip}</font><a href="javascript:void(0)" class='cwh'>同步</a><!-- ENDIF m_chest -->
+				</td>
+				<td>
+				<input type="text" class="input-text" name="bwh_score" value="{bwh_score}" id="bwh_score" style="width:50px;"/>分</td>
+				</tr>
+				<tr>
+				<td>鞋  码:</td>
+				<td><input type="text" class="input-text" name="shoe_size" value="{shoe_size}" id="shoe_size" style="width:50px;"/></td>
+				<td>&nbsp;</td>
+				</tr>
+				<!--while data-->    	
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	   <div class="table" style="width:20%;">
+	       <fieldset>
+	       <legend>账户信息</legend>
+		    <!--list-->
+		    <table  cellspacing="0" width="100%">
+		    	<tbody>
+			    <!--while data-->
+				<tr>
+				<td width="60">账户余额:</td>
+				<td>{available_balance}</td>
+				</tr>
+				<tr>
+				<td>约币积分:</td>
+				<td>&nbsp;</td>
+				</tr>
+				<tr>
+				<td>用户等级:</td>
+				<td>&nbsp;</td>
+				</tr>
+				<tr>
+				<td>购买服务:</td>
+				<td>&nbsp;</td>
+				</tr>
+				<!--while data-->    	
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	</div>
+	<!--其他信息 end-->
+	<!--月统计信息-->
+	<div class="table-list">
+	   <div class="table" style="width:98%;">
+	       <fieldset>
+	       <legend>月数据报表</legend>
+		    <table  cellspacing="0" width="100%">
+		    	
+		    	<thead>
+		    		<th align="center">&nbsp;</th>
+		    		<!-- <th align="center">登录次数</th> -->
+		    		<th align="center">关注数</th>
+		    		<!-- <th align="center">聊天认识</th> -->
+		    		<th align="center">约拍次数</th>
+		    		<th align="center">交易总额</th>
+		    	</thead>
+		    	<tbody>
+				<tr>
+					<td align="center">本日</td>
+		    		<td align="center">{day_fans}</td>
+		    		<td align="center">{day_count_order}</td>
+		    		<td align="center">{day_sum_price}</td>
+				</tr> 
+				<tr>
+					<td align="center">本周</td>
+		    		<td align="center">{week_fans}</td>
+		    		<td align="center">{week_count_order}</td>
+		    		<td align="center">{week_sum_price}</td>
+				</tr> 
+				<tr>
+					<td align="center">本月</td>
+		    		<td align="center">{month_fans}</td>
+		    		<td align="center">{month_count_order}</td>
+		    		<td align="center">{month_sum_price}</td>
+				</tr>  	
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	</div>
+	<!--月统计信息 END-->
+	<!--约拍信息-->
+	<div class="table-list" id="yue_tables-list">
+	   <div class="table" style="width:98%;">
+	       <fieldset>
+	       <legend>约拍信息</legend>
+		    <table  cellspacing="0" width="100%">
+		    	
+		    	<thead>
+		    		<th align="center">约拍时间</th>
+		    		<th align="center">约拍对象</th>
+		    		<th align="center">约拍详情</th>
+		    		<th align="center">出品地址</th>
+		    		<th align="center">约拍评价</th>
+		    		<th align="center">交易金额</th>
+		    	</thead>
+		    	<tbody id="yue_data">
+		    	<!-- BEGIN yue_data -->
+				<tr>
+					<td align="center">{date_time}</td>
+					<td align="center">{cameraman_nick_name}</td>
+		    		<td align="center">{date_style}</td>
+		    		<td align="center">{date_address}</td>
+		    		<td align="center"><a href="javascript:void(0);" class="desc" data="{comment_text}">{comment_desc}</a></td>
+		    		<td align="center">{date_price}</td>
+				</tr>
+				<!-- END yue_data --> 
+			    </tbody>
+		    </table>
+		     <!-- IF yue_count>"3" -->
+		     <p style="text-align:right;" id="yue_more"><a href="javascript:void(0);" onclick="list_all_yue('yue_list_follow.php?uid={user_id}');">更多</a></p>
+		     <!-- ENDIF yue_count -->
+		    </fieldset>
+	   </div>
+	</div>
+	<!--约拍信息 END-->
+	<!--跟进信息-->
+	<div class="table-list">
+	   <div class="table" style="width:98%;">
+	       <fieldset>
+	       <legend>跟进信息</legend>
+		    <p style="text-align:right;"><a href="javascript:void(0);" onclick="add_follow_data('model_add_follow.php?uid={user_id}');">添加信息</a></p>
+		    <table  cellspacing="0" width="100%">
+		    	
+		    	<thead>
+		    		<th align="center">跟进日期</th>
+		    		<th align="center">跟进人</th>
+		    		<th align="center">跟进结果</th>
+		    		<th align="center">问题分类</th>
+		    		<th align="center">跟进内容</th>
+		    	</thead>
+		    	<tbody id="stand_follow_data">
+				<!-- BEGIN list -->
+				<tr>
+					<td align="center">{follow_time}</td>
+		    		<td align="center">{follow_name}</td>
+		    		<td align="center">{result}</td>
+		    		<td align="center">{problem_type}</td>
+		    		<td align="center">{problem_content}</td>
+				</tr>
+				<!-- END list -->    	
+			    </tbody>
+		    </table>
+		    <!-- IF follow_count>3 -->
+		    <p style="text-align:right;" id="follow_more"><a href="javascript:void(0);" onclick="list_follow_data('model_list_follow.php?uid={user_id}');">更多</a></p>
+		    <!-- ENDIF follow_count -->
+		    </fieldset>
+	   </div>
+		<div class="btn">
+	   		基本评分: {total_score}分
+	   		<input type="hidden" name="inputer_id" value="{inputer_id}">
+	   		<input type="submit" class="button" value="保存"/>
+		</div>
+	</div>
+</form>
+</div>
+<script type="text/javascript">
+var uid = {user_id};
+		$(function() {
+			//头像上传
+			$("#file_upload_pic").uploadify({
+				'swf'   : 'js/uploadify/uploadify.swf',
+				'uploader' : 'http://imgup-yue.yueus.com/ultra_upload_service/yueyue_upload_act.php',
+				'file_post_name' : 'opus',
+				'queueID' : 'queue',
+				'fileExt':'*.gif;*.jpg;*.jpeg;*.png',
+				'buttonText':"上传头像",
+				'width': 75,
+				'height':28,
+				'multi': false,
+				'onComplete':function(file, data, response)
+				{
+					//window.alert('onComplete');
+					//var array_data = JSON.parse(data);
+					//add_model_pic('thumb',array_data.url);
+				},
+				'onUploadSuccess' : function(file, data, response) 
+				{
+					var array_data = (typeof(JSON) == 'undefined') ? eval("("+data+")") : JSON.parse(data);
+					//var array_data = JSON.parse(data);
+					add_model_pic('pic',array_data.url);
+					$("#img_show").attr({ src: array_data.url});
+				}
+			});
+			//同步
+			$(".table-list").find(".same").click(function(){
+				var $text = $(this).prev("font").text();
+				$(this).prev("font").prev("input").val($text);
+				//window.alert($text);
+			});
+			//三围同步处理
+			$(".table-list").find(".cwh").click(function(){
+				var $text = $(this).prev("font").text();
+				var $arr = new Array();
+				$arr = $text.split("-");
+				$(".chest").val($arr[0]);
+				$(".waist").val($arr[1]);
+				$(".chest_inch").val($arr[2]);
+			});
+		   //同步罩杯
+		   $(".table-list").find(".cup").click(function(){
+		   		var $same_cup_id = $(".same_cup_id").html();
+		   		var $same_cup_a  = $(".same_cup_a").html();
+		   		if ($same_cup_id == '28') {$same_cup_id = 1;}
+		   		else if ($same_cup_id == '30') {$same_cup_id = 2;}
+		   		else if ($same_cup_id == '32') {$same_cup_id = 3;}
+		   		else if ($same_cup_id == '34') {$same_cup_id = 4;}
+		   		else if ($same_cup_id == '36') {$same_cup_id = 5;}
+		   		else if ($same_cup_id == '38') {$same_cup_id = 6;}
+		   		$("#cup_id").val($same_cup_id);
+		   		if ($same_cup_a == 'A') {$same_cup_a = 1;}
+		   		else if ($same_cup_a == 'B') {$same_cup_a = 2;}
+		   		else if ($same_cup_a == 'C') {$same_cup_a = 3;}
+		   		else if ($same_cup_a == 'D') {$same_cup_a = 4;}
+		   		else if ($same_cup_a == 'E') {$same_cup_a = 5;}
+		   		else if ($same_cup_a == 'F') {$same_cup_a = 6;}
+		   		$("#cup_a").val($same_cup_a);
+		   });
+		//获取城市数据
+		$(".prov").change(function(){
+			var $prov_val = $(this).val();
+			$.ajax({
+			   type:"POST",
+			   url:"get_city.php",
+			   dataType: 'json',
+			   data : {'prov_id': $prov_val, 'act' : 'city_list'},
+			   success:function(data)
+			  {
+			  	if (data.ret) 
+			  	{
+			  		var $ret = data.ret;
+			  		var $str = "<option>请选择</option>";
+			  		for (var i = 0; i < $ret.length; i++) 
+			  		{
+			  			$str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";		
+			  		}
+			  		$(".city").html($str);
+
+			  	}
+
+			  },
+			  error:function(data)
+			 {
+
+			 }
+			});
+		});
+
+		//复制
+		$('#copyBtn').zclip({
+            path: "js/copy/ZeroClipboard.swf",
+            copy: function(){
+            	var $weixin =  $('#weixin').attr('href');
+            	//window.alert($weixin);
+                return $weixin;
+  　　　 　　},
+         afterCopy:function(){
+           alert("复制成功");
+           //console.log("复制之后");
+          }
+        });
+
+        //显示所有文字
+		$.text_show();
+		$.text_hide();
+		
+	});
+
+$.extend({
+	text_show:function()
+	{
+		$("#yue_tables-list tbody td").find(".desc").mouseover(function(){
+			var $dmid_desc = $(this).attr('data');
+			layer.tips($dmid_desc, this, {
+		    style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+				    //maxWidth:185,
+				    time: 3,
+				    closeBtn:[0, false]
+			});
+
+		});
+	},
+	text_hide:function()
+	{
+		$("#yue_tables-list tbody td").find(".desc").mouseleave(function(){
+			layer.closeTips();
+
+		});
+	}
+});
+
+//把图片添加进
+function add_model_pic($act, $img_url)
+{
+	$.ajax({
+			type:"POST",
+			url:"model_add_pic.php",
+			dataType: 'json',
+			data : {'act': $act, 'img_url': $img_url, 'uid': uid},
+			success:function(data)
+			{
+
+			},
+			error:function(data)
+			{
+
+			}
+			});
+
+}
+  //同步城市
+  function same_city($location_id)
+  {
+  	  $.ajax({
+			   type:"POST",
+			   url:"get_city.php",
+			   dataType: 'json',
+			   data : {'location_id': $location_id, 'act' : 'city_sel'},
+			   success:function(data)
+			  {
+			  	if (data.ret) 
+			  	{
+			  		var $prov_id = data.prov_id;
+			  		var $ret = data.ret;
+			  		var $str = "<option>请选择</option>";
+			  		for (var i = 0; i < $ret.length; i++) 
+			  		{
+			  			$str +="<option value='"+$ret[i]['c_id']+"' "+$ret[i]['city_sel']+">"+$ret[i]['c_name']+"</option>";		
+			  		}
+			  		//指定被选择的省
+			  		$(".prov").val($prov_id);
+			  		$(".city").html($str);
+			  	}
+
+			  },
+			  error:function(data)
+			 {
+			 	window.alert("同步城市失败!");
+			 }
+		});
+  }
+  //同步性别
+  function same_sex($sex)
+  {
+
+  	if ($sex == '' || $sex == 0 || $sex == 'undefined' || typeof $sex == 'undefined') 
+  	{
+  		$sex = 0;
+  	}
+  	else
+  	{
+  		$sex = 1;
+  	}
+  	$(".sex").val($sex);
+  }
+
+  //时间选择
+  laydate({
+            elem: '#endtime',
+            format: 'YYYY-MM',
+            istime: true,
+            istoday: false
+        });
+ //时间选择
+  laydate({
+            elem: '#age',
+            format: 'YYYY-MM',
+            istime: true,
+            istoday: false
+        });
+ //入学年份p_enter_school_time
+ laydate({
+            elem: '#p_enter_school_time',
+            format: 'YYYY',
+            istime: true,
+            istoday: false
+        });
+</script>
+</body>
+</html>

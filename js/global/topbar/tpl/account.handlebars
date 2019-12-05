@@ -1,0 +1,15 @@
+{{#if login}}
+<a href="javascript:;">{{nickname}}</a>
+<span class="pr15 pl15">|</span>
+<a href="javascript:;" id="logout">退出</a>
+{{else}}
+	{{#if custom_html}}
+		{{{custom_html}}}
+	{{else}}
+		<a href="login.php">登录</a>
+		<span class="pr15 pl15">|</span>
+		<a href="register.php">免费注册</a>
+	{{/if}}
+
+{{/if}}
+ 

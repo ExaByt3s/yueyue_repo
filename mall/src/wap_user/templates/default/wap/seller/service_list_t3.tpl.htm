@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{title}</title>
+    {web_global_top}
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline">  -->
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/seller/index.scss">
+    <script src="../../../../lib/lib.js"></script>
+</head>
+<body class="cor-bg-fff">
+
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view  service-list-page " >
+        <div class="seller-list-wrap">
+
+            <div class="list-max-one-img-mod">
+
+                <div class="render_ele" id="render_ele"></div>
+
+            </div>
+
+            <div class="more fn-hide" id="btn_more"><a href="javascript:;"  class="color-555">查看更多</a></div>
+
+        </div>
+        <div class="order_list_container" data-role="list_container"></div>
+
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+
+<script>
+
+    var $ = require('zepto');
+    var header = require('../../../../modules/common/widget/header/main');
+    var utility = require('../../../../modules/common/utility/index');
+    var yue_ui = require('../../../../modules/yue_ui/frozen');
+    var abnormal = require('../../../../modules/common/widget/abnormal/index');
+
+    $(document).ready(function() {
+
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"{title}",
+            header_show : true , //是否显示头部
+            right_icon_show : false, //是否显示右边的按钮
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :true,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        })
+
+        var page = 1 ;
+        var congfig = false ;
+
+        var $render_item_ele = $('#render_ele');
+
+        var page_params = {page_params};
+
+        page_params.result_data.return_query = encodeURIComponent(page_params.result_data.return_query);
+
+        function render_html(page)
+        {
+
+
+
+            var data_arg = $.extend(page_params.result_data,{page:page});
+
+            var ajax_obj = utility.ajax_request_app
+            ({
+                data : data_arg,
+                path : 'customer/goods_list',
+
+                beforeSend: function()
+                {
+                    congfig = false ;
+                    window.$loading = $.loading
+                    ({
+                        content:'发送中...'
+                    });
+                },
+                success : function(res)
+                {
+                    congfig = true ;
+
+                    $('#btn_more').removeClass('fn-hide');
+
+                    var list_data = res.data.goods;
+
+                    $loading.loading("hide");
+
+                    // 显示无内容
+                    if ( page == 1 && !list_data.length )
+                    {
+                        abnormal.render($('[data-role="list_container"]')[0],{});
+                    }
+
+                    if (!list_data.length )
+                    {
+                        $('#btn_more').addClass('fn-hide');
+                    }
+
+                    var template  = __inline('./service_list_item.tmpl');
+                    var view = template({
+                        data : list_data
+                    })
+
+                    $render_item_ele.append(view);
+                    console.log(list_data);
+
+                },
+                error : function(err)
+                {
+                    congfig = true ;
+                    $loading.loading("hide");
+                    alert('请求失败，请重试');
+                }
+            });
+        }
+
+        render_html(page);
+
+        $('#btn_more').on('click', function(event) {
+            if (congfig)
+            {
+                render_html(++page);
+            }
+
+        });
+
+    });
+
+</script>
+</html>

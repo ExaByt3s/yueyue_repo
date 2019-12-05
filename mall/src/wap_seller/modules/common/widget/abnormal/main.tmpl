@@ -1,0 +1,7 @@
+<div style="padding-top: 50%;">
+    <div {{#if broken_network}}data-role="refresh-page"{{/if}} class="stream-abnormal {{#if broken_network}}stream-network-error{{else}}stream-empty{{/if}}" data-role="tap-screen" >
+        <i class="icon {{#if broken_network}}icon-stream-network-error{{else}}icon-stream-empty{{/if}}"></i>
+        <h4 >{{#if broken_network}}当前网络不可用{{else}}暂无数据{{/if}}</h4>
+        {{#if broken_network}}<p>请检查网络后，轻触屏幕重新加载</p>{{/if}}
+    </div>
+</div>

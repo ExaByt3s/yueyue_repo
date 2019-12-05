@@ -1,0 +1,40 @@
+<main role="main" class="location">
+    
+<!--     <header class="page-header wryh">
+                <div class="page-back" data-role="page-back"><i class="icon icon-back-40x40"></i></div>
+                
+    </header> -->
+
+    <header class="nav-header mine-nav-header">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title">{{#if is_preview}}我的约拍条件{{else}}选择拍摄风格{{/if}}</h3>
+        
+        <div class="right-button-wrap">
+            <a><i class="icon icon-cog"></i></a>
+        </div>
+    </header>
+
+
+    <div data-role="container" class="content-body commit">
+        <div>
+            <div class="content-body ">
+                <!--use for choise or my-->
+                <div class="commit-block">
+
+                    <div class="style-content">
+                        <div class="notice-style fn-hide">{{#unless is_preview}}请选择拍摄风格：{{/unless}}</div>
+                        <div data-role="top_txt" class="mb15" ></div>
+                        <div class="choosen-style" data-role="choosen-contenter">
+
+                        </div>
+                    </div>
+                </div>
+                <!--use for choise or my end-->
+            </div>
+        </div>
+    </div>
+
+</main>

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<title>中转页</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="stylesheet" type="text/css" href="{combo:event_comm_css,_dev}"/>
+<link rel="stylesheet" type="text/css" href="./css/outdoor.css?t={rand}12"/>
+
+<link rel="stylesheet" type="text/css" href="./css/waipai.css?t={rand}123"/>
+</head>
+<body>
+{Party_global_header}
+{header_html}
+<div class="clearfix" id="content">
+  <div style="padding:0; margin:0;" class="t_line"></div>
+
+  <!-- IF res =="success" -->
+  <div class="pay-page fn_wryh w994" style="display:block">
+    <div class="txt-item">
+      <h4 class="title fn_wryh"><i class="icon succeed-icon pay-common-bg"></i>您已支付成功，稍后系统更新报名状态，请您耐心等候</h4>
+      <div class="loadding-item"><i class="loadding-icon"></i><span id="time_out_html">5</span>秒后，页面会自动关闭…</div>
+    </div>
+  </div>
+  <!-- ELSEIF res == "error" -->
+  <div class="pay-page fn_wryh w994" style="display:block">
+    <div class="txt-item">
+      <h4 class="title fn_wryh"><i class="icon failed-icon pay-common-bg"></i>抱歉，支付失败</h4>
+      <div class="loadding-item"><i class="loadding-icon"></i><span id="time_out_html">5</span>秒后，页面会自动关闭…</span></div>
+      <!-- <div class="btn-item"><a href="./" class="ui-btn ui-btn-greenh37 circle-2px"><em class="fn_wryh">立即返回</em></a></div> -->
+    </div>
+  </div>
+  <!-- ENDIF res -->
+
+</div>
+{footer_html}
+</body>
+<script>
+/**
+* hudw 2015.1.23
+* @param  {[type]} window    [description]
+* @param  {[type]} seajs     [description]
+* @param  {[type]} undefined [description]
+* @return {[type]}           [description]
+*/
+;(function(window, seajs, undefined)
+{
+
+
+    // 配置模块
+    seajs.config
+    ({
+
+        paths:
+        {
+            utility: 'http://cb.poco.cn/utility',
+            matcha: 'http://cb.poco.cn/matcha',
+            yueyue_global : 'http://www.yueus.com/js/global'            
+        },
+        alias:
+        {
+            handlebars: 'utility/handlebars/1.0.0/handlebars',
+            jquery: 'utility/jquery/1.11.0/jquery',                        
+            cookie: 'matcha/cookie/1.0.0/cookie',
+            topbar : 'yueyue_global/topbar/topbar'        
+        },
+        comboMaxLength: 5000,
+        charset: 'utf-8'
+    });
+
+    seajs.use(['jquery','topbar'],function($,topbar)
+    {
+        var $user_state = $('#user_state');        
+
+        topbar.init
+        ({
+            container : $user_state,
+            custom_logout : "http://www.yueus.com/reg/logout.php",
+            custom_html : '<a href="http://www.yueus.com/reg/login.php?r_url='+encodeURIComponent(window.location.href)+'">登录</a><span class="pr15 pl15">|</span><a href="http://www.yueus.com/reg/register.php?r_url='+encodeURIComponent(window.location.href)+'">免费注册</a>'
+        });
+    });
+
+    
+   
+})(window, seajs);
+</script>
+<script>
+    //计时操作
+    var event_id = {event_id};
+    var t=setTimeout(function(){
+        clearInterval(html_t);
+        //window.location.href="http://www.yueus.com/party_sign_list.php?event_id="+event_id;
+        //关闭当前页面
+        window.close();
+    
+    },5000);
+    
+    //倒计时数字
+    function change_num(num)
+    {
+        document.getElementById("time_out_html").innerHTML = num;
+    }
+    
+    var html_t = setInterval(function(){
+    
+        var cur_num = document.getElementById("time_out_html").innerHTML;
+        var new_cur_num = parseInt(cur_num)-1;
+        change_num(new_cur_num);
+    
+    },1000);
+    
+
+</script>
+</html>

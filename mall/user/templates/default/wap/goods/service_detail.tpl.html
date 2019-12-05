@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>服务详情</title>
+
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/goods/service_detail_1511194.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/swiper3.07.min_b12c96f.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/swiper_fix_bdef114.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<style>
+
+    </style>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_fcf77dd.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/collect/collect_4ed0dee.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/collect/collect_85b0f70.js"></script>
+</head>
+<body style="background: #f2f2f2">
+<main role="main" style="height: auto">
+    <section id="global-header"></section>
+    <div class="page-view page-name-service-detail" data-role="page-container">
+        <div class="service_detail_con ">
+            <div class="service_pic v_b">
+                <div class="pics_container">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper" id="see-max-pic-ele">
+                            <!-- BEGIN resa.data.preview -->
+                            <div class="swiper-slide" data-role="swipe">
+                                <i class="slide-items-bg" data-role="see-max-pic" data-img="{thumb}" style="background-image: url('{thumb}');background-size: cover;"><!--div class="notice"><p class="category_top">{title}</p></div--></i>
+                            </div>
+                            <!-- END resa.data.preview -->
+                        </div>
+                        <!-- 如果需要分页器 -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="pics_notice v_b box_c">
+                    <div class="title">{resa.data.title}</div>
+                    <div class="prices box">
+                        <div class="dib">
+                            <p class="price dib">{resa.data.rate}</p>
+                            <p class="o_price dib">{resa.data.unit}</p>
+                        </div>
+                        <!-- IF promotion.abate -->
+                        <div class="num dib">
+                        <span class="tags">促</span><span class="msg">{promotion.abate}</span>
+                        </div>
+                        <!-- ENDIF -->
+                    </div>
+                    <!-- IF promotion.title -->
+                    <div class="promotion-title"> 
+                        <p class="cont">{promotion.title}</p>
+                        <p class="hr"></p>
+                    </div>
+                    <div class="con">
+                        <p class="notice">{promotion.notice}</p>
+                        <p class="cont">{promotion.description}</p>
+                    </div>
+                    <!-- ENDIF -->
+                </div>
+            </div>
+            <div class="service_type v_b">
+                <div class="infos" data-role="infos">
+                    <div>{resa.data.promise_title}</div>
+                    <!-- BEGIN resa.data.promise_show -->
+                    <div class="notice">{nl2br:title}{nl2br:value}</div>
+                    <!-- END resa.data.promise_show -->
+
+                    <div class="fn-hide" data-role="promise_hide">
+                        <!-- BEGIN resa.data.promise_hide -->
+                        <div class="notice" >{nl2br:title}{nl2br:value}</div>
+                        <!-- END resa.data.promise_hide -->
+                    </div>
+                </div>
+                <!-- BEGIN resa.data.promise_has_hide -->
+                <div class="more_btn" data-role="show_more_hide">更多选项</div>
+                <!-- END resa.data.promise_has_hide -->
+            </div>
+
+            <!-- IF resa.data.recommend -->
+            <div class="service_type v_b">
+                <div class="eat">
+                    <div class="title">{nl2br:resa.data.recommend.title}</div>
+                    <div class="notice">{nl2br:resa.data.recommend.value}</div>
+                </div>
+            </div>
+            <!-- ENDIF -->
+
+            <!-- IF resa.data.menu -->
+            <div class="service_type v_b">
+                <div class="eat">
+                    <div class="title">{nl2br:resa.data.menu.title}</div>
+                    <div class="notice">{nl2br:resa.data.menu.value}</div>
+                </div>
+            </div>
+            <!-- ENDIF -->
+
+
+
+
+
+            <div class="service_comment v_b">
+                <div class="title box box_c">评价</div>
+                <div class="stars box box_c">
+                    <div class="inner">
+                        <div class="each" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="each" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="each" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="each" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="each" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="{resa.data.business.request}">
+                    <div class="times box box_c" >
+                        <div></div>
+                        <div class="btn">{resa.data.business.totaltrade.title} {resa.data.business.totaltrade.value}</div>
+                    </div>
+                </a>
+
+                <!-- 收藏 -->
+                <div id="collect" class="dib tc collect" ></div>
+
+            </div>
+            <div class="service_center v_b">
+                <div class="center">
+                    <div class="icon_con"><img src="{resa.data.user.avatar}" style="width:80px;border-radius: 40px;"/></div>
+                    <div class="name_con">{resa.data.user.name}</div>
+                    <div class="id_con">ID:{resa.data.user.user_id}</div>
+                    <div  data-role="to_center" ><a class="center_con db" href="{resa.data.user.homepage.request}">{resa.data.user.homepage.title}</a></div>
+                </div>
+            </div>
+            <!-- IF resa.data.property -->
+                <div class="service_center v_b mt0">
+                    <div class="center pb60" >
+
+                    <!-- BEGIN resa.data.property -->
+                    <div class="main-title"><span class="icon-title"  style="background-image: url({image}) " ></span>{title}</div>
+                        <!-- IF bwh -->  
+                            <!-- 模特相关 -->
+                            <div class="model-info" >
+                                <div class="title tc f16 color-333 fb">{bwh.title}</div>
+                                <ul class="list  f14 color-666 ">
+                                    <li>
+                                        <div class="icon icon-h"></div>
+                                        <p>{bwh.value.m_height}</p>
+                                    </li>
+                                    <li>
+                                        <div class="icon icon-w"></div>
+                                        <p>{bwh.value.m_weight}</p>
+                                    </li>
+                                    <li>
+                                        <div class="icon icon-c"></div>
+                                        <p>{bwh.value.m_cups}</p>
+                                    </li>
+                                    <li>
+                                        <div class="icon icon-m"></div>
+                                        <p>{bwh.value.m_bwh}</p>
+                                    </li>
+                                </ul>     
+                            </div>
+                            
+                        <!-- ENDIF -->
+                        <!-- BEGIN description -->
+                        <div class="item pt20">
+                            <div class="title tc f16 color-333 fb">{title}</div>
+                            <div class="f12 value pt15">{value}</div>
+                        </div>        
+                        <!-- END -->
+                    <!-- END -->
+                    </div>
+                </div>
+            <!-- ENDIF resa.data.property -->
+            <div class="service_more v_b" id="more-info">{resa.data.detail.value}</div>
+
+            
+
+            <!-- IF resa.data.guide -->
+            <div class="service_type v_b guide_info">
+                <div class="eat_info">
+                    <div class="title">{nl2br:resa.data.guide.title}</div>
+                    <!-- BEGIN resa.data.guide.list -->
+                    <div class="notice">{nl2br:title}{nl2br:value}</div>
+                    <!-- END resa.data.guide.list -->
+
+                    <!-- BEGIN resa.data.guide.img -->
+
+                    <p><img src="{yueus_img_resize:original,'165'}" style="width: 100%"/></p>
+
+                    <!-- END resa.data.guide.img -->
+                </div>
+            </div>
+            <!-- ENDIF -->
+
+            <!-- IF resa.data.is_show = "1" -->
+            <a href="{order_link}" style="position: fixed;bottom: 0px;width: 100%;"><div class="service_go_order v_b box_c" id="go_order">立即下单</div></a>
+            <!-- ENDIF -->
+            <!-- IF resa.data.is_show != "1" -->
+            <div class="service_go_order v_b box_c" style="position: fixed;bottom: 0px;width: 100%;">{resa.data.show_str} </div>
+            <!-- ENDIF -->
+        </div>
+    </div>
+</main>
+</body>
+<script>
+    var WeiXinSDK = require('common/I_WX_SDK/I_WX_SDK');
+    var utility = require('common/utility/index');
+    var $ = require('components/zepto/zepto.js');
+    var header = require('common/widget/header/main');
+    var frozen = require('yue_ui/frozen');
+    var stars = parseFloat('{resa.data.business.merit.value}');
+
+    var share = {share}.result_data || {};
+
+    var collect = require('collect');
+
+    $(function()
+    {
+        var s = require('common/widget/swiper/1.0.0/swiper3.07.min');
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: false,
+
+            // 如果需要分页器
+            pagination: '.swiper-pagination'
+        })
+
+        /**** 调用微信分享 ****/
+        if(WeiXinSDK.isWeiXin() && share)
+        {
+            // 朋友圈
+            var WeiXin_data_Timeline =
+            {
+                title: share.title, // 分享标题
+                link: share.url, // 分享链接
+                imgUrl: share.img, // 分享图标
+                success: function ()
+                {
+                    // 用户确认分享后执行的回调函数
+                    new Image().src = 'http://yp.yueus.com/action/wx_share_callback.php?platform=timeline&url='+encodeURIComponent(window.location.href);
+                },
+                cancel: function ()
+                {
+                    // 用户取消分享后执行的回调函数
+                }
+            };
+
+            // 好友、QQ
+            var WeiXin_data =
+            {
+                title: share.title, // 分享标题
+                desc: share.content, // 分享描述
+                link: share.url, // 分享链接
+                imgUrl: share.img, // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function ()
+                {
+                    // 用户确认分享后执行的回调函数
+                    new Image().src = 'http://yp.yueus.com/action/wx_share_callback.php?platform=friends&url='+encodeURIComponent(window.location.href);
+                },
+                cancel: function ()
+                {
+                    // 用户取消分享后执行的回调函数
+                }
+            };
+
+            WeiXinSDK.ready(function()
+            {
+                WeiXinSDK.ready(function()
+                {
+                    WeiXinSDK.ShareToFriend(WeiXin_data);
+
+                    WeiXinSDK.ShareTimeLine(WeiXin_data_Timeline);
+
+                    WeiXinSDK.ShareQQ(WeiXin_data);
+                });
+
+            });
+        }
+        /**** 调用微信分享 ****/
+
+        $('#go_order').on('click',function()
+        {
+            //location.href = '../order/confirm.php?goods_id=' + '{resa.data.goods_id}'
+        })
+
+        if($('#more-info').html() == "")
+        {
+            $('#more-info').addClass('fn-hide');
+        }
+
+
+
+        //星星处理
+        if(stars % 1 == 0)
+        {
+            $.each($('[data-role="stars"] > .yellow'),function(i,obj)
+            {
+                if(i < stars){
+                    $(obj).removeClass('none').addClass('full');
+                }
+            })
+        }
+        else{
+            $.each($('[data-role="stars"] > .yellow'),function(i,obj)
+            {
+                if(i < Math.floor(stars)){
+                    $(obj).removeClass('none').addClass('full');
+                }
+                if(i == Math.floor(stars)){
+                    $(obj).removeClass('none').addClass('half');
+                }
+            })
+        }
+
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"服务详情",
+            header_show : true , //是否显示头部
+            right_icon_show : true, //是否显示右边的按钮
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        })
+
+        $('[data-role="show_more_hide"]').on('click',function()
+        {
+            $('[data-role="promise_hide"]').removeClass('fn-hide');
+
+            $(this).addClass('fn-hide');
+        })
+
+
+
+        // 收藏操作
+        // 收藏操作
+        var collect_obj = new collect({
+            ele : $("#collect"),
+            target_id : '{resa.data.goods_id}' , //操作对象ID, 商家ID或商品ID
+            target_type : 'goods', // seller/goods
+            value : {resa.data.favor.value}  //是否收藏的值，接口出
+
+        })
+
+
+
+
+        // 微信显示大图操作
+        var src_list = [];
+        var img_list = $('#see-max-pic-ele').find('[data-role="see-max-pic"]');
+        img_list.each(function(index, item) {
+            src_list.push($(item).attr('data-img'))
+        });
+
+        $('[data-role="see-max-pic"]').on('click', function(event) {
+            event.preventDefault();
+            var cur_img = $(this).attr('data-img');
+            if (WeiXinSDK.isWeiXin())
+            {
+                WeiXinSDK.imagePreview(cur_img,src_list);
+            }
+        });
+
+        // 微信显示大图操作
+        var more_src_list = [];
+        var more_img_list = $('#more-info').find('img');
+        more_img_list.each(function(index, item) {
+            more_src_list.push($(item).attr('src'))
+        });
+        $('#more-info img').on('click', function(event) {
+            event.preventDefault();
+            var cur_img = $(this).attr('src');
+            if (WeiXinSDK.isWeiXin())
+            {
+                WeiXinSDK.imagePreview(cur_img,more_src_list);
+            }
+        });
+
+        
+
+
+
+
+    });
+</script>
+</html>

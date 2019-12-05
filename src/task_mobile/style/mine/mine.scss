@@ -1,0 +1,245 @@
+.mine_header{
+  background: #fff;
+  padding: 50px 15px 0px 15px;
+}
+.mine_tips{
+  color: #5daaeb;
+  padding: 15px;
+  background: #d8e9fb;
+  border-radius: 4px;
+}
+.mine_tips > img{
+  width: 15px;
+  height: 15px;
+}
+.mine_tips > p{
+  font-size: 12px;
+  margin-left: 10px;
+  word-break: break-all;
+}
+.mine_details{
+  padding-top:20px;
+  text-align: center;
+}
+.mine_details > img{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: #aaaaaa;
+}
+.mine_role{
+
+  font-size:21px;
+  color: #000000;
+}
+.mine_name{
+  font-size: 12px;
+  color: #cccccc;
+}
+.mine_comment{
+  -webkit-box-pack:center;
+}
+.mine_comment_btn{
+  width: 164px;
+  height: 33px;
+  line-height: 33px;
+  text-align: center;
+  background: #f5f5f5;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #666666;
+}
+.mine_lists{
+  padding-left: 15px;
+}
+.mine_lists_child{
+  padding: 15px 0px;
+  border-bottom: 1px solid #e6e6e6;
+  font-size: 12px;
+  color: #666666;
+}
+.mine_about_title{
+  -webkit-box-pack:center;
+  color: #000;
+  height: 65px;
+  font-size: 17px;
+  text-align: center;
+  background: #f2f2f2;
+}
+.mine_about_content{
+  background: #fff;
+  .slide-items-bg{    
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;    
+    overflow: hidden;
+    background-color: #fafafa;
+    -webkit-background-size: 100% auto;    
+    background-repeat: no-repeat;
+    background-position: 50%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+.mine_about_content > .mine_about_text{
+  font-size: 12px;
+  color: #333333;
+  padding: 35px 15px 0px 15px;
+}
+.mine_about_content > .mine_about_text_gray{
+  font-size: 12px;
+  color: #666666;
+  padding: 15px 15px 0px 15px;
+}
+.mine_about_content > .mine_about_more{
+  font-size: 14px;
+  color: #5d9feb;
+  padding: 30px 0px;
+  text-align: center;
+}
+.mine_about_deal{
+  -webkit-box-pack:justify;
+}
+.mine_about_deal_date{
+  color: #aaaaaa;
+  font-size: 12px;
+  width: 110px;
+  text-align: center;
+  -webkit-box-pack:center;
+}
+.mine_about_deal_icon > img{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  bottom: 15px;
+}
+.mine_about_deal_starts{
+  width: 110px;
+  text-align: center;
+  -webkit-box-pack:center;
+}
+.mine_about_deal_name{
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+}
+.mine_about_resent{
+  padding: 35px 15px;
+  border-top:1px solid #e6e6e6;
+  background: #fff;
+}
+.mine_about_resent > .title{
+  color: #fe9920;
+  font-size: 12px;
+}
+.mine_about_resent > .content{
+  font-size: 12px;
+  color: #000000;
+  margin-top: 15px;
+}
+.mine_about_resent > .date{
+  font-size: 12px;
+  color: #666666;
+}
+
+.mine_inner_about{
+  background: #fff;
+}
+.mine_inner_about_icon{
+  margin-top: 30px;
+  text-align: center;
+
+}
+.mine_inner_about_icon > img{
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+.mine_inner_about_title{
+  -webkit-box-pack:center;
+  margin-bottom: 10px;
+}
+.mine_inner_about_title > p{
+  border-bottom: 1px solid #5d9feb;
+  height: 55px;
+  line-height: 54px;
+}
+.mine_inner_about_text{
+  font-size: 12px;
+  margin: 7px 15px;
+  color: #333333;
+  word-break: break-all;
+}
+.mine_inner_request{
+  border-radius: 5px;
+  overflow: hidden;
+}
+.mine_inner_request_que{
+  background: #fff;
+  padding: 25px 20px 10px 20px;
+  font-size: 14px;
+  color: #000;
+
+}
+.mine_inner_request_ans{
+  background: #fff;
+  padding: 0px 20px;
+  font-size: 12px;
+  color: #666666;
+}
+.mine_inner_request_title{
+  padding: 0px 20px;
+  background: #fff;
+  height: 48px;
+  -webkit-box-pack:center;
+  border-bottom: 1px solid #e6e6e6;
+}
+.mine_inner_request_title > p{
+  line-height: 48px;
+  height: 48px;
+  border-bottom: 1px solid #5d9feb;
+}
+.mine_deal_list{
+  background: #fff;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 20px;
+}
+.mine_deal_list_head{
+  -webkit-box-pack:justify;
+}
+.mine_deal_list_head .inner_icon{
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+}
+.mine_deal_list_head .inner_icon > img{
+  border-radius: 50%;
+}
+.mine_deal_list_head .inner_name{
+  display: -webkit-box;
+  -webkit-box-flex: 1;
+  font-size: 14px;
+  color: #000;
+}
+.mine_deal_list_head .inner_name > p{}
+.mine_deal_list_head .inner_name .exp{
+  font-size: 10px;
+  color: #bbbbbb;
+}
+.mine_deal_list_content{
+  font-size: 12px;
+  color: #333333;
+  margin-top: 15px;
+}
+
+.mine_deal_list_head .inner_starts{
+  width: auto;
+}
+.mine_deal_list_head_con{
+  -webkit-box-flex:1;
+}
+
+   

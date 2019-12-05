@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: 'hh:mm:ss',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        })
+    })
+    </script>
+<title>OA</title>
+<style type="text/css">
+.input-text{ width:500px;}
+</style>
+</head>
+<body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<div class="mainbox">
+  <form name="add_form" id="add_form" action="" method="post" target="frame">
+    <div id="tabs" style="margin-top:10px;">
+      <div class="tabbox">
+        <fieldset>
+          <legend>支付信息</legend>
+          <!--list-->
+          <table  cellspacing="10" width="100%">
+            <tbody>
+             
+              <tr>
+                <td width="179">订单号:</td>
+                <td width="1089">{order_id}</td>
+              </tr>
+              <tr>
+                <td>用户名:</td>
+                <td>{cameraman_nickname}</td>
+              </tr>
+              <tr>
+                <td>真实姓名:</td>
+                <td><input type="text" class="input-text" name="cameraman_realname" value="" id="cameraman_realname"/></td>
+              </tr>
+              <tr>
+                <td>支付方式:</td>
+                <td><select name="pay_type" id="pay_type">
+                  <option value="manual_alipay">支付宝</option>
+                  <option value="manual_wx">微信支付</option>
+                  <option value="manual_bank">银行转账</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td>支付账号:</td>
+                <td><input type="text" class="input-text" name="pay_account" value="" id="pay_account"/></td>
+              </tr>
+              <tr>
+                <td>流水号:</td>
+                <td><input type="text" class="input-text" name="running_number" value="" id="running_number"/></td>
+              </tr>
+              <tr>
+                    <td>应收金额:</td>
+                    <td>{receivable_amount}
+                      元</td>
+              </tr>
+                <tr>
+                 <td>应付金款:</td>
+                 <td>{payable_amount}
+                   元</td>
+               </tr>
+              <tr>
+                <td>支付时间:</td>
+                <td><input id="pay_time" type="text" size="30" name="pay_time" value="" class="ui_timepicker" /></td>
+              </tr>
+              <tr> 
+                <td>备注:</td>
+                <td><textarea name="payment_remark" id="payment_remark" cols="45" rows="5"></textarea></td>
+              </tr> 
+            </tbody>
+          </table>
+        </fieldset>
+      </div>
+      <div class="btn">
+      <input type="button" value="返回" class="button" onclick="history.go(-1);">
+        <input type="submit" value="确认收款" class="button">
+      </div>
+    </div>
+  </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+
+.down-app-area-mod{
+	margin-top: 80px;
+	.pathA{
+		background-color: #f8f8f8;
+		padding:80px 0px;
+		.mod-title{
+			margin-bottom: 80px;
+		}
+		.item-wrap{
+			.item{
+				width:50%;
+				.title{
+					font-size: 20px;
+					text-align: center;
+					margin-bottom: 15px;
+				}
+				.code-img-con{
+					padding: 5px;
+					border:1px solid #cccccc;
+					margin-right: 20px;
+				}
+				.btn-con{
+					.list{
+						li{
+							line-height: 10px;
+							width: 190px;
+							height: 58px;
+							background: #333333;
+							margin-top: 15px;
+							border-radius: 5px;
+							color: #fff;
+							-webkit-transition: all 0.3s;
+							-moz-transition: all 0.3s;
+							-o-transition: all 0.3s;
+							-ms-transition: all 0.3s;
+							transition: all 0.3s;
+
+							&:hover{
+								background: #666666;
+							}
+							.icon-mod{
+								width: 28px;
+								height: 32px;
+								float: left;
+								margin: 12px 0 0 20px;
+
+							}
+							.icon-iphone{
+								background: url(../../images/icon-iphone-28x32.png);
+							}
+							.icon-Android{
+								background: url(../../images/icon-ad-28x32.png);
+							}
+							.txt{
+								margin: 5px 0 0 18px;
+								float:left;display:inline;  
+							}
+						}
+					}
+				}
+			}
+			.left-item{
+				.code-img-con{
+					margin-left: 40px;
+					border-radius: 5px;
+				}
+			}
+			.right-item{
+				.code-img-con{
+					margin: 20px 20px 0px 110px;
+				}
+				.txt-con{
+					margin-top: 24px;
+					.list{
+						li{
+							font-size: 18px;
+							line-height: 28px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.pathB{
+		background:#ffffff;
+		padding:80px 0  80px  0;
+		.mod-title{
+			padding-bottom: 2px;
+			background:none;
+			margin-bottom: 2px;
+		}
+		.item-wrap{
+			.item{
+				.tips{
+					text-align: center;
+					font-size: 20px;
+				}
+				.btn-item{
+					text-align: center;
+					margin-top: 80px;
+					margin-bottom: 80px;
+
+					.ui-button{
+						font-size: 22px;
+					}
+				}
+				.phone-txt{
+					text-align: center;
+					font-size: 24px;
+				}
+			}
+		}
+		
+	}
+}
+
+
+

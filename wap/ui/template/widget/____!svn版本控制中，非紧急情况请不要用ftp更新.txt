@@ -1,0 +1,25 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/ui/template/widget
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+avatar-size.html
+button.html
+choosen_group.html
+dropload.html
+footer.html
+header.html
+load-animate.html
+load-more.html
+nav-bar.html
+panel_text_pic.html
+ui-button.html
+ui-dialog.html
+ui-input.html
+ui-select.html
+ui-switch.html
+ui-triangle.html
+upload_pic.html
+
+--EOF--

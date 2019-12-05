@@ -1,0 +1,109 @@
+
+.search-page-body{
+    .ui-selectbox-option{
+        text-align: center;
+    }
+
+    .ui-search-com .search-form-container .search-text
+    {
+        width: 420px;
+    }
+
+    .page{
+      padding-top: 60px;
+    }
+
+    .ui-search-com .search-form-container .search-text .text{
+      width: 362px;
+    }
+}
+
+
+
+
+
+
+.search_con_1{
+  
+ 
+}
+.search_con_2{
+  
+  padding-top: 7px;
+  padding-left: 10px;
+}
+.search_text > img{
+  margin: 9px;
+}
+
+.data_res{
+  color: #333333;
+  font-size: 20px;
+  margin-top: 20px;
+  img{
+    margin-right: 10px;
+  }
+}
+
+.search-page{
+  .search-filter{
+    margin-top: 40px;
+  }
+}
+
+.search_seller_info{
+  font-size: 14px;
+  color: #000;
+  padding: 20px;
+  background: #fff;
+  .item-li{
+    .span-1{
+      padding: 9px 0;
+    }
+    .f26-color-ff5959
+    {
+      font-size: 26px;
+      color: #ff5959;
+    }
+    .color-ff5959{
+      color: #ff5959;
+    }  
+    .name{
+      position: relative;
+      top: -4px;      
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 130px;  
+      display: inline-block;
+    }
+    .seller-info-1{
+      margin-left: 15px; 
+      .seller-name{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 130px;    
+      }     
+    }
+    .seller-info-2{
+      text-align: right;
+      .child-1{
+        margin-top: 1px;
+      }
+      .child-2{
+        margin-top: 6px;
+      }
+    }
+    &.title{
+      padding: 7px 0 15px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 280px;      
+    }
+  }
+  
+}

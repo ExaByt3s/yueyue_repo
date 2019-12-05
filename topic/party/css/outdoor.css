@@ -1,0 +1,351 @@
+/* 支付完成 */
+.pay-success{}
+.pay-success .toggle {
+	height:33px;
+	overflow:hidden;
+	background:url(http://event.poco.cn/images/solid_line.gif?v1) repeat-x bottom;
+	padding-left:6px
+}
+.pay-success {
+	height:auto;
+	padding-top:0;
+	margin-top:-10px;
+*+margin-top:-15px;
+	_margin-top:-15px
+}
+.pay-success .toggles .toggle li {
+	width:71px;
+	height:30px;
+	line-height:30px;
+	color:#000
+}
+.pay-success .toggles .toggle li a {
+	font-size:14px!important
+}
+.pay-success .toggle li a.currenNow, .pay-success .toggles .toggle li a:hover, .pay-success .toggles .toggle li a.currenNow:hover {
+	display:block;
+	background:#fff;
+	color:#ff4978!important;
+	height:30px;
+	font-size:14px!important;
+	border-bottom:1px solid #fff
+}
+.pay-success .bgchange {
+	background:url(http://event.poco.cn/images/imgty4.jpg) 0 32px repeat-x;
+	height:33px
+}
+.pay-success .toggles .toggle a {
+	height:30px;
+	text-decoration:none;
+	font-weight:bold
+}
+.pay-success .toggles .toggle li {
+	float:left;
+	background:url(http://event.poco.cn/images/ll_img_hb09.gif) 0 1px repeat-x;
+	padding-top:1px;
+	border:1px solid #d7d7d7;
+	border-bottom:0;
+	margin-right:3px;
+	width:108px!important;
+	height:30px!important;
+	text-align:center
+}
+
+.pay-success .hd_wybm {
+	position:absolute;
+	top:-5px;
+	right:0
+}
+.pay-success .hd_wybm .mb_link {
+	color:#6ac334;
+	text-decoration:none
+}
+.pay-success .hd_wybm .mb_link:hover {
+	text-decoration:underline
+}
+.pay-success .hd_wybm span {
+	font-weight:normal;
+	font-size:12px;
+	position:relative;
+	top:6px
+}
+.pay-success .fb_btn {
+	display:block;
+	width:157px;
+	height:30px;
+	text-align:center;
+	color:#000;
+	line-height:29px;
+	font-size:14px;
+	font-weight:bold;
+	background:url(http://event.poco.cn/images/ll_imghd_21.png) no-repeat;
+	margin-right:8px
+}
+.pay-success .fb_btn {
+	float:left;
+	text-decoration:none
+}
+.pay-success .hd_dj_box {
+	position:relative;
+*+z-index:999;
+	_z-index:999
+}
+
+.pay-success .titles{background: url(../images/outdoor/line-5x20.jpg) no-repeat;font-size: 20px;padding-left: 10px;
+	color: #ff4978;border-bottom: 1px solid #d7d7d7;padding-bottom: 8px;height: 20px;line-height: 20px;}
+.pay-success .cor21b{color: #21b13f}
+.pay-success .p1th{}
+.pay-success .p1th .box3{line-height: 24px;width: 110px;text-align: center;}
+.pay-success .p1th .mm{color: #ff5858;font-size: 24px;}
+
+.pay-success .p2th{margin-top: 60px;}
+.pay-success .p2th .title{padding: 0px 5px 0 8px;background: #ff4978;color: #fff;display: inline-block;position: relative;float:left;display:inline; height: 24px; }
+.pay-success .p2th .allow{position: absolute;left: 0px;
+
+top: 23px;
+*top: 18px;
+top: 18px\0;
+
+}
+.pay-success .p2th .title2 .allow{top: 11px;left: 5px;}
+.pay-success .p2th .title2 {padding-left: 17px;}
+
+.pay-success .p2th .item-wrap{padding-top: 20px;}
+.pay-success .p2th .item-wrap .item{padding-bottom: 18px;}
+.pay-success .p2th .item-wrap .list{padding-top: 10px;width:900px;clear: both;}
+.pay-success .p2th .item-wrap li{color: #8b8b8b; float: left; margin:0 ; min-height:189px; _height:189px; _overflow: visible; padding: 0 25px 5px 0; text-align: center; width: 64px;white-space: normal;word-break: break-all; word-wrap: break-word;}
+.pay-success .p2th .item-wrap li .img{ width:64px; height:64px; text-align:center}
+.pay-success .p2th .item-wrap .txt{line-height: 18px;padding-top: 5px; width:72px;}
+.pay-success .p2th .item-wrap .txt .name{color: #333333;}
+.pay-success .p2th .item-wrap .txt .num{color: #aaaaaa;}
+
+.pay-success .p3th{}
+.pay-success .p3th .comment{padding-top: 20px;padding-bottom: 50px;}
+
+/* 活动 报名 弹窗口 */
+.fade { display:block; background: #000; position: fixed; left: 0; top: 0; width: 100%; height: 100%; filter:alpha(opacity:60);
+opacity: 0.6; z-index: 9999; zoom:1; clear:both; _height:1000px; _position:absolute; }
+
+.pop-signup{ background:#fff; width:475px; height:600px; z-index:999999; position:fixed; _position: absolute; top:50%; left:50%; margin-top:-300px; margin-left:-205px;
+_top:expression(eval(document.compatMode &&
+	 document.compatMode=='CSS1Compat') ?
+	 documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+	 document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+	 _margin-top:0
+}
+.pop-signup h3{font-size: 16px;background: #f5f5f5;height: 50px;line-height: 50px;text-align: center;color: #333333;}
+.pop-signup .close{ position: absolute;right: 10px;top: 16px;}
+
+.pop-signup .close a{display: block;width: 16px;height: 16px;background: url(../images/outdoor/close-16x16.png) no-repeat;}
+.pop-signup .close a:hover{background: url(../images/outdoor/close-16x16-hover.png);}
+
+
+.pop-signup .item-wrap{padding-top: 5px;}
+.pop-signup .item-wrap .item{border-bottom: 1px solid #eeeeee;padding: 0px 0 10px 0;margin: 12px 10px 0 10px;}
+.pop-signup .item-wrap .item .lbox{font-size: 14px;font-weight: bold;width: 105px;padding-left: 10px;}
+.pop-signup .item-wrap .item .rbox{}
+/* .pop-signup .item-wrap .item .rbox .input-text{width: 202px;height: 20px;line-height: 20px;padding: 2px 10px;border: 1px solid #d7d7d7; font-size: 14px;} */
+.pop-signup .item-wrap .item .rbox .input-text{width: 295px;height: 20px;line-height: 20px;padding: 2px 10px;border: 1px solid #d7d7d7; font-size: 14px;}
+.pop-signup .item-wrap .item .rbox .input-text-2{height: 28px;border: 1px solid #d7d7d7; font-size: 14px;width: 50px;border-left: none;border-right: none;text-align: center;line-height: 28px;}
+
+/* .pop-signup .item-wrap .item .rbox .list{height: 95px;overflow-x: hidden;overflow-y: auto;padding-right: 25px;} */
+.pop-signup .item-wrap .item .rbox .list{height: 95px;overflow-x: hidden;overflow-y: auto;padding-right:20px;}
+/* .pop-signup .item-wrap .item .rbox .list li{background: url(http://event.poco.cn/images/sel-225x50.jpg);width: 245px;height: 24px;line-height: 24px;margin-bottom: 10px;padding-left: 10px;} */
+.pop-signup .item-wrap .item .rbox .list li{background: url(../images/outdoor/sel-225x50.jpg?1);width: 310px;height: 24px;line-height: 24px;margin-bottom: 10px;padding-left: 10px;cursor: pointer;}
+.pop-signup .item-wrap .item .rbox .list li.sec{background-position: 0 -26px;}
+
+.pop-signup .item-wrap .item .rbox .list li.none{background-position: 0 -53px;color: #b1b1b1; cursor: not-allowed}
+
+
+.pop-signup .item-wrap .item .rbox .num{}
+.pop-signup .item-wrap .item .rbox .num .p1{font-size: 20px;}
+.pop-signup .item-wrap .item .rbox .question{padding: 0px 0 0 72px;}
+.pop-signup .btn{text-align: center;padding-top: 15px;}
+.pop-signup .btn a{text-decoration: none;}
+.pop-signup .btn a.bm{display: inline-block; border-radius: 3px; background: #ff4978;width: 140px;height: 40px;text-align: center;line-height: 40px;color: #fff;font-size: 14px;font-weight: bold;}
+.pop-signup .btn a.bm:hover{background: #ffa4bb;}
+.pop-signup .des{color: #8b8b8b;line-height: 20px;padding: 10px 15px 0 15px;}
+.pop-signup .error-tips{text-align: center;color: #ff5000;padding: 20px 0 0 10px;}
+
+/* 浏览外拍 模块 */
+.look-waipai-mod{}
+.look-waipai-mod .btn a{text-decoration: none;}
+.look-waipai-mod .btn a.bm{display: inline-block; border-radius: 3px; background: #ff4978;width: 160px;height: 40px;text-align: center;line-height: 40px;color: #fff;font-size: 14px;font-weight: bold;}
+.look-waipai-mod .btn a.bm:hover{background: #ffa4bb;}
+.look-waipai-mod .titles{background: url(../images/outdoor/line-5x20.jpg) no-repeat;font-size: 20px;padding-left: 10px;
+	color: #ff4978;border-bottom: 1px solid #d7d7d7;padding-bottom: 8px;height: 20px;line-height: 20px;margin-top: 30px;}
+.look-waipai-mod .info-item{ padding:30px 0 20px}
+.look-waipai-mod .info-item .txt-item{ line-height:28px; font-size:16px; padding-bottom:20px}
+.look-waipai-mod .info-item .txt-item p{ text-indent:2em}
+.look-waipai-mod .item-list{ padding-bottom:8px}
+.look-waipai-mod .waipai-item{ padding-top:20px}
+.look-waipai-mod .waipai-item .txt-item{ line-height:26px; color:#000; font-weight:bold; font-size:16px; padding-bottom:15px; background:#f0f0f0 url(../images/outdoor/line-4x82.jpg) left top repeat-y; padding:15px 25px; margin-bottom:15px; width:700px}
+.look-waipai-mod .cdap-table{ font-size:16px; margin-top:20px}
+.look-waipai-mod .cdap-table td{ height:36px; padding-right:5px}
+.look-waipai-mod .cdap-table td.tips{ height:45px;}
+
+/* 必读 */
+.mod-item-read{ background:#f5f5f5; border:1px solid #e6e6e6; padding:20px; margin-bottom:20px}
+.mod-item-read .listItem{ padding-bottom:7px}
+.mod-item-read .listItem h4.title{ color:#000; font-size:16px; font-weight:bold; float:left; width:800px;}
+.mod-item-read .listItem .close{ float:right; font-size:14px; color:#21b13f; font-weight:bold; width:150px; text-align:right}
+.mod-item-read .listItem .close a{color:#21b13f;; text-decoration:none}
+.mod-item-read .con-txt{ color:#666; font-size:14px; line-height:22px;}
+.mod-item-read .txt li{ list-style:decimal; margin-left:25px; padding:4px 0}
+.mod-item-read .tips{ padding:25px 0 0 0; }
+.mod-item-read .tips a{ color:#21b13f;}
+
+/* 按钮 */
+.ui-btn{ text-decoration:none; display:inline-block; *+display:inline; *+zoom:1; _display:inline; _zoom:1;}
+.ui-btn em{ font-style:normal}
+.ui-btn i.icon{ float:left;}
+.ui-btn-green-h50{ color:#fff; background:#42c75e; padding:0 58px; height:50px; line-height:50px; font-size:16px;}
+.ui-btn-green-h50:hover{ background:#57d972;}
+.ui-btn-gray-h40{ height:40px; background:#f5f5f5; line-height:40px; padding:0 29px; color:#21b13f; font-size:14px;}
+.ui-btn-gray-h40 i.icon{ background:url(http://event.poco.cn/images/add-icon-8x8.png) no-repeat; width:8px; height:8px; overflow:hidden; margin:16px 8px 0 0}
+
+/* 活动发布 */
+.location_index .open{ position:absolute; top:8px; right:0; font-size:14px; color:#21b13f; font-weight:bold; text-decoration:none}
+
+.activity-page{ padding-bottom:60px}
+
+.activity-page .item-send{ font-size:14px;}
+.activity-page .item-send .s-nav{ padding-bottom:50px; height:60px; }
+.activity-page .item-send .s-nav li{ width:330px; height:60px; line-height:60px; font-size:18px; text-align:center; float:left; color:#666; font-family:'Microsoft Yahei','Verdana','SimSun';}
+.activity-page .item-send .s-nav li.cur{ color:#fff}
+.activity-page .item-send .hd-bg-1{ background:url(http://event.poco.cn/images/activity-nav-1.png) center top no-repeat}
+.activity-page .item-send .hd-bg-2{ background:url(http://event.poco.cn/images/activity-nav-2.png) center top no-repeat}
+.activity-page .item-send .hd-bg-3{ background:url(http://event.poco.cn/images/activity-nav-3.png) center top no-repeat}
+.activity-page .item-send .table-item{ margin-bottom:30px}
+.activity-page .item-send .table-item td{ padding-bottom:20px}
+.activity-page .item-send .table-item .title{ text-align:right; width:62px; font-weight:bold; color:#000; line-height:36px; height:36px;  padding-right:5px;}
+.activity-page .item-send .input-txt{ height:34px; width:338px; padding:0 5px; line-height:34px; border:1px solid #ccc; color:#666 }
+.activity-page .item-send .table-item .select-item{ padding-top:0px; line-height:20px}
+.activity-page .item-send .table-item .adree-item{ line-height:16px;} 
+.activity-page .item-send .table-item .adree-item label{ padding:10px 25px 0 0; float:left}
+.activity-page .item-send .table-item .adree-item .other-adree{ display:inline-block; *+display:inline; *+zoom:1; _display:inline; _zoom:1;}
+.activity-page .item-send .table-item .adree-item select{ margin:8px 10px 0 0}
+.activity-page .item-send .input-pay{ width:76px; float:left}
+.activity-page .item-send .pay-way{ float:left; line-height:36px; padding-left:23px;}
+.activity-page .item-send .input-anypay{ border:1px solid #21b13f; color:#21b13f; width:108px; height:28px; line-height:28px; text-align:center}
+.activity-page .item-send .pay-way em.tips{ font-style:normal; color:#fe6464; font-size:12px;}
+.activity-page .item-send .btn-item{ border-top:1px solid #eee; padding-top:60px; text-align:center}
+.activity-page .item-send .btn-item .back{ color:#999; font-size:14px; margin-left:20px}
+.activity-page .item-send .btn-item .ui-btn:hover{ text-decoration:none}
+
+
+.activity-page .item-info .table-item{ margin-bottom:0}
+.activity-page .item-info .table-item .title{ width:89px}
+.activity-page .item-info .table-item td{ padding-bottom:50px}
+.activity-page .item-info .table-item .upload-btn{ background:url(http://event.poco.cn/images/add-img-80x80.png) no-repeat; width:80px; height:80px; border:0; display:block; cursor:pointer}
+.activity-page .item-info .table-item .textarea-txt{ border:1px solid #ccc; width:488px; height:88px; line-height:18px; padding:5px; color:#666}
+.activity-page .item-info .table-item .model-item{ padding-bottom:20px;}
+/* 自适应文本框 */
+.activity-page .item-info .table-item .textarea-detail-txt {width: 480px;  min-height:24px;  max-height: 300px; _height:24px;  margin-right: auto; padding:5px 9px;  border:1px solid #ccc; outline: 0;  font-size:16px;  word-wrap: break-word; overflow-x: hidden; overflow-y: auto; _overflow-y: visible; margin-bottom:10px; color:#006b1e; line-height:24px;}
+.activity-page .item-info .table-item .textarea-detail-txt p{ margin: 0; }
+/* 自适应文本框 end */
+.activity-page .item-info .table-item .textarea-cur-detail-txt{ line-height:26px; height:58px; color:#006b1e; margin-bottom:25px; }
+/* .activity-page .item-info .model-img-list li{ float:left; width:80px; height:100px; text-align:center; margin-right:10px} */
+.activity-page .item-info .model-img-list li{ float:left; width:85px; height:100px; text-align:center; margin-right:10px}
+.activity-page .item-info .model-img-list li .cancle{color:#fe6464; font-size:12px; text-decoration:none}
+.activity-page .item-info .model-img-list li.cancle-btn{ height:80px; line-height:80px; text-align:left}
+.activity-page .item-info .model-img-list li.cancle-btn .cancle{color:#fe6464; font-size:12px; margin-left:10px}
+.activity-page .item-info .a-tips{ color:#666}
+.activity-page .item-info .move-item{ font-size:12px; position:absolute; top:90px; right:-130px;}
+.activity-page .item-info .move-item a{ margin-right:5px; text-decoration:none; float:left; height:22px; line-height:22px; overflow:hidden; background:#666; color:#fff; padding:0 5px;}
+.activity-page .item-info .move-item a:hover{ background:#333}
+
+
+
+
+
+.activity-page .event-item{ padding-bottom:50px}
+.activity-page .event-item .listItem{ font-size:14px; font-weight:bold; padding-bottom:10px;}
+.activity-page .event-item .cancle{ float:left; color:#fe6464; font-size:12px;}
+.activity-page .event-item .table-item td{ padding-bottom:20px}
+.activity-page .event-item .table-item .title{ width:81px; font-weight:normal}
+.activity-page .event-item .table-item .select-item{ float:left; padding:7px 20px 0 0;}
+.activity-page .event-item .table-item .pay-item{ float:left; border:1px solid #ccc; margin-right:20px;}
+.activity-page .event-item .table-item .pay-item .pay-num-btn{ float:left; width:34px; height:34px; line-height:34px; text-align:center; border:0; font-weight:bold; background:#fafafa; cursor:pointer; color:#666}
+.activity-page .event-item .table-item .pay-item .pay-txt{ height:34px; line-height:34px; width:60px; text-align:center; border-width:0 1px; border-style:solid; border-color:#ccc; float:left; color:#666}
+.activity-page .event-item .table-item .cancle{ line-height:34px; height:34px;}
+.activity-page .event-item .add-btn{ padding-left:86px}
+.activity-page .item-send .captain-item .input-txt{ width:268px}
+.activity-page .item-send .captain-item .table-item{ float:left; width:386px;}
+.activity-page .item-send .captain-item .cancle{ height:92px; line-height:92px; }
+
+
+
+/* 支付成功&支付失败 */
+.pay-common-bg{ background:url(../images/pay-icon-100x100.jpg) no-repeat;}
+.pay-page .txt-item{ text-align:center; padding:150px 0}
+.pay-page .txt-item h4.title{ font-size:20px; font-weight:normal; color:#333}
+.pay-page .txt-item h4.title .icon{ display:inline-block; *+display:inline; *+zoom:1; _display:inline; _zoom:1; width:30px; height:30px; margin-right:10px; vertical-align:middle;}
+.pay-page .txt-item h4.title .succeed-icon{ background-position:0 0;}
+.pay-page .txt-item h4.title .failed-icon{ background-position:-32px 0;}
+.pay-page .txt-item .loadding-item{ color:#444; font-size:16px; padding-top:45px}
+.pay-page .txt-item .loadding-item .loadding-icon{ display:inline-block; *+display:inline; *+zoom:1; _display:inline; _zoom:1; vertical-align:middle; width:20px; height:22px; margin-right:10px; background:url(http://event.poco.cn//images/pay-loadding.gif) -8px -8px no-repeat;}
+.pay-page .txt-item .btn-item{ padding-top:35px}
+.pay-page .txt-item .btn-item .ui-btn{ float:none; display:inline-block; *+display:inline; *+zoom:1; _display:inline; _zoom:1;}
+
+
+a.ui-btn-greenh37, .ui-btn-greenh37{ height:37px; line-height:37px; padding:0 30px; color:#fff; background:#3fa900; font-size:16px;}
+a.ui-btn-greenh37:hover:hover{ background:#379300}
+.circle-2px{-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;}
+
+/* 指引模块 */
+.tips-sy-step .close, .tips-zz-step .close{ display:block; background:url(http://event.poco.cn/images/tips-img/tips-img-8.png) no-repeat; width:12px; height:12px; _overflow:hidden; cursor:pointer }
+.tips-sy-step .finish-btn, .tips-zz-step .finish-btn{ display:block; background:url(http://event.poco.cn/images/tips-img/tips-img-9.png) no-repeat; width:80px; height:30px; border:0; cursor:pointer }
+.tips-sy-step .next-btn, .tips-zz-step .next-btn{ display:block; background:url(http://event.poco.cn/images/tips-img/tips-img-7.png) no-repeat; width:80px; height:30px; border:0; cursor:pointer}
+.sy-step-1{ background:url(http://event.poco.cn/images/tips-img/tips-img-1.png) no-repeat; width:788px; height:178px; padding-top:14px;}
+.sy-step-1 .close{ margin:0 0 0 762px;}
+.sy-step-1 .finish-btn{ margin:112px 0 0 681px}
+.sy-step-2{ background:url(http://event.poco.cn/images/tips-img/tips-img-2.png) no-repeat; width:613px; height:295px; padding-top:17px;}
+.sy-step-2 .close{ margin:0 0 0 390px;}
+.sy-step-2 .next-btn{ margin:114px 0 0 308px}
+.sy-step-3{ background:url(http://event.poco.cn/images/tips-img/tips-img-3.png) no-repeat; width:611px; height:340px; padding-top:17px;}
+.sy-step-3 .close{ margin:0 0 0 390px;}
+.sy-step-3 .next-btn{ margin:114px 0 0 308px}
+.sy-step-4{ background:url(http://event.poco.cn/images/tips-img/tips-img-4.png) no-repeat; width:569px; height:239px; padding-top:17px;}
+.sy-step-4 .close{ margin:0 0 0 400px;}
+.sy-step-4 .finish-btn{ margin:114px 0 0 318px}
+.sy-step-5{ background:url(http://event.poco.cn/images/tips-img/tips-img-5.png) no-repeat; width:791px; height:401px; padding-top:14px;}
+.sy-step-5 .close{ margin:0 0 0 764px;}
+.sy-step-5 .next-btn{ margin:114px 0 0 684px}
+.sy-step-6{ background:url(http://event.poco.cn/images/tips-img/tips-img-6.png) no-repeat; width:692px; height:349px; padding-top:14px;}
+.sy-step-6 .close{ margin:0 0 0 664px;}
+.sy-step-6 .finish-btn{ margin:114px 0 0 584px}
+.zz-step-1{ background:url(http://event.poco.cn/images/tips-img/tips-img-12.png) no-repeat; width:768px; height:470px; padding-top:40px;}
+.zz-step-1 .close-btn{ margin:0 0 0 688px; display:block; background:url(http://event.poco.cn/images/tips-img/tips-img-10.png) no-repeat; width:37px; height:37px; cursor:pointer}
+.zz-step-1 .star-btn{ margin:313px 0 0 286px; display:block; border:0; background:url(http://event.poco.cn/images/tips-img/tips-img-11.png) no-repeat; width:200px; height:60px; cursor:pointer}
+.zz-step-2{ background:url(http://event.poco.cn/images/tips-img/tips-img-13.png) no-repeat; width:547px; height:171px; padding-top:72px;}
+.zz-step-2 .close{ margin:0 0 0 404px;}
+.zz-step-2 .next-btn{ margin:104px 0 0 323px}
+.zz-step-3{ background:url(http://event.poco.cn/images/tips-img/tips-img-14.png) no-repeat; width:746px; height:256px; padding-top:17px;}
+.zz-step-3 .close{ margin:0 0 0 717px;}
+.zz-step-3 .finish-btn{ margin:104px 0 0 637px}
+.zz-step-4{ background:url(http://event.poco.cn/images/tips-img/tips-img-15.png) no-repeat; width:805px; height:289px; padding-top:17px;}
+.zz-step-4 .close{ margin:0 0 0 777px;}
+.zz-step-4 .next-btn{ margin:104px 0 0 697px}
+.zz-step-5{ background:url(http://event.poco.cn/images/tips-img/tips-img-16.png) no-repeat; width:666px; height:248px; padding-top:17px;}
+.zz-step-5 .close{ margin:0 0 0 639px;}
+.zz-step-5 .finish-btn{ margin:104px 0 0 559px}
+.zz-step-6{ background:url(http://event.poco.cn/images/tips-img/tips-img-17.png) no-repeat; width:621px; height:249px; padding-top:17px;}
+.zz-step-6 .close{ margin:0 0 0 595px;}
+.zz-step-6 .next-btn{ margin:104px 0 0 514px}
+.zz-step-7{ background:url(http://event.poco.cn/images/tips-img/tips-img-18.png) no-repeat; width:692px; height:384px; padding-top:17px;}
+.zz-step-7 .close{ margin:0 0 0 665px;}
+.zz-step-7 .next-btn{ margin:104px 0 0 584px}
+
+/* 指引浮动层 */
+.zyback_dbox{width:58px;height:114px;overflow:hidden;position:absolute}
+.zyback_dbox a{display:block;width:54px;height:54px;margin-bottom:10px;cursor:pointer; background:url(http://event.poco.cn/images/tips-img/zy-bg-54x54.png) no-repeat; color:#fff; text-align:center; text-decoration:none}
+.zyback_dbox a:hover{ background:url(http://event.poco.cn/images/tips-img/zy-bg-cur-54x54.png); text-decoration:none}
+.zyback_dbox .back-help{ width:34px; height:47px; padding:7px 10px 0}
+.zyback_dbox .back-help{ font-size:14px; line-height:20px;}
+.zyback_dbox .back-top{ height:34px; padding-top:20px}
+.zyback_dbox .back-top i.top-icon{ background:url(http://event.poco.cn/images/tips-img/icon-t-23x13.png) no-repeat; width:23px; height:13px; display:block; overflow:hidden; margin:0 auto}
+
+/***2015-3-13号加发布作品链接样式***/
+.publish_link_btn{ width:205px; height:40px;background-image:url(../images/outdoor/publish_link_btn.png);}
+.publish_link_btn:hover{ background-image:url(../images/outdoor/publish_link_btn_hover.png);}

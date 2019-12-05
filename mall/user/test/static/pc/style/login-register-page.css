@@ -1,0 +1,27 @@
+.login-register-page-body {
+  background: #f2f2f2; }
+  .login-register-page-body .login-register-page-wrap {
+    padding-top: 55px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    min-height: 515px;
+    background: url(http://static.yueus.com/mall/user/test/static/pc/images/bg-1000x515.jpg) center top no-repeat;
+    width: 100%; }
+  .login-register-page-body .err-tips {
+    width: 268px;
+    padding-left: 10px;
+    color: #ff6763;
+    border: 1px solid #fadcd3;
+    background: #fff1ed;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 20px; }
+    .login-register-page-body .err-tips .icon-error {
+      display: inline-block;
+      background: url(http://static.yueus.com/mall/user/test/static/pc/images/error-tips-15x15.png);
+      width: 15px;
+      height: 15px;
+      vertical-align: -3px;
+      margin: 0 5px 0 0px; }
+
+/*# sourceMappingURL=login-register-page.css.map */

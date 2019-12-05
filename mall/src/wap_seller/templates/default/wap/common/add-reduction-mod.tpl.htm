@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>加减</title>
+    <link rel="import" href="../webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/order/detail.scss">
+    <script src="../../../../lib/lib.js"></script>
+
+</head>
+<body>
+
+<style type="text/css">
+    body
+    {
+        padding: 20px;
+    }
+</style>
+
+
+<div id="add-reduction-ele-1">
+    
+</div>
+
+<br /><br />
+
+<div id="add-reduction-ele-2">
+    
+</div>
+
+</body>
+
+
+<script>
+
+    var $ = require('zepto');
+    var utility = require('../../../../modules/common/utility/index');
+    
+    $(document).ready(function(){
+
+        // 载入组件
+        var add_reduction = require('../../../../modules/common/widget/add_reduction/add_reduction');
+
+        var add_reduction_ele_1 = new add_reduction({
+            ele : $('#add-reduction-ele-1'),//渲染模板节点
+            is_show_operate_btn : true , //是否显示加减操作按钮
+            param_val : {
+                // input_val : '0',  //要默认显示的值
+                max_val : '10', //最大值
+                min_val : ''  //最小值
+            }
+        })
+
+        // add_reduction_ele_1.add_ele.on('add',function(e)
+        // {
+        //     console.log('增加11');
+        // });
+
+        // add_reduction_ele_1.reduce_ele.on('reduce',function(e)
+        // {
+        //     console.log('减少11');
+        // });
+
+
+
+        var add_reduction_ele_2 = new add_reduction({
+            ele : $('#add-reduction-ele-2'), //渲染模板节点
+            is_show_operate_btn : false , //是否显示加减操作按钮
+            param_val : {
+                input_val : '5' ,   //要默认显示的值
+                max_val : '',  //最大值
+                min_val : '3' //最小值
+            }
+        })
+
+        // add_reduction_ele_2.add_ele.on('add',function(e)
+        // {
+        //     console.log('增加22');
+        // });
+
+
+    });
+
+
+
+
+</script>
+</html>

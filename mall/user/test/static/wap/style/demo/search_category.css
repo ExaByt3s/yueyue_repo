@@ -1,0 +1,78 @@
+@charset "UTF-8";
+.search-category {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  padding: 0 35px;
+  box-sizing: border-box;
+  background: #fff;
+  transition: left 1s;
+  -moz-transition: left 1s;
+  /* Firefox 4 */
+  -webkit-transition: left 1s;
+  /* Safari ºÍ Chrome */
+  -o-transition: left 1s; }
+  .search-category .categroy {
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-orient: vertical; }
+    .search-category .categroy .categroy-bg {
+      position: fixed;
+      z-index: 98;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      -webkit-filter: blur(33px);
+      -moz-filter: blur(10px);
+      -ms-filter: blur(10px);
+      filter: blur(10px); }
+    .search-category .categroy .title {
+      padding: 15px 0;
+      font-size: 18px;
+      text-align: center;
+      color: #666; }
+    .search-category .categroy .categroy-content {
+      margin-top: 30px;
+      display: -webkit-box;
+      -webkit-box-pack: center; }
+      .search-category .categroy .categroy-content .box {
+        width: 100%; }
+        .search-category .categroy .categroy-content .box .menu {
+          display: inline-block;
+          width: 49%;
+          height: 60px;
+          line-height: 60px;
+          text-align: left;
+          font-size: 18px;
+          box-sizing: border-box;
+          float: left; }
+          .search-category .categroy .categroy-content .box .menu .icon {
+            display: inline-block;
+            width: 35px;
+            height: 35px; }
+          .search-category .categroy .categroy-content .box .menu .msg {
+            padding-left: 8px;
+            line-height: 36px;
+            color: #666;
+            display: inline-block;
+            width: 75px;
+            text-align: left; }
+          .search-category .categroy .categroy-content .box .menu .y-mt {background-repeat: no-repeat;}
+          .search-category .categroy .categroy-content .box .menu .y-px {background-repeat: no-repeat;}
+          .search-category .categroy .categroy-content .box .menu .y-hz {background-repeat: no-repeat;}
+          .search-category .categroy .categroy-content .box .menu .y-dz {background-repeat: no-repeat;}
+          .search-category .categroy .categroy-content .box .menu .y-hd {background-repeat: no-repeat;}
+          .search-category .categroy .categroy-content .box .menu .y-sy {background-repeat: no-repeat;}
+          .search-category .categroy .categroy-content .box .menu .y-ms {background-repeat: no-repeat;}
+          .search-category .categroy .categroy-content .box .menu .y-yx {background-repeat: no-repeat;}
+    .search-category .categroy .close-icon {background-repeat: no-repeat;}
+    .search-category .categroy .close-icon:active {background-repeat: no-repeat;}
+    .search-category .categroy .icon {
+      display: inline-block;
+      width: 35px;
+      height: 35px; }
+.search-category .categroy .categroy-content .box .menu .y-mt{background-position:0px 0px}.search-category .categroy .categroy-content .box .menu .y-px{background-position:0px -40px}.search-category .categroy .categroy-content .box .menu .y-hz{background-position:0px -80px}.search-category .categroy .categroy-content .box .menu .y-dz{background-position:0px -120px}.search-category .categroy .categroy-content .box .menu .y-hd{background-position:0px -160px}.search-category .categroy .categroy-content .box .menu .y-sy{background-position:0px -200px}.search-category .categroy .categroy-content .box .menu .y-ms{background-position:0px -240px}.search-category .categroy .categroy-content .box .menu .y-yx{background-position:0px -280px}.search-category .categroy .close-icon{background-position:0px -320px}.search-category .categroy .close-icon:active{background-position:0px -360px}.search-category .categroy .categroy-content .box .menu .y-mt,.search-category .categroy .categroy-content .box .menu .y-px,.search-category .categroy .categroy-content .box .menu .y-hz,.search-category .categroy .categroy-content .box .menu .y-dz,.search-category .categroy .categroy-content .box .menu .y-hd,.search-category .categroy .categroy-content .box .menu .y-sy,.search-category .categroy .categroy-content .box .menu .y-ms,.search-category .categroy .categroy-content .box .menu .y-yx,.search-category .categroy .close-icon,.search-category .categroy .close-icon:active{background-size: 35px 395px;background-image: url(http://static.yueus.com/mall/user/test/static/wap/style/demo/search_category_0.5_z.png)}

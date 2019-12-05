@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/static/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/wappredev/static/style/base.css">
+<!--基础样式 END-->
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/wappredev/static/style/task-m.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__romain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : '../ajax/'
+	};
+</script>  
+    <title>ueditor demo</title>
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/static/lib/lib.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/components/zepto/zepto.js"></script>
+</head>
+
+<body>
+
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+        这里写你的初始化内容
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="./lib/ueditor/ueditor.config.js?2"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="./lib/ueditor/ueditor.all.js?2"></script>
+    <!-- 实例化编辑器 -->
+    <div id="btns">点击</div>
+    <script type="text/javascript">
+
+    window.UEDITOR_HOME_URL = 'http://yueus.com/wappredev/lib/ueditor/'
+    var $ = require('components/zepto/zepto.js');
+    
+    $(function(){
+        var ue = UE.getEditor('container',{
+            toolbars: [
+            ['source', 'undo', 'redo', 'simpleupload','insertvideo'] // 
+    ]
+        });
+        $('#btns').on('click',function(){
+            var html = ue.getContent();
+            console.log(html);
+        })
+    })     
+    </script>
+    
+</body>
+
+</html>

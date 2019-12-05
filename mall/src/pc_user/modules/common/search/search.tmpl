@@ -1,0 +1,49 @@
+<div class="search-mod clearfix ">
+	<div class="search-form-container fldi " >
+		<form method="GET" action="{{search_url}}" id="search-form">
+		    <div class="search-left fldi">
+			    <select data-role="search_service_type" name="search_type" 
+			    {{#if select_use_change}} 
+			    onchange="submit_by_select()"
+			    {{/if}}
+			    >
+			    	<option value="goods" {{#if_equal search_type "goods"}}selected{{/if_equal}}>服务</option>
+			    	<option value="seller" {{#if_equal search_type "seller"}}selected{{/if_equal}}>商家</option>
+			    </select>			    
+		    </div>
+		    {{#each data}}
+                <div class="search-text fldi " style="{{#unless show}}display:none;{{/unless}}" data-role="{{search_type}}-input-container">
+                    <input {{#unless show}}disabled{{/unless}} value="{{text}}" data-placeholder="{{place_holder}}" data-role="search_text" class="text font_wryh" name="keywords" autocomplete="off" maxlength="255" accesskey="s" id="search-text"
+                    {{#if_equal search_type "goods"}}title="请输入关键字"{{else}}title="请输入商家ID/商家名称"{{/if_equal}} />
+                    <input {{#unless show}}disabled{{/unless}} value="{{default_text}}" name="default_text" type="hidden" data-role="default-search-text">
+                    <input {{#unless show}}disabled{{/unless}} value="{{default_url}}" name="default_url" type="hidden" data-role="default-url">
+                    <button class="icon-search" style="background-image:url('{{../icon_search}}')" data-role="search-go" type="submit"></button>
+                    <input {{#unless show}}disabled{{/unless}} type="hidden" name="type_id" value="{{type_id}}">
+                    <label style="{{#if text}}visibility: hidden;display: none;{{/if}}"  data-role="label-place-holder" class="label-place-holder">{{place_holder}}</label>
+
+                </div>
+            {{/each}}
+            <input type="hidden" value="1" name="p">
+	    </form>
+	</div>
+	{{#if hot_data}}
+	<div class="search-hot-tag fldi">
+		
+		<span>热门搜索：</span>
+		{{#each hot_data}}
+		<span class="pr5 pl5"><a href="{{link}}" title="{{title}}">{{str}}</a></span>
+		{{/each}}		
+	</div>
+	{{/if}}
+</div>
+<script>
+	// 下拉提交
+	function submit_by_select()
+	{
+		var doc = document;
+		doc.getElementById('search-text').value = '';
+		doc.getElementById('search-form').submit();
+	}
+
+
+</script>

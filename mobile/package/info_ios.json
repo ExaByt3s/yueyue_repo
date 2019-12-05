@@ -1,0 +1,12 @@
+{
+     "packageVer":"1.0.114",
+     "packageUrl":"http:\/\/yp-wifi.yueus.com\/mobile\/package\/resource\/0.0.12\/app.zip",
+     "no_wifi_packageUrl":"http:\/\/yp.yueus.com\/mobile\/package\/resource\/0.0.12\/app.zip",
+     "packageForceUpdate":0,
+     "enterUrl":"http:\/\/yp-wifi.yueus.com\/mobile\/app",
+     "no_wifi_enterUrl":"http:\/\/yp.yueus.com\/mobile\/app",
+     "appVer":"1.0",
+     "appForceUpdate":0,
+     "isShowAppTips" : 1,
+     "appUpdateTips" : "亲，有新内容噢，请刷新！"
+}  

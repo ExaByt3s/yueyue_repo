@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>WebUploader演示 PC</title>
+    <meta charset="gbk">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--不是上传组件必须使用的样式文件-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/syntax.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--不是上传组件必须使用的样式文件-->
+
+    <link rel="stylesheet" type="text/css" href="css/pc-ui.css">
+
+    <style>
+        .upload-container{
+            padding: 10px;
+        }
+        .upload-container .nav a{
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="upload-container" >
+    <h4 class="nav">
+        <a href="index.html">无UI(h5)</a>
+        <a href="index.html?type=flash">无UI(flash)</a>
+        <a href="index_ui_pc.html">带UI(PC)</a>
+        <a href="index_ui_m.html">带UI(WAP)</a>
+        <a href="upload_wx.html">微信上传</a>
+    </h4>
+    <h1>H5和flash兼容的传图方式(带UI)</h1>
+    <!--dom结构部分-->
+    <!--头部，相册选择和格式选择-->
+
+    <div id="uploader-wrapper">
+
+    </div>
+
+    <div id="uploader-wrapper2">
+
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="webuploader.js"></script>
+<script type="text/javascript" src="yue-uploader.js"></script>
+
+</body>
+</html>
+<!--html5-->
+<script>
+    $(function()
+    {
+        // 初始化对象
+        var uploader_obj = yueWebUploader($('#uploader-wrapper'),
+        {
+            formData :
+            {
+                poco_id : 100000
+            },
+            fileNumLimit : 20,// 最多上传20张图片
+            fileVal : 'opus'
+        });
+
+        // 上传成功
+        uploader_obj.on('uploadSuccess',function(files,response)
+        {
+            console.log(response)
+        });
+
+        // 上传失败
+        uploader_obj.on('uploadError',function(file,reason)
+        {
+            console.log(reason)
+        });
+    });
+</script>

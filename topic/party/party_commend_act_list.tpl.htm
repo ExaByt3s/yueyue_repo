@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<title>{title} - {type_name} - {page_title}</title>
+<meta name="Keywords" content="{title}" />
+<meta name="Description" content="" />
+<link rel="stylesheet" type="text/css" href="{combo:event_comm_css,_dev}"/>
+<script type="text/javascript" src="{combo:event_comm_js,_dev}"></script>
+<script type='text/javascript' src="./js/party_public.js?{_dev}"></script>
+<script type="text/javascript" src="./js/party_enroll.js?{_dev}"></script>
+<script type="text/javascript" src="http://event.poco.cn/module_common/login/login.app.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./css/outdoor.css?t={rand}"/>
+<link rel="stylesheet" type="text/css" href="./css/waipai.css?t={rand}"/>
+</head>
+
+<body>
+{global_header_html}
+{header_html}
+<script>
+/**
+* hudw 2015.1.23
+* @param  {[type]} window    [description]
+* @param  {[type]} seajs     [description]
+* @param  {[type]} undefined [description]
+* @return {[type]}           [description]
+*/
+;(function(window, seajs, undefined)
+{
+
+
+    // 配置模块
+    seajs.config
+    ({
+
+        paths:
+        {
+            utility: 'http://cb.poco.cn/utility',
+            matcha: 'http://cb.poco.cn/matcha',
+            yueyue_global : 'http://www.yueus.com/js/global'            
+        },
+        alias:
+        {
+            handlebars: 'utility/handlebars/1.0.0/handlebars',
+            jquery: 'utility/jquery/1.11.0/jquery',                        
+            cookie: 'matcha/cookie/1.0.0/cookie',
+            topbar : 'yueyue_global/topbar/topbar'        
+        },
+        comboMaxLength: 5000,
+        charset: 'utf-8'
+    });
+
+    seajs.use(['jquery','topbar'],function($,topbar)
+    {
+        var $user_state = $('#user_state');        
+
+        topbar.init
+        ({
+            container : $user_state,
+            custom_logout : "http://www.yueus.com/reg/logout.php",
+            custom_html : '<a href="http://www.yueus.com/reg/login.php?r_url='+encodeURIComponent(window.location.href)+'">登录</a><span class="pr15 pl15">|</span><a href="http://www.yueus.com/reg/register.php?r_url='+encodeURIComponent(window.location.href)+'">免费注册</a>'
+        });
+    });
+    
+    
+    
+
+    
+   
+})(window, seajs);
+</script>
+<script>
+function change_img_icon(img,div,span)
+{
+    debug_img(img,165);
+    $(div).style.width=(img.width+2)+'px';
+    $(span).style.bottom=(img.height-12)+'px';
+}
+</script>
+<style>
+.listtab1_2 .toggle li a.currenNow, .listtab1_2 .toggles .toggle li a:hover, .listtab1_2 .toggles .toggle li a.currenNow:hover
+{
+    color:#ff4978!important;
+}
+</style>
+<!--content-->
+<div id="content" class="clearfix" style="position: relative;">
+<!-- 回到顶部 -->
+<div  class="sy_f_dbox" id="backTop"><div class="sy_qhBtn" ><a href="#" title="回顶部"  class="sy-hdb"></a></div>   </div>
+<script type="text/javascript">window.addEvent('scroll',function(){backToTop()});</script>
+<!-- 回到顶部 -->
+<div style="padding:0; margin:0;" class="t_line"></div>
+<div class="location_index pd10">
+
+
+
+
+
+    <input type="hidden" value="{event_id}" id="event_id" name="event_id">
+
+   
+
+  </div>
+
+
+  <div class="wrapboxh_2 clearfix" >
+    <div class="listtab1_2">
+      <div class="toggles mt15 bgchange">
+        <ul class="toggle clearfix" >
+          <li><a href="party_browse.php?event_id={event_id}" >活动介绍</a></li>
+          <li><a class="currenNow" href="party_commend_act_list.php?event_id={event_id}">活动作品</a></li>
+          <li><a href="party_sign_list.php?event_id={event_id}" >报名网友</a></li>
+        </ul>
+      </div>
+      <div class="lcon_box">
+        <div class="select_zp pd10 clearfix">
+            <!-- IF cmd_list -->
+                <!-- IF bind_link == "1" -->
+                <!-- <br/><a href="http://event.poco.cn/event_yue_bind.php?r_url={encode_link}" style="color:red;font-size:14px;display:none;">已经参加过本活动？马上绑定约约账号授权发布作品</a> -->
+                <!-- ENDIF bind_link -->
+                <!-- IF is_enroll --> 
+                        <!-- IF check_event_over_some_days --> 
+                            活动结束30天后不能发表作品
+                        <!-- ELSE --> 
+                            <a href="{publish_article_link}" target="_blank"><div class="publish_link_btn"></div></a>
+                        <!-- ENDIF -->	
+                <!-- ENDIF --> 
+           <!-- ENDIF --> 
+        </div>
+        
+        <div class="show_list mt15 clearfix" style="margin-top:30px;">
+        <!-- IF cmd_list -->
+          <ul>
+            <!-- BEGIN cmd_list -->
+            <!-- IF div_html -->{div_html}<!-- ENDIF -->
+            <li id="li_cmd_{cmd_id}" <!-- IF recommend_tips -->style="position:relative;z-index:9999;"<!-- ENDIF -->>
+              <div class="imgbox" >
+              <div id="cmd_img_recommend_div_{cmd_id}">
+              <!-- IF is_recommend =="1" -->
+                <div class="mt_box" id="cmd_img_div_{cmd_id}">
+                    <a href="{click_url}" target="_blank" id="cmd_img_recommend_a_{cmd_id}">
+                        <img id="cmd_img_recommend_img_{cmd_id}" src="{img_url_165}" onerror="this.onerror=null;this.src=' http://www1.poco.cn/event/images/default.jpg';" class="item_tips" onload="change_img_icon(this,'cmd_img_div_{cmd_id}','cmd_img_span_{cmd_id}');">
+                    </a>
+                </div>
+              <!-- ELSE -->	
+                <a href="{click_url}" target="_blank" id="cmd_img_recommend_a_{cmd_id}"><img id="cmd_img_recommend_img_{cmd_id}" src="{img_url_165}"  onerror="this.onerror=null;this.src=' http://www1.poco.cn/event/images/default.jpg';" class="item_tips" onload="debug_img(this,165)" /></a>
+              <!-- ENDIF --> 
+              </div> 
+              </div>
+              <div class="show_shadow"></div>
+              <strong><a href="{click_url}" target="_blank" title="{item_title}" id="item_title_{cmd_id}">{item_title}</a></strong>
+              <p class="pho_info"><em class="pho_data1">{hit_count}</em><em class="pho_data2">{vote_count}</em><em class="pho_data3">{cmt_count}</em><!-- IF is_vouch -->&nbsp;<img src="http://photo.poco.cn/images_v2/tj_ico4.jpg"><!-- ENDIF --></p>
+              <p class="show_author">作者:<a href="http://my.poco.cn/id-{user_id}.shtml" target="_blank">{user_name}</a></p>
+              
+            </li>
+            <!-- END cmd_list -->
+
+          </ul>
+        <!-- ELSE -->
+            <p align="left" class="f14"><span>还没有相关活动作品</span>
+            </p>
+            <!-- IF is_enroll --> 
+                    <!-- IF check_event_over_some_days --> 
+                        活动结束30天后不能发表作品
+                    <!-- ELSE --> 
+                        
+                        <a href="{publish_article_link}" target="_blank"><div class="publish_link_btn"></div></a>
+                        
+                    <!-- ENDIF check_event_over_some_days -->	
+           <!-- ENDIF is_enroll --> 
+        <!-- ENDIF cmd_list -->  
+        </div>
+        <div class="con_pg">
+            <div class="page overh">
+            {page_select}
+            </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      {cmt_html}
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!--footer-->
+  {footer_html}
+<!--footer end-->
+</body>
+</html>

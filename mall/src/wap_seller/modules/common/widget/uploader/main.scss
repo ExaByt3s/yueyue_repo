@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.ui-uploader {
+  position: relative;
+  height: 90px;
+  width: 90px;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  &.active{
+    background: #fff;
+  }
+  .close-out{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -5px;
+    right: -5px;
+    z-index: 999;
+  }
+  .close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    &:before{
+      background-image: url('../../../../image/pai/close-40x40.png?__sprite');
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+  }
+}

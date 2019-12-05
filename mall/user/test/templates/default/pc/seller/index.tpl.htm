@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{name}-个人主页</title>
+<!-- 公共css，js引入 -->
+{pc_global_top}
+
+<!-- <link rel="import" href="../page/webcontrol/head.tpl.htm?__inline"> -->
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/lib/mod.js"></script>
+<!-- 当前页css -->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/style/seller/index.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/modules/common/go_top/go_top.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/placeholder/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/go_top/go_top.js"></script>
+</head>
+
+<body>
+
+<!-- bar -->
+{global_top_bar}
+<!-- bar end -->
+
+
+<div class="w1000">
+    <div class="mod-nav"><a href="{index_url}">首页</a> > <span class="cur">商家主页</span></div>
+</div>
+
+
+<div class="seller-index-page ">
+
+
+    <!-- <div class="render-ele" id="render-ele"></div> -->
+    <div class="p1th w1000">
+
+        <div class="img-box" style='background-image: url({cover})'>
+        </div>
+        <div class="ui-avatar-icon ui-avatar-icon-l">
+            <span style="background-image:url({avatar})"></span>
+        </div>
+    </div>
+
+
+
+
+    <div class="p2th f14 w1000" >
+        <div class="user_name font_wryh color-666">{name}</div>
+        <div class="p1 color-666 ">{location}</div>
+
+        <div class="p4th f14">
+
+            <div class="clearfix wrap-com">
+                <div class="title tc  color-666  fl">{business.merit.title}：</div>
+                <div class="stars-all-mod  fl">
+                        <div class="ui-stars-grey">
+                        </div>
+                        <div class="ui-stars-yellow" style="width:{stars_width}">
+                        </div>
+                </div>
+            </div>
+
+            <div class="tc">
+           <!--      <a class="color-666" href="{business.request}">{business.totaltrade.title}:{business.totaltrade.value}单</a> -->
+           <span class="color-666">{business.totaltrade.title}：{business.totaltrade.value}单</span>
+
+            </div>
+        </div>
+        
+
+<!--         <div class="more tc">
+            <a href="{detail}" class="color-ff6">
+                <button class="ui-button  ui-button-block  ui-button-size-m ui-button-bd-ff6">
+                    <span class="ui-button-content">查看详细介绍</span>
+                </button>
+            </a>
+        </div> -->
+
+    </div>
+
+    <div class="pth-1 w1000">
+        <h3 class="mod-title font_wryh">商家介绍 </h3>
+        <div class="p2 color-333 tc f14">
+            <div>
+                <!-- IF introduce -->               
+                    {introduce}  
+                        <!-- IF introduce_more -->
+                        <a href="#" class="color-409 ml10" id="btn-more">
+                        查看更多...</a>
+                        <!-- ENDIF -->
+                <!-- ELSE -->
+                    这人很懒，什么也没有留下！
+                <!-- ENDIF -->
+
+            </div>
+
+
+
+            <div class="more-info fn-hide tc">
+                {more_introduce}
+            </div>
+
+        </div>
+    </div>
+
+    
+    <!-- 摄影师相关 -->
+
+
+    <div class="camera-info-bg">
+    <!-- IF property -->               
+        <div class="camera-info w1000" >
+            
+            <h3 class="mod-title font_wryh">商家信息 </h3>
+          
+            <!-- BEGIN property -->
+
+                <!-- IF bwh -->  
+                    <!-- 模特相关 -->
+                    <div class="model-info" >
+                        <div class="title tc f20 color-333 fb">{bwh.title}</div>
+                        <ul class="list clearfix f14 color-666 ">
+                            <li>
+                                <div class="icon icon-h"></div>
+                                <p>{bwh.value.m_height}</p>
+                            </li>
+                            <li>
+                                <div class="icon icon-w"></div>
+                                <p>{bwh.value.m_weight}</p>
+                            </li>
+                            <li>
+                                <div class="icon icon-c"></div>
+                                <p>{bwh.value.m_cups}</p>
+                            </li>
+                            <li>
+                                <div class="icon icon-m"></div>
+                                <p>{bwh.value.m_bwh}</p>
+                            </li>
+                        </ul>     
+                    </div>
+                    
+                <!-- ENDIF -->
+        
+                <!-- BEGIN description -->
+                    <div class="item">
+                        <div class="title tc f20 color-333 fb">{title}</div>
+                        <p class="p1 tc color-666">{value}</p>
+                    </div>
+                <!-- END description -->
+
+            <!-- END property -->
+
+        </div>
+    <!-- ENDIF -->
+    </div>
+
+
+
+
+<!-- IF list -->               
+    <div class="p5th" id="go_place" name = "go_place">
+        <h3 class="mod-title font_wryh">服务列表 </h3>
+
+        <div class="list-img-320-mod pt20">
+            <ul class="list"  id="img_cen">
+            <!-- BEGIN list -->
+                <a href="{link}">
+                    <li>
+                        <div class="img-con">
+                            <div class="fade-box"></div>
+                            <div class="img"><img data-lazyload-url="{images}" /></div>
+                        </div>
+                        <div class="txt-con">
+                            <div class="item-1 clearfix">
+                                <div class="lbox fb">{titles}</div>
+                            </div>
+                            <div class="item-2 clearfix">
+                                <div class="lbox fldi fb color-ff6">{prices}</div>
+                                <div class="rbox frdi">{buy_num}</div>
+                            </div>
+                        </div>
+                    </li>
+                </a>
+            <!-- END list -->
+                        
+            </ul>
+        </div>
+
+        <div class="page">{page}</div>  
+
+    </div>
+<!-- ENDIF -->
+
+
+
+</div> 
+
+
+
+{down_app_area}
+
+{footer}
+
+
+<script type="text/javascript">
+
+var $ = require('components/jquery/jquery.js');
+
+// 引入图片居中处理组件
+var lazyload = require('common/lazyload/lazyload');
+
+// 图片后加载处理
+var lazyload_obj = new lazyload({
+    contain: $('#img_cen'), // 后加载的父容器
+    size: '320', // 可传可不传，压位
+    img_center: {
+        is_open : true,  //是否开启图片居中功能
+        width : '320',   //图片居中盒子的宽
+        height : '220'  //图片居中盒子的高
+    } 
+});
+
+
+// 引入返回顶部组件
+var go_top = require('common/go_top/go_top');
+var go_top_obj = new go_top({
+    render_ele: $('body') // 后加载的父容器
+});
+
+
+
+// 更多介绍操作
+$('#btn-more').on('click', function(event) {
+    event.preventDefault();
+    $(this).parent().addClass('fn-hide');
+    $(this).parent().next().removeClass('fn-hide');
+});
+
+</script>
+
+</body>
+
+</html>
+
+		

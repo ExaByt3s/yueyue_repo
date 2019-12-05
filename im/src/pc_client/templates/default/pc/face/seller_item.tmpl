@@ -1,0 +1,11 @@
+{{#each data}}
+<div class="seller_list_item ds-box orient-h align-center pack-center" data-role="seller_list_item" seller_user_id="{{seller_user_id}}" data-seller_list_item="{{seller_user_id}}">
+    <img class="ds-block inner_icon" src="{{icons}}" style="width: 40px;height: 40px;" data-role="seller_icon_{{seller_user_id}}"/>
+    <div class="ds-box orient-v nickname">
+        <div>{{nickname}}</div>
+        <div>ID:{{seller_user_id}}</div>
+    </div>
+    <div class="go_to_record" data-storage="{{seller_user_id}}" data-role="face-to-chat-record">录</div>
+    <div class="point none"></div>
+</div>
+{{/each}}

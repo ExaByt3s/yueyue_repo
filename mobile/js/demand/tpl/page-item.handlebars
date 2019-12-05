@@ -1,0 +1,87 @@
+
+{{#each data}} 
+<div class="page-{{page}} fn-hide" {{#if branch}}data-is-branch="{{branch}}"{{/if}} data-page="page-{{page}}" data-index="{{@index}}">
+    <div class="title" data-role="title">{{{title}}}</div>
+
+    <div class="item-wrap-mod" data-role="content_txt" >
+
+
+        {{#if_equal content.type "time"}}
+
+            {{#each content.data}} 
+                <div class="item" data-go-to="{{../next}}">
+                    <div class="dtitle" data-role="btn-time" >{{text}}</div>       
+                </div>
+            {{/each}}
+
+        {{/if_equal}}
+
+
+
+        {{#if_equal content.type "list-select"}}
+
+            {{#each content.data}} 
+                <div class="item" data-role="sec-menu">
+                    <div class="dtitle" data-role="dtitle">{{text}}</div>
+                    <ul class="list  fn-hide" data-role="list">
+                        {{#each this.son_txt}} 
+                        <li data-txt={{text}} data-go-to="{{../../next}}">
+                            <i class="icon icon-r-grey-m"></i>{{text}}
+                        </li>
+                        {{/each}}
+                    </ul>        
+                </div>
+            {{/each}}
+
+        {{/if_equal}}
+
+
+
+        {{#if_equal content.type "list-radio"}}
+
+            {{#each content.data}} 
+                <div class="item" {{#if ../branch}}data-has-branch="1"{{else}}data-go-to="{{#with ../../this}}{{next}}{{/with}}"{{/if}}>
+                    <div class="dtitle" data-txt={{text}} {{#if ../branch}}data-go-to="{{next}}"{{/if}}>{{text}} <i class="icon icon-r-grey-m"></i></div>
+                </div>
+            {{/each}}
+
+        {{/if_equal}}
+
+
+
+        {{#if_equal content.type "textarea"}}
+
+            <textarea name=" " id=" "   data-role="textarea"  class="textarea-class"  placeholder="{{content.placeholder}}"></textarea>
+
+        {{/if_equal}}
+
+        {{#if_equal content.type "input"}}
+
+            <div class="ui-input-mod ">
+                <div class="item">
+                    <input data-role="input" style="border: none;" type="{{content.input_type}}" class="ui-input ui-input-size-large ui-input-block ui-input-border-bottom-none ui-input-top-left ui-input-top-right" placeholder="{{content.placeholder}}" >
+                    <!---->
+                </div>
+            </div>
+
+
+        {{/if_equal}}
+
+
+    </div>
+
+    {{#if btn}}
+    <div class="foot"   >                         
+        <button class="ui-button ui-button-primary ui-button-size-large ui-button-block" data-next-step="{{next}}" {{#if submit}}data-role="submit"{{/if}}>
+                <span class="ui-button-content" data-role="foot" data-role="btn-foot-txt">{{btn}}</span>
+        </button>
+    </div>  
+    {{/if}}
+    
+   
+</div>
+{{/each}}
+
+
+
+    

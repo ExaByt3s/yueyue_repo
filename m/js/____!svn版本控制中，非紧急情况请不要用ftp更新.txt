@@ -1,0 +1,26 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/js
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+account/
+act/
+base/
+comment/
+common/
+frame/
+libs/
+location/
+message/
+mine/
+model_date/
+rank/
+report/
+seajs/
+topic/
+ui/
+widget/
+app.js
+
+--EOF--

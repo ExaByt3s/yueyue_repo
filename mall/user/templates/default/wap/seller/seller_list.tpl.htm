@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>商家列表</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/seller/seller_list_201b249.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_fcf77dd.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/list/list_fbc95b3.css">
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view" data-role="page-container">
+
+            <div class="seller-list-page" >
+                <div class="seller_list" data-role="seller-list">
+                    <div id="render_ele"></div>
+                </div>
+            </div>
+    </div>
+</main>
+</body>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/list/list_8faf917.js"></script>
+<script>
+
+var $ = require('components/zepto/zepto.js');
+var header = require('common/widget/header/main');
+var WeiXinSDK =  require('common/I_WX_SDK/I_WX_SDK');
+
+var _page_params = {page_params}.result_data || {};
+
+var img_size = '{img_size}';
+<!-- IF img_size="big" -->
+var template  = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n    <div class=\"child\" data-goods-id=\"2115510\">\r\n        <div class=\"pics_con\" data-url=\"\">\r\n            <a href=\"";
+  if (helper = helpers.link) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.link); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"db\">\r\n                <i data-lazyload-url=\"";
+  if (helper = helpers.cover) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.cover); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"img image-img min-height\" style=\"height: 212px;\"></i>\r\n            </a>\r\n        </div> \r\n        <div class=\"notice\">\r\n            <div class=\"price\">\r\n                <p class=\"p1\">";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n                <p class=\"p2\">";
+  if (helper = helpers.trade_num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.trade_num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n            </div>\r\n            <div class=\"rbox\">\r\n                <div class=\"stars-all-mod\">\r\n                    <div class=\"ui-stars-grey\">\r\n                    </div>\r\n                    <div class=\"ui-stars-yellow\" style=\"width:"
+    + escapeExpression((helper = helpers.percent || (depth0 && depth0.percent),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.score), "5", options) : helperMissing.call(depth0, "percent", (depth0 && depth0.score), "5", options)))
+    + "\">\r\n                    </div>\r\n                </div>\r\n                <p class=\"p1\">";
+  if (helper = helpers.goods_num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.goods_num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n\r\n";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n";
+  return buffer;
+  });
+<!-- ELSE -->
+var template  = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n        <a href=\"";
+  if (helper = helpers.link) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.link); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n            <div class=\"item\">\r\n               <div class=\"lbox \">\r\n                   <i data-lazyload-url=\"";
+  if (helper = helpers.cover) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.cover); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"  class=\"img image-img min-height\"></i>\r\n               </div>\r\n\r\n               <div class=\"rbox \">\r\n               	<div>\r\n                   <h3 class=\"title color-000 f16 fb\">";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h3>\r\n               </div>\r\n               <div>\r\n                   <div class=\"stars-all-mod\">\r\n                       <div class=\"ui-stars-grey\">\r\n                       </div>\r\n                       <div class=\"ui-stars-yellow\" style=\"width:"
+    + escapeExpression((helper = helpers.percent || (depth0 && depth0.percent),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.score), "5", options) : helperMissing.call(depth0, "percent", (depth0 && depth0.score), "5", options)))
+    + "\">\r\n                       </div>\r\n                   </div>\r\n                   <p class=\"price color-333 \">";
+  if (helper = helpers.trade_num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.trade_num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n                   <p class=\"num color-333 f12\">";
+  if (helper = helpers.goods_num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.goods_num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n               </div>\r\n               </div>\r\n            </div>\r\n        </a>\r\n\r\n    ";
+  return buffer;
+  }
+
+  buffer += "<div class=\"item-list\">\r\n    ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n</div>";
+  return buffer;
+  });
+<!-- ENDIF -->
+
+$(document).ready(function() {
+
+    _page_params.return_query = encodeURIComponent(_page_params.return_query);
+    var header_obj = '';
+
+    var SELLER_AJAX_URL = window.$__ajax_domain+'get_trade_seller_list.php';
+    var is_img_size = (img_size == "big");
+
+    var list_item_class = require('list');
+    var list_obj = new list_item_class(
+        {
+            //渲染目标
+            ele : $('#render_ele'),
+            //请求地址
+            url : SELLER_AJAX_URL,
+            //传递参数
+            params : _page_params,
+            //模板
+            template : template,
+            //lz是否开启参数
+            is_open_lz_opts : is_img_size
+        });
+
+    list_obj.$el.on('list_render:before',function(event,el,data)
+    {
+        var is_share = true;
+        if(is_share)
+        {
+            is_share = false;
+            /**** 调用微信分享 ****/
+            if(data.result_data.share){
+                if (WeiXinSDK.isWeiXin()) {
+                    var share = data.result_data.share;
+
+                    // 朋友圈
+                    var WeiXin_data_Timeline =
+                        {
+                            title  : share.title, // 分享标题
+                            link   : share.url, // 分享链接
+                            imgUrl : share.img, // 分享图标
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel : function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        };
+
+                    // 好友、QQ
+                    var WeiXin_data =
+                        {
+                            title  : share.title, // 分享标题
+                            desc   : share.content, // 分享描述
+                            link   : share.url, // 分享链接
+                            imgUrl : share.img, // 分享图标
+                            type   : '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel : function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        };
+
+                    WeiXinSDK.ready(function () {
+                        WeiXinSDK.ready(function () {
+                            WeiXinSDK.ShareToFriend(WeiXin_data);
+
+                            WeiXinSDK.ShareTimeLine(WeiXin_data_Timeline);
+
+                            WeiXinSDK.ShareQQ(WeiXin_data);
+                        });
+
+                    });
+                }
+                /**** 调用微信分享 ****/
+            }
+        }
+
+        var title = data.result_data.title;
+
+        if(!header_obj)
+        {
+            // 渲染头部
+            header_obj = header.init({
+                ele : $("#global-header"), //头部渲染的节点
+                title: title,
+                header_show : true , //是否显示头部
+                mt_0_ele : $('#seller-detail-page'), //如果头部隐藏，要把当前页节点margin-top改为0
+                right_icon_show : false, //是否显示右边的按钮
+                share_icon :
+                {
+                    show :false,  //是否显示分享按钮icon
+                    content:""
+                },
+                omit_icon :
+                {
+                    show :false,  //是否显示三个圆点icon
+                    content:""
+                },
+                show_txt :
+                {
+                    show :true,  //是否显示文字
+                    content:"编辑"  //显示文字内容
+                }
+            });
+
+            document.title = title;
+        }
+
+
+    });
+});
+
+
+</script>
+</html>

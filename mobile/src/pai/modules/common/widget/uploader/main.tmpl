@@ -1,0 +1,14 @@
+<div class="ui-uploader {{is_active}}" style="width:{{width}};height:{{height}}" >
+    {{#if upload}}
+        <img src="{{img_url}}"
+             style="max-height: 100%;max-width: 100%;">
+        <div class="close-out " data-role="del-pic" >
+            <i class="icon close-btn"></i>
+        </div>
+    {{else}}
+        <img src="{{default_img_url}}" data-role="upload-flag"
+             style="max-height: 100%;max-width: 100%;">
+
+    {{/if}}
+
+</div>

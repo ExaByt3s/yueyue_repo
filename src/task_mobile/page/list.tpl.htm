@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>生意机会</title>
+   
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/list/list.scss">
+	
+</head>    
+<body>
+<main role="main">										
+	<div class="page-view " data-role="page-container">
+		<link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+		<div class="list_title"><span>生意机会</span></div>
+		<div class="common_list_container">			
+				<!-- IF show_pager="1" -->
+					<!-- BEGIN list -->
+					<div class="common_list_child" data_lead_id="{lead_id}">
+						<div class="common_list_child_title" data-role="to_details">
+							<!-- IF is_read -->
+							<img src="../image/task/status_2-44x44.png"/>
+							<p>已查看</p>
+							<!-- ELSE -->
+							<img src="../image/task/status-52x44.png"/>
+							<p>新的任务</p>
+							<!-- ENDIF -->
+						</div>
+						<div class="common_list_child_ques" data-role="to_details">
+							<p class="name">{buyer_nickname}</p>
+							<p class='<!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{title}</p>
+
+						</div>
+						<div class="common_list_child_control">
+							<p>3小时前</p>
+							<div class="common_list_child_control_delete_btn" data-role="delete">删除</div>
+						</div>
+					</div>
+					<!-- END list -->
+				<!-- ELSE -->
+				<div class="common_no_list"><p>暂无订单</p></div>
+				<!-- ENDIF -->
+			
+
+
+		</div>
+
+		<!--分页参数-->
+		{page_config_script}
+
+		<div class="common_list_bottom" data-role="pager-container">
+
+		</div>		
+	</div>
+
+</main>
+
+</body>
+
+<script>
+   $(function()
+   {
+
+		$('[data-role="to_details"]').on('click',function()
+        {
+            var list = $(this).parent(); //订单元素
+
+            var lead_id = $(this).parent().attr('data_lead_id');
+
+            location.href = './details.php?lead_id=' + lead_id;
+        });
+
+        $('[data-role="delete"]').on('click',function()
+        {
+            var list = $(this).parents("[data_lead_id]");
+
+            var lead_id = $(this).parents("[data_lead_id]").attr('data_lead_id');
+
+            console.log(lead_id);
+
+            var data =
+            {
+                lead_id:lead_id
+            };
+
+            if(window.confirm('要移除该需求吗?'))
+            {
+                $.ajax
+                ({
+                    url : window.$__config.ajax_url+'del_lead_list.php',
+                    data:data,
+                    type: 'POST',
+                    cache: false,
+                    beforeSend: function()
+                    {
+
+                    },
+                    success: function(data)
+                    {
+                        console.log(data);
+
+                        if (parseInt(data) == 1 )
+                        {
+                            list.remove();
+                            window.location.reload();
+                        }
+                    },
+                    error: function()
+                    {
+
+                    },
+                    complete: function()
+                    {
+
+                    }
+                });
+            }
+        });
+
+        // 使用分页类
+		var p = require('../modules/common/pager/index');
+        var pager = window._Pager;
+		var total_page = window.__page_config.total_page;
+		if(total_page)
+        {
+            var pager_obj = new pager($('[data-role="pager-container"]'),{
+                total_page : window.__page_config.total_page,
+                pre : window.__page_config.pre,
+                next : window.__page_config.next,
+                cur_page : window.__page_config.cur_page
+            });
+        }
+        
+
+        
+
+
+   });
+</script>
+<link rel="import" href="./webcontrol/tjbottom.tpl.html?__inline">
+</html>

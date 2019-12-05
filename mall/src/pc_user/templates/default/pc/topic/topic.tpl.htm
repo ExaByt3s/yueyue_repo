@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{ret.title}</title>
+<!-- 公共css，js引入 -->
+{pc_global_top}
+
+<!-- <link rel="import" href="../page/webcontrol/head.tpl.htm?__inline"> -->
+
+<!-- modjs 必须引用 -->
+<script src="../../../../lib/mod.js"></script>
+<script src="../../../../lib/lib.js"></script>
+<!-- 当前页css -->
+<link type="text/css" rel="stylesheet" href="../../../../style/topic/topic.scss"> 
+<link charset="utf-8" rel="stylesheet" href="../../../../style/topic/tpl_demo.scss">
+
+</head>
+
+<body>
+
+<!-- bar -->
+{global_top_bar}
+<!-- bar end -->
+
+  
+<div class="w1000">
+    <div class="mod-nav"><a href="{index_url}">首页</a> > <span class="cur">{ret.title}</span></div>
+</div>
+
+
+<!-- 专题页 -->
+<!-- IF ret.content -->
+<div class="topic-page" style="width:{page_width}">
+    {ret.content}
+</div>
+<!-- ENDIF -->
+<!-- IF ret.tpl_json -->
+<div class="topic-page tpl-demo" data-role="tpl-demo">
+   
+</div>
+<!-- ENDIF -->
+<!-- 专题页 end -->
+
+{down_app_area}
+
+{footer}
+
+<!--SCRIPT_HOLDER-->
+<script type="text/javascript">
+(function()
+{
+	var $ = require('jquery');
+	var demo_tpl = __inline("./tpl_demo.tmpl");
+	// 引入返回顶部组件
+	var go_top = require('../../../../modules/common/go_top/go_top');
+	var go_top_obj = new go_top({
+	    render_ele: $('body') // 后加载的父容器
+	});
+
+	var tpl_json = {ret.tpl_json} || [];
+	console.log(tpl_json);
+	// ===== 加载自定义模板 =====
+	var html_str = demo_tpl
+	({
+	    demo : tpl_json
+	});
+	$('[data-role="tpl-demo"]').html(html_str);
+	// ===== 加载自定义模板 =====
+})();
+
+</script>
+
+</body>
+
+</html>
+
+		

@@ -1,0 +1,60 @@
+/* 公共 */
+/* 内容背景 */
+.content-bg{ border:1px solid #ddd; background:#fff; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+
+/* 输入框 */
+.mod-input-item{}
+.mod-input-item .input-txt{ border:1px solid #ddd; width:270px; height:18px; padding:10px 14px; font-size:14px; background:#fff; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius: 3px; }
+.mod-input-item .input-txt:hover{ border:1px solid #5daaeb}
+
+
+.mod-select-item{}
+.mod-select-item select{ border:1px solid #ddd; width:298px; height:40px;  font-size:14px; background:#fff; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius: 3px;}
+.mod-select-item select option{ padding:0 14px;}
+
+.mod-radio-item label{ padding-right:36px; font-size:16px; color:#333}
+
+.mod-checkbox-item label{padding-right:36px; font-size:16px; color:#333;}
+.mod-checkbox-item label .checkbox-input{ border:1px solid #ddd; height:38px; line-height:38px; padding:0 14px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius: 3px;}
+
+
+/* 按钮 */
+.ui-btn{ display:inline-block; *+display:inline; *+zoom:1; _display:inline; _zoom:1;}
+.ui-btn:hover{  text-decoration:none}
+.ui-btn-blue{ background:#4092f1; color:#fff; height:50px; line-height:50px; font-size:16px; padding:0 30px;  -moz-border-radius:5px; -webkit-border-radius:5px; border-radius: 5px; }
+.ui-btn-blue:hover{ background:#66a8f4; }
+.ui-btn-border-gray{ border: 1px solid #ccc; background: #f5f5f5; height: 38px; line-height: 38px; font-size: 16px; color: #666; padding: 0 29px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius: 5px;}
+.ui-btn-border-gray:hover{ background: #fafafa; border: 1px solid #ddd}
+
+/* 标题 */
+.mod-listItem{ border-bottom:1px solid #eee; text-align:center; color:#000; font-size:24px; padding:42px 0}
+.mod-tips-title{ border-bottom:1px solid #eee; font-size:20px; color:#000; padding:16px 0}
+.mod-tips-title em.tips{ font-style:normal; color:#aaa; font-size:14px; padding-left:18px}
+.mod-form-title{ color:#333; font-size:16px; padding:9px 0}
+.mod-form-title em.tips{ color:#ccc; font-size:12px;}
+
+/* 圆 */
+.mod-choose-step-zone .icon-radius{width: 30px; height: 30px;display: block; background: url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/icon-30x30.png); text-align: center; font-size: 16px; color: #aaa; line-height: 30px; margin-left: 15px; }
+.mod-choose-step-zone .cur .icon-radius{background: url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/icon-hover-30x30.png); color: #fff;}
+
+.mod-choose-step-zone{ width: 555px; height: 30px; background: url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/line-530x30.png)  no-repeat center center; margin: 0 auto; padding: 40px 0px; overflow: hidden; margin-bottom: 40px; }
+.mod-choose-step-zone ul li{float: left;}
+.mod-choose-step-zone ul li a { display: inline-block; font-size: 16px; width: 248px; color: #666; text-decoration: none; line-height: 26px}
+.mod-choose-step-zone ul li.cur a{color: #4092f1;}
+.mod-choose-step-zone ul li a.step-3 { width: 54px; text-align: center; }
+
+/* 公共二级导航 */
+.mod-nav-item{padding: 30px 0px;font-size: 14px;}
+.mod-nav-item a{color: #333; text-decoration: none;}
+.mod-nav-item span{color: #999; }
+
+/* 图文输入框 */
+.mod-imgtext-item{ border: 1px solid #ddd; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+.mod-imgtext-item .tool-item{ border-bottom: 1px dashed #ddd; background: #fafafa; height: 38px; padding: 15px 30px 0;}
+.mod-imgtext-item .tool-bar li{ float: left; width: 26px; height: 26px; padding-right:30px;}
+.mod-imgtext-item .tool-bar i.icon{ width: 26px; height: 26px; display:block; background: url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/imgtext-common-bg-53x53.png) no-repeat; }
+.mod-imgtext-item .tool-bar a i.img-icon{ background-position: 0 0}
+.mod-imgtext-item .tool-bar a:hover i.img-icon{ background-position: 0 -27px}
+.mod-imgtext-item .tool-bar a i.vedio-icon{ background-position: -27px 0}
+.mod-imgtext-item .tool-bar a:hover i.vedio-icon{ background-position: -27px -27px}
+.mod-imgtext-item .text-item{ width:770px;  height:336px; padding: 14px; }

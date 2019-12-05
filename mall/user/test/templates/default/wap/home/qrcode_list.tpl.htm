@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>签到券</title>
+    {pc_global_top} 
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/home/qrcode-list.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/swiper3.07.min.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/scroll.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/dragloader.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/swiper/1.0.0/swiper3.07.min.js"></script>
+</head>
+
+<body>
+    <style>
+        .swiper-pagination-bullet{
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            background: #534A4A;
+        }
+        .swiper-pagination-bullet-active{
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            background: #555555;
+        }
+
+    </style>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view " data-role="page-container">
+        <div class="qrcode-list-page">
+
+            <div class="item-wrap" data-role="wrapper">
+                <div id="render_ele" data-role="render_ele"></div>     
+            </div>  
+
+            <div class="order_list_container" data-role="no-data"></div>
+
+
+            <!-- 弹窗口  -->
+            <div class="fade  fn-hide" id="fade">
+                <div class="pop-qrcode">
+                    <div class="close" id="close"></div>
+                    <div class="img-area">
+
+                        <div id="render_pop"></div>
+
+
+                        
+
+
+
+                        <p class="p2 tc f10 color-999">左右滑动查看上/下一张</p>
+                    </div>
+
+                    <div class="ui-user-info-mod ">
+                        <div class="item">
+              
+                           <div class="user-info-item">
+
+                            
+                              <div class="ui-avatar-icon ui-avatar-icon-m">
+                                      <span style="background-image:url({icon})"></span>
+                              </div>
+
+                              <div class="user-info-con">
+                                <h3 class="title">{nickname}</h3>
+                                <p class="txt">ID：{user_id}</p>
+                              </div>
+                           </div>
+                        </div>
+                    </div>
+                    
+                 
+                </div>
+            </div>
+            <!-- 弹窗口  end -->
+
+
+
+        </div>
+
+
+    </div>
+    {wap_global_footer}
+    
+</main>
+</body>
+<script>
+    var header = require('common/widget/header/main');
+    var scroll = require('common/scroll/index');
+    var utility = require('common/utility/index');
+    var $ = require('components/zepto/zepto.js');
+    var fastclick = require('components/fastclick/fastclick.js');
+    var yue_ui = require('yue_ui/frozen');
+    var items_tpl = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += " \n        <div class=\"item\">\n                <div class=\"title-top ui-border-b f14\">\n                    <p class=\"p1 txt-long-cut\">";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\n                    <p class=\"p2 color-aaa\">";
+  if (helper = helpers.time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\n                </div>\n                <div class=\"con\">\n                    <ul class=\"list clearfix\">\n            \n                        ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.tickets), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " \n\n                    </ul>        \n                </div>\n            </div> \n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += " \n                                <li>\n                                    <div class=\"l f14\">";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "<span class=\"color-ff6\">";
+  if (helper = helpers.number_code) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.number_code); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</span></div>\n                                    <div class=\"r\">\n                                        <button data-role=\"btn_show_qrcode\" class=\"ui-button  ui-button-block  ui-button-size-m ui-button-bd-555\" data-img=\"";
+  if (helper = helpers.qrcode) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.qrcode); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-num=\"";
+  if (helper = helpers.number_code) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.number_code); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\n                                                <span class=\"ui-button-content\">出示二维码</span>\n                                        </button>\n                                    </div>\n                                </li>\n                        ";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n\n\n\n\n\n\n\n\n";
+  return buffer;
+  });
+    var abnormal = require('common/widget/abnormal/index');
+
+    var qrcode_pop_items = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += " \n\n    \n        <div class=\"swiper-slide\"  data-role=\"swipe\">\n            <img src=\"";
+  if (helper = helpers.src_img) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.src_img); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" />\n            <p class=\"p1 f18  tc\">签到码：<span class=\"color-ff6\">";
+  if (helper = helpers.data_num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.data_num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</span></p>\n        </div>\n    ";
+  return buffer;
+  }
+
+  buffer += "<div class=\"swiper-container\">\n    <div class=\"swiper-wrapper\">\n\n\n    ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data_code), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n\n    </div>\n    <!-- 如果需要分页器 -->\n    <div class=\"swiper-pagination\"></div>\n</div>\n";
+  return buffer;
+  });
+
+
+    if ('addEventListener' in document)
+    {
+        document.addEventListener('DOMContentLoaded', function ()
+        {
+            fastclick.attach(document.body);
+        }, false);
+    }
+
+    //头部插件
+    $(document).ready(function() {
+
+        header.init({
+            ele        : $("#global-header"), //头部渲染的节点
+            title      : "签到券",
+            header_show: true, //是否显示头部
+            mt_0_ele   : $("#seller-list-page"), //如果头部隐藏，要把当前页节点margin-top改为0
+            left_icon_show: true, //是否显示左边的按钮 true 为显示
+            right_icon_show: false, //是否显示右边的按钮
+            share_icon : {
+                show   : true,  //是否显示分享按钮icon
+                content: ""
+            },
+            omit_icon  : {
+                show   : false,  //是否显示三个圆点icon
+                content: ""
+            },
+            show_txt   : {
+                show   : false,  //是否显示文字
+                content: ""  //显示文字内容
+            }
+        });
+
+
+
+        var s = require('common/widget/swiper/1.0.0/swiper3.07.min');
+
+
+
+        // var mySwiper = new Swiper ('.swiper-container', {
+        //     direction: 'horizontal',
+        //     loop: false,
+
+        //     // 如果需要分页器
+        //     pagination: '.swiper-pagination'
+        // })
+
+
+        var _self = $({});
+
+        function comment_list(options) 
+        {
+            var self = this;
+            self.options = options || {} ;
+            self.init()
+        }
+
+        comment_list.prototype =
+        {
+            refresh : function()
+            {
+                var self = this;
+
+                self.action(self.options,1);
+            },
+            load_more : function()
+            {
+                var self = this;
+
+                if(_self.has_next_page)
+                {
+                    _self.page++;
+                    self.action(self.options,_self.page);
+                }
+                else
+                {
+                    $.tips
+                    ({
+                        content:'已经到尽头啦',
+                        stayTime:3000,
+                        type:'warn'
+                    });
+
+                    _self.scroll_view_obj && _self.scroll_view_obj.dragger.reset();
+                }
+
+
+            },
+            init : function()
+            {
+
+                var self = this;
+                // 初始化容器
+                _self.$loading = {};
+                _self.$no_data = $('[data-role="no-data"]');
+                _self.$has_data = $('[data-role="has-data"]');
+                _self.page = 1 ;
+                _self.$comment_container = $('[data-role="render_ele"]');
+                _self.$scroll_wrapper = $('[data-role="wrapper"]');
+                _self.scroll_view_obj = scroll(_self.$scroll_wrapper);
+
+                _self.scroll_view_obj.on('success:drag_down_load',function(e,dragger)
+                {
+                    self.refresh();
+                });
+
+                _self.scroll_view_obj.on('success:drag_up_load',function(e,dragger)
+                {
+
+                    self.load_more();
+                });
+
+                // 安装事件
+                self._setup_event();
+
+                self.refresh();
+            },
+            init_tab_container : function($el,options)
+            {
+                return {};
+            },
+            action : function(params,page,load_more)
+            {
+                var self = this;
+
+                self._sending = false;
+
+                if(self._sending)
+                {
+                    return;
+                }
+
+                var params = $.extend(true,{},params,{page : page});
+                utility.ajax_request
+                ({
+                    url : window.$__ajax_domain + 'get_qrcode_list.php',
+                    data : params,
+                    beforeSend : function()
+                    {
+                        self._sending = true;
+                        _self.$loading = $.loading
+                        ({
+                            content:'加载中...'
+                        });
+                    },
+                    success : function(response)
+                    {
+                        self._sending = false;
+                        _self.$loading.loading("hide");
+                        var res = response.result_data;
+                        _self.trigger('success:get_comment_list',res);
+
+                    },
+                    error : function(res)
+                    {
+                        self._sending = false;
+
+                        _self.$loading.loading("hide");
+
+                        _self.trigger('error:get_comment_list',res);
+
+                        $.tips
+                        ({
+                            content:'网络异常',
+                            stayTime:3000,
+                            type:'warn'
+                        });
+                    }
+
+                });
+               
+            },
+            /**
+             * 安装事件
+             * @private
+             */
+            _setup_event : function()
+            {
+                var self = this;
+
+                _self.on('success:get_comment_list',function(e,res)
+                {
+
+                   try{
+
+                        _self.has_next_page = res.has_next_page;
+                        _self.scroll_view_obj && _self.scroll_view_obj.dragger.reset();
+                        _self.$has_data.removeClass('fn-hide');
+                        var list_arr = res.list.data;
+
+                        console.log(list_arr);
+
+                        if(!list_arr.list.length && (_self.page == 1))
+                        {
+                            // _self.$has_data.addClass('fn-hide');
+                            // _self.$no_data.removeClass('fn-hide').html('');
+                            _self.$scroll_wrapper.addClass('fn-hide');
+                            abnormal.render(_self.$no_data[0],{});
+                            return;
+                        }
+
+                       if(list_arr.list.length)
+                       {
+                           
+                            var html_str = items_tpl(list_arr);
+                            var method = (_self.page == 1) ? 'html' : 'append';
+                            _self.$comment_container[method](html_str);
+
+                            // 执行弹窗口操作
+                            $('[data-role="btn_show_qrcode"]').unbind('click').on('click', function(event) {
+
+                                event.preventDefault();
+                                $('#fade').removeClass('fn-hide');
+
+                                var index ; //索引值
+                                var qr_code_arr = [];
+                                var qrcode_img_src = $(this).parent().parent().parent().find('[data-role="btn_show_qrcode"]');
+
+                       
+
+                                index = qrcode_img_src.index($(this)) ;
+
+                                qrcode_img_src.each(function(i, val) {
+                                    qr_code_arr.push({
+                                        src_img : $(val).attr('data-img'),
+                                        data_num : $(val).attr('data-num')
+                                    });
+                                });
+
+
+                                var qrcode_pop_html = qrcode_pop_items({data_code:qr_code_arr});
+                                $('#render_pop').append(qrcode_pop_html);
+
+                                //$('.swiper-container').height(window.innerHeight - 200);
+
+                                setTimeout(function()
+                                {
+                                    var mySwiper = new Swiper ('.swiper-container', {
+                                        direction: 'horizontal',
+                                        loop: false,
+                                        initialSlide : index ,
+                                        // 如果需要分页器
+                                        pagination: '.swiper-pagination'
+                                    })
+                                },0);
+
+
+
+                            });
+
+                            $('#close').on('click', function(event) {
+
+                                event.preventDefault();
+                                $('#fade').addClass('fn-hide');
+                                $('#render_pop').html('');
+                            });
+
+
+                       }
+ 
+
+                   }
+                   catch(err){
+                       console.log(err);
+                   }
+
+                })
+                .on('error:get_comment_list',function(e,res)
+                {
+                    _self.scroll_view_obj && _self.scroll_view_obj.dragger.reset();
+                });
+            }
+        };
+
+
+        var obj_fn = new comment_list();
+        
+
+    });
+</script>
+</html>

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+// --------------------------------------------------
+// 公共 - 用户名片
+// --------------------------------------------------
+
+@import "../mini-common";
+
+@include area-reset('.global-reset'); // 区域性reset
+@include iconfont('.ui-usercard .global-iconfont'); // 使用公共iconfont
+
+$usercard-container-bg-color: #fff !default;
+$usercard-container-border-color: #d2d2d2 !default;
+
+$usercard-arrow-size: 7px !default;
+
+
+.ui-usercard {
+    position: absolute;
+    z-index: 9900;
+    top: -9999px;
+    left: -9999px;
+    width: 422px;
+    margin: $usercard-arrow-size;
+    *zoom: 1;
+
+    @import "./usercard/index";
+    @import "./usercard/arrow";
+    @import "./usercard/buttons";
+}

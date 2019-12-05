@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "ui-tab.css",
+    "sources": [
+        "/style/widget/ui-tab.scss"
+    ],
+    "sourcesContent": [
+        "@charset \"utf-8\";\r\n/**\r\n * 选项卡\r\n */\r\n.ui-tab{\r\n    width: 100%;\r\n    overflow: hidden;\r\n}\r\n.ui-tab-nav{\r\n    width: 100%;\r\n    background-color: #fff;\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 10;\r\n    display: box;\r\n    display: -webkit-box;\r\n    font-size: 16px;\r\n    height: 45px;\r\n    box-sizing: border-box;\r\n\r\n }\r\n.ui-tab-content{\r\n    margin-top: 45px;\r\n    display: -webkit-box;\r\n}\r\n.ui-tab-content > li {\r\n    -webkit-box-flex: 1;\r\n    width: 100%;\r\n}\r\n.ui-tab-nav li{\r\n    height: 45px;\r\n    line-height: 45px;\r\n    min-width: 70px;\r\n\tbox-flex: 1;\r\n\t-webkit-box-flex: 1;\r\n\ttext-align: center;\r\n\tcolor: #808080;\r\n    box-sizing: border-box;\r\n}\r\n.ui-tab-nav li.current{\r\n    color: #00a5e0;\r\n    border-bottom: 2px #00a5e0 solid;\r\n}\r\n.ui-tab-nav li:active{\r\n    opacity: .8;\r\n}\r\n"
+    ],
+    "mappings": "AAIA,AACI,AAAO,AACP,AAAU,AAEd,AACI,AAAO,AACP,AAAkB,AAClB,AAAU,AACV,AAAK,AACL,AAAM,AACN,AAAS,AACT,AAAS,AACT,AAAS,AACT,AAAW,AACX,AAAQ,AACR,AAAY,AAGhB,AACI,AAAY,AACZ,AAAS,AAEb,AAAkB,AACd,AAAkB,AAClB,AAAO,AAEX,AAAY,AACR,AAAQ,AACR,AAAa,AACb,AAAW,AACd,AAAU,AACV,AAAkB,AAClB,AAAY,AACZ,AAAO,AACJ,AAAY,AAEhB,AAAY,AAAE,AACV,AAAO,AACP,AAAe,AAEnB,AAAY,AAAE,AACV,AAAS",
+    "names": []
+}

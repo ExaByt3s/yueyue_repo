@@ -1,0 +1,475 @@
+// 通用
+// 汤圆
+// 2015-7-9
+
+@import "../../sass/compass";
+
+
+// 文字cut字
+
+// 过长的文字显示...
+.txt-long-cut{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;    
+}
+@mixin txt-long-cut()
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.icon-allow-grey{
+    background:url(../../image/arrow-icon-12x20.png) no-repeat;
+    width:6px;
+    height:10px;
+    background-size: 6px 10px;
+    display: inline-block;
+
+}
+
+.icon-allow-grey-bottom{
+    @include transform(rotate(90deg));
+}
+
+.icon-allow-grey-left{
+    @include transform(rotate(180deg));
+}
+
+
+.icon-allow-grey-top{
+    @include transform(rotate(270deg));
+}
+
+
+// 用户头像
+.ui-avatar-icon{
+    overflow: hidden;
+    i,
+    span{
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-size: cover;
+        border-radius: 50%;
+    }
+}
+
+.ui-avatar-icon-s{
+    width: 32px;
+    height: 32px;
+}
+
+.ui-avatar-icon-m{
+    width: 50px;
+    height: 50px;
+}
+
+.ui-avatar-icon-l{
+    width: 80px;
+    height: 80px;
+}
+
+// 
+.ui-line-item-mod{
+    .item{
+        height:45px;
+        padding:0px 15px;
+        border-bottom: 1px solid #d2d2d2;
+        background:#fff;
+        position:relative;
+        display:-webkit-box;
+            .icon{
+                width:20px;
+                height:20px;
+                display:block;
+                margin-top: 12px;
+                margin-right: 10px;
+                background-size: 100% 100%;
+                background-position: center center;
+            }
+            .phone-icon{
+                background-image: url(../../image/ui/phone-icon-40x40.png);
+            }
+            .txt-icon{
+                background-image: url(../../image/ui/txt-icon-40x40.png);
+            }
+            .txt{
+                 line-height: 45px;
+                 font-size: 14px;
+            }
+            .txt-color-grey{
+                color:#333;
+            }   
+            .icon-allow-grey{
+               position:absolute;
+               right:15px;
+               top:17px; 
+            }   
+        }
+        .item-arrow-bottom{
+            .icon-allow-grey{
+                @include transform(rotate(90deg));
+            }
+        }
+}
+/* 输入框规范 */
+.ui-input-info-mod{
+    .item{
+        height:45px;
+        position:relative;
+        border:1px solid #ddd;
+        border-radius: 5px;
+        padding:12px 15px;
+        background:#fff;
+        box-sizing: border-box;
+       .ui-input-info{
+                width:100%;
+                font-size: 14px;
+            }
+        .ui-btn{
+            width:80px;
+            height:30px;
+            display:block;
+            text-align: center;
+            line-height: 30px;
+            color:#fff;
+            background:#555;
+            border-radius: 5px;
+            position:absolute;
+            right:8px;
+            top:8px;
+           &:active{
+            background:#ffa4bb;
+           }
+        }
+   }
+   .border-bottom-left-radius-0{
+       border-bottom-left-radius: 0px;
+   }
+   .border-bottom-right-radius-0{
+       border-bottom-right-radius: 0px;
+   }
+   .border-top-left-radius-0{
+       border-top-left-radius: 0px;
+   }
+   .border-top-right-radius-0{
+       border-top-right-radius: 0px;
+   }
+   .border-radius-0{
+    border-radius: 0px;
+   }
+   .ui-input-border-bottom{
+       border-bottom: none;
+   }    
+}
+
+
+
+.ui-search-info-mod{
+    position:relative;
+    &:after{
+        content:" ";
+        width:16px;
+        height:16px;
+        display:inline-block;
+        background:url(../../image/ui/ui-search-32x32.png) no-repeat;
+        background-size: 100% 100%;
+        position:absolute;
+        left:8px;
+        top:8px;
+    }
+    .item{
+            border:1px solid #ddd;
+            border-radius: 5px;
+            padding:5px 15px 5px 30px;
+            background:#fff;
+            font-size: 14px;
+            box-sizing: border-box;
+            .ui-search-info{
+                width:100%;
+                
+            }
+    }
+}
+
+
+.ui-title-info-mod{
+    .item{
+        height:45px;
+        background:#fff;
+        display:-webkit-box;
+        border-bottom:1px solid #ddd;
+        box-sizing: border-box;
+        background:#fff;
+        font-size: 14px;
+        .ui-title-info-con{
+            -webkit-box-flex:1;
+            .ui-title-info{
+                width:100%;
+                padding:15px 0px;
+            }
+        }
+            .title{ 
+                height:15px;
+                line-height: 15px;
+                display:block;
+                margin:15px 15px 15px 0px;
+                padding: 0px 15px 0px 30px;
+                border-right: 1px solid #ddd;
+            }
+    }
+}
+
+
+.ui-textarea-info-mod{
+    padding:15px;
+    background:#fff;
+        .textarea-con{
+            .ui-textarea-info{
+                height:75px;
+                width:100%;
+                padding:10px;
+                border:1px solid #ddd;
+                border-radius: 5px;
+                padding:15px;
+                background:#fff;
+                font-size: 14px;
+                box-sizing: border-box;
+            }  
+        }
+        .title{
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+}
+
+
+.ui-input-line-item-mod{
+    .item{
+         height: 45px;
+         position: relative;
+         padding:15px;
+         background: #fff;
+         box-sizing: border-box; 
+         .ui-input-info{
+            font-size: 14px;
+            width:100%;
+         }
+         .ui-btn{
+            width:16px;
+            height:16px;
+            position:absolute;
+            right:15px;
+            top:15px;
+            display:block;
+            background-image: url(../../image/ui/ui-close-32x32.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            &:active{
+                background-image: url(../../image/ui/ui-close-active-32x32.png);
+            }
+         }
+    }
+}
+
+.ui-user-info-mod{
+    .item{
+        background:#fff;
+        position:relative;
+        .user-info-item{
+        	padding: 15px;
+        	display:-webkit-box; 
+                .ui-avatar-icon{
+                	margin-right: 15px;
+                }
+            .user-info-con{
+	            	-webkit-box-flex:1;
+	            	.title{
+	            		padding-top: 6px;
+	            		font-size: 16px;
+	            	}
+	            	.txt{
+			line-height: 20px;
+	            		color:#999;
+	            	}
+
+            }
+        }
+        .icon-allow-grey{
+        	    position: absolute;
+        	    right: 15px;
+        	    top: 35px;
+        }
+    }
+}
+
+.ui-edit-user-info-mod{
+	.item{
+		height:55px;
+		background-color:#fff;
+		.user-info-item{
+			padding:18px 15px;
+			font-size: 14px;
+			.rbox{
+				.tips-value{
+					color:#aaa;
+					margin-right: 8px;
+				}
+			}
+		}
+	}
+	.item-border-bottom-1{
+		border-bottom:1px solid #eee;
+	}
+}
+
+.ui-switch-bar{
+	width: 52px;
+	height: 32px;
+	input{
+		width: 52px;
+		height: 32px;
+		position: absolute;
+		z-index: 10;
+		border: 0;
+		background: 0 0;
+		-webkit-appearance: none;
+		outline: 0;
+		&:before{
+			content: '';
+			width: 50px;
+			height: 30px;
+			border: 1px solid #dfdfdf;
+			background-color: #fdfdfd;
+			border-radius: 20px;
+			cursor: pointer;
+			display: inline-block;
+			position: relative;
+			vertical-align: middle;
+			-webkit-user-select: none;
+			user-select: none;
+			-webkit-box-sizing: content-box;
+			box-sizing: content-box;
+			border-color: #dfdfdf;
+			-webkit-box-shadow: #dfdfdf 0 0 0 0 inset;
+			box-shadow: #dfdfdf 0 0 0 0 inset;
+			-webkit-transition: border .4s, -webkit-box-shadow .4s;
+			transition: border .4s, box-shadow .4s;
+			-webkit-background-clip: content-box;
+			background-clip: content-box;
+		}
+		&:checked:before{
+			border-color: #555555;
+			-webkit-box-shadow: #555555 0 0 0 16px inset;
+			box-shadow: #555555 0 0 0 16px inset;
+			background-color: #555555;
+			transition: border .4s, box-shadow .4s, background-color 1.2s;
+			-webkit-transition: border .4s, -webkit-box-shadow .4s, background-color 1.2s;
+			background-color: #555555;
+		}
+		&:after{
+			content: '';
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 1px;
+			left: 0;
+			border-radius: 100%;
+			background-color: #fff;
+			-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+			-webkit-transition: left .2s;
+			transition: left .2s;
+		}
+		&:checked:after{
+			left: 21px;
+		}
+		
+	}
+}
+
+.ui-form-item-switch{
+	.item{
+		background:#fff;
+		height:55px;
+		line-height: 55px;
+		position:relative;
+		span{
+			padding-left: 15px;
+			font-size: 14px;
+			color:#333;
+		}
+		.ui-switch-bar{
+			position:absolute;
+			top:12px;
+			right:15px;
+            z-index: 7;
+		}
+	}
+}
+.button-wrap{
+  .ui-button-submit{
+    height: 49px;
+    line-height: 49px;
+  }
+}
+
+
+	
+
+// 5个星星通用样式
+.ui-start-mod
+{
+    .icon-s-mod{
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        background-size: contain;
+        margin-right: 3px;
+    }
+    .icon-start-yellow{
+        background-image: url(../../image/pai/star-active.png) ;
+    }
+    .icon-start-grey{
+        background-image: url(../../image/pai/star.png) ;
+        
+    }
+}
+
+.stars-all-mod{
+    position: relative;
+    width:102px;
+   .ui-stars-grey{
+       background: url(../../image/stars-grey-200x32.png) no-repeat;
+       width:100px;
+       height: 16px;
+       background-size: 100px 16px;
+       
+   } 
+   .ui-stars-yellow{
+        background: url(../../image/stars-yellow-200x32.png) no-repeat;
+        height: 16px;
+        background-size: 100px 16px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+   }
+}
+
+
+// 等级图标
+.icon-v1-level{
+    display: inline-block;
+    background: url(../../image/v1-level.png) no-repeat;
+    width:62px;
+    height: 16px;
+    background-size: 62px 16px;
+}
+
+
+
+
+

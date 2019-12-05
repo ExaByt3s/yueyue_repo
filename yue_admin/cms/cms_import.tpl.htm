@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>数据导入</title>
+<link href="http://www1.poco.cn/css/main.css" rel="stylesheet" type="text/css">
+<link href="./css/css.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="./js/common.js"></script>
+<script language="javascript">
+function checkAll( doCheck )
+{
+	var l = $('record_tbl').all.length; 
+	for(var i=0; i<l; i++ ) 
+	{
+		if( $('record_tbl').all[i].type == 'checkbox')
+		{
+			$('record_tbl').all[i].checked = doCheck;
+		}
+		
+		if( $('record_tbl').all[i].type == 'text' || $('record_tbl').all[i].tagName == 'TEXTAREA')
+		{
+			$('record_tbl').all[i].disabled = !doCheck;
+		}
+	}
+	return;
+}
+
+function disabledInput(bool,row)
+{
+	var l = $('record_tr_'+row).all.length;
+	for(var i=0; i<l; i++ )
+	{
+		if( $('record_tr_'+row).all[i].type == 'text' || $('record_tr_'+row).all[i].tagName == 'TEXTAREA')
+		{
+			$('record_tr_'+row).all[i].disabled = !bool;
+		}
+	}
+}
+</script>
+</head>
+<body>
+<h3>::期榜导入 {channel_name}<br />[<a href="{rank_url}" target="_blank">{rank_name}</a> ID:{rank_id}]</h3>
+
+<!-- IF act="import" -->
+	<!-- IF record_arr -->
+	<form action="cms_act.php" target="act_frame" method="POST">
+	<input name="act" value="record_import" id="act" type="hidden">
+	<input name="issue_id" id="issue_id"  type="hidden" value="{issue_id}">
+	<h4>导入到榜单：{issue_name} </h4>
+	<div id="issue_info_div">
+	时间：{dateformat:begin_date,"Y-m-d"} 至 {dateformat:end_date,"Y-m-d"} 期数：{issue_number} 现上榜人数：{record_count}
+	</div>
+	<br />
+	<input class="font_14" type="submit" value=" 导入选择记录 "> <span class="tips_font">*请确认您将要导入的数据，您可以对这些数据内容进行修改</span><br />
+	<table id="record_tbl" cellpadding="0" cellspacing="0">
+	  <tbody>
+		<tr>
+			<th>导入<input type="checkbox" id="checked_all" class="border_red" value="1" checked onclick="checkAll(this.checked);"></th>
+			<th>排名</th>
+			<th>用户ＩＤ</th>
+			<th>显示标题</th>
+			<th>网页链接</th>
+			<th>图片链接</th>
+			<th>用户描述</th>
+			<th>其它备注</th>
+		</tr>
+		<!-- BEGIN record_arr -->
+		<tr id="record_tr_{ROWCNT}">
+			<td><input type="checkbox" class="border_red" name="b_import[]" onclick="disabledInput(this.checked,{ROWCNT});" value="1" checked></td>
+			<td><input type="text" class="border_red" name="place_number[]" size=3 value="{place_number}" onmouseover="this.title=this.value;"></td>
+			<td><input type="text" class="border_red" name="user_id[]" value="{user_id}" size="10" onmouseover="this.title=this.value;"></td>
+			<td><input type="text" class="border_red" name="title[]"  value="{title}" size="10" onmouseover="this.title=this.value;"></td>
+			<td><input type="text" class="border_red" name="link_url[]"  value="{link_url}" onmouseover="this.title=this.value;"></td>
+			<td><input type="text" class="border_red" name="img_url[]"  value="{img_url}" onmouseover="this.title=this.value;"></td>
+			<td><textarea class="border_red" name="content[]" rows="3" onmouseover="this.title=this.value;">{replace:content,"<br>","\n"}</textarea></td>
+			<td><textarea class="border_red" name="remark[]" rows="3" onmouseover="this.title=this.value;">{replace:remark,"<br>","\n"}</textarea></td>
+		</tr>
+		<!-- END record_arr -->
+	  </tbody>
+	</table>
+	</form>
+	<!-- ELSE -->
+	导入数据失败，请检查链接的正确性，<a href="javascript:history.go(-1);">返回</a>
+	<!-- ENDIF -->
+<!-- ELSE -->
+	<div id="import_info_div">
+	<!-- IF options_issue -->
+	<form action="" method="POST">
+	<input type="hidden" name="act" value="import">
+	<ul>
+	<li>在线导入：<input type="text" name="xml_file" size="30"> <span class="tips_font">(请输入网址Url，如：http://my.poco.cn/show.php?rank_id=1)</span></li>
+	<!--<li>本地上传：<input type="file" name="xml_file" size="26"> <span class="tips_font">(从本地上传导入文件)</span></li>-->
+	<li>导 入 到：<select id="issue_id" name="issue_id">
+				{options:options_issue,issue_id}
+				</select>
+	</li>
+	</ul>
+	<input type="submit" class="font_14" value=" 导  入 ">
+	</form>
+	<!-- ELSE -->
+	对不起！本榜尚未添加任何期数，请先添加新一期榜单，点击 <a style="text-decoration:underline;" href="./cms_issue_list.php?rank_id={rank_id}">这里</a> 马上添加
+	<!-- ENDIF -->
+	</div>
+<!-- ENDIF -->
+<iframe name="act_frame" id="act_frame" width="0" height="0" frameborder="0" src="" style="display:none;"></iframe>
+</body>
+</html>

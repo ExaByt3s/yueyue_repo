@@ -1,0 +1,26 @@
+@import "../widget/animation";
+@import "../widget/ui-dialog";
+@import "../widget/ui-tips";
+@import "../widget/ui-poptips";
+@import "../widget/ui-tooltips";
+@import "../widget/ui-loading";
+@import "../widget/ui-notice";
+@import "../widget/ui-slider";
+@import "../widget/ui-progress";
+@import "../widget/ui-checkbox";
+@import "../widget/ui-form";
+@import "../widget/ui-searchbar";
+@import "../widget/ui-icon";
+@import "../widget/atom";
+.page-name-order-auto{
+
+}
+.chooseImages_contain{
+  width: 100%;
+  background: #fff;
+  padding: 0px 10px;
+  .inner_img{
+    float: left;
+    margin: 10px 10px 0px 0px
+  }
+}

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>活动详情</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/act/detail_b209f29.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/menu/index_26590a7.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_fcf77dd.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/menu/index_91dc45a.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view act-detail" data-role="page-container">
+        <div class="content-body">
+            <!--**导航栏**-->
+            <div class="measure-choosen">
+                <ul class="measure-choosen-in">
+                    <i class="measure-choosen-child cur" id="introduce">活动介绍</i>
+                    <i class="measure-choosen-child " id="info">活动信息</i>
+                    <i class="measure-choosen-child " id="plan">活动安排</i>
+                </ul>
+            </div>
+
+            <!--**内容**-->
+            <div class="action-preview-content" id="par1">
+                <div class="main-con">
+                    <div class="select-con">
+                        <div class="action-con-intro">
+                            <div class="scroll-wrapper">
+
+                                <div class="main-title">{act_intro.title}</div>
+
+                                <div class="theme">
+                                    <div class="title-con">
+                                        <div class="title">活动主题</div>
+                                    </div>
+                                    <p class="theme-art">{act_intro.content}</p>
+                                </div>
+                                <div class="address-module">
+                                    <div class="title-con">
+                                        <div class="title">场地/模特</div>
+                                    </div>
+                                    <!-- BEGIN act_intro.other_info_detail -->
+                                    <div class="con">
+                                        <p class="module">{text}</p>
+                                        <!-- BEGIN img -->
+                                        <i class="module-pic image-img" data-role="act-img" style="" data-lazyload-url="{img_s}" data-l-src="{img_l}" data-width="{width}" data-height="{height}"></i>
+
+                                        <!-- END -->
+                                    </div>
+                                    <!-- END -->
+                                </div>
+                            </div>
+                        </div>
+                        <!--**活动信息**-->
+                        <div class="action-con-info" id="par2">
+                            <div >
+                                <!--<div class="main-title">{act_info.title}</div>-->
+                                <div class="notice-con">
+                                    <p class="notice">时间 :   </p>
+                                    <p class="notice_in" data-role="time">{act_info.event_time}</p>
+                                </div>
+                                <div class="notice-con">
+                                    <p class="notice">地址 :   </p>
+                                    <p class="notice_in" data-role="time">{act_info.address}</p>
+                                </div>
+                                <div class="notice-con">
+                                    <p class="notice">俱乐部 :   </p>
+                                    <p class="notice_in" data-role="time">{act_info.club_name}</p>
+                                </div>
+                                <div class="notice-con">
+                                    <p class="notice">费用 :   </p>
+                                    <p class="notice_in" data-role="time">{act_info.budget}</p>
+                                </div>
+                                <div class="notice-con">
+                                    <p class="notice">报名人数 :   </p>
+                                    <p class="notice_in" data-role="time">{act_info.event_join}</p>
+                                </div>
+                                <div class="notice-con exp">
+                                    <p class="notice notice-line">组织者 :   </p>
+                                    <a href="#this">
+                                        <div class="notice-exp" data-role="notice-exp">
+                                            <img src="{act_info.user_icon}" class="ntice-exp-img"/>
+                                            <div class="notice-exp-detail">
+                                                <p class="nickname">{act_info.nickname}</p>
+                                                <p class="gray <!-- IF is_yueyue_app ="1" --><!-- ELSE -->fn-hide<!-- ENDIF -->">点击聊天</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="info_btn" data-role="preview-hide">
+                                    <a href="./sign.php?event_id={event_id}" class="db">
+                                        <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-color2">
+                                            <span class="ui-button-content">查看报名名单</span>
+                                        </button>
+                                    </a>
+                                    <a href="./comment_list.php?event_id={event_id}&type=event" class="db">
+                                        <button class="ui-button ui-button-primary ui-button-size-min ui-button-block ui-button-color3">
+                                            <span class="ui-button-content">查看组织者评价</span>
+                                        </button>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--**场次安排**-->
+                        <div class="action-con-arrange" id="par3">
+                            <div>
+                                <!--<div class="main-title">{act_arrange.title}</div>-->
+                                <div class="notice-con-ti">
+
+                                    <div class="title-con">
+                                        <div class="title">场次安排</div>
+                                    </div>
+                                    <!-- BEGIN act_arrange.table_info -->
+                                    <div class="con">
+                                        <div class="per">
+                                            <p class="notice">第{session}场：</p>
+                                            <p class="cont">{begin_time} - {end_time}</p>
+                                        </div>
+                                        <div class="per">
+                                            <p class="notice">名额：</p>
+                                            <p class="cont">{num}人</p>
+                                        </div>
+                                    </div>
+                                    <!-- END -->
+
+                                    <div class="awl-con">
+                                        <p class="notice">备注：</p><p class="cont">{act_arrange.remark}</p>
+                                    </div>
+
+
+                                    <div class="notice-con-ti margin-b50">
+                                        <div class="title-con">
+                                            <div class="title">活动领队</div>
+                                        </div>
+
+                                        <div class="con">
+                                            <div class="per-child">
+                                                <!-- BEGIN act_arrange.leader_info_detail -->
+                                                <div class="per-child-con">
+                                                    <p class="notice">联系人：</p>
+                                                    <p class="cont">{name}</p>
+                                                </div>
+                                                <div class="per-child-con">
+                                                    <p class="notice mr10">联系方式：</p>
+                                                    <p class="cont">{mobile}</p>
+                                                </div>
+                                                <!-- END -->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IF show_join_btn -->
+        <footer class="ui-button-submit-area v2">
+            <div class="clearfix">
+                <a href="./order.php?event_id={event_id}" class="db">
+                    <button data-role="join-btn" class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555">
+                        <span class="ui-button-content">马上报名</span>
+                    </button>
+                </a>
+
+            </div>
+        </footer>
+        <!-- ENDIF -->
+    </div>
+    {wap_global_footer}
+</main>
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+    //引用模块
+    var LZ = require('common/lazyload/lazyload');
+    var utility = require('common/utility/index');
+    var App =  require('common/I_APP/I_APP');
+    var menu = require('menu/index');
+    var header = require('common/widget/header/main');
+    var WeiXinSDK =  require('common/I_WX_SDK/I_WX_SDK');
+
+    var share_text = {share_text};
+
+    $(function()
+    {
+        App.isPaiApp && App.showtopmenu(true);
+
+        //new 对象 新建内置对象
+        var lazyloading = new LZ($('body'),{
+            size : window.innerWidth -20
+        });
+
+        /**** 调用微信分享 ****/
+        if(WeiXinSDK.isWeiXin())
+        {
+            var share = share_text.result_data;
+            // 朋友圈
+            var WeiXin_data_Timeline =
+                {
+                    title: share.title, // 分享标题
+                    link: share.url, // 分享链接
+                    imgUrl: share.img, // 分享图标
+                    success: function ()
+                    {
+                        // 用户确认分享后执行的回调函数
+                        new Image().src = 'http://yp.yueus.com/action/wx_share_callback.php?platform=timeline&url='+encodeURIComponent(window.location.href);
+                    },
+                    cancel: function ()
+                    {
+                        // 用户取消分享后执行的回调函数
+                    }
+                };
+
+            // 好友、QQ
+            var WeiXin_data =
+                {
+                    title: share.title, // 分享标题
+                    desc: share.content, // 分享描述
+                    link: share.url, // 分享链接
+                    imgUrl: share.img, // 分享图标
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function ()
+                    {
+                        // 用户确认分享后执行的回调函数
+                        new Image().src = 'http://yp.yueus.com/action/wx_share_callback.php?platform=friends&url='+encodeURIComponent(window.location.href);
+                    },
+                    cancel: function ()
+                    {
+                        // 用户取消分享后执行的回调函数
+                    }
+                };
+
+            WeiXinSDK.ready(function()
+            {
+                WeiXinSDK.ready(function()
+                {
+                    WeiXinSDK.ShareToFriend(WeiXin_data);
+
+                    WeiXinSDK.ShareTimeLine(WeiXin_data_Timeline);
+
+                    WeiXinSDK.ShareQQ(WeiXin_data);
+                });
+
+            });
+        }
+        /**** 调用微信分享 ****/
+
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"活动详情",
+            header_show : true , //是否显示头部
+            right_icon_show : false, //是否显示右边的按钮
+
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :true,  //是否显示文字
+                content:""  //显示文字内容
+            }
+        });
+
+
+
+        $('[data-role="act-img"]').on('click',function(ev)
+        {
+            var self = this;
+
+            var $cur_btn = $(ev.currentTarget);
+
+            var $total_alumn_img = $('[data-role="act-img"]');
+
+            var total_alumn_img_arr = [];
+
+            // 当前图片索引
+            var img_index = $total_alumn_img.index($cur_btn);
+
+            var data =
+                {
+                    img_arr : total_alumn_img_arr,
+                    index : img_index
+                };
+            //微信
+            ev.preventDefault();
+            var cur_img = $(this).attr('data-l-src');
+
+            if(App.isPaiApp)
+            {
+                $total_alumn_img.each(function(i,obj)
+                {
+                    total_alumn_img_arr.push
+                    ({
+                        url : $(obj).attr('data-l-src'),
+                        text : ''
+                    });
+                });
+                App.show_alumn_imgs(data);
+            }
+            else if(WeiXinSDK.isWeiXin())
+            {
+                // 微信显示大图操作
+                $total_alumn_img.each(function(index, item)
+                {
+                    total_alumn_img_arr.push($(item).attr('data-l-src'))
+                });
+                //todo 以后微信或wap版本调用
+                WeiXinSDK.imagePreview(cur_img,total_alumn_img_arr);
+            }
+
+        });
+
+        $('[data-role="notice-exp"]').on('click',function()
+        {
+            if(App.isPaiApp)
+            {
+                if(!utility.login_id)
+                {
+                    App.openloginpage(function(data)
+                    {
+                        if(data.code == '0000')
+                        {
+                            window.location.href = window.location.href;
+                        }
+                    });
+
+                    return;
+                }
+
+                var chat_json = {chat_json};
+
+                App.chat(chat_json.result_data);
+            }
+        });
+
+        
+
+        //右上角菜单弹出层
+
+        console.log(share_text);
+        var menu_data =
+                    [
+                        {
+                            index:0,
+                            content:'分享',
+                            click_event:function()
+                            {
+                                var self = this;
+                                App.share_card(share_text.result_data,
+                                        function(data)
+                                        {
+
+                                        }
+                                )
+                            }
+                        },
+                        {
+                            index:1,
+                            content:'首页',
+                            click_event:function()
+                            {
+                                App.isPaiApp && App.switchtopage({page:'hot'});
+                            }
+                        },
+                        {
+                            index:2,
+                            content:'刷新',
+                            click_event:function()
+                            {
+                                window.location.href = window.location.href;
+                            }
+                        }
+
+                    ];
+        menu.render($('body'),menu_data);
+
+        var __showTopBarMenuCount = 0;
+
+        utility.$_AppCallJSObj.on('__showTopBarMenu',function(event,data)
+        {
+
+            __showTopBarMenuCount++;
+
+            if(__showTopBarMenuCount%2!=0)
+            {
+                menu.show()
+            }
+            else
+            {
+                menu.hide()
+            }
+        });
+
+
+            //头部跳转锚点
+            $('#plan').click(function(){
+                var $par3 = $('#par3');
+                var $vi = $('html,body');
+                var $t3 = $par3.offset().top;
+                $vi.scrollTop($t3);
+                $(this).addClass('cur');
+                $(this).siblings().removeClass('cur');
+            });
+            $('#info').click(function(){
+                var $par2 = $('#par2');
+                var $vi = $('html,body');
+                var $t2 = $par2.offset().top;
+                $vi.scrollTop($t2);
+                $(this).addClass('cur');
+                $(this).siblings().removeClass('cur');
+            });
+            $('#introduce').click(function(){
+                var $par1 = $('#par1');
+                var $vi = $('html,body');
+                var $t1 = $par1.offset().top;
+                $vi.scrollTop($t1);
+                $(this).addClass('cur');
+                $(this).siblings().removeClass('cur');
+            });
+
+    });
+</script>
+</html>

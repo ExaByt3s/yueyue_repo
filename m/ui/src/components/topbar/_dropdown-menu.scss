@@ -1,0 +1,241 @@
+// --------------------------------------------------
+// 公共 - 顶栏 - 下拉菜单
+// --------------------------------------------------
+
+
+.global-dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: $topbar-max-zIndex - 2;
+    left: -1px;
+    top: 41px;
+    border: 1px solid #d7d7d7;
+    border-top: 0;
+
+    @include box-shadow(0 2px 2px rgba(#000, 0.2)); // 0px 1px 2px #f4f4f4
+    @include border-radius(0 0 2px 2px);
+
+    background-color: #fff;
+}
+// 浮层: 手机上POCO (二维码)
+.global-dropdown-menu-mobile-qrcode {
+    width: 208px;
+    padding: 20px 20px 20px 15px;
+
+    .qrcode {
+        @include float-left;
+        _margin-right: -3px;
+    }
+
+    .qrcode-icon {
+        width: 58px;
+        height: 58px;
+        display: block;
+        @include get-icon('qrcode');
+    }
+
+    .mobile-qrcode-desc {
+        font-size: 12px;
+        line-height: 22px;
+        margin-top: 6px;
+        margin-left: 73px;
+        _margin-left: 70px;
+    }
+}
+// 浮层: 无线应用
+.global-dropdown-menu-app {
+    width: 380px;
+    padding: 15px;
+
+    li {
+        @include float-left;
+        position: relative;
+        _zoom: 1;
+    }
+
+    a {
+        display: block;
+        width: 170px;
+        height: 36px;
+        line-height: 36px;
+        padding: 5px;
+        margin: 5px;
+
+        @include link-colors(#333, #333);
+
+        &:hover{
+            background: #f0f0f0;
+        }
+    }
+
+    .app-title {
+        line-height: 1;
+        font-size: 14px;
+        font-weight: 700;
+        color: #333;
+    }
+    .app-desc {
+        line-height: 28px;
+        color: #666;
+    }
+    .app-icon {
+        @include float-left;
+        width: 36px;
+        height: 36px;
+        margin-right: 10px;
+        background: sprite-url($app-icons) no-repeat -999px -999px;
+        _background-image: sprite-url($app-icons-ie);
+    }
+    .icon-camera {
+        @include get-app-icon('camera');
+    }
+    .icon-beautycamera {
+        @include get-app-icon('beautycamera');
+    }
+    .icon-babycamera {
+        @include get-app-icon('babycamera');
+    }
+    .icon-ip {
+        @include get-app-icon('ip');
+    }
+    .icon-foodcamera {
+        @include get-app-icon('foodcamera');
+    }
+    .icon-cook {
+        @include get-app-icon('cook');
+    }
+    .icon-photoskill {
+        @include get-app-icon('photoskill');
+    }
+    .icon-pocoalbum {
+        @include get-app-icon('pocoalbum');
+    }
+
+    .va-middle {
+        .app-title {
+            line-height: 36px;
+        }
+    }
+}
+// 浮层: 社区
+.global-dropdown-menu-community {
+    width: 256px;
+    padding: 10px 0 10px 22px;
+
+    li {
+        @include float-left;
+        padding: 5px 24px 5px 0;
+
+        &.mobile {
+            padding-right: 0;
+        }
+    }
+    a {
+        @extend %dropdown-menu-green-a;
+    }
+}
+// 浮层: 个人展示
+.global-dropdown-menu-my {
+    width: 165px;
+    padding: 15px 8px 15px 22px;
+
+    li {
+        margin-right: 15px;
+        position: relative;
+        _zoom: 1;
+    }
+}
+// 浮层: 更多
+.global-dropdown-menu-more {
+    width: 213px;
+    padding: 15px 8px 15px 22px;
+
+    li {
+        @include float-left;
+        margin-right: 15px;
+    }
+
+    a {
+        @extend %dropdown-menu-green-a;
+    }
+}
+
+.global-dropdown-menu-notice {
+    left: auto;
+    right: 0;
+    width: 130px;
+
+    span.new {
+        float: right;
+        font-family: Tahoma;
+        font-weight: 700;
+    }
+}
+
+.global-dropdown-menu-profile {
+    left: auto;
+    right: 0;
+    width: 92px;
+}
+
+.global-dropdown-menu-photoapp {
+    left: auto;
+    right: 0;
+    width: 208px;
+    padding: 20px 20px 20px 15px !important;
+
+    .qrcode {
+        @include float-left;
+        _margin-right: -3px;
+    }
+
+    h3 {
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+    a {
+        width: 100px;
+        height: 30px;
+        padding: 0 !important;
+        margin-bottom: 10px;
+    }
+
+    .icon-ios-dl {
+        @include get-icon('ios-dl');
+    }
+    .icon-android-dl {
+        @include get-icon('android-dl');
+    }
+
+    .icon-qrcode-photoapp {
+        width: 88px;
+        height: 88px;
+        display: block;
+        @include get-icon('qrcode-photoapp');
+    }
+
+    .mobile-qrcode-desc {
+        font-size: 12px;
+        line-height: 22px;
+        margin-left: 103px;
+        _margin-left: 100px;
+    }
+}
+
+
+%dropdown-menu-green-a {
+    line-height: 22px;
+    padding: 0 8px;
+
+    @include inline-block;
+
+    color: #333;
+    @include nowrap;
+    text-decoration: none;
+
+    &:hover {
+        background-color: #6ac334;
+        color: #fff;
+    }
+}

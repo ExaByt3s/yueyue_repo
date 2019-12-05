@@ -1,0 +1,61 @@
+<main class="edit-model-page" role="main">
+    <header class="nav-header edit-model-nav-header">
+        <div class="left-button-wrap">
+            <a data-role="page-back" {{#if is_from_reg}}class="fn-hide"{{/if}}><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title">编辑模特卡</h3>
+
+        <div class="right-button-wrap">
+        </div>
+    </header>
+
+    <div class="edit-model-container" data-role="container">
+        <article>
+            <header>
+                <div class="avatar">
+                    <a>
+                        <i class="img avatar-img" style="background-image: url({{user_icon}})" data-role="avatar-img"></i>
+                    </a>
+                </div>
+
+                <h2>更换头像</h2>
+            </header>
+            <div class="content">
+            <section class="input-list">
+                <div>
+                    <label>昵称：</label>
+                    <input data-role="nickname" value="{{nickname}}">
+                </div>
+                <div>
+                    <label>城市：</label>
+                    <div data-role="select-city">
+
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <ul class="model-size">
+                    <li class="icon" data-role="popup" data-target="height">{{height}}</li>
+                    <li class="icon" data-role="popup" data-target="weight">{{weight}}</li>
+                    <li class="icon" data-role="cup">E+</li>
+                    <li class="icon" data-role="popup" data-target="cwh" data-chest=""
+                    data-waist="" data-hip="">{{chest}}-{{waist}}-{{hip}}</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>拍摄类型</h3>
+                <div data-role="shoot-style"></div>
+            </section>
+
+            <section>
+                <h3 data-role="works">个人作品</h3>
+                <div data-role="upload-pic"></div>
+            </section>
+            </div>
+            <div class="next-out"><a class="next" data-role="navigate" data-target="next">下一步</a></div>
+        </article>
+    </div>
+</main>

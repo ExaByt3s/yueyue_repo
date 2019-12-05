@@ -1,0 +1,6 @@
+<div class="common_taps">
+    <a href="order_list.php?type=pending" class="tap_child <!-- IF type ="pending" -->current<!-- ENDIF -->" data-role="process"><div >待处理订单<div class='common_red_point <!-- IF pending_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{pending_remind_num}</div></div></a>
+    <a href="order_list.php?type=process" class="tap_child <!-- IF type ="process" -->current<!-- ENDIF -->" data-role="hired"><div >进行中订单<div class='common_red_point <!-- IF process_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{process_remind_num}</div></div></a>
+    <a href="order_list.php?type=archive" class="tap_child <!-- IF type ="archive" -->current<!-- ENDIF -->" data-role="get"><div >收藏<div class='common_red_point <!-- IF archive_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{archive_remind_num}</div></div></a>
+</div>
+<div class="tap-title">{title_txt}</div>

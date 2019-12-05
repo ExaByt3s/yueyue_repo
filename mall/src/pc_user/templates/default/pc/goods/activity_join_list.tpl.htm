@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>约约--{resa.data.title}</title>
+    <meta name="keywords" content="{keywords_key}">
+    <meta name="description" content="{description_key}">
+    <!-- 公共css，js引入 -->
+    {pc_global_top}
+
+    <!-- <link rel="import" href="../webcontrol/head.tpl.htm?__inline"> -->
+
+    <!-- modjs 必须引用 -->
+    <script src="../../../../lib/mod.js"></script>
+
+    <!-- 当前页css -->
+    <!--<link type="text/css" rel="stylesheet" href="../../../../style/goods/service-detail-page.scss">-->
+    <link type="text/css" rel="stylesheet" href="../../../../style/goods/activity-detail-page.scss">
+    <!-- 当前页css -->
+    <link type="text/css" rel="stylesheet" href="../../../../style/search/search-page.scss">
+
+</head>
+<style>
+
+
+</style>
+<body>
+
+
+<!-- bar -->
+{global_top_bar}
+<!-- bar end -->
+
+<div class="w1000">
+    <div class="mod-nav"><a href="{index_url}">首页</a> > <span><a href="../goods/category.php?type_id={type_id}">{type_id_title}</a></span> > <span class="cur">服务详情</span></div>
+</div>
+
+<div class="activity-detail-page">
+
+
+    <div class="w1000 font_wryh">
+
+
+        <div class="detail-page-warp">
+
+            <div class="tag-check-div" style="margin-top:0px;">
+                <span class="tag-check J_tag_change" data-value="join_div">报名名单</span>
+            </div>
+
+
+            <div class="detail-item" id="join_div" style="margin-top:10px;">
+                <!-- IF join_list -->
+                <!-- BEGIN join_list -->
+                <div class="pb10 mt20 clearfix">
+                    <div class="icon-img-head clearfix">{section_name}&nbsp;&nbsp;已付款名单</div>
+                    <!-- IF section_join_list -->
+                    <!-- BEGIN section_join_list -->
+                    <div class="icon-img-div">
+                        <div class="icon-img"><img src="{user_icon}" /></div>
+                        <div class="icon-img-text clearfix">{buyer_user_name}-{quantity}人</div>
+                    </div>
+                    <!-- END section_join_list -->
+                    <!-- ELSE -->
+                    <div class="icon-img-div">暂无名单</div>
+                    <!-- ENDIF section_join_list -->
+                </div>
+                <!-- END join_list -->
+                <!-- ENDIF join_list -->
+            </div>
+
+
+        </div>
+    </div>
+
+
+    {down_app_area}
+</div>
+
+{footer}
+
+</body>
+
+
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>无标题文档</title>
+	<!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline"> -->
+	{pc_global_top}
+	<!-- 当前页css -->
+	<!-- <link type="text/css" rel="stylesheet" href="../style/login-page.scss">-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/pc/modules/common/layer/skin/layer.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/pc/modules/common/qr_code_preview/qr_code_preview.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/global-top-bar/global-top-bar.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/layer/layer.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/qr_code_preview/qr_code_preview.js"></script>
+</head>
+
+<body>
+
+
+	{global_top_bar}
+
+	<div class="content w1000">
+
+		<div class="mod-nav-item font_wryh">
+			<a href="#">约约商家主页</a>
+			&gt;
+			<span>XX</span>
+		</div>
+
+		<!-- 模板start -->
+		<div class="mod-check-page content-bg  font_wryh">
+		<input type="button" value="填写资料" class="font_wryh" id="tj-btn" style="border0; height: 40px;line-height: 40px;  background: #4092f1;color: #fff; padding:0 45px;" />
+		   
+
+
+			<!-- 创意裸价 -->
+			<div class="pop-creative-price" style="display:none">
+				<div class="item-wrap">
+					<div class="item-title cor-333 mt20">套餐详情</div>
+					<div class="path1 item-w-380 clearfix">
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl"> 拍摄时长：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" id="shoot_time" placeholder="拍摄时长">
+								 </div>	
+								 <span class="unit fl">小时</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">底片张数：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" id="negative_number" placeholder="底片张数">
+								 </div>	
+								 <span class="unit fl">张</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">修片时间：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" id="retouching_time" placeholder="修片时间">
+								 </div>	
+								 <span class="unit fl">天</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">精修张数</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" id="retouching_number" placeholder="拍摄时长">
+								 </div>	
+								 <span class="unit fl">小时</span>
+							</div>
+						</div>
+					</div>
+					<div class="path2 item-w-380 clearfix">
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">服装：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-select-item">
+									<select class="province font_wryh" id="clothing_select_id">
+										<option >请选择</option>
+										<option>不提供</option>
+										<option>提供</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">化妆：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-select-item">
+									<select class="province font_wryh" id="makeup_select_id">
+										<option >请选择</option>
+										<option>不提供</option>
+										<option>提供</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">原片：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-radio-item clearfix" id=" raw_radio_id">
+								  	<label><input type="radio" name="the_raw" value="全送"> 全送</label> 
+								  	<label><input type="radio" name="the_raw"  value="选送" > 选送</label>  
+								  	<label><input type="radio" name="the_raw"  value="不送" > 不送</label>             
+								</div>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">相册：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-select-item">
+									<select class="province font_wryh" id="phone_select_id">
+										<option>请选择</option> 
+										<option>不提供</option>
+										<option>提供</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="path3">
+						<div class="item  clearfix">
+							<div class="btn-item">
+								<a href="#" class="ui-btn ui-btn-border-gray">取消</a>
+								<a href="#" class="ui-btn ui-btn-blue" id="save-btn">保存</a>
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+			</div>
+
+
+
+
+
+
+		</div>
+		<!-- 模板end -->
+
+		<!-- 手机预览插入节点  -->
+		<div data-role="qr_code_preview_ele" class="qr_code_preview_ele"></div>
+		<!-- 手机预览插入节点 end  -->
+		
+
+
+	</div>
+
+1234
+
+	{footer}
+
+
+<script type="text/javascript">
+	// 头部
+	require('common/global-top-bar/global-top-bar');
+	
+	// 弹窗口
+	require('common/layer/layer');
+
+
+    //手机二维码预览 start
+    var qr_code_preview = require('common/qr_code_preview/qr_code_preview');
+    var qr_code_preview_obj = new qr_code_preview({
+        render_ele : $('[data-role="qr_code_preview_ele"]')
+    });
+
+    qr_code_preview_obj.render('http://static.yueus.com/mall/seller/test/static/pc/images/qr_code_150x150.png');
+    //手机二维码预览 end
+
+
+</script>
+<script>
+	$("#tj-btn").click(function(){
+		$(".pop-creative-price").slideToggle();
+	});
+	$("#save-btn").on('click', function(event) {
+		event.preventDefault();
+		var shoot_time_val = $("#shoot_time").val();
+		var negative_number_val = $("#negative_number").val();
+		var retouching_time_val = $("#retouching_time").val();
+		var retouching_number_val = $("#retouching_number").val();
+		var clothing_select_val = $("#clothing_select_id").val();
+		var makeup_select_val = $("#makeup_select_id").val();
+		var phone_select_val = $("#phone_select_id").val();
+		var raw_radio_val = $("input[name=the_raw]:checked").val();
+
+
+		// if (!shoot_time_val) 
+		// {
+	
+		//     layer.alert('请输入拍摄时长');
+		//     return false;
+		// }
+		// if (!negative_number_val)
+		// {
+		//     layer.alert('请输入底片张数');
+		//     return false;
+		// }
+		// if (!retouching_time_val) 
+		// {
+		//     layer.alert("请输入修片时间"); 
+		//     return false;
+		// }
+		// if (!retouching_number_val) 
+		// {
+		//     layer.alert("请输入精修张数");
+		//     return false;
+		// }
+		
+		// if (!clothing_select_val || clothing_select_val == "请选择") 
+		// {
+		//     layer.alert("请选择服装");
+		//     return false;
+		// }
+		// if (!makeup_select_val || makeup_select_val == "请选择") 
+		// {
+		//     layer.alert("请选择化妆");
+		//     return false;
+		// }
+		
+		// if (!raw_radio_val) 
+		// {
+		//     layer.alert("请选择原片");
+		//     return false;
+		// }
+		// if (!phone_select_val || phone_select_val == "请选择") 
+		// {
+		//     layer.alert("请选择相册");
+		//     return false;
+		// }
+		  
+		var data = 
+		{
+				shoot_time_val : shoot_time_val,
+				negative_number_val : negative_number_val,
+				retouching_time_val : retouching_time_val,
+				retouching_number_val : retouching_number_val,
+				clothing_select_val : clothing_select_val,
+				makeup_select_val : makeup_select_val,
+				phone_select_val : phone_select_val,
+				raw_radio_val : raw_radio_val
+		};
+
+		$.ajax({
+			type:"POST",
+			cache:false,
+			dataType:"json",
+			url:"./mod_block-form_test_recive_1.php",
+			data:data,
+			success:function(data){
+
+				console.log(data);
+				var code = data.code
+				switch (code)
+				{
+				case 1: 
+				        alert(data.msg);
+				        break;
+				 case  2: 
+				            alert( data.msg);
+				break;
+				}     
+
+			}
+
+		});
+	});
+	
+</script>
+
+</body>
+
+</html>

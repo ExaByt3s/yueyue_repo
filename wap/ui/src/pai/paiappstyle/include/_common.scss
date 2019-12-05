@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+// ------------------------------
+// 约拍 - 基础文件
+// ------------------------------
+
+// 统一字体
+html, body{
+    font-family: 'Microsoft YaHei', 'Verdana', 'SimSun';
+}
+.wryh
+{
+  font-family: 'Microsoft YaHei', 'Verdana', 'SimSun';
+}
+
+// 统一圆角
+$border-radius : 2px;
+
+// 高度头部
+$height-common-min : 44px;
+
+//内容margin-top
+$content-margin-top : 45px;
+
+// 高度底部
+$height-common : 45px;
+
+// 粉色代码 主要色
+$main-color : #ff4978;
+
+// 路径
+$domain-name : 'http://yp.yueus.com/mobile/';
+
+//图片1px边框
+@mixin image-border-m($direction)
+{
+
+    // background-image : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDg0NjJGODhFOUY3MTFFMzgyNDZBNkRCNjM5MDI2MzkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDg0NjJGODdFOUY3MTFFMzgyNDZBNkRCNjM5MDI2MzkiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjZCQ0M0ODFERjAyMTFFMzg5RDE4NENEQUZENTUzNEYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjZCQ0M0ODJERjAyMTFFMzg5RDE4NENEQUZENTUzNEYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5EbLiBAAAAGUlEQVR42mL6//8/AwizPHr06D8DEAAEGABriwmmt+2WgAAAAABJRU5ErkJggg==);
+    // background-position : 0 $direction ;
+    // background-repeat: repeat-x ;
+    // background-size : auto 1px;
+
+    // @if $direction == left 
+    // {
+    // background-image : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEUlEQVR42mN4/fr1fxBggDEAih4PeRSquYoAAAAASUVORK5CYII=);
+    // background-position :$direction 0 ;
+    // background-repeat: repeat-y ;
+    // background-size : 1px auto;
+    // }
+    // @else if $direction == right 
+    // {
+    // background-image : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEUlEQVR42mN4/fr1fxBggDEAih4PeRSquYoAAAAASUVORK5CYII=);
+    // background-position :$direction 0 ;
+    // background-repeat: repeat-y ;
+    // background-size : 1px auto;
+    // }
+
+
+    //手机版：以下注释，以上去掉注释，生成在发布正式版。
+
+    @if $direction == top 
+    {
+        //border-top: 1px solid #ebebeb;
+        @media screen and (-webkit-min-device-pixel-ratio:2.0)
+        {
+            background-image : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDg0NjJGODhFOUY3MTFFMzgyNDZBNkRCNjM5MDI2MzkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDg0NjJGODdFOUY3MTFFMzgyNDZBNkRCNjM5MDI2MzkiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjZCQ0M0ODFERjAyMTFFMzg5RDE4NENEQUZENTUzNEYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjZCQ0M0ODJERjAyMTFFMzg5RDE4NENEQUZENTUzNEYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5EbLiBAAAAGUlEQVR42mL6//8/AwizPHr06D8DEAAEGABriwmmt+2WgAAAAABJRU5ErkJggg==);
+            background-position : 0 $direction ;
+            background-repeat: repeat-x ;
+            background-size : 100% 1px;
+        }
+    }
+    @else if $direction == right 
+    {
+        @media screen and (-webkit-min-device-pixel-ratio:2.0)
+        {
+            background-image : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEUlEQVR42mN4/fr1fxBggDEAih4PeRSquYoAAAAASUVORK5CYII=);
+            background-position :$direction 0 ;
+            background-repeat: repeat-y ;
+            background-size : 1px 100%;
+        }
+    }
+    @else if $direction == bottom 
+    {
+        //border-bottom: 1px solid #ebebeb;
+        @media screen and (-webkit-min-device-pixel-ratio:2.0)
+        {
+            background-image : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDg0NjJGODhFOUY3MTFFMzgyNDZBNkRCNjM5MDI2MzkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDg0NjJGODdFOUY3MTFFMzgyNDZBNkRCNjM5MDI2MzkiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjZCQ0M0ODFERjAyMTFFMzg5RDE4NENEQUZENTUzNEYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjZCQ0M0ODJERjAyMTFFMzg5RDE4NENEQUZENTUzNEYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5EbLiBAAAAGUlEQVR42mL6//8/AwizPHr06D8DEAAEGABriwmmt+2WgAAAAABJRU5ErkJggg==);
+            background-position : 0 $direction ;
+            background-repeat: repeat-x ;
+            background-size : 100% 1px;
+        }
+    }
+    @else if $direction == left 
+    {
+        @media screen and (-webkit-min-device-pixel-ratio:2.0)
+        {
+            background-image : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEUlEQVR42mN4/fr1fxBggDEAih4PeRSquYoAAAAASUVORK5CYII=);
+            background-position :$direction 0 ;
+            background-repeat: repeat-y ;
+            background-size : 1px 100%;
+        }
+
+    }
+
+}
+
+// 过长的文字显示...
+.txt-long-cut{
+    white-space: nowrap;
+    // color: #666666;
+    overflow: hidden;
+    text-overflow: ellipsis;    
+}
+@mixin txt-long-cut()
+{
+    white-space: nowrap;
+    //color: #666666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+// 文字漂浮
+.txt-resolve-float{
+    // -webkit-transform-style: preserve-3d;
+    // transform-style: preserve-3d;
+    // -webkit-font-smoothing: subpixel-antialiased;
+    // font-smoothing: subpixel-antialiased;
+}
+@mixin txt-resolve-float()
+{
+    // -webkit-transform-style: preserve-3d;
+    // transform-style: preserve-3d;
+    // -webkit-font-smoothing: subpixel-antialiased;
+    // font-smoothing: subpixel-antialiased;
+}
+
+
+
+//盒子布局居中
+%ul-li-center{
+    @include box-sizing(border-box);
+    @include flexbox((
+        display: box
+    ), $version: 1);
+    & li{
+        @include flexbox((
+            box-flex: 1
+        ), $version: 1);
+        text-align: center;
+    }
+}
+
+.w-100{
+    width: 100%;    
+}
+.h-100{
+    height : 100%;
+}
+
+.space-bottom
+{
+    width: 100%;
+    height: $height-common;
+}
+
+
+//通用圆角
+.circle-mod{
+    @include border-radius(6px);
+    width: 6px;
+    height: 6px;
+    background: #ff4978;
+    display: block;
+    position: absolute;
+}
+
+
+.native_scroll 
+{
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.w_100{width: 100%;}
+.h_100{height: 100%;}
+
+

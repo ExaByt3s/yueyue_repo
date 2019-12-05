@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/js/admin.js"></script>
+    <script type="text/javascript" src="js/layer/layer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/model_audit.css">
+    <title>榜单管理后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <div class="table-list">
+        <h1><b><a href="location_open.php?act=list" style="cursor:pointer">返回</a></b></h1>
+        <iframe name="frame" id="frame" style="display:none"></iframe>
+        <form method="post" action="?" id="myform" target="frame">
+            <div class="table" style="width:98%;" id="occu">
+                <!--list-->
+                <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+                    <tbody>
+                        <tr>
+                            <td width="80">版本:</td>
+                            <td>
+                                <select name="version_id" class="version_id">
+                                    <!-- BEGIN version_ret -->
+                                    <option value="{id}" {select}>{version_num}</option>
+                                    <!-- END version_ret -->
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>城市:</td>
+                            <td>
+                                <select name="province" class="prov">
+                                    <option value="0">请选择</option>
+                                    <!-- BEGIN prov_ret -->
+                                    <option value="{id}" {select} >{name}</option>
+                                    <!-- END prov_ret -->
+                                </select>
+                                <select class="city" name="location_id" id="location_id">
+                                    <option value="0">请选择</option>
+                                    <!-- BEGIN location_ret -->
+                                    <option value="{id}" {select}>{name}</option>
+                                    <!-- END location_ret -->
+                                </select>  <font color="red">*</font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>操作:</td>
+                            <td>
+                                <input type="submit" value="提交" class="button"/>
+                                <input type="reset"  value="重置" class="button"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                <input type="hidden" value="{act}" name="act" />
+                <input type="hidden" value="{id}" name="id" />
+        </form>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        //获取城市数据
+        $(".prov").change(function(){
+            var $prov_val = $(this).val();
+            $.ajax({
+                type:"POST",
+                url:"get_city.php",
+                dataType: 'json',
+                data : {'prov_id': $prov_val},
+                success:function(data)
+                {
+                    if (data.ret)
+                    {
+                        var $ret = data.ret;
+                        var $str = "<option value='0'>请选择</option>";
+                        for (var i = 0; i < $ret.length; i++)
+                        {
+                            $str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";
+                        }
+                        $(".city").html($str);
+
+                    }
+
+                },
+                error:function(data)
+                {
+
+                }
+            });
+        });
+    });
+</script>
+</html>

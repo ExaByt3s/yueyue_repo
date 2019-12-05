@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>订单确认页</title>
+    {wap_global_top}
+ 
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/order/confirm-page_e32dbf1.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<style type="text/css">
+    .confirm-page.native-scroll{
+        overflow: auto!important;
+        -webkit-overflow-scrolling: touch!important;
+        overflow-scrolling: touch!important;
+      }
+    </style>
+<style>
+</style>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/common/date/calendar_1c38a52.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/date_picker/frame_13a7721.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/date_picker/days_4cdfeec.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/time_picker/frame_3b973bd.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/time_picker/hour_e90b516.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_79cae42.css">
+</head>
+<body >
+<main role="main" data-role="confirm-page">
+
+<input type="hidden" value="{goods_id}" id="goods_id">
+<input type="hidden" value="{user_id}" id="seller_user_id">
+<section id="global-header"></section>
+<div class="page-view confirm-page " data-role="page-container">
+    <div class="confirm-page-wrap " >
+        <div class="item-wrap">
+
+            <div class="item">
+                <div class="txt-item good-info mt15">
+                    <img src="{goods_info.images}">
+                    <p>[{type_name}] {goods_info.titles}</p>
+                </div>
+                <div class="title-item">
+                    <h3 class="title">规格</h3>
+                </div>
+                <div class="txt-item">
+                    <!-- IF has_type -->
+                    <div class="txt-con">
+                        <h3 class="title f14">{price_tag_type}：</h3>
+                        <div class="txt">
+                            
+                            <div class="sec-area mb10">
+                                <!-- BEGIN type_arr -->
+                                <!-- IF price >"0" -->
+                                <button class="ui-button  ui-button-inline-block  ui-button-size-x <!-- IF selected="1" -->ui-button-bg-ff6<!-- ELSE -->ui-button-bg-fff<!-- ENDIF -->" data-role="type-btn" data-price-type-id="{prices_type_id}" <!-- IF promotion_id -->data-promotion-id="{promotion_id}"<!-- ENDIF -->
+                                <!-- IF selected="1" -->disabled<!-- ENDIF --> >
+                                <span class="ui-button-content">{price_name}</span>
+                                <!-- IF promotion_id --><i class="icon icon-cu-36x36-m"></i><!-- ENDIF -->
+                                </button>
+                                <!-- ENDIF -->
+                                <!-- END type_arr -->
+                            </div>
+                        </div>
+                        <!-- IF shoud_show_price_type_id -->
+                        <input value="{prices_type_id}" type="hidden" id="type" />
+                        <!-- ENDIF -->
+                    </div>
+                    <!-- ENDIF -->
+                    <!-- IF type_arr_length > "1" -->
+                    <div class="mt10 mb15 color-666">
+                        （请选择套餐类型）
+                    </div>
+                    <!-- ENDIF -->
+                    <!-- IF has_people_com -->
+                    <div class="txt-con">
+                        <h3 class="title pt10 f14 mb10">到场人数（限定人数内不加收费用）：</h3>
+                        <div class="txt">
+                            <div id="people">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ELSEIF has_quantity_com -->
+                    <div class="txt-con">
+                        <h3 class="title pt10 f14 mb10">数量：</h3>
+                        <div class="txt">
+                            <div id="quantity">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ENDIF -->
+
+                    <!-- IF promotion_details_arr -->
+                    <!--促销详情-->
+                    <div class="txt-con promotion-info <!-- IF show_promotion_details --><!-- ELSE -->fn-hide<!-- ENDIF -->" data-role="promotion-info">
+                        <h3 class="title pt10 f14 pt25">参与促销：</h3>
+                        <div class="txt">
+                            <!-- BEGIN promotion_details_arr -->
+                            <ul id="promotion-ul-{promotion_id}" data-role="promotion-ul" class="<!-- IF top.show_promotion_details --><!-- ELSE -->fn-hide<!-- ENDIF -->">
+                                
+                                <li class="pt10">
+                                <span class="lh color-fe9220">{type_name}：</span><span class="content">{content}</span>
+                                </li>
+                                <li class="color-fe9220 pt10">{cal_goods_prices}</li>
+                                
+                            </ul>
+                            <!-- END -->
+                            <input value="{promotion_id}" id="promotion_id" type="hidden" id="type" />
+                        </div>
+                    </div>
+                    <!-- ENDIF -->
+                   
+                    
+                </div>
+            </div>
+            <!-- IF has_time_com -->
+            <div class="item">
+                <div class="title-item">
+                    <h3 class="title pt10 ">服务开始时间：</h3>
+                </div>
+                <div class="txt-item">
+                    <div class="txt-con">
+                        <div class="txt service-time-txt">
+                            <input data-role="calendars" {date_control_disable} <!-- IF date_control_disable -->disabled<!-- ELSE -->id="calendars"<!-- ENDIF --> value="{service_time}" <!-- IF direct_order_id -->disabled<!-- ENDIF -->  type="text"   class="service-input-text " placeholder="请选择" format="yy-mm-dd" readonly="true" hours hours-past past />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ENDIF -->
+            <div class="item">
+                <div class="title-item">
+                    <h3 class="title pt10">地区(省-市)：</h3>
+                </div>
+                <div class="txt-item" data-role="area">
+                    <div class="txt-con">
+                        <div class="txt area-text">
+                            <input  type="text" id="location" class="service-input-text" placeholder="请选择" readonly="readonly" value="{city_name}"/>
+                            <input type="hidden" id="location_id" value="{service_location_id}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- IF has_time_com -->
+            <div class="item">
+                <div class="title-item">
+                    <h3 class="title pt10">服务地点：</h3>
+                </div>
+                <div class="txt-item">
+                    <div class="txt-con">
+                        <div class="txt">
+                            <textarea name="" class="service-place-textarea" placeholder="请输入详细地址" data-role="address">{service_address}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ENDIF -->
+
+            <div class="item">
+                <div class="title-item">
+                    <h3 class="title pt10">给商家留言：</h3>
+                </div>
+                <div class="txt-item">
+                    <div class="txt-con">
+                        <div class="txt">
+                            <textarea name="" class="sj-liuyan-textarea" placeholder="请输入留言" data-role="description">{description}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-item">
+            <a href="javascript:;" class="order-submit-btn" data-role="confirm">提交订单</a>
+            <input type="text" id="submit_token" value="" class="fn-hide">
+        </div>
+    </div>  
+    
+  
+
+
+
+
+</div>
+{wap_global_footer}
+    
+</main>
+<main role="main" class="fn-hide" data-role="location-page">
+    <div data-role="global-header"></div>
+    <div data-role="location-page-container"></div>
+</main>
+<div  data-role="date-container"></div>
+</body>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/time_picker/index_755cfc7.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/scroll/index_8287ee3.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/date_picker/index_4c8c1bc.js"></script>
+<script>
+
+    var $ = require('components/zepto/zepto.js');
+    var yue_ui = require('yue_ui/frozen');
+    var utility = require('common/utility/index');
+    var date = require('common/date/calendar');
+    var Picker = require('date_picker/index');
+    var App = require('common/I_APP/I_APP');
+    var router = require('common/page/router');
+
+    var fastclick = require('components/fastclick/fastclick.js');
+
+    var header = require('common/widget/header/main');
+
+    
+    var $btn_item = $('.btn-item');
+    // 解决键盘遮挡
+    $(document).on('focus', 'input', function () {
+        $btn_item.addClass('fixfixed');
+    });
+    $(document).on('blur', 'input', function () {
+        $btn_item.removeClass('fixfixed');
+    });
+    // 解决键盘遮挡 end
+
+    
+    $(document).ready(function() 
+    {
+        if(App.isPaiApp)
+        {
+            App.check_login(function(data)
+            {
+                /**
+                 * 获取个人信息函数，专用于app
+                 */
+
+                var params = window.__YUE_APP_USER_INFO__;
+
+                var local_user_id = utility.login_id;
+                var client_user_id = window.__YUE_APP_USER_INFO__.user_id || 0;
+
+                var async = (local_user_id == client_user_id);
+
+                console.log("=====local_user_id,client_user_id=====");
+                console.log(local_user_id,client_user_id);
+
+
+
+                if(!utility.int(data.pocoid))
+                {
+                    App.openloginpage(function(data)
+                    {
+                        if(data.code == '0000')
+                        {
+                            utility.refresh_page();
+                        }
+                    });
+
+                    return;
+                }
+
+            });
+
+        }
+
+        (function()
+        {
+
+            var self = this;
+
+            var $location_page = $('[data-role="location-page"]');
+            var $confirm_page = $('[data-role="confirm-page"]');
+
+            // 渲染头部
+            header.init({
+                ele : $confirm_page.find("#global-header"), //头部渲染的节点
+                title:"订单确认页",
+                header_show : true , //是否显示头部
+                right_icon_show : false, //是否显示右边的按钮
+
+                share_icon : 
+                {
+                    show :false,  //是否显示分享按钮icon
+                    content:""
+                },
+                omit_icon :
+                {
+                    show :false,  //是否显示三个圆点icon
+                    content:""
+                },
+                show_txt :
+                {
+                    show :true,  //是否显示文字
+                    content:"编辑"  //显示文字内容
+                }
+            });
+
+            function show_confirm_page(tag)
+            {
+                if(tag)
+                {
+                    $confirm_page.removeClass('fn-hide');
+                    $location_page.addClass('fn-hide');
+                }
+                else
+                {
+                    $confirm_page.addClass('fn-hide');
+                    $location_page.removeClass('fn-hide');
+                }
+            }
+
+            // ============== 配置新的日历插件 ===============
+            
+
+            // 实例化路由
+            var router_obj = new router();
+
+            router_obj.addRoute('#date', function()
+            { 
+                pick.slide_show();
+            });
+
+            router_obj.addRoute('', function()
+            { 
+                console.log('back');
+                pick.slide_hide();
+            });
+           
+
+            // ============ 日期 ============
+            var $date = $('[data-role="calendars"]');
+            var pick = new Picker
+            ({
+                $el:$('[data-role="date-container"]'),
+                $cur_page_view : $('.confirm-page-wrap'),
+                CAN_NOT_CHOOSE_A_DAY_BEFORE:'',
+                CHOOSE_PAST_DAYS : false,
+                DEFAULT_DAY : '',
+                MONTH_RANGE : ['{now_range}','{next_range}'],
+                RETURN_SEPARATOR : '-',
+                SKIP_DAYS : ''
+
+            });
+
+            $date.on('click',function()
+            {
+                router_obj.redirect('#date');
+            });
+
+            pick.get_obj().on('finish',function(event,time_str)
+            {
+                router_obj.back();
+
+                $date.val(time_str);
+            });
+
+            // ============== 配置wap版本的地区 ==============
+            var setup_location = function()
+            {
+
+                // 地区组件
+                // 载入组件
+                var location_class = require('common/widget/location/location_main');
+
+                var _locationid = '{service_location_id}';
+                var _city_name = '{city_name}';
+
+                // 实例化
+                var location_obj = new location_class
+                ({
+                    ele : $('[data-role="location-page-container"]'), //渲染地区总节点
+                    // 热门城市配置
+                    hot_city : {
+                        is_show : true , // 是否显示热门城市 true显示
+                        data :
+                                [
+
+                                ]
+                    },
+                    callback : function(res)
+                    {
+                        // 点击选中城市回调
+
+                        console.log(res);
+
+                        $('[data-role="area"]').find('input').val(res.city).attr('data-locationid',res.location_id);
+
+                        $('#location_id').val(res.location_id);
+
+                        show_confirm_page(true);
+
+                    },
+                    city_history_num: "3",  //控制浏览历史记录个数，默认12个
+                    is_search : false  // 是否开启搜索城市功能 默认不开启
+
+                });
+
+                self.location_page_header_obj = header.init
+                ({
+                    ele        : $location_page.find('[data-role="global-header"]'), //头部渲染的节点
+                    title      : "选择地区",
+                    use_page_back : false ,
+                    header_show: true, //是否显示头部
+                    right_icon_show: true, //是否显示右边的按钮
+                    share_icon :
+                    {
+                        show   : false,  //是否显示分享按钮icon
+                        content: ""
+                    },
+                    omit_icon  :
+                    {
+                        show   : false,  //是否显示三个圆点icon
+                        content: ""
+                    },
+                    show_txt   :
+                    {
+                        show   : false,  //是否显示文字
+                        content: ""  //显示文字内容
+                    }
+                });
+
+                self.location_page_header_obj.$el.on('click:left_btn',function()
+                {
+                    show_confirm_page(true);
+                });
+            };
+
+            // ============ 初始化地区组件 ============
+            if(!App.isPaiApp)
+            {
+                setup_location();
+            }
+
+            var direct_order_id = '{direct_order_id}';
+            var is_auto_accept = '{is_auto_accept}';
+            var is_auto_sign = '{is_auto_sign}';
+            
+            $('[data-role="area"]').on('click',function(){
+
+                var locationid = '{service_location_id}';
+                var city_name = '{city_name}';
+
+                if(App.isPaiApp)
+                {
+                    if(direct_order_id)
+                    {
+                        return;
+                    }
+
+                    App.show_selectcity({locationid:locationid,city:city_name},function(data)
+                    {
+                        if(data.code == '0000')
+                        {
+                            $('[data-role="area"]').find('input').val(data.city);
+                            $('#location_id').val(data.locationid);
+
+                        }
+
+                    });
+
+                }else{
+                    //其他浏览版本的地区按钮跳转分支
+
+                    show_confirm_page(false);
+
+
+
+                }
+            });
+
+
+            // ============ 载入组件 ============
+            var add_reduction = require('common/widget/add_reduction/add_reduction');
+
+            // ============ 人数组件 ============
+            var $people_btn = $('#people');
+            if($people_btn.length)
+            {
+                var input_val = '{service_people}' || '1';
+
+                self.people = new add_reduction
+                ({
+                    ele : $people_btn,//渲染模板节点
+                    is_show_operate_btn : !direct_order_id,
+                    param_val : {
+                        input_val : input_val,  //要默认显示的值
+                        max_val : '{buy_num}', //最大值
+                        min_val : 1  //最小值
+                    }
+                });
+            }
+
+            // ============ 数量组件 ============
+            var $quantity_btn = $('#quantity');
+            if($quantity_btn.length)
+            {
+                var input_val = '{quantity}' || '1';
+
+                self.quantity = new add_reduction
+                ({
+                    ele : $quantity_btn,//渲染模板节点
+                    is_show_operate_btn : !direct_order_id,
+                    param_val : {
+                        input_val : input_val,  //要默认显示的值
+                        max_val : '{buy_num}', //最大值
+                        min_val : 1  //最小值
+                    }
+                });
+            }
+
+            // ============ 点击规格按钮 ============
+            var $type_btn = $('[data-role="type-btn"]');
+            var $type = $('#type');
+            var $promotion_container = $('[data-role="promotion-info"]');
+            var $promotion_ul = $('[data-role="promotion-ul"]')
+            var $promotion_id_txt = $('#promotion_id');
+            $type_btn.on('click',function(ev)
+            {
+                
+                var $cur_btn = $(ev.currentTarget);
+
+                $type_btn.removeClass('ui-button-bg-ff6').addClass('ui-button-bg-fff');
+                $cur_btn.addClass('ui-button-bg-ff6');
+                var price_type_id = $cur_btn.attr('data-price-type-id');
+                var promotion_id = $cur_btn.attr('data-promotion-id');
+
+                $promotion_ul.addClass('fn-hide');
+
+                // 显示促销详情
+                if(promotion_id)
+                {
+                    $promotion_container.removeClass('fn-hide');
+                    $('#promotion-ul-'+promotion_id).removeClass('fn-hide');
+                }
+                else
+                {
+                    $promotion_container.addClass('fn-hide');
+                }
+                $promotion_id_txt.val(promotion_id);
+                $type.val(price_type_id);
+            });
+            
+            // ============ 服务地点 ============
+            var $address = $('[data-role="address"]');
+            // ============ 留言 ============
+            var $description = $('[data-role="description"]');
+
+            var goods_id = $('#goods_id').val();
+
+            // ============ 提交按钮 ============
+            var $confirm_btn = $('[data-role="confirm"]');
+            $confirm_btn.on('click',function(ev)
+            {
+                var $cur_btn = $(ev.currentTarget);
+
+                var service_time = 0;
+                var service_address = '';
+                var submit_token = $('#submit_token').val();
+
+
+                if(submit_token)
+                {
+                    window.location.href = '../notice/index.php?type=order';
+                    return;
+                }
+
+                // 收集数据
+                var price_type_id = $type.val();
+
+                // 人数
+                if($people_btn.length)
+                {
+                    var people = self.people.get_val();
+                }
+
+                // 数量
+                if($quantity_btn.length)
+                {
+                    var quantity = self.quantity.get_val();
+                }
+
+                // 详细地址
+                if($address.length)
+                {
+                    var service_address = $address.val();
+                }
+
+                // 日期
+                if($date.length)
+                {
+                    var service_time = $date.val();
+                }
+
+                // 数据校对
+
+                var error_tips = '';
+                // 地区
+                var service_location_id = $('#location_id').val();
+                
+                if($quantity_btn.length && !quantity)
+                {
+                    error_tips = '请选择数量或人数';
+                }
+                if($date.length && !service_time)
+                {
+                    error_tips = '请选择服务开始时间';
+                }
+                if(!service_location_id)
+                {
+                    error_tips = '请选择地区';
+                }
+                // 详细地址
+                if($address.length && !service_address)
+                {
+                    error_tips = '请填写服务地点';
+                }
+
+
+                if(error_tips)
+                {
+                    $.tips
+                    ({
+                        content: error_tips,
+                        stayTime:3000,
+                        type:'warn'
+                    });
+
+                    return;
+                }
+
+                var order_submit_url = window.$__config.ajax_url.order_submit;
+
+                utility.ajax_request
+                ({
+                    url       : order_submit_url,
+                    data      :
+                    {
+                        goods_id : goods_id,
+                        prices_type_id : price_type_id || '',
+                        service_time : service_time || '',
+                        service_address : service_address || '',
+                        service_people : people || 1,
+                        service_location_id : service_location_id || '',
+                        quantity : quantity || 1,
+                        description : $description.val(),
+                        redirect_url : window.location.href ,
+                        commit : 1,
+                        direct_order_id : direct_order_id,
+                        is_auto_accept : is_auto_accept,
+                        is_auto_sign : is_auto_sign,
+                        promotion_id : $promotion_id_txt.val(),
+                        module_type : 'mall_order'
+                    },
+                    type      : 'POST',
+                    cache     : false,
+                    beforeSend: function ()
+                    {
+                        self.$loading=$.loading
+                        ({
+                            content:'发送中...'
+                        });
+                    },
+                    success   : function (res)
+                    {
+                        $loading.loading("hide");
+
+                        $cur_btn.attr('has-submit',1);
+
+                        if(res.result_data.code == 1)
+                        {
+                            var type = 'success';
+
+                            $.tips
+                            ({
+                                content:res.result_data.msg,
+                                stayTime:3000,
+                                type:type
+                            });
+
+                            if(res.result_data.data.url)
+                            {
+                                $('#submit_token').val(new Date().getTime());
+
+                                window.location.href = res.result_data.data.url;
+                            }
+
+                        }
+                        else
+                        {
+                            var type = 'warn';
+
+                            $.tips
+                            ({
+                                content:res.result_data.msg,
+                                stayTime:3000,
+                                type:type
+                            });
+                        }
+
+
+
+                        console.log(res);
+                    },
+                    error     : function (err)
+                    {
+                        $loading.loading("hide");
+
+                        $.tips
+                        ({
+                            content:'网络异常',
+                            stayTime:3000,
+                            type:'warn'
+                        });
+                    }
+                });
+
+            });
+
+        })();
+
+
+    });
+
+
+</script>
+</html>

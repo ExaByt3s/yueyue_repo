@@ -1,0 +1,20 @@
+.nav-header {
+  width: 100%;
+  height: 45px;
+  position: relative;
+  text-align: center;
+  line-height: 45px;
+  background-color: #63ce76;
+  color: #fff; }
+  .nav-header .left-button-wrap {
+    position: absolute;
+    left: 0;
+    width: 45px;
+    top: 0; }
+    .nav-header .left-button-wrap .icon-back:before {width: 10px;
+      height: 20px;
+      margin-top: 12px;
+      display: block;background-repeat: no-repeat;}
+  .nav-header .right-button-wrap {
+    position: absolute; }
+.nav-header .left-button-wrap .icon-back:before{background-position:0px 0px}.nav-header .left-button-wrap .icon-back:before{background-size: 10px 20px;background-image: url(http://yp.yueus.com/mobile/m2predev/static/image/pai/widget/ui-pay-tt-header_0.5_z.png)}

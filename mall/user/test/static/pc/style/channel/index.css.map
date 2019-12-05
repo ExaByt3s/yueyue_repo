@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "index.css",
+    "sources": [
+        "/style/channel/index.scss"
+    ],
+    "sourcesContent": [
+        ".channel-page{\n\n    .p1th{\n        .item{\n            margin-bottom: 30px;\n            width: 1000px;\n            position: relative;\n            height:320px;\n            overflow: hidden;\n            .txt-area{\n                position: absolute;\n                width: 100%;\n                height:90px;\n                bottom: 0;\n                left: 0;\n                background: url(../../images/line-10x100.png ) repeat-x;\n                color:#fff;\n                .title{\n                    padding-left: 20px;\n                    padding-top: 15px;\n                }\n                .des{\n                    padding-left: 20px;\n                    padding-top: 3px;\n                }\n            }\n\n            .fade-h5{\n                width:100%; \n                height:90px; \n                position:absolute;  \n                bottom:-90px; \n                left:0;\n                filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');background:rgba(0,0,0,0.5);\n                box-sizing: border-box;\n                transition: bottom 0.1s ease-out;\n            }\n\n\n            &:hover{\n                .fade-h5{\n                    bottom:0\n                }\n            }\n        }\n\n        .page{\n            padding-top: 50px;\n        }\n        \n    }\n}"
+    ],
+    "mappings": "AAGA,AAAc,AAAM,AACR,AAAe,AACf,AAAO,AACP,AAAU,AACV,AAAO,AACP,AAAU,AACtB,AAAc,AAAM,AAAM,AACV,AAAU,AACV,AAAO,AACP,AAAO,AACP,AAAQ,AACR,AAAM,AACN,AAA6C,AAC7C,AAAM,AACtB,AAAc,AAAM,AAAM,AAAU,AAChB,AAAc,AACd,AAAa,AAEjC,AAAc,AAAM,AAAM,AAAU,AAChB,AAAc,AACd,AAAa,AAIjC,AAAc,AAAM,AAAM,AACV,AAAM,AACN,AAAO,AACP,AAAS,AACT,AAAO,AACP,AAAK,AACL,AAAO,AAA8G,AAAW,AAChI,AAAY,AACZ,AAAY,AAK5B,AAAc,AAAM,AAAK,AAAO,AACZ,AAAO,AAK3B,AAAc,AAAM,AACR,AAAa",
+    "names": []
+}

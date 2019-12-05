@@ -1,0 +1,71 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app 
+// ------------------------------
+
+.action-list .action-list-content .camera-demand-main-page .action-child-con{
+    padding-bottom: 0px;
+}
+
+
+.camera-demand-main-page{
+
+    padding-top: 15px;
+    .item-wrap{
+        margin-bottom: 15px;
+        background-color: #fff;
+        padding: 15px 15px;
+        position: relative;
+
+        .item:nth-child(2){
+            font-size: 14px;
+            color: #000;
+            padding-bottom: 5px;
+            .lbox{
+                color: #000;
+            }
+            .rbox{
+                color: #000;
+            }
+        }
+    }
+    .state{
+        position: absolute;
+        right: 15px;
+        top: 23px;
+        color: #cccccc;
+        font-size: 12px;
+    }
+
+    .item{
+        margin-top: 6px;
+        font-size: 12px;
+        @include flexbox((
+            display: box,  // 盒子模型 子元素默认水平左对齐
+            box-pack: start
+        ), $version: 1);
+        .lbox{
+            color: #999999;
+            margin-right: 5px;
+        }
+        .rbox{
+            color: #333333;
+            .cor1{
+                color: #ff4978;
+            }
+            .cor2{
+                color: #ff5000;
+            }
+        }
+    }
+
+    .load-more{
+        // margin-top: 15px;
+        text-align: center;
+        color: #666666;
+        height: 34px;
+        line-height: 34px;
+    }
+
+
+}

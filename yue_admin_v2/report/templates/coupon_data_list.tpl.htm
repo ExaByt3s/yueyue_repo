@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <title>优惠券码列表</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="javascript:void(0);" class="on">{title}</a>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="400">
+                        <tbody>
+                        <tr>
+                            <td>
+                                上级ID:
+                                <input type="text" name="id" class="input-text" value="{id}" size="8"/>
+                            </td>
+                            <td>
+                                <p><input type="button" class="button" value="查找" onclick="this.form.target='_self';$('#action').attr('value','');this.form.submit();">
+                                </p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="act" id="action">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <div class="table-list" id="table-list">
+        <!--list-->
+        <table width="100%" cellspacing="0" style="min-width: 1000px;">
+            <thead>
+            <tr>
+                <th>上级ID</th>
+                <th>登录数为1</th>
+                <th>登录数为2</th>
+                <th>登录数为3</th>
+                <th>登录数为4</th>
+                <th>登录数为5以上</th>
+                <th>交易数</th>
+                <th>用户交易数</th>
+                <th>订单数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center">{id}</td>
+                <td align="center">{login_1_num}</td>
+                <td align="center">{login_2_num}</td>
+                <td align="center">{login_3_num}</td>
+                <td align="center">{login_4_num}</td>
+                <td align="center">{login_5_up_num}</td>
+                <td align="center">{trade_num}</td>
+                <td align="center">{trade_user_num}</td>
+                <td align="center">{trade_order_num}</td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

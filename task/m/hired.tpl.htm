@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>选中列表</title>
+    {m_global_top}
+    <link charset="utf-8" rel="stylesheet" href="./css/hired.css">
+    <script type="application/javascript" src="js/pager.js?v3"></script>
+<body>
+{m_task_top}
+
+
+
+<div class="common_taps">
+    <div class="tap_child" data-role="process">待处理订单<div class='common_red_point <!-- IF pending_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{pending_remind_num}</div></div>
+    <div class="tap_child current" data-role="hired">进行中订单<div class='common_red_point <!-- IF process_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{process_remind_num}</div></div>
+    <div class="tap_child" data-role="get">收藏<div class='common_red_point <!-- IF archive_remind_num =="0" -->fn-hide<!-- ENDIF -->'>{archive_remind_num}</div></div>
+</div>
+<div class="hired_title">进行中订单</div>
+<div class="common_list_container">
+    <!-- IF show_pager="1" -->
+
+    <!-- ELSEIF show_pager="0" -->
+    <div class="common_no_list"><p>暂无订单</p></div>
+    <!-- ENDIF -->
+    <!-- BEGIN list -->
+    <div class="common_list_child" data_quotes_id="{quotes_id}" data-request_id="{request_id}">
+        <div class="common_list_child_title status-9" data-role="to_details">
+            <img src="./img/status_9-52x58.png"/>
+            <p>已选中</p>
+        </div>
+        <div class="common_list_child_ques" data-role="to_details">
+            <p class='name <!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{buyer_nickname}</p>
+            <p class='<!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{title}</p>
+            <!-- BEGIN answer -->
+            <!-- IF default_titles -->
+            <!--p class="k">{default_titles}</p-->
+            <!-- ENDIF -->
+            <!-- IF data -->
+            <!-- BEGIN data -->
+            <!-- IF default_titles -->
+            <!--p class="k">{default_titles}</p-->
+            <!-- ENDIF -->
+            <!-- END data -->
+            <!-- ENDIF -->
+            <!-- END answer -->
+            <!--p>{when_str}</p>
+            <p>{where_str}</p-->
+			<!--p class="more_line_text_dotdotdot">
+                <!-- BEGIN answer -->
+                <!-- BEGIN data -->
+
+                <!-- END data -->
+                <!-- END answer -->
+            <!--/p-->
+
+        </div>
+        <div class="common_list_child_control">
+            <p>{time_format}</p>
+            <div class="common_list_child_control_delete_btn" data-role="delete" <!-- IF is_archive=="1" -->data-has-get="1"<!-- ELSE --><!-- ENDIF -->  ><!-- IF is_archive=="1" -->已收藏<!-- ELSE -->收藏<!-- ENDIF --></div>
+        </div>
+    </div>
+    <!-- END list -->
+
+</div>
+<!--分页参数-->
+{page_config_script}
+<!-- IF show_pager="1" -->
+<div class="common_list_bottom" data-role="pager-container">
+
+</div>
+<!-- ELSEIF show_pager="0" -->
+
+<!-- ENDIF -->
+</body>
+{m_global_bot}
+<script>
+    window.onload = function()
+    {
+        $('[data-role="process"]').on('click',function()
+        {
+            location.href = './process.php';
+        })
+
+        $('[data-role="hired"]').on('click',function()
+        {
+            location.href = './hired.php';
+        })
+
+        $('[data-role="get"]').on('click',function()
+        {
+            location.href = './collection.php';
+        })
+
+        $('[data-role="to_details"]').on('click',function()
+        {
+            var list = $(this).parent(); //订单元素
+
+            var quotes_id = $(this).parent().attr('data_quotes_id');
+
+            var request_id =  $(this).parent().attr('data-request_id');
+
+            location.href = '../m/talk.php?quotes_id=' + quotes_id;
+        });
+
+        $('[data-role="delete"]').on('click',function(ev)
+        {
+            var list = $(this).parents("[data_quotes_id]");
+
+            var data_quotes_id = list.attr('data_quotes_id');
+
+            console.log(data_quotes_id);
+
+            // hudw 修改收藏后的交互
+            var $cur_btn = $(ev.currentTarget);
+
+            var lead_id = $(this).parent().attr('lead_id');
+
+            var data =
+            {
+                quotes_id:data_quotes_id
+            };
+
+            if($cur_btn.attr('data-has-get') == 1)
+            {
+                return;
+            }
+
+            if(window.confirm('要收藏该需求吗?'))
+            {
+                $.ajax
+                ({
+                    url : '../ajax/collection.php',
+                    data:data,
+                    type: 'POST',
+                    dataType : 'json',
+                    cache: false,
+                    beforeSend: function()
+                    {
+
+                    },
+                    success: function(data)
+                    {
+
+                        if(data.result_data){
+                            alert("收藏成功！");
+                            $cur_btn.html('已收藏');
+                            $cur_btn.attr('data-has-get',1);
+                        }
+                        else{
+                            alert("该需求已被收藏！")
+                        }
+                    },
+                    error: function()
+                    {
+
+                    },
+                    complete: function()
+                    {
+
+                    }
+                });
+            }
+        });
+
+        // 使用分页类
+
+        var pager = window._Pager;
+        var pager_obj = new pager
+        ($('[data-role="pager-container"]'),{
+            total_page : window.__page_config.total_page,
+            pre : window.__page_config.pre,
+            next : window.__page_config.next,
+            cur_page : window.__page_config.cur_page
+        });
+    }
+</script>
+</html>

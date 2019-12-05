@@ -1,0 +1,629 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>无标题文档</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/lib/mod_327a0b0.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/lib/lib_880856d.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/style/libs/common_b1eb749.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/style/common/common-sj_a39a2f4.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/style/css-sj_a9db816.css">
+<!--基础样式 END-->
+
+
+
+<script>
+(function(){if(!window.console){console=(function(){var a=null;function c(){}c.prototype={log:function(d){}};function b(){if(a==null){a=new c()}return a}return b()})()}})();
+</script>
+
+<!--  用于 fis head 插入资源 -->
+<head>
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/modules/common/layer/skin/layer_d032379.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/modules/common/qr_code_preview/qr_code_preview_fc1a14a.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/components/jquery/jquery_27c977b.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/js/common/common_26d9479.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/layer/layer_906feb7.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/qr_code_preview/qr_code_preview_21ec406.js"></script>
+</head>
+
+
+
+
+<!--配置全局变量-->
+<script>
+
+	window.$__domain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : './ajax/'
+	};
+
+
+
+    var $ = require('components/jquery/jquery.js');
+    window.jQuery = $ ;
+
+</script>  
+	<!-- 当前页css -->
+	<!-- <link type="text/css" rel="stylesheet" href="../style/login-page.scss">-->
+</head>
+
+<body>
+	<div class="global-top-bar global-top-bar-seller" id="global-top-bar-seller">
+
+		<div class="top-bar clearfix w1000 font_wryh">
+
+			<div class="logo fldi">
+				<a href="#"></a>
+			</div>
+
+			<div class="nav clearfix">
+				<div class="item">
+					<a href="#">服务管理</a>
+				</div>
+				<div class="item "   menu-item-trigger>
+					<!-- 触发样式 dropdown-menu-hover -->
+
+					<a href="#">
+						<span class="txt">账户管理</span> <b class="ui-triangle ui-triangle-bottom-min-white"></b>
+					</a>
+					<div class="dropdown-menu">
+						<ul class="list clearfix">
+							<li>
+								<a href="#">账户余额：￥5000.00</a>
+							</li>
+							<li>
+								<a href="#">提现</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="nav clearfix seller-info">
+				<div class="item "  menu-item-trigger>
+					<!-- 触发样式 dropdown-menu-hover -->
+					<a href="#"><span class="txt">商家用户名</span> <b class="ui-triangle ui-triangle-bottom-min-white"></b></a>
+					
+					<div class="dropdown-menu">
+						<ul class="list clearfix">
+							<li>
+								<a href="#">个人中心</a>
+							</li>
+							<li>
+								<a href="#">认证中心</a>
+							</li>
+							<li>
+								<a href="#">约约首页</a>
+							</li>
+							<li>
+								<a href="#">退出</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="content w1000">
+
+		<div class="mod-nav-item font_wryh">
+			<a href="#">约约商家主页</a>
+			&gt;
+			<span>XX</span>
+		</div>
+
+		<!-- 模板start -->
+		<div class="mod-check-page content-bg  font_wryh">
+
+		<div class="">
+        <style type="text/css">
+            .test_input{
+                width:200px; height: 38px; background-color:#fff; border:1px solid #000;margin:15px ;display: block; color: #000
+            }
+        </style>
+
+            <input class="test_input"   value="测试文字"   id="ele_input_2"  /> 
+
+            <input class="test_input"  disabled="disabled"  placeholder="测试文字" />
+
+            
+            <input class="test_input"   placeholder="测试文字"   id="ele_input" disabled="disabled" /> 
+            <div id="btn_input">点击测试</div>
+
+
+        </div>
+
+		<br /> <br /><br /> <br /> <br /><br /> <br /> <br /><br /> <br /> <br /><br /> <br /> <br /><br /> <br /> <br /><br /> <br /> <br />
+			
+			<!-- 按钮start  -->
+			<div class="btn-list-mod">
+				<h3 class="mb15 f16">品类资料：</h3>
+				<div class="btn-list">
+					<a href="#" class="tdn">
+						<button class="ui-button ui-button-primary   ui-button-size-s-large">
+							<span class="ui-button-content">模特商家</span>
+						</button>
+					</a>
+
+					<a href="#" class="tdn">
+						<button class="ui-button ui-button-primary   ui-button-size-s-large">
+							<span class="ui-button-content">摄影师商家</span>
+						</button>
+					</a>
+
+					<a href="#" class="tdn">
+						<button class="ui-button ui-button-primary   ui-button-size-s-large">
+							<span class="ui-button-content">培训类商家</span>
+						</button>
+					</a>
+
+					<a href="#" class="tdn">
+						<button class="ui-button ui-button-primary   ui-button-size-s-large">
+							<span class="ui-button-content">影棚商家</span>
+						</button>
+					</a>
+
+					<a href="#" class="tdn">
+						<button class="ui-button ui-button-primary   ui-button-size-s-large">
+							<span class="ui-button-content">化妆师商家</span>
+						</button>
+					</a>
+					<a href="#" class="tdn">
+						<button class="ui-button ui-button-primary   ui-button-size-s-large">
+							<span class="ui-button-content">化妆师商家</span>
+						</button>
+					</a>
+
+					<a href="#" class="tdn">
+						<button class="ui-button ui-button-primary   ui-button-size-s-large">
+							<span class="ui-button-content">化妆师商家</span>
+						</button>
+					</a>
+				</div>
+
+			</div>     
+			<!-- 按钮end  -->  
+
+
+			<!-- 编辑详情 -->
+			<div class="edit-details-mod">
+				<div class="item cor-333 font_wryh  clearfix">
+					<div class="lbox fl mr20">
+						<p class="tags">规格</p>
+						<h3 class="title">创意裸价（选填）:</h3>
+					</div>
+					<div class="rbox fl">
+						<p class="tags">价格</p>
+						<div class="item-con clearfix">
+							<div class="mod-input-item fl">
+							             <input type="text" class="input-txt  input-txt-1 font_wryh" placeholder="">
+							 </div>
+							<span class="unit fl">元</span>
+						</div>
+					</div>
+				</div>
+				<div class="item mt10">
+					<p class="tigs cor-aaa">
+						（此套餐不包含服装、化妆、相册等配套服务。添加创意裸价服务让价格更亲民，
+						   让客户感受你的创意和你的实力吧）
+					</p>
+				</div>
+				<div class="item mt10">
+					<a href="#" class="ui-btn ui-btn-border-gray">编辑详情</a>
+				</div>
+			</div>
+			
+
+			<!-- 标准服务弹窗 -->
+			<div class="pop-standard-service" style="display:none">
+				<div class="item-wrap font_wryh">
+					<div class="path1">
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">套餐名称：</h3>
+							<div class="item-con fl">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-1 font_wryh" placeholder="不包括特殊字符，6个字以内">
+								 </div>	
+							</div>
+						</div>
+					</div>
+					<div class="item-title cor-333">套餐详情</div>
+					<div class="path2 item-w-380 clearfix">
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">拍摄时长：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="拍摄时长">
+								 </div>	
+								 <span class="unit fl">小时</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">底片张数：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="底片张数">
+								 </div>	
+								 <span class="unit fl">张</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">修片时间：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="修片时间">
+								 </div>	
+								 <span class="unit fl">天</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">精修张数：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="精修张数">
+								 </div>	
+								 <span class="unit fl">张</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">服装数目：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="服装数目">
+								 </div>	
+								 <span class="unit fl">套</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="path3 item-w-380 clearfix">
+						<div class="item mt10 clearfix">
+							<h3 class="title cor-333 fl">化妆：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-radio-item clearfix">
+								  	<label><input type="radio" name="" value="提供" checked="checked"> 提供</label> 
+								  	<label><input type="radio" name=""  value="不提供" > 不提供</label>              
+								</div>
+							</div>
+						</div>
+						<div class="item mt10 clearfix">
+							<h3 class="title cor-333 fl">原片：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-radio-item clearfix">
+								  	<label><input type="radio" name="the-raw" value="全送" checked="checked"> 全送</label> 
+								  	<label><input type="radio" name="the-raw"  value="选送" > 选送</label>   
+								  	<label><input type="radio" name="the-raw"  value="不送" > 不送</label>           
+								</div>
+							</div>
+						</div>
+						<div class="item  clearfix">
+							<h3 class="title cor-333 fl">相册：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-radio-item clearfix">
+								  	<label><input type="radio" name="album" value="提供" checked="checked"> 提供</label> 
+								  	<label><input type="radio" name="album"  value="不提供" > 不提供</label>              
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="path4">
+						<div class="item mt10 clearfix">
+							<h3 class="title cor-333 fl">相册内容：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-1 font_wryh" placeholder="相册内容">
+								 </div>	
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="path5">
+						<div class="item clearfix">
+							<div class="btn-item">
+								<a href="#" class="ui-btn ui-btn-border-gray">取消</a>
+								<a href="#" class="ui-btn ui-btn-blue">保存</a>
+							</div>
+						</div>	
+					</div>	
+				</div>
+			</div>
+			
+
+
+			<!-- 创意裸价 -->
+			<div class="pop-creative-price" style="display:none">
+				<div class="item-wrap">
+					<div class="item-title cor-333 mt20">套餐详情</div>
+					<div class="path1 item-w-380 clearfix">
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">套餐名称：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="拍摄时长">
+								 </div>	
+								 <span class="unit fl">小时</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">底片张数：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="底片张数">
+								 </div>	
+								 <span class="unit fl">张</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">修片时间：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="修片时间">
+								 </div>	
+								 <span class="unit fl">天</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">套餐名称：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="拍摄时长">
+								 </div>	
+								 <span class="unit fl">小时</span>
+							</div>
+						</div>
+					</div>
+					<div class="path2 item-w-380 clearfix">
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">服装：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-select-item">
+									<select class="province font_wryh">
+										<option>不提供</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">服装：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-select-item">
+									<select class="province font_wryh">
+										<option>不提供</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">原片：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-radio-item clearfix">
+								  	<label><input type="radio" name="makeup" value="全送" checked="checked"> 全送</label> 
+								  	<label><input type="radio" name="makeup"  value="选送" > 选送</label>  
+								  	<label><input type="radio" name="makeup"  value="不送" > 不送</label>             
+								</div>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">相册：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-select-item">
+									<select class="province font_wryh">
+										<option>不提供</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="path3">
+						<div class="item  clearfix">
+							<div class="btn-item">
+								<a href="#" class="ui-btn ui-btn-border-gray">取消</a>
+								<a href="#" class="ui-btn ui-btn-blue">保存</a>
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+			</div>
+
+
+
+
+			<!-- 尊享 -->
+			<div class="pop-enjoyable" style="display: none">
+				<div class="item-wrap font_wryh">
+					<div class="path1">
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">套餐名称：</h3>
+							<div class="item-con fl">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-1 font_wryh" placeholder="不包括特殊字符，6个字以内">
+								 </div>	
+							</div>
+						</div>
+					</div>
+					<div class="item-title cor-333">套餐详情</div>
+					<div class="path2 item-w-380 clearfix">
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">拍摄时长：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="拍摄时长">
+								 </div>	
+								 <span class="unit fl">小时</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">底片张数：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="底片张数">
+								 </div>	
+								 <span class="unit fl">张</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">修片时间：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="修片时间">
+								 </div>	
+								 <span class="unit fl">天</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">精修张数：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="精修张数">
+								 </div>	
+								 <span class="unit fl">张</span>
+							</div>
+						</div>
+						<div class="item mt20 clearfix">
+							<h3 class="title cor-333 fl">服装数目：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-2 font_wryh" placeholder="服装数目">
+								 </div>	
+								 <span class="unit fl">套</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="path3 item-w-380 clearfix">
+						<div class="item mt10 clearfix">
+							<h3 class="title cor-333 fl">化妆：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-radio-item clearfix">
+								  	<label><input type="radio" name="" value="提供" checked="checked"> 提供</label> 
+								  	<label><input type="radio" name=""  value="不提供" > 不提供</label>              
+								</div>
+							</div>
+						</div>
+						<div class="item mt10 clearfix">
+							<h3 class="title cor-333 fl">原片：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-radio-item clearfix">
+								  	<label><input type="radio" name="the-raw" value="全送" checked="checked"> 全送</label> 
+								  	<label><input type="radio" name="the-raw"  value="选送" > 选送</label>   
+								  	<label><input type="radio" name="the-raw"  value="不送" > 不送</label>           
+								</div>
+							</div>
+						</div>
+						<div class="item  clearfix">
+							<h3 class="title cor-333 fl">相册：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-radio-item clearfix">
+								  	<label><input type="radio" name="album" value="提供" checked="checked"> 提供</label> 
+								  	<label><input type="radio" name="album"  value="不提供" > 不提供</label>              
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="path4">
+						<div class="item mt10 clearfix">
+							<h3 class="title cor-333 fl">相册内容：</h3>
+							<div class="item-con fl clearfix">
+								<div class="mod-input-item fl">
+								             <input type="text" class="input-txt  input-txt-1 font_wryh" placeholder="相册内容">
+								 </div>	
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="path5">
+						<div class="item clearfix">
+							<div class="btn-item">
+								<a href="#" class="ui-btn ui-btn-border-gray">取消</a>
+								<a href="#" class="ui-btn ui-btn-blue">保存</a>
+							</div>
+						</div>	
+					</div>	
+				</div>
+			</div>
+			
+
+
+
+		</div>
+		<!-- 模板end -->
+
+		<!-- 手机预览插入节点  -->
+		<div data-role="qr_code_preview_ele" class="qr_code_preview_ele"></div>
+		<!-- 手机预览插入节点 end  -->
+		
+
+
+	</div>
+
+
+
+	<div class="footer font_wryh">
+		<a href="#" class="mr10">关于约约</a>
+		|
+		<span class="ml10">Copyright &copy; 2003-2015 YUEUS.COM</span>
+	</div>
+
+
+
+<script type="text/javascript">
+	// 头部
+	require('common/global-top-bar/global-top-bar');
+	
+	// 弹窗口
+	require('common/layer/layer');
+
+
+    //手机二维码预览 start
+
+
+    // 初始化
+    var qr_code_preview = require('common/qr_code_preview/qr_code_preview');
+    var qr_code_preview_obj = new qr_code_preview({
+        render_ele : $('[data-role="qr_code_preview_ele"]'),
+        click_ele : 'click_ele' //点击class
+    });
+    // 初始化 end
+
+
+    // 点击触发
+    $('.click_ele').on('click', function() {
+        // 设置二维码
+        qr_code_preview_obj.set_qr_img('http://image16.poco.cn/yueyue/20150907/20150907210529_353313_100207_66636_640.jpg?1600x1067_120');
+
+        qr_code_preview_obj.change_hide()
+
+        // dosomething
+
+    });
+    //手机二维码预览 end
+
+
+
+
+
+    $('#btn_input').on('click', function() {
+        $('#ele_input').val('承德市123cds测试')
+    });
+
+
+
+</script>
+
+
+</body>
+
+</html>

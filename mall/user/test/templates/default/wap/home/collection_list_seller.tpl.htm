@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>商家列表</title>
+    {wap_global_top}
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/home/collection_list.scss">
+    <script src="../../../../lib/lib.js"></script>
+</head>
+<body>
+<main role="main">
+    <header class="global-header">
+        <div class="wbox clearfix">
+            <a href="javascript:void(0);">
+                <div id="back" class="back" data-role="page-back">
+                    <i class="icon-back"></i>
+                </div>
+            </a>
+            <h3 class="title">
+                <div class="list-type">
+                    <div class="header-btn tag" data-role="seller-btn">商家</div>
+                    <div class="header-btn" data-role="service-btn">服务</div>
+                </div>
+            </h3>
+        </div>
+    </header>
+    <div class="page-view list_container" data-role="page-container">
+        <div class="operate ui-border-b">
+            <div class="category ui-border-r" data-role="category">所有品类<i class="tag"></i></div>
+            <div class="category" data-role="sort">默认排序<i class="tag"></i></div>
+        </div>
+
+        <div class="collection-list-page">
+            <div class="collection_list" data-role="collection-list">
+                <div id="render_ele"></div>
+            </div>
+        </div>
+
+    </div>
+</main>
+</body>
+<!--SCRIPT_PLACEHOLDER-->
+<script>
+
+    var $ = require('zepto');
+    var header = require('../../../../modules/common/widget/header/main');
+    var page_params = {page_params}.result_data;
+    var target_type = {target_type};
+    $(document).ready(function() {
+        //头部返回按钮
+        var back = $('#back');
+        back.onclick = function()
+        {
+            if(document.referrer)
+            {
+                window.history.back();
+            }
+            else
+            {
+                window.location.href = "http://yp.yueus.com/mall/user/test/index.php" ;
+            }
+        };
+        //列表
+        var COLLECTION_AJAX_URL = window.$__ajax_domain+'get_tarde_collection_list.php';
+
+        var template = __inline('./collection_list_item.tmpl');
+
+        var list_item_class = require('../../../../modules/list/list.js');
+        var list_obj = new list_item_class(
+        {
+            //渲染目标
+            ele : $('#render_ele'),
+            //请求地址
+            url : COLLECTION_AJAX_URL,
+            //传递参数
+            params : page_params,
+            //模板
+            template : template,
+            //lz是否开启参数
+            is_open_lz_opts : false
+        });
+        document.body.addEventListener('touchstart',function(){});
+    });
+
+
+</script>
+</html>

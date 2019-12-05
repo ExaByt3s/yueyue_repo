@@ -1,0 +1,1 @@
+define("common/page/page",function(n,o,e){var t=(n("../../base/index"),n("components/zepto/zepto.js")),i=function(n){var o=this;n=n||{},o.options=n,o.$el=o.options.$el||t("body"),o.init()};i.prototype={init:function(){},render:function(){},events:{},show:function(){},hide:function(){}},e.exports=i});

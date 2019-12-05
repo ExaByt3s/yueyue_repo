@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>输入</title>
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<meta name="wap-font-scale" content="no">
+
+<script type="text/javascript">
+    (function(){
+        var is_mobile = '{is_mobile}';
+        if( is_mobile == 1 && window.location.host == 'www.yueus.com')
+        {
+            window.location.host = 'yp.yueus.com';
+        }
+    })();
+</script>
+
+<!-- 性能 log start -->
+<!-- {xn_log} -->
+<!-- 性能 log end -->
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/wallet-test/static/wap/style/base.css">
+<!-- 通用 -->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/wallet-test/static/wap/style/common/common.css">
+<!-- 颜色配置 -->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/wallet-test/static/wap/style/common/ui-colcor.css">
+<!-- 按钮配置 -->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/wallet-test/static/wap/style/common/ui-button.css">
+<!--基础样式 END-->
+
+<!--App bridge-->
+<script>
+{app_bridge_script}
+</script>  
+
+<script>
+
+    window.__wifi_link = /yp-wifi/.test(window.location.host)?'-wifi':'';
+
+    window.__test__str = /-test/.test(window.location.href)?'wallet-test/':'wallet/';
+
+	window.$__ajax_domain = 'http://yp'+__wifi_link+'.yueus.com/mall/'+__test__str + 'ajax/';
+    window.$__ajax_common_url = 'http://yp'+__wifi_link+'.yueus.com/mall/'+__test__str + 'ajax_url_transit.php';
+
+    // 配置全局首页路径
+    window.__index_url_link = '{index_url_link_wallet}';
+
+
+    // 配置user首页路径
+    // window.__index_url_user = '{index_url_user}';
+
+    document.addEventListener('touchstart',function(){},false);
+
+
+
+
+
+    // 配置测试模式
+    window.IS_PUBLISH_MODEL ='{IS_PUBLISH_MODEL}';
+</script>
+
+<!-- 判断微信 -->
+<!-- IF is_weixin -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<!--配置微信全局变量-->
+<script>
+    (function()
+    {
+        var __wx_common_share = {};
+        var __wx_common_timeline = {};
+        var loc = window.location;
+
+        __wx_common_share =
+        {
+            title: "约约，最高效的时间电商平台", // 分享标题
+            desc: "找模特？找活动？找场地？找化妆？找培训？上约约吧! ", // 分享描述
+            link: window.location.href,
+            imgUrl:'http://img16.poco.cn/yueyue/customer_icon.png?' + new Date().getTime(), // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                //alert("分分分成功")
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        };
+
+        __wx_common_timeline =
+        {
+            title: "约约，最高效的时间电商平台", // 分享标题
+            desc: "找模特？找活动？找场地？找化妆？找培训？上约约吧! ", // 分享描述
+            link: window.location.href, // 分享链接
+            imgUrl:'http://img16.poco.cn/yueyue/customer_icon.png?' + new Date().getTime(), // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        };
+
+        window.__wx_common_share = __wx_common_share;
+        window.__wx_common_timeline = __wx_common_timeline
+
+        var wx_json = {wx_json};
+        var debug = '{debug}' == 1 ? true:false;
+
+        wx.config
+        ({
+            debug: debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: wx_json.appId, // 必填，公众号的唯一标识
+            timestamp: wx_json.timestamp, // 必填，生成签名的时间戳
+            nonceStr: wx_json.nonceStr, // 必填，生成签名的随机串
+            signature: wx_json.signature,// 必填，签名，见附录1
+            jsApiList: ['checkJsApi',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo',
+                'hideMenuItems',
+                'showMenuItems',
+                'hideAllNonBaseMenuItem',
+                'showAllNonBaseMenuItem',
+                'getNetworkType',
+                'openLocation',
+                'getLocation',
+                'hideOptionMenu',
+                'showOptionMenu',
+                'closeWindow',
+                'scanQRCode',
+                'chooseWXPay',
+                'downloadImage',
+                'openProductSpecificView'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        wx.ready(function()
+        {
+            wx.onMenuShareAppMessage(window.__wx_common_share);
+
+            wx.onMenuShareTimeline(window.__wx_common_timeline);
+
+            wx.onMenuShareQQ(window.__wx_common_share);
+
+
+        });
+    })();
+</script>
+<!-- ENDIF -->
+
+<!-- 异常捕获 start -->
+
+<!-- 异常捕获 end -->
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/order/detail.scss">
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/lib/lib.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/components/zepto/zepto.js"></script>
+</head>
+<body>
+
+
+<style type="text/css">
+
+</style>
+
+
+
+<div class="ui-input-info-mod mb10">
+   <div class="item">
+           <input type="text" class="ui-input-info" placeholder="手机号码"/>
+   </div>
+</div>
+
+
+
+<div class="ui-input-info-mod mb10">
+   <div class="item">
+       <input type="text" class="ui-input-info "  placeholder="手机号码"/>
+       <span class="ui-btn">获取验证码</span>
+   </div>
+</div>
+
+
+
+
+
+<div class="ui-input-info-mod mb10">
+   <div class="item border-bottom-left-radius-0 border-bottom-right-radius-0 ui-input-border-bottom">
+           <input type="text" class="ui-input-info"  placeholder="手机号码"/>
+           <span class="ui-btn">获取验证码</span>
+   </div>
+   <div class="item border-top-left-radius-0 border-top-right-radius-0">
+       <input type="text" class="ui-input-info"  placeholder="手机号码"/>
+  </div>
+</div>
+
+
+<div class="ui-input-info-mod mb10">
+   <div class="item border-bottom-left-radius-0 border-bottom-right-radius-0 ui-input-border-bottom">
+           <input type="text" class="ui-input-info"  placeholder="手机号码"/>
+   </div>
+  <div class="item border-radius-0 ui-input-border-bottom">
+          <input type="text" class="ui-input-info"  placeholder="手机号码"/>
+  </div>
+   <div class="item border-top-left-radius-0 border-top-right-radius-0">
+       <input type="text" class="ui-input-info"  placeholder="手机号码"/>
+  </div>
+</div>
+
+
+
+
+
+<div class="ui-search-info-mod mb10">
+    <div class="item">
+            <input type="text" class="ui-search-info" placeholder="搜索模特"/>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="ui-title-info-mod mb10">
+    <div class="item">
+        <span class="title">标题</span>
+        <div class="ui-title-info-con"><input type="text" class=" ui-title-info " placeholder="搜索模特"/></div>
+    </div>
+    
+</div>
+
+
+
+
+<div class="ui-textarea-info-mod mb10">
+    <h3 class="title">主题</h3>
+    <div class="textarea-con">
+      <textarea class="ui-textarea-info" placeholder="搜索模特"></textarea>
+    </div>
+</div>
+
+
+
+<div class="ui-user-info-mod mb10">
+    <div class="item">
+    	<i class="icon-allow-grey"></i>
+       <div class="user-info-item">
+          <div class="ui-avatar-icon ui-avatar-icon-m">
+                  <span style="background-image:url(http://static.yueus.com/mall/user/test/static/wap/image/test/ui-avatar-icon-m.jpg)"></span>
+          </div>
+          <div class="user-info-con">
+          	<h3 class="title">夏未至</h3>
+          	<p class="txt">摄影师</p>
+          </div>
+       </div>
+    </div>
+</div>
+
+
+
+<div class="ui-edit-user-info-mod mb10">
+	<div class="item item-border-bottom-1">
+		<div class="user-info-item clearfix">
+			<div class="lbox fl">
+				<p class="tips">昵称</p>
+			</div>
+			<div class="rbox fr">
+				<span class="tips-value">王梦实</span>
+				<i class="icon-allow-grey"></i>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="ui-edit-user-info-mod mb10">
+	<div class="item ui-border-b">
+		<div class="user-info-item clearfix">
+			<div class="lbox fl">
+				<p class="tips">昵称</p>
+			</div>
+			<div class="rbox fr">
+				<span class="tips-value">王梦实</span>
+				<i class="icon-allow-grey"></i>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="user-info-item clearfix">
+			<div class="lbox fl">
+				<p class="tips">个人简介</p>
+			</div>
+			<div class="rbox fr">
+				<span class="tips-value">摄影专业毕业，在校期间曾...</span>
+				<i class="icon-allow-grey"></i>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+<div class="ui-form-item-switch mb10">
+	<div class="item">
+		<span>是否显示消费记录</span>
+		 <label for="#" class="ui-switch-bar">
+		               <input type="checkbox" checked="">
+		</label>
+	</div>
+</div>
+
+
+
+ <label for="#" class="ui-switch-bar">
+               <input type="checkbox" checked="">
+</label>
+
+
+
+</body>
+
+<script>
+    var $ = require('components/zepto/zepto.js');
+</script>
+
+
+
+</html>

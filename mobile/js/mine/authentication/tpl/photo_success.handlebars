@@ -1,0 +1,43 @@
+<!--div data-role="photo">
+    <section class="pic">
+        <div>
+        <i class="image-img loaded"  data-size="{{img_width}}" style="height: 270px;background-image: url('{{img}}')"></i>
+        </div>
+        <span class="tip">你的资料已经提交，请耐心等候我们的审核，稍后我们将以系统信息推送通知你的实名认证结果，感谢你的配合。</span>
+    </section>
+    <div class="btn out-btn" data-role="take-photo">
+        <button class="ui-button ui-button-primary ui-button-size-large ui-button-block">
+            <span class="ui-button-content">立即拍照</span>
+        </button>
+    </div>
+    <div class="btn out-btn" data-role="{{#if is_v2}}{{#if from_date}}back-to-date{{else}}have-a-see{{/if}}{{else}}have-a-see{{/if}}">
+        <button class="ui-button ui-button-primary ui-button-size-large ui-button-block">
+            <span class="ui-button-content">{{#if is_v2}}{{#if from_date}}继续约拍{{else}}随便逛逛{{/if}}{{else}}随便逛逛{{/if}}</span>
+        </button>
+    </div>
+</div-->
+<div role="main" class="authentication_level_2_ready">
+    <div class="content-body " data-role="content-body" style="margin-top: 0px">
+        <div class="list-container" data-role="list-container" style="margin-top: 0px">
+            <div class="img-con">
+                <img style="width: 100%;" data-role="images" src="{{img}}"/>
+            </div>
+            <div class="text-con">
+                <div class="ui-input-mod">
+                    <div class="item"><input type="text" class="ui-input  ui-input-size-large ui-input-block ui-input-top-left ui-input-top-right ui-input-bottom-left ui-input-bottom-right" placeholder="你的真实姓名" data-role="name"></div>
+                </div>
+                <div class="ui-input-mod">
+                    <div class="item"><input type="text" class="ui-input  ui-input-size-large ui-input-block ui-input-top-left ui-input-top-right ui-input-bottom-left ui-input-bottom-right" placeholder="请输入你的身份证号"  data-role="id"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="authentication_btn-con ready  fn-hide" data-role="btn-con">
+        <button class="ui-button ui-button-size-middle ui-button-block ui-button-color2 ui-button-size-radius-large auto_width" data-role="re_take_photo">
+            <span class="ui-button-content">重新上传</span>
+        </button>
+        <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width" data-role="submit">
+            <span class="ui-button-content">提交审核</span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="hp">
+    {{#each list}}
+        <a href="{{link}}" data-role="items">
+            <div class="item">
+                <div class="lbox ">
+                {{#compare is_finish "==" 1}}
+                    <div class="boxre">
+                        <i class="icon-show"></i>
+                    </div>
+                {{/compare}}
+                    <i data-lazyload-url="{{change_img_size images "145" }}" class="lbox-icon img image-img min-height" style="min-height: 100px; !important;"></i>
+                    {{#if sign}}
+                    <div class="ui-tips-list">
+                        <i class="ui-tips-content">{{sign}}</i>
+                        <i class="ui-tips-triangle"></i>
+                    </div>
+                    {{/if}}
+                </div>
+
+                <div class="rbox ">
+                    <h3 class="title color-000 f14">{{titles}}</h3>
+
+                    <p class="price color-ff6">{{prices}}
+                    {{#if unit}}
+                        <!-- <span class="color-999 f12">/</span> -->
+                        <span class="color-999 f12">{{unit}}</span>
+                    {{/if}}
+                    </p> 
+                    <p class="color-999">{{start_time}}</p>
+                    <div class="num color-999 f12">
+                        <p>{{buy_num}}</p>
+                        <div class="layout_box_v act-box-item">
+                            <p class="c666 act-seller-name">{{seller}}</p>
+                            <i class="icon icon-act-name"></i>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </a>
+    {{/each}}
+</div>

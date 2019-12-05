@@ -1,0 +1,15 @@
+{{#each lists}}
+    <li data-user-id="{{user_id}}" data-role="model">
+        <div class="avatar-size-mod" style="width:{{../../../max_w}}px;height:{{../../../max_h}}px;">
+            <i class="img image-img avatar-size-img" data-lazyload="{{user_icon}}"></i>
+            <div>
+                <span class="score">{{num}}</span>
+                <span class="text">{{unit}}</span>
+            </div>
+        </div>
+        <div class="avatar-info">
+            <h3>{{nickname}}</h3>
+            <label>{{unit}}</label>
+        </div>
+    </li>
+{{/each}}

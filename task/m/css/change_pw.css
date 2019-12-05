@@ -1,0 +1,115 @@
+.change_pw_input{
+    margin: 30px 25px 10px 25px;
+    height: 133px;
+}
+.change_pw_input_phone{
+    background: #fff;
+    height: 43px;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px 6px 0px 0px;
+    overflow: hidden;
+}
+.change_pw_input_phone > input{
+    height: 41px;
+    margin: 0px 10px;
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+    border: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 0;
+    -webkit-user-select: auto;
+    outline: 0;
+}
+.change_pw_input_pw{
+    background: #fff;
+    height: 43px;
+    border: 1px solid #e6e6e6;
+    border-top:none;
+    border-radius: 0px 0px 6px 6px;
+    overflow: hidden;
+}
+.change_pw_input_pw > input{
+    height: 41px;
+    margin: 0px 10px;
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+    border: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 0;
+    -webkit-user-select: auto;
+    outline: 0;
+}
+.change_pw_input_code > input{
+    height: 41px;
+    margin: 0px 10px;
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+    border: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 0;
+    -webkit-user-select: auto;
+    outline: 0;
+}
+.change_pw_input_code{
+    background: #fff;
+    height: 43px;
+    border: 1px solid #e6e6e6;
+    border-top:none;
+    overflow: hidden;
+}
+.change_pw_input_code > input{
+    height: 41px;
+    margin: 0px 10px;
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+    border: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 0;
+    -webkit-user-select: auto;
+    outline: 0;
+}
+.change_pw_btn{
+    bottom: 0px;
+    height: 45px;
+    color: #fff;
+    line-height: 44px;
+    text-align: center;
+    background: #4092f1;
+    margin: 0px 25px;
+    border-radius: 4px;
+}
+.change_pw_get_code{
+    position: relative;
+    top: 6px;
+    right:6px;
+    color: #fff;
+    font-size: 11px;
+    line-height: 30px;
+    text-align: center;
+    background: #4092f1;
+    height:31px;
+    width: 80px;
+    border-radius: 4px;
+}
+.change_pw_btn:active{
+    background: #66a8f4;
+}
+.change_pw_get_code:active{
+    background: #66a8f4;
+}
+.change_pw_contact{
+    -webkit-box-pack: center;
+    font-size: 12px;
+    color: #4092f1;
+    text-align: center;
+    margin-top: 260px;
+    width:100%;
+    margin-bottom: 20px;
+}
+.change_pw_contact > .exp{
+    color: #666666;
+}

@@ -1,0 +1,9 @@
+.topic-end-page {
+  padding: 10px;
+  line-height: 1.2em; }
+  .topic-end-page .topic-info-container {
+    font: 400 14px/1.12 "Helvetica Neue", Helvetica, arial, sans-serif;
+    font-family: 'Microsoft YaHei',Verdana,SimSun; }
+  .topic-end-page .topic-info-container img {
+    max-width: 100%;
+    max-height: 100%; }

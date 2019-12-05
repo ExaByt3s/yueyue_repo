@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<script type="text/javascript" src="js/preview/preview.js"></script>
+<script type="text/javascript" src="js/preview/preview_load.js"></script>
+<link rel="stylesheet" type="text/css" href="js/preview/css/preview.css">
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>app模板后台</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">模板列表</a> 
+		<a href="?act=add">模板添加</a>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform">
+					<table class="table-list-search" id="quick_search" width="1000">
+					      <tbody>
+							       <tr>
+										<td width="260">添加日期: <input type="text" class="input-text Wate" name="start_add_time" value="{start_add_time}" onFocus="WdatePicker()" style="width:80px;"/>~ <input type="text" class="input-text Wate" name="end_add_time" value="{end_add_time}" onFocus="WdatePicker()" style="width:80px;" />
+										</td>
+										<td width="150">添加者UID:
+										<input type="text" class="input-text" name="add_id" value="{add_id}" style="width:60px;" />
+										</td>
+									    <td width="100">
+									    类型:
+											<select name="type">
+											<option value="">全部</option>
+											<option value="PT" <!-- IF type="PT" -->selected='true'<!-- ENDIF type --> >入口页</option>
+											<option value="SE" <!-- IF type="SE" -->selected='true'<!-- ENDIF type --> >搜索页</option>
+											<option value="LT" <!-- IF type="LT" -->selected='true'<!-- ENDIF type --> >列表页</option>
+											<option value="RO" <!-- IF type="RO" -->selected='true'<!-- ENDIF type --> >角色卡</option>
+											<option value="OD" <!-- IF type="OD" -->selected='true'<!-- ENDIF type --> >交易页</option>
+											<option value="OT" <!-- IF type="OT" -->selected='true'<!-- ENDIF type --> >其他</option>
+											</select>
+									    </td>
+									   <td>
+									    <p><input type="submit" class="button" value="查找"/> <!-- <input type="button" class="button" value="导出" onclick="com_export('export')"> --></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+	<div class="table-list" id="table-list">
+		<div class="btn">
+			总条数:{total_count}
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0" style="min-width: 1000px;">
+			<thead>
+				<tr>
+				<th>名称</th>
+				<th>类型</th>
+				<th>添加时间</th>
+				<th>添加者ID</th>
+				<th>查看样图</th>
+				<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center">{tpl_name}</td>
+				<td align="center"><!-- IF type="PT" -->入口页<!-- ELSEIF type="SE" -->搜索页<!-- ELSEIF type="LT" -->列表页<!-- ELSEIF type="RO" -->角色卡<!-- ELSEIF type="OD" -->交易页<!-- ELSE -->其他<!-- ENDIF type --></td>
+				<td align="center">{add_time}</td>
+				<td align="center">{add_id}</td>
+				<td align="center"><a href="javascript:void(0);" path="{img_url}" class="preview">样图</a></td>
+				<td align="center"><a href="?act=edit&id={id}">修改</a> | <a href="javascript:void(0);" onclick="del('?act=del&id={id}')">删除</a></td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+	</div>
+	<div id="pages" class="page">
+	{page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+	//导出和查询触动
+  function com_export($actval)
+  {
+  	$("#act").val($actval);
+	//$("#myform").attr("action", $url);
+	//return;
+	$("#myform").submit();
+ }
+
+ 		//显示所有文字
+ 		$("#table-list tbody td").find(".desc").mouseover(function(){
+ 			var $dmid_desc = $(this).attr('data');
+ 			layer.tips($dmid_desc, this, {
+ 				style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+ 				    //maxWidth:185,
+ 				time: 3,
+ 				closeBtn:[0, false]
+ 			});
+ 		});
+ 		$("#table-list tbody td").find(".desc").mouseleave(function(){
+ 			layer.closeTips();
+ 		});
+ 		//url
+ 		$("#table-list tbody td").find(".url").mouseover(function(){
+ 			var $dmid_desc = $(this).attr('data');
+ 			layer.tips($dmid_desc, this, {
+ 				style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+ 				    //maxWidth:185,
+ 				time: 3,
+ 				closeBtn:[0, false]
+ 			});
+ 		});
+ 		$("#table-list tbody td").find(".url").mouseleave(function(){
+ 			layer.closeTips();
+ 		});
+    });
+</script>
+</html>

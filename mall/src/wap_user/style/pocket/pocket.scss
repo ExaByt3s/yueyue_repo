@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+@import "../widget/ui-base";
+@import "../widget/ui-list";
+@import "../widget/ui-tab";
+body{background: #f2f2f2;color: #333333;}
+.page-name-pocket{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  background: #f2f2f2;
+  .top-bar{
+    -webkit-box-pack:justify;
+    -webkit-box-orient: horizontal;
+    display: -webkit-box;
+    border-bottom: 1px solid #cecece;
+    margin-bottom: 15px;
+    background-color: #fff;
+    .top-box{
+      width:44px;
+      height:44px;
+      line-height:44px;
+    }
+    .top-box-f{
+      height:44px;
+      line-height:44px;
+      text-align: center;
+    }
+    .return-icon{
+      background:url("../../image/pai/return-icon.png?__sprite")no-repeat 0 0/26px 26px;  background-position: 10px 10px;;}
+  }
+  .content-user{
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding:0 15px;
+    .portrait{
+      -webkit-box-orient: horizontal;
+      display: -webkit-box;
+      padding: 15px 0;
+      border-bottom: 1px solid #f2f2f2;
+      .portrait-icon{  width: 46px;
+        height: 46px;
+        display: -webkit-box;
+        border-radius: 4px;
+        background: #fff;
+      }
+      .portrait-f{  margin-left: 10px;
+        line-height: 46px;}
+    }
+    .user-bal{
+      display: -webkit-box;
+      -webkit-box-pack: justify;
+      text-align: center;
+      padding: 14px 0;
+      border-bottom: 1px solid #f2f2f2;
+      .balance{
+        line-height: 42px;
+
+      }
+      .amount{
+
+      }
+      .top-f{
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .bottom-f{
+        font-size: 10px;
+        color: #fe9920;
+      }
+    }
+    .tips{
+      padding: 14px 0;
+      font-size: 12px;
+      color: #B5B5B5;
+    }
+  }
+
+  .operation{
+    background-color: #fff;
+    padding: 0 15px;
+    .operation-box{
+      display: -webkit-box;
+      -webkit-box-pack: justify;
+      height: 44px;
+      line-height: 44px;
+      border-bottom: 1px solid #f2f2f2;
+      .left{
+        width: 80px;
+        padding-left: 36px;
+      }
+      .right{
+        width: 46px;
+        height: 44px;
+        font-size: 12px;
+        color: #aaa;
+        padding-right: 12px;
+        background: url("../../image/pai/arrow-12x20.png?__sprite")no-repeat 50px 15px/8px 13px;
+      } 
+    }
+    .account-icon{
+      background: url("../../image/pai/account-icon.png?__sprite")no-repeat 0 8px/26px 26px;
+    }
+  }
+  .withdraw-icon{
+    background: url("../../image/pai/withdraw-icon.png?__sprite")no-repeat 0 8px/26px 26px;
+  }
+  .zhifubao-icon{
+    background: url("../../image/pai/zhifubao-icon.png?__sprite")no-repeat 0 8px/26px 26px;
+  }
+}

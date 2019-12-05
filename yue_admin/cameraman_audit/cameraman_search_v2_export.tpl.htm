@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>去选择导出的类型</title>
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list">
+       <form method="post" action="?" id="myform">
+	   <div class="table" style="width:98%;" id="occu">
+		    <!--list-->
+		    <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+		    	<tbody>
+				<tr>
+				<td>请选择类型:
+				<select name="layout">
+				 	<option value="url">链接</option>
+				 	<option value="txt">文本</option>
+				 	<option value="excel">excel</option>
+				 </select>
+				</td>
+				</tr>
+				<tr>
+				<td>请选择模板:
+				<select name="role">
+				 	<option value="market">市场部</option>
+				 	<option value="operate">运营部</option>
+				 </select>
+				</td>
+				</tr>
+				<tr>
+				<td>开始条数:
+				<input type="text" name="start_num" value="0" size="4" class="input-text"/>
+				</td>
+				</tr>
+				<tr>
+				<td>条数(不超过5000):
+                   <input type="text" name="end_num" value="5000" size="4" class="input-text"/>
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+			       <input type="submit" value="提交" class="button" id="t_submit" />
+                   <input type="reset"  value="重置" class="button"/>
+				</td>
+				</tr>
+			    </tbody>
+		    </table>
+	   </div>
+	   <input type="hidden" value="quick_search" name="act" />
+	   <input type="hidden" value="{name}" name="name" />
+	   <input type="hidden" value="{cellphoe}" name="cellphoe" />
+	   <input type="hidden" value="{user_id}" name="user_id" />
+	   <input type="hidden" value="{sort}" name="sort" />
+	   </form>
+	</div>
+</div>
+</body>
+</html>

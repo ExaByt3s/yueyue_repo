@@ -1,0 +1,14 @@
+.header{width: 100%;border-bottom: 1px solid #e6e6e6;height: 65px;}
+.header a:hover{color: #4092f1;}
+.header .list{padding-left: 10px;}
+.header .list li{float:left;display:inline; font-size: 14px;width: 130px;text-align: center; padding: 22px 0 0 0;}
+.header .list li.cur{font-weight: bold;}
+.header .list li.cur a{color: #4092f1;}
+.header .rbox{padding: 16px 0 0 0;position: relative;}
+.header .rbox img{border-radius: 50% ; max-width: 32px; max-height: 32px;}
+.header .rbox .name{padding: 10px 0 0 10px;}
+.header .rbox .allow{background: url(../../../../image/task/allow-9x5.png?__sprite);width: 9px;height: 5px;display: inline-block;margin: 17px 0 0 10px}
+.header .rbox a:hover .allow{background-image: url(../../../../image/task/allow-9x5-hover.png?__sprite);}
+.header .rbox .icon-v{width: 16px;height: 16px;background: url(../../../../image/task/v-16x16.png?__sprite);position: absolute;top: 10px;left: 20px;}
+.header .login-out{padding: 25px 0 0 15px}
+.header .header-ajax-text{padding:22px 0 0 0}

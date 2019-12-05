@@ -1,0 +1,132 @@
+{YUE_ADMIN_TOP}
+<style type="text/css">
+#leftMenu dd i
+{
+	width: 155px;
+    height: 29px;
+    padding-left: 35px;
+   line-height: 29px;
+   text-align: left;
+}
+</style>
+<!--main-->
+<div id="Main_content">
+	<div id="MainBox">
+	    <div class="main_box">
+			<iframe name="main" id="Main" src="main.php" frameborder="false" scrolling="hidden" width="100%" allowtransparency="true" height="700"></iframe>
+		</div>
+    </div>
+	<div id="leftMenuBox">
+    	<div id="leftMenu" style="height: 231px; display: block;">
+			<div style="padding-left:12px;_padding-left:10px;">				
+				<dl id="nav_1" style="display: block;">
+					<dt>模特模块</dt>
+					<dd class="on">
+						<span>模特录入系统</span>
+					</dd>
+					<dd>
+						<i><a href="model_add_first.php" target="main">新增用户</a></i>
+					</dd>
+					<dd>
+						<i><a href="model_imports.php" target="main">数据导入</a></i>
+					</dd>
+					<dd class="on">
+						<span>模特查询系统</span>
+					</dd>
+					<dd>
+						<i><a href="model_term_search.php" target="main">快速筛选</a></i>
+					</dd>
+					<dd>
+						<i><a href="model_quick_search.php" target="main">精准筛选</a></i>
+					</dd>
+					<dd>
+						<i><a href="model_recycle_list.php" target="main">回收站列表</a></i>
+					</dd>
+				</dl>
+				<dl id="nav_2" style="display: none;">
+					<dt>模特审核模块</dt>
+					<dd class="on">
+						<span>模特审核</span>
+					</dd>
+					<dd>
+						<i><a href="model_audit_list.php?is_approval=0" target="main">待审核模特</a></i>
+					</dd>
+					<dd>
+						<i><a href="model_audit_list.php?is_approval=1" target="main">审核通过模特</a></i>
+					</dd>
+					<dd>
+						<i><a href="model_audit_list.php?is_approval=2" target="main">审核不通过模特</a></i>
+					</dd>
+					<dd class="on">
+						<span>机构模特审核</span>
+					</dd>
+					<dd>
+						<i><a href="model_audit_list.php?is_approval=0&is_org=1" target="main">待审核模特</a></i>
+					</dd>
+					<dd>
+						<i><a href="model_audit_list.php?is_approval=1&is_org=1" target="main">审核通过模特</a></i>
+					</dd>
+					<dd>
+						<i><a href="model_audit_list.php?is_approval=2&is_org=1" target="main">审核不通过模特</a></i>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="Main_drop">
+			<a href="javascript:toggle_leftbar(1);" class="on" style="display: inline;"><img src="resources/images/admin_barclose.gif" width="11" height="60" border="0"></a>   
+			<a href="javascript:toggle_leftbar(0);" class="off" style="display: none;"><img src="resources/images/admin_baropen.gif" width="11" height="60" border="0"></a>  
+		</div>
+    </div>
+</div>
+<!--main-->
+
+<script type="text/javascript">
+if(!Array.prototype.map){
+	Array.prototype.map = function(fn,scope) {
+	  var result = [],ri = 0;
+	  for (var i = 0,n = this.length; i < n; i++){
+		if(i in this){
+		  result[ri++]  = fn.call(scope ,this[i],i,this);
+		}
+	  }
+		return result;
+	};
+}
+var getWindowWH = function(){
+	  return ["Height","Width"].map(function(name){
+	  return window["inner"+name] ||
+		document.compatMode === "CSS1Compat" && document.documentElement[ "client" + name ] || document.body[ "client" + name ]
+	});
+}
+
+window.onload = function (){
+	if(!+"\v1" && !document.querySelector) { 
+		//IE6 IE7
+		document.body.onresize = resize;
+		
+	} 
+	else {
+	
+	  window.onresize = resize;
+	  
+	}
+	function resize() {
+	
+		wSize();
+		return false;
+		
+	}
+}
+function wSize(){
+	var str=getWindowWH();
+	var strs= new Array();
+	strs=str.toString().split(","); //字符串分割
+	var h = strs[0] - 95-30;
+	$('#leftMenu').height(h);
+	$('#Main').height(h); 
+}
+wSize();
+
+</script>
+</body>
+</html>

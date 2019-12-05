@@ -1,0 +1,48 @@
+{{#if user_role}}
+
+<!--  商家信息栏  -->
+
+<div class="seller-info">
+    <div class="login-out frdi"><span class="name fldi"><a href='logout.php'>退出</a></span></div>   
+    <span class="frdi mt20 ml10 pt5">|</span>   
+    <div class="rbox frdi">
+
+        <a href="person_center.php" >
+            {{#if_equal user.is_vip "1"}}
+            <!-- IF is_vip="1" -->
+            <div class="icon-v"></div>
+            <!-- ENDIF -->
+            {{/if_equal}}
+            <span class="img fldi"><img src="{{user.avatar}}" /></span>
+            <span class="name fldi">{{user.nickname}}</span>
+            
+            <!-- <span class="allow fldi"></span> -->
+
+        </a> 
+    </div>
+</div>
+
+
+{{else}}
+
+
+<!--  消费者信息栏  -->
+<div class="consumers-info">
+    <div class="login-out frdi"><span class="name fldi"><a href='logout.php'>退出</a></span></div>      
+    <div class="rbox frdi">
+
+        <a href="#" >
+            {{#if_equal user.is_vip "1"}}
+            <!-- IF is_vip="1" -->
+            <div class="icon-v"></div>
+            <!-- ENDIF -->
+            {{/if_equal}}
+            <span class="img fldi"><img src="{{user.avatar}}" /></span>
+            <span class="name fldi">{{user.nickname}}</span>
+            <span class="allow fldi"></span>
+
+        </a> 
+    </div>
+
+    {{/if}}
+</div>

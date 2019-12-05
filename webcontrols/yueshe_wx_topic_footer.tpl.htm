@@ -1,0 +1,119 @@
+
+<script>	
+
+    (function(window,document)
+    {
+        // weixin 签名参数
+        var wx_sign_package = '{wx_sign_package}';
+
+        var weixin_config = eval('('+wx_sign_package+')');
+        
+        weixin_config['debug'] = false;
+        weixin_config['jsApiList'] = [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'previewImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'closeWindow'			
+          ];
+    
+
+        // 必须调用微信config
+        wx.config(weixin_config);
+        
+        wx.ready(function()
+        {
+            // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+            
+            var wap_user_phone = '{phone}';
+
+            var loc = window.location;
+
+			var refer_id = '{id}';
+            
+            // 分享出去链接
+            var topic_url = '';			
+
+            topic_url = 'http://www.yueus.com/topic/yueshe_wx/?id='+refer_id;
+
+            var share_info = 
+            {
+                title: '{share_title}', // 分享标题
+                link: topic_url, // 分享链接
+                imgUrl: '{record.share_img}', // 分享图标
+                desc  : '{share_content}',// 描述
+                success: function () 
+                { 		
+
+					
+					if(wap_user_phone)
+					{
+						//alert(wap_user_phone);
+						// 用户确认分享后执行的回调函数
+						var new_img = new Image();						
+						
+						new_img.src = 'http://www.yueus.com/topic/yueshe_wx/coupon.php?phone='+wap_user_phone;  
+						
+						new_img.onload = function()
+						{
+							loc.href = 'http://www.yueus.com/topic/yueshe_wx/share_success.php?phone='+wap_user_phone+'&id='+refer_id; 
+
+						}
+						new_img.onerror = function()
+						{
+							loc.href = 'http://www.yueus.com/topic/yueshe_wx/share_success.php?phone='+wap_user_phone+'&id='+refer_id;
+						}
+					}
+                },
+                cancel: function () {
+                
+                    // 用户取消分享后执行的回调函数
+                }
+            }
+
+            // 分享朋友圈
+            wx.onMenuShareTimeline(share_info);
+            
+            // 分享给朋友
+            wx.onMenuShareAppMessage(share_info);
+            
+            // 分享到qq
+            wx.onMenuShareQQ(share_info);
+            
+
+            
+
+        });
+
+        
+    })(window,document);
+</script>
+
+<div style="display:none">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9fa08589aee02a0d763d50fe4dca33cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255619883'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1255619883' type='text/javascript'%3E%3C/script%3E"));</script>
+
+</div>
+</body>
+</html>

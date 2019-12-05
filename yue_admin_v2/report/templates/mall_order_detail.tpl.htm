@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/model_audit.css">
+</head>
+<body>
+<div class="mainbox">
+    <div class="table-list">
+        <h1><b><a href="mall_comment_list.php" style="cursor:pointer">返回</a></b></h1>
+        <iframe name="frame" id="frame" style="display:none"></iframe>
+        <form method="post" action="?" id="myform" target="frame">
+            <div class="table" style="width:98%;" id="occu">
+                <!--list-->
+                <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+                    <tbody>
+                    <tr>
+                        <td>订单ID:</td>
+                        <td>
+                            {order_id}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>订单号:</td>
+                        <td>
+                            {order_sn}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>商品品类:</td>
+                        <td>
+                            {type_name}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>交易额:</td>
+                        <td>
+                           {total_amount}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>优惠价:</td>
+                        <td>
+                            <!-- IF is_use_coupon="1" -->{discount_amount}<!-- ELSE -->0<!-- ENDIF -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>服务时间:</td>
+                        <td>
+                            {detail_list.0.service_time_str}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>服务地点:</td>
+                        <td>
+                            {detail_list.0.service_address}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

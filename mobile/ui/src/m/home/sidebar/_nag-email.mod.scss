@@ -1,0 +1,153 @@
+// 邮箱未确认
+.nag-email-mod {
+    padding: 15px 20px;
+    .user-email {
+        color: #3fa900;
+        cursor: default;
+    }
+}
+
+.nag-email-dialog-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9989;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background: #000;
+    @include opacity(0.2);
+}
+
+
+.nag-email-dialog {
+    position: absolute;
+    z-index: 9990;
+    left: 50%;
+    margin-left: -270px;
+    padding: 5px;
+    background: rgba(#525252, 0.7);
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#B3525252, endColorstr=#B3525252);
+    @include border-radius(3px);
+
+    .close-dialog-button {
+        position: absolute;
+        z-index: 1;
+        right: 12px;
+        top: 10px;
+        line-height: 1;
+        font-size: 18px;
+        color: #999;
+        
+
+        &:hover {
+            color: #666;
+            text-decoration: none;
+        }
+    }
+}
+
+.nag-email-dialog-content {
+    position: relative;
+    width: 521px;
+    padding: 10px 12px;
+    background: #fff;
+    color: #666;
+
+    .header {
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #666;
+    }
+
+    .sub-header {
+        font-size: 18px;
+        font-weight: 700;
+        color: #666;
+        text-align: center;
+    }
+
+    .buttons {
+        padding: 20px 0 15px;
+        text-align: center;
+    }
+
+    .email-address {
+        color: $color-3fa;
+    }
+    .resend-tip {
+        color: #C5111C;
+        font-weight: 700;
+        visibility: hidden;
+    }
+
+    .go-to-check {
+        margin-right: 5px;
+    }
+
+    .helps {
+        border-top: 1px solid $color-efe;
+        margin-top: 15px;
+        padding-top: 15px;
+        text-align: center;
+    }
+
+    .toggle-help-button {
+        position: absolute;
+        top: 2px;
+        right: 0;
+        z-index: 1;
+    }
+
+    .new-email {
+        margin-bottom: 15px;
+    }
+    .account-input {
+        width: 220px;
+        height: 20px;
+        border: 1px solid #e0e0e0;
+        *margin: -1px 0;
+        padding: 5px;
+        line-height: 18px;
+        outline: none;
+        vertical-align: middle;
+        background: transparent;
+    }
+    .verification-tip {
+        height: 18px;
+        font-size: 12px;
+        line-height: 1.5;
+        color: #F6451B;
+    }
+    .send-verify-email {
+        margin-left: 214px;
+    }
+
+    .email-confirm-body,
+    .email-wait-body {
+        .helps {
+            position: relative;
+            border-top: 1px solid $color-efe;
+            padding-top: 20px; 
+            height: 0;
+            overflow: hidden;
+            text-align: left;
+
+            p {
+                line-height: 24px;
+            }
+        }
+        .helps-active {
+            height: auto;
+            overflow: visible;
+        }
+    }
+
+    .email-succ-body {
+        p {
+            line-height: 24px;
+        }
+    }
+}

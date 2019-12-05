@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{ret.title}</title>
+    {wap_global_top}
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/category/category_1e40cd7.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/swiper3.07.min_b12c96f.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/swiper_fix_bdef114.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_79cae42.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/common/personal_made/personal_made_36333d3.css">
+</head>
+<body>
+
+<section id="global-header"></section>
+
+
+
+
+
+<div class="category-page mt45" >
+
+   <div class="p1th">
+       <div class="pics_container">
+   
+           <div class="swiper-container">
+               <div class="swiper-wrapper">
+               <!-- BEGIN ret.banner_list -->
+                   <div class="swiper-slide" data-url="{ad_url}" data-role="swipe" >
+                       
+                        <!-- IF url -->               
+                            <a href="{url}"><i class="slide-items-bg" style="background-image: url('{img}');background-size: cover;"></i></a>
+                        <!-- ELSE -->
+                            <a href="javascript:;"><i class="slide-items-bg" style="background-image: url('{img}');background-size: cover;"></i></a>
+                        <!-- ENDIF -->
+
+                   </div>
+               <!-- END ret.banner_list -->   
+               </div>
+               <!-- 如果需要分页器 -->
+               <div class="swiper-pagination"></div>
+           </div>
+   
+
+
+       </div>
+   </div>
+
+    <div class="p2th">
+        <ul class="list clearfix">
+
+        <!-- BEGIN ret.category_list -->
+        <a href="{url}">
+            <li class="{even_or_odd}">
+                <div class="wbox clearfix">
+                    <div class="img fldi">
+                        <i style="background-image: url({img});"></i>
+                    </div>
+                    <div class="txt fldi f14">{title}</div>
+                </div>
+            </li>
+        </a>
+        <!-- END ret.category_list -->   
+
+          
+
+        </ul>        
+    </div>
+
+
+    <div class="p3th">
+
+    
+        <!-- BEGIN ret.module_list -->   
+        <div class="item-wrap">
+            <div class="col">
+                <div class="title-top  ui-border-b clearfix  color-333">
+                    <div class="fl title  pt15 f16">{title}</div>
+
+                    <!-- IF more -->               
+                    <div class="fr  more f12"><a href="{more}" class="color-333 ">更多 <em class="icon-allow-grey"></em></a></div>
+                    <!-- ENDIF -->
+
+
+                </div>
+
+                <div class="img-wrap clearfix">
+                    <!-- BEGIN exhibit -->   
+                    <div class="item">
+                            <div class="item-area">
+                                <a href="{url}">
+                                    <div class="img-box">
+                                        <!-- <i style="background-image:url({img})"></i> -->
+                                        <i  data-lazyload-url="{img}"  class="img image-img min-height" ></i>
+                                    </div>
+                                </a> 
+                                <div class="txt-area">
+                                    <p class="des color-666 f14">{title}</p>
+                                </div>
+                            </div>
+                    </div>
+                    <!-- END exhibit -->   
+
+                </div>
+
+            </div> 
+            
+        </div> 
+        <!-- END ret.module_list -->   
+
+    </div>
+
+
+
+    <!-- IF ret.style_list.items -->               
+    <div class="p4th">
+        <!-- BEGIN ret.style_list -->   
+        
+        <div class="title-top  ui-border-b clearfix f16 color-333">
+            <div class="fl pl15 pt15">{title}</div>
+          
+        </div>
+        <div class="list-wrap">
+            <ul class="list clearfix">
+                <!-- BEGIN items -->   
+                <li>
+                    <a href="{url}">
+                        <button class="ui-button    ui-button-size-x ui-button-bg-fff">
+                                <span class="ui-button-content">{title}</span>
+                        </button>
+                    </a>
+                </li>
+                <!-- END items --> 
+
+            </ul>        
+        </div>
+        <!-- END ret.style_list -->   
+    </div>
+    <!-- ENDIF -->
+
+    <div class="p5th">
+
+
+    <!-- BEGIN ret.recommend_list -->   
+    
+        <div class="title-top  ui-border-b clearfix f16 color-333">
+            <div class="fl pt15">{title}</div>
+
+            <!-- IF more -->     
+            <div class="fr  more"><a href="{more}" class="color-333">更多 <em class="icon-allow-grey"></em></a></div>
+            <!-- ENDIF -->
+
+        </div>
+
+        <ul class="list clearfix">
+        <!-- BEGIN exhibit -->   
+            
+            <li>
+                <a href="{url}"><img src="{img}" /></a>
+            </li>
+        <!-- END exhibit -->   
+
+
+        </ul>    
+    <!-- END ret.recommend_list -->   
+
+
+    </div>
+
+    <div class="p6th">
+
+        <!-- BEGIN ret.review_list -->   
+        <div class="title tc f16 color-333">{title}</div>
+        <div class="main-con">
+            <ul class="list clearfix">
+
+                
+                <!-- BEGIN exhibit -->   
+                <a href="{url}">
+                    <li>
+                        <div class="img">
+                            <img src="{img}" />
+                        </div>
+                        <div class="txt color-666">
+                            <p class="p1 f16">{title}</p>
+                            <p class="p2 f14">{desc}</p>
+                        </div>
+                    </li>
+                </a>
+                <!-- END exhibit -->   
+
+
+            </ul>        
+        </div>
+
+        <!-- END ret.review_list -->   
+    </div>
+
+    <div class="p7th">
+        <!-- 私人定制 模块 -->
+        <div id="personal-made-ele"></div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+{wap_global_footer}
+    
+</body>
+
+
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+<script>
+var $ = require('components/zepto/zepto.js');
+var header = require('common/widget/header/main');
+var LZ = require('common/lazyload/lazyload');
+var WeiXinSDK = require('common/I_WX_SDK/I_WX_SDK');
+
+$(document).ready(function() {
+
+    /**** 调用微信分享 ****/
+    if(WeiXinSDK.isWeiXin())
+    {
+        // 朋友圈
+        var WeiXin_data_Timeline =
+        {
+            title: '{share_txt_str}', // 分享标题
+            link: window.location.href,
+            imgUrl:'http://img16.poco.cn/yueyue/customer_icon.png?' + new Date().getTime(), // 分享图标
+            success: function ()
+            {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function ()
+            {
+                // 用户取消分享后执行的回调函数
+            }
+        };
+
+        // 好友、QQ
+        var WeiXin_data =
+        {
+            title: '{share_txt_str}', // 分享标题
+            desc: "找模特？找活动？找场地？找化妆？找培训？上约约吧! ", // 分享描述
+            link: window.location.href, // 分享链接
+            imgUrl:'http://img16.poco.cn/yueyue/customer_icon.png?' + new Date().getTime(), // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function ()
+            {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function ()
+            {
+                // 用户取消分享后执行的回调函数
+            }
+        };
+
+        WeiXinSDK.ready(function()
+        {
+            WeiXinSDK.ready(function()
+            {
+                WeiXinSDK.ShareToFriend(WeiXin_data);
+
+                WeiXinSDK.ShareTimeLine(WeiXin_data_Timeline);
+
+                WeiXinSDK.ShareQQ(WeiXin_data);
+            });
+
+        });
+    }
+    /**** 调用微信分享 ****/
+
+    // 渲染头部
+    var header_obj = header.init({
+        ele : $("#global-header"), //头部渲染的节点
+        title:"{ret.title}",
+        header_show : true , //是否显示头部
+        right_icon_show : true, //是否显示右边的按钮
+        share_icon : 
+        {
+            show :false,  //是否显示分享按钮icon
+            content:""
+        },
+        omit_icon :
+        {
+            show :false,  //是否显示三个圆点icon
+            content:""
+        },
+        show_txt :
+        {
+            show :false,  //是否显示文字
+            content:"编辑"  //显示文字内容
+        },
+        search_icon : 
+        {
+            show :true,  //是否搜索icon
+            content:""  //显示文字内容
+        }
+    })
+
+
+    var s = require('common/widget/swiper/1.0.0/swiper3.07.min'); //3.07.min
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'horizontal',
+        loop: false,
+        autoplay : 3000,
+
+        // 如果需要分页器
+        pagination: '.swiper-pagination'
+    })
+
+
+    // 私人定制
+    var personal_made = require('common/personal_made/personal_made');
+    var personal_made_obj = new personal_made({
+        ele : $('#personal-made-ele'),
+        content:{
+            title : '{ret.individual.title}',
+            desc : '{ret.individual.desc}',
+            ico : '{ret.individual.ico}',
+            link : '{ret.individual.link}'
+        }
+       
+    })
+
+
+    // layzload
+    new LZ($('body'),
+            {
+                // size : window.innerWidth
+    });
+
+    // 搜索
+    // 头部搜索按钮点击事件
+    header_obj.$el.on('click:right_btn',function()
+    {
+        window.location.href = '{ret.search_url}';
+    });
+
+
+});
+
+
+</script>
+
+
+</html>

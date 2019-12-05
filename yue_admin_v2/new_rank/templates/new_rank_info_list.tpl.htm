@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="../js/preview/preview.js"></script>
+    <script type="text/javascript" src="../js/preview/preview_load.js"></script>
+    <link rel="stylesheet" type="text/css" href="../js/preview/css/preview.css">
+    <script type="text/javascript" src="../js/selectlocal.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <!--复制插件-->
+    <script type="text/javascript" src="../js/copy/jquery.zclip.min.js"></script>
+    <title>内容管理系统</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="javascript:void(0);" class="on">内容列表<!-- IF main_id -->({page_title})<!-- ENDIF --></a>
+            <!-- IF main_id --><a href="new_rank_info_edit.php?main_id={main_id}">添加内容模块({page_title})数据</a><!-- ENDIF -->
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="1000">
+                        <tbody>
+                        <tr>
+                            <td>
+                                内容模块:
+                                <select name="main_id">
+                                    <option value="">全部</option>
+                                    <!-- BEGIN rank_list -->
+                                    <option value="{id}" <!-- IF selected -->selected="selected"<!-- ENDIF -->>{title}</option>
+                                    <!-- END rank_list -->
+                                </select>
+                                </select>
+                            </td>
+                            <td>
+                                类型:
+                                <select name="type">
+                                    <option value="">全部</option>
+                                        <option value="general" <!-- IF type="general" -->selected="selected"<!-- ENDIF -->>普通类型</option>
+                                        <option value="banner" <!-- IF type="banner" -->selected="selected"<!-- ENDIF -->>banner类型</option>
+                                    </select>
+                                </select>
+                            </td>
+                            <td>状态:
+                                <select name="switch">
+                                    <option value="">全部</option>
+                                    <option value="on" <!-- IF switch="on" -->selected='true'<!-- ENDIF -->>上架</option>
+                                    <option value="off" <!-- IF switch="off" -->selected='true'<!-- ENDIF -->>下架</option>
+                                </select>
+                            </td>
+                            <td rowspan="2">
+                                <p><input type="submit" class="button" value="查找"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                添加日期: <input type="text" class="input-text" size="12" name="start_date" value="{start_date}" onFocus="WdatePicker()" size="12" readonly="true"/>~ <input type="text" class="input-text Wate" name="end_date" value="{end_date}" onFocus="WdatePicker()" size="12" readonly="true"/>
+                            </td>
+                            <td>添加者UID:
+                                <input type="text" class="input-text" name="add_user_id" value="{add_user_id}" size="6"/>
+                            </td>
+                            <td>
+                                标题:
+                                <input type="text" name="title" value="{title}" size="14" class="input-text"/>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <div class="table-list" id="table-list">
+        <div class="btn">
+            总条数:{total_count}
+        </div>
+        <!--list-->
+        <table width="100%" cellspacing="0" style="min-width: 1025px;">
+            <thead>
+            <tr>
+                <th width="40">序号</th>
+                <th width="40">排序</th>
+                <th width="80">类型</th>
+                <th width="40">模式</th>
+                <th width="160">榜单ID[榜单名]/url</th>
+                <th width="120">内容模块</th>
+                <th width="58">封面图</th>
+                <th width="100">标题</th>
+                <th width="100">内容</th>
+                <th>备注</th>
+                <th width="120">修改时间</th>
+                <th width="50">添加者ID</th>
+                <th width="40">状态</th>
+                <th width="160">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center">{id}</td>
+                <td align="center">{order}</td>
+                <td align="center">
+                    <!-- IF type="general" -->图文类型<!-- ELSEIF type="banner" -->banner类型<!-- ELSE -->全部<!-- ENDIF -->
+                </td>
+                <td align="center"><!-- IF rank_type="1" --><font color="red">榜单</font><!-- ELSE --><font color="green">全自动</font><!-- ENDIF --></td>
+                <td align="center"><!-- IF rank_type="1" -->{rank_id}[{rank_name}]<!-- ELSE --><a href="javascript:void(0);" class="desc" data="{link_url}">{url_cut}</a><!-- ENDIF --></td>
+                <td align="center">{main_name}</td>
+                <td align="center"><a href="javascript:void(0);" path="{thumb_img}" class="preview"><img src="{145_img}" width="32"/></a></td>
+                <td align="center">{title}</td>
+                <td align="center"><a href="javascript:void(0);" class="desc" data="{content}">{content_cut}</a></td>
+                <td align="center"><a href="javascript:void(0);" class="desc" data="{remark}">{remark_cut}</a></td>
+                <td align="center">{dateformat:update_time,'Y-m-d H:i:s'}</td>
+                <td align="center">{add_user_id}</td>
+                <td align="center"><!-- IF switch="on" --><font color="red">上架</font><!-- ELSE --><font color="green">下架</font><!-- ENDIF --></td>
+                <td align="center"><a href="new_rank_info_edit.php?act=edit&id={id}&main_id={main_id}">修改</a> | <a href="javascript:void(0);" onclick="del('new_rank_info_edit.php?act=del&id={id}')">删除</a></td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    //省市菜单
+
+    $(function(){
+        //显示所有文字
+        $("#table-list tbody td").find(".desc").mouseover(function(){
+            var $dmid_desc = $(this).attr('data');
+            layer.tips($dmid_desc, this, {
+                style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+                //maxWidth:185,
+                time: 3,
+                closeBtn:[0, false]
+            });
+        });
+        $("#table-list tbody td").find(".desc").mouseleave(function(){
+            layer.closeTips();
+        });
+        //url
+        $("#table-list tbody td").find(".url").mouseover(function(){
+            var $dmid_desc = $(this).attr('data');
+            layer.tips($dmid_desc, this, {
+                style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+                //maxWidth:185,
+                time: 3,
+                closeBtn:[0, false]
+            });
+        });
+        $("#table-list tbody td").find(".url").mouseleave(function(){
+            layer.closeTips();
+        });
+    });
+    function del($url)
+    {
+        $.layer
+        ({
+            shade: [0.3, '#000'],
+            area: ['auto','auto'],
+            dialog:
+            {
+                msg: '您确定要删除该数据？',
+                btns: 2,
+                type: 4,
+                btn: ['确定','取消'],
+                yes: function()
+                {
+                    //layer.msg('重要', 1, 1);
+                    //$("#myform").submit();
+                    location.href = $url;
+                },
+                no: function()
+                {
+                    layer.msg('取消成功', 1, 1);
+                }
+            }
+        });
+    }
+
+    //复制
+    $('.copyBtn').zclip({
+        path: "../js/copy/ZeroClipboard.swf",
+        copy: function(){
+            var $curl =  $(this).attr('data');
+            //window.alert($weixin);
+            return $curl;
+        },
+        afterCopy:function(){
+            alert("复制成功");
+            //console.log("复制之后");
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,13 @@
+<div class="choosen-style-child" data-role="choosen-style-tap" data-style="{{text}}" data-price="{{price}}" data-params="{{params}}" data-id="{{id}}" style="border:none;height:50px;line-height: 50px;">
+    <p class="choosen-style-child-title" data-role="choosen-style">{{text}}</p>
+    <div class="choosen-style-child-price-container">
+        {{#if old_combo_text}}
+                <p class="choosen-style-child-price" data-role="choosen-price" >{{combo_text}}</p>
+                <p class="choosen-style-child-price" data-role="choosen-price" style="text-decoration: line-through;color:#999;">{{old_combo_text}}</p>
+            {{else}}
+                <p class="choosen-style-child-price" data-role="choosen-price" >{{combo_text}}</p>
+        {{/if}}
+        {{#unless is_preview}}<i class="icon icon-r-16x26 fn-hide"></i>{{/unless}}
+    </div>
+</div>
+

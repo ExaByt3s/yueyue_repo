@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta http-equiv = "X-UA-Compatible" content ="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>模特邀约第一移动平台：约约</title>
+    <link href="css/wap.css?v17" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/swipe.js"></script>
+</head>
+<body class="start-page-body">
+    <script type="text/javascript">document.addEventListener('touchstart',function(){},false);</script>
+    <div class="index-page">
+        <div class="lbtn" ></div>
+        <div class="rbtn" ></div>
+        <div class="switch-container">
+            <span class="ui-loading"> <i class="t1"></i> <i class="t2"></i><i class="t3"></i></span>
+            <span class="ui-switch ui-switch-on fn-hide">
+                <input checked="checked" class="ui-switch-checkbox" type="checkbox">
+                <span class="ui-switch-wrapper">
+                    <span class="ui-switch-background"></span>
+                </span>
+                <span class="ui-switch-container">
+                    <span class="ui-switch-handle"></span>
+                </span>
+            </span>
+        </div>
+        <div id='mySwipe' style='max-width:500px;margin:0 auto' class='swipe'>
+            <div class='swipe-wrap'>
+                <div><img src="" data-img="images/0.jpg" data-id="100060"></div>
+                <div><img src="" data-img="images/1.jpg?1" data-id="100080"></div>
+                <div><img src="" data-img="images/2.jpg?1" data-id="101507"></div>
+                <div><img src="" data-img="images/3.jpg" data-id="100178"></div>
+                <div><img src="" data-img="images/4.jpg?1" data-id="100935"></div>
+
+
+                <div><img src="" data-img="images/5.jpg" data-id="100616"></div>
+                <!-- <div><img src="" data-img="images/6.jpg" data-id="101638"></div> -->
+                <div><img src="" data-img="images/7.jpg" data-id="100071"></div>
+                <div><img src="" data-img="images/8.jpg" data-id="101508"></div>
+                <div><img src="" data-img="images/9.jpg" data-id="100229"></div>
+
+                <!-- <div><img src="" data-img="images/10.jpg" data-id=""></div> -->
+                <div><img src="" data-img="images/11.jpg" data-id="100282"></div>
+                <div><img src="" data-img="images/12.jpg?1" data-id="100799"></div>
+                <div><img src="" data-img="images/13.jpg?1" data-id="100221"></div>
+                <div><img src="" data-img="images/14.jpg" data-id="101562"></div>
+
+                <!-- <div><img src="" data-img="images/15.jpg" data-id="100489"></div> -->
+                <!-- <div><img src="" data-img="images/16.jpg" data-id=""></div> -->
+                <div><img src="" data-img="images/17.jpg" data-id="100307"></div>
+                <!-- <div><img src="" data-img="images/18.jpg" data-id="100146"></div> -->
+                <!-- <div><img src="" data-img="images/19.jpg" data-id=""></div> -->
+
+                <div><img src="" data-img="images/20.jpg" data-id="100298"></div>
+                <div><img src="" data-img="images/21.jpg" data-id="101554"></div>
+                <div><img src="" data-img="images/22.jpg" data-id="101512"></div>
+                <div><img src="" data-img="images/23.jpg" data-id="100176"></div>
+                <div><img src="" data-img="images/24.jpg?1" data-id="100223"></div>
+
+                <!-- 新增 -->
+                <div><img src="" data-img="images/25.jpg" data-id="101555"></div>
+                <div><img src="" data-img="images/26.jpg" data-id="100406"></div>
+                <div><img src="" data-img="images/27.jpg" data-id="100175"></div>
+                <div><img src="" data-img="images/28.jpg" data-id="101763"></div>
+
+
+
+
+
+                <!-- 处理最后一张显示 弹窗口 --> 
+                <div><img src="" data-img=""></div>
+                
+            </div>
+        </div>
+        <div class="btn-1" id="btn-now">马上约我</div>
+        <div class="btn-2" id="share">分享给朋友</div>
+    </div>
+
+    <div class="share-fade" style="display:none"></div>
+
+    <div class="pop-more-girl" style="display:none">
+<!-- 
+        <div class="box1">想约更多？</div>
+        <div class="box2" >关注微信，100000+模特随心约</div>
+ -->
+        <div class="txt-img" ><img src="images/txt-more.png"></div>
+
+        <div class="btn-3" style="margin-top:20px" id="end-btn">关注微信</div>
+        <div class="img">
+            <img src="images/col.png">
+        </div>
+        <div class="icon"></div>
+
+    </div>
+
+<div class="share-fade-2" style="display:none"></div>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $('#share').click(function() {
+        $('.share-fade').show();
+    });
+    $('.share-fade').click(function() {
+        $(this).hide();
+    });
+    
+
+    $('#end-btn').click(function() {
+		
+		
+        location.href = "http://mp.weixin.qq.com/s?__biz=MzAxMDA5NzcxNg==&mid=204978973&idx=1&sn=017bef9a3cf89eac873c349647f6c6bb#rd";
+    });
+    // $('.share-fade-2').click(function() {
+    //     $(this).hide();
+    // });
+
+
+    //  Swipe插件操作
+    var location = window.location;
+    var default_index = location.hash.replace('#p','') || 0;
+    default_index = parseInt(default_index);
+    // left btn
+    $('.lbtn').on('click',function()
+    {
+        mySwipe.prev();
+        location.hash = 'p'+(mySwipe.getPos());
+    });
+    // right btn
+    $('.rbtn').on('click',function()
+    {
+        mySwipe.next();
+        location.hash = 'p'+(mySwipe.getPos());
+    });
+    var len = parseInt($(".swipe-wrap div").length);
+    var elem = document.getElementById('mySwipe');
+    var $ele_img =  $(".swipe-wrap div") ;
+    function loadimg(index,ele) 
+    {
+        //指定打开，显示指定的图片
+        var index = parseInt(index);
+        var cur_img = ele.eq(index).find("img").attr('data-img');
+            ele.eq(index).find("img").attr('src', cur_img);
+        
+        if(index == 0)
+        {
+            // 加载第2、3张图
+            var realSrc2 =ele.eq(1).find("img").attr('data-img');
+            ele.eq(1).find("img").attr('src', realSrc2);
+            var realSrc3 = ele.eq(2).find("img").attr('data-img');
+            ele.eq(2).find("img").attr('src', realSrc3);
+        }
+        // // 当前位置是最后一张的时候
+        else if(index == (len-1))
+        {
+            console.log("最后一张");
+            
+            // 加载倒数 第二张、第三张
+            var realSrc_last_2 = ele.eq(len-2).find("img").attr('data-img');
+            ele.eq(len-2).find("img").attr('src', realSrc_last_2);
+            var realSrc_last_3 = ele.eq(len-3).find("img").attr('data-img');
+            ele.eq(len-3).find("img").attr('src', realSrc_last_3);
+            $('.pop-more-girl').show();
+        }
+        else
+        {
+            // 加载当前位置的前、后图片
+            var realSrc_now_next = ele.eq(index+1).find("img").attr('data-img');
+            ele.eq(index+1).find("img").attr('src', realSrc_now_next);
+            var realSrc_now_prev = ele.eq(index-1).find("img").attr('data-img');
+            ele.eq(index-1).find("img").attr('src', realSrc_now_prev);
+        }
+
+        // 跳转到模特页面
+        $('#btn-now').click(function(event) {
+            event.preventDefault();
+            var model_id = ele.eq(index).find("img").attr('data-id');               											
+
+			var pop_tj=new Image();
+			pop_tj.src="http://imgtj.yueus.com/pocotj_touch.css?url=touch://yueyue/weixin/topic?model_id="+model_id;
+
+
+            location.href = "http://yp.yueus.com/m/wx?v"+(new Date().getDate())+"#model_card/"+model_id;
+        });
+
+    }
+
+    loadimg(default_index, $ele_img); 
+
+    window.mySwipe = Swipe(elem, {
+         startSlide: default_index,
+        // auto: 3000,
+        continuous: false,
+        // disableScroll: true,
+        // stopPropagation: true,
+        callback: function(index, element) {
+
+            //回调滚动到第几张
+            loadimg(index, $ele_img); 
+
+			location.hash = 'p'+(mySwipe.getPos());
+        },
+        // transitionEnd: function(index, element) {}
+    });
+    // 根据hash变化切换图片
+    window.addEventListener('hashchange', function() 
+    {
+        if(mySwipe)
+        {
+			
+            var default_index = location.hash.replace('#p','');
+            default_index = parseInt(default_index);    
+            loadimg(default_index, $ele_img);
+			
+			
+
+			//var pop_tj=new Image();
+			//pop_tj.src="http://imgtj.poco.cn/pocotj_touch.css?url=touch://yueyue/weixin/topic?model_id="+id;
+
+            //切换到当前页
+            mySwipe.slide(default_index);
+        }
+    });
+
+});
+</script>
+<div style='display:none'>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254113660'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1254113660' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "footer.css",
+    "sources": [
+        "/style/common/footer.scss"
+    ],
+    "sourcesContent": [
+        ".footer{\n    width: 100%;\n    background: #333333;\n    color: #999999;\n    height: 70px;\n    a{\n        color: #999999;\n        &:hover{\n            color: #999999;\n        }\n    }\n    .about{\n        text-align: center;\n        padding-top: 26px;\n        font-size: 14px;\n    }\n    .line{\n        padding: 0px 5px;\n    }\n}"
+    ],
+    "mappings": "AAAA,AACI,AAAO,AACP,AAAY,AACZ,AAAO,AACP,AAAQ,AACZ,AAAQ,AACA,AAAO,AACf,AAAQ,AAAC,AACG,AAAO,AAGnB,AAAQ,AACA,AAAY,AACZ,AAAa,AACb,AAAW,AAEnB,AAAQ,AACA,AAAS",
+    "names": []
+}

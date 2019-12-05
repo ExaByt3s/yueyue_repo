@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>评价</title>
+    {pc_global_top}
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/seller/index_f4c9ddb.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_fcf77dd.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/list/list_fbc95b3.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/list/list_8faf917.js"></script>
+</head>
+<body class="cor-bg-fff">
+
+<main role="main">
+    <section id="global-header"></section>
+
+
+    <div class="seller-comment-page " id="seller-comment-page" >
+
+        <div class="comment-wrap" data-role="wrapper">
+            <div id="comment_ele" data-role="comment_ele" class="comment-box"></div>
+        </div>
+
+        <div class="order_list_container" data-role="no-data"></div>
+
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+
+
+<script>
+var $ = require('components/zepto/zepto.js');
+var yue_ui = require('yue_ui/frozen');
+var header = require('common/widget/header/main');
+var utility = require('common/utility/index');
+var WeiXinSDK =  require('common/I_WX_SDK/I_WX_SDK');
+$(document).ready(function() {
+
+
+    // 渲染头部
+    header.init({
+        ele : $("#global-header"), //头部渲染的节点
+        title:"评价",
+        header_show : true , //是否显示头部
+        right_icon_show : false, //是否显示右边的按钮
+        share_icon : 
+        {
+            show :false,  //是否显示分享按钮icon
+            content:""
+        },
+        omit_icon :
+        {
+            show :false,  //是否显示三个圆点icon
+            content:""
+        },
+        show_txt :
+        {
+            show :true,  //是否显示文字
+            content:"编辑"  //显示文字内容
+        }
+    })
+
+    var _page_data = {page_params}.result_data;
+
+    var SELLER_AJAX_URL = window.$__ajax_domain+'get_comment_list.php';
+    var items_tpl = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += " \n\n\n<div class=\"item ui-border-b\">\n    <div class=\"wbox clearfix\">\n\n        <div class=\"lbox \">\n            <div class=\"ui-avatar-icon ui-avatar-icon-m\">\n                    <i data-lazyload-url=\"";
+  if (helper = helpers.avatar) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.avatar); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"></i>\n            </div>\n        </div>\n        <div class=\"rbox \">\n            <div class=\"box-a\">\n                <div class=\"name f14 color-333\">";
+  if (helper = helpers.customer) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.customer); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\n\n                   <div class=\"stars-all-mod\">\n                       <div class=\"ui-stars-grey\">\n                       </div>\n                       <div class=\"ui-stars-yellow\" style=\"width:"
+    + escapeExpression((helper = helpers.percent || (depth0 && depth0.percent),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.rating), "5", options) : helperMissing.call(depth0, "percent", (depth0 && depth0.rating), "5", options)))
+    + "\">\n                       </div>\n                   </div>\n\n            </div>\n\n            <div class=\"box-b f10 color-aaa\">\n                ";
+  if (helper = helpers.add_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.add_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\n            </div>\n        </div>\n    </div>\n\n    <div class=\"des f14 color-333\">\n        ";
+  if (helper = helpers.comment) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.comment); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\n    </div>\n</div>\n\n";
+  return buffer;
+  }
+
+  buffer += "\n";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  return buffer;
+  });
+    // var comment = require('../../../../modules/comment_list_seller/comment_list_seller');
+    // var conment_obj = new comment(_page_data.result_data);
+    var list_item_class = require('list'); 
+    var list_obj = new list_item_class(
+        {
+            //渲染目标
+            ele : $('#comment_ele'),
+            //请求地址
+            url : SELLER_AJAX_URL,
+            //传递参数
+            params : _page_data,
+            //模板
+            template : items_tpl,
+            //lz是否开启参数
+            is_open_lz_opts : false
+        });
+
+
+});
+
+</script>
+</html>

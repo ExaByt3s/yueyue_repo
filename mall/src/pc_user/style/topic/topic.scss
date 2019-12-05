@@ -1,0 +1,58 @@
+.topic-page{
+    width: 740px;
+    margin: 0 auto;
+    
+    a.db{
+        &:hover{
+            text-decoration: none;
+        }
+    }
+
+
+    .ui-button{
+        margin-top: 15px !important; 
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+
+
+    // 大小 兼容wap专题
+    .ui-button-size-x{
+        height: 30px;
+        line-height: 30px;
+        .ui-button-content{
+            padding: 0px 15px;
+        }
+    }
+
+
+    .ui-button-size-m{
+        height: 35px;
+        line-height: 35px;
+        .ui-button-content{
+            padding: 0px 15px;
+        }
+    }
+
+    .ui-button-size-l{
+        height: 40px;
+        line-height: 40px;
+        .ui-button-content{
+            padding: 0px 15px;
+        }
+    }
+
+
+    .ui-button-size-xl{
+        height: 45px;
+        line-height: 45px;
+        .ui-button-content{
+            padding: 0px 15px;
+        }
+    }
+
+    
+}
+

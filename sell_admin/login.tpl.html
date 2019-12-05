@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>充值卡管理后台 登录</title>
+	<meta charset="gbk">
+	{head_html}	
+	<!-- libjs 必须引用 -->
+	<script type="text/javascript" charset="gbk" src="http://static.yueus.com/sell_admin/static/lib/lib_880856d.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/sell_admin/static/style/account/login_09717db.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/sell_admin/static/style/libs/common_e2a022a.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/sell_admin/components/zepto/zepto_9261738.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/sell_admin/static/js/common/common_cce0b65.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/sell_admin/components/fastclick/fastclick_8c3e8ee.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/sell_admin/static/modules/account/login_02bb815.js"></script>
+</head>
+    <iframe id="form_iframe" name="form_iframe" class="fn-hide"></iframe>
+	<body>
+		<main role="main">
+			<div class="page-view login pr20 pl20" data-role="page-container">
+                <div class="top">
+                    <i class="icon"></i>
+                    <h3>充值卡管理后台</h3>
+                </div>
+                <div class="ui-form-table">
+                    <div class="ui-input-mod ">
+                        <div class="item">
+                            <input name="seller_id" type="tel" class="ui-input  ui-input-size-large ui-input-block ui-input-border-bottom-none ui-input-top-left ui-input-top-right" placeholder="商家ID" data-role="account-number">
+                            <!--type="text"-->
+                        </div>
+                        <div class="item"><input name="pwd" type="password" class="ui-input  ui-input-size-large ui-input-block ui-input-bottom-left ui-input-bottom-right" placeholder="密码" data-role="account-pwd"></div>
+                    </div>
+                </div>
+                <div class="ui-btn-wrap">
+                    <a class="ui-btn-lg ui-btn-confirm" data-role="confrim" >
+                        登录
+                    </a>
+                </div>
+			</div>            
+		</main>
+			 
+	</body>
+	
+</html>
+
+<script type="text/javascript">
+    require('account/login');
+</script>

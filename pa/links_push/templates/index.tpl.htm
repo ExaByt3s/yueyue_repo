@@ -1,0 +1,146 @@
+{YUE_ADMIN_V2_ADMIN_TEST_HEADER}
+<div id="page-wrapper">
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row breadcrumb">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <button type="button" class="btn btn-primary btn-lg" onclick="location.href='add.php'">生成推广链接</button>
+                </h1>
+                <form action="" method="get" class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <input type="text" name="start_date" class="form-control form_date span11" placeholder="添加开始日期" value="{start_date}" size="10">
+                        </span>
+                        <span class="input-group-btn">
+                            <input type="text" name="end_date" class="form-control form_date" placeholder="添加结束日期" value="{end_date}" size="10">
+                        </span>
+                        <!--<span class="input-group-btn">
+                            <input type="text" name="url" class="form-control" placeholder="约约地址" value="{url}">
+                        </span>-->
+                        <span class="input-group-btn">
+                            <input type="text" name="user_id" class="form-control" placeholder="申请者ID" value="{user_id}" size="6">
+                        </span>
+                        <span class="input-group-btn">
+                           <button class="btn btn-success" type="submit" class="mysubmit">查找</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>推广地址/备注</th>
+                            <th>二维码</th>
+                            <th>申请者ID</th>
+                            <th>兼职人姓名</th>
+                            <th>注册用户数</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- BEGIN list -->
+                        <tr>
+                            <td>{dateformat:add_time,'Y-m-d H:i'}</td>
+                            <td>
+                                <p>{curl}</p>
+                                <p><font color="red">{remark}</font></p>
+                            </td>
+                            <td><a href="javascript:void(0);" path="{qrcode_img_url}" class="preview"><img src="{qrcode_img_url}" width="74"/></a></td>
+                            <td>{user_id}</td>
+                            <th class="bigclassname" data-id="{id}"><span>{apply_for_name}</span></th>
+                            <th>{p_num}</th>
+                            <td>
+                                <p><a href="javascript:void(0);" onclick="del('index.php?act=del&id={id}')">删除</a> | </p>
+                                <p><a href="order_list.php?puid={puid}">订单列表</a></p>
+                            </td>
+                        </tr>
+                        <!-- END list -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="dataTables_paginate paging_simple_numbers" id="pages">
+                    {page}
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="./resources/bootstrap/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="./resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="./resources/bootstrap/js/plugins/metisMenu/metisMenu.min.js"></script>
+<script src="./resources/bootstrap/js/sb-admin-2.js"></script>
+<script src="./resources/bootstrap/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="./resources/bootstrap/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<!--图片插件-->
+<link rel="stylesheet" type="text/css" href="./js/preview/css/preview.css">
+<script type="text/javascript" src="./js/preview/preview.js"></script>
+<script type="text/javascript" src="./js/preview/preview_load.js"></script>
+<script type="text/javascript" src="./js/table/table_html.js"></script>
+<!--图片插件-->
+<!--弹出框插件-->
+<script type="text/javascript" src="./js/layer/layer.min.js"></script>
+<script type="text/javascript">
+    $('.form_date').datetimepicker({
+        language:  'zh-CN',
+        format: 'yyyy-mm-dd',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    function del($url)
+    {
+        $.layer
+        ({
+            shade: [0.3, '#000'],
+            area: ['auto','auto'],
+            dialog:
+            {
+                msg: '您确定要删除该数据？',
+                btns: 2,
+                type: 4,
+                btn: ['确定','取消'],
+                yes: function()
+                {
+                    location.href = $url;
+                },
+                no: function()
+                {
+                    layer.msg('取消成功', 1, 1);
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+
+</html>

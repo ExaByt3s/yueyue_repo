@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<!-- BEGIN JS_FILES -->
+<script type="text/javascript" src="{js_link}?{top._dev}"></script>
+<!-- END JS_FILES -->
+<!-- BEGIN STYLE_FILES -->
+<link rel="stylesheet" type="text/css" href="{css_link}?{top._dev}">
+<!-- END STYLE_FILES -->
+<script src="../js/DatePicker/WdatePicker.js"></script>
+<style type="text/css">
+.news_input{
+	
+	width: 310px;
+	
+}
+.news_textrea{
+	
+	height: 67px;
+	width: 367px;
+	
+}
+</style>
+<title>图文编辑 Powered by hai - Powered by hai</title>
+</head>
+<body>
+<div class="mainbox">
+<!-- IF act=="add_act" -->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="./news.php?act=list">图文列表</a>|
+		<a href="./news.php?act=add" class="on">添加图文</a>|
+	</ul>
+</div>
+<!-- ELSEIF act=="modify_act" -->
+<div id="nav" class="mainnav_title"><a href="./news.php?act=list">返回列表</a></div>
+<!-- ENDIF -->
+<iframe id="mcfrm" name="mcfrm" frameborder="0" width="0" height="0" src="" style="display:none;"></iframe>
+<form action="news.php" method="POST" target="mcfrm" onsubmit="return check_form()">
+<div id="tabs" style="margin-top:10px;">
+	<div class="tabbox">
+		<table cellpadding="0" cellspacing="0" class="table_form" width="100%">
+			<tbody>
+				<tr>
+					<td width="20%">标题</td>
+					<td width="80%"><input name="title" id="title" type="text" value="{title}" class="news_input"></td>
+				</tr>
+				<tr>
+					<td width="20%">描述</td>
+					<td width="80%"><textarea name="description" id="description" class="news_textrea">{description}</textarea></td>
+				</tr>			
+				<tr>
+					<td width="20%">图片地址</td>
+					<td width="80%"><input type="text" name="pic_url" id="pic_url" value="{pic_url}" class="news_input"></td>
+				</tr>
+				<tr>
+					<td width="20%">链接地址</td>
+					<td width="80%"><input type="text" name="url" id="url" value="{url}" class="news_input"></td>
+				</tr>
+				<tr>
+					<td width="20%">内容</td>
+					<td width="80%"><textarea type="text" name="content" id="content" class="news_textrea">{content}</textarea></td>
+				</tr>				
+				</tbody>
+		</table>
+	</div>
+	<div class="btn">
+		<input type="hidden" name="news_id" id="news_id" value="{news_id}">
+		<input type="hidden" name="act" id="act" value="{act}">
+		<input type="submit" value="提交" class="button">
+		<input type="reset" value="取消" class="button">
+	</div>
+</div>
+</form>
+</div>
+</body>
+<script>
+function check_form(){
+
+	if($('#title').val() == '' ){
+	
+		alert('标题不能为空');
+		return false;
+	
+	}
+
+} 
+</script>
+</html>

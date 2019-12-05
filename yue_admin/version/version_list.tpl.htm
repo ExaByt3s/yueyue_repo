@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<title>版本添加</title>
+<style type="text/css">
+.input-text{ width:500px;}
+</style>
+</head>
+<body>
+<div class="mainbox">
+  <form id="version_list" action="version_list.php" method="post">
+  <input name="software_name" type="hidden" value="yueyue" />
+    <div id="tabs" style="margin-top:10px;">
+      <div class="tabbox">
+        <fieldset>
+          <legend>版本列表</legend>
+          <table  cellspacing="10" width="100%">
+            <tr>
+                <td>
+                    状态刷选:&nbsp;&nbsp;
+                    <select name="status">
+                        <option value="0" {status_0}>全部</option>
+                        <option value="1" {status_1}>开发版本提交、待确定</option>
+                        <option value="2" {status_2}>开发版本确定</option>
+                        <option value="3" {status_3}>测试通过</option>
+                        <option value="4" {status_4}>产品通过</option>
+                        <option value="5" {status_5}>发布完成</option>
+                        <option value="6" {status_6}>版本关闭</option>
+                    </select>
+                    &nbsp;&nbsp;
+                    系统筛选:&nbsp;&nbsp;
+                    <select name="sys">
+                        <option value="">全部</option>
+                        <option value="IOS" {IOS}>IOS</option>
+                        <option value="Android" {Android}>Android</option>
+                    </select>
+                    <input type="submit" value="查询" />
+                </td>
+            </tr>
+          </table>
+          <br />
+          <table  cellspacing="10" width="100%">
+              <tr>
+                <td>添加时间</td>
+                <td>url</td>
+                <td>version</td>
+                <td>sys</td>
+                <td>status</td>
+                <td>operate</td>
+              </tr>
+            <tbody>
+                <!-- BEGIN version_list -->
+                <tr>
+                    <td>{add_time}</td>
+                    <td>{url}</td>
+                    <td>{version}</td>
+                    <td>{sys}</td>
+                    <td>{status_name}</td>
+                    <td>
+                        <!-- IF status < 5 -->
+                            <a href="version_submit.php?id={id}">进入下一步</a>|
+                            <a href="version_submit.php?id={id}&type=close">关闭版本</a>
+                        <!-- ELSE -->
+                            <a href="version_submit.php?id={id}">查看</a>
+                        <!-- ENDIF -->
+                    </td>
+                </tr>
+                <!-- END -->              
+            </tbody>
+          </table>
+        </fieldset>
+        <br />
+      </div>
+      <div class="btn">
+        <input type="submit" value="下一步" class="button">
+      </div>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+new SelectLocal('#province', '#city');
+</script>
+</body>
+</html>

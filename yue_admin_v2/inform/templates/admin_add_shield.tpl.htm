@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+<title>黑名单管理系统</title>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">管理员手动拉黑用户</a>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<form action="?" method="post" target="frame">
+<table class="search_table" style="width:500px;">
+	<tbody>
+		<tr>
+		    <td>被举报者ID:</td>
+			<td>
+				<input id="user_id" type="text" size="16" class="input-text" name="user_id"/> 
+			</td>
+		</tr>
+        <tr>
+            <td>拉黑原因备注:</td>
+            <td>
+                <textarea name="data_str" style="width:400px;height:100px;"></textarea>
+            </td>
+        </tr>
+		<tr>
+			<td></td>
+			<td>
+			<input type="hidden" value="shield" name="act">
+			<input type="submit" value="拉黑" class="button">
+			<input type="reset" name="submit" value="重置" class="button">
+			</td>
+		</tr>
+	</tbody>
+</table>
+</form>
+<!--search form end-->
+</div>
+</body>
+</html>

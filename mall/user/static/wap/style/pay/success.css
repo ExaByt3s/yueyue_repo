@@ -1,0 +1,35 @@
+.pay-success {
+  font-size: 16px;
+  color: #666;
+  height: 100%;
+  background-color: #FFF; }
+  .pay-success .pay-status {
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -webkit-box-orient: vertical;
+    padding-top: 75px; }
+    .pay-success .pay-status .success-icon {
+      width: 50px;
+      height: 50px; }
+      .pay-success .pay-status .success-icon .icon {
+        width: 50px;
+        height: 50px; }
+    .pay-success .pay-status .pay-order {
+      text-align: center;
+      width: 80%;
+      margin-top: 8px;
+      padding: 10px; }
+    .pay-success .pay-status .consult {
+      text-align: center;
+      width: 100%;
+      margin-top: 35px;
+      padding: 10px 0; }
+      .pay-success .pay-status .consult .btn {
+        width: 100px;
+        height: 40px;
+        background-color: #555;
+        border-radius: 6px;
+        color: #fff; }
+      .pay-success .pay-status .consult .btn:active {
+        background-color: #aaa; }

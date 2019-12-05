@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<script type="text/javascript" src="resources/js/user_layer.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/model.js"></script>
+<script type="text/javascript" src="js/laydate/laydate.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+#list_form td a:visited{
+	color:red;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="#" class="on">精确筛选</a>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form action="?" method="get" id="myform" target="_self">
+					<table class="table-list-search" id="quick_search" width="100%">
+							<!--身材部分-->
+							   <tr>
+							   <td class="table_search">
+							    <table width="700">
+							    <tbody>
+							       <tr><td colspan="3"><strong>身材条件</strong></td></tr>
+								   <tr>
+									    <td width="160">性别:
+										<select class="select-text" name="sex">
+											<option value='-1'>全部</option>
+											<option value="0" {sex_s}>女</option>
+											<option value="1" {sex_1}>男</option>
+										</select>
+									    </td>
+										<td width="160">罩杯:
+										<select class="select-text" name="cup_id">
+											<option value='0'>全部</option>
+											<option value="1" {cup_id_1}>28</option>
+											<option value="2" {cup_id_2}>30</option>
+											<option value="3" {cup_id_3}>32</option>
+											<option value="4" {cup_id_4}>34</option>
+											<option value="5" {cup_id_5}>36</option>
+											<option value="6" {cup_id_6}>38</option>
+										</select> 
+										<select class="select-text" name="cup_a">
+											<option value="0">全部</option>
+											<option value="1" {cup_a_1}>A</option>
+											<option value="2" {cup_a_2}>B</option>
+											<option value="3" {cup_a_3}>C</option>
+											<option value="4" {cup_a_4}>D</option>
+											<option value="5" {cup_a_5}>E</option>
+											<option value="6" {cup_a_6}>F</option>
+										</select>
+										cup
+									    </td>
+									    <td>年龄: <input type="text" class="input-text" name="min_age" style="width:20px;" value="{min_age}"/>~ <input type="text" class="input-text" name="max_age" style="width:20px;" value="{max_age}"/>岁</td>
+									   </tr>
+									    <tr>
+									      <td>身高: <input type="text" class="input-text" name="min_height" style="width:30px;" value="{min_height}"/>~ <input type="text" class="input-text" name="max_height" style="width:30px;" value="{max_height}"/>cm</td>
+									      <td>体重: <input type="text" class="input-text" name="min_weight" style="width:30px;" value="{min_weight}"/>~ <input type="text" class="input-text" name="max_weight" style="width:30px;" value="{max_weight}"/>kg</td>
+									      <td width="200">鞋码: <input type="text" class="input-text" name="start_shoe_size" style="width:20px;" value="{start_shoe_size}"/>~ <input type="text" class="input-text" name="end_shoe_size" style="width:20px;" value="{end_shoe_size}"/>码</td>
+									<!-- <td rowspan="6">
+										<input type="submit" class="button_search" value="查找"/>
+										<a href="javascript:void(0);" onclick="sub_import('model_export.php')">导出</a>
+									</td> -->
+								         </tr>
+								</tbody>
+								</table>
+							   </td>
+							   </tr>
+								<!--身材部分 END-->
+								<!--职业部分-->
+								<tr>
+								<td class="table_search">
+								 <table width="1000">
+								 <tbody>
+								    <tr><td colspan="3"><strong>职业条件</strong></td></tr>
+								   <tr>
+									     <td width="260">
+									    <!-- IF aut_location -->
+									    <!-- ELSE -->
+									         城市:
+  		                                     <select class="prov" name="province">
+  		                                     	<option value="0">请选择</option>
+  		                                     	<!-- BEGIN province_list -->
+  		                                     	<option value="{c_id}" {selected_prov}>{c_name}</option>
+  		                                     	<!-- END province_list -->
+  		                                     </select>
+    	                                      <select class="city" name="location_id">
+    	                                      	<option value="0">请选择</option>
+    	                                      	<!-- BEGIN city_list -->
+  		                                     	<option value="{c_id}" {selected_city}>{c_name}</option>
+  		                                     	<!-- END city_list -->
+    	                                      </select>
+    	                                   <!-- ENDIF -->
+									      </td>
+									      <td width="250">职业:
+										    <select class="select-text" name="p_state">
+											 <option value="0" >全部</option>
+											 <option value="1" {p_state_1}>兼职</option>
+											 <option value="2" {p_state_2}>全职</option>
+											 <option value="3" {p_state_3}>学生</option>
+										    </select>
+									      </td>
+									      <td>入行:<input type="text" class="input-text" name="start_join_time" value="{start_join_time}" id="start_join_time" />~
+									     <input type="text" class="input-text" name="end_join_time" value="{end_join_time}" id="end_join_time" />年</td>
+									     <td rowspan="3" colspan="3">
+										  <input type="submit" class="button_search" value="查找" onclick="com_export('search','_self')"/>
+										   <a href="javascript:void(0);" onclick="com_export('export','_target')">导出结果</a>
+										</td>
+									</td>
+								    </tr>
+								    <tr>
+								        <td>风格:
+								         <select class="select-text" name="style">
+										  <option value="-1" >全部</option>
+									      <option value="0" {style_0}>欧美</option>
+									      <option value="1" {style_1}>情绪</option>
+									      <option value="2" {style_2}>清新</option>
+									      <option value="3" {style_3}>复古</option>
+									      <option value="4" {style_4}>韩系</option>
+									      <option value="5" {style_5}>日系</option>
+									      <option value="6" {style_6}>性感</option>
+									      <option value="7" {style_7}>街拍</option>
+									      <option value="8" {style_8}>胶片</option>
+									      <option value="9" {style_9}>商业</option>
+									     </select>
+								        </td>
+								        <td>价格:
+								        <input type="text" class="input-text" name="min_price" value="{min_price}" style="width:30px;"/>~ <input type="text" class="input-text" name="max_price" value="{max_price}" style="width:30px;"/>
+										<select class="select-text" name="hour">
+										<option value="twoh_price">2小时</option>
+										<option value="fourh_price" {fourh_true}>4小时</option>
+										<option value="addh_price" {add_true}>加时</option>
+										</select>
+								        元</td>
+								        <td>&nbsp;</td>
+								    </tr>
+								    <tr>
+									    <td>活动报名:
+								         <select class="select-text" name="join">
+										 <option value="">全部</option>
+										 <!-- BEGIN join_list -->
+										<option value='{activity_join}' {join_select}>{activity_join}</option>
+										<!-- END join_list -->
+									     </select>
+								         </td>
+								         <td>活动入围:
+								         <select class="select-text" name="enter">
+										  <option value="">全部</option>
+										  <!-- BEGIN enter_list -->
+										   <option value='{activity_enter}' {enter_select}>{activity_enter}</option>
+										   <!-- END enter_list -->
+									    </select>
+								        </td>
+									    <td>
+									    跟进日期: <input type="text" class="input-text Wdate" onFocus="WdatePicker()" name="start_follow_time" style="width:80px;" value="{start_follow_time}"/>~ <input type="text" class="input-text Wdate" onFocus="WdatePicker()" name="end_follow_time" style="width:80px;" value="{end_follow_time}"/>
+									    </td>
+								    </tr>
+								 </tbody>
+								 </table>
+								</td>
+							    </tr>
+							   <!--职业条件 END-->
+							   <!--高校条件-->
+							    <tr>
+								<td class="table_search">
+								 <table width="700">
+								 <tbody>
+								      <tr><td colspan="3"><strong>高校条件</strong></td></tr>
+								      <tr>
+									    <td width="200">入学年份:
+									    <input type="text"  class="input-text" name="p_enter_school_time" value="{p_enter_school_time}" id="p_enter_school_time"/>
+									   </td>
+									    <td width="200">
+										学校名称:
+										<input type="text" class="input-text" style="width:100px;" name="p_school" value="{p_school}" />
+									    </td>
+									    <td>
+										 专业名称:
+										 <input type="text" class="input-text" style="width:100px;" name="p_specialty" value="{p_specialty}" />
+									    </td>
+								       </tr>
+								  </tbody>
+								  </table>
+								  </td>
+							      </tr>
+								<!--高校条件 END-->
+								<!--其他信息-->
+								  <tr>
+								   <td>
+								   <table>
+								   <tbody>
+								      <tr><td colspan="3"><strong>其它条件</strong></td></tr>
+								      <tr>
+									    <td width="200">录入者:
+									    <select class="select-text" name="inputer_id">
+											<option value='0'>全部</option>
+											<!-- BEGIN inputer_list -->
+											<option value='{inputer_id}' {inputer_select}>{inputer_name}</option>
+											<!-- END inputer_list -->
+										 </select>
+									   </td>
+									   <td width="300">录入时间:
+									   <input type="text" class="input-text Wdate" onFocus="WdatePicker()" name="start_inputer_time" style="width:80px;" value="{start_inputer_time}"/>~
+									    <input type="text" class="input-text Wdate" onFocus="WdatePicker()" name="end_inputer_time" style="width:80px;" value="{end_inputer_time}"/>
+									   </td>
+									    <td>基本评分: 
+									    <input type="text" class="input-text" name="min_score" value="{min_score}" style="width:20px;" />~
+									    <input type="text" class="input-text" name="max_score" value="{max_score}" style="width:20px;"/>分
+									    </td>
+								       </tr>
+								       <tr>
+									      <td>标&nbsp;&nbsp;签:
+									      <select class="select-text" name="label">
+											<option value='0'>全部</option>
+											<!-- BEGIN label_list -->
+											<option value='{label}' {label_select}>{label}</option>
+											<!-- END label_list -->
+										   </select>
+									     </td>
+									     <td>是否注册:
+											<select class="select-text" name="is_exist">
+											<option value='-1'>全部</option>
+											<option value='0' {is_exist_e}>是</option>
+											<option value='1' {is_exist_1}>否</option>
+										   </select>
+									     </td>
+									     <td>审核状态:
+											<select class="select-text" name="is_status">
+											   <option value='-1'>全部</option>
+											   <option value='0' {is_status_e}>待审核</option>
+											   <option value='1' {is_status_1}>审核通过</option>
+											   <option value='2' {is_status_2}>审核不通过</option>
+										   </select>
+									     </td>
+								         </tr>
+								         <tr>
+								         	<td>
+								         	来源:
+									         <input type="text" name="information_sources" value="{information_sources}" class="input-text" style="width:80px;" />	
+								         	</td>
+								         	<td>机构 : 
+											 <select class="select-text" name="org_user_id" id="org_user_id">
+											   <option value='-1'>全部</option>
+											   <!-- BEGIN org_list -->
+											   <option value='{user_id}'>{nick_name}</option>
+											   <!-- END org_list -->
+										      </select>
+								         	</td>
+								         	<td>&nbsp;</td>
+								         </tr>
+								    </tbody>
+								     </table>
+								     </td>
+							         </tr>
+							    <!--其他 END-->
+							</tbody>
+					</table>
+					<input type="hidden" name="act" value="search" id="act" />
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+<form name="list_form" id="list_form" action="model_export.php" method="post">
+	<div class="table-list">
+		<div class="btn">
+			符合条件的人数为:{total_count}
+			<span style="position: absolute;right:20px;">
+			    排序:
+				<select name="sort" id="sort">
+					<option value="uid_asc"   {sort_1}>默认</option>
+					<option value="ptime_asc" {sort_2}>录入时间升序</option>
+					<option value="ptime_desc" {sort_3}>录入时间降序</option>
+				</select>
+			</span> 
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<!-- <th width="120"><input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');" checked="true"></th> -->
+				<th>姓名</th>
+				<th>昵称</th>
+				<th>app用户名</th>
+				<th>手机</th>
+				<th>QQ</th>
+				<th>微信</th>
+				<th>UID</th>
+				<th>常驻城市</th>
+				<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+				<!-- <td align="center"><input class="inputcheckbox " name="ids[]" value="{uid}" type="checkbox" checked="true" /></td> -->
+				<td align="center">{name}</td>
+				<td align="center">{nick_name}</td>
+				<td align="center">{app_name}</td>
+				<td align="center">{phone}</td>
+				<td align="center">{qq}</td>
+				<td align="center">{weixin_id}</td>
+				<td align="center">{uid}</td>
+				<td align="center">{city}</td>
+				<td align="center">
+					<a href="model_detail.php?uid={uid}" target="_blank">查看</a>
+				</td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+		<!--list end-->
+	</div>
+</form>
+<div id="pages" class="page">
+	{page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		//排序
+		$("#sort").change(function(){
+			var $oUrl = window.location.href.toString();
+			var $re = eval('/(sort=)([^&]*)/gi');
+			//var $res = /sort=/gi;
+			var $search = window.location.search;
+			if ($search == null || $search == '') 
+			{
+				window.location.href = $oUrl+"?sort="+$(this).val();
+			}
+			else
+			{
+				if ($re.test($search)) 
+				{
+					window.location.href = $oUrl.replace($re , "sort="+$(this).val());
+				}
+				else
+				{
+					window.location.href = $oUrl+"&sort="+$(this).val();
+				}
+				
+			}
+		});
+
+		//获取城市数据
+		$(".prov").change(function(){
+			var $prov_val = $(this).val();
+			$.ajax({
+			   type:"POST",
+			   url:"get_city.php",
+			   dataType: 'json',
+			   data : {'prov_id': $prov_val},
+			   success:function(data)
+			  {
+			  	if (data.ret) 
+			  	{
+			  		var $ret = data.ret;
+			  		var $str = "<option value='0'>请选择</option>";
+			  		for (var i = 0; i < $ret.length; i++) 
+			  		{
+			  			$str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";		
+			  		}
+			  		$(".city").html($str);
+
+			  	}
+
+			  },
+			  error:function(data)
+			 {
+
+			 }
+			});
+		});
+	});
+
+	//导出和查询触动
+  function com_export($actval, $target)
+  {
+  	$("#act").val($actval);
+	//$("#myform").attr("action", $url);
+	//return;
+	$("#myform").attr({'target': $target});
+	$("#myform").submit();
+ }
+
+  //时间选择
+  laydate({
+            elem: '#start_join_time',
+            format: 'YYYY',
+            istime: true,
+            istoday: false
+        });
+  laydate({
+            elem: '#end_join_time',
+            format: 'YYYY',
+            istime: true,
+            istoday: false
+        });
+  laydate({
+            elem: '#p_enter_school_time',
+            format: 'YYYY-MM',
+            istime: true,
+            istoday: false
+        });
+
+//选择的
+$(function(){
+	var $org_user_id = {org_user_id};
+	$("#org_user_id").val($org_user_id);
+});
+</script>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>添加频道</title>
+<link href="http://www1.poco.cn/css/main.css" rel="stylesheet" type="text/css">
+<link href="./css/css.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="./js/common.js"></script>
+<script language="javascript" src="./cms_issue_ajax.js.php"></script>
+</head>
+<body>
+<a href="./cms_import.php?rank_id={rank_id}&issue_id={issue_id}" class="a_box float_right" style="width:40px;">导入</a>
+<span class="a_box float_right">过往榜单：
+<select id="back_issue" name="back_issue" onchange="if(this.value!=0){window.location='cms_issue_list.php?rank_id={rank_id}&issue_id='+this.value;}">
+<option value="0">----请选择----</option>
+<option value="-1">--添加最新一期--</option>
+{options:options_issue,issue_id}
+</select>
+</span>
+<a href="cms_issue_list.php?rank_id={rank_id}&issue_id=-1" class="a_box float_right" style="width:80px;">添加新一期</a>
+<h3>::期榜管理 {channel_name}<br />[<a href="{rank_url}" target="_blank">{rank_name}</a> rank_id:{rank_id}]</h3>
+<input name="channel_id" id="channel_id"  type="hidden" value="{channel_id}">
+<input name="rank_id" id="rank_id"  type="hidden" value="{rank_id}">
+<input name="issue_id" id="issue_id"  type="hidden" value="{issue_id}">
+<!-- IF issue_act="issue_update" -->
+<span id="add_issue_tips" class="tips_font">本期导出链接：http://www.yueus.com/yue_admin/cms/show.php?rank_id={rank_id}&issue_number={issue_number}&tmp={current_time:}&_no_cache=1</span>
+<!-- ELSE -->
+<span id="add_issue_tips" class="tips_font">请输入本期榜单信息，点击“添加”按钮提交数据</span>
+<!-- ENDIF -->
+<div id="issue_info_div">issue_id:{issue_id} 
+期数：<input type="text" value="{issue_number}" name="issue_number" id="issue_number" size="5">
+名称：<input type="text" value="{issue_name}" name="issue_name" id="issue_name" size="20">
+开始时间：<input class="Wdate" type="text" value="{dateformat:begin_date,"Y-m-d"}" onclick="WdatePicker()" id="begin_date" name="begin_date" size="10">
+结束时间：<input class="Wdate" type="text" value="{dateformat:end_date,"Y-m-d"}" onclick="WdatePicker()" id="end_date" name="end_date" size="10">
+<!-- IF issue_act="issue_update" -->
+	<input type="checkbox" name="freeze" value="1" id="freeze" onclick="freezeIssue(this.checked);" <!-- IF freeze -->checked<!-- ELSE --><!-- ENDIF -->>隐藏
+	<input type="button" id="issue_update_btn" value=" 修 改 " onclick="updateIssue();">
+	<input type="button" id="issue_del_btn" value=" 删 除 " onclick="if(confirm('确定删除期榜单吗？')){delIssue();}">
+<!-- ELSE -->
+	<input type="checkbox" name="freeze" value="1" id="freeze" checked>隐藏
+	<input type="button" id="issue_submit_btn" value=" 添 加 " onclick="addIssue();">
+	<input type="button" id="issue_del_btn" value=" 删 除 " onclick="if(confirm('确定删除期榜单吗？')){delIssue();}" style="display:none">
+<!-- ENDIF -->
+</div>
+
+<iframe allowTransparency="true" height="30" width="960" style="margin-top:10px" marginheight=0 marginwidth=0 noResize scrolling=no frameborder=0 src="http://www.yueus.com/yue_admin/cms/upload.html?sdfs"></iframe>
+<br>
+<div id="record_info_div" <!-- IF issue_act="issue_update" -->style="display:block;"<!-- ENDIF -->>
+<input type="button" value=" 插入推荐用户 "  class="font_14" onclick="flush_user_info();$('user_info_div').style.display='block';$('user_info_div').style.top=140;$('upload_img_frm').src='cms_upload_img_frm.php?img_size={img_size}';">
+导入:
+<iframe allowTransparency="true" id="upload_img_frm" width="350" height="24" src="cms_upload_excel_frm.php?issue_id={issue_id}" marginheight="0" marginwidth="0" noResize scrolling="no" frameborder="0" style="position: relative;top: 7px;"></iframe>
+<input type="button" value="导出" onclick="location.href='issue_import.php?act=export&issue_id={issue_id}'" />
+<div id="user_info_div" class="data_info_div">
+<div id="user_info_img_div"><a href="javascript:showHideObj('user_info_img_div','none')">关闭</a><br><img id="user_info_img"></div>
+<ul>
+<li>排位名次：<input type="text" name="place_number" id="place_number" size="3"></li>
+<li>用户ＩＤ：<input type="text" name="user_id" id="user_id" size="10">
+	<span id="no_user_info"><input type="checkbox" id="b_no_user_id" onclick="$('user_id').disabled=this.checked"><label for="b_no_user_id">没有用户信息</label></span></li>
+<li>显示标题：<input type="text" name="title" id="title" size="40"><br>
+<span class="tips_font">(不输入时，默认显示用户名)</span></li>
+<li>网页链接：<input type="text" name="link_url" id="link_url" size="30">
+<select name="link_type" id="link_type">
+<option value='inner_web'>内web</option>
+<option value='outside_web'>外web</option>
+<option value='inner_app'>内app</option>
+<option value='outside_app'>外app</option>
+<option value='other'>其它</option>
+</select></li>
+<li>图片链接：<input type="text" name="img_url" id="img_url" size="30"> <input type="button" value="预览" onclick="$('user_info_img').src=$('img_url').value;showHideObj('user_info_img_div','block')"></li>
+<li id="upload_img">上传图片：<iframe allowTransparency="true" id="upload_img_frm" width="350" height="24" src="cms_upload_img_frm.php?img_size={img_size}" marginheight=0 marginwidth=0 noResize scrolling=no frameborder=0></iframe></li>
+<li>用户描述：<textarea style="vertical-align:top;" name="content" id="content" cols="48" rows="6"></textarea></li>
+<li>其它备注：<textarea style="vertical-align:top;" name="remark" id="remark" cols="48" rows="6"></textarea></li>
+</ul>
+
+<input type="button" value=" 关　闭 " onclick="$('user_info_div').style.display='none';" style="float:right">
+<input type="button" id="next_field" value=" 下一条 " onclick="issueAddRecord();" style="float:right">
+
+</div>
+
+
+<form action="" id="form2" method="POST" name="form2" id="form2" onsubmit="checkForm2();return false;">
+<table id="record_tbl" cellpadding="0" cellspacing="0">
+  <tbody>
+	<tr>
+	  <td height="30" colspan="8" align="right"><table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:0; border-collapse:0px;">
+        <tr>
+          <td><div align="left">排序：
+            <select name="order_by" id="order_by" onChange="switch_order_mode(this.value);">
+              <!-- BEGIN order_arr -->
+			  <option value="{id}"<!-- IF id == top.order_id --> selected<!-- ENDIF -->>{str}</option>
+			  <!-- END order_arr -->
+            </select>
+            </div></td>
+          <td><div align="right">设置榜单每页显示
+            <input name="pagesize1" type="text" id="pagesize1" value="{pagesize}" size="5" onChange="set_pagesize_cookie(this.value);">
+            记录 &nbsp;&nbsp;&nbsp;&nbsp; <strong>{page_str}</strong></div></td>
+        </tr>
+      </table></td>
+	</tr>
+	
+	<tr>
+		<th>操作</th>
+		<th>排名</th>
+		<th>用户ＩＤ</th>
+		<th>显示标题</th>
+		<th>网页链接</th>
+		<th>图片链接</th>
+		<th>用户描述</th>
+		<th>其它备注</th>
+	</tr>
+	<!-- BEGIN record_list -->
+	<tr id="record_tr_{log_id}" record_log_id="{log_id}">
+		<td>
+			<input type="button" id="record_editbtn_{log_id}" value="修改" class="record_list_btn" record_log_id="{log_id}" onclick="issueEditRecord('{log_id}', this);"><input type="button" id="record_delbtn_{log_id}" value="删除" class="record_list_btn" record_log_id="{log_id}" onclick="if(confirm('确定删除本记录吗？')){issueDelRecord('{log_id}');}">		</td>
+		<td><input id="place_number_{log_id}" name="place_number_{log_id}" size=3 value="{place_number}" onmouseover="this.title=this.value;"></td>
+		<td>
+		<input readOnly="true" id="user_id_{log_id}" name="user_id_{log_id}" value="{user_id}" size="7" onmouseover="imgMax(this, '{user_icon}', event); " onmouseout="close_imgMax();"> <a href="http://www.yueus.com/model/card.php?user_id={user_id}" target="_blank">GO</a>		</td>
+		<td><input readOnly="true" id="title_{log_id}" name="title_{log_id}"  value="{title}" size="8" onmouseover="this.title=this.value;"></td>
+		<td>
+		
+		<input type="hidden" id="link_type_{log_id}" name="link_type_{log_id}"  value="{link_type}"><span id="link_type_name_{log_id}">{link_type_name}</span>
+		<input readOnly="true" id="link_url_{log_id}" name="link_url_{log_id}"  value="{link_url}" onmouseover="this.title=this.value;" onClick="copyToClipBoard(this.value)"> <a href="{link_url}" target="_blank">GO</a>
+		
+		</td>
+		<td><input readOnly="true" id="img_url_{log_id}" name="img_url_{log_id}"  value="{img_url}" onmouseover="imgMax(this, '{img_url}', event);" onmouseout="close_imgMax();" ></td>
+		<td><textarea readOnly="true" id="content_{log_id}" name="content_{log_id}" rows="1" onmouseover="this.title=this.value;" cols="8">{replace:content,"<br>","\n"}</textarea></td>
+		<td><textarea readOnly="true" id="remark_{log_id}" name="remark_{log_id}" rows="1" onmouseover="this.title=this.value;" cols="8">{replace:remark,"<br>","\n"}</textarea></td>
+		<input type="hidden" name="log_id_arr[]" value="{log_id}">
+	</tr>
+	<!-- END record_list -->
+  </tbody>
+</table>
+<input type="hidden" name="rank_id" id="rank_id" value="{rank_id}">
+<input type="submit" value=" 批量修改排名 ">
+</form>
+</body>
+<script language="javascript">
+function flush_user_info()
+{
+	$("user_id").value = '';
+	$('title').value = '';
+	$('link_url').value = '';
+	$('img_url').value = '';
+	$('place_number').value = '';
+	$('content').value = '';
+	$('remark').value = '';
+	$('upload_img').style.display='';
+	$('no_user_info').style.display='';
+	$('next_field').onclick = function () {issueAddRecord();};
+	$('next_field').value=' 下一条 ';	
+}
+function imgMax(obj, img, event)
+{
+	x = document.body.scrollLeft+(event.clientX ? event.clientX : event.pageX);
+	y = document.body.scrollLeft+(event.clientY ? event.clientY : 
+	event.pageY);
+	//h = 75;
+	w = 75;
+	var b = document.createElement('DIV');
+	b.style.textAlign = "center";
+	b.style.position = "absolute";
+	b.style.padding = "0px";
+	b.style.backgroundColor = '#FFFFFF';
+	b.style.left = (x+15)+'px';
+	b.style.top = getTop(obj)+'px';
+	b.setAttribute('id','imgMax');
+	document.body.appendChild(b);
+	//$('imgMax').innerHTML = "<img src="+ img +" height='"+h+"px' width='"+w+"px'>";
+	$('imgMax').innerHTML = "<img src="+ img +" width='"+w+"px'>";
+} 
+function close_imgMax()
+{
+	if ($('imgMax'))
+	{
+		document.body.removeChild(document.getElementById('imgMax'));
+	}
+}
+function copyToClipBoard(txt){
+		if(window.clipboardData) {   
+			window.clipboardData.setData("Text", txt);   
+			alert("复制成功 "+txt);  
+		} else if(navigator.userAgent.indexOf("Opera") != -1) {   
+			window.location = txt;   
+		} else if (window.netscape) {   
+			try {   
+				netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");   
+			} catch (e) {   
+				alert("被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将 'signed.applets.codebase_principal_support'设置为'true'");   
+				return false;
+			}   
+			var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);   
+			if (!clip)   
+				return;   
+			var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);   
+			if (!trans)   
+				return;   
+			trans.addDataFlavor('text/unicode');   
+			var str = new Object();   
+			var len = new Object();   
+			var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);   
+			var copytext = txt;   
+			str.data = copytext;   
+			trans.setTransferData("text/unicode",str,copytext.length*2);   
+			var clipid = Components.interfaces.nsIClipboard;   
+			if (!clip)   
+				return false;   
+			clip.setData(trans,null,clipid.kGlobalClipboard);   
+			alert("复制成功 "+txt);  
+		}   
+	}
+
+function checkForm2()
+{
+	var freeze   = ($('freeze').checked) ? 1 : 0;
+	var rank_id  = $('rank_id').value;
+	var issue_id = $('issue_id').value;
+	$('form2').action = 'cms_act.php?act=rank_edit_place_number&freeze=' + freeze + '&rank_id=' + rank_id + '&issue_id=' + issue_id;
+	form2.submit();	
+}
+
+
+function set_pagesize_cookie(pagesize)
+{
+	var today = new Date();
+	var expires = new Date();
+	expires.setTime(today.getTime() + 1000 * 60 * 60 * 24 * 365);
+	document.cookie = "yue_cms_pagesize=" + escape(pagesize) + "; expires=" + expires.toGMTString();
+	alert('已经设置为每页显示' + pagesize + '条');
+	self.location.reload();
+}
+
+// 更换排序
+function switch_order_mode(order_id)
+{
+	var url = window.location.href;
+	
+	if ( (/order_id=\-?\d+/i).test(url) ) {
+		url = url.replace (/order_id=\-?\d+/i, 'order_id=' + order_id);
+	}
+	else
+	{
+		if ( (/\.php$/i).test(url) )
+			url = url + '?order_id=' + order_id;
+		else
+			url = url + '&order_id=' + order_id;
+	}
+	self.location.href = url;
+}
+</script>
+</html>

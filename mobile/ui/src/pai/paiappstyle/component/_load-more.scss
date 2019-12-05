@@ -1,0 +1,23 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 组件
+// --
+
+
+// 加载更多
+.ui-load-more-btn
+{
+	text-align: center;
+	width: 100%;
+	height:45px;
+	line-height: 45px;	
+	&.loading
+	{
+		
+	}
+	&.loaded
+	{
+		
+	}
+
+} 

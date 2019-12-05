@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+
+
+<script src="js/shadowbox/shadowbox.js" type="text/javascript"></script>
+<link href="js/shadowbox/shadowbox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+$(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: false,
+            timeFormat: '',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+            });
+        })
+
+Shadowbox.init({
+    handleOversize: "drag",
+    overlayColor: '#000',
+    modal: true,
+    displayNav: true,
+    displayCounter: false,
+    //skipSetup: true
+});
+//Shadowbox.setup();
+function change_color(e)
+{
+    $("#color").val();
+    $("#color").attr('style','background-color:'+$("#color").val()+';');
+}
+</script>
+<script type="text/javascript">
+</script>
+<title>OA</title>
+</head>
+<body>
+<iframe id="mcfrm" name="mcfrm" frameborder="0" width="0" height="0" src="" style="display:none;"></iframe>
+<div class="mainbox">
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td width="81%" class="search">
+                <form action="?" method="get">
+                    商家ID：
+                    <input id="user_id" type="text" size="10" name="user_id" value="{search.user_id}" />
+                    &nbsp;&nbsp;
+                    服务品类：
+                    <select name="type_id" id='type_id' onchange="">
+                        <option value="">全部</option>
+                        <option value="3" <!-- IF top.search.type_id=="3" -->selected="selected" <!-- ENDIF --> >化妆服务</option>
+                        <option value="5" <!-- IF top.search.type_id=="5" -->selected="selected" <!-- ENDIF -->>摄影培训</option>
+                        <option value="12" <!-- IF top.search.type_id=="12" -->selected="selected" <!-- ENDIF -->>影棚租赁</option>
+                        <option value="31" <!-- IF top.search.type_id=="31" -->selected="selected" <!-- ENDIF -->>模特服务</option>
+                        <option value="40" <!-- IF top.search.type_id=="40" -->selected="selected" <!-- ENDIF --> >摄影服务</option>
+                        <option value="41" <!-- IF top.search.type_id=="41" -->selected="selected" <!-- ENDIF --> >约美食</option>
+                        <option value="43" <!-- IF top.search.type_id=="43" -->selected="selected" <!-- ENDIF --> >约有趣</option>
+                    </select>
+                    &nbsp;&nbsp;
+                    处理状态：
+                    <select name="status" id='status' onchange="">
+                        <option value="">全部</option>
+                        <option value="0" <!-- IF top.search.status=="0" -->selected="selected" <!-- ENDIF -->>待确认</option>
+                        <option value="8" <!-- IF top.search.status=="8" -->selected="selected" <!-- ENDIF --> >已确认</option>
+                        <!-- <option value="7" <!-- IF top.search.status=="7" -->selected="selected" <!-- ENDIF -->>已排除</option> -->
+                    </select>
+                    &nbsp;&nbsp;
+                    添加：
+                    <select name="add_by" id='add_by' onchange="">
+                        <option value="">全部</option>
+                        <option value="system" <!-- IF top.search.add_by=="system" -->selected="selected" <!-- ENDIF -->>系统</option>
+                        <option value="manual" <!-- IF top.search.add_by=="manual" -->selected="selected" <!-- ENDIF --> >人工</option>
+                    </select>
+                    <!-- &nbsp;&nbsp; -->
+                    <!-- 标志颜色: -->
+                    <!-- <select name="color" id='color' onchange="change_color(this)" style="background-color:{top.search.color}" > -->
+                    <!--     <option value="" style="background-color:#FFFFFF;">全部</option> -->
+                    <!--     <option value="#FF0000" <!-- IF top.search.color=="#FF0000" -->selected="selected" <!-- ENDIF --> style="background-color:#FF0000">红&nbsp;&nbsp;</option> -->
+                    <!--     <option value="#00FF00" <!-- IF top.search.color=="#00FF00" -->selected="selected" <!-- ENDIF --> style="background-color:#00FF00">绿&nbsp;&nbsp;</option> -->
+                    <!--     <option value="#FFF900" <!-- IF top.search.color=="#FFF900" -->selected="selected" <!-- ENDIF --> style="background-color:#FFF900">黄&nbsp;&nbsp;</option> -->
+                    <!--     <option value="#0000FF" <!-- IF top.search.color=="#0000FF" -->selected="selected" <!-- ENDIF --> style="background-color:#0000FF">蓝&nbsp;&nbsp;</option> -->
+                    <!-- </select> -->
+                    &nbsp;&nbsp;
+                    更新时间：
+                    <input id="change_time_start" type="text" size="10" name="change_time_start" value="{search.change_time_start}" class="ui_timepicker" />
+                    至
+                    <input id="change_time_end" type="text" size="10" name="change_time_end" value="{search.change_time_end}" class="ui_timepicker" />
+                    &nbsp;&nbsp;
+                    <input type="button" name="button" id="button" onclick="this.form.target='_self';$('#action').attr('value','');this.form.submit();" value="查询" />
+                    <br />
+                    <input type="button" name="button2" id="button2" value="导出数据" onclick="if(confirm('确定导出?')){this.form.target='_blank';$('#action').attr('value','export');this.form.submit();}"/>
+                    <input name="action" type="hidden" id="action" value="" />
+                    &nbsp;&nbsp;
+                    <a rel="shadowbox[add_seller];options={onClose:function(){location.reload();}}" href="?action=scalping_info">
+                        手动添加
+                    </a>
+                    &nbsp;&nbsp;
+                    <a href="seller_scalping_white_list.php" target='_self'>
+                        白名单管理
+                    </a>
+                </form>
+            </td>
+            <td width="10%" align="center" class="search">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div id="tabs">
+        <div class="tabbox">
+            <div class="table-list">
+                <table width="100%" cellspacing="0">
+                    <thead>
+                        <tr align="center">
+                            <th width="24">商家ID</th>
+                            <th width="90">商家名称</th>
+                            <th width="70">认证服务</th>
+                            <th width="80">处理状态</th>
+                            <th width="40">添加</th>
+                            <!-- <th width="30">标志</th> -->
+                            <th width="80">更新时间</th>
+                            <th >详情</th>
+                            <th width="80">添加时间</th>
+                            <th width="80">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- IF seller_list -->
+                    <!-- BEGIN seller_list -->
+                    <tr style="color:{color}">
+                        <td align="center">
+                            <a rel="shadowbox[edit_seller_{user_id}]" href="./seller.php?status=0&keyword={user_id}" title='管理商家'>
+                                {user_id}
+                            </a>
+                        </td>
+                        <td align="center">
+                            <a rel="shadowbox[show_check_log{user_id}]" href="./seller_scalping_check_log.php?seller_user_id={user_id}" title='查看检查记录'>
+                                {seller_name}
+                            </a>
+                        </td>
+                        <td align="center">
+                            <!-- BEGIN type_list -->
+                            <span style="display:block;">
+                                {name}
+                            </span>
+                            <!-- END type_list -->
+                        </td>
+                        <td align="center">{status_str}</td>
+                        <td align="center">{add_by_str}</td>
+                        <!-- <td align="left"> -->
+                        <!--     <span style="display:block;background-color:{color}">&nbsp;&nbsp;</span> -->
+                        <!-- </td> -->
+                        <td align="center">{change_date}</td>
+                        <td align="left" style="color:#000000">{remark}</td>
+                        <td align="center">{add_date}</td>
+                        <td align="center">
+                            <a rel="shadowbox[edit_seller_{user_id}]" href="?action=scalping_info&user_id={user_id}">
+                                处理商家
+                            </a>
+                            <br />
+                        </td>
+                    </tr>
+                    <!-- END seller_list -->
+                    <!-- ELSE -->
+                        <tr>
+                            <td align="center" colspan='9' >没有该商家的刷单记录</td>
+                        </tr>
+                    <!-- ENDIF -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="pages" class="page" style=" background: white; "> {page} </div>
+    </div>
+    </body>
+    </html>

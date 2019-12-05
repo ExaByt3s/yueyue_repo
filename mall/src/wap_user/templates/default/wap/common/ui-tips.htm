@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>通用标签</title>
+    <link rel="import" href="../webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/order/detail.scss">
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/common/ui-tips.scss">
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/common/common.css">
+    <script src="../../../../lib/lib.js"></script>
+
+</head>
+<body>
+
+<style type="text/css">
+
+.des{   
+    margin: 3px 0;
+}
+
+</style>
+
+
+
+<div style="display:"  class="pb20">
+
+/******“已结束”遮罩*********/
+</br>
+<code>
+            <strong>.boxfade </strong>{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 7;
+            background-color: rgba(0, 0, 0, 0.5);
+            -webkit-box-pack: center;
+            box-pack: center;
+            display: -webkit-box;
+            display: box;
+            -webkit-box-align: center;
+            box-align: center;
+        }
+</code>
+</br>
+<code>
+            <strong>.icon-show </strong>{
+         {
+            width: 56px;
+            height: 38px;
+            display: block;
+            background-size: 100% 100%;
+            background-position: center center;
+            background-image: url("../../image/pai/finish-112x76.png");
+        }
+</code>
+</br>
+/******左上角标签*********/
+</br>
+<code>
+<strong>.ui-tips-list </strong>{
+    display: block;
+    position: absolute;
+    left: -8px;
+    top: 0px;
+    width: 30px;
+    height: 15px;
+    background-color: #ff6a6e;
+    color: #fff;
+    text-align: center;
+    line-height: 15px;
+    font-size: 12px;
+    padding: 2px;
+    z-index: 99;
+        }
+</br>
+<strong>.ui-tips-triangle</strong>{
+            width: 0;
+        height: 0;
+        border-top: 8px solid #e25357;
+        border-left: 8px solid transparent;
+        position: relative;
+        top: 10px;
+        left: -13px;
+}
+</code>
+</div>
+
+
+<div id="page-container" style="padding:0 15px;background:#000">
+
+
+    <div class="item">
+
+        
+        <div class="lbox ">
+            <div class="ui-list-item-fade">
+                <i class="icon-list-item-fade"></i>
+            </div>
+            <i class="img image-img min-height loaded" style="background-image: url(http://image19-d.yueus.com/yueyue/20151027/20151027152150_399834_200521_24795_260.jpg?620x930_120);"></i>
+            <div class="ui-list-item-tips">
+                <i class="ui-tips-content">官方</i>
+                <i class="ui-list-item-tips-triangle"></i>
+            </div>
+        </div>
+
+        <div class="rbox ">
+            <h3 class="title color-000 f14">回头一看百媚生</h3>
+            <div>
+                <p class="price color-ff6">￥50.00元 起
+                
+                </p>
+                <div class="num color-999 f12">
+                    <p>已有4人购买</p>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+<script>
+    var $ = require('zepto');
+</script>
+</html>

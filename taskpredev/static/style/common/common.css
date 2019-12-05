@@ -1,0 +1,30 @@
+.w960 {
+  margin: 0 auto;
+  width: 960px; }
+
+.fade {
+  background: #000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  z-index: 9999;
+  zoom: 1;
+  clear: both;
+  _height: 1000px;
+  _position: absolute; }
+
+.long-txt-cut {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; }
+
+.tdn {
+  text-decoration: none; }
+  .tdn:hover {
+    text-decoration: none; }
+
+/*# sourceMappingURL=common.css.map */

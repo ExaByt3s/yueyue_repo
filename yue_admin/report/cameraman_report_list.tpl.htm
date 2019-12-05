@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/laydate/laydate.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/table.css">
+<title>工作监控报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">摄影师拓展</a> 
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform">
+					<table class="table-list-search" id="quick_search" width="400">
+					      <tbody>
+							       <tr>
+							       		<td>
+							       			选择年月:
+							       		   <input type="text" name="month" class="input-text" id="month" value="{month}" size="8"/>
+							       		</td>
+									   <td>
+									    <p><input type="button" class="button" value="查找" onclick="com_export('list')"/> <input type="button" class="button" value="导出" onclick="com_export('export')"></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+					<input type="hidden" name='act' id="act" value="list" />
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+	<div class="table-list" id="table-list">
+		<div class="btn">
+			总条数:{total_count}
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0" style="min-width: 1000px;">
+			<thead>
+			    <tr>
+				<th>&nbsp;</th>
+				<th colspan="4">用户拓展</th>
+				<th colspan="2">用户活跃</th>
+				<th>用户首次下单</th>
+				<th>用户首次成单</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <tr>
+				<td align="center">日期</td>
+				<td align="center">摄影师新增注册uv</td>
+				<td align="center">摄影师app新增注册uv</td>
+				<td align="center">摄影师微信新增注册uv</td>
+				<td align="center">摄影师pc新增注册uv</td>
+				<td align="center">摄影师主动私聊uv</td>
+				<td align="center">摄影师主动私聊pv</td>
+				<td align="center">摄影师支付成功uv</td>
+				<td align="center">摄影师订单完成uv</td>
+				</tr>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center">{add_time}</td>
+				<td align="center">{regedit_uv_total}</td>
+				<td align="center">{app_regedit}</td>
+				<td align="center">{weixin_regedit}</td>
+				<td align="center">{pc_regedit}</td>
+				<td align="center">{same_reg_msg_uv}</td>
+				<td align="center">{msg_uv}</td>
+				<td align="center">{first_place_order_uv}</td>
+				<td align="center">{first_statement_uv}</td>
+				</tr> 
+				<!-- END list -->
+				<tr>
+				<td align="center">累计</td>
+				<td align="center">{regedit_uv_total_up}</td>
+				<td align="center">{app_regedit_up}</td>
+				<td align="center">{weixin_regedit_up}</td>
+				<td align="center">{pc_regedit_up}</td>
+				<td align="center">{same_reg_msg_uv_up}</td>
+				<td align="center">{msg_uv_up}</td>
+				<td align="center">{first_place_order_uv_up}</td>
+				<td align="center">{first_statement_uv_up}</td>
+				</tr>
+				<tr>
+				<td align="center">日均</td>
+				<td align="center">{regedit_uv_total_day}</td>
+				<td align="center">{app_regedit_day}</td>
+				<td align="center">{weixin_regedit_day}</td>
+				<td align="center">{pc_regedit_day}</td>
+				<td align="center">{same_reg_msg_uv_day}</td>
+				<td align="center">{msg_uv_day}</td>
+				<td align="center">{first_place_order_uv_day}</td>
+				<td align="center">{first_statement_uv_day}</td>
+				</tr> 	
+			</tbody>
+		</table>
+	</div>
+	<div id="pages" class="page">
+	{page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+  //导出和查询触动
+  function com_export($actval)
+  {
+  	$("#act").val($actval);
+	//$("#myform").attr("action", $url);
+	//return;
+	$("#myform").submit();
+ }
+ 
+ laydate({
+    elem: '#month',
+    istime: true,
+    format: 'YYYY-MM',
+});
+
+</script>
+</html>

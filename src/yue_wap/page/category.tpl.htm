@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>约约首页</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/category/category.scss">
+    <link charset="utf-8" rel="stylesheet" href="../style/swiper3.07.min.scss">
+    <style>
+
+
+    </style>
+    <script src="../lib/lib.js"></script>
+</head>
+<body class="body_color">
+<main>
+    <div class="page-view page-name-category" data-role="page-container">
+        <link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+        <div class="page-begin" data-role="page-begin">
+            <div class='container_null'>
+                <div class='container_1'>
+                    <div class='container_2'>
+                        <div class='container_3 list exp'>
+                            <!--img style="width:100%" src="http://cms.neotv.cn/uploadfile/2013/0516/20130516054045909.jpg"/>
+                            <div class="notice"><div class="yueyue"></div><p>最高效的摄影服务平台</p></div-->
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <!-- BEGIN head_pic -->
+                                    <div class="swiper-slide">
+                                        <i class="slide-items-bg" style="background-image: url('{img_url}');background-size: cover;"><div class="notice"><p class="category_top">{title}</p></div></i>
+                                    </div>
+                                    <!-- END head_pic -->
+                                </div>
+                                <!-- 如果需要分页器 -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='container_10'>
+                        <div class='container_11'><p>想学摄影？</p></div>
+                        <div class='container_12'><p>只需简单式操作发需求，在24小时内向你推荐符合培训需求的导师，让你体验一站式服务。</p></div>
+                    </div>
+                    <!-- BEGIN issue_pic -->
+                    <div class='container_13 list'>
+                        <i class="slide-items-bg" style="background-image: url('{wap_img}');background-size: cover;"><div class="notice"><p>{title}</p></div></i> 
+                        <!--img style="width:100%" src="http://cms.neotv.cn/uploadfile/2013/0516/20130516054045909.jpg"/-->
+                    </div>
+                    <!-- END issue_pic -->
+                </div>
+            </div>
+            <div class="empty" style="background: #f2f2f2;height: 10px;"></div>
+            <!-- IF details_pic_info -->
+            <div class="tutorial">
+                <h1>搜罗时下最热门的培训</h1>
+                <!-- BEGIN details_pic_info -->
+                <div class="preview_container">
+                    <section class="preview list_second">
+                        <img style="width:100%" src="{wap_img}"/>
+                        <div class="notice"><p>{title}</p></div>
+                    </section>
+                    <div class="info">
+                        <p class="id">商家ID:{user_id}</p>
+                        <div class="starts">
+                            <p>评价：
+                                <!-- BEGIN starts_list -->
+                                <!-- IF yes_start -->
+                                <img src="../image/task/icon-start-yellow-26x24.png" style="width: 13px"/>
+                                <!-- ELSE -->
+                                <img src="../image/task/icon-start-gray-26x24.png" style="width: 13px;"/>
+                                <!-- ENDIF -->
+                                <!-- END starts_list -->
+                            </p><p>{auth}</p></div>
+
+                    </div>
+                    <div class="empty" style="background: #f2f2f2;height: 10px;"></div>
+                </div>
+                <!-- END details_pic_info -->
+            </div>
+            <!-- ENDIF -->
+            {footer_html}
+        </div>
+    </div>
+</main>
+</body>
+<script>
+    var utility = require('../modules/common/utilitys/index');
+    var $ = require('zepto');
+    $(function()
+    {
+        /*
+        var s = require('../modules/common/widget/swiper/1.0.0/swiper');
+        var mySwiper = new Swiper('.swiper-container',{
+            //freeMode : true,
+            //spaceBetween : 2,
+            //slidesPerView : 'auto'
+            pagination: '.swiper-pagination',
+            paginationClickable: true
+        });
+        */
+        var s = require('../modules/common/widget/swiper/1.0.0/swiper3.07.min');
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: false,
+
+            // 如果需要分页器
+            pagination: '.swiper-pagination'
+        })
+
+        console.log(utility.get_view_port_height())
+        //$('[data-role="page-begin"]').height(utility.get_view_port_height("nav"));
+
+    });
+</script>
+</html>

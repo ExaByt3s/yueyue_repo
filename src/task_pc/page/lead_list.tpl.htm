@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>生意机会</title>
+
+<!-- 公共css，js引入 -->
+{pc_task_top}
+
+<link rel="import" href="./webcontrol/head.tpl.html?__inline">
+
+<!-- 当前页面css-->
+<link type="text/css" rel="stylesheet" href="../style/lead_list/index.scss">
+
+<!-- 引导页css -->
+<link type="text/css" rel="stylesheet" href="../style/lead_list/index.scss">
+
+<!-- js 库-->
+<script type="text/javascript" src="../lib/lib.js"></script>
+</head>
+<body>
+
+{pc_global_nav}
+
+
+<div class="list-page w960 fn-hide" id="list-page" >
+    <div class="p1th">
+        <div class="title font_wryh">生意机会</div>
+    </div>
+
+    <div class="p2th">
+ 
+<!-- BEGIN list -->
+        <div class="wbox clearfix"  go_url_lead_id={lead_id} >
+            <div class="lbox fldi">
+            <!-- IF is_read -->
+             <div class="icon-has"></div>
+                <p class="txt">已查看</p>
+            <!-- ELSE -->
+                <div class="icon-new"></div>
+                <p class="txt">新的任务</p>
+             <!-- ENDIF -->   
+            </div>
+            <div class="cbox fldi">
+                <h3><a href="lead_detail.php?lead_id={lead_id}">{buyer_nickname}</a></h3>
+                <p class="p1">{where_str} {title} {when_str}</p>
+                <p class="p2">
+                    <!-- BEGIN answer -->
+                        <!-- BEGIN data -->
+                            {titles}
+                        <!-- END data -->
+                    <!-- END answer -->
+                </p>
+            </div>
+            <div class="rbox frdi">
+                <div class="time">{time_format}</div>
+                <div class="btn"><a href="#this" lead_id="{lead_id}" action="1">删除</a></div>
+            </div>
+        </div>
+<!-- END list -->
+
+    </div>
+
+    <div class="page-mod">
+        {page}
+    </div>
+
+    
+    <!-- IF no_page_data -->               
+        <div class="no_page_data font_wryh">暂无订单</div>
+    <!-- ENDIF -->
+</div> 
+
+
+<!-- 引导图  -->
+<div class="first-login " id="guide">
+    
+</div>
+
+
+
+{footer_html}
+
+<script type="text/javascript">
+
+	var lead_list_obj = require('lead_list');
+
+    lead_list_obj.init({seller_id : {seller_id} });
+
+
+</script>
+
+
+
+</body>
+</html>

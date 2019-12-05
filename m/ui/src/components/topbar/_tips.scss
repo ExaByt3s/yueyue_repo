@@ -1,0 +1,75 @@
+// --------------------------------------------------
+// 公共 - 顶栏 - 浮动提示层
+// --------------------------------------------------
+
+
+.global-topbar-tips {
+    position: absolute;
+    top: 41px;
+    right: 0;
+    z-index: $topbar-max-zIndex;
+
+    width: 188px;
+    padding: 10px 0;
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: #d7d7d7;
+    background: #fff;
+    @include box-shadow(0 2px 2px rgba(#000, 0.2)); // 0px 1px 2px #f4f4f4
+    @include border-radius(0 0 2px 2px);
+
+    color: #333;
+
+    .close-tips-button {
+        position: absolute;
+        top: 5px;
+        right: 7px;
+        height: 14px;
+        line-height: 14px;
+
+        font-family: tahoma;
+        font-size: 14px;
+        font-weight: 700;
+        @include link-colors(#949494, #949494);
+    }
+
+    li {
+        padding: 0 15px;
+        line-height: 22px;
+
+        a {
+            @include link-colors(#3fa900, #3fa900);
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+.introduction-tips {
+    display: none;
+    top: 49px;
+    z-index: $topbar-max-zIndex - 1;
+    width: 138px;
+    padding: 13px 15px;
+    border-width: 1px;
+    border-color: #f8d88b;
+    background: #fdf5d7;
+
+    .close-tips-button {
+        @include link-colors(#949494, #949494);
+    }
+
+    p {
+        a {
+            @include link-colors(#f00, #f00);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

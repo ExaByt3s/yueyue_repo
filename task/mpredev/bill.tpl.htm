@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>账单</title>
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/base.css">
+<!--基础样式 END-->
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/task-m.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__romain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : '../ajax/'
+	};
+    console.log(window.localStorage.getItem("$__storage_first_tips"))
+    if(window.localStorage.getItem("$__storage_first_tips"))
+    {
+        console.log("in")
+    }
+    else
+    {
+        console.log("in2")
+        var data =
+        {
+            "details_1":1,
+            "details_2":1,
+            "submit_1":1,
+            "pay_1":1,
+            "talk_1":1
+        }
+        window.localStorage.setItem("$__storage_first_tips",JSON.stringify(data));
+    }
+</script>  
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/bill/bill.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/lib/lib.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/components/zepto/zepto.js"></script>
+</head>
+<body style="background: #fff">
+<main>
+    <div class="page-view" data-role="page-container">
+        <div class="common_menu" >
+    <div class="common_logo"><i class="icon icon-top-logo"></i></div>
+	<div class="common_btn" data-role="common_btn_menu"><i class="icon icon-right-menu-logo"></i></div>
+    
+</div>
+<div class="common_menu_open layout_box_v fn-hide" data-role="common_menu_open">
+    <a data-role="common_menu_open_business" href="list.php">生意机会</a>
+    <a data-role="common_menu_open_list" href="order_list.php?type=pending">订单列表</a>
+    <a data-role="common_menu_open_mine" href="profile.php">个人中心</a>
+    <a data-role="common_menu_open_log_out" href="logout.php">退出登录</a>
+</div>
+<!--modjs hack 特殊处理，增加head标记-->
+<head></head>
+<!--modjs hack 特殊处理，增加head标记-->
+<script type="text/javascript">
+	
+	var cookie = require('common/cookie/index');
+	var $ = require('components/zepto/zepto.js');	
+
+	(function($,window)
+	{
+		var self = this;
+
+		var no_login = '{no_login}';
+
+		var $common_menu_open = $('[data-role="common_menu_open"]');
+		var $common_btn_menu  = $('[data-role="common_btn_menu"]');
+		var $common_menu_open_log_out = $('[data-role="common_menu_open_log_out"]');
+
+		if(!parseInt(cookie.get('yue_member_id')))
+		{
+			$common_btn_menu.hide();
+		}
+
+		$common_btn_menu.on('click',function()
+		{	
+			if(!parseInt(cookie.get('yue_member_id')))
+			{
+				return;
+			}
+			
+			$common_menu_open.toggleClass("fn-hide");
+		});
+
+		$common_menu_open_log_out.on('click',function()
+		{
+			$.ajax
+			({
+				url: window.$__config.ajax_url + 'login_out.php',
+				type: 'POST',
+				cache: false,
+				dataType: 'json',
+				beforeSend: function () {
+
+				},
+				success: function (data) {
+					window.location.href = './login.php';
+
+				},
+				error: function () {
+
+				},
+				complete: function () {
+
+				}
+			})
+    })
+
+	})($,window);
+</script> 
+        <!--select id="province">
+            <option value=""> -- </option>
+        </select>
+        <select id="city">
+            <option value=""> -- </option>
+        </select-->
+        <div class="bill_tap">
+            <div class="child cur" data-role="bill_tap" data-tap-type="trade">交易</div>
+            <div class="child" data-role="bill_tap" data-tap-type="recharge">充值</div>
+            <div class="child" data-role="bill_tap" data-tap-type="withdraw">提现</div>
+            <div class="child" data-role="bill_tap" data-tap-type="repay">退款</div>
+        </div>
+        <div class="bill_container" data-role="bill_container">
+            <div class="outer " data-con-type="trade"></div>
+            <div class="outer fn-hide" data-con-type="recharge"></div>
+            <div class="outer fn-hide" data-con-type="withdraw"></div>
+            <div class="outer fn-hide" data-con-type="repay"></div>
+        </div>
+        <div class="bill_tips fn-hide" data-role="bill_tips">
+            <h1 style="text-align: center">加载中...</h1>
+        </div>
+        <div class="bill_tips fn-hide" data-role="nodata_tips">
+            <h1 style="text-align: center">暂无内容</h1>
+        </div>
+
+    </div>
+</main>
+</body>
+<script>
+
+$(function()
+{
+    var ques_tmpl = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n    <div class=\"child\">\r\n        <div class=\"left\">\r\n            <p class=\"name\">";
+  if (helper = helpers.subject) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.subject); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n            <p class=\"date\">";
+  if (helper = helpers.add_date) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.add_date); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n        </div>\r\n        <div class=\"right\">\r\n            <p class=\"red\">";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.flow_type), {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  if (helper = helpers.amount) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.amount); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n            <p ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(6, program6, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.status_color), "==", 1, options) : helperMissing.call(depth0, "compare", (depth0 && depth0.status_color), "==", 1, options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n               ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(8, program8, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.status_color), "==", 2, options) : helperMissing.call(depth0, "compare", (depth0 && depth0.status_color), "==", 2, options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += ">";
+  if (helper = helpers.status) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.status); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n        </div>\r\n    </div>\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  
+  return "-";
+  }
+
+function program4(depth0,data) {
+  
+  
+  return "+";
+  }
+
+function program6(depth0,data) {
+  
+  
+  return "class=\"green\"";
+  }
+
+function program8(depth0,data) {
+  
+  
+  return "class=\"gray\"";
+  }
+
+  stack1 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.data), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n\r\n";
+  return buffer;
+  });
+
+    var requesting = false;
+
+    request('trade',$('[data-con-type="trade"]'))
+
+    $('[data-role="bill_tap"]').on('click',function()
+    {
+        var type = $(this).attr('data-tap-type');
+
+        var obj = $('[data-con-type='+type+']');
+
+        $(this).addClass('cur').siblings().removeClass('cur');
+
+        hide_all_con();
+
+        show_con(type);
+
+        request(type,obj);
+    })
+
+    function show_con(type)
+    {
+        $('[data-con-type='+type+']').removeClass('fn-hide');
+    }
+
+    function hide_all_con()
+    {
+        $('[data-con-type]').addClass('fn-hide');
+    }
+
+    function request(type,obj)
+    {
+        if(requesting){return}
+
+        requesting = true;
+
+        $(obj).html("");
+        $('[data-role="bill_tips"]').removeClass('fn-hide');
+        $('[data-role="nodata_tips"]').addClass('fn-hide');
+
+        $.ajax
+        ({
+            url : '../ajax/bill_act.php',
+            data:{type:type,page:'1'},
+            type: 'POST',
+            cache: false,
+            dataType : 'json',
+            beforeSend: function()
+            {
+
+            },
+            success: function(data)
+            {
+                console.log(data.result_data);
+                if(data.result_data.data.length == 0)
+                {
+                    $('[data-role="nodata_tips"]').removeClass('fn-hide');
+                }
+                else
+                {
+                    render(data.result_data,obj);
+                }
+
+
+            },
+            error: function()
+            {
+
+            },
+            complete: function()
+            {
+                requesting = false;
+                $('[data-role="bill_tips"]').addClass('fn-hide');
+            }
+        });
+    }
+    function render (data,obj)
+    {
+        var ques_html = ques_tmpl({data: data},{helper:{compare:'compare'}});
+        $(obj).html(ques_html);
+    }
+
+});
+</script>
+</html>

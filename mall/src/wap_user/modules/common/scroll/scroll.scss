@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+@import "../../../style/widget/ui-base";
+@import "../../../style/widget/ui-btn";
+@import "../../../style/widget/ui-loading";
+
+.native-scroll{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}

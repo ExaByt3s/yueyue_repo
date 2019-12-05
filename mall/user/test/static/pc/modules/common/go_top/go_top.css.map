@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "go_top.css",
+    "sources": [
+        "/modules/common/go_top/go_top.scss"
+    ],
+    "sourcesContent": [
+        ".go-top-mod a \r\n{\r\n    width: 45px;\r\n    height: 45px;\r\n    display: block;\r\n    position: fixed;\r\n    right: 20px;\r\n    bottom: 20px;\r\n    // line-height: 18px;\r\n    // padding: 5px 5px 12px 11px;\r\n    // background: #4B4949;\r\n    text-decoration: none;\r\n    color: #fff;\r\n    // border-radius: 5px;\r\n    background: url(../../../images/go-top-45x45.png?__sprite) ;\r\n    width: 45px;\r\n    height:45px;\r\n    -webkit-transition: all 0.2s;\r\n    -moz-transition: all 0.2s;\r\n    -o-transition: all 0.2s;\r\n    -ms-transition: all 0.2s;\r\n    transition: all 0.2s;\r\n\r\n    &:hover{\r\n        background: #3A3939;\r\n        background: url(../../../images/go-top-45x45-hover.png?__sprite) ;\r\n    }\r\n    \r\n}"
+    ],
+    "mappings": "AAAA,AAAY,AAER,AAAO,AACP,AAAQ,AACR,AAAS,AACT,AAAU,AACV,AAAO,AACP,AAAQ,AAIR,AAAiB,AACjB,AAAO,AAEP,AAAY,AACZ,AAAO,AACP,AAAO,AACP,AAAoB,AACpB,AAAiB,AACjB,AAAe,AACf,AAAgB,AAChB,AAAY,AAEhB,AAAY,AAAC,AACL,AAAY,AACZ,AAAY",
+    "names": []
+}

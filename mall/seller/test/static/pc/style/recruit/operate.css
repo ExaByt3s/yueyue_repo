@@ -1,0 +1,314 @@
+.w1000 {
+  width: 1000px;
+  margin: 0 auto; }
+
+.operation-page .p1th {
+  height: 650px;
+  overflow: hidden;
+  background: url(http://static.yueus.com/mall/seller/test/static/pc/images/recruit/operate/bg-img-1920x650.jpg) no-repeat center top; }
+  .operation-page .p1th .item-wrap {
+    padding: 0px 10px 130px 136px; }
+    .operation-page .p1th .item-wrap .item-1 {
+      margin-top: 143px; }
+    .operation-page .p1th .item-wrap .item-2 {
+      margin-top: 30px; }
+      .operation-page .p1th .item-wrap .item-2 .txt {
+        height: 44px;
+        display: inline-block;
+        padding-right: 21px;
+        background: url(http://static.yueus.com/mall/seller/test/static/pc/images/recruit/operate/arrow-img-22x44.png) no-repeat right bottom; }
+      .operation-page .p1th .item-wrap .item-2 p {
+        background: #34ccd7;
+        line-height: 44px;
+        padding: 0px 28px;
+        font-size: 22px;
+        color: #ffffff; }
+        .operation-page .p1th .item-wrap .item-2 p .dash {
+          width: 48px;
+          height: 3px;
+          background: url(http://static.yueus.com/mall/seller/test/static/pc/images/recruit/operate/dash-img-48x3.png) no-repeat center center;
+          display: inline-block;
+          margin-bottom: 4px; }
+    .operation-page .p1th .item-wrap .item-3 {
+      margin-top: 30px; }
+.operation-page .p2th {
+  padding: 80px 0px;
+  background: #ffffff; }
+  .operation-page .p2th .item-wrap h3.title {
+    font-size: 32px;
+    text-align: center;
+    color: #35cdd7;
+    background: url(http://static.yueus.com/mall/seller/test/static/pc/images/recruit/operate/line-218x1.jpg) no-repeat center bottom;
+    padding-bottom: 20px; }
+  .operation-page .p2th .item-wrap .item {
+    margin-top: 15px; }
+    .operation-page .p2th .item-wrap .item ul li {
+      width: 250px;
+      float: left;
+      text-align: center; }
+      .operation-page .p2th .item-wrap .item ul li i.icon {
+        display: inline-block;
+        margin: 40px 0px 28px; }
+      .operation-page .p2th .item-wrap .item ul li h4.title {
+        font-size: 22px;
+        color: #333333;
+        text-align: center;
+        padding-bottom: 15px; }
+      .operation-page .p2th .item-wrap .item ul li p.tips {
+        font-size: 14px;
+        color: #666666;
+        line-height: 22px; }
+.operation-page .p3th {
+  background: url(http://static.yueus.com/mall/seller/test/static/pc/images/recruit/operate/bg-img-2-1920x600.jpg) no-repeat center top; }
+  .operation-page .p3th .item-wrap {
+    padding: 50px 0px; }
+    .operation-page .p3th .item-wrap h3.title {
+      font-size: 32px;
+      text-align: center;
+      color: #ffffff;
+      background: url(http://static.yueus.com/mall/seller/test/static/pc/images/recruit/operate/line-113x1.jpg) no-repeat center bottom;
+      padding-bottom: 20px; }
+    .operation-page .p3th .item-wrap .item {
+      margin-top: 30px; }
+      .operation-page .p3th .item-wrap .item .nav-list-content {
+        width: 395px;
+        margin-right: 60px;
+        overflow: hidden; }
+        .operation-page .p3th .item-wrap .item .nav-list-content ul {
+          position: relative;
+          width: 395px;
+          height: 402px; }
+          .operation-page .p3th .item-wrap .item .nav-list-content ul li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            float: left;
+            opacity: 0; }
+          .operation-page .p3th .item-wrap .item .nav-list-content ul .cur {
+            display: block;
+            opacity: 1;
+            z-index: 99;
+            -webkit-animation: bounceInLeft 1s .1s ease both;
+            -moz-animation: bounceInLeft 1s .1s ease both; }
+      .operation-page .p3th .item-wrap .item .nav-list li {
+        width: 480px;
+        display: block;
+        padding: 18px 25px;
+        margin-top: 10px;
+        border-radius: 5px;
+        cursor: pointer; }
+        .operation-page .p3th .item-wrap .item .nav-list li i.pro-icon {
+          width: 88px;
+          height: 88px;
+          display: inline-block; }
+        .operation-page .p3th .item-wrap .item .nav-list li .txt-con {
+          width: 340px;
+          margin-left: 48px;
+          color: #ffffff; }
+          .operation-page .p3th .item-wrap .item .nav-list li .txt-con .pro-title {
+            font-size: 20px;
+            padding-bottom: 10px; }
+          .operation-page .p3th .item-wrap .item .nav-list li .txt-con .txt {
+            font-size: 16px; }
+      .operation-page .p3th .item-wrap .item .nav-list li.cur {
+        background: rgba(61, 75, 91, 0.9); }
+        .operation-page .p3th .item-wrap .item .nav-list li.cur .pro-icon {
+          -webkit-transition: all 1s;
+          -moz-transition: all 1s;
+          -ms-transition: all 1s;
+          transition: all 1s;
+          -webkit-transform: rotateY(360deg);
+          -moz-transform: rotateY(360deg);
+          -ms-transform: rotateY(360deg);
+          -o-transform: rotateY(360deg);
+          transform: rotateY(360deg); }
+.operation-page .p4th {
+  background: #ffffff;
+  padding: 80px 0px; }
+  .operation-page .p4th .item-wrap h3.title {
+    font-size: 32px;
+    text-align: center;
+    color: #35cdd7; }
+  .operation-page .p4th .item-wrap .item-1 {
+    background: url(http://static.yueus.com/mall/seller/test/static/pc/images/recruit/operate/line-726x2.jpg) no-repeat center 45px;
+    margin-top: 55px; }
+    .operation-page .p4th .item-wrap .item-1 ul li {
+      width: 250px;
+      float: left; }
+      .operation-page .p4th .item-wrap .item-1 ul li .step-icon {
+        width: 90px;
+        height: 90px;
+        display: block;
+        margin: 0 auto; }
+      .operation-page .p4th .item-wrap .item-1 ul li .step-title {
+        text-align: center;
+        font-size: 16px;
+        padding-top: 20px; }
+      .operation-page .p4th .item-wrap .item-1 ul li .step-tips {
+        color: #999999;
+        font-size: 16px;
+        line-height: 26px;
+        text-align: center; }
+  .operation-page .p4th .item-wrap .item-2 {
+    margin-top: 65px; }
+    .operation-page .p4th .item-wrap .item-2 .sign-name-btn {
+      width: 300px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      background: #4092f1;
+      border-radius: 3px;
+      font-size: 22px;
+      color: #ffffff;
+      display: block;
+      text-decoration: none;
+      margin: 0 auto; }
+    .operation-page .p4th .item-wrap .item-2 .txt-con {
+      text-align: center;
+      padding-top: 20px; }
+      .operation-page .p4th .item-wrap .item-2 .txt-con .txt {
+        font-size: 18px;
+        color: #333333; }
+      .operation-page .p4th .item-wrap .item-2 .txt-con .tips {
+        color: #999999;
+        line-height: 22px; }
+
+.submit-succ-pop {
+  width: 600px;
+  height: 412px;
+  background: #ffffff;
+  position: fixed;
+  margin-left: -300px;
+  left: 50%;
+  top: 50%;
+  margin-top: -206px;
+  z-index: 9999;
+  border-radius: 5px; }
+  .submit-succ-pop a.close {
+    width: 16px;
+    height: 16px;
+    background: url(http://static.yueus.com/mall/seller/test/static/pc/images/recruit/operate/close-btn-16x16.jpg) no-repeat;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px; }
+  .submit-succ-pop .item-wrap {
+    padding: 50px; }
+    .submit-succ-pop .item-wrap .item-1 .right-icon {
+      width: 100px;
+      height: 100px;
+      display: block;
+      margin: 10px auto; }
+    .submit-succ-pop .item-wrap .item-2 {
+      text-align: center;
+      padding-top: 20px; }
+      .submit-succ-pop .item-wrap .item-2 h4.title {
+        font-size: 20px;
+        color: #333333;
+        padding-bottom: 10px; }
+      .submit-succ-pop .item-wrap .item-2 p.tips {
+        color: #999999;
+        font-size: 14px; }
+    .submit-succ-pop .item-wrap .item-3 {
+      text-align: center;
+      padding-top: 45px; }
+      .submit-succ-pop .item-wrap .item-3 .sure-btn {
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        color: #ffffff;
+        background: #3f91f1;
+        padding: 0px 50px;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 5px; }
+
+.sign-up-pop {
+  width: 600px;
+  height: 370px;
+  background: #ffffff;
+  position: fixed;
+  margin-left: -300px;
+  left: 50%;
+  top: 50%;
+  margin-top: -206px;
+  z-index: 9999;
+  border-radius: 5px; }
+  .sign-up-pop a.close {
+    width: 16px;
+    height: 16px;
+    background: url(http://static.yueus.com/mall/seller/test/static/pc/images/recruit/operate/close-btn-16x16.jpg) no-repeat;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px; }
+  .sign-up-pop .item-wrap {
+    padding: 40px 100px 0px 100px; }
+    .sign-up-pop .item-wrap .item {
+      margin-top: 20px; }
+      .sign-up-pop .item-wrap .item span {
+        width: 80px;
+        height: 40px;
+        display: inline-block;
+        text-align: right;
+        line-height: 40px;
+        color: #333333;
+        font-size: 16px; }
+      .sign-up-pop .item-wrap .item .input-text {
+        width: 278px;
+        height: 38px;
+        padding: 0px 10px;
+        border: 1px solid #dddddd;
+        border-radius: 5px;
+        font-size: 14px; }
+      .sign-up-pop .item-wrap .item .select {
+        width: 300px;
+        height: 40px;
+        padding-left: 10px;
+        color: #333333;
+        font-size: 14px; }
+        .sign-up-pop .item-wrap .item .select option {
+          padding: 10px; }
+    .sign-up-pop .item-wrap .item-3 {
+      text-align: center;
+      padding-top: 45px; }
+      .sign-up-pop .item-wrap .item-3 .sure-btn {
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        color: #ffffff;
+        background: #3f91f1;
+        padding: 0px 50px;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 5px; }
+
+@-webkit-keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-300px); }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(30px); }
+
+  80% {
+    -webkit-transform: translateX(-10px); }
+
+  100% {
+    -webkit-transform: translateX(0); } }
+
+@-moz-keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-300px); }
+
+  60% {
+    opacity: 1;
+    -moz-transform: translateX(30px); }
+
+  80% {
+    -moz-transform: translateX(-10px); }
+
+  100% {
+    -moz-transform: translateX(0); } }

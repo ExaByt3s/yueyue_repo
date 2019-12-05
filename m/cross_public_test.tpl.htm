@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>跨公众号测试</title>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+<script>
+    document.addEventListener('touchstart',function(){},false);
+</script>
+
+
+<body>
+<form action="http://yp.yueus.com/topic/yspredev/module/cross_public_weixin_test_op.php" method="get" id="J_pay_join_form" name="J_pay_join_form">
+名字：<input type="text" name="name" value="星星" id="J_name"><br>
+专题ID：<input type="text" name="topic_id" value="1" id="J_topic_id"><br>
+手机号：<input type="text" name="phone" value="13826432956" id="J_phone"><br>
+参与人数：<input type="text" name="enroll_num" value="1" id="J_enroll_num"><br>
+地址：<input type="text" name="address" value="这是地址内容" id="J_address"><br>
+<input type="button" value="提交" id="J_pay_join_btn">
+</form>
+
+
+<input type="hidden" id="appId" value="{appId}"/>
+<input type="hidden" id="timestamp" value="{timestamp}"/>
+<input type="hidden" id="nonceStr" value="{nonceStr}"/>
+<input type="hidden" id="signature" value="{signature}"/>
+<img src="" id="code_img" style="display:none">
+</body>
+<script>
+    var appId = $("#appId").val();
+    var timestamp = $("#timestamp").val();
+    var nonceStr = $("#nonceStr").val();
+    var signature = $("#signature").val();
+
+
+    //调用微信支付
+    wx.config({
+        debug: false,
+        appId: appId,
+        timestamp: timestamp,
+        nonceStr: nonceStr,
+        signature: signature,
+        jsApiList: [
+            'chooseWXPay'
+        ]
+    });
+    wx.ready(function () {
+        // 在这里调用 API
+    });
+
+    function callpay()
+    {
+        var name = $("#J_name").val();
+        var phone = $("#J_phone").val();
+        var enroll_num = $("#J_enroll_num").val();
+        var topic_id = $("#J_topic_id").val();
+        var address = $("#J_address").val();
+
+        var meeting_id = $("#meeting_id").val();
+        var ajax_url = "http://yp.yueus.com/topic/yspredev/module/cross_public_weixin_test_op.php?name="+name+"+&phone="+phone+"&enroll_num="+enroll_num+"&topic_id="+topic_id+"&address="+address;//需要编码优化
+        $.getJSON(ajax_url,function(output){
+            if( output )
+            {
+                var result_data = output.result_data;
+                var data = eval('('+result_data.data + ')');
+                if( result_data && result_data.code==1 )
+                {
+
+                    wx.chooseWXPay({
+                        timestamp: data.timeStamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+                        nonceStr: data.nonceStr, // 支付签名随机串，不长于 32 位
+                        package: data.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+                        signType: data.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+                        paySign: data.paySign, // 支付签名
+                        success: function (res) {
+                            //window.location.href=result_data.channel_return;
+                            //alert('chooseWXPay:' + res);//成功进行跳转或者其他操作
+                            window.location.href="http://www.yueus.com/topic/yspredev/enroll_success.php?type=normal&enroll_res=success";
+
+
+                        },
+                        complete: function (res) {
+                            //跨号支付
+                            var order_id = result_data.order_id;
+                            alert(order_id);
+                            //var square_code_img_link = "http://yp.yueus.com/topic/yspredev/module/cross_public_weixin_qr_code.php?name="+name+"+&phone="+phone+"&enroll_num="+enroll_num+"&topic_id="+topic_id+"&address="+address;//需要编码优化";//二维码图片
+                            var square_code_img_link = "http://yp.yueus.com/topic/yspredev/module/cross_public_weixin_qr_code.php?order_id="+order_id//二维码图片
+                            $("#code_img").attr("src",square_code_img_link);
+                            $("#code_img").css("display","block");
+
+                        }
+
+
+                    });
+
+
+
+                }
+                else
+                {
+                    alert("result_data error " + result_data.message);
+                    var error_message = result_data.message;
+                    switch(error_message)
+                    {
+                        case "data error":
+                            alert("数据有误");
+                            break;
+                        case "name error":
+                            alert("姓名数据有误");
+                            break;
+                        case "phone error":
+                            alert("手机号有误");
+                            break;
+                        case "address_error":
+                            alert("地址有误");
+                            break;
+                        case "enroll number error":
+                            alert("报名人数有误");
+                            break;
+                        case "vertify number error":
+                            alert("验证码错误")
+                            break;
+                        case "enroll_id error":
+                            alert("报名出现错误");
+                            break;
+                        default:
+                            alert("支付出现错误，请重新再试");
+                            break;
+
+                    }
+
+                }
+            }
+            else
+            {
+                //alert('output error');
+                alert("付款出现错误，请重新再试");
+            }
+        });
+    }
+
+
+    //表单提交
+    $("#J_pay_join_btn").bind("click",function(){
+
+            callpay();
+
+
+    });
+</script>
+</html>

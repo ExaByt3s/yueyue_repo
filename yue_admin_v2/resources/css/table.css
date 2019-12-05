@@ -1,0 +1,41 @@
+/**
+ * 表格边框显示和搜索格式化 v1版
+ * @authors xiao xiao (xiaojm@yueus.com)
+ * @date    2015/7/22
+ * @Time:   11:37
+ * @version 1.0
+ */
+.table-list-search td
+{
+    padding-left: 10px;
+}
+.table-list-search .button_search
+{
+    width: 100px;
+    height: 50px;
+}
+#quick_search .table_search
+{
+    border-bottom: 1px solid #eee;
+}
+#table-list thead tr th {
+    border-right: #d5dfe8 1px solid;
+    border-top: #d5dfe8 1px solid;
+    border-bottom: none;
+    padding-left: 0px;
+}
+#table-list table {
+    border-left: #d5dfe8 1px solid;
+    border-bottom: #d5dfe8 1px solid;
+}
+#table-list tbody td {
+    border-right: #d5dfe8 1px solid;
+    border-top: #d5dfe8 1px solid;
+    border-bottom: none;
+    padding-left: 0px;
+}
+#table-list
+{
+    margin-top: 25px;
+    margin-bottom: 15px;
+}

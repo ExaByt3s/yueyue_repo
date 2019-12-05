@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/model_audit.css">
+    <title>信息发送后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <div class="table-list">
+        <h1><b>单条文本格式消息</b></h1>
+        <iframe name="frame" id="frame" style="display:none"></iframe>
+        <form method="post" action="?" id="myform" target="frame">
+            <div class="table" style="width:98%;" id="occu">
+                <!--list-->
+                <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+                    <tbody>
+                    <tr>
+                        <td>选择角色:</td>
+                        <td>
+                            <select name="role" id="role">
+                                <option value="">请选择角色</option>
+                                <option value="yuebuyer">消费者</option>
+                                <option value="yueseller">商家</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <td>请选择推送消息的账号:</td>
+                    <td>
+                        <select name="send_uid" id="send_uid">
+                            <option value="10002" >约yue小助手</option>
+                            <option value="10005">约yue系统助手</option>
+                        </select>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>填写用户ID:</td>
+                        <td>
+                            <input type="text" name="user_id" value="" class="input-text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>请选择发送格式:</td>
+                        <td>
+                            <select name="type" onchange="hidde_text(this.value);" id="type">
+                                <option value="text">文字</option>
+                                <option value="notify">链接类型</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>内容:</td>
+                        <td>
+                            <textarea name="content" style="width:550px;height:250px;" id="content"></textarea>
+                        </td>
+                    </tr>
+                    <tr class="xurl">
+                        <td>移动跳转链接:</td>
+                        <td>
+                            <input type="text" id="link_url" name="link_url" value="" class="input-text" style="width:400px;" />
+                        </td>
+                    </tr>
+                    <tr class="xurl">
+                        <td>wif跳转链接:</td>
+                        <td>
+                            <input type="text" id="wifi_url" name="wifi_url" value="" class="input-text" style="width:400px;"/>
+                        </td>
+                    </tr>
+                    <tr class="xurl">
+                        <td>链接是否需要转换:</td>
+                        <td>
+                            <select name="is_change_to_yueyue">
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                            <span>(<font color="red">http或者https开头，请选择“是”，如果是yueyue或者yueseller开头，请选择“否”</font>)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>操作:</td>
+                        <td>
+                            <input type="reset" value="取消" class="button special_button"/>
+                            <input type="submit" value="发送" class="button"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input type="hidden" value="send" name="act" id="act"/>
+        </form>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        hidde_text('text');
+    });
+    //判断是否不需要链接的
+    function hidde_text($values)
+    {
+        if($values == 'text')
+        {
+            $(".xurl").hide();
+        }
+        else
+        {
+            $(".xurl").show();
+        }
+    }
+
+
+
+</script>
+</html>

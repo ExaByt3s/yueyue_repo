@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>个人简介</title>
+    {wap_global_top}
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/home/input_introduce.scss">
+
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+</head>
+<body>
+<main role="main">
+    <div class="page-view input-page" data-role="page-container">
+
+    </div>
+</main>
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+    String.prototype.len = function()
+    {
+        return this.replace(/[^\x00-\xff]/g, "xx").length;
+    };
+
+        /*$("#text").on('keyup',function(){
+            var curLength = Math.ceil($(this).val().len()/2);
+            if(curLength > 140){
+                $('#text').attr('maxlength','280');
+            }
+            var num = 140 - curLength;
+            $("#word").text(num);
+        });*/
+
+    function numWord(num){
+        var nowLength = Math.ceil($(num).val().len()/ 2);
+        //字数超出140后变红
+        if(nowLength>140){
+            $('#setNums').addClass('red');
+        }
+        else{
+            $('#setNums').removeClass('red');
+        }
+        $('#setNums').html(nowLength);
+
+    }
+</script>
+</html>

@@ -1,0 +1,17 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/js/model_date/model_card
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+edit/
+edit_all/
+edit_condition/
+price_style_select/
+tpl/
+collection.js
+index.js
+model.js
+view.js
+
+--EOF--

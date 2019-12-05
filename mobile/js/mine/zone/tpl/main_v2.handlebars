@@ -1,0 +1,49 @@
+<main role="main" class="new-cameraman-zone">
+    <header class="nav-header mine-nav-header cameraman-header">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-back"></i></a>
+        </div>
+        <h3 class="title txt-long-cut" data-role="user-title"></h3>
+        <div class="right-button-wrap">
+            <a data-role="show-pop"><i class="circle-min"></i><i class="circle-min"></i><i class="circle-min"></i></a>
+        </div>
+    </header>
+
+    {{#if is_android}}
+        <style>
+            .new-cameraman-zone .native_scroll > *
+            {
+                -webkit-transform: translateZ(0px);
+            }
+
+            .new-cameraman-zone .native_scroll > * {
+                -webkit-transform: translate3d(0,0,0);
+            }
+        </style>
+    {{/if}}
+
+    <div class="model-camera-car" data-role="container">
+        <div data-role="info">
+
+        </div>
+    </div>
+
+
+
+    <footer class="pop-model-car-confirm ">
+        <ul class="list clearfix">
+            <li data-role="msg" class="">
+                <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width">
+
+                    <span class="ui-button-content"><i class="icon icon-siliao-m"></i> 私聊</span>
+
+                </button>
+            </li>
+        </ul>
+    </footer>
+
+
+    <!-- 大笨像 -->
+        <div class="pop-max-dabenxiang fn-hide" data-role="pop-dabenxiang-cameraman" style="background-image:url(../mobile/images/pop-modelcar-tips.png);background-size:80%;background-repeat:no-repeat;background-position:50%">
+        </div>
+</main>

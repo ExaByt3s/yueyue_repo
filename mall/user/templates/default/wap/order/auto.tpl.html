@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>约约首页</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/order/auto_4e91618.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<!--script src="../../../../lib/debuggap.js"></script-->
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/date_picker/frame_13a7721.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/date_picker/days_4cdfeec.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/time_picker/frame_3b973bd.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/time_picker/hour_e90b516.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/time_picker/index_755cfc7.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/scroll/index_8287ee3.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/date_picker/index_4c8c1bc.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/loader_script/index_29d3e92.js"></script>
+</head>
+<style>
+    .date{
+        display: -webkit-box;
+        -webkit-box-orient:vertical;
+        width: 100%;
+        height: 45px;
+        background: #fff;
+        line-height: 45px;
+        text-align: center;
+    }
+    .res_con{
+        display: -webkit-box;
+        -webkit-box-pack:center;
+        width: 100%;
+        height: 45px;
+        background: #fff;
+        line-height: 45px;
+    }
+    a{
+        display: block;
+        text-align: center;
+        color: #0060ff;
+        height: 25px;
+        line-height: 25px;
+    }
+</style>
+<body style="background: #f2f2f2">
+<main>
+    <div class="page-view page-name-order-auto" data-role="page-container">
+        脚本生成Tue Jul 07 2015 15:20:50 GMT+0800 (中国标准时间)
+    </div>
+    <div class="date" data-role="date">日期组件</div>
+    <div class="res_con" data-role="res"></div>
+    <a href="http://team.oschina.net/yue_front/document">文档</a>
+
+    <div class="date">表单验证组件ValueValid</div>
+    <a href="http://www.yueus.com/wappredev/valid_doc.html">文档</a>
+
+    <div class="date" data-role="chooseImages">微信选图</div>
+    <div class="chooseImages_contain" data-role="inner_image"></div>
+    <div class="date fn-hide" data-role="begin">开始上传</div>
+    <div class="date fn-hide" data-role="download">获取url列表</div>
+    <img src="" data-role="insert" style="width: 100%"/>
+</main>
+
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+
+    $(function()
+    {
+        var Picker = require('date_picker/index');
+        var hours = require('time_picker/index');
+        var WXSDK = require('common/I_WX_SDK/I_WX_SDK');
+
+        var day_res;
+        var hour_res;
+        //第二步：新建对象传入参数
+        var pick = new Picker
+        ({
+            CAN_NOT_CHOOSE_A_DAY_BEFORE:'2015-03-20',
+            CHOOSE_PAST_DAYS : true,
+            DEFAULT_DAY : '2015-07-24',
+            MONTH_RANGE : ['2015-03','2015-10'],
+            RETURN_SEPARATOR : '-',
+            SKIP_DAYS : ['2015-08-15~2015-09-15','2015-09-20']
+        })
+
+        //第三步：触发UI。某元素被点击时触发slide_show()方法，弹出组件UI
+        $('[data-role="date"]').on('click',function(){
+            pick.slide_show();
+        })
+
+        //第四步：侦听确认事件。日期被确定后触发finish事件，str为返回的日期参数。
+        //调用get_obj()方法获取UI组件本身。
+        //调用slide_hide()方法收起组件。
+        pick.get_obj().on('finish',function(event,str){
+
+            hours.show();
+
+            day_res = str;
+
+        })
+
+        //hours组件第二步：新建日期组件 支持链式.show()调用
+        hours.create
+        ({
+            span : 60,
+            custom_time : [],//['10:55','23:59','11:33'],
+            container : $('body'),
+            title: '请选择具体时间'
+        });
+
+        //hours组件：侦听事件
+        hours.get_obj().on('time-hour-finish',function(event,str_time)
+        {
+            hours.hide();
+
+            pick.slide_hide();
+
+            hour_res = str_time;
+
+            $('[data-role="res"]').html(day_res + " " + hour_res);
+        })
+
+        if(window.location.hash == '#date')
+        {
+            pick.slide_show();
+        }
+
+        window.onhashchange = function()
+        {
+            if(window.location.hash == '#date')
+            {
+                pick.slide_show();
+            }
+            else
+            {
+                pick.slide_hide();
+            }
+        }
+
+        if(WXSDK.isWeiXin())
+        {
+            WXSDK.ready(function()
+            {
+                WXSDK.chooseImages_and_uploadImages_and_downloadImages
+                ({
+                    upload_type : "pics", //icon头像 pics作品 默认pics 不懂问荣少“传图接口是不是份头像和作品”
+                    choose_trigger_str : "chooseImages_8-27", //选图事件触发自定义字符串 默认值chooseImages
+                    choose_count : 6, //选图张数，拍照微信限制1张,选图默认9张，该值只能调整选图张数
+                    choose_success : function(res){
+                        //选图完成时调用该方法
+                        //alert("success" + JSON.stringify(res))
+                        //res.sourceType 两种情况 : 'album' 相册  || 'camera' 相机
+                        //res.localIds 回调的图片数组
+                        $('[data-role="begin"]').removeClass("fn-hide");
+                    },
+                    choose_cancel : function(res){
+                        //取消选图时调用该方法
+                    },
+                    choose_fail :  function(res){
+                        //选图失败时调用该方法
+                    },
+                    upload_trigger_str : "uploadImages_8-27",//上传图片url事件触发自定义字符串 默认值uploadImages
+                    upload_success : function(resa,index,total_index){
+                        //成功上传完每张图都会调用该方法 index为上传序号 0开始
+                        $('[data-role="begin"]').html("已上传 " + (parseInt(index)+1) + "\/" + total_index);
+                    },
+                    upload_cancel : function(resa,index,total_index){
+                        //取消上传完每张图都会调用该方法 index为上传序号 0开始
+                    },
+                    upload_fail : function(resa,index,total_index){
+                        //上传失败完每张图都会调用该方法 index为上传序号 0开始
+                    },
+                    upload_success_all : function(media_obj_list,index,total_index){
+                        //上传完所有图片会调用该方法 index为上传序号 0开始
+                        //media_obj_list:对象数组[{localId:"",mediaId:""},{},{}] mediaId用于下载该图
+                        //alert("all" + JSON.stringify(media_obj_list))
+                        $('[data-role="download"]').removeClass("fn-hide");
+                    },
+                    get_trigger_str : "getImagesUrl_8-27",//获取图片url事件触发自定义字符串 默认值getImagesUrl
+                    get_imgUrl_beforeSend : function(){
+                        //发送图片路径ajax前调用
+                        $('[data-role="download"]').html("获取中...")
+                    },
+                    get_imgUrl_success : function(data){
+                        //发送图片路径ajax成功后调用
+                        var list_data = JSON.parse(data);
+
+                        alert("获取完成")
+                        //location.href = list_data.result_data.obj_list[0].server_url;
+
+                        /* obj_list结构 url放进img的src属性即可显示图片
+                   var  data :
+                        {
+                            result_data :
+                            {
+                                obj_list =
+                                    [
+                                        {
+                                            localId : "", //本地id
+                                            media_id : "",//媒体id
+                                            wx_url : "" ,//微信服务器图片地址
+                                            server_url : "" //poco服务器图片地址
+                                        },
+                                        {
+                                            localId : "", //本地id
+                                            media_id : "",//媒体id,
+                                            wx_url : "" ,//微信服务器图片地址
+                                            server_url : "" //poco服务器图片地址
+                                        }
+                                        .....
+                                    ]
+                                }
+                            }
+                        */
+                    },
+                    get_imgUrl_error : function(err){
+                        //发送图片路径ajax错误时调用
+                        //alert(JSON.stringify(err));
+                    },
+                    get_imgUrl_complete : function(){
+                        //发送图片路径ajax完成后调用
+                        $('[data-role="download"]').html("获取url列表")
+                    }
+                })
+
+                $('[data-role="chooseImages"]').on('click',function()
+                {
+                    $(WXSDK).trigger('chooseImages_8-27'); //触发对应选图事件 默认值chooseImages
+                })
+
+                $('[data-role="begin"]').on('click', function()
+                {
+                    $(WXSDK).trigger('uploadImages_8-27'); //触发对应上传图事件 默认值uploadImages
+                })
+
+                $('[data-role="download"]').on('click',function()
+                {
+                    $(WXSDK).trigger('getImagesUrl_8-27'); //触发对应获取url事件 默认值getImagesUrl
+                })
+            })
+        }
+
+        var loader = require('loader_script/index');
+
+        //loader.collect();
+    })
+</script>
+</html>

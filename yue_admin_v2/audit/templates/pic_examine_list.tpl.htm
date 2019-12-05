@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="../resources/js/admin.js"></script>
+<script type="text/javascript" src="./js/examine.js"></script>
+<script type="text/javascript" src="../js/layer/layer.min.js"></script>
+<script type="text/javascript" src="../js/layer/extend/layer.ext.js"></script>
+<script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="../js/FancyZoom/js-global/FancyZoom.js"></script>
+<script type="text/javascript" src="../js/FancyZoom/js-global/FancyZoomHTML.js"></script>
+<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+.table-list ul li 
+{
+   margin-left: 20px;
+   float: left;
+   width: 20%;
+   overflow: hidden;
+   text-align: center;
+   min-height: 293px;
+}
+.table-list ul li .pic
+{
+	height: 189px;
+}
+.table-list ul li img
+{
+	max-width: 165px;
+	max-height: 165px;
+	text-align: center;
+}
+.table-list .btn{
+	clear: both;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="#" class="on">{title}</a>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form action="pic_examine_list.php" method="get">
+					提交时间:
+					<input type="text" size="14" class="input-text Wdate" id="d434" onFocus="WdatePicker()" name="start_date" value="{start_date}" readonly="readonly">至 <input type="text" size="14" class="input-text Wdate" id="d21" onFocus="WdatePicker()" name="end_date" value="{end_date}" readonly="readonly">
+					UID:<input type="text" size="12" class="input-text" name="user_id" value="{user_id}">
+					手机号码:<input type="text" size="12" class="input-text" name="cellphone" value="{cellphone}">
+					<input type="submit" value="查询" class="button">
+					<input type="reset" value="重置" class="button">
+					<input type="hidden" value="{act}" name="act">
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+<form name="list_form" id="list_form" action="" method="post">
+	<div class="table-list">
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th width="120">
+					<input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');">全选/全不选
+				</th>
+				<th width="200">
+					<input type="button" class="button" name="dosubmit" value="通过" class="pic_pass" onclick="pic_examine_pass()"/>
+					<input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="picDel('{act}')"/>
+				</th>
+				<th>&nbsp;</th>
+				</tr>
+		</table>
+		<!--list-->
+			<ul>
+				<!-- BEGIN list -->
+				<li>
+					<p><input class="inputcheckbox " name="ids[]" value="{id}" type="checkbox"></p>
+					<p class="pic"><a href="{img_url}"><img src="{thumb_url}" class="img_{id}"></a></p>
+					<p>用户名:{nickname}</p>
+					<p>UID:{user_id}</p>
+					<p>角色:<!-- IF role="yuebuyer" -->消费者<!-- ELSEIF role="yueseller" -->商家<!-- ENDIF --></p>
+					<p>上传时间:[<font color="green">{add_time}</font>]</p>
+				</li>
+				<!-- END list -->
+			</ul>
+		<!--list end-->
+		<div class="btn">
+			<input type="button" class="button" name="dosubmit" value="通过" class="pic_pass" onclick="pic_examine_pass()">
+			<input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="picDel('{act}')"> 
+		</div>
+	</div>
+</form>
+<div id="pages" class="page">
+	<!-- <a href="#this">1</a>
+	<a href="#this" class="cur">2</a> -->
+	{page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		setupZoom();
+	});
+
+	/**
+	* numberMillis 输入秒数
+	*/
+	function sleep_to(numberMillis) { 
+	 var now = new Date();
+	 var exitTime = now.getTime() + numberMillis; 
+	  while (true) 
+	  { 
+	    now = new Date(); 
+	    if (now.getTime() > exitTime) return;
+	  }
+	}
+</script>
+</html>

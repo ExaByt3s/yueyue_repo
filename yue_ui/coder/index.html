@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;" />
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, user-scalable=no ,target-densitydpi=device-dpi ,initial-scale= 0.5"/>
+
+	<link rel="apple-touch-icon" href="webapp3.jpg" />
+
+	<style type="text/css">
+		
+		body,html{ margin:0;padding:0;width:100%;height:100%;-webkit-touch-callout: none; -webkit-user-select: none; -webkit-tap-highlight-color: yellow;}
+
+		/* 清除漂浮 */
+		.clearfix{ zoom:1;}
+		.clearfix:after { content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+    </style>
+	
+	
+	
+	<script type="text/javascript" src="js/sea.js"></script>
+	
+</head>
+<body>
+	
+
+
+	<div style="width:100%;height:100px;"  class="wo_nav">
+		<div>
+			<img src="http://www.poco.cn/css_common/v3/images/channel/mobile/logo.png">
+		</div>
+		<div style="height:55px;background: #511F56">
+			<table style="width:100%;color:white;height:100%;font-weight:900;text-shadow: 1px 1px 2px #111" cellspacing=0 cellpadding=0>
+				<tr>
+					<td align="center" data-nav="index" style="width:25%;">美图</td>
+					<td align="center" data-nav="theme" style="width:25%;">主题</td>
+					<td align="center" data-nav="friend" style="width:25%;">好友动态</td>
+					<td align="center" data-nav="my" style="width:25%;">我的</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="page_container" style="width:100%; position:relative; overflow: hidden;">
+		
+	</div>
+
+
+</body>
+
+
+<script type="text/javascript">
+<!--
+var noCachePrefix = 'seajs-ts='
+//noCacheTimeStamp = noCachePrefix + 'iii';
+var noCacheTimeStamp = noCachePrefix + new Date().getTime()
+
+//seaJs设置
+seajs.config
+({
+	map: [
+		[/^.*$/, function(url) {
+		  if (url.indexOf(noCachePrefix) === -1) {
+			url += (url.indexOf('?') === -1 ? '?' : '&') + noCacheTimeStamp
+		  }
+		  return url
+		}]
+	  ],
+	alias: 
+	{
+		'backbone': 'base/backbone',
+		'underscore' : 'base/underscore.min',
+		'jquery' : 'base/jquery.min',
+		'zepto' : 'base/zepto.min',
+		'mustache' : 'base/mustache',
+		'iScroll' : 'base/iscroll.min',
+		'hammer' : 'base/hammer.jq',
+		'hammer_0.6' : 'base/hammer.0.6.jq',
+		'page_control' : 'frame/page_control',
+		'page' : 'frame/page',
+		'scroll' : 'frame/view_scroll',
+		'masonry' : 'base/masonry',
+		'ua' : 'base/ua',
+		'wo_config' : 'wo/wo_config',
+		'loading' : 'apps/loading'
+    },
+	preload : ['base/plugin-text']
+});
+
+//初始化sea
+seajs.use('wo/web_wo_init.js', function(init) 
+{
+	
+});
+
+//-->
+</script>
+</html>

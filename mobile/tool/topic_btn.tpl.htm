@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <title>专题按钮与跳转工具页面</title>
+        <meta charset="gbk">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/wap/style/libs/common_18ce95a.css">
+        <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/order/confirm-page.css">
+        <script type="text/javascript" src="http://static.yueus.com/yue_ui/js/jquery.js"></script>
+    </head>
+    <body>
+        <style type="text/css">
+        .service-input-text{
+            height: 50px;
+            background-color: #fff;
+            width: 100%;
+            text-indent: 15px;
+        }
+        select{
+            height: 50px;
+            
+        }
+        textarea{
+            width: 500px;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+        </style>
+        <main role="main">
+        <input type="hidden" value="322" id="goods_id">
+        <div id="global-header">
+            <!-- header start -->
+            <header class="global-header">
+                <div class="wbox clearfix">
+                                        
+                    
+                    <h3 class="title">专题按钮与跳转工具页面</h3>
+                    
+                </div>
+            </header>
+            <!-- header end -->
+        </div>
+        <div class="page-view confirm-page" data-role="page-container">
+            <div class="confirm-page-wrap">
+                <div class="item-wrap">           
+                    <div class="item">
+                        <div class="title-item">
+                            <h1 class="title pt10 ">跳转地址</h1>
+                        </div>
+                        <input value="{url}" type="text" class="service-input-text" placeholder="可输入跳转地址" id="address" >
+                        <select>
+                                <option>--选择配置页面--</option>
+                        </select>                                         
+                        
+                        <h1>按钮宽度</h1>
+                        <input value="100px" type="text" class="service-input-text mt10" placeholder="按钮宽度" id="btn-with">  
+                        <h1>按钮文案</h1>
+                        <input value="点击我" type="text" class="service-input-text mt10" placeholder="按钮文案" id="btn-text" > 
+                        
+                        <select id="sel-btn-ui" style="background: #F96">
+                                <option value="0">--选择按钮UI--</option>
+                                <option value="ui-button  ui-button-block ui-button-100per ui-button-size-x ui-button-bg-ff6">--选择红色--</option>
+                                <option value="ui-button  ui-button-block  ui-button-size-x ui-button-bg-555">--选择黑色--</option>
+                                <option value="ui-button  ui-button-block  ui-button-size-x ui-button-bd-555">--选择透明黑--</option>
+                                <option value="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6">--选择透明红--</option>
+                        </select>  
+                        <div class="ml10" id="btn-ui-result">
+                            
+                        </div>                        
+                        <div style="width:200px;margin-top:20px;" class="ml10">
+                            <button class="ui-button ui-button-block ui-button-size-x ui-button-bg-ff6" id="output">
+                            <span class="ui-button-content">生成跳转按钮代码</span>
+                            </button>
+                        </div>  
+
+                        <textarea id="code"></textarea>
+                    </div>  
+                </div>
+                
+            </div>
+            
+            
+        </div>
+        </main>
+        <script type="text/javascript">
+            $(function()
+            {
+                $('#sel-btn-ui').change(function()
+                {
+                    if($(this).val() == 0)
+                    {
+                        return;
+                    }
+
+                    var str = '<a class="db" href="'+($('#address').val()?$('#address').val():'javascript:;')+'"><div ><button class="'+$(this).val()+'" >'+
+                                '<span class="ui-button-content">'+$('#btn-text').val()+'</span>'+
+                                '</button></div></a>'
+
+                    $('#btn-ui-result').html(str)
+                });
+
+                $('#output').on('click',function()
+                {
+                    $('#code').val($('#btn-ui-result').html())      
+                    
+                    $('#code').focus();
+                    $('#code').select();                      
+                });                        
+            })
+        </script>
+        <div id="page-container " style="display:none">
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bg-ff6">
+            <span class="ui-button-content">已经选择</span>
+            </button>
+            <br />
+            <button class="ui-button  ui-button-block  ui-button-size-m ui-button-bg-ff6">
+            <span class="ui-button-content">已经选择</span>
+            </button>
+            <br />
+            <button class="ui-button  ui-button-block ui-button-size-l ui-button-bg-ff6">
+            <span class="ui-button-content">已经选择</span>
+            </button>
+            <br />
+            <button class="ui-button  ui-button-block ui-button-size-xl ui-button-bg-ff6">
+            <span class="ui-button-content">已经选择</span>
+            </button>
+            <br />
+            <button class="ui-button  ui-button-inline-block  ui-button-size-x ui-button-bg-ff6">
+            <span class="ui-button-content">已经选择</span>
+            </button>
+            <button class="ui-button  ui-button-inline-block  ui-button-size-x ui-button-bg-ff6">
+            <span class="ui-button-content">已经选择</span>
+            </button>
+            <br />  <br />
+            <button class="ui-button  ui-button-block ui-button-size-x ui-button-bg-fff">
+            <span class="ui-button-content">还未选择</span>
+            </button>
+            <br />
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bg-555">
+            <span class="ui-button-content">获取验证码</span>
+            </button>
+            <br />
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-555">
+            <span class="ui-button-content">关闭</span>
+            </button>
+            <br />
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa">
+            <span class="ui-button-content">关闭</span>
+            </button>
+            <br />
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6">
+            <span class="ui-button-content">支付</span>
+            </button>
+            <br />
+            <button class="ui-button  ui-button-block ui-button-size-l ui-button-bg-btn-555">
+            <span class="ui-button-content">咨询</span>
+            </button>
+            <br />
+            <button class="ui-button-submit">
+            <span class="ui-button-content">提交订单</span>
+            </button>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="ui-button-submit-area">
+                <div class="wbox clearfix">
+                    <div class="lbox fldi">
+                        <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-555 ui-button-100per">
+                        <span class="ui-button-content">返回修改</span>
+                        </button>
+                    </div>
+                    <div class="rbox fldi">
+                        <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-555 ui-button-100per">
+                        <span class="ui-button-content">下一步</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

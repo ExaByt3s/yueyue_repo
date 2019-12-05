@@ -1,0 +1,109 @@
+
+
+@import "../../../../sass/compass";
+
+.add-reduction-mod{
+    @include flexbox((
+        display: box,
+        box-pack: left,
+    ));
+    line-height: 33px;
+
+    ::-webkit-inner-spin-button {
+         -webkit-appearance: none;    /* 上下小箭头按钮，太丑了 */
+    }
+
+    .icon-reduce-32x32-m{
+        background: url(../../../../image/reduce-32x32-m-active.png) no-repeat;
+        width: 16px;
+        height: 16px;
+        background-size: 16px 16px;
+    }
+
+
+
+    .icon-add-32x32-m{
+        background: url(../../../../image/add-32x32-m-active.png) no-repeat;
+        width: 16px;
+        height: 16px;
+        background-size: 16px 16px;
+    }
+
+
+
+    // .input-area{margin-top: -1px;}
+    .reduce{
+        padding-top: 4px;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        @include box-sizing(border-box);
+        @include flexbox((
+            display: box,
+            box-orient:vertical,
+            box-pack: center
+        ));
+        background: #f5f5f5;
+        border: 1px solid #dddddd;
+
+        &:active{
+            background-color: #ddd;
+        };
+    }
+    
+    .reduce-no{
+        background: #fafafa;
+        &:active{
+            background-color: #fafafa;
+            .icon-reduce-32x32-m{
+                // @include get-icon('reduce-32x32-no', true, block);
+            }
+        };
+    }
+
+
+    .add{
+        padding-top: 4px;
+        @include box-sizing(border-box);
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        @include flexbox((
+            box-orient:vertical,
+            display: box,
+            box-pack: center
+        ));
+        background: #f5f5f5;
+        border: 1px solid #dddddd;
+
+        &:active{
+            background-color: #ddd;
+        };
+    }
+
+    .add-no{
+        background: #fafafa;
+        &:active{
+            background-color: #fafafa;
+            .icon-add-32x32-m{
+                // @include get-icon('add-32x32-no', true, block);
+            }
+        };
+    }
+
+    .input-disabled{
+        border: 1px solid #dddddd;
+    }
+    
+    .input{
+        width: 60px;
+        height: 35px;
+        text-align: center;
+        @include box-sizing(border-box);
+        background: #fff;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+        font-size: 14px;
+        color: #000;
+    }
+}

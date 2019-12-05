@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "ui-slider.css",
+    "sources": [
+        "/style/widget/ui-slider.scss"
+    ],
+    "sourcesContent": [
+        "@charset \"utf-8\";\r\n/**\r\n * 轮播组件\r\n */\r\n.ui-slider {\r\n    width: 100%;\r\n    overflow: hidden;\r\n    position: relative;\r\n    padding-top: 31.25%; //默认200px\r\n}\r\n.ui-slider-content {\r\n    display: -webkit-box;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    height: 100%;\r\n}\r\n.ui-slider-content > li{\r\n    -webkit-box-flex: 1;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n.ui-slider-content > li img{\r\n    display: block;\r\n    width: 100%;\r\n}\r\n.ui-slider-content > li span{\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-repeat: no-repeat;\r\n    -webkit-background-size: 100% 100%;\r\n}\r\n.ui-slider-content > li:active{\r\n    opacity: .7;\r\n}\r\n.ui-slider-indicators {\r\n    position: absolute;\r\n    display: -webkit-box;\r\n    -webkit-box-pack: end;\r\n    width: 100%;\r\n    bottom: 10px;\r\n    right: 4px;\r\n    font-size: 0;\r\n}\r\n.ui-slider-indicators li {\r\n    display: block;\r\n    text-indent:100%;\r\n    white-space:nowrap;\r\n    overflow:hidden;\r\n    font-size: 0;\r\n    width: 7px;\r\n    height: 7px;\r\n    background-color: rgba(0,0,0,.3);\r\n    border-radius:10px;\r\n    margin-right: 6px;\r\n    -webkit-box-sizing: border-box;\r\n    background-clip: padding-box;\r\n    position: relative;\r\n}\r\n.ui-slider-indicators li.current:before {\r\n    content: '';\r\n    position: absolute;\r\n    background-color: #fff;\r\n    left: 1px;\r\n    top: 1px;\r\n    width: 5px;\r\n    height: 5px;\r\n    border-radius: 10px;\r\n    -webkit-box-sizing: border-box;\r\n    background-clip: padding-box;\r\n}\r\n"
+    ],
+    "mappings": "AAIA,AACI,AAAO,AACP,AAAU,AACV,AAAU,AACV,AAAa,AAEjB,AACI,AAAS,AACT,AAAU,AACV,AAAM,AACN,AAAK,AACL,AAAQ,AAEZ,AAAqB,AACjB,AAAkB,AAClB,AAAO,AACP,AAAQ,AAEZ,AAAqB,AAAG,AACpB,AAAS,AACT,AAAO,AAEX,AAAqB,AAAG,AACpB,AAAS,AACT,AAAO,AACP,AAAQ,AACR,AAAmB,AACnB,AAAyB,AAE7B,AAAqB,AAAE,AACnB,AAAS,AAEb,AACI,AAAU,AACV,AAAS,AACT,AAAkB,AAClB,AAAO,AACP,AAAQ,AACR,AAAO,AACP,AAAW,AAEf,AAAsB,AAClB,AAAS,AACT,AAAY,AACZ,AAAY,AACZ,AAAS,AACT,AAAW,AACX,AAAO,AACP,AAAQ,AACR,AAAkB,AAClB,AAAc,AACd,AAAc,AACd,AAAoB,AACpB,AAAiB,AACjB,AAAU,AAEd,AAAsB,AAAE,AAAQ,AAC5B,AAAS,AACT,AAAU,AACV,AAAkB,AAClB,AAAM,AACN,AAAK,AACL,AAAO,AACP,AAAQ,AACR,AAAe,AACf,AAAoB,AACpB,AAAiB",
+    "names": []
+}

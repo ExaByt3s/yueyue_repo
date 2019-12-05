@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>管理员后台</title>
+<style type="text/css">
+.table-ul 
+{
+  margin-top:10px;
+  height: 100px;
+}
+.table-ul li
+{
+   float: left;
+   width: 25%;
+   text-align: center;
+   height: 30px;
+   line-height: 30px;
+}
+.table-ul li a
+{
+  display: inline-block;
+  width: 80%;
+  height: 24px;
+  line-height: 24px;
+  border: 1px solid #ccc;
+  color: black;
+  text-decoration: none;
+}
+.table-ul li .cur
+{
+  background: #ccc;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+  <ul>
+     <li><input type="button" value="筛选模特风格" class="button"/></li>
+  </ul>
+</div>
+<!--top-->
+  <div class="table-list">
+    <ul class="table-ul">
+       <li><a href="javascript:void(0);" id="all" data="{all}" <!-- IF all -->class="cur"<!-- ENDIF --> >全部</a></li>
+       <li><a href="javascript:void(0);" data="{qx}" <!-- IF qx -->class="sign cur"<!-- ELSE -->class="sign"<!-- ENDIF -->>清新</a></li>
+       <li><a href="javascript:void(0);" data="{sy}" <!-- IF sy -->class="sign cur"<!-- ELSE -->class="sign"<!-- ENDIF -->>商业</a></li>
+       <li><a href="javascript:void(0);" data="{qix}" <!-- IF qix -->class="sign cur"<!-- ELSE -->class="sign"<!-- ENDIF -->>情绪</a></li>
+       <li><a href="javascript:void(0);" data="{qp}" <!-- IF qp -->class="sign cur"<!-- ELSE -->class="sign"<!-- ENDIF --> >街拍</a></li>
+       <li><a href="javascript:void(0);" data="{om}" <!-- IF om -->class="sign cur"<!-- ELSE -->class="sign"<!-- ENDIF -->>欧美</a></li>
+       <li><a href="javascript:void(0);" data="{hx}" <!-- IF hx -->class="sign cur"<!-- ELSE -->class="sign"<!-- ENDIF -->>韩系</a></li>
+       <li><a href="javascript:void(0);" data="{rx}" <!-- IF rx -->class="sign cur"<!-- ELSE -->class="sign"<!-- ENDIF --> >日系</a></li>
+       <li><a href="javascript:void(0);" data="{fg}" <!-- IF fg -->class="sign cur"<!-- ELSE -->class="sign"<!-- ENDIF --> >复古</a></li>
+       <li><a href="javascript:void(0);" data="{jp}" <!-- IF jp -->class="sign cur"<!-- ELSE -->class="sign"<!-- ENDIF -->>胶片</a></li>
+       <li><a href="javascript:void(0);" data="{xg}" <!-- IF xg -->class="sign cur"<!-- ELSE -->class="sign"<!-- ENDIF -->>性感</a></li>
+    </ul>
+  <div class="btn" style="clear:both;">
+      <input type="button" class="button" value="取消" id="close_layer" />
+      <input type="button" class="button" value="确定" id="send_layer"/>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+var index = parent.layer.getFrameIndex(window.name);
+$(function(){
+    //全部选择
+    $("#all").click(function(){
+      var $val_all = $(this).attr("data");
+      if ($val_all == '') 
+      {
+        //window.alert("ok");
+        $(".table-ul .sign").attr( { 'data': '' } );
+        $(".table-ul .sign").removeClass('cur');
+        var $val_html = $(this).html();
+        $(this).attr( { 'data': $val_html } );
+        $(this).addClass('cur');
+      }
+      else
+      {
+           $(this).attr( { 'data': '' } );
+           $(this).removeClass('cur');
+      }
+    });
+    //单个选择
+    $(".table-ul").find('.sign').click(function(){
+        var $all = $("#all").attr('data');
+        if ($all != '')
+        {
+          window.alert('你已经选择了全部');
+          return false;
+        };
+        var $val = $(this).html();
+        if ($(this).attr("data") == '') 
+        {
+           $(this).attr( { 'data': $val } );
+           $(this).addClass('cur');
+        }
+        else
+        {
+           $(this).attr( { 'data': '' } );
+           $(this).removeClass('cur');
+        }
+    })
+
+    //关闭layer
+    $("#close_layer").click(function(){
+         parent.layer.close(index);
+    });
+    //保存
+    $("#send_layer").click(function(){
+      var $str = "";
+      var $str_show = "";
+      $(".table-ul .cur").each(function(i){
+        var $style_val = $(this).attr("data");
+        $str += "<input type='hidden' value='"+$style_val+"' name='style[]'/>";
+        if(i!=0)
+        {
+          $str_show += ",";
+        }
+        $str_show += $style_val;
+        //window.alert($(this).attr("data"));
+      });
+      parent.$('.style_data').html($str);
+      parent.$('.style_show').html($str_show);
+      parent.layer.close(index);
+    });
+});
+</script>
+</html>

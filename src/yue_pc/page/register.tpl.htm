@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>注册</title>
+<!-- 公共css，js引入 -->
+{pc_global_top}
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+
+<!-- <link rel="import" href="../page/webcontrol/head.tpl.htm?__inline"> -->
+
+<!-- 当前页css -->
+<link type="text/css" rel="stylesheet" href="../style/login-register-page.scss"> 
+
+</head>
+<!-- IF is_pc == "pc" -->
+<style>
+    /****特殊处理-for校验****/
+    .login-register-page-body .login-register-page-wrap{
+        background: url(http://static.yueus.com/pcpredev/static/images/bg-1000x750.jpg) center top no-repeat;
+        min-height: 650px;
+        background-size:1000px 650px;
+    }
+    /****特殊处理****/
+</style>
+<!-- ENDIF is_pc -->
+
+<body class="login-register-page-body">
+
+
+<!-- bar -->
+{global_top_bar}
+<!-- bar end -->
+<div class="login-register-page-wrap">
+
+
+    <div id="register-area" class="mb10"></div>
+
+
+
+</div>
+<input type="hidden" value="{token}" id="J_token" name="token">
+<input type="hidden" value="{is_pc}" id="J_is_pc">
+{footer}
+
+</body>
+
+<script type="text/javascript">
+
+var $ = require('components/jquery/jquery.js');
+
+
+// 渲染
+var $register_ele = $('#register-area');
+var register_mod = require('common/login_register_change_pw/register');
+register_mod.render($register_ele[0],'{r_url}');
+
+</script>
+
+<script type="text/javascript">
+
+
+    var token = $("#J_token").val();
+    var test_count_Interval = "";
+
+
+    <!-- IF is_pc == "pc" -->
+
+    //failback
+    var gtFailbackFrontInitial = function(result) {
+        var s = document.createElement('script');
+        s.id = 'gt_lib';
+        s.src = 'http://static.geetest.com/static/js/geetest.0.0.0.js';
+        s.charset = 'UTF-8';
+        s.type = 'text/javascript';
+        document.getElementsByTagName('head')[0].appendChild(s);
+        var loaded = false;
+        s.onload = s.onreadystatechange = function() {
+            if (!loaded && (!this.readyState|| this.readyState === 'loaded' || this.readyState === 'complete')) {
+                loadGeetest(result);
+                loaded = true;
+            }
+        };
+
+
+    }
+
+
+    //加载极客校验
+    var loadGeetest = function(config) {
+
+        //1. use geetest capthca
+        window.gt_captcha_obj = new window.Geetest({
+            gt : config.gt,
+            challenge : config.challenge,
+            product : 'embed',
+            offline : !config.success
+        });
+
+        $("#div_id_embed").html("");
+        gt_captcha_obj.appendTo("#div_id_embed");
+
+
+
+        //绑定滑动中事件
+        //验证滑动成功回调
+        gt_captcha_obj.onSuccess(function() {
+            var value = gt_captcha_obj.getValidate();
+            var result = JSON.stringify(value);
+            var phone_number_val = $('[phone_number]').val().trim();
+            if (!phone_number_val)
+            {
+                alert('请输入手机号码');
+                return ;
+            }
+
+            $.ajax({
+                url : "geetest/web/VerifyGeetestServlet.php",
+                type : "post",
+                dataType : 'JSON',
+                data : {
+                    value : result,
+                    action : '9de4a97425678c5b1288aa70c1669a64',
+                    phone_num : phone_number_val,
+                    token : token
+
+                },
+                success : function(data) {
+
+                    test_count_down(60);
+                    console.log(data);
+                    if(data.send_status==1)
+                    {
+
+                        return;
+                    }
+                    else if(data.send_status==2)
+                    {
+                        alert("短信发出，被拦截了");
+                        return;
+                    }
+                    else
+                    {
+                        alert("验证失败");
+                        return;
+                    }
+
+                }
+            })
+
+        });
+
+        //刷新滑动块事件
+        gt_captcha_obj.onRefresh(function(){
+
+            //alert("刷新重置");
+            test_stop_count_down();
+
+
+
+        });
+
+        //发生不知名错误
+        gt_captcha_obj.onError(function(){
+
+            //
+            alert("发生不知名错误，请重新刷新");
+
+        });
+
+    }
+
+    //使用回调
+    var s_script = document.createElement('script');
+    s_script.src = 'http://api.geetest.com/get.php?callback=gtcallback';
+    $("#div_geetest_lib").append(s_script);
+
+    var gtcallback =( function() {
+        var status = 0, result, apiFail;
+        return function(r) {
+            status += 1;
+            if (r) {
+                result = r;
+                setTimeout(function() {
+                    if (!window.Geetest) {
+                        apiFail = true;
+                        gtFailbackFrontInitial(result)
+                    }
+                }, 1000)
+            }
+            else if(apiFail) {
+                return
+            }
+            if (status == 2) {
+                loadGeetest(result);
+            }
+        }
+    })()
+
+
+    //初始化校验模块
+    var init_geetest_module = function(){
+
+
+
+        //移动到滑动块
+        $("html,body").animate({
+            scrollTop:$("#div_id_embed").offset().top
+        },300);
+
+        //添加提示
+        var tips_html='<div class="cor-aaa f14 tc pt5">正在加载验证滑块，请稍等...</div>';
+        $(tips_html).appendTo("#div_id_embed");
+
+        $.ajax({
+            url : "geetest/web/StartCaptchaServlet.php",
+            type : "get",
+            dataType : 'JSON',
+            success : function(result) {
+                console.log(result);
+                gtcallback(result)
+            }
+        })
+
+
+
+    }
+
+
+
+    //首先检查权限
+    function init_level_module(){
+
+        //获取手机号
+        var phone_number_val = $('[phone_number]').val().trim();
+        if (!phone_number_val)
+        {
+            alert('请输入手机号码');
+            return ;
+        }
+        //访问服务器
+        $.ajax({
+            url : "../action/get_active_word_ajax_level.php",
+            type : "post",
+            dataType: 'json',
+            data : {
+                action : '9de4a97425678c5b1288aa70c1669a64',
+                phone_num : phone_number_val,
+                token : token
+            },
+            success : function(data) {
+
+                if(data.ajax_status==1)
+                {
+                    if(data.level==2)
+                    {
+                        //使用校验
+                        init_geetest_module();
+                    }
+                    else
+                    {
+                        //已经发送，数调取倒数函数
+
+                        test_count_down(60);
+                        return;
+                    }
+                }
+                else if(data.ajax_status==-2)
+                {
+                    $("#error_tips").css("display","block");
+                    $("#err_tips_txt").html(data.msg);
+
+
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+        })
+    }
+
+
+    function test_count_down(sec)
+    {
+
+        $('[msg_num_geetest]').html(sec);
+        $('[msg_num_geetest]').addClass('stop');
+        test_count_Interval = setInterval(function()
+        {
+            sec--;
+            if (sec == 0)
+            {
+                test_stop_count_down();
+            }
+            else
+            {
+                $('[msg_num_geetest]').html(sec);
+            }
+        }, 1000);
+
+    }
+
+    function test_stop_count_down()
+    {
+
+        clearInterval(test_count_Interval);
+        $('[msg_num_geetest]').html("重新获取");
+        $('[msg_num_geetest]').removeClass('stop');
+        //特殊处理
+        //删掉滑块
+        $("#div_id_embed").html("");
+        window.Geetest = "";
+        //特殊处理
+
+    }
+
+    <!-- ENDIF is_pc -->
+
+</script>
+
+
+</html>

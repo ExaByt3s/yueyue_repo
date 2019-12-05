@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>活动支付</title>
+    {wap_global_top}
+    <!-- libjs 必须引用 -->
+    <script src="/lib/lib.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../../../../style/pay/pay_tt.scss">
+
+
+</head>
+<input type="hidden" id="order_sn" value="{order_sn}"/>
+<body>
+<main role="main">
+
+    <div class="page-view pay-tt " data-role="page-container">
+
+
+    </div>
+    <div class="coupon-list-container fn-hide" data-role="coupon-list-wrap" >
+        <div data-role="nav-header"></div>
+        <div class="list-coupon mt15 pl15 pr15 pb15" data-role="coupon-list-container"></div>
+        <div class="ui-button-submit-area">
+          <a class="db" href="../coupon/code.php?redirect_url={cur_page_url}">
+              <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6" style="margin: 10px auto;width: 150px;" data-role="nav-to-code">
+                    <span class="ui-button-content">兑换优惠券</span>
+              </button>
+          </a>
+        </div>
+    </div>
+    {wap_global_footer}
+</main>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+    var _page_data = {page_data};
+
+    var _page_params = {page_params};
+
+    require('../../../../modules/act/pay');
+</script>

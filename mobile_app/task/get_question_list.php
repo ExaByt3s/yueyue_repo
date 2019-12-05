@@ -1,0 +1,34 @@
+<?php 
+
+define('YUE_INPUT_CHECK_TOKEN', FALSE);
+require(dirname(dirname(__FILE__)) . '/protocol_input.inc.php');
+include_once ('/disk/data/htdocs232/poco/pai/yue_admin/cms/cms_common.inc.php');
+
+$service_id = (int)$client_data ['data'] ['param'] ['service_id'];
+$user_id = (int)$client_data ['data'] ['param'] ['user_id'];
+$service_id = $service_id?$service_id:2;
+
+/*
+$json = '{"id":"2","titles":"\u6444\u5f71\u57f9\u8bad\u95ee\u5377","type":"2","showtype":"1","add_time":"1428542694","version":"2015040909243512365","data":[{"id":"17","titles":"\u8bf7\u9009\u62e9\u60a8\u7684\u5730\u5740","type":"6","data":[{"id":"72","is_input":"0","titles":"\u8bf7\u9009\u62e9\u5730\u533a","link":"0","type":"6","jump_id":"0"}]},{"id":"12","titles":"\u60a8\u53c2\u52a0\u6444\u5f71\u57f9\u8bad\u7684\u5b66\u4e60\u76ee\u7684\u662f","type":"1","data":[{"id":"28","is_input":"0","titles":"\u4e13\u4e1a\u9700\u6c42\uff0c\u60f3\u505a\u4e13\u4e1a\u6444\u5f71\u5e08","link":"0","type":"0","jump_id":"0"},{"id":"29","is_input":"0","titles":"\u5174\u8da3\u7231\u597d\uff0c\u4e1a\u4f59\u65f6\u95f4\u62cd\u6444\u7167\u7247","link":"0","type":"0","jump_id":"0"},{"id":"30","is_input":"0","titles":"\u5de5\u4f5c\u9700\u6c42\uff0c\u9700\u8981\u7528\u5230\u6444\u5f71\u6280\u80fd","link":"0","type":"0","jump_id":"15"},{"id":"47","is_input":"2","titles":"\u5176\u4ed6\u76ee\u7684","link":"0","type":"0","jump_id":"0"}]},{"id":"13","titles":"\u60a8\u4f7f\u7528\u6444\u5f71\u5668\u6750\u591a\u957f\u65f6\u95f4\u4e86","type":"1","data":[{"id":"31","is_input":"0","titles":"1\u5e74\u4ee5\u4e0b","link":"0","type":"0","jump_id":"0"},{"id":"32","is_input":"0","titles":"1\u5e74-3\u5e74","link":"0","type":"0","jump_id":"0"},{"id":"33","is_input":"0","titles":"3\u5e74-5\u5e74","link":"0","type":"0","jump_id":"0"},{"id":"34","is_input":"0","titles":"5\u5e74\u4ee5\u4e0a","link":"0","type":"0","jump_id":"0"}]},{"id":"24","titles":"\u5206\u7c7b\u6444\u5f71\u4e2d\uff0c\u4f60\u671f\u671b\u7740\u91cd\u5b66\u4e60\u54ea\u51e0\u65b9\u9762\uff1f","type":"2","data":[{"id":"55","is_input":"0","titles":"\u4eba\u50cf\u6444\u5f71","link":"0","type":"0","jump_id":"0"},{"id":"56","is_input":"0","titles":"\u5546\u4e1a\u6444\u5f71","link":"0","type":"0","jump_id":"0"},{"id":"57","is_input":"0","titles":"\u98ce\u5149\u6444\u5f71","link":"0","type":"0","jump_id":"0"},{"id":"58","is_input":"0","titles":"\u4eba\u6587\u7eaa\u5b9e","link":"0","type":"0","jump_id":"0"},{"id":"59","is_input":"0","titles":"\u65b0\u95fb\u6444\u5f71","link":"0","type":"0","jump_id":"0"},{"id":"60","is_input":"0","titles":"\u751f\u6001\u6444\u5f71","link":"0","type":"0","jump_id":"0"},{"id":"48","is_input":"1","titles":"\u5176\u4ed6\u65b9\u9762","link":"0","type":"0","jump_id":"0"}]},{"id":"14","titles":"\u901a\u8fc7\u53c2\u52a0\u8bfe\u7a0b\u60a8\u671f\u671b\u8fbe\u5230\u600e\u4e48\u6837\u7684\u6548\u679c?","type":"2","data":[{"id":"35","is_input":"0","titles":"\u76f8\u673a\u57fa\u672c\u64cd\u4f5c\u53ca\u4f7f\u7528","link":"1","type":"2","jump_id":"0","data":[{"id":"49","is_input":"0","titles":"\u76f8\u673a\u5386\u53f2"},{"id":"50","is_input":"0","titles":"\u76f8\u673a\u54c1\u724c"},{"id":"51","is_input":"0","titles":"\u76f8\u673a\u7c7b\u578b"}]},{"id":"36","is_input":"0","titles":"\u638c\u63e1\u57fa\u7840\u77e5\u8bc6","link":"0","type":"0","jump_id":"0"},{"id":"37","is_input":"0","titles":"\u638c\u63e1\u6444\u5f71\u6280\u5de7","link":"0","type":"0","jump_id":"0"},{"id":"38","is_input":"0","titles":"\u638c\u63e1\u540e\u671f\u5904\u7406\u6280\u672f","link":"1","type":"1","jump_id":"0","data":[{"id":"52","is_input":"0","titles":"\u5904\u7406\u6280\u672f\u4e00"},{"id":"53","is_input":"0","titles":"\u5904\u7406\u6280\u672f\u4e8c"},{"id":"54","is_input":"0","titles":"\u5904\u7406\u6280\u672f\u4e09"}]},{"id":"39","is_input":"0","titles":"\u80fd\u591f\u7cfb\u7edf\u7684\u719f\u7ec3\u5730\u8fdb\u884c\u5404\u4e2a\u7c7b\u578b\u7684\u62cd\u6444","link":"0","type":"0","jump_id":"0"},{"id":"40","is_input":"0","titles":"\u5177\u5907\u9274\u8d4f\u5927\u5e08\u6444\u5f71\u4f5c\u54c1\u7684\u7406\u89e3\u80fd\u529b","link":"0","type":"0","jump_id":"0"}]},{"id":"15","titles":"\u60a8\u5e0c\u671b\u7684\u6388\u8bfe\u65b9\u5f0f","type":"2","data":[{"id":"41","is_input":"0","titles":"\u7ebf\u4e0a\u6388\u8bfe","link":"0","type":"0","jump_id":"0"},{"id":"42","is_input":"0","titles":"\u7ebf\u4e0b\u6388\u8bfe","link":"0","type":"0","jump_id":"0"}]},{"id":"16","titles":"\u60a8\u80fd\u63a5\u53d7\u7684\u8bfe\u7a0b\u5fc3\u7406\u4ef7\u4f4d\u662f\uff1f","type":"1","data":[{"id":"43","is_input":"0","titles":"1000-2000","link":"0","type":"0","jump_id":"0"},{"id":"44","is_input":"0","titles":"2000-3000","link":"0","type":"0","jump_id":"0"},{"id":"45","is_input":"0","titles":"3000-4000","link":"0","type":"0","jump_id":"0"},{"id":"46","is_input":"0","titles":"4000\u53ca\u4ee5\u4e0a","link":"0","type":"0","jump_id":"0"}]},{"id":"18","titles":"\u4f60\u5e0c\u671b\u7684\u6388\u8bfe\u65e5\u671f[20150409]","type":"7","data":[{"id":"61","is_input":"0","titles":"\u65e5\u671f","link":"0","type":"7","jump_id":"0"}]},{"id":"19","titles":"\u4f60\u5e0c\u671b\u7684\u6388\u8bfe\u65f6\u95f4[10:00]","type":"7","data":[{"id":"62","is_input":"0","titles":"\u65f6\u95f4","link":"0","type":"8","jump_id":"0"}]},{"id":"20","titles":"\u65e5\u671f\u65f6\u95f4[201504091500]","type":"7","data":[{"id":"63","is_input":"0","titles":"\u65e5\u671f","link":"0","type":"7","jump_id":"0"},{"id":"64","is_input":"0","titles":"\u65f6\u95f4","link":"0","type":"8","jump_id":"0"}]},{"id":"21","titles":"\u65e5\u671f\u6bb5[20150409~20150605]","type":"7","data":[{"id":"65","is_input":"0","titles":"\u65e5\u671f","link":"0","type":"7","jump_id":"0"},{"id":"66","is_input":"0","titles":"\u5929","link":"0","type":"9","jump_id":"0"}]},{"id":"22","titles":"\u65f6\u95f4\u6bb5[09:00~18:00]","type":"7","data":[{"id":"67","is_input":"0","titles":"\u65f6\u95f4","link":"0","type":"8","jump_id":"0"},{"id":"68","is_input":"0","titles":"\u5c0f\u65f6","link":"0","type":"9","jump_id":"0"}]},{"id":"23","titles":"\u5730\u533a","type":"6","data":[{"id":"69","is_input":"0","titles":"\u5730\u533a","link":"0","type":"6","jump_id":"0"},{"id":"70","is_input":"1","titles":"\u5730\u5740","link":"0","type":"0","jump_id":"0"}]},{"id":"25","titles":"\u5907\u6ce8","type":"4","data":[{"id":"71","is_input":"2","titles":"\u8bf7\u8f93\u5165\u60f3\u8865\u5145\u7684\u5185\u5bb9","link":"0","type":"0","jump_id":"0"}]}]}';
+
+//$json = iconv('gbk','utf-8',$json);
+
+$json_arr = json_decode($json,true);
+$json_arr = poco_iconv_arr($json_arr,'UTF-8', 'GBK');
+*/
+
+$task_questionnaire_obj = POCO::singleton('pai_task_questionnaire_class');
+$json_arr = $task_questionnaire_obj -> get_questionnaire_version_list($service_id);
+
+if($json_arr)
+{
+	$options ['data']['list'] = $json_arr;		
+}
+else
+{
+	$options ['data'] = array('mid'=>'122WJ01001');//应软件部android的需求添加
+}
+//$options ['data']['list'] = $json_arr?$json_arr:array();
+$cp->output ( $options );
+
+?>

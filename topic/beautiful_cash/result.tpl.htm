@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta http-equiv = "X-UA-Compatible" content ="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="你也想成为女神吗">
+<title>{nickname}已成{level}，你也想成为女神吗？挑战我，立马戳</title>
+
+<link href="css/wap.css?v33" type="text/css" rel="stylesheet" />
+
+<!-- <script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script> -->
+
+<script type="text/javascript" src="js/jquery-1.7.2-min.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+
+
+<script type="text/javascript">
+    document.addEventListener('touchstart',function(){},false);
+function onBridgeReady()
+{
+    WeixinJSBridge.invoke('sendAppMessage',{
+        "appid":'wx25fbf6e62a52d11e',
+        //"link":link,
+        "desc":'sdfsd',
+        "title":'sdfsdfs'
+    });
+}
+
+if (typeof WeixinJSBridge === "undefined"){
+    if (document.addEventListener){
+        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+    }
+}else{
+    onBridgeReady();
+}
+
+</script>
+</head>
+<body>
+<div class="result-bg"></div>
+<div class="result-page">
+  <div class="user-item">
+    <div class="item">
+      <h3 class="title">{nickname}</h3>
+      <div class="img-item"><img src="{icon}" width='160' height='160'></div>
+      <dl class="txt-item">
+        <dt>女神身价</dt>
+
+<!--         <dd class="money"><em>￥</em><span>{price}</span></dd> -->
+
+        <dd class="money re"><em>￥</em>
+            <div class="num_box">
+			<!-- BEGIN price_split -->
+              <div class="num"></div>
+              <!-- END price_split -->
+            </div>
+        </dd>
+
+<input type='hidden' name='price' id='price' value='{price}' />
+        <dd class="info">女神指数：<span class="ratio">{level}</span></dd>
+      </dl>
+    </div>
+    <div class="tips">{text}</div>
+  </div>
+  <div class="btn-item">
+    <div class="btn" ><div id="btn-share" class="ui-btn ui-btn-gold-h45">晒一晒我的身价</div></div>
+    <a href="geton.php"  class="again"  id="again"  target="_self"><i class="load-icon  " ></i><span>重新测试指数</span></a>
+   </div>
+
+</div>
+
+<div class="btm-item5">
+  <div class="info-item"><i class="icon"><img src="images/yy-icon-72x72.png"></i>
+    <div class="txt-item">
+      <p>关注约女神（yueusmt）微信，将你的美丽变现</p>
+    </div>
+  </div>
+</div>
+
+<div class="share-fade"  style="display:none">
+    
+</div>
+
+
+<script type="text/javascript">
+
+var isBegin = false;
+
+$(document).ready(function() {
+
+    // 老虎机滚动
+    var u = 265;
+    var lhj_val = parseInt($('#price').val());
+
+
+    if(isBegin) return false;
+    isBegin = true;
+    $(".num").css('backgroundPositionY',0);
+    var result = lhj_val;
+    $('#res').text('result = '+result);
+    var num_arr = (result+'').split('');
+    $(".num").each(function(index){
+        var _num = $(this);
+        setTimeout(function(){
+            _num.animate({ 
+                backgroundPositionY: (u*380) - (u*num_arr[index])
+            },{
+                duration: 60+index*500,
+                easing: "easeInOutCirc",
+                complete: function(){
+
+                    if(index==3) isBegin = false;
+                    //var pos = _num.css('backgroundPositionY').replace('px','');
+                    //_num.css('backgroundPositionY',pos%u);
+                }
+            });
+        }, index * 30);
+    });
+
+
+    $('#again').click(function(){
+        $(this).find("i").addClass('load-icon-role')
+    });
+
+    // function addCookie(objName,objValue,objHours)
+    // {//添加cookie
+    //     var str = objName + "=" + escape(objValue);
+    //     if(objHours > 0){//为0时不设定过期时间，浏览器关闭时cookie自动消失
+    //     var date = new Date();
+    //     var ms = objHours*3600*1000;
+    //     date.setTime(date.getTime() + ms);
+    //     str += "; expires=" + date.toGMTString();
+    //     }
+    //     document.cookie = str;
+    //     // alert("添加cookie成功");
+    // }
+
+    // function getCookie(objName)
+    // {//获取指定名称的cookie的值
+    //     var arrStr = document.cookie.split("; ");
+    //     for(var i = 0;i < arrStr.length;i ++)
+    //     {
+    //         var temp = arrStr[i].split("=");
+    //         if(temp[0] == objName) return unescape(temp[1]);
+    //     } 
+    // }
+
+    // function delCookie(name)
+    // {
+
+    //     //为了删除指定名称的cookie，可以将其过期时间设定为一个过去的时间
+    //     var date = new Date();
+    //     date.setTime(date.getTime() - 10000);
+    //     document.cookie = name + "=a; expires=" + date.toGMTString();
+    // }
+
+   
+
+    // if (getCookie("beautiful_cash_share")) 
+    // {
+    //     $('.share-fade').hide();
+
+    // }
+    // else
+    // {
+    //     $('.share-fade').show();
+    // };
+
+
+    $('.share-fade').click(function(event) {
+        $(this).hide();
+        // //操作cookie
+        // addCookie('beautiful_cash_share',1,24);
+    });
+    
+    $('#btn-share').click(function() {
+        $('.share-fade').show();
+    });
+
+
+    var content_height = 495 ;
+    var w_h = $(window).height() ;
+    var margin_top = w_h-content_height-52 ;
+
+    if (margin_top < 0) 
+    {
+        $("body").addClass('screen_min');
+         return ;
+    } 
+    else
+    {
+        $('.btm-item5').css('marginTop', margin_top+"px");
+    };
+
+
+    $('.btm-item5').click(function() {
+            location.href = "http://mp.weixin.qq.com/s?__biz=MzAxMDA5NzY5NA==&mid=202382447&idx=1&sn=6b5f55335cb8225e8872eea25c401a58#rd" ;
+    });
+    
+
+
+});
+</script>
+
+
+<div style='display:none'>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254053904'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1254053904%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+</body>
+</html>

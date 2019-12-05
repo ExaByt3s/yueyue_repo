@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+// -------------------------------------------------
+// 通用
+// -------------------------------------------------
+
+.global-container {
+    width: 994px;
+    margin: 29px auto 30px;
+    @include pie-clearfix;
+}
+
+.main-content {
+    width: 654px;
+    @include float-left;    
+}
+
+
+.small-follow-button {
+    @include button-variant($color-999, #fafafa #ffffff #fafafa, #e1e1e1);
+
+    &:hover{
+        @include button-variant($color-fff, #46bb01, #46bb01);
+    }
+
+    .mp-iconfont {
+        margin-right: 3px;
+    }
+}
+.small-followed-button {
+    &, &:hover {
+        @include button-variant($color-999, #fafafa #ffffff #fafafa, #e1e1e1);
+
+        cursor: default;
+    }
+}
+.small-unfollow-button {
+    @include button-variant($color-fff, #46bb01, #46bb01);
+
+    &:hover {
+        @include button-variant($color-fff, #399900, #399900);
+    }
+
+    .mp-iconfont {
+        margin-right: 3px;
+    }
+}

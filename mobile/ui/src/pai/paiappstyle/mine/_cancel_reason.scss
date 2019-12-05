@@ -1,0 +1,51 @@
+@charset "UTF-8";
+// ------------------------------
+// 取消原因
+// ------------------------------
+
+.cancel-reason{
+  .content-body {
+    .container{
+      .ui-choosen-btn{
+        background-color: #fff;
+      }
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      padding: 15px 10px;
+      .ui-choosen-group{
+        display: block;
+      }
+      .btn_reset{
+        width: 143px;
+        margin-bottom: 10px;
+        &:nth-child(2n)
+        {
+          margin-right: 0px;
+        }
+        &:nth-child(2n-1)
+        {
+          margin-right: 10px;
+        }
+        &:nth-last-child(1)
+        {
+          margin-bottom: 0px;
+        }
+        &:nth-last-child(2)
+        {
+          margin-bottom: 0px;
+        }
+      }
+      .reason-type{
+        margin-top: 10px;
+      }
+      .notice{
+
+      }
+
+      .btn{
+        margin-top: 6px;
+      }
+    }
+  }
+}
+

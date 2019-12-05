@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="gb2312">
+<title>POCO约拍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no, email=no">
+
+
+</head>
+
+<body>
+
+<input type="tel" name="user_mobile" />
+
+<input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date">
+
+</body>
+</html>
+<script>
+
+    var rootHash = {
+        'hot': 1,
+        'find': 1,
+        'mine': 1,
+        'act/list': 1,
+        'location' : 1,
+        'model_date/submit_success' : 1,
+        'act/detail/0' : 1,
+        'act/signin/*/payment' : 1
+    };
+
+    var hash = window.location.hash.substr(1);
+
+
+
+    if(/[^\d]/g.test(hash))
+    {
+        hash = hash.replace(/[\d]+/g, "*");
+    }
+
+
+    window.AppCanPageBack = !rootHash[hash] ;
+
+    var s = {ss:11,ss:11};
+
+    console.log(s)
+</script>
+
+

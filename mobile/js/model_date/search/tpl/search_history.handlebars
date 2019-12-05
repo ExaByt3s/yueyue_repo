@@ -1,0 +1,13 @@
+<div class="search-history">
+    <section>
+        <ul class="list clearfix">
+        {{#each search_historys}}
+            <li>
+                <div class="lbox" data-tag="{{this}}" data-role="search"><i class="icon icon-search-gray-s"></i>{{this}}</div>
+                <div class="rbox" data-tag="{{this}}"data-role="del-search-history-item"><i class="icon icon-close-20x20"></i></div>
+            </li>
+        {{/each}}
+        </ul>
+    </section>
+    <div class="btn" data-role="del-search-history">清空搜索历史</div>
+</div>

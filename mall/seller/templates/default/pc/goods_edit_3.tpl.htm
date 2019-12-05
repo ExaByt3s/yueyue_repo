@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{page_title}</title>
+
+    <!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+    -->
+    <!-- 公共css，js引入 -->{pc_global_top}<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/modules/common/layer/skin/layer_d032379.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/modules/common/upload/1.0.0/css/style_26e92d7.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/modules/common/qr_code_preview/qr_code_preview_fc1a14a.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/components/jquery/jquery_27c977b.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/js/common/common_26d9479.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/layer/layer_906feb7.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/core_83840a8.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/widget_4835767.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/mouse_6ef99af.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/sortable_65d00c0.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/upload/1.0.0/yueyue_uploader_f4eddec.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/qr_code_preview/qr_code_preview_21ec406.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/ueditor/1.0.0/ueditor.config_54dccab.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/ueditor/1.0.0/lang/zh-cn/zh-cn_4eb3b3e.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/ueditor/1.0.0/third-party/zeroclipboard/ZeroClipboard_7eb82e4.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/ueditor/1.0.0/ueditor.all_131fa1e.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/ueditor/1.0.0/ueditor_54ee3e3.js"></script>
+</head>
+
+<body>
+{global_top_bar}
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+<form action="./module/pai_mall_goods_op.php" method="post"  name="publish_form" id="publish_form" target="form_iframe">
+
+    <div class="editing-from-page w1000 font_wryh content">
+        <div class="msg_info mt10 font_wryh f14" id="system_msg_div" style="<!-- IF hide_system_msg == "1" -->display:none;<!-- ENDIF hide_system_msg -->">
+            <ul class="list clearfix">
+
+                <li>
+                    <a href="javascript:;" class="close" id="system_msg_close"></a>
+                    {system_msg}
+                    <!--<a href="#">去看看</a>-->
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="mod-nav-item">
+            <a href="./">约约商家主页</a>
+            &gt;
+            <a href="./goods_list.php">服务管理</a>
+            &gt;
+            <span>编辑服务</span>
+        </div>
+        <div class="editing-from-wrap mod-attest-page content-bg">
+            <div class="mod-listItem">
+                <span>{page_title}</span>
+            </div>
+            <div class="form-warp" id="form-warp">
+                <div class="item clearfix">
+                    <h3 class="title">妆面类型：</h3>
+                    <div class="from-con">
+                        <div class="mod-radio-item clearfix">
+                            <!-- IF action == "edit" -->
+                            <!-- BEGIN system_data.a3f390d88e4c41f2747bfa2f1b5f87db.child_data -->
+                            <label style="padding-right: 25px;">
+                                <input type="radio" name="system_data[a3f390d88e4c41f2747bfa2f1b5f87db]" value="{key}"  <!-- IF key=top.system_data.a3f390d88e4c41f2747bfa2f1b5f87db.value -->checked="checked"<!-- ENDIF key --> />
+                                {name}
+                            </label>
+                            <!-- END ssystem_data.a3f390d88e4c41f2747bfa2f1b5f87db.child_data -->
+                            <!-- ELSE -->
+                            <!-- BEGIN system_data.a3f390d88e4c41f2747bfa2f1b5f87db.child_data -->
+                            <label style="padding-right: 25px;">
+                                <input type="radio" name="system_data[a3f390d88e4c41f2747bfa2f1b5f87db]" value="{key}"  <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT --> />
+                                {name}
+                            </label>
+                            <!-- END system_data.a3f390d88e4c41f2747bfa2f1b5f87db.child_data -->
+                            <!-- ENDIF action -->
+                        </div>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <h3 class="title">封面图：</h3>
+                    <div class="from-con">
+                        <div class="img-upload-item">
+                            <div class="img-list clearfix">
+                                <div class="J_upload-container_1 ui-item" style="overflow:hidden;" >
+
+                                </div>
+                            </div>
+                            <div class="tips">建议尺寸：750*750像素；最多上传1张图片；文件格式为jpg、jpeg、png（每张图片大小不超过3M）</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <h3 class="title">服务名称：</h3>
+                    <div class="from-con">
+                        <div class="mod-input-item">
+                            <input type="text" class="input-txt input-txt-2 font_wryh" name="default_data[titles]" placeholder="设置一个有特色的标题，可以提高你的吸引力噢" value="{default_data.titles.value}" valid-rule="**1-30" valid-index='1'/>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item clearfix">
+                    <h3 class="title">化妆品：</h3>
+                    <div class="from-con">
+                        <div class="mod-input-item fl">
+                            <input type="text" class="input-txt input-txt-2 font_wryh" placeholder="化妆品" name="system_data[7cbbc409ec990f19c78c75bd1e06f215]" value="{system_data.7cbbc409ec990f19c78c75bd1e06f215.value}"/>
+                        </div>
+                        <span class="unit fl">（选填）</span>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <h3 class="title">耗时：</h3>
+                    <div class="from-con">
+                        <div class="mod-input-item fl">
+                            <input type="text" class="input-txt input-txt-2 font_wryh" placeholder="耗时" name="system_data[e2c420d928d4bf8ce0ff2ec19b371514]" value="{system_data.e2c420d928d4bf8ce0ff2ec19b371514.value}" valid-rule="an1-10" valid-index='2'/>
+                        </div>
+                        <span class="unit fl">分钟</span>
+                    </div>
+                </div>
+                <div class="item edit-details-mod">
+                    <div class="item cor-333 font_wryh clearfix">
+                        <!-- BEGIN new_price_list -->
+                        <div class="lbox fl mr20 mt10" style="width:85px;">
+                            <!-- IF ROWCNT == "0" --><p class="tags">规格</p><!-- ENDIF ROWCNT -->
+                            <div class="item-con clearfix">
+                                <div class="mod-input-item fl">
+                                    <div class="mod-form-title">{name}：</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rbox mt10">
+                            <!-- IF ROWCNT == "0" --><p class="tags">价格</p><!-- ENDIF ROWCNT -->
+                            <div class="item-con clearfix">
+                                <div class="mod-input-item fl">
+                                    <input type="text" class="input-txt input-txt-1 font_wryh J_prices_list" placeholder="价格" name="prices_de[{id}]" valid-rule="ap0-20" valid-index='{id}' value="{value}" style="width: 160px;">
+                                </div>
+                                <span class="unit fl pr10">元</span>
+                            </div>
+                        </div>
+                        <!-- END new_price_list -->
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="mod-form-title">
+                        <span>服务详情：</span><span style="color:#aaa;font-size:16px;">（简单介绍一下所提供的此项服务并上传最具代表性的作品图）</span>
+                        <textarea name="default_data[content]" id="J_content" style="display: none;"></textarea>
+                    </div>
+                    <!-- 加载编辑器的容器 -->
+                    <script id="container" name="container" type="text/plain">{default_data.content.value}</script>
+                    <div class="item-con fn-hide" style="display:none;">
+                        <div class="mod-imgtext-item">
+                            <div class="tool-item clearfix">
+                                <div class="tool-bar">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;"> <i class="icon img-icon"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;"> <i class="icon vedio-icon"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="text-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-item">
+                    <a href="javascript:;" class="ui-btn ui-btn-blue J_form_submit" data-type="{action}" id="J_form_submit" data-lock="unlock">保存</a>
+                    <!-- IF action == "edit" -->
+                    <input type="checkbox" id="money_edit" style="margin-left: 10px">勾选后，表示您只修改了价格，此服务则无需再次被审核。
+                    <!-- ENDIF action -->
+                </div>
+                <div style="text-align:center;color:#333;padding-top:10px;font-size:16px">等待审核过程中，可先发布服务</div>
+                <div style="text-align:center;color:#333;padding-top:10px;font-size:14px">若有问题，请联系客服4000-82-9003</div>
+            </div>
+        </div>
+    </div>
+    <!-- 手机预览插入节点  -->
+    <div data-role="qr_code_preview_ele" class="qr_code_preview_ele"></div>
+    <!-- 手机预览插入节点 end  -->
+    <input type="hidden" value="{type_id}" name="type_id" id="type_id">
+    <input type="hidden" value="{action}" name="action" id="J_action">
+    <input type="hidden" value="{goods_id}" name="goods_id">
+</form>
+
+<input type="hidden" value="{user_id}" id="J_user_id">
+<input type="hidden" value="{cover_img}" id="J_cover_img">
+<input type="hidden" value="" id="qr_code_url">
+<input type="hidden" value="" id="qr_code_img">
+{footer}
+
+
+
+
+<script type="text/javascript" src="http://static.yueus.com/yue_ui/upload/1.0.0/webuploader.min.js"></script>
+<script type="text/javascript">
+// 头部
+require('common/global-top-bar/global-top-bar');
+
+require('common/layer/layer');
+//工具包
+var utility_module = require('common/utility/index');
+
+
+
+//初始化作品上传
+require('common/upload/1.0.0/yueyue_uploader');
+
+//手机二维码预览 start
+// 初始化
+var qr_code_preview = require('common/qr_code_preview/qr_code_preview');
+window.__qr_code_preview_obj = new qr_code_preview({
+    render_ele : $('[data-role="qr_code_preview_ele"]'),
+    click_ele : 'J_form_submit' //点击class
+});
+// 初始化 end
+// 点击触发
+/*$('.click_ele').on('click', function() {
+ // 设置二维码
+ __qr_code_preview_obj.set_qr_img('http://image16.poco.cn/yueyue/20150907/20150907210529_353313_100207_66636_640.jpg?1600x1067_120');
+
+ // dosomething
+
+ });*/
+//手机二维码预览 end
+
+add_collection("J_upload-container_1","1",1);
+
+function error_tips(ele,str)
+{
+    $("html,body").animate({scrollTop:ele.offset().top},300);
+    layer.alert(str);
+    return false;
+}
+
+// 表达验证类
+var VA = require('common/valid/index');
+// 设置容器
+var valid = new VA($('#form-warp'));
+
+valid.pushfunctions
+        ([
+            {
+                index:'1',
+                ValidError : function(){
+                    error_tips($("[valid-index='1']").parents(".item"),'请正确填入服务名称，不超过30字');
+                }
+            },
+            {
+                index:'2',
+                ValidError : function(){
+                    error_tips($("[valid-index='2']").parents(".item"), '请正确填入耗时');
+                }
+            },
+            {
+                index:'3',
+                ValidError : function(){
+                    error_tips($("[valid-index='3']").parents(".item"), '请正确填入价格，为正整数');
+                }
+            },
+            {
+                index:'153',
+                ValidError : function(){
+                    error_tips($("[valid-index='153']").parents(".item"), '请正确填入规格价格，为大于0的整数和小数（小数默认两位）');
+                }
+            },
+            {
+                index:'154',
+                ValidError : function(){
+                    error_tips($("[valid-index='154']").parents(".item"), '请正确填入规格价格，为大于0的整数和小数（小数默认两位）');
+                }
+            },
+            {
+                index:'155',
+                ValidError : function(){
+                    error_tips($("[valid-index='155']").parents(".item"), '请正确填入规格价格，为大于0的整数和小数（小数默认两位）');
+                }
+            }
+
+
+
+        ]);
+
+require('common/ueditor/1.0.0/ueditor');
+// 初始化生成编辑器
+var ueditor = new Ueditor({
+    target:'#container'
+
+});
+
+//提交form
+$(".J_form_submit").on("click",function(){
+    /*预览处理*/
+    var data_type = $(this).attr("data-type");
+    $("#J_action").val(data_type);
+    if(data_type=="preview")
+    {
+        var img_display = $("#qr").css("display");
+        if(img_display!="none")
+        {
+            __qr_code_preview_obj.set_qr_img('http://static.yueus.com/mall/seller/test/static/pc/images/qr_loading.jpg');
+            __qr_code_preview_obj.change_hide();
+            return;
+        }
+    }
+    /*预览处理*/
+
+
+    var resault = valid.checkValid();
+
+
+    if(resault.isPass)
+    {
+
+        //判断封面图
+        if(!$(".J_upload-container_1 input").val())
+        {
+            error_tips($('.J_upload-container_1').parents(".item"), '请传入封面图');
+            return
+        }
+
+
+        var data_lock = $(this).attr("data-lock");
+        if(data_lock!="lock")
+        {
+            /*****2015-8-14只修改价格******/
+            //获取是否勾选了修改价钱
+            var j_action = $("#J_action").val();
+            if(j_action!="add")
+            {
+                var money_edit_res = $("#money_edit").prop("checked");
+                if(money_edit_res)
+                {
+                    $("#J_action").val("money_edit");
+                }
+                else
+                {
+                    $("#J_action").val(j_action);
+                }
+            }
+            /*****2015-8-14只修改价格******/
+
+            //循环判断价格基数，至少有一个价格大于0，2015-7-14
+            var prices_list = $(".J_prices_list");
+            var prices_list_len = prices_list.length;
+            var prices_mark = 0;//标记价格符合条件
+            for(var i=0;i<prices_list_len;i++)
+            {
+                if($(prices_list[i]).val()>0)
+                {
+                    prices_mark = 1;
+                    break;
+                }
+            }
+            if(prices_mark<1)
+            {
+                error_tips($("[valid-index='153']").parents(".item"), '请至少填入一个价格');
+                return
+            }
+
+            var content = ueditor.editor.getContent();
+            //判断图文是否为空（2015-7-6）
+            if(!content)
+            {
+                error_tips($('#J_content').parents(".item"), '请填入图文详情');
+                return
+            }
+
+            /*****2015-10-27计算服务详情里的数据*******/
+            var editor_str_len = utility_module.count_editor_str_num(content);
+            var editor_img_len = utility_module.count_editor_img_num(content);
+
+            if(editor_str_len>5000)
+            {
+                error_tips($('#J_content').parents(".item"), '填入图文详情文字不能超过5000字');
+                return
+            }
+            //图片张数前后端处理
+            if(editor_img_len>20)
+            {
+                error_tips($('#J_content').parents(".item"), '填入图文详情图片不能超过20张');
+                return
+            }
+            /*****2015-10-27计算服务详情里的数据*******/
+
+            $("#J_content").html(content);
+            /**预览处理**/
+            if(data_type=="preview")
+            {
+                layer.msg("生成二维码中...");
+            }/**预览处理**/
+            else
+            {
+                $(this).attr("data-lock","lock");//锁住
+                layer.msg("正在提交中...");
+            }
+            $("#publish_form").submit();
+        }
+        else
+        {
+            layer.msg("正在提交中...");
+            return false;
+        }
+    }
+})
+
+
+//判断主分类是否有选2015-7-22
+
+/*function check_radio_checked(J_class,J_locate,J_text)
+{
+    var J_type = $("."+J_class);
+    var J_type_len = J_type.length;
+    var J_type_has_checked = false;
+    for(var i=0;i<J_type_len;i++)
+    {
+        if($(J_type[i]).prop("checked"))
+        {
+            J_type_has_checked = true;
+            break;
+        }
+    }
+
+    if(!J_type_has_checked)
+    {
+        error_tips($('#'+J_locate).parents(".item"), J_text);
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}*/
+
+
+
+//添加作品集
+/*
+ *ele_container:容器
+ *part_id：模块标记值
+ */
+function add_collection(ele_container,part_id,$photo_num)
+{
+    $(function()
+    {
+
+
+        //todo 使用之前要确定userid是否传递进去
+        var user_id = $("#J_user_id").val();
+        var cover_img = $("#J_cover_img").val();
+        if(cover_img!="")
+        {
+            //处理js数组
+            var imgs_arr = cover_img.split(",");
+            //var imgs_arr = [cover_img];
+        }
+        else
+        {
+            var imgs_arr = [];
+        }
+        var yue_upload_obj = new yue_upload_class
+        ({
+            upload_total_limit : $photo_num,
+            upload_container : $('.'+ele_container),
+            user_id :  user_id,
+            multiple : true,
+            imgs : imgs_arr,
+            sortable : true,
+            fileSizeLimit: 3 * $photo_num * 1024 * 1024,    // 9 M 总文件大小
+            fileSingleSizeLimit: 3 * 1024 * 1024,    // 3 M 单文件大小
+            gid : part_id
+        });
+
+        $('#popup_'+part_id).on('click', function()
+        {
+            var upload_obj = {};
+            first_layer = layer.open
+            ({
+                type: 1,
+                area: ['800px', '450px'],
+                fix: false, //不固定
+                title:'上传图片',
+                maxmin: false,
+                content: yue_upload_obj.tpl,
+                success : function($el,index)
+                {
+                    var sec_layer = null;
+                    var index = index;
+
+
+                    setTimeout(function()
+                    {
+                        upload_obj = yue_upload_obj.init_upload($el);
+
+                        upload_obj.on('uploadProgress',function()
+                        {
+
+                        })
+                                .on('fileQueued',function(file)
+                                {
+
+                                })
+                                .on('fileDequeued',function(file)
+                                {
+
+                                })
+                                .on('uploadSuccess',function(file,response)
+                                {
+                                    // response 服务端返回数据
+                                    //console.log(response);
+                                })
+                                .on('uploadError',function()
+                                {
+
+                                })
+                                .on('uploadFinished',function()
+                                {
+                                    layer.close(index);
+                                })
+                    },500);
+                },
+                cancel : function()
+                {
+                    if(!confirm('注意！关闭弹窗会终止上传图片'))
+                    {
+                        return false;
+                    }
+
+                    upload_obj && upload_obj.stop(true);
+
+                }
+            });
+        });
+    });
+}
+
+
+
+$("#system_msg_close").on("click",function(){
+
+    /*var type_id = $("#type_id");
+     var cookie_name = "mall_pai_goods_edit_"+type_id;
+     cookie.set(cookie_name,"hide_system_msg",{
+     expires :1000,
+     domain : 'yueus.com',
+     path : '/'
+     });*/
+
+    $("#system_msg_div").css("display","none");
+
+
+});
+
+</script>
+
+</body>
+</html>

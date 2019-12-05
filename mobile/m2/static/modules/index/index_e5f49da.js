@@ -1,0 +1,1 @@
+define("index",function(e){"use strict";{var n=e("common/widget/header/main");e("components/zepto/zepto.js")}n.render(document.getElementById("header")),console.log("Hi my name is index")});

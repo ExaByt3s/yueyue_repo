@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+// -------------------------------------------------
+// 信息中心 -- 主样式
+// -------------------------------------------------
+
+.notice-nav {
+    margin-bottom: 20px;
+
+    .nav-list {
+        @include float-left;
+    }
+
+    li {
+        @include float-left;
+        margin-right: 10px;
+
+        a {
+            @include inline-block;
+            padding: 3px 12px 5px;
+
+            background-color: $color-efe;
+            color: $color-666;
+        }
+    }
+
+
+    .current {
+        background-color: $color-3fa;
+        color: $color-fff;
+
+        &, &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .guide-goback-link {
+        @include float-right;
+
+        a {
+            @include link-colors(#f00, #f00);
+        }
+    }
+}
+
+.history-notice-button {
+    display: block;
+    margin-top: 30px;
+    height: 38px;
+    line-height: 38px;
+
+    font-size: 14px;
+    text-align: center;
+}
+
+.notice-content {
+    .notice-item {
+        position: relative;
+        _position: static;
+        _zoom: 1;
+        border-bottom: 1px dashed $color-efe;
+        padding: 20px 10px;
+
+        &:hover {
+            background: #fafafa;
+
+            .aide-buttons-area {
+                visibility: visible;
+            }
+        }
+    }
+
+    .aide-buttons-area {
+        position: absolute;
+        bottom: 20px;
+        right: 10px;
+        z-index: 1;
+
+        visibility: hidden;
+        _visibility: visible;
+
+        color: $color-e6e;
+
+        a {
+            color: $color-999;
+        }
+    }
+
+    .time {
+        @include float-right;
+        color: $color-999;
+    }
+
+    .user-avatar {
+        a {
+            @include float-left;
+            width: 50px;
+            height: 50px;
+            line-height: 1;
+            margin-right: 15px;
+            text-align: center;
+        }
+        img {
+            //@include float-left;
+            max-width: 50px;
+            max-height: 50px;
+            _width: 50px;
+            _height: 50px;
+        }
+    }
+
+    .content {
+        //margin-left: 65px;
+        float: left;
+        width: 525px;
+    }
+
+    .title {
+        //margin-bottom: 12px;
+        margin-bottom: 17px;
+        line-height: 1;
+        color: $color-666;
+    }
+
+    .summary {
+        margin-bottom: 8px;
+        font-size: 12px;
+        color: $color-333;
+        line-height: 1;
+    }
+}
+
+.ui-pagination {
+    margin: 61px 0 31px;
+}

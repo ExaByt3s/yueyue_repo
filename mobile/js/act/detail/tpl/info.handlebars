@@ -1,0 +1,76 @@
+<div class="action-con-info fn-hide" data-role="act-detail-container">
+    <div>
+        <div class="main-title">{{title}}</div>
+        <div class="notice-con">
+            <p class="notice">时间：</p><p class="notice_in" data-role="time">{{event_time}}</p>
+        </div>
+        <div class="notice-con">
+            <p class="notice">地址：</p><p class="notice_in" data-role="address">{{address}}</p>
+        </div>
+        <div class="notice-con">
+            <p class="notice">俱乐部：</p><p class="notice_in" data-role="bar">{{club_name}}</p>
+        </div>
+        <div class="notice-con">
+            <p class="notice">费用：</p><p class="notice_in" data-role="fee">￥{{budget}}/人</p>
+        </div>
+        <div class="notice-con" data-role="preview-hide">
+            <p class="notice">报名人数：</p><p class="notice_in">{{event_join}}人</p>
+        </div>
+        <!--div class="notice-con">
+            <<div>
+                <label>{{#if join_count}}{{join_count}}{{else}}0{{/if}}</label>
+                <label>人报名</label>
+                <!--label>{{#if hit_count}}{{hit_count}}{{else}}0{{/if}}</label>
+                <label>人关注</label></div>>
+            <p class="notice_in" data-role="member"></p><p class="notice_in">{{join}}</p>
+        </div-->
+        {{#if event_organizers}}
+        <div class="notice-con exp" >
+            <p class="notice">组织者：</p>
+            <div class="notice-exp" data-role="notice-exp">
+                <img src="{{user_icon}}"/>
+                <div class="notice-exp-detail">
+                    <div class="nickname">{{nickname}}</div>
+                    <div class="gray">点击聊天</div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        <div>
+            <style>
+                .action-con-info .info_btn{
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                    display: -webkit-box;
+                    margin-top:30px;
+                    text-align:center;
+                }
+                .action-con-info .info_btn button{
+                    -webkit-box-flex: 1;
+                    text-align: center;
+                    font-size: 14px;
+                    height: 35px;
+                }
+            </style>
+
+            <div class="info_btn" data-role="preview-hide">
+                <table class="w-100">
+                    <tr>
+                        <td class="pr15 pl15" data-role="check_list">
+                            <button  class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-color2">
+                                <span class="ui-button-content">查看报名名单</span>
+                            </button>
+                        </td>
+                        <td class="pr15" data-role="go-comment">
+                            <button  class="ui-button ui-button-primary ui-button-size-min ui-button-block ui-button-color3">
+                                <span class="ui-button-content">查看组织者评价</span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <i class="icon icon-r"></i>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="gb2312">
+<title>POCO约拍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no, email=no">
+<meta name="viewport" content="width=device-width, initial-scale=0.5 minimum-scale=0.5, maximum-scale=0.5, user-scalable=no"/>
+</>
+
+<script type="text/javascript" src='./js/jquery.js'></script>
+</head>
+
+<body>
+
+
+<style type="text/css">
+    *{padding: 0;margin: 0}
+    .test{
+        width: 100px;
+        height: 50px;
+        border: 1px solid #000;
+        -webkit-border-radius :50px;
+        border-radius :90px;
+        position: relative;
+    }
+    i{position: absolute; right: 5px;top:5px;display: block; background-color:red;}
+</style>
+
+
+<div class="test" id="test"><i></i></div>
+
+<script type="text/javascript">
+    $(document).ready(function($) {
+        for (var i = 0; i <= 500; i++) {
+            $('body').append('<div class="test" id="test"><i></i></div>')
+        };
+    });
+</script>
+
+
+</body>
+</html>
+
+

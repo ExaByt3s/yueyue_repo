@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>登录</title>
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/base.css">
+<!--基础样式 END-->
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/task-m.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__romain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : '../ajax/'
+	};
+    console.log(window.localStorage.getItem("$__storage_first_tips"))
+    if(window.localStorage.getItem("$__storage_first_tips"))
+    {
+        console.log("in")
+    }
+    else
+    {
+        console.log("in2")
+        var data =
+        {
+            "details_1":1,
+            "details_2":1,
+            "submit_1":1,
+            "pay_1":1,
+            "talk_1":1
+        }
+        window.localStorage.setItem("$__storage_first_tips",JSON.stringify(data));
+    }
+</script>  
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/login/index.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/mpredev/static/style/frozen/frozen.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/modules/yue_ui/frozen.js"></script>
+</head>
+<body>
+
+<main role="main" >
+    <div class="page-view login-container" data-role="page-container">
+        <div class="common_menu" >
+    <div class="common_logo"><i class="icon icon-top-logo"></i></div>
+	<div class="common_btn" data-role="common_btn_menu"><i class="icon icon-right-menu-logo"></i></div>
+    
+</div>
+<div class="common_menu_open layout_box_v fn-hide" data-role="common_menu_open">
+    <a data-role="common_menu_open_business" href="list.php">生意机会</a>
+    <a data-role="common_menu_open_list" href="order_list.php?type=pending">订单列表</a>
+    <a data-role="common_menu_open_mine" href="profile.php">个人中心</a>
+    <a data-role="common_menu_open_log_out" href="logout.php">退出登录</a>
+</div>
+<!--modjs hack 特殊处理，增加head标记-->
+<head></head>
+<!--modjs hack 特殊处理，增加head标记-->
+<script type="text/javascript">
+	
+	var cookie = require('common/cookie/index');
+	var $ = require('components/zepto/zepto.js');	
+
+	(function($,window)
+	{
+		var self = this;
+
+		var no_login = '{no_login}';
+
+		var $common_menu_open = $('[data-role="common_menu_open"]');
+		var $common_btn_menu  = $('[data-role="common_btn_menu"]');
+		var $common_menu_open_log_out = $('[data-role="common_menu_open_log_out"]');
+
+		if(!parseInt(cookie.get('yue_member_id')))
+		{
+			$common_btn_menu.hide();
+		}
+
+		$common_btn_menu.on('click',function()
+		{	
+			if(!parseInt(cookie.get('yue_member_id')))
+			{
+				return;
+			}
+			
+			$common_menu_open.toggleClass("fn-hide");
+		});
+
+		$common_menu_open_log_out.on('click',function()
+		{
+			$.ajax
+			({
+				url: window.$__config.ajax_url + 'login_out.php',
+				type: 'POST',
+				cache: false,
+				dataType: 'json',
+				beforeSend: function () {
+
+				},
+				success: function (data) {
+					window.location.href = './login.php';
+
+				},
+				error: function () {
+
+				},
+				complete: function () {
+
+				}
+			})
+    })
+
+	})($,window);
+</script> 
+        <div class="login_input layout_box_v">
+            <div class="login_input_phone layout_box">
+                <input type="tel" placeholder="登录账号" data-role="phone"/>
+            </div>
+            <div class="login_input_code layout_box">
+                <input type="password" placeholder="密码" data-role="password"/>
+            </div>
+        </div>
+        <div class="login_btn" data-role="login_btn">登录</div>
+        <!-- <div class="login_forget" data-role="login_forget">忘记密码？</div> -->
+        <div class="login_contact layout_box"><div class="exp">合作请电：</div><div><a href="tel:4000-82-9003" class="common_on_tel">4000-82-9003</a></div></div>
+    </div>
+</main>
+
+</body>
+
+<script>
+    window.onload = function()
+    {
+        var yue_ui = require('yue_ui/frozen');		
+		var r_url = '{r_url}';
+
+        $(function()
+		{
+			$('[data-role="login_btn"]').on('click',function()
+			{
+				var phone = $('[data-role="phone"]').val();
+
+				var password = $('[data-role="password"]').val();
+
+				if(phone.trim() == ""){alert('登录账号');return;}
+				if(password.trim() == ""){alert('密码不能为空');return;}
+
+				var data =
+				{
+					phone: phone,
+					yue_password:password,
+					r_url : r_url
+				};
+
+				var $loading = {};
+
+				$.ajax
+				({
+					url : window.$__config.ajax_url+'login.php',
+					data:data,
+					type: 'POST',
+					cache: false,
+					dataType : 'json',
+					beforeSend: function()
+					{
+						$loading = $.loading
+						({
+							content:'请求中...'
+						})
+					},
+					success: function(data)
+					{
+						$loading.loading('hide');
+
+						var jump_url = data.result_data.r_url;
+
+						if(data.result_data.code == 1)
+						{
+							
+							if(jump_url)
+							{
+								window.location.href = decodeURIComponent(jump_url);
+							}
+							else
+							{
+								window.location.href = './list.php';
+							}
+							
+						}
+						else{
+
+							$.tips
+							({
+								content : data.result_data.message,
+								stayTime:3000,
+								type:"success"
+							});
+						}
+					},
+					error: function()
+					{
+						$loading.loading('hide');
+
+						$.tips
+						({
+							content : '网络异常',
+							stayTime:3000,
+							type:"warn"
+						});
+					}
+				});
+			})
+
+			$('[data-role="login_forget"]').on('click',function()
+			{
+				location.href = './change_pw.php';
+			})
+		});
+    }
+</script>
+</html>

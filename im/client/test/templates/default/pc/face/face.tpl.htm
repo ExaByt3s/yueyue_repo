@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>代运营pc{yue_login_id}</title>
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/im/client/test/static/pc/style/base.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/im/client/test/static/pc/style/face/face.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/lib/mod.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/lib/vue.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/lib/mqttws31.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/lib/inflate.min.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/lib/md5-min.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/lib/IMSDK.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/lib/lib.js"></script>
+<style>
+        .exc_input{position:absolute; right:0; top:0;font-size:0px; width:62px;height:40px;opacity:0; filter:alpha(opacity=0);cursor: pointer}
+    </style>
+
+
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/im/client/test/static/pc/modules/option_service/pc/service_panel.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/im/client/test/static/pc/modules/option_record/pc/record_panel.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/modules/msg_engine/msg_engine.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/modules/msg_engine/input_engine.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/modules/async_data/user_async.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/modules/option_service/pc/option_service.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/im/client/test/static/pc/modules/option_record/pc/option_record.js"></script>
+</head>
+<body>
+<main role="main">
+    <div class="fn-hide" style="color: #ff0000" data-role="error" style="position: absolute;top:0px;left:0px;">链接关闭,账号异常,请检查是否有重复登录或断网了</div>
+    <div class="acc-logout" data-role="logout">退出登录</div>
+    <div class="face-page ds-box">
+        <div class="face-side-bar ds-box orient-v" data-role="side-bar">
+            <div class="ds-box orient-v pack-center header">
+                <div class="ds-box flex-1 orient-v pack-center align-center"><div>代运营客服助手: {yue_login_id}</div></div>
+                <div class="ds-box pack-center seller_options  fn-hide">
+                    <div class="ds-box pack-center seller_raise">
+                        <input placeholder="消费者id">
+                        <div class="btn">发起会话</div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="ds-box orient-h seller_buyer_list" data-role="seller_buyer_list">
+                <div class="ds-block seller_list flex-1" data-role="seller_list"></div>
+
+            </div>
+
+        </div>
+        <div class="face-window ds-box flex-1 orient-v">
+            <div class="ds-box orient-h title_warp align-center pack-center" >
+                <div data-role="title_warp"></div>
+            </div>
+            <div class="ds-block info-flu flex-1" data-role="window">
+                <div class="ds-box orient-h pack-center window_empty" data-role="window_empty">未选择聊天</div>
+            </div>
+            <div class="ds-box orient-h options-bars pack-justify" data-role="options-panel">
+                <div class="ds-box">
+                    <div class="option" data-role="options-service">服务</div>
+                    <div class="option" data-role="options-picture" style="position: relative">
+                        <input type="file" value="浏览" id="uploadBtn" name="photo" class="exc_input"/>
+                        <font>图片</font>
+                    </div>
+                </div>
+                <div class="ds-box">
+                    <div class="option fn-hide" data-role="options-record">聊天记录</div>
+                </div>
+            </div>
+            <div class="ds-box orient-v inputs-area">
+                <div class="ds-box area-content flex-1">
+                    <textarea class="ds-box flex-1" data-role="client_inputs"></textarea>
+                </div>
+                <div class="ds-box area-bot orient-h pack-end">
+                    <div class="send-btn" data-role="send_btn">发送</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fn-hide" style="position: absolute;top:0px;left:0px">
+        <div>发送：<input value="100029" data-role="sender"/></div>
+        <div>接收：<input value="100001" data-role="getter"/></div>
+        <div>信息：<input data-role="inputs"/></div>
+        <div data-role="btn" style="cursor: pointer;">send</div>
+        <div class="text_contant" data-role="contant"></div>
+
+    </div>
+    </main>
+
+</body>
+<script>
+
+window.__test__str = /test/.test(window.location.href)?'test/':'';
+
+window.$__ajax_domain = 'http://www.yueus.com/im/client/'+__test__str + 'ajax/';
+
+var seller_item_tpl = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n<div class=\"seller_list_item ds-box orient-h align-center pack-center\" data-role=\"seller_list_item\" seller_user_id=\"";
+  if (helper = helpers.seller_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.seller_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-seller_list_item=\"";
+  if (helper = helpers.seller_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.seller_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n    <img class=\"ds-block inner_icon\" src=\"";
+  if (helper = helpers.icons) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.icons); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" style=\"width: 40px;height: 40px;\" data-role=\"seller_icon_";
+  if (helper = helpers.seller_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.seller_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"/>\r\n    <div class=\"ds-box orient-v nickname\">\r\n        <div>";
+  if (helper = helpers.nickname) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.nickname); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n        <div>ID:";
+  if (helper = helpers.seller_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.seller_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n    </div>\r\n    <div class=\"go_to_record\" data-storage=\"";
+  if (helper = helpers.seller_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.seller_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-role=\"face-to-chat-record\">录</div>\r\n    <div class=\"point none\"></div>\r\n</div>\r\n";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
+  });
+
+var buyer_list_tpl = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n    <div class=\"ds-block buyer_list fn-hide\" data-role=\"buyer_list\" buyer_list=\"";
+  if (helper = helpers.seller_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.seller_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-open=\"close\">\r\n        ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.buyer_list), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    </div>\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n            <div class=\"buyer_list_item ds-box orient-h align-center\" data-role=\"buyer_list_item\" send_user_id=\"";
+  if (helper = helpers.custom_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" to_user_id=\"";
+  if (helper = helpers.manage_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.manage_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-buyer-list-item=\"";
+  if (helper = helpers.manage_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.manage_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1);
+  if (helper = helpers.custom_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-async-buyer=\"";
+  if (helper = helpers.custom_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n                <img class=\"ds-block\" src='";
+  if (helper = helpers.custom_icon) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_icon); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "' style=\"width: 40px;height: 40px;border-radius: 2px\" data-async=\"icon\"/>\r\n                <div class=\"ds-box orient-v nickname\">\r\n                    <div data-async=\"name\">";
+  if (helper = helpers.custom_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div data-async=\"id\">ID:";
+  if (helper = helpers.custom_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                </div>\r\n                <div class=\"point none\" data-role=\"nums\" data-nums=\"0\"></div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
+  });
+
+var buyer_item_tpl = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data,depth1) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n<div class=\"buyer_list_item ds-box orient-h align-center\" data-role=\"buyer_list_item\" manage_id=\"";
+  if (helper = helpers.manage_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.manage_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" send_user_id=\"";
+  if (helper = helpers.send_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.send_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" to_user_id=\"";
+  if (helper = helpers.to_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.to_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-buyer-list-item=\"";
+  if (helper = helpers.send_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.send_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1);
+  if (helper = helpers.to_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.to_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-async-buyer=\"";
+  if (helper = helpers.send_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.send_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n    <img class=\"ds-block\" src='";
+  if (helper = helpers.img) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.img); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "' style=\"width: 40px;height: 40px;border-radius: 2px\" data-async=\"icon\"/>\r\n    <div class=\"ds-box orient-v nickname\">\r\n        <div data-async=\"name\">";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n        <div data-async=\"id\">ID:";
+  if (helper = helpers.send_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.send_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n    </div>\r\n    <div class=\"point red\" data-role=\"nums\" data-nums=\""
+    + escapeExpression(((stack1 = (depth1 && depth1.nums)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\">"
+    + escapeExpression(((stack1 = (depth1 && depth1.nums)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>\r\n</div>\r\n";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.programWithDepth(1, program1, data, depth0),data:data});
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
+  });
+
+var msg_item_tpl = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n    ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.direct), "==", "yuebuyer", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.direct), "==", "yuebuyer", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(13, program13, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.direct), "==", "yueseller", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.direct), "==", "yueseller", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data},helper ? helper.call(depth0, ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "text", options) : helperMissing.call(depth0, "compare", ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "text", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data},helper ? helper.call(depth0, ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "photo", options) : helperMissing.call(depth0, "compare", ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "photo", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data},helper ? helper.call(depth0, ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "sound", options) : helperMissing.call(depth0, "compare", ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "sound", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(9, program9, data),data:data},helper ? helper.call(depth0, ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "merchandise", options) : helperMissing.call(depth0, "compare", ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "merchandise", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(11, program11, data),data:data},helper ? helper.call(depth0, ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "card", options) : helperMissing.call(depth0, "compare", ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "card", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    ";
+  return buffer;
+  }
+function program3(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n            <div class=\"ds-box orient-h pack-end window_child receive\">\r\n                <div class=\"ds-box orient-v icon_list\">\r\n                    <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.default_img)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"height: 40px;width: 40px\" data-async-window-img=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.send_user_id)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\"/>\r\n                </div>\r\n                <div class=\"ds-box flex-1 info pack-start\">\r\n                    <div class=\"info-content flex-1\">\r\n                        "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.content)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program5(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n            <div class=\"ds-box orient-h pack-end window_child receive\">\r\n                <div class=\"ds-box orient-v icon_list\">\r\n                    <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.default_img)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"height: 40px;width: 40px\" data-async-window-img=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.send_user_id)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\"/>\r\n                </div>\r\n                <div class=\"ds-box flex-1 info pack-start\" data-full-url=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.file_url)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\">\r\n                    <div class=\"info-content flex-1\">\r\n                        <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.file_url)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"width: 30%\"/>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program7(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n            <div class=\"ds-box orient-h pack-end window_child receive\">\r\n                <div class=\"ds-box orient-v icon_list\">\r\n                    <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.default_img)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"height: 40px;width: 40px\" data-async-window-img=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.send_user_id)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\"/>\r\n                </div>\r\n                <div class=\"ds-box flex-1 info pack-start\" data-full-url=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.file_url)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\">\r\n                    <div class=\"info-content flex-1\">\r\n                        <div data-role=\"play_sound\" data-sound-url=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.file_url)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\">\r\n                            <div class=\"sound_click\" data-role=\"sound_click\">语音</div>\r\n                            <audio class=\"fn-hide\" controls=\"controls\" type=\"audio/mp3\" src=\"\" data-role=\"sound_line\"></audio>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program9(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n            <div class=\"ds-box orient-h pack-end window_child receive\">\r\n                <div class=\"ds-box orient-v icon_list\">\r\n                    <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.default_img)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"height: 40px;width: 40px\" data-async-window-img=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.send_user_id)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\"/>\r\n                </div>\r\n                <div class=\"ds-box flex-1 info pack-start\">\r\n                    <div class=\"ds-box info-content flex-1 pack-start\">\r\n                        <div class=\"ds-box merchandise_con\">\r\n                            <div class=\"ds-box align-center\" style=\"font-size: 0px\">\r\n                                <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.file_small_url)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"width: 60px\"/>\r\n                            </div>\r\n                            <div class=\"ds-box orient-v flex-1 merchandise_con_info pack-center\">\r\n                                <div class=\"info_title\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.card_text1)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>\r\n                                <div class=\"info_price\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.card_text2)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program11(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n            <div class=\"ds-box orient-h pack-end window_child receive\">\r\n                <div class=\"ds-box orient-v icon_list\">\r\n                    <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.default_img)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"height: 40px;width: 40px\" data-async-window-img=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.send_user_id)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\"/>\r\n                </div>\r\n                <div class=\"ds-box flex-1 info pack-start\">\r\n                    <div class=\"ds-box info-content flex-1 pack-start\">\r\n                        <div class=\"ds-box merchandise_con\">\r\n                            <div class=\"ds-box orient-v flex-1 merchandise_con_info pack-center\">\r\n                                <!--div class=\"info_title\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.card_title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div-->\r\n                                <div class=\"info_title\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.card_text1)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>\r\n                                <div class=\"info_price\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.card_text2)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program13(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(14, program14, data),data:data},helper ? helper.call(depth0, ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "text", options) : helperMissing.call(depth0, "compare", ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "text", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(16, program16, data),data:data},helper ? helper.call(depth0, ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "merchandise", options) : helperMissing.call(depth0, "compare", ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "merchandise", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(18, program18, data),data:data},helper ? helper.call(depth0, ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "photo", options) : helperMissing.call(depth0, "compare", ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.media_type), "==", "photo", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n\r\n    ";
+  return buffer;
+  }
+function program14(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n            <div class=\"ds-box orient-h pack-start window_child send\">\r\n                <div class=\"ds-box flex-1 info pack-end\">\r\n                    <div class=\"info-content flex-1\">\r\n                        "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.content)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\r\n                    </div>\r\n                </div>\r\n                <div class=\"ds-box orient-v icon_list\">\r\n                    <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.default_img)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"height: 40px;width: 40px\"/>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program16(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n            <div class=\"ds-box orient-h pack-end window_child send\">\r\n                    <div class=\"ds-box flex-1 info pack-start\">\r\n                        <div class=\"ds-box info-content flex-1 pack-end\">\r\n                            <div class=\"ds-box merchandise_con\">\r\n                                <div class=\"ds-box align-center\" style=\"font-size: 0px\">\r\n                                    <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.file_small_url)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"width: 60px\"/>\r\n                                </div>\r\n                                <div class=\"ds-box orient-v flex-1 merchandise_con_info pack-center\">\r\n                                    <div class=\"info_title\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.card_text1)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>\r\n                                    <div class=\"info_price\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.card_text2)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                <div class=\"ds-box orient-v icon_list\">\r\n                    <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.default_img)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"height: 40px;width: 40px\"/>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program18(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n            <div class=\"ds-box orient-h pack-end window_child send\">\r\n                <div class=\"ds-box flex-1 info pack-end\">\r\n                    <div class=\"info-content flex-1\">\r\n                        <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.preview_src)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"width: 30%\"/>\r\n                    </div>\r\n                </div>\r\n                <div class=\"ds-box orient-v icon_list\">\r\n                    <img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.pack)),stack1 == null || stack1 === false ? stack1 : stack1.default_img)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" style=\"height: 40px;width: 40px\"/>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
+  });
+
+var buyer_item_empty_tpl = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"ds-box orient-v pack-center buyer_item_empty\" data-role=\"buyer_item_empty\">\r\n    <div class=\"font\">--该商家暂无买家咨询--</div>\r\n</div>";
+  });
+
+var $ = require('components/jquery/jquery.js');
+
+var choosen_client_id = '';
+
+var current_seller = '';
+
+var current_buyer = '';
+
+var msg_en = require('msg_engine');//用于聊天消息的储存，取出
+
+var input_en = require('msg_engine/input_engine'); //用于输入框的状态储存，取出
+
+var user_async = require('async_data/user_async'); //用于异步获取user信息，包括buyer和seller
+
+var option_service_part = require('option_service/pc/option_service');
+
+var option_record_part = require('option_record/pc/option_record');
+
+var CURRENT_SELLER = '';
+
+$(function(){
+
+    render_seller(ss); //渲染商家列表
+
+    render_buyer_list(ss); //渲染空的买家列表
+
+    buyer_event_bind();
+    //buyer_list_set_default();
+
+
+    options_panel_init(ss); //初始化工具栏
+
+    var service_id = {yue_login_id};
+    var client_id = '100001';
+    var custom_id = '100029';
+
+    var send_url =
+    {
+        text : 'http://sendtxt-wifi.yueus.com/sendtxt.cgi',
+        media : 'http://sendmedia.yueus.com:8000/sendmedia.cgi',
+        test_url : 'http://14.29.52.13/sendtxt.cgi'
+
+    };
+
+    $('[data-role="send_btn"]').on('click',function()
+    {
+        msg_sender('text');
+    });
+
+
+
+    function msg_sender(type,mix_obj,preview)
+    {
+        var window_obj = $('[data-role="window"]');
+
+        var seller = window_obj.attr('seller_id');
+
+        var buyer = window_obj.attr('buyer_id');
+
+        if(!seller|| !buyer)return;
+
+        var send_obj = {};
+
+        var media_obj ={};
+
+        switch (type)
+        {
+            case 'text':
+                //客户发送到商家，后被客服拦截
+                send_obj =
+                {
+                    send_user_id : seller,
+                    to_user_id : buyer,
+                    media_type : 'text',
+                    msg_key : hex_md5(seller+buyer+'J&&#3435WS#KSJDF'),
+                    content : $('[data-role="client_inputs"]').val(),
+                    send_user_role : 'yueseller',
+                    from:"agent"
+                };IMSDK.send_msg(send_obj,send_url.text);break;
+            case 'merchandise':
+                //客户发送到商家，后被客服拦截  {"send_user_id":"10002","to_user_id":"100008","media_type":"merchandise"//card,"card_style":"1","card_text1":"1111111111","card_text2":"2222222222","card_title":"33333333333"}
+                send_obj =
+                {
+                    send_user_id : seller,
+                    to_user_id : buyer,
+                    media_type : 'merchandise',
+                    card_style :"3",
+                    card_text1 : mix_obj.titles,
+                    card_text2 : "￥" + mix_obj.prices,
+                    file_small_url : mix_obj.images,
+                    msg_key : hex_md5(seller+buyer+'J&&#3435WS#KSJDF'),
+                    send_user_role : 'yueseller',
+                    from:"agent",
+                    link_url : mix_obj.link_url,
+                    wifi_url : mix_obj.wifi_url
+                };IMSDK.send_msg(send_obj,send_url.text);break;
+            case 'picture':
+                send_obj =
+                {
+                    send_user_id : seller,
+                    to_user_id : buyer,
+                    media_type : 'photo',
+                    msg_key : hex_md5(seller+buyer+'J&&#3435WS#KSJDF'),
+                    send_user_role : 'yueseller',
+                    from:"agent"
+                };IMSDK.send_media(send_obj,mix_obj,send_url.media,preview);break;
+        }
+    }
+
+    $('[data-role="logout"]').on('click',function()
+    {
+        $.ajax
+        ({
+            url: window.$__ajax_domain + 'agent_logout.php',
+            data : {},
+            dataType: 'json',
+            type: 'POST',
+            cache: false,
+            beforeSend: function()
+            {
+
+            },
+            success: function(data)
+            {
+                location.href = '../index.php'
+            },
+            error: function(data)
+            {
+
+            },
+            complete: function()
+            {
+
+            }
+        });
+    })
+
+    user_async.init
+    ({
+        ajax_success : function(data)
+        {
+            console.log(data.result_data)
+            $.each(data.result_data,function(i,obj)
+            {
+                console.log("4")
+                //异步回调的渲染，组件内储存用户信息，
+                var id = obj.id;
+                var name = obj.name;
+                var icon = obj.icon;
+                var target = $('[data-async-buyer="'+ obj.id + '"]');
+
+                target.find('[data-async="name"]').html(name);
+                target.find('[data-async="icon"]').attr('src',icon);
+            })
+
+        }
+    });
+
+    IMSDK.init
+    ({
+        hostname : 'online-wifi.yueus.com',
+        port : 8983,
+        //url:'ws://online-wifi.yueus.com:8983',
+        client_id:service_id,//client_id,
+        connect_fail : function(e)
+        {
+            $('[data-role="error"]').removeClass('fn-hide');
+        },
+        message_connect_success : function(data)
+        {
+            console.log(this);
+            var pack;
+
+            var user_list = [];
+
+            console.log(data);
+            if(data && data.length != 0)
+            {
+                $.each(data,function(i,obj)
+                {
+                    console.log("5");
+
+                    pack = obj;
+
+                    pack.default_img =  'http://static.yueus.com/im/client/test/static/pc/image/pai/default_icon.png'//默认用户图标
+
+                    update_seller(pack); //更新seller状态【加红点】
+
+                    update_buyer(pack); //更新buyer状态【消息数、buyer数】
+
+                    msg_en.put_msg(pack);//储存消息进缓存
+
+                    if($('[data-role="window"]').attr('seller_id') == pack.to_user_id && $('[data-role="window"]').attr('buyer_id') == pack.send_user_id)
+                    {
+                        //整合结构 和 取出记录一样
+                        var obj =
+                                [
+                                    {
+                                        direct : "yuebuyer",
+                                        pack : pack
+                                    }
+                                ]
+
+                        render_msgs(obj); //渲染当前聊天
+                    }
+                    user_list[pack.send_user_id] = pack.send_user_id
+                })
+
+                console.log(user_list)
+                //异步取用户信息，若存在池中，则不再次发送请求，有需要的话可以改成每次请求。
+                user_async.get_info(user_list)
+            }
+
+
+
+
+        },
+        message_receive : function(data)
+        {
+            var pack = data;
+
+            pack.default_img =  'http://static.yueus.com/im/client/test/static/pc/image/pai/default_icon.png'//默认用户图标
+
+            update_seller(pack); //更新seller状态【加红点】
+
+            update_buyer(pack); //更新buyer状态【消息数、buyer数】
+
+            msg_en.put_msg(pack);//储存消息进缓存
+
+            if($('[data-role="window"]').attr('seller_id') == pack.to_user_id && $('[data-role="window"]').attr('buyer_id') == pack.send_user_id)
+            {
+                //整合结构 和 取出记录一样
+                var obj =
+                        [
+                            {
+                                direct : "yuebuyer",
+                                pack : pack
+                            }
+                        ]
+
+                render_msgs(obj); //渲染当前聊天
+            }
+            //异步取用户信息，若存在池中，则不再次发送请求，有需要的话可以改成每次请求。
+            user_async.get_info([pack.send_user_id])
+        },
+        message_send_success : function(send_data,xhr)
+        {
+            var window_obj = $('[data-role="window"]');
+
+            var pack = send_data;
+
+            switch (pack.media_type)
+            {
+                case 'photo':
+                    //重置input
+                    var stc = '<input type="file" value="浏览" id="uploadBtn" name="photo" class="exc_input"/>';
+                    $('[data-role="options-picture"]').append(stc);
+                    upload_media_event_bind();
+
+                    if(JSON.parse(xhr).code != 1)
+                    {
+                        //参数异常
+                    }
+                    else
+                    {
+                        //发送成功
+                    }break;
+            }
+            //测试
+            if(pack.aa == 'test')
+            {
+
+            }
+            else
+            {
+                //聊天窗口中的商家头像
+                pack.default_img = $('[data-role="seller_icon_'+ pack.send_user_id +'"]').attr('src');
+
+                msg_en.put_msg(pack);
+
+                //发送过程切换商家过滤
+                if(window_obj.attr('seller_id') == pack.send_user_id && window_obj.attr('buyer_id') == pack.to_user_id)
+                {
+                    //整合结构 和 取出记录一样
+                    var obj =
+                            [
+                                {
+                                    direct : "yueseller",
+                                    pack : pack
+                                }
+                            ]
+
+                    render_msgs(obj,true); //渲染当前聊天
+                }
+
+            }
+            $('[data-role="client_inputs"]').val("");
+
+        },
+        message_send_fail : function(send_data,xhr)
+        {
+            alert('信息发送失败，请重试');
+        }
+    });
+    IMSDK.connect();
+    //IMSDK.get_msg();
+
+
+    //渲染seller列表，绑定事件
+    function render_seller(obj)
+    {
+        $('[data-role="seller_list"]').html(seller_item_tpl
+        ({
+            data:obj.result_data
+        }));
+
+        $('[data-role="seller_list_item"]')
+                .unbind('click')
+                .on('click',function()
+                {
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+
+                    var list_obj = $('[buyer_list="'+ $(this).attr('seller_user_id')+'"]');
+
+                    var open_obj = $('[data-open="open"]');
+
+                    if(list_obj.length != 0)
+                    {
+                        if(open_obj.length != 0)
+                        {
+                            //有已打开的buyer_list
+
+                            if(open_obj.attr('buyer_list') == $(this).attr('seller_user_id'))
+                            {
+                                //打开的是自己
+                            }
+                            else
+                            {
+                                //收起已打开的
+                                open_obj.animate
+                                ({
+                                    width:'0px'
+                                },500,function()
+                                {
+                                    $(this).addClass('fn-hide')
+
+                                    $('[buyer_list]').attr('data-open','close');
+                                    //打开新的
+                                    list_obj.removeClass('fn-hide').animate
+                                    ({
+                                        width:'200px'
+                                    },500,function()
+                                    {
+                                        //动画回调
+                                        $(this).animate({},500)
+                                    })
+                                    list_obj.attr('data-open','open')
+
+                                })
+
+                            }
+                        }
+                        else
+                        {
+                            //没有已打开的，去打开
+                            list_obj.removeClass('fn-hide').animate
+                            ({
+                                width:'200px'
+                            },500,function()
+                            {
+                                //动画回调
+                                $(this).animate({},500)
+                            })
+
+                            list_obj.attr('data-open','open')
+                        }
+                    }
+                    else
+                    {
+
+                    }
+
+                    CURRENT_SELLER = $(this).attr('seller_user_id');
+
+                })
+    }
+
+    //渲染buyer列表
+    function render_buyer_list(obj)
+    {
+        $('[data-role="seller_buyer_list"]').append(buyer_list_tpl({data:obj.result_data}))
+    }
+
+    function buyer_list_set_default()
+    {
+        $('[data-role="buyer_list"]').append(buyer_item_empty_tpl({}));
+    }
+
+    function render_msgs(obj,scroll_to_bot)
+    {
+        //渲染信息
+        var window_obj = $('[data-role="window"]');
+
+        //阅读在最新消息时，接收到消息自动滚动
+        var ch = window_obj[0].clientHeight;
+
+        var st = window_obj[0].scrollTop;
+
+        var sh = window_obj[0].scrollHeight;
+        //窗体消息
+        window_obj.append(msg_item_tpl({data:obj}));
+
+        if(ch + st + 100 >= sh || scroll_to_bot){window_obj.scrollTop(sh)}
+
+        //重置头像
+        console.log($('[data-async-window-img]'))
+        $.each($('[data-async-window-img]'),function(i,obj)
+        {
+            console.log("1")
+            var id = $(obj).attr('data-async-window-img')
+
+            var form_base = user_async.get_user_base(id);
+
+            $(obj).attr('src',form_base.icon)
+        })
+
+        //----------------音频事件-------------------------
+        console.log($('[data-role="sound_line"]'))
+        $.each($('[data-role="sound_line"]'),function(k,k_obj)
+        {
+            console.log("2")
+            var con = $(k_obj);
+
+            var ogg = con.parents('[data-sound-url]').attr('data-sound-url');
+
+            var res = window.btoa(JSON.stringify({url:ogg}));
+
+            con[0].onloadedmetadata = function()
+            {
+                //手机端切换app后会重load
+                if(con.siblings('[data-role="sound_click"]').find('font').length == 0)
+                {
+                    con.siblings('[data-role="sound_click"]').append('<font>' + con[0].duration.toFixed(1) + '"' + '</font>');
+                }
+            }
+            con.attr('src','http://14.29.52.16:8055/ogg2mp3?req='+ res)
+        })
+
+        $('[data-role="play_sound"]')
+                .unbind('click')
+                .on('click',function()
+                {
+                    var con = $(this);
+
+                    var sound_obj = con.find('[data-role="sound_line"]');
+
+                    //有音频
+                    if(sound_obj[0].paused)
+                    {
+                        sound_obj[0].play();
+                    }
+                    else
+                    {
+                        sound_obj[0].pause();
+                    }
+                })
+        //----------------音频事件 END-------------------------
+    }
+
+    function update_seller(obj)
+    {
+        $('[seller_user_id="'+obj.to_user_id + '"]').find('.point').removeClass('none').addClass('red')
+    }
+
+    function update_buyer(obj,is_add)
+    {
+
+        var node
+
+        if(obj.send_user_role == "yuebuyer")
+        {
+            node = $('[buyer_list="'+ obj.to_user_id +'"]');
+        }
+        else
+        {
+            node = $('[buyer_list="'+ obj.send_user_id +'"]');
+        }
+        console.log('update_buyer');
+        render_buyer(obj,node,is_add)
+        console.log('render_buyer');
+    }
+
+    function buyer_event_bind()
+    {
+        $('[data-role="buyer_list_item"]')
+                .unbind('click')
+                .on('click',function()
+                {
+                    $('[data-role="options-record"]').removeClass('fn-hide');
+
+                    var textarea_obj = $('[data-role="client_inputs"]');
+
+                    var window_obj = $('[data-role="window"]');
+
+                    $('[data-role="window_empty"]').remove();
+
+                    var con = $(this);
+
+                    //去除其他买家高亮，当前高亮。
+                    $('[data-role="buyer_list_item"]').removeClass('active');
+                    con.siblings().removeClass('active');
+                    con.addClass('active');
+
+                    var buyer_id = con.attr('send_user_id')
+
+                    var seller_id= con.attr('to_user_id')
+
+                    if(seller_id != window_obj.attr('seller_id') || buyer_id != window_obj.attr('buyer_id'))
+                    {
+                        if(!window_obj.attr('seller_id')|| !window_obj.attr('buyer_id'))
+                        {
+                            //首次打开时 undefined
+                        }
+                        else
+                        {
+                            //不是首次打开 储存输入文本 再根据买家取出
+                            input_en.put_msg(window_obj.attr('seller_id')+window_obj.attr('buyer_id'),textarea_obj.val())
+
+                            textarea_obj.val("");
+
+                            var input_str = input_en.get_msg(seller_id+buyer_id);
+
+                            if(input_str.length!= 0)
+                            {
+                                textarea_obj.val(input_str[input_str.length-1].storage)
+                            }
+                        }
+
+                        //未打开窗口，或已打开不是应该打开的窗口
+                        window_obj.html("");
+                        //接收的信息后缀是 'yuebuyer'
+                        var send_type = 'yuebuyer';
+                        //取出信息
+                        var msg_arr = msg_en.get_msg('who_to_who',buyer_id + seller_id); // + send_type
+                        //渲染信息
+                        render_msgs(msg_arr);
+                    }
+                    else
+                    {
+                        //打开正确，不动。
+                    }
+                    //标记当前窗口
+                    $('[data-role="window"]').attr('seller_id',seller_id).attr('buyer_id',buyer_id);
+                    //设置窗口标题
+                    $('[data-role="title_warp"]').html(buyer_id);
+
+                    //当前买家选项更新红点
+                    con.find('[data-role="nums"]').removeClass('red').addClass('none').attr('data-nums',0).html("0")
+
+                    if(con.parents('[data-role="buyer_list"]').find('.red').length == 0)
+                    {
+                        $('[data-seller_list_item="'+seller_id + '"]').find('.red').removeClass('red').addClass('none')
+                    }
+                    //商家服务切换
+                    option_service_part.load(seller_id);
+
+                    //从信箱移除已读信息
+                    var has_read = msg_en.get_msg('who_to_who',buyer_id + seller_id);
+
+                    var notice_arr = [];
+
+                    console.log(has_read)
+                    $.each(has_read,function(r,r_obj)
+                    {
+                        console.log("3")
+                        notice_arr.push(r_obj.pack.notice_id)
+                    })
+
+
+                    IMSDK.has_read(notice_arr);
+                })
+    }
+
+    function render_buyer(obj,node,is_add)
+    {
+
+        //渲染商家列表至对应的buyer_list
+        var append_node = node;
+
+        if(append_node.children('[send_user_id="' + obj.send_user_id +'"]').length == 0)
+        {
+            //买家未存在
+            append_node.append(buyer_item_tpl
+            ({
+                data:[obj],
+                nums:1
+                //img : __uri('../../../../image/pai/d9.jpg')
+            }));
+
+            buyer_event_bind();
+        }
+        else
+        {
+            //买家已存在
+            if($('[data-role="window"]').attr('seller_id') == obj.to_user_id && $('[data-role="window"]').attr('buyer_id') == obj.send_user_id)
+            {
+                //若是当前聊天窗口，则不增加红点
+            }
+            else
+            {
+                console.log(obj)
+                //若不是当前聊天窗口，则找到已存在的买家，红点数+1
+                var change_nums_obj = $('[data-buyer-list-item="'+ obj.to_user_id+obj.send_user_id +'"]').find('[data-role="nums"]');
+
+                var num = parseInt(change_nums_obj.attr('data-nums'))+1;
+
+                change_nums_obj.removeClass('none').addClass('red').attr('data-nums',num).html(num);
+            }
+
+        }
+    }
+
+    function options_panel_init(obj)
+    {
+        //工具栏初始化 -----服务-----------
+        $('[data-role="options-service"]').on('click',function()
+        {
+            var con = $(this);
+
+            if(!con.attr('open'))
+            {
+                option_service_part.show();
+
+                con.attr('open',true)
+            }
+            else
+            {
+                option_service_part.hide();
+
+                con.attr('open',false)
+            }
+        })
+
+        option_service_part.init
+        ({
+            data:obj,
+            bar : $('[data-role="options-panel"]'),
+            click_send : function(obj)
+            {
+                msg_sender('merchandise',obj);
+            },
+            click_link : function(obj)
+            {
+                window.open('../../../../mall/user/goods/service_detail.php?seller_user_id=' + $('[data-role="window"]').attr('seller_id') + '&goods_id=' + $(obj).parents('[data-role="part_service_item"]').attr('data_goods_id'));
+            }
+        })
+
+        //工具栏初始化 -----服务 END-----------
+
+        //工具栏初始化 -----图片-----------
+        $('[data-role="options-picture"]').on('click',function()
+        {
+            var con = $(this);
+
+            if(!con.attr('open'))
+            {
+                con.attr('open',true)
+            }
+            else
+            {
+                con.attr('open',false)
+            }
+        })
+        //工具栏初始化 -----图片 END-----------
+
+        //工具栏初始化 -----聊天记录-----------
+        option_record_part.init
+        ({
+            bar : $('[data-role="options-panel"]'),
+            load_success : function(data)
+            {
+                console.log(data)
+            },
+            load_fail : function(data)
+            {
+
+            }
+        });
+
+        $('[data-role="options-record"]').on('click',function()
+        {
+            var con = $(this);
+
+            var window_obj = $('[data-role="window"]');
+
+            var seller_id = window_obj.attr('seller_id');
+
+            var buyer_id = window_obj.attr('buyer_id');
+
+            if(!con.attr('open'))
+            {
+                option_record_part.show();
+
+                option_record_part.reset_msg_list_page();
+                //buyer_id为空时，只取列表
+                option_record_part.load({seller_id : seller_id, buyer_id : buyer_id});
+
+                con.attr('open',true);
+
+            }
+            else
+            {
+                option_record_part.hide();
+
+                con.attr('open',false);
+
+            }
+        })
+
+
+
+        //工具栏初始化 -----聊天记录 END-----------
+
+
+    }
+
+    function upload_media_event_bind()
+    {
+        document.getElementById("uploadBtn").addEventListener("change",function()
+        {
+            var file = this.files[0];
+
+            var reader = new FileReader();
+
+            reader.onload = function(e)
+            {
+                msg_sender('picture',document.getElementById('uploadBtn'),e.target.result)
+
+            }
+
+            reader.readAsDataURL(file);
+        })
+    }
+    upload_media_event_bind();
+
+    $('[data-role="btn"]').on('click',function()
+    {
+        var send_str = $('[data-role="sender"]').val();
+
+        var receive_str = $('[data-role="getter"]').val();
+        //客户发送到商家，后被客服拦截
+        var obj =
+        {
+            aa : 'test',
+            send_user_id : send_str,
+            to_user_id : receive_str,
+            media_type : 'text',
+            msg_key : hex_md5(send_str+receive_str+'J&&#3435WS#KSJDF'),
+            content : $('[data-role="inputs"]').val(),
+            send_user_role : 'yuebuyer',//'yueseller',
+            from:"agent"
+        };
+
+        IMSDK.send_msg(obj,send_url.test_url);
+    })
+
+    $('[data-role="face-to-chat-record"]').on('click',function(e)
+    {
+        window.open('../chat_record/chat_record.php?seller_id='+ $(this).attr('data-storage'));
+
+        e.stopPropagation();
+    })
+});
+var ss = {sellers};
+</script>
+
+</html>

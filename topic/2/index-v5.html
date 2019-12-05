@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>约约第二季活动</title>
+<link href="css/zt.css?ddd" type="text/css" rel="stylesheet" />
+<script src="js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.carouFredSel-5.5.0.js"></script>
+<script language="javascript" type="text/javascript">
+var interval = 1000; 
+function ShowCountDown(year,month,day,hour) 
+{ 
+var now = new Date(); 
+var endDate = new Date(year, month-1, day, hour); 
+var leftTime=endDate.getTime()-now.getTime(); 
+var leftsecond = parseInt(leftTime/1000); 
+//var day1=parseInt(leftsecond/(24*60*60*6)); 
+var day1=Math.floor(leftsecond/(60*60*24)); 
+var hour=Math.floor((leftsecond-day1*24*60*60)/3600); 
+var minute=Math.floor((leftsecond-day1*24*60*60-hour*3600)/60); 
+var second=Math.floor(leftsecond-day1*24*60*60-hour*3600-minute*60); 
+
+if(day1 < 0)
+{
+    day1    =0;
+    hour    =0;
+    minute  =0;
+    second  =0;
+}
+document.getElementById('in_day').innerHTML     = day1; 
+document.getElementById('in_hour').innerHTML    = hour;
+document.getElementById('in_minute').innerHTML  = minute;
+document.getElementById('in_second').innerHTML  = second;
+} 
+window.setInterval(function(){ShowCountDown(2014,11,25,12);}, interval); 
+</script>
+</head>
+<body class="v2">
+<div class="header-v2">
+  <div class="banner-v2">
+    <div class="scrollBox">
+      <ul class="img_list clearfix" id="foo2">
+        <li class="banner-position" style="background-image:url(images/ad1.jpg)" onclick="javascript:location.href='cameraman.php'"> </li>
+        <li class="banner-position" style="background-image:url(images/ad2.jpg)" onclick="javascript:location.href='model.php'"> </li>
+      </ul>
+      <div class="page-wrap clearfix"> <a href="cameraman.php" class="pre fl" id="prev2"></a> <a href="model.php" class="next fl" id="next2"></a> </div>
+    </div>
+  </div>
+</div>
+<div class="index-page-v3">
+  <div class="w1000">
+    <div class="wbox clearfix">
+      <div class="lbox fldi">
+
+        <img src="images/title-5.png" />
+
+
+        <ul class="list5 font_wryh clearfix">
+            <li class="cur">
+                <div class="title ">活动报名规则</div>
+                <div class="dtable " >
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>1.  </td>
+                            <td>通过活动页面扫二维码进行报名</td>
+                        </tr>
+                        <tr>
+                            <td>2. </td>
+                            <td>报名需提交真实个人资料（真实姓名、联系电话、个人作品5张、个人作品空间链接）完成即代表报名成功。</td>
+                        </tr>
+                        <tr>
+                            <td>3. </td>
+                            <td>随机抽取20名幸运儿获得体验师资格。</td>
+                        </tr>
+                        <tr>
+                            <td>4.  </td>
+                            <td>20个摄影师10个模特全凭实力约拍。</td>
+                        </tr>
+                    </table>
+            
+                </div>
+            </li>
+
+            <li>
+                <div class="title ">优先资格介绍</div>
+                <div class="dtable " style="display:none">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>1.  </td>
+                            <td>约约体验师论坛摄影师优先</td>
+                        </tr>
+                        <tr>
+                            <td>2. </td>
+                            <td>POCO摄影外拍积极用户优先</td>
+                        </tr>
+                        <tr>
+                            <td>3. </td>
+                            <td>POCO摄影等级高的用户优先</td>
+                        </tr>
+
+                    </table>
+            
+                </div>
+            </li>
+
+
+            <li>
+                <div class="title " >成功约拍即可获得</div>
+                <div class="dtable " style="display:none">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>1.  </td>
+                            <td>抢约成功即可获得约约私拍奖金50元
+</td>
+                        </tr>
+                        <tr>
+                            <td>2. </td>
+                            <td>自动成为约约体验师论坛成员
+</td>
+                        </tr>
+                        <tr>
+                            <td>3. </td>
+                            <td>在POCO空间获得约约体验师勋章
+</td>
+                        </tr>
+                        <tr>
+                            <td>4.  </td>
+                            <td>作品可获POCO首页专区展示机会</td>
+                        </tr>
+
+                        <tr>
+                            <td>5.  </td>
+                            <td>获约APP优先使用权，自由约拍心仪女神</td>
+                        </tr>
+
+                        <tr>
+                            <td>6.  </td>
+                            <td>加入"约"第二季摄影师微信交流群，跟工作人员零距离接触，解答你的疑问</td>
+                        </tr>
+                    </table>
+            
+                </div>
+            </li>
+        </ul>        
+
+
+      </div>
+      <div class="rbox frdi">
+        <div class="box1">
+          <div class="listItem pb5"><img src="images/title-2.png" /></div>
+          <div class="img-list clearfix">
+            <ul>
+            <!-- BEGIN list -->
+              <li>
+                <div class="img-item"><a href="model_detail.php?id={id}" target="_blank"><img src="{img_4}" width="100px"  height="100px"/></a></div>
+              </li>
+            <!-- END list -->              
+            </ul>
+          </div>
+         </div>
+<div class="box3a">
+          <div class="listItem pb5"><img src="images/ty-img-40.png" /></div>
+          <div class="img-list clearfix">
+            <ul>
+              <li>
+                <div class="img-item"><a href="http://my.poco.cn/v2/?user_id=173578649&_admin_preview" target="_blank" title="小西
+"><img src="icon/1.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://calvinyao.poco.cn/" target="_blank" title="CalvinYao"><img src="icon/2.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://swinglyh.poco.cn" target="_blank" title="司咏"><img src="icon/3.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://cgstar.poco.cn" target="_blank" title="playstar83"><img src="icon/4.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://lizibo.poco.cn/" target="_blank" title="天行健"><img src="icon/5.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://winsonliu.poco.cn" target="_blank" title="winsonliu"><img src="icon/6.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://liangdy.poco.cn" target="_blank" title="张三的歌LDY.GZ"><img src="icon/7.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://hdit.poco.cn" target="_blank" title="黑肉摄影C"><img src="icon/8.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://my.poco.cn/id-54142124.shtml" target="_blank" title="duma"><img src="icon/9.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://liverpool6.poco.cn" target="_blank" title="利物浦"><img src="icon/10.png" /></a></div>
+              </li>
+
+              <li>
+                <div class="img-item"><img src="icon/11.png" title='eddy' /></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://my.poco.cn/v2/home.htx&user_id=52054059" target="_blank" title="Oly.Yip"><img src="icon/12.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><img src="icon/13.png" title='别说' /></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://my.poco.cn/id-175342048.shtml" target="_blank" title="jimmy"><img src="icon/14.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://cghonggallery.poco.cn" target="_blank" title="CG Hong"><img src="icon/15.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://janno.lofter.com" target="_blank" title="Janno"><img src="icon/16.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://luguangyu.lofter.com" target="_blank" title="宇"><img src="icon/17.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://bloodysucker.poco.cn" target="_blank" title="bloodysucker"><img src="icon/18.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://fayim.poco.cn" target="_blank" title="Fay"><img src="icon/19.png" /></a></div>
+              </li>
+              <li>
+                <div class="img-item"><a href="http://my.poco.cn/id-175106377.shtml" target="_blank" title="Vitamin"><img src="icon/20.png" /></a></div>
+              </li>
+            </ul>
+          </div>
+         </div>
+
+        <div class="pic-img"><img src="images/title-3.png" /></div>
+        <div class="btn"><a href="cameraman.php"></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer font_wryh">Copyright 2003-2014 YUEUS.COM&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../about_us/about.html">公司介绍</a> </div>
+</div>
+<script type="text/javascript">
+    //  Scrolled by user interaction
+    $('#foo2').carouFredSel({
+        prev: '#prev2',
+        next: '#next2',
+        pagination: "#pager2",
+        auto: true
+    });
+
+    $(document).ready(function($) {
+        var $obj = $('.list5 li');
+        $obj.click(function(){
+            $obj.removeClass('cur');
+            $(this).addClass('cur');
+            $obj.find('.dtable ').hide();
+            $(this).find('.dtable ').show();
+        })
+    });
+
+
+</script>
+</body>
+</html>

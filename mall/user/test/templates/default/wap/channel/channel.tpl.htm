@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>热门模特</title>
+	{wap_global_top} 
+	<!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+	<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/channel/channel.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+</head>
+<body>
+
+<main role="main">
+
+	<section id="global-header"></section>
+	<div class="page-view" data-role="page-container">
+
+		<div class="channel-page">
+			<div class="item-wrap" >
+				<div id="pic_list">
+                                                           <div class="render_item_ele" data-role="render_item_ele" id="render_item_ele"></div>
+                                                    </div>
+				<div class="btn-item">
+					<button class="ui-button-block ui-button-100per ui-button-size-l ui-more fn-hide" id="btn_more">
+					        <span class="ui-button-content">加载更多</span>
+					</button>
+				</div>
+			</div>
+			
+		</div>
+
+	</div>
+
+</main>
+
+
+
+ {wap_global_footer} 
+	
+</body>
+
+
+
+<script>
+var $ = require('components/zepto/zepto.js');
+var header = require('common/widget/header/main');
+var utility = require('common/utility/index');
+var abnormal=require('common/widget/abnormal/index');
+
+$(document).ready(function() {
+
+
+	// 渲染头部
+	header.init({
+		ele : $("#global-header"), //头部渲染的节点
+		title:"热门模特",
+		header_show : true , //是否显示头部
+		mt_0_ele : $('#seller-detail-page'), //如果头部隐藏，要把当前页节点margin-top改为0
+		right_icon_show : true, //是否显示右边的按钮
+		share_icon : 
+		{
+			show :false,  //是否显示分享按钮icon
+			content:""
+		},
+		omit_icon :
+		{
+			show :false,  //是否显示三个圆点icon
+			content:""
+		},
+		show_txt :
+		{
+			show :false,  //是否显示文字
+			content:"编辑"  //显示文字内容
+		},
+		search_icon : 
+		{
+			show :true,  //是否搜索icon
+			content:""  //显示文字内容
+		}
+	})
+    
+
+    var page = 1 ;
+    var congfig = false ;
+
+    // // 载入图片列表组件
+    // var pic_list = require('../../../../modules/common/widget/channel_list/pic_list');
+    // // 初始化
+    // var pic_list_obj = new pic_list({
+    //     ele : $("#pic_list") //头部渲染的节点
+    // });
+
+
+ 
+   function render_html(page) 
+   {
+
+    var data = 
+    {
+
+        'type_id' : '31', 
+        'query' : '31',
+        'page' : page
+    }
+
+    var ajax_obj = utility.ajax_request
+    ({
+        url: window.$__ajax_domain + 'channel_list.php',
+        data : data,
+        dataType: 'json',
+        type: 'POST',
+        cache: false,
+
+        beforeSend: function()
+        {
+            congfig=false;
+            window.$loading=$.loading({
+                content:'发送中.....'
+            });
+          
+        },
+        success : function(res)
+        {
+            console.log(res);
+
+            congfig = true ;
+            $('#btn_more').removeClass('fn-hide');
+            $loading.loading("hide");
+            var arr = [] ;
+            var data_list = res.result_data.list.data.category_list;
+
+
+            // 无数据处理
+            if(res.result_data.list.data.category_list && !res.result_data.list.data.category_list.length && page == 1)
+            {
+                abnormal.render($('[data-role="channel_list"]')[0],{});
+
+                $('#btn_more').addClass('fn-hide');
+
+                return;
+            }
+            else
+            {
+                if(!res.result_data.has_next_page)
+                {
+                    $('#btn_more').addClass('fn-hide');
+                }
+                else
+                {
+                    $('#btn_more').removeClass('fn-hide');
+                }
+
+            }
+
+
+
+            for(var i=0; i<data_list.length;i++){
+                arr.push({
+                    desc : data_list[i].desc,
+                    img:data_list[i].img,
+                    title:data_list[i].title,
+                    link:data_list[i].url
+                })
+
+            }
+            console.log(arr);
+
+
+
+           // 渲染数据
+           render_html_v2(arr,page == 1?'html':'append');
+
+
+
+        },
+        error : function(err)
+        {
+            congfig = true ;
+
+            $loading.loading("hide");
+
+            $.tips
+            ({
+                content:'网络异常',
+                stayTime:3000,
+                type:'warn'
+            });
+
+            
+        }
+    }); 
+}
+
+
+function render_html_v2  (data,operate) 
+{
+    var self = this;
+    var template  = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\n    <div class=\"item\">\n        <div class=\"img-con\">\n            <a href=\"";
+  if (helper = helpers.link) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.link); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"><img src=\"";
+  if (helper = helpers.img) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.img); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" /></a>\n        </div>\n        <div class=\"txt-con\">\n            <h3 class=\"title\">";
+  if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h3>\n            <p class=\"txt\">";
+  if (helper = helpers.desc) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.desc); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\n        </div>\n    </div>\n\n";
+  return buffer;
+  }
+
+  buffer += "\n";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  return buffer;
+  });
+    var view = template({
+        data : data
+    })
+    self.render_item_ele = $('[data-role="render_item_ele"]');
+    self.render_item_ele[operate](view);
+}
+
+
+
+render_html(page);
+
+$('#btn_more').on('click', function(event) {
+    if (congfig) 
+    {
+        render_html(++page);
+    }
+
+});
+
+
+});
+
+
+</script>
+
+
+</html>

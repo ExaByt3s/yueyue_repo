@@ -1,0 +1,31 @@
+{{#each data}}
+<div class="item clearfix">
+    <div class="user-img">
+        <div class="img"><a href="#"><img src="{{{avatar}}}" /></a></div>
+        <p class="id-num">ID:{{{from_user_id}}}</p>
+    </div>
+    <div class="item-main">
+        <div class="mod-star-item" data-role="commit_stars" data-stars="{{{rating}}}">
+            <div class="icon none-star" data-role="stars">
+                <div class="yellow none"></div>
+            </div>
+            <div class="icon none-star" data-role="stars">
+                <div class="yellow none"></div>
+            </div>
+            <div class="icon none-star" data-role="stars">
+                <div class="yellow none"></div>
+            </div>
+            <div class="icon none-star" data-role="stars">
+                <div class="yellow none"></div>
+            </div>
+            <div class="icon none-star" data-role="stars">
+                <div class="yellow none"></div>
+            </div>
+        </div>
+        <div class="text-item">
+            <p>{{{comment}}}</p>
+        </div>
+        <div class="info-item"><span class="name">{{{customer}}}</span><span class="date">{{{add_time}}}</span> </div>
+    </div>
+</div>
+{{/each}}

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>地区列表</title>
+<link href="./css/style.css{no_cache}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://img1.poco.cn/js/mootools/mootools.v1.11.js"></script>
+<script type="text/javascript">
+function switch_show(lct_id) {
+	var tr_obj = $('location').getElements('tr[class='+lct_id+']');
+	tr_obj.each(function(header, index){
+		header.style.display = header.style.display=='none' ? '' : 'none';
+	});
+}
+</script>
+</head>
+
+<body>
+<iframe id="act_frame" name="act_frame" height="0" style="display:none;" ></iframe>
+<h3 align="center" style="font-weight: bold;">地区列表</h3>
+<div style=" text-align:center;font-weight: normal; color:#FF0000; font-size:12px;">点击省份名称，打开相对应的市名列表</div>
+<table align="center" border="1" width="80%">
+    <thead align="center">
+        <tr align="center">
+            <td width="30%">地区的标识</td>
+            <td width="40%">地区的名称</td>
+            <td width="30%">操作</td>
+        </tr>
+    </thead>
+    <tbody id="location" align="center">
+        <!-- BEGIN location_list -->
+            <tr <!-- IF lct_fid!="0" -->class="{lct_fid}" style="display:none;"<!-- ELSE -->style="cursor:pointer;"<!-- ENDIF -->>
+                <td width="30%" align="center"<!-- IF lct_fid="0" --> onclick="switch_show({lct_id});"<!-- ENDIF -->>{lct_icon_txt}</td>
+                <td width="40%" align="left"<!-- IF lct_fid="0" --> onclick="switch_show({lct_id});"<!-- ENDIF -->>{lct_name_txt}</td>
+                <td width="30%" align="center"><a href="javascript:;" onclick="show_message({lct_id});">delete</a>/<a href="./location_update.php?lct_id={lct_id}">update</a></td>
+            </tr>
+        <!-- END location_list -->
+    </tbody>
+</table>
+<script type="text/javascript">
+function show_message(lct_id){
+	if(window.confirm("你确定要删除吗？")==true){
+		window.location.target = 'act_frame';
+		window.location.href = 'location_delete.php?lct_id='+lct_id+'';
+	}
+}
+</script>
+</body>
+</html>

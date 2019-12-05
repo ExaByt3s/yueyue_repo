@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<title>身份认证</title>
+<style type="text/css">
+.input-text {
+	width:500px;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+  <link rel="stylesheet" href="../kindeditor/themes/default/default.css" />
+  <script charset="utf-8" src="../kindeditor/kindeditor-min.js"></script> 
+  <script charset="utf-8" src="../kindeditor/lang/zh_CN.js"></script> 
+  <script>
+	var editor;
+	KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="content"]', {
+			resizeType : 1,
+			allowPreviewEmoticons : false,
+			allowImageUpload : false,
+			newlineTag : 'br',
+			width:'750px',
+			items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+		});
+	});
+</script>
+  <div id="tabs" style="margin-top:10px;">
+   <form  method="post" target="frame">
+  <div class="tabbox">
+    <fieldset>
+      <legend></legend>
+      <!--list-->
+      <table  cellspacing="10" width="100%">
+        <tr>
+          <td align="right">身份证:</td>
+          <td><a href="{img}" target="_blank"><img src="{img}"> </a></td>
+        </tr>
+        <!-- IF status="1" --> 
+        <!-- ELSE -->
+        <tr>
+          <td align="right">身份证号码:</td>
+          <td><input type="text" name="id_code" id="id_code" size="40" /></td>
+        </tr>
+        <!-- ENDIF -->
+        
+      </table>
+    </fieldset>
+  </div>
+     
+    <div class="btn">
+      <input type="submit" name="submit" value="审核通过" class="button" />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="button" name="button" id="button" value="返回" onclick="history.go(-1);" class="button" />
+       <input name="status" type="hidden" value="1">
+    <input name="user_id" type="hidden" value="{user_id}">
+    <input name="id" type="hidden" value="{id}">
+    <input name="img" type="hidden" value="{img}">
+    </div>
+     </form>
+     
+  <form  method="post" target="frame">
+    <!-- IF status="1" --><!-- ELSE -->
+    <div class="btn"> 原因：&nbsp;&nbsp;
+      <select name="reason">
+        <option value="身份证模糊">身份证模糊</option>
+        <option value="人脸模糊">人脸模糊</option>
+      </select>
+      <input name="status" type="hidden" value="2">
+       <input name="user_id" type="hidden" value="{user_id}">
+      <input type="submit" name="submit" value="审核不通过" class="button" />
+    </div>
+    <!-- ENDIF -->
+    </form>
+    
+
+    </div>
+   
+ 
+</div>
+</body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+</html>

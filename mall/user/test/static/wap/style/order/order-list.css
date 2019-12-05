@@ -1,0 +1,130 @@
+.page-name-order-list {
+  display: -webkit-box;
+  -webkit-box-orient: vertical; }
+  .page-name-order-list .taps_container {
+    display: -webkit-box;
+    background: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px; }
+    .page-name-order-list .taps_container .inner_tap {
+      display: -webkit-box;
+      -webkit-box-pack: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-flex: 1;
+      height: 39px;
+      text-align: center;
+      margin: 0px 10px;
+      color: #999999;
+      position: relative; }
+      .page-name-order-list .taps_container .inner_tap .red_dot {
+        width: 5px;
+        height: 5px;
+        background: red;
+        position: absolute;
+        right: 0px;
+        top: 10px;
+        border-radius: 2px; }
+      .page-name-order-list .taps_container .inner_tap.cur {
+        color: #333333;
+        border-bottom: 1px solid #333333; }
+  .page-name-order-list .order_list_container {
+    display: -webkit-box;
+    -webkit-box-orient: vertical; }
+    .page-name-order-list .order_list_container .child {
+      background: #fff;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      margin-top: 15px; }
+      .page-name-order-list .order_list_container .child a:visited {
+        color: #333; }
+      .page-name-order-list .order_list_container .child .item_info {
+        display: -webkit-box;
+        padding: 15px;
+        position: relative; }
+        .page-name-order-list .order_list_container .child .item_info.top-info {
+          padding: 10px 15px 10px 0;
+          position: relative;
+          margin-left: 15px;
+          position: relative; }
+          .page-name-order-list .order_list_container .child .item_info.top-info .status {
+            position: absolute;
+            z-index: 1;
+            right: 15px;
+            top: 10px; }
+            .page-name-order-list .order_list_container .child .item_info.top-info .status.color-fe9920 {
+              color: #fe9920; }
+        .page-name-order-list .order_list_container .child .item_info .pics {
+          width: 70px;
+          height: 70px;
+          overflow: hidden; }
+          .page-name-order-list .order_list_container .child .item_info .pics .ui-list-item-tips {
+            left: 7px;
+            top: 15px;
+            z-index: 1; }
+          .page-name-order-list .order_list_container .child .item_info .pics img {
+            width: 70px; }
+        .page-name-order-list .order_list_container .child .item_info .notice_contain {
+          display: -webkit-box;
+          -webkit-box-flex: 1;
+          -webkit-box-orient: vertical;
+          margin-left: 15px; }
+          .page-name-order-list .order_list_container .child .item_info .notice_contain .notice {
+            display: -webkit-box;
+            -webkit-box-flex: 1;
+            -webkit-box-orient: vertical;
+            -webkit-box-pack: start;
+            line-height: 14px;
+            overflow: hidden;
+            color: #333333;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2; }
+          .page-name-order-list .order_list_container .child .item_info .notice_contain .o_price {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-box-pack: center;
+            color: #666666;
+            font-size: 12px;
+            height: 16px;
+            color: #aaa; }
+      .page-name-order-list .order_list_container .child .r_pay {
+        display: -webkit-box;
+        -webkit-box-pack: end;
+        padding: 12px 15px;
+        margin: 0px 0 0 15px; }
+        .page-name-order-list .order_list_container .child .r_pay .info {
+          display: -webkit-box; }
+          .page-name-order-list .order_list_container .child .r_pay .info .tex {
+            color: #aaaaaa;
+            font-size: 12px; }
+          .page-name-order-list .order_list_container .child .r_pay .info .re_price {
+            color: #ff6a6e;
+            font-size: 12px; }
+      .page-name-order-list .order_list_container .child .btns {
+        display: -webkit-box;
+        -webkit-box-pack: end;
+        margin: 0 0 0 15px;
+        padding-right: 15px; }
+        .page-name-order-list .order_list_container .child .btns .btn {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-box-pack: end;
+          text-align: center;
+          margin: 0px 10px; }
+        .page-name-order-list .order_list_container .child .btns button {
+          background: #ffffff;
+          margin: 10px 0px 10px 10px; }
+          .page-name-order-list .order_list_container .child .btns button.bad {
+            width: 75px; }
+          .page-name-order-list .order_list_container .child .btns button.good {
+            width: 150px; }
+        .page-name-order-list .order_list_container .child .btns .btn_del {
+          background: #f2f2f2; }
+  .page-name-order-list .next_page_btn {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    text-align: center;
+    margin-top: 15px;
+    height: 45px;
+    background: #fff; }

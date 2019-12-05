@@ -1,0 +1,40 @@
+<meta charset="gb2312">
+<title>Լyue</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no, email=no">
+
+<!-- QQ -->
+<meta name="x5-fullscreen" content="true">
+<!-- UC -->
+<meta name="full-screen" content="yes">
+
+<!-- wx error top link fix -->
+<script>
+(function()
+{
+	if(/from_app=1#topic\/32/.test(window.location.href) && /MicroMessenger/i.test(navigator.userAgent))
+	{
+		var d = new Date();
+		var t = d.getFullYear()+''+d.getMonth()+''+d.getDate();
+		
+		window.location.href = 'http://yp.yueus.com/m/wx?vwx'+t+'#topic/32';
+	}
+})();
+</script>
+
+<!-- IF page.mode="dev" -->
+<link charset="utf-8" rel="stylesheet" href="/mobile/css/pai/paiappstyle.css?{page.time}">
+<style>
+    #seajs-debug-console {
+        display: none!important;
+    }
+	
+	
+</style>
+<!-- ELSEIF page.mode="test" -->
+<link charset="utf-8" rel="stylesheet" href="/mobile/css/pai/paiappstyle.css">
+<!-- ELSE -->
+<link charset="utf-8" rel="stylesheet" href="/mobile/css/pai/paiappstyle.css?{page.time}">
+<!-- ENDIF page.mode -->

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+$ui-prefix: "" !default;
+
+// Base Font
+// weibo
+//  - font: 1rem/1.5 normal 'Droid Sans Fallback',sans-serif;
+// fb
+//  - font: 14px/18 'Helvetica Neue', Helvetica, sans-serif;
+// tw
+//  - font: 13px/19px 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+// qzone
+//  - font: 14px Helvetica, Arial;
+// tb
+//  - font: 20px 'Heiti SC';
+// douban
+//  - font: 11px/1.6 Helvetica, Arial, sans-serif;
+// lofter
+//  - font: Arial, Helvetica, sans-serif;
+$default-base-font-family: 'Helvetica Neue', Helvetica, arial, sans-serif !default;
+$default-base-font-size: 14px !default;
+$default-base-line-height: normal !default;
+
+$supported-browsers: ("android", "android-chrome", "android-firefox", "blackberry", "chrome", "firefox", "ie", "ie-mobile", "ios-safari", "opera", "opera-mini", "opera-mobile", "safari") !default;
+
+$browser-minimum-versions: (
+  'chrome':  null,
+  'firefox': null,
+  'ie':      null,
+  'safari':  null,
+  'opera':   null
+) !default;
+
+
+@import "./mini-common";
+
+@import "./include/partials/reset";
+@import "./include/partials/typography";
+
+
+// ------------------
+// 功能
+// ------------------
+.fn-clear {
+    @include clearfix;
+}
+.fn-left {
+    @include float-left;
+}
+.fn-right {
+    @include float-right;
+}
+.fn-hide {
+    display: none!important;
+    visibility: hidden !important;
+}
+.fn-invisible {
+    visibility: hidden;
+}

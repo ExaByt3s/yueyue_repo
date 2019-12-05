@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="js/layer/layer.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/model_org.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>管理员后台</title>
+<style type="text/css">
+#quick_search .input-text
+{
+  width: 60px;
+}
+#quick_search tr
+{
+  line-height: 30px;
+}
+
+.table-list-search td
+{
+  padding-left: 10px;
+}
+.table-list-search .button_search
+{
+  width: 100px;
+  height: 50px;
+}
+#quick_search .table_search
+{
+  border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+  <ul>
+    <a href="javascript:void(0);" class="on">添加机构总览</a>
+    <a href="org_add.php">添加机构</a>
+  </ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+  <tbody>
+    <tr>
+      <td class="search">
+        <form action="?" method="get">
+          <table class="table-list-search" id="quick_search" width="100%">
+                <tr>
+                 <td class="table_search">
+                  <table width="990">
+                  <tbody>
+                   <tr>
+                      <td width="120">用户ID:  
+                      <input type="text" class="input-text" name="user_id" value="{user_id}" id="user_id" />
+                      </td>
+                      <td width="300">机构名称:
+                      <input type="text" class="input-text" name="nick_name" value="{nick_name}" id="nick_name" />
+                      </td>
+                      <td width="150">联系人: <input type="text" class="input-text" value="{link_man}" name="link_man" />
+                      </td>
+                      <td rowspan="2"><input type="submit" class="button_search" value="查找">
+                      </td>
+                   </tr>
+                   <tr>
+                     <td width="260">
+                       添加时间: 
+                       <input type="text" size="14" class="input-text Wdate" id="d434" onfocus="WdatePicker()" name="start_time" value="{start_time}" readonly="readonly" style="width:80px;"> 至 <input type="text" size="14" class="input-text Wdate" id="d434" onfocus="WdatePicker()" name="end_time" value="{end_time}" readonly="readonly" style="width:80px;">
+                     </td>
+                     <td>城市:
+                       <select name="province" class="prov">
+                          <option value="0">请选择</option>
+                          <!-- BEGIN province_list -->
+                          <option value="{c_id}" {selected_prov}>{c_name}</option>
+                          <!-- END province_list -->
+                       </select>
+                       <select class="city" name="location_id">
+                         <option value="0">请选择</option>
+                         <!-- BEGIN city_list -->
+                         <option value="{c_id}" {selected_city}>{c_name}</option>
+                         <!-- END city_list -->
+                      </select>
+                     </td>
+                     <td>&nbsp;</td>
+                   </tr>
+                </tbody>
+                </table>
+                 </td>
+                 </tr>
+              </tbody>
+          </table>
+          <!-- <input type="hidden" name="is_approval" value="{is_approval}" /> -->
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--search form end-->
+  <div class="table-list">
+    <div class="btn">
+      符合条件的人数为:{total_count}
+    </div>
+    <table width="100%" cellspacing="0" style="min-width: 900px;">
+      <thead>
+        <tr>
+           <th>用户ID</th>
+           <th>机构名</th>
+           <th>所属地区</th>
+           <th>录入模特数</th>
+           <th>上架模特数</th>
+           <th>30天订单数</th>
+           <th>30天交易额</th>
+           <th>未结算</th>
+           <th>历史结算详情</th>
+           <th>机构详情</th>
+           <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- BEGIN list -->
+        <tr>
+        <td align="center">{user_id}</td>
+        <td align="center">{nick_name}</td>
+        <td align="center">{city}</td>
+        <td align="center">{is_model}</td>
+        <td align="center">{is_enter}</td>
+        <td align="center">{order_count}</td>
+        <td align="center">{pay_sum}</td>
+        <td align="center">{unsettle}</td>
+        <td align="center"><input type="button" class="button" value="查看详情" onclick="close_bill_list('close_billing_list.php?user_id={user_id}');" /></td>
+        <td align="center"><input type="button" class="button" onclick="location.href='order_org_list.php?org_id={user_id}'" value="查看详情"/></td>
+        <!-- <td align="center">{audit_name}</td> -->
+        <td align="center">
+           [<a href="org_edit.php?user_id={user_id}">修改</a>]
+           <!-- [<a href="org_edit.php?user_id={user_id}&act=delete">删除</a>] -->
+        </td>
+        </tr> 
+        <!-- END list -->       
+      </tbody>
+    </table>
+  </div>
+<div id="pages" class="page">
+  {page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+  $(function(){
+     //获取城市数据
+    $(".prov").change(function(){
+      var $prov_val = $(this).val();
+      $.ajax({
+         type:"POST",
+         url:"get_city.php",
+         dataType: 'json',
+         data : {'prov_id': $prov_val},
+         success:function(data)
+        {
+          if (data.ret) 
+          {
+            var $ret = data.ret;
+            var $str = "<option value='0'>请选择</option>";
+            for (var i = 0; i < $ret.length; i++) 
+            {
+              $str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";    
+            }
+            $(".city").html($str);
+
+          }
+
+        },
+        error:function(data)
+       {
+
+       }
+      });
+    });
+})
+</script>
+</html>

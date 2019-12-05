@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>WebUploader演示</title>
+    <meta charset="gbk">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/syntax.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        .upload-container{
+            padding: 10px;
+        }
+        .upload-container .nav a{
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="upload-container" >
+    <h4 class="nav">
+        <a href="index.html">无UI上传组件</a>
+        <a href="index_ui_pc.html">带UI上传组件(PC)</a>
+        <a href="index_ui_m.html">带UI上传组件(WAP)</a>
+        <a href="upload_wx.html">微信上传</a>
+    </h4>
+    <h1>H5和flahs兼容的传图方式(无UI)</h1>
+    <!--dom结构部分-->
+    <div id="uploader-demo">
+        <!--用来存放item-->
+        <div id="fileList" class="uploader-list"></div>
+        <div id="filePicker">选择图片</div>
+        <div id="list"></div>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="webuploader.js"></script>
+
+</body>
+</html>
+<!--html5-->
+<script>
+    $(function()
+    {
+
+
+        var BASE_URL = '';
+        var $list = $('#list');
+
+        // 初始化Web Uploader
+        var uploader = WebUploader.create({
+
+            // 选完文件后，是否自动上传。
+            auto: true,
+
+            // swf文件路径
+            swf: BASE_URL + 'Uploader.swf',
+
+            // 文件接收服务端。
+            //server: 'http://imgup-yue.yueus.com/ultra_upload_service/yueyue_upload_act.php',
+            //server : 'http://113.107.204.239:8002/sendserverpic.cgi',
+            server : 'http://sendmedia.yueus.com:8079/upload.cgi',
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#filePicker',
+
+            // 只允许选择图片文件。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            },
+            // 上传方法类型GET或者POST
+            method : 'POST',
+            // 传递form的参数
+            formData :{
+                poco_id : 100000
+            },
+            // 文件流指定的参数名
+            fileVal : 'opus'
+
+        });
+
+        //文件上传之前
+        uploader.on('uploadBeforeSend', function (block, data) {
+            // block为分块数据。
+
+            // file为分块对应的file对象。
+            var file = block.file;
+
+            // 修改data可以控制发送哪些携带数据。
+            data.poco_id = 100000;
+
+            // 将存在file对象中的md5数据携带发送过去。
+            // data.fileMd5 = file.md5;
+
+            // 删除其他数据
+            // delete data.key;
+        });
+
+        // 当有文件添加进来的时候
+        uploader.on( 'fileQueued', function( file )
+        {
+            $list.append( '<div id="' + file.id + '" class="item">' +
+                    '<h4 class="info">' + file.name + '</h4>' +
+                    '<p class="state">等待上传...</p>' +
+                    '图片地址:<a href="#" class="server-img" target="_blank">暂无</a>' +
+                    '</div>');
+        });
+
+        // 文件上传过程中创建进度条实时显示。
+        uploader.on( 'uploadProgress', function( file, percentage )
+        {
+            var $li = $( '#'+file.id ),
+                    $percent = $li.find('.progress .progress-bar');
+
+            // 避免重复创建
+            if ( !$percent.length )
+            {
+                $percent = $('<div class="progress progress-striped active">' +
+                        '<div class="progress-bar" role="progressbar" style="width: 0%">' +
+                        '</div>' +
+                        '</div>').appendTo( $li ).find('.progress-bar');
+            }
+
+            $li.find('p.state').text('上传中');
+
+            $percent.css( 'width', percentage * 100 + '%' );
+        });
+
+        /**
+         * 上传成功触发
+         */
+        uploader.on( 'uploadSuccess', function( file,response )
+        {
+            $( '#'+file.id ).find('p.state').text('已上传');
+
+            if(response.url)
+            {
+                $('.server-img').attr('href',response.url).text(response.url);
+            }
+        });
+
+        /**
+         * 上传错误触发
+         */
+        uploader.on( 'uploadError', function( file )
+        {
+            $( '#'+file.id ).find('p.state').text('上传出错');
+        });
+
+        /**
+         * 上传完成，无论成功还是失败都会触发
+         */
+        uploader.on( 'uploadComplete', function( file )
+        {
+            $( '#'+file.id ).find('.progress').fadeOut();
+        });
+
+
+
+    });
+</script>

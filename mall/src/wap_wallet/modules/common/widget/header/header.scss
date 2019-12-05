@@ -1,0 +1,130 @@
+// 全局头部
+.global-header{
+    height: 45px;
+    // @include box-sizing(border-box);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: 1px solid #cdcdd1;
+    position:  fixed;
+    z-index: 9;
+    background: #fafafa;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    .title{
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 45px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        width: 60%;
+        margin: 0 auto;   
+    }
+    .back{
+        width:50px;
+        height: 44px;
+        display: block;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        .icon-back{
+            background-image: url(../../../../image/icon-back-22x40.png?__sprite) ;
+            width:11px;
+            height: 20px;
+            display: block;
+            background-size: contain;
+            margin: 12px auto 0 auto;
+        }
+
+        &:active{
+            .icon-back{
+                background-image: url(../../../../image/icon-back-22x40-active.png?__sprite) ;
+            }
+        }
+    }
+
+    .share{
+        width:50px;
+        height: 44px;
+        display: block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        .icon-share{
+            background-image: url(../../../../image/icon-share-36x38.png?__sprite) ;
+            width:18px;
+            height :19px;
+            background-size: contain;
+            margin: 13px auto 0 auto;
+            display: block;
+        }
+        &:active{
+            .icon-share{
+                background-image: url(../../../../image/icon-share-36x38-active.png?__sprite) ;
+            }
+        }
+    }
+    .side-txt{
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        font-size: 16px;
+        color:#333;
+        line-height: 44px;
+        width:50px;
+        text-align: center;
+        &:active{
+            color:#666;
+        }
+    }
+
+
+    .omit{
+        width:50px;
+        height: 44px;
+        display: block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        .icon-omit{
+            background-image: url(../../../../image/icon-omit-38x10.png?__sprite) ;
+            width:19px;
+            height :5px;
+            background-size: contain;
+            margin: 22px auto 0 auto;
+            display: block;
+        }
+        &:active{
+            .icon-omit{
+                background-image: url(../../../../image/icon-omit-38x10-active.png?__sprite) ;
+            }
+        }
+    }
+
+    .search{
+        width:50px;
+        height: 44px;
+        display: block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        .icon-search{
+            background-image: url(../../../../image/search-80x88.png?__sprite) ;
+            width:40px;
+            height :44px;
+            background-size: contain;
+            // margin: 22px auto 0 auto;
+            display: block;
+        }
+        &:active{
+            .icon-search{
+                background-image: url(../../../../image/search-80x88-active.png?__sprite) ;
+            }
+        }
+    }
+
+
+}

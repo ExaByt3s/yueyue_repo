@@ -1,0 +1,53 @@
+<!--header-->
+<div id="header" class="header">
+	<div class="logo">
+		<a href="./main.php" target="_blank"><img src="../images/wxpub_logo.jpg" width="180"></a>
+	</div>
+	<div class="nav">
+	欢迎[{cur_user_name}] 进入微信公众号管理平台 
+	<script language="JavaScript"> 
+		document.write("<font color=#ffffff size=-1> ")
+		day = new Date() 
+		hr = day.getHours()
+		minu=day.getMinutes()
+		s="现在是：";
+		s=s+hr+"点"+minu+"分。 "; 
+		if (hr ==1) 
+			document.write(s+"凌晨1点了！该休息了！") 
+		if (hr ==2) 
+			document.write(s+"工作狂，还在忙吗？") 
+		if (hr ==3) 
+			document.write(s+"午夜3点！你决定不睡觉了吗？？") 
+		if (hr ==4) 
+			document.write(s+"凌晨4点了，您的工作精神一定要上报党中央！") 
+		if (hr ==5) 
+			document.write(s+"5点多了，您是刚起床还是还没睡啊？") 
+		if (hr ==6) 
+			document.write(s+"早上好！新一天又开始啦！有什么打算呢？") 
+		if (hr ==7) 
+			document.write(s+"吃早饭了吗？") 
+		if ((hr ==8) || (hr == 9) || (hr ==10)) 
+			document.write(s+"祝您工作愉快！") 
+		if (hr ==11) 
+			document.write(s+"快中午啦，准备下班吗？") 
+		if (hr ==12) 
+			document.write(s+"中午好！你吃饭了吗？") 
+		if ((hr==13) || (hr==14)) 
+			document.write(s+"下午好，准备准备要上班了！") 
+		if ((hr==15) || (hr==16) || (hr==17)) 
+			document.write(s+"下午好！") 
+		if ((hr==18) || (hr==19)) 
+			document.write(s+"该看新闻联播了！") 
+		if ((hr==20) || (hr==21) || (hr==22)) 
+			document.write(s+"休息下，找个电影看看睡觉吧？") 
+		if (hr==23) 
+			document.write(s+"不早了，快休息吧？") 
+		if (hr==0) 
+			document.write(s+"午夜时分，你可要注意身体呢！") 
+			document.write("</font>") 
+	</script>
+	[<a href="logout.php">退出登录</a>]
+ </div>
+	<div class="header_footer"></div>
+</div>
+<!--header-->

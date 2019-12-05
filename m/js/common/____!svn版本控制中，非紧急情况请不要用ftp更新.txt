@@ -1,0 +1,24 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/js/common
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+I_APP.js
+collection.js
+cross_domain_storage.js
+global_config.js
+img-ready.js
+islider.js
+location_data.js
+model.js
+new_iscroll.js
+scroll.js
+swipe.js
+swiper.js
+system.js
+template-helpers.js
+utility.js
+view.js
+
+--EOF--

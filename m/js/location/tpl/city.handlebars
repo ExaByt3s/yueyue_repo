@@ -1,0 +1,11 @@
+{{#if list}}
+        <div class="item">
+            <h3>{{list.title}}</h3>
+                <ul class="list">
+                {{#each list.data}}
+                        <li data-role="date-city" data-location-id="{{location_id}}" data-location-name="{{city}}">{{city}}</li> 
+                {{/each}}         
+                </ul>
+        </div> 
+     
+{{/if}}

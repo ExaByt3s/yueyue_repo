@@ -1,0 +1,39 @@
+.absolute_notice_con{
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-box-pack:center;
+  position: absolute;
+  width: 100%;
+  background: #ff0052;
+  height: 40px;
+  z-index: 990;
+  .absolute_notice{
+    display: -webkit-box;
+    -webkit-box-pack:justify;
+    height: 40px;
+    margin: 0px 10px 0px;
+    .alerm_left{
+      display: -webkit-box;
+      -webkit-box-pack:start;
+      overflow: hidden;
+      width: 85%;
+      .icon{
+        margin-top: 10px;
+      }
+      .text{
+        line-height: 40px;
+        margin-left: 10px;
+        color:#FFF;
+        font:{
+          size: 12px;
+        }
+      }
+
+    }
+    .alerm_right{
+      .icon{
+        margin-top: 14px;
+      }
+    }
+  }
+}

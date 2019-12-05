@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/jquery.form.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script> 
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+</head>
+<body>
+<div class="mainbox">
+<form name="list_form" id="list_form" action="model_add_style.php?uid={user_id}" method="post">
+	<div class="table-list">
+	   <!--list-->
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th width="30"><input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');"></th>
+				<th width="40">风格</th>
+				<th width="80">2小时价格(元)</th>
+				<th width="80">4小时/价格(元)</th>
+				<th width="80">加小时/价格(元)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				<td width="30" align="left"><input class="inputcheckbox " name="ids[]" value="0" type="checkbox" {style_s}></td>
+				<td align="left">欧美</td>
+				<td align="left"><input name="liststyles[0][]" type="text" size="3" value="{style_two}" class="input-text-c valid"><font color="red">{app_two_a}</font>
+				</td>
+				<td align="left"><input name="liststyles[0][]" type="text" size="3" value="{style_fourh}" class="input-text-c valid"><font color="red">{app_fourh_a}</font>
+				</td>
+				<td align="left"><input name="liststyles[0][]" type="text" size="3" value="{style_addh}" class="input-text-c valid"><font color="red">{continue_price_a}</font>
+				</td>
+				</tr>
+				<tr>
+				<td width="30" align="left"><input class="inputcheckbox " name="ids[]" value="1" type="checkbox" {style_1}></td>
+				<td align="left">情绪</td>
+				<td align="left"><input name="liststyles[1][]" type="text" size="3" value="{style_1_two}" class="input-text-c valid"><font color="red">{app_two_1}</font>
+				</td>
+				<td align="left"><input name="liststyles[1][]" type="text" size="3" value="{style_1_fourh}" class="input-text-c valid"><font color="red">{app_fourh_1}</font>
+				</td>
+				<td align="left"><input name="liststyles[1][]" type="text" size="3" value="{style_1_addh}" class="input-text-c valid"><font color="red">{continue_price_1}</font>
+				</td>
+				</tr>
+				<tr>
+				<td width="30" align="left"><input class="inputcheckbox " name="ids[]" value="2" type="checkbox" {style_2}></td>
+				<td align="left">清新</td>
+				<td align="left"><input name="liststyles[2][]" type="text" size="3" value="{style_2_two}" class="input-text-c valid"><font color="red">{app_two_2}</font>
+				</td>
+				<td align="left"><input name="liststyles[2][]" type="text" size="3" value="{style_2_fourh}" class="input-text-c valid"><font color="red">{app_fourh_2}</font>
+				</td>
+				<td align="left"><input name="liststyles[2][]" type="text" size="3" value="{style_2_addh}" class="input-text-c valid"><font color="red">{continue_price_2}</font>
+				</td>
+				</tr>
+				<tr>
+				<td width="30" align="left"><input class="inputcheckbox " name="ids[]" value="3" type="checkbox" {style_3} ></td>
+				<td align="left">复古</td>
+				<td align="left"><input name="liststyles[3][]" type="text" size="3" value="{style_3_two}" class="input-text-c valid"><font color="red">{app_two_3}</font>
+				</td>
+				<td align="left"><input name="liststyles[3][]" type="text" size="3" value="{style_3_fourh}" class="input-text-c valid"><font color="red">{app_fourh_3}</font>
+				</td>
+				<td align="left"><input name="liststyles[3][]" type="text" size="3" value="{style_3_addh}" class="input-text-c valid"><font color="red">{continue_price_3}</font>
+				</td>
+				</tr>
+				<tr>
+				<td width="30" align="left"><input class="inputcheckbox " name="ids[]" value="4" type="checkbox" {style_4} ></td>
+				<td align="left">韩系</td>
+				<td align="left"><input name="liststyles[4][]" type="text" size="3" value="{style_4_two}" class="input-text-c valid"><font color="red">{app_two_4}</font>
+				</td>
+				<td align="left"><input name="liststyles[4][]" type="text" size="3" value="{style_4_fourh}" class="input-text-c valid"><font color="red">{app_fourh_4}</font>
+				</td>
+				<td align="left"><input name="liststyles[4][]" type="text" size="3" value="{style_4_addh}" class="input-text-c valid"><font color="red">{continue_price_4}</font>
+				</td>
+				</tr>
+				<tr>
+				<td width="30" align="left"><input class="inputcheckbox " name="ids[]" value="5" type="checkbox" {style_5} ></td>
+				<td align="left">日系</td>
+				<td align="left"><input name="liststyles[5][]" type="text" size="3" value="{style_5_two}" class="input-text-c valid"><font color="red">{app_two_5}</font>
+				</td>
+				<td align="left"><input name="liststyles[5][]" type="text" size="3" value="{style_5_fourh}" class="input-text-c valid"><font color="red">{app_fourh_5}</font>
+				</td>
+				<td align="left"><input name="liststyles[5][]" type="text" size="3" value="{style_5_addh}" class="input-text-c valid"><font color="red">{continue_price_5}</font>
+				</td>
+				</tr>
+				<tr>
+				<td width="30" align="left"><input class="inputcheckbox " name="ids[]" value="6" type="checkbox" {style_6}></td>
+				<td align="left">性感</td>
+				<td align="left"><input name="liststyles[6][]" type="text" size="3" value="{style_6_two}" class="input-text-c valid"><font color="red">{app_two_6}</font>
+				</td>
+				<td align="left"><input name="liststyles[6][]" type="text" size="3" value="{style_6_fourh}" class="input-text-c valid"><font color="red">{app_fourh_6}</font>
+				</td>
+				<td align="left"><input name="liststyles[6][]" type="text" size="3" value="{style_6_addh}" class="input-text-c valid"><font color="red">{continue_price_6}</font>
+				</td>
+				</tr>
+				<tr>
+				<td width="30" align="left"><input class="inputcheckbox " name="ids[]" value="7" type="checkbox" {style_7}></td>
+				<td align="left">街拍</td>
+				<td align="left"><input name="liststyles[7][]" type="text" size="3" value="{style_7_two}" class="input-text-c valid"><font color="red">{app_two_7}</font>
+				</td>
+				<td align="left"><input name="liststyles[7][]" type="text" size="3" value="{style_7_fourh}" class="input-text-c valid"><font color="red">{app_fourh_7}</font>
+				</td>
+				<td align="left"><input name="liststyles[7][]" type="text" size="3" value="{style_7_addh}" class="input-text-c valid"><font color="red">{continue_price_7}</font>
+				</td>
+				</tr>
+				<tr>
+				<td width="30" align="left"><input class="inputcheckbox " name="ids[]" value="8" type="checkbox" {style_8} ></td>
+				<td align="left">胶片</td>
+				<td align="left"><input name="liststyles[8][]" type="text" size="3" value="{style_8_two}" class="input-text-c valid"><font color="red">{app_two_8}</font>
+				</td>
+				<td align="left"><input name="liststyles[8][]" type="text" size="3" value="{style_8_fourh}" class="input-text-c valid"><font color="red">{app_fourh_8}</font>
+				</td>
+				<td align="left"><input name="liststyles[8][]" type="text" size="3" value="{style_8_addh}" class="input-text-c valid"><font color="red">{continue_price_8}</font>
+				</td>
+				</tr>
+				<tr>
+				<td width="30" align="left"><input class="inputcheckbox " name="ids[]" value="9" type="checkbox" {style_9}></td>
+				<td align="left">商业</td>
+				<td align="left"><input name="liststyles[9][]" type="text" size="3" value="{style_9_two}" class="input-text-c valid"><font color="red">{app_two_9}</font>
+				</td>
+				<td align="left"><input name="liststyles[9][]" type="text" size="3" value="{style_9_fourh}" class="input-text-c valid"><font color="red">{app_fourh_9}</font>
+				</td>
+				<td align="left"><input name="liststyles[9][]" type="text" size="3" value="{style_9_addh}" class="input-text-c valid"><font color="red">{continue_price_9}</font>
+				</td>
+				</tr>     	
+			</tbody>
+		</table>
+		<!--list end-->
+		<div class="btn">
+			<input type="button" class="button" name="dosubmit" value="取消" id="close_layer"/>
+			&nbsp;&nbsp;
+			<input type="button" class="button" name="dosubmit" value="提交" id="send_layer"/>
+			&nbsp;&nbsp;
+			<input type="button" class="button" name="dosubmit" value="同步" id="send_same"/>
+		</div>
+	</div>
+	</form>
+</div>
+</body>
+<script type="text/javascript">
+	var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+	//window.alert(parent.uid);
+	var $uid = {user_id};
+	$('#close_layer').on('click', function(){
+      parent.layer.close(index); //执行关闭
+     });
+	//提交获取数据
+   $('#send_layer').on('click', function(){
+   	/*var $str = '';
+   	$("[name='ids[]'][checked]").each(function(i){
+   		 if ($(this).val() == 0) 
+   		 {};
+   		 $str += $(this).val()+',';
+   	});
+   	window.alert($str);*/
+   	$("#list_form").ajaxSubmit({
+   		dataType : "json",
+        data:{'act': 'add'},
+		success:function(data)
+		{
+			//window.alert(data.str);
+			parent.$('#list_style').html(data.str);
+			/*parent.$('#stand_follow_data').append(str);*/
+            parent.layer.close(index);
+		},
+		error:function(data)
+		{
+			//parent.layer.close(index);
+		}
+   	})
+});
+
+//同步
+$(function(){
+	$("#send_same").click(function(){
+		$(".table-list tbody td").find("font").each(function(i){
+			if ($(this).html().length != 0 ) 
+			{
+				//window.alert('ok');
+				$(this).prev("input").val($(this).html());
+				$(this).parent("td").parent("tr").children("td").eq(0).find(".inputcheckbox").attr("checked","selected='true'");
+			}
+			/*else
+			{
+				window.alert("no");
+			}*/
+			
+			//window.alert($(this).html());
+		});
+	});
+})
+</script>
+</html>

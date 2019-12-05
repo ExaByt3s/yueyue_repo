@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>OA</title>
+<style type="text/css">
+.input-text{ width:500px;}
+</style>
+</head>
+<body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<div class="mainbox">
+ 
+    <div id="tabs" style="margin-top:10px;">
+     <form name="add_form" id="add_form" action="" method="post" target="frame">
+      <div class="tabbox">
+      <!-- BEGIN model_list -->
+        <fieldset>
+          <legend>评价</legend>
+          <!--list-->
+          <table  cellspacing="10" width="100%">
+            <tbody>
+             
+              <tr>
+                <td><strong>消费者昵称:</strong>{cameraman_nickname}&nbsp;&nbsp;&nbsp;&nbsp;<strong>商家昵称:</strong>{model_nickname}</td>
+               
+              </tr>
+              <tr>
+                <td valign="top">
+                <table  cellspacing="10" width="100%">
+              <tbody>
+                <tr>
+                  <td colspan="2"><h3>消费者评商家</h3></td>
+                  </tr>
+                <tr>
+                  <td width="150">总体评分:</td>
+                  <td width="440"><select name="model_overall_score[]" id="model_overall_score">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>              
+                  </select></td>
+                </tr>
+                <tr>
+                  <td>表现力评分:</td>
+                  <td><select name="model_expressive_score[]" id="model_expressive_score">
+                     <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>   
+                  </select></td>
+                </tr>
+                <tr>
+                  <td>商品符合分数:</td>
+                  <td><select name="match_score[]" id="match_score[]">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                    </select></td>
+                </tr>
+                <tr>
+                  <td>服务态度：</td>
+                  <td><select name="manner_score[]" id="manner_score[]">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                  </select></td>
+                </tr>
+                <tr>
+                  <td>质量分数:</td>
+                  <td><select name="quality_score[]" id="quality_score[]">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                  </select></td>
+                </tr>
+                <tr>
+                  <td>评价:</td>
+                  <td><textarea name="model_comment[]" id="model_comment" cols="45" rows="5"></textarea></td>
+                </tr>
+              </tbody>
+            </table></td>
+               <td valign="top"><table  cellspacing="10" width="100%">
+              <tbody>
+                <tr>
+                  <td colspan="2"><h3>商家评消费者</h3></td>
+                  </tr>
+                <tr>
+                  <td width="150">总体评分:</td>
+                  <td width="440"><select name="cameraman_overall_score[]" id="cameraman_overall_score">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>   
+                  </select></td>
+                </tr>
+                 <tr>
+                   <td>&nbsp;</td>
+                   <td></td>
+                 </tr>
+                <tr>
+                  <td>评价:</td>
+                  <td><textarea name="cameraman_comment[]" id="cameraman_comment" cols="45" rows="5"></textarea></td>
+                </tr>
+                
+              </tbody>
+            </table></td>
+              </tr>
+            </tbody>
+          </table>
+        </fieldset>
+        <input type="hidden" name="id[]" value="{id}"  />
+<br />
+<!-- END model_list -->
+
+<input type="hidden" name="order_id" value="{order_id}"  />
+      </div>
+      <div class="btn">
+      <input type="button" value="返回" class="button" onclick="history.go(-1);">
+       
+        <input type="submit" value="结单" class="button">
+        
+      </div>
+      </form>
+      <div class="btn">
+      <form action="" method="post" target="frame">
+      取消原因：<input type="text" size="30" name="cancel_reason" value=""  />
+      <input type="hidden" name="order_id" value="{order_id}"  />
+      <input type="hidden" name="cancel" value="1"  />
+      <input type="submit" value="取消订单" class="button">
+      </form>
+       </div>
+    </div>
+ 
+</div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+.my-order-page {
+  padding-bottom: 180px; }
+  .my-order-page .p1th {
+    padding: 30px 0; }
+    .my-order-page .p1th .lbox {
+      font-size: 28px; }
+  .my-order-page .p2th {
+    width: 960px;
+    overflow: hidden; }
+    .my-order-page .p2th .list {
+      width: 1040px; }
+      .my-order-page .p2th .list li {
+        position: relative;
+        cursor: pointer;
+        float: left;
+        display: inline;
+        width: 300px;
+        height: 460px;
+        border: 1px solid #dddddd;
+        border-radius: 5px;
+        margin: 0 25px 25px 0; }
+        .my-order-page .p2th .list li:hover {
+          border-color: #5daaeb; }
+        .my-order-page .p2th .list li .dbox1 {
+          text-align: right;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          position: absolute; }
+          .my-order-page .p2th .list li .dbox1 a {
+            color: #aaaaaa; }
+        .my-order-page .p2th .list li .dbox2 {
+          background-image: url(http://static.yueus.com/taskpredev/static/image/task/yue-25x25.png);
+          width: 30px;
+          height: 30px;
+          margin: 0 auto;
+          margin-top: 30px; }
+        .my-order-page .p2th .list li .title {
+          font-size: 26px;
+          text-align: center;
+          padding-top: 10px; }
+        .my-order-page .p2th .list li .p1 {
+          font-size: 14px;
+          color: #aaaaaa;
+          text-align: center;
+          padding-top: 10px; }
+        .my-order-page .p2th .list li .main-content-1 {
+          margin-top: 50px; }
+          .my-order-page .p2th .list li .main-content-1 .closed {
+            width: 220px;
+            margin: 0 auto; }
+          .my-order-page .p2th .list li .main-content-1 .dtitle {
+            padding-top: 80px;
+            text-align: center;
+            font-size: 18px; }
+          .my-order-page .p2th .list li .main-content-1 .p2 {
+            color: #666;
+            text-align: center;
+            padding-top: 15px; }
+        .my-order-page .p2th .list li .main-content-2 .p3 {
+          font-size: 18px;
+          padding-top: 30px;
+          text-align: center; }
+        .my-order-page .p2th .list li .main-content-2 .item-wrap {
+          text-align: center;
+          padding-top: 120px;
+          height: 115px;
+          overflow: hidden; }
+        .my-order-page .p2th .list li .main-content-2 .item {
+          position: relative;
+          width: 40px;
+          height: 40px;
+          margin: 10px 4px 0 4px;
+          display: inline-block; }
+          .my-order-page .p2th .list li .main-content-2 .item .icon-v {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            background-image: url(http://static.yueus.com/taskpredev/static/image/task/icon-v-24x24.png);
+            right: -10px;
+            top: -10px; }
+          .my-order-page .p2th .list li .main-content-2 .item .icon-num {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            background-image: url(http://static.yueus.com/taskpredev/static/image/task/icon-num-24x24.png);
+            right: -10px;
+            top: -10px;
+            text-align: center;
+            line-height: 24px;
+            color: #fff; }
+          .my-order-page .p2th .list li .main-content-2 .item .icon-sec {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            background-image: url(http://static.yueus.com/taskpredev/static/image/task/icon-sec-24x24.png);
+            right: -10px;
+            top: -10px;
+            text-align: center;
+            line-height: 24px;
+            color: #fff; }
+        .my-order-page .p2th .list li .main-content-2 .user-img {
+          display: inline-block;
+          width: 40px;
+          height: 40px; }
+          .my-order-page .p2th .list li .main-content-2 .user-img img {
+            border-radius: 50%;
+            max-height: 40px;
+            max-width: 40px; }
+        .my-order-page .p2th .list li .main-content-2 .p4 {
+          text-align: center;
+          color: #666666; }
+        .my-order-page .p2th .list li .main-content-style .item {
+          opacity: 1; }
+        .my-order-page .p2th .list li .main-content-style .is_gray {
+          opacity: 0.5; }
+        .my-order-page .p2th .list li .main-content-style .cur {
+          opacity: 1; }
+        .my-order-page .p2th .list li .main-content-style .btn {
+          margin-top: 20px;
+          text-align: center;
+          font-size: 16px; }
+          .my-order-page .p2th .list li .main-content-style .btn a {
+            color: #5daaeb; }
+        .my-order-page .p2th .list li .main-content-3 {
+          padding-top: 120px;
+          text-align: center;
+          color: #666; }
+          .my-order-page .p2th .list li .main-content-3 .p1 {
+            color: #000;
+            font-size: 18px;
+            margin: 15px auto; }
+        .my-order-page .p2th .list li .person-num {
+          text-align: center; }
+          .my-order-page .p2th .list li .person-num .btn {
+            display: inline-block;
+            color: #fff;
+            padding: 0px 20px;
+            border-radius: 20px;
+            margin: 0 auto;
+            margin-top: 15px;
+            height: 30px;
+            font-size: 14px;
+            line-height: 30px; }
+        .my-order-page .p2th .list li .main-content-want-person .item-wrap {
+          padding-top: 50px; }
+
+/*# sourceMappingURL=my-order.css.map */

@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <title>每日消息回复列表</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="javascript:void(0);" class="on">{title}</a>
+            <a href="sendserver_seller_reply_list.php">返回每日消息回复列表</a>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="1000">
+                        <tbody>
+                        <tr>
+                            <td>
+                                年月:
+                                <input type="text" name="month" class="input-text" id="date" value="{month}" size="10" onfocus="WdatePicker( {dateFmt: 'yyyy-MM'} )" readonly="true"/>
+                            </td>
+                            <td>
+                                日期:
+                                <input type="text" name="start_date" class="input-text" value="{start_date}" size="10" onfocus="WdatePicker()"/>
+                                ~
+                                <input type="text" name="end_date" class="input-text" value="{end_date}" size="10" onfocus="WdatePicker()"/>
+                            </td>
+                            <td>
+                                类型:
+                                <select name="type">
+                                    <option value="0">全部</option>
+                                    <option value="1" <!-- IF type="1" -->selected='true'<!-- ENDIF -->>用户发送</option>
+                                    <option value="2" <!-- IF type="2" -->selected='true'<!-- ENDIF -->>系统发送</option>
+                                </select>
+                            </td>
+                            <td>
+                                商品品类:
+                                <select name="type_id">
+                                    <option value="">全部</option>
+                                    <!-- BEGIN type_list -->
+                                    <option value="{id}" <!-- IF selected -->selected="selected"<!-- ENDIF -->>{name}</option>
+                                    <!-- END type_list -->
+                                </select>
+                            </td>
+                            <td>
+                                商家ID:
+                                <input type="text" name="receive_id" class="input-text" value="{receive_id}" size="6"/>
+                            </td>
+                            <td>
+                                <p><input type="button" class="button" value="查找" onclick="this.form.target='_self';$('#action').attr('value','');this.form.submit();">&nbsp;&nbsp;
+                                    <input type="button" class="button" value="导出" onclick="this.form.target='_blank';$('#action').attr('value','export');this.form.submit();">
+                                </p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="act" id="action">
+                    <input type="hidden" name="sort" value="{sort}">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <div class="table-list" id="table-list">
+        <div class="btn">
+            记录数:{total_count}
+			<span style="position: absolute;right:20px;">
+			    排序:
+				<select name="sort" id="sort">
+                    <option value="five_scale_desc">默认(5分钟内回复率倒序)</option>
+                    <option value="five_scale_asc" <!-- IF sort="five_scale_asc" -->selected="true"<!-- ENDIF -->>5分钟内回复率正序</option>
+                    <option value="five_count_desc" <!-- IF sort="five_count_desc" -->selected="true"<!-- ENDIF -->>5分钟内回复数倒序</option>
+                    <option value="five_count_asc" <!-- IF sort="five_count_asc" -->selected="true"<!-- ENDIF -->>5分钟内回复数正序</option>
+                    <option value="no_scale_desc" <!-- IF sort="no_scale_desc" -->selected="true"<!-- ENDIF -->>无回复率倒序</option>
+                    <option value="no_scale_asc" <!-- IF sort="no_scale_asc" -->selected="true"<!-- ENDIF -->>无回复率正序</option>
+                    <option value="no_count_desc" <!-- IF sort="no_count_desc" -->selected="true"<!-- ENDIF -->>无回复数倒序</option>
+                    <option value="no_count_asc" <!-- IF sort="no_count_asc" -->selected="true"<!-- ENDIF -->>无回复数正序</option>
+                </select>
+			</span>
+        </div>
+        <!--list-->
+        <table width="100%" cellspacing="0" style="min-width: 1000px;">
+            <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th colspan="93">信息回复</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td align="center">商家ID</td>
+                <td align="center">5分钟内回复</td>
+                <td align="center">10分钟内回复</td>
+                <td align="center">20分钟内回复</td>
+                <td align="center">30分钟内回复</td>
+                <td align="center">1小时内回复</td>
+                <td align="center">12小时内回复</td>
+                <td align="center">24小时内回复</td>
+                <td align="center">无回复</td>
+                <td align="center">回复百分比</td>
+                <td align="center">总聊天数</td>
+                <td align="center">查询信息详情</td>
+            </tr>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center">{receive_id}</td>
+                <td align="center">{five_sum}<font color='red'>({five_scale}%)</font></td>
+                <td align="center">{ten_sum}<font color='red'>({ten_scale}%)</font></td>
+                <td align="center">{twoten_sum}<font color='red'>({twoten_scale}%)</font></td>
+                <td align="center">{threeten_sum}<font color='red'>({threeten_scale}%)</font></td>
+                <td align="center">{onehour_sum}<font color='red'>({onehour_scale}%)</font></td>
+                <td align="center">{tourhour_sum}<font color='red'>({tourhour_scale}%)</font></td>
+                <td align="center">{tweehour_sum}<font color='red'>({tweehour_scale}%)</font></td>
+                <td align="center">{no_reply_sum}<font color='red'>({no_reply_scale}%)</font></td>
+                <td align="center">{reply_sum}<font color='red'>({reply_scale}%)</td>
+                <td align="center">{date_sum}</td>
+                <td align="center"><a href="seller_receiver_message_detail.php?start_date={start_date}&end_date={end_date}&receive_id={receive_id}" target="_blank">详情</a></td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

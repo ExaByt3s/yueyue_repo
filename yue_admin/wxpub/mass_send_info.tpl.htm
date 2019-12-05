@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<!-- BEGIN JS_FILES -->
+<script type="text/javascript" src="{js_link}?{top._dev}"></script>
+<!-- END JS_FILES -->
+<!-- BEGIN STYLE_FILES -->
+<link rel="stylesheet" type="text/css" href="{css_link}?{top._dev}">
+<!-- END STYLE_FILES -->
+<script type="text/javascript" language="javascript" src="../js/jquery.min.js"></script>
+<script src="../js/DatePicker/WdatePicker.js"></script>
+<style type="text/css">
+.news_input{
+
+    width: 310px;
+
+}
+.news_textrea{
+
+    height: 67px;
+    width: 367px;
+
+}
+</style>
+<title>群发任务-<!-- IF mission_info.mission_id -->查看详情<!-- ELSE -->新增<!-- ENDIF --> Powered by xzwu - Powered by xzwu</title>
+</head>
+<body>
+<div class="mainbox">
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="./mass_send.php">任务列表</a>|
+            <a href="./mass_send.php?act=new" class="on">
+                <!-- IF mission_info.mission_id -->
+                查看任务详情
+                <!-- ELSE -->
+                新增任务
+                <!-- ENDIF -->
+            </a>|
+        </ul>
+    </div>
+    <div id="infobox">
+        1、请选择条件, 筛选用户, 点击搜索可以看到满足条件的用户数量
+        <br />
+        2、注意勾选信息为空的用户
+        <br />
+        3、点击查看用户列表可以看到用户列表
+    </div>
+    <iframe id="mcfrm" name="mcfrm" frameborder="0" width="0" height="0" src="" style="display:none;"></iframe>
+    <form id="search_form" name = "search_form" action="mass_send.php" method="POST" target="mcfrm" onsubmit="javascript:return check_form();">
+        <div id="tabs" style="margin-top:10px;">
+            <div class="tabbox">
+                <table cellpadding="0" cellspacing="0" class="table_form" width="100%">
+                    <tbody>
+                    <tr>
+                        <td>
+                            性别:
+                        </td>
+                        <td>
+                            国家:
+                        </td>
+                        <td>
+                            省份:
+                        </td>
+                        <td>
+                            城市:
+                        </td>
+                        <td>
+                            关注时间：
+                        </td>
+                        <tr>
+                            <td>
+                                <select id="sex" name="sex">
+                                    <option value="" >请选择</option>
+                                    <option value="1" >男</option>
+                                    <option value="2" >女</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="country" width='140' name="country" onChange="select_country(this)">
+                                    <option value="" >请选择</option>
+                                    {options:country}
+                                </select>
+                            </td>
+                            <td>
+                                <select id="province" width='140' disabled='disabled' name="province" onChange="select_province(this)">
+                                    <option value="" >请选择</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="city" width='140' disabled='disabled' name="city">
+                                    <option value="" >请选择</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type='text' size="15" name='begin_time' id="begin_time" onClick="WdatePicker()" value="{search_arr.begin_time}" /> -
+                                <input type='text' size="15" name='end_time' id="end_time" onClick="WdatePicker()" value="{search_arr.end_time}" />&nbsp;&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="no_sex" id="no_sex" value="1" />性别未知
+                            </td>
+                            <td>
+                                <input type="checkbox" name="no_country" id="no_country" value='1' />国家为空
+                            </td>
+                            <td>
+                                <input type="checkbox" name="no_province" id="no_province" value='1' />省份为空
+                            </td>
+                            <td>
+                                <input type="checkbox" name="no_city" id="no_city" value='1' />城市为空
+                            </td>
+                            <td>
+                                任务备注：<input type='text' style="width:340px" name='remark' id="remark" value="" />&nbsp;&nbsp;&nbsp;
+                                <input type='button' class="coolbg np" value='搜索' onClick="search_act()"/>&nbsp;&nbsp;&nbsp;已选择/全部用户&nbsp;&nbsp;&nbsp;
+                                <font color='red'><span id = "select_span">{total}/{total}</span></font>
+                            </td>
+                            <tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="text-align: center">
+                            <!-- <a href="mass_send.php?act=user_list" onClick = ''>查看用户列表</a> -->
+                        </div>
+                        <br />
+                        <div>
+                            素材media_id:
+                            <input type='text' style="width:600px" name='media_id' id="media_id" value="{mission_info.media_id}" />&nbsp;&nbsp;&nbsp; 请输入素材的media_id, 可从素材列表中找到
+                        </div>
+                        <div style="text-align: center">
+                            <!-- <a href="material.php" onClick = ''>查看素材列表</a></div> -->
+                        </div>
+                        <div class="btn">
+                            <input type="hidden" name="mission_id" id="mission_id" value="{mission_info.mission_id}">
+                            <input type="hidden" name="act" id="act" value="save">
+                            <input type="submit" id = "submit_button" name = "submit_button" value="提交" class="button">
+                            <input type="reset" value="取消" class="button">
+                        </div>
+                    </div>
+                </form>
+            </div>
+</body>
+<script>
+
+    function check_form(){
+
+        if($('#media_id').val() == '' )
+        {
+            alert('素材资源ID不能为空');
+            return false;
+        }
+        if( !confirm('任务将自动开始发送，是否提交？') )
+        {
+			return false;
+        }
+		
+		//防止多次点击
+		if( $("#submit_button").attr('disabled')=='disabled' )
+		{
+			return false;
+		}
+		$("#submit_button").attr('disabled', 'disabled');
+		
+        return true;
+    }
+
+    function search_act()
+    {
+        top.no_sex = $("#no_sex").attr("checked")=="checked"?1:0;
+        top.no_country = $("#no_country").attr("checked")=="checked"?1:0;
+        top.no_province = $("#no_province").attr("checked")=="checked"?1:0;
+        top.no_city = $("#no_city").attr("checked")=="checked"?1:0;
+        $("#select_span").load("./mass_send.php?act=ajax&count_select=1&sex="+$("#sex").val()+"&country="+encodeURI($("#country").val())+"&province="+encodeURI($("#province").val())+"&city="+encodeURI($("#city").val())+"&no_sex="+top.no_sex+"&no_country="+top.no_country+"&no_province="+top.no_province+"&no_city="+top.no_city+"&begin_time="+$("#begin_time").val()+"&end_time="+$("#end_time").val());
+    }
+
+    function select_country(e)
+    {
+        $("#province").attr('disabled','disabled');
+        $("#province").empty();
+        option = "<option value='' >请选择</option>"
+        $("#province").append(option);
+        $("#city").attr('disabled','disabled');
+        $("#city").empty();
+        option = "<option value='' >请选择</option>"
+        $("#city").append(option);
+
+        if($("#country").val().length>0)
+        {
+            $.getJSON("./mass_send.php?act=ajax&country="+encodeURI($("#country").val()), 
+                        function(result)
+                        {
+                            if(result.length>0)
+                            {
+                                $.each(
+                                     result,
+                                     function(i, field)
+                                     {
+                                         option = "<option value='"+decodeURI(field)+"' >"+decodeURI(field)+"</option>";
+                                         $("#province").append(option);
+                                     }
+                                );
+                                $("#province").removeAttr('disabled');
+                            }
+                        }
+                    );
+        }
+
+    }
+    function select_province(e)
+    {
+        $("#city").attr('disabled','disabled');
+        $("#city").empty();
+        option = "<option value='' >请选择</option>"
+        $("#city").append(option);
+        if($("#province").val().length>0)
+        {
+            $.getJSON("./mass_send.php?act=ajax&country="+encodeURI($("#country").val())+"&province="+encodeURI($("#province").val()), 
+                        function(result)
+                        {
+                            if( result.length>0 )
+                            {
+                                $.each(
+                                     result,
+                                     function(i, field)
+                                     {
+                                         option = "<option value='"+decodeURI(field)+"' >"+decodeURI(field)+"</option>";
+                                         $("#city").append(option);
+                                     }
+                                );
+                                $("#city").removeAttr('disabled');
+                            }
+                        }
+                    );
+        }
+    }
+</script>
+</html>

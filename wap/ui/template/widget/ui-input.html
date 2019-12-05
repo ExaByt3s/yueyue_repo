@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="gb2312">
+<title>约拍 - 输入框</title>
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link charset="utf-8" rel="stylesheet" href="../../../css/pai/paiappstyle.css">
+<style type="text/css">
+
+
+html, body{
+    width: auto;
+    height: auto;
+    overflow: auto; 
+    padding: 0px 5px;
+}
+.des{
+    padding: 3px 0
+}
+
+</style>
+
+</head>
+<script type="text/javascript">
+    document.addEventListener('touchstart',function(){},false);
+</script>
+<body>
+
+<div style="display:">
+
+/********大小*******/    
+<p class="des">ui-input-block 为block元素，100% </p>
+<p class="des">ui-input-size-large 为高度 45px 按钮 </p>
+<p class="des">ui-input-size-middle 为高度 35px 按钮 </p>
+<p class="des">ui-input-size-min 为高度 30px 按钮 </p>
+
+
+/********圆角*******/
+<p class="des">ui-input-top-left  左上角圆角 </p>
+<p class="des">ui-input-top-right  右上角圆角 </p>
+<p class="des">ui-input-bottom-left  左下角圆 </p>
+<p class="des">ui-input-bottom-right  右上角圆角 </p>
+
+/********配色*******/
+<p class="des">默认色白色</p>
+
+</div>
+
+<br>
+
+<div id="page-container">
+
+    <p class="des">单行</p>
+    <div class="ui-input-mod">
+        <div class="item"><input type="text" class="ui-input  ui-input-size-large ui-input-block ui-input-top-left ui-input-top-right ui-input-bottom-left ui-input-bottom-right" placeholder="手机号码"></div>
+    </div>
+
+    <br/>
+
+    <p class="des">多行，加ui-input-border-bottom-none</p>
+    <div class="ui-input-mod">
+        <div class="item">
+            <input type="text" class="ui-input  ui-input-size-large ui-input-block ui-input-border-bottom-none ui-input-top-left ui-input-top-right" placeholder="手机号码">
+            <div class="pop-tips">
+                <button class="ui-button ui-button-primary ui-button-size-min ">
+                    <span class="ui-button-content">获取验证码</span>
+                </button>
+            </div>
+        </div>
+        <div class="item"><input type="text" class="ui-input  ui-input-size-large ui-input-block ui-input-bottom-left ui-input-bottom-right" placeholder="验证码"></div>
+    </div>
+
+    <br/>
+
+    <p class="des">搜索栏 ui-input-search-mod</p>
+    <div class="ui-input-mod ui-input-search-mod">
+        <div class="item"><input type="text" class="ui-input ui-input ui-input-size-min ui-input-block ui-input-top-left ui-input-top-right ui-input-bottom-left ui-input-bottom-right" placeholder="搜索模特"></div>
+        <div class="ui-input-search-icon"><i class="icon icon-search-gray"></i></div>
+    </div>
+
+    <br/>
+
+    <p class="des">标题输入框 </p>
+    <div class="ui-input-title-mod ui-input-title-size-large">
+        <div class="ui-txt">标题</div>
+        <div class="ui-input-area"><input type="text"  class="input ui-input-title-block" placeholder="请输入活动标题"></div>
+    </div>
+
+    <br/>
+    <p class="des">长输入框 </p>
+    <div class="ui-textarea">
+    <div class="title">主题</div>
+    <div class="ui-textarea-wrap"><textarea name=" " id=" " class="textarea ui-input-top-left ui-input-top-right ui-input-bottom-left ui-input-bottom-right" placeholder="请输入活动主题"></textarea></div>
+    </div>
+    
+    <br/>
+    <p class="des">加减控件 不可以点击状态 add-no  ||  reduce-no</p>
+    <div class="ui-add-reduce">
+        <div class="add add-no"><i class="icon icon-reduce-32x32-m"></i></div>
+        <div class="input-area"><input type="num"  class="input"></div>
+        <div class="reduce "><i class="icon icon-add-32x32-m"></i></div>
+    </div>
+
+</div>
+
+<br/>
+<br/>
+<br/>
+</body>
+</html>

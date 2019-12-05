@@ -1,0 +1,117 @@
+@charset "UTF-8";
+.global-top-bar {
+  position: relative;
+  z-index: 9;
+  height: 60px;
+  background: #000;
+  font-size: 14px; }
+  .global-top-bar .no_login {
+    padding: 20px 0 0 0;
+    color: #fff; }
+    .global-top-bar .no_login .line {
+      padding: 0px 10px; }
+    .global-top-bar .no_login a {
+      color: #fff; }
+  .global-top-bar a {
+    color: #ffffff; }
+    .global-top-bar a:hover {
+      color: #ffffff;
+      text-decoration: none; }
+  .global-top-bar .nav {
+    margin-left: 20px;
+    float: left;
+    display: inline; }
+    .global-top-bar .nav .item {
+      position: relative;
+      float: left;
+      display: inline;
+      padding: 20px 26px 19px 26px; }
+      .global-top-bar .nav .item:hover {
+        background: #2b333c;
+        cursor: pointer; }
+        .global-top-bar .nav .item:hover .ui-triangle {
+          /* 以下是旋转 */
+          -moz-transform: rotate(180deg);
+          /* firefox */
+          -moz-transform-origin: 50% 50%;
+          -webkit-transform: rotate(180deg);
+          /* chrome & safari */
+          -webkit-transform-origin: 50% 50%;
+          -o-transform: rotate(180deg);
+          /* Opera */
+          -o-transform-origin: 50% 50%;
+          transform: rotate(180deg);
+          /* ie */
+          transform-origin: 50% 50%;
+          filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2); }
+      .global-top-bar .nav .item .ui-triangle {
+        left: auto;
+        right: 16px;
+        top: 28px; }
+      .global-top-bar .nav .item .txt {
+        padding-right: 5px;
+        width: 70px;
+        display: inline-block; }
+    .global-top-bar .nav .dropdown-menu {
+      border: 1px solid #dddddd;
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+      -webkit-box-shadow: 0 1px 3px #dbdada;
+      -moz-box-shadow: 0 1px 3px #dbdada;
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: -1px;
+      background: #fff;
+      padding: 10px 0 10px 0; }
+      .global-top-bar .nav .dropdown-menu li {
+        width: 140px;
+        padding: 10px 20px 10px 20px; }
+        .global-top-bar .nav .dropdown-menu li:hover {
+          background: #f5f5f5; }
+    .global-top-bar .nav .dropdown-menu-hover {
+      background: #fff;
+      color: #000; }
+      .global-top-bar .nav .dropdown-menu-hover .ui-triangle {
+        border-width: 0px 4px 4px 4px;
+        /* 大小 */
+        border-color: transparent transparent #000 transparent;
+        /* 颜色 */
+        _border-color: #000 #000 #fff #fff;
+        /* 颜色 */
+        _filter: chroma(color=white); }
+      .global-top-bar .nav .dropdown-menu-hover a {
+        color: #000; }
+      .global-top-bar .nav .dropdown-menu-hover:hover {
+        background: #fff;
+        color: #000; }
+  .global-top-bar .nav_left {
+    width: 400px; }
+  .global-top-bar .seller-info {
+    float: right;
+    display: inline; }
+    .global-top-bar .seller-info .dropdown-menu li {
+      width: 87px; }
+
+.global-top-bar-seller .logo {
+  padding: 16px 0 0 0; }
+  .global-top-bar-seller .logo a {
+    display: block;
+    width: 212px;
+    height: 26px;
+    background: url(http://static.yueus.com/mall/seller/test/static/pc/images/logo-seller.png) no-repeat; }
+
+.global-top-bar-consumers .logo {
+  padding: 16px 0 0 0; }
+  .global-top-bar-consumers .logo a {
+    display: block;
+    width: 155px;
+    height: 26px;
+    background: url(http://static.yueus.com/mall/seller/test/static/pc/images/logo-consumers.png) no-repeat; }
+
+.index-bg .global-top-bar .nav .dropdown-menu {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  left: 0px; }
+.index-bg .global-top-bar .nav .info-area .item li {
+  width: 85px; }

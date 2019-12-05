@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>报名信息</title>
+	{wap_global_top}
+	<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/wap/style/sales/info.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/wap/lib/lib.js"></script>
+<style type="text/css">
+		::-webkit-inner-spin-button{
+			-webkit-appearance:none;
+		}
+	</style>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/wap/style/frozen/frozen.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/wap/modules/common/widget/add_reduction/add_reduction.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/wap/modules/list/list.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/wap/modules/common/widget/abnormal/main.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/wap/modules/common/widget/add_reduction/add_reduction.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/wap/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/wap/modules/list/list.js"></script>
+</head>
+<body>
+<main role="main">
+	<section id="global-header"></section>
+
+	<div class="page-view " data-role="page-container">
+
+		<div class="sales-info-page">
+			<div class="fn-hide tips-item" data-role="can-use">
+				<div class="tips-item-con clearfix">
+					<i class="tips-icon fldi"></i>
+					<div class="tips-txt f14 fldi">选择具体的服务项，和设置服务数目</div>
+				</div>
+			</div>
+		   	<form>
+		   		<input name="topic_id" type="hidden" value="{topic_id}">
+		   		<div class="item-wrap" data-role="item-wrap">
+			   	</div>
+			   	
+		   	</form>
+			<div class="ui-button-submit-m fn-hide" data-role="can-use">
+				<div class="rbox">
+					<button class="ui-button  ui-button-block ui-button-100per  ui-button-size-xl ui-button-bg-555" id="submit">
+							<span class="ui-button-content"><!-- IF state="is_enter" -->确定修改<!-- ELSE -->确定报名<!-- ENDIF --></span>
+					</button>
+				</div>
+			</div>		
+		</div>
+
+	</div>
+
+	{wap_global_footer}
+	
+</main>
+<script>
+   	var $ = require('components/zepto/zepto.js');
+	var header = require('common/widget/header/main');
+	var utility = require('common/utility/index');
+	var add_reduction = require('common/widget/add_reduction/add_reduction');
+	var template = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\n<div class=\"item\">\n	<label class=\"fn-hide\">"
+    + escapeExpression((helper = helpers.add_one || (depth0 && depth0.add_one),options={hash:{},data:data},helper ? helper.call(depth0, (data == null || data === false ? data : data.index), options) : helperMissing.call(depth0, "add_one", (data == null || data === false ? data : data.index), options)))
+    + "</label>\n	<input name=\"detail[";
+  if (helper = helpers.arr_index) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.arr_index); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "][goods_id]\" class=\"fn-hide\" value=\"";
+  if (helper = helpers.goods_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.goods_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"  />\n	<input name=\"detail[";
+  if (helper = helpers.arr_index) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.arr_index); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "][title]\" class=\"fn-hide\" value=\"";
+  if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" />\n	<div class=\"item-con-1\">\n	 	<div class=\"img-item\">\n	 		<i class=\"img image-img db\" data-lazyload-url=\"";
+  if (helper = helpers.images) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.images); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\n	 		</i>\n	 	</div>\n	 	<div class=\"txt-item\">\n	 		<h3 class=\"title f14 color-333\">";
+  if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h3>\n	 	</div>\n	</div>\n	";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.price_arr), {hash:{},inverse:self.noop,fn:self.programWithDepth(2, program2, data, depth0),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n	\n</div>\n";
+  return buffer;
+  }
+function program2(depth0,data,depth1) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\n	<div class=\"item-con-2 clearfix\">\n		<div class=\"lbox fldi\">\n			<!-- <i class=\"choose-icon ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.is_select), {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\"></i> -->\n\n\n\n			<input type=\"checkbox\" onclick=\"cbk_select(this)\" id=\"type_key_";
+  if (helper = helpers.type_key) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.type_key); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"checkbox\" ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.is_select), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " name=\"detail["
+    + escapeExpression(((stack1 = (depth1 && depth1.arr_index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "][price_arr]["
+    + escapeExpression(((stack1 = (data == null || data === false ? data : data.index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "][is_select]\" value=\"1\" data-type-key=\"";
+  if (helper = helpers.type_key) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.type_key); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-p-id=\""
+    + escapeExpression(((stack1 = (depth1 && depth1.arr_index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "-"
+    + escapeExpression(((stack1 = (data == null || data === false ? data : data.index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\">\n\n			<label ><em class=\"money color-666\">";
+  if (helper = helpers.price_text) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.price_text); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</em></label>\n\n			<input name=\"detail["
+    + escapeExpression(((stack1 = (depth1 && depth1.arr_index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "][price_arr]["
+    + escapeExpression(((stack1 = (data == null || data === false ? data : data.index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "][price_text]\" class=\"fn-hide\" value=\"";
+  if (helper = helpers.price_text) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.price_text); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" />\n			<input name=\"detail["
+    + escapeExpression(((stack1 = (depth1 && depth1.arr_index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "][price_arr]["
+    + escapeExpression(((stack1 = (data == null || data === false ? data : data.index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "][type_key]\" class=\"fn-hide\" value=\"";
+  if (helper = helpers.type_key) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.type_key); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" />\n		</div>\n		<div class=\"rbox frdi\">\n			<div id=\"add-reduction-ele-"
+    + escapeExpression(((stack1 = (depth1 && depth1.arr_index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "-"
+    + escapeExpression(((stack1 = (data == null || data === false ? data : data.index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" data-role=\"add-reduc-container\" ";
+  stack1 = helpers.each.call(depth0, depth0, {hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " data-index=\""
+    + escapeExpression(((stack1 = (data == null || data === false ? data : data.index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" data-parent-index=\""
+    + escapeExpression(((stack1 = (depth1 && depth1.arr_index)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" class=\"";
+  stack1 = helpers.unless.call(depth0, (depth0 && depth0.is_select), {hash:{},inverse:self.noop,fn:self.program(9, program9, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\" data-goods-id=\""
+    + escapeExpression(((stack1 = (depth1 && depth1.goods_id)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\">\n			     \n			</div>\n		</div>\n	</div>\n	";
+  return buffer;
+  }
+function program3(depth0,data) {
+  
+  
+  return "has-choose-icon";
+  }
+
+function program5(depth0,data) {
+  
+  
+  return "checked";
+  }
+
+function program7(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "data-"
+    + escapeExpression(((stack1 = (data == null || data === false ? data : data.key)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "=\""
+    + escapeExpression((typeof depth0 === functionType ? depth0.apply(depth0) : depth0))
+    + "\"";
+  return buffer;
+  }
+
+function program9(depth0,data) {
+  
+  
+  return "fn-hidden";
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  return buffer;
+  });
+	var _self = {};
+
+	window._page_params = {page_params}.result_data;
+
+	$(function()
+	{
+		var $btn = $('#submit');
+		var map_add_btn_arr = [];
+		var add_btn_index = 0;
+
+		// 渲染头部
+		header.init({
+			ele : $("#global-header"), //头部渲染的节点
+			title:"报名信息",
+			header_show : true , //是否显示头部
+			right_icon_show : false, //是否显示右边的按钮
+
+			share_icon :
+			{
+				show :false,  //是否显示分享按钮icon
+				content:""
+			},
+			omit_icon :
+			{
+				show :false,  //是否显示三个圆点icon
+				content:""
+			},
+			show_txt :
+			{
+				show :false,  //是否显示文字
+				content:"编辑"  //显示文字内容
+			}
+		});
+
+		// 渲染列表
+		var ajax_url = window.$__ajax_domain+'get_enroll_service_list.php';
+	    var list_item_class = require('list'); 
+	    var list_obj = new list_item_class(
+	        {
+	            //渲染目标
+	            ele : $('[data-role="item-wrap"]'),
+	            //请求地址
+	            url : ajax_url,
+	            //传递参数
+	            params : _page_params,
+	            //模板
+	            template : template,
+	            //lz 参数是否开启
+	            is_open_lz_opts : false
+
+	        });
+
+	    list_obj.$el.on('list_render:before',function(events,$obj,data)
+	    {
+			var $btn_container = $('[data-role="can-use"]');
+
+			if(data.result_data.list.length == 0 && data.result_data.page ==1)
+			{
+				$btn_container.addClass('fn-hide');
+			}
+			else
+			{
+				$btn_container.removeClass('fn-hide');
+			}
+	        
+	    });
+
+	    list_obj.$el.on('list_render:after',function(events,$list_container,data,$list)
+	    {
+
+	    	var data = data.result_data.list;
+	    	var $add_reduc_obj = $list.find('[data-role="add-reduc-container"]');
+	    	var lens= $add_reduc_obj.length;
+
+	    	// 循环生成加减按钮
+			for (var i = 0; i < lens; i++) 
+			{ 
+				var $obj = $add_reduc_obj.eq(i);
+				var p_idx = $obj.attr('data-parent-index');
+				var idx = $obj.attr('data-index');
+				var $insert_obj_arr = $list_container.find('[data-parent-index="'+p_idx+'"]');
+
+				for (var j=0;j<$insert_obj_arr.length;j++)
+				{
+					add_btn_index++;
+
+					$insert_obj_arr.eq(j).attr('data-control-idx',add_btn_index);
+
+					var add_reduction_ele = new add_reduction
+					({
+					    ele : $insert_obj_arr.eq(j),//渲染模板节点
+					    is_show_operate_btn : true , //是否显示加减操作按钮
+					    name : "detail["+$insert_obj_arr.eq(j).attr('data-parent-index')+"][price_arr]["+$insert_obj_arr.eq(j).attr('data-index')+"][num]",
+					    param_val : 
+					    {
+					        input_val : $insert_obj_arr.eq(j).attr('data-num'),  //要默认显示的值
+					        max_val : '', //最大值
+					        min_val : 1  //最小值
+					    }
+					})
+
+					// 触发+事件	
+					/*add_reduction_ele.add_ele.on('add',function(ev,value)
+					{
+
+						var $cur_btn = $(ev.currentTarget);
+
+						var $parent_container = $cur_btn.parents('[data-role="add-reduc-container"]');
+
+						var data = 
+						{
+							'num' : value,
+							'topic_id' : _page_params.topic_id,
+							'goods_id':$parent_container.attr('data-goods-id'),
+							'type_key' : $parent_container.attr('data-type_key'),
+							'action':'update',
+							'price_text' : $parent_container.attr('data-price_text')
+						};		
+
+						setTimeout(function()
+						{
+							submit_promotion_enroll({data:data});
+
+						},500);
+
+					});
+
+					// 触发-事件
+					add_reduction_ele.reduce_ele.on('reduce',function(ev,value)
+					{
+					
+
+						var $cur_btn = $(ev.currentTarget);
+
+						var $parent_container = $cur_btn.parents('[data-role="add-reduc-container"]');
+
+						var data = 
+						{
+							'num' : value,
+							'topic_id' : _page_params.topic_id,
+							'goods_id':$parent_container.attr('data-goods-id'),
+							'type_key' : $parent_container.attr('data-type_key'),
+							'action':'update',
+							'price_text' : $parent_container.attr('data-price_text')
+						};		
+
+						setTimeout(function()
+						{
+							submit_promotion_enroll({data:data});
+
+						},500);
+					});
+
+					// 触发-事件
+					add_reduction_ele.reduce_ele.on('input',function(ev,value)
+					{
+					
+						if(!value)
+						{	
+							return;
+						}
+
+						var $cur_btn = $(ev.currentTarget);
+
+						var $parent_container = $cur_btn.parents('[data-role="add-reduc-container"]');
+
+						var data = 
+						{
+							'num' : value,
+							'topic_id' : _page_params.topic_id,
+							'goods_id':$parent_container.attr('data-goods-id'),
+							'type_key' : $parent_container.attr('data-type_key'),
+							'action':'update',
+							'price_text' : $parent_container.attr('data-price_text')
+						};		
+
+						setTimeout(function()
+						{
+							submit_promotion_enroll({data:data});
+
+						},500);
+					});*/
+
+
+					map_add_btn_arr.push(add_reduction_ele);
+				}
+				
+			};
+
+	        
+	    });
+
+	    
+		
+	    // 提交按钮
+	    $btn.on('click',function()
+	    {
+	    	
+	    	var form_data = $('form').serializeArray();
+	    	var $cbk_arr = $('.checkbox');
+	    	var is_selected_one = false;
+
+	    	if(_self.sending)
+	    	{
+	    		return false;
+	    	}
+
+	    	for(var i=0; i<$cbk_arr.length; i++)
+	    	{
+				if($cbk_arr[i].checked)
+				{
+					is_selected_one = true;
+				}
+
+				
+			};
+
+			if(!is_selected_one)
+			{
+				$.tips
+	            ({
+	                content:'请至少选择一项服务',
+	                stayTime:3000,
+	                type:'warn'
+	            });
+
+	            return;
+			}
+
+	    	utility.ajax_request
+	    	({
+	    		url : window.$__ajax_domain+'submit_add_promotion_enroll.php',
+	    		data : form_data,
+	    		type : 'POST',
+	    		beforeSend : function()
+	    		{
+	    			_self.$loading = $.loading
+	                ({
+	                    content:'发送中...'
+	                });
+
+	                _self.sending = true;
+	    		},
+	    		success : function(data)
+	    		{
+	    			_self.sending = false;
+
+	    			_self.$loading.loading("hide");
+
+	    			if(data.result_data.code>0)
+	    			{
+	    				var dialog = utility.dialog
+	                    ({
+	                        "title" : '' ,
+	                        "content" : data.result_data.msg,
+	                        "buttons" : ["确定"]
+	                    });
+
+	                    dialog.on('confirm',function(event,args)
+	                    {
+	                        window.location.href = data.result_data.data.url ;
+	                    });
+	    			}
+	    			else
+	    			{
+	    				$.tips
+			            ({
+			                content:data.result_data.msg,
+			                stayTime:3000,
+			                type:'warn'
+			            });
+	    			}
+
+	    			
+	    		},
+	    		error : function()
+	    		{
+	    			_self.sending = false;
+
+	    			_self.$loading.loading("hide");
+
+	    			$.tips
+					({
+						content:'网络异常',
+						stayTime:3000,
+						type:'warn'
+					});
+	    		}
+	    	});
+
+	    	return false;
+
+	    });
+		
+
+	});
+	
+	/**
+	 * checkbox 的点击事件
+	 * @param  {[type]} obj [description]
+	 * @return {[type]}     [description]
+	 */
+	function cbk_select(obj)
+	{
+
+		var type_key = obj.getAttribute('data-type-key');
+		var pid = obj.getAttribute('data-p-id');
+
+		var index = $('.checkbox').index($(obj));
+		var $all_add_reduction_container = $('[data-role="add-reduc-container"]');
+
+		if(!obj.checked)
+		{
+			
+
+			$all_add_reduction_container.eq(index).addClass('fn-hidden');
+
+			obj.removeAttribute('checked');
+
+			return;
+
+			var $cur_add_reduce_obj = $('#add-reduction-ele-'+pid);
+
+			var data = 
+			{
+				'topic_id' : _page_params.topic_id,
+				'goods_id':$cur_add_reduce_obj.attr('data-goods-id'),
+				'type_key' : $cur_add_reduce_obj.attr('data-type_key'),
+				'by_cbk_selected' : 2,
+				'action':'delete'
+			};	
+
+			setTimeout(function()
+			{
+				submit_promotion_enroll({data:data});
+
+			},500);
+
+		}
+		else
+		{
+			$all_add_reduction_container.eq(index).removeClass('fn-hidden');
+
+			obj.setAttribute('checked','checked');
+
+			return;
+
+			var $cur_add_reduce_obj = $('#add-reduction-ele-'+pid);
+
+			var data = 
+			{
+				'num' : $cur_add_reduce_obj.find('[data-role="real-text"]').val(),
+				'topic_id' : _page_params.topic_id,
+				'goods_id':$cur_add_reduce_obj.attr('data-goods-id'),
+				'type_key' : $cur_add_reduce_obj.attr('data-type_key'),
+				'price_text' : $cur_add_reduce_obj.attr('data-price_text'),
+				'by_cbk_selected' : 1,
+				'action':'update'
+			};	
+
+			setTimeout(function()
+			{
+				submit_promotion_enroll({data:data});
+
+			},500);
+
+
+		}
+
+		
+
+	}
+
+	function submit_promotion_enroll(options)
+	{
+		options = options || {};
+
+		if(_self.sending)
+    	{
+    		return false;
+    	}
+
+    	var by_cbk_selected = '';
+
+    	if(options.data.by_cbk_selected)
+    	{
+    		by_cbk_selected = options.data.by_cbk_selected;
+    	}
+
+		utility.ajax_request
+    	({
+    		url : window.$__ajax_domain+'submit_promotion_enroll.php',
+    		data : options.data,
+    		type : 'POST',
+    		beforeSend : function()
+    		{
+
+                _self.sending = true;
+    		},
+    		success : function(data)
+    		{
+    			_self.sending = false;
+
+    			var msg = data.result_data.msg;
+    			var code = data.result_data.code;
+
+    			if(code < 1)
+    			{
+    				$.tips
+		            ({
+		                content:msg,
+		                stayTime:3000,
+		                type:'warn'
+		            });
+    			}
+    			else
+    			{
+    				var txt = '';
+    				if(by_cbk_selected == 1)
+    				{
+    					txt = '已添加成功';
+
+    					$.tips
+			            ({
+			                content:txt,
+			                stayTime:3000,
+			                type:'success'
+			            });		
+    				}
+    				else if(by_cbk_selected == 2)
+    				{
+						txt = '已取消添加';    						
+
+						$.tips
+			            ({
+			                content:txt,
+			                stayTime:3000,
+			                type:'success'
+			            });		
+    				}	
+
+    				
+    			}
+    			
+    		},
+    		error : function()
+    		{
+    			_self.sending = false;
+
+    			_self.$loading.loading("hide");
+
+    			$.tips
+	            ({
+	                content:'网络异常',
+	                stayTime:3000,
+	                type:'warn'
+	            });
+
+    		}
+    	});
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<main role="main" class="secondary">
+    
+    <header class="nav-header withdrawals-header">
+                <div class="left-button-wrap" data-role="page-back"  >
+                    <a><i class="icon icon-back"></i></a>
+                </div>
+
+                <h3 class="title">提现</h3>
+                
+                <div class="right-button-wrap" >
+
+                </div>
+    </header>
+
+    <div  class="content-body"  data-role="container">
+
+                <div class="withdrawals secondary" >
+                    <div>
+                        <div class="withdrawals-wrap">
+                            <ul class="list">
+                                <li>
+                                    <div class="bd">
+                                        {{#if is_money}}
+                                            <p class="P1">钱包余额（元）</p>
+                                        {{else}}
+                                            <p class="P1">信用金余额（元）</p>
+                                        {{/if}}
+                                        <p class="P2" data-role="fee-all"></p>
+                                    </div>
+                                </li>
+
+                                <!--li>
+                                    <div class="bd">
+                                        <p class="P1">可提现金额（元）</p>
+                                        <p class="P2" data-role="fee-ava"></p>
+                                    </div>    
+                                </li-->
+                            </ul>   
+                            <div class="part2">
+                                <ul class="list2 clearfix">
+                                    <li>
+                                        <div class="lbox">提现金额</div>
+                                        <!--div class="rbox"><div data-role="btn_view" ></div></div-->
+                                        <div class="rbox">
+                                            <input type="text"  data-role="btn_view" class="input-text2"/>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="lbox" >支付宝账号</div>
+                                        <div class="rbox" data-role="alipay-account"><input type="text" name=" " id=" " data-role="btn-alipay" class="input-text2"/></div>
+                                    </li>
+                                    <li>
+                                        <div class="lbox">手机验证码</div>
+                                        <div class="rbox">
+                                            <div class="btn swt" data-role="btn-get">获取验证码</div>
+                                            <input type="text"  data-role="btn-sms-code" name=" " id=" " class="input-text2">
+                                            <div class="txt-phone fn-hide" data-role="change-phone"  >验证码发送到您登陆的手机号 <span class="" data-role="change-phone-str"></span></div>
+                                        </div>
+                                    </li>
+                                </ul>        
+                            </div>  
+                        </div>
+
+                        <footer class="footer-withdrawals" data-role="footer-top-css">
+
+                            <!-- <div class="btn" data-role="btn-tx">提现1</div> -->
+                            <div class="btn-wrap">
+                                <button data-role="btn-tx" class="ui-button ui-button-primary ui-button-size-middle ui-button-block">
+                                    <span class="ui-button-content">提现</span>
+                                </button>
+                            </div>
+
+                        </footer>   
+                </div>
+                </div>
+            </div>
+
+
+    
+
+</main>

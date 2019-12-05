@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>约约--{title}</title>
+    <meta name="keywords" content="{keywords_key}">
+    <meta name="description" content="{description_key}">
+<!-- 公共css，js引入 -->
+{pc_global_top}
+
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/lib/mod.js"></script>
+<!-- <link rel="import" href="../page/webcontrol/head.tpl.htm?__inline"> -->
+
+<!-- 当前页css -->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/style/goods/category-list-page.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/modules/common/go_top/go_top.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/go_top/go_top.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/placeholder/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/lazyload/lazyload.js"></script>
+</head>
+
+<body>
+
+<!-- bar -->
+{global_top_bar}
+<!-- bar end -->
+
+<div class="w1000">
+    <div class="mod-nav">
+        <a href="{index_url}">首页</a> &gt;
+        <span><a href="../category/index.php?type_id=={type_id}">{type_id_title}</a></span> &gt;
+        <span class="cur">{title}</span>
+    </div>
+</div>
+
+
+<div class="category-list-page">
+
+
+
+    <div class="p3th">
+        <h3 class="mod-title  font_wryh">{title}</h3>
+
+        <div class="list-img-320-mod clearfix">
+            <ul class="list"   id="img_cen">
+
+            <!-- IF data_list.goods -->               
+
+
+                <!-- BEGIN data_list.goods -->
+                    <a href="{link}">
+                        <li>
+                            <div class="img-con">
+                                <div class="fade-box"></div>
+                                <div class="img"><img data-lazyload-url="{yueus_img_resize:images,320}" /></div>
+                            </div>
+                            <div class="txt-con">
+                                <div class="item-1 clearfix">
+                                    <div class="lbox fb">{titles}</div>
+                                  
+                                </div>
+                                
+                                <div class="item-2 clearfix">
+                                    <div class="lbox fldi color-ff6 fb">{prices}</div>
+                                    <div class="rbox frdi">{buy_num}</div>
+                                </div>
+                            </div>
+                        </li>
+                    </a>
+                <!-- END data_list.goods -->
+             
+            <!-- ELSE -->
+                <div class="f14 tc">暂无数据！</div>
+            <!-- ENDIF -->
+
+
+            </ul>
+        </div>
+        
+        <div class="page">{page}</div>  
+
+
+    </div>
+
+
+   {down_app_area}
+
+
+</div>
+
+{footer}
+
+
+<script type="text/javascript">
+var $ = require('components/jquery/jquery.js');
+
+// 引入返回顶部组件
+var go_top = require('common/go_top/go_top');
+var go_top_obj = new go_top({
+    render_ele: $('body') // 后加载的父容器
+});
+
+// 引入图片居中处理组件
+var lazyload = require('common/lazyload/lazyload');
+
+// 图片后加载处理
+var lazyload_obj = new lazyload({
+    contain: $('#img_cen'), // 后加载的父容器
+    size: '320', // 可传可不传，压位
+    img_center: {
+        is_open : true,  //是否开启图片居中功能
+        width : '320',   //图片居中盒子的宽
+        height : '220'  //图片居中盒子的高
+    } 
+});
+
+
+// var carouFredSel = require('../../../../modules/common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0');
+
+// $(function() 
+// {
+//     $('#foo2').carouFredSel({
+//         prev: '#prev2',
+//         next: '#next2',
+//         pagination: "#pager2",
+//         auto: false
+//     });
+// });
+
+
+</script>
+
+</body>
+
+</html>
+
+		

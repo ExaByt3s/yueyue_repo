@@ -1,0 +1,85 @@
+
+<div class="each-other-demand-detail-page">
+    <div class="p1th" data-role="btn-go-camera">
+        <div class="wbox ">
+            <i class="icon icon-r-grey-m"></i>
+            <div class="lbox ">
+                <div class="avatar" style="background-image: url({{user_icon}}); background-size:cover"></div>
+            </div>
+            <div class="rbox ">
+                <div class="p1">{{nickname}}<i class="icon 
+                
+                {{#if_equal level "1"}}icon-v1-cam-r{{/if_equal}}
+                {{#if_equal level "2"}}icon-v2-cam-r{{/if_equal}}
+                {{#if_equal level "3"}}icon-v3-cam-r{{/if_equal}}
+
+                "></i></div>
+                <div class="p2"><span class="cor1">ID：{{user_id}}</span>  <span class="cor2"><em class="pl5 pr5">|</em> {{city_name}}</span> </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p2th">
+        
+    </div>
+
+    <div class="p3th">
+        <div class="item-wrap">
+            <div class="item ">
+                <div class="lbox ">拍摄时间：</div>
+                <div class="rbox ">{{time}}</div>
+            </div>
+
+            <div class="item ">
+                <div class="lbox ">拍摄风格：</div>
+                <div class="rbox "><span class="cor1">{{style}}</span></div>
+            </div>
+
+            <div class="item ">
+                <div class="lbox ">拍摄价格：</div>
+                <div class="rbox "><span class="cor2"><em>{{budget}}</em></span></div>
+            </div>
+
+
+            <div class="item ">
+                <div class="lbox ">拍摄场地：</div>
+                <div class="rbox ">{{date_address}}</div>
+            </div>
+            <div class="item ">
+                <div class="lbox ">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</div>
+                <div class="rbox ">{{require_remark}}</div>
+            </div>
+
+
+
+<!--             <div class="item ">
+                <div class="lbox ">服装情况：</div>
+                <div class="rbox ">{{clothes_require}}</div>
+            </div>
+
+            <div class="item ">
+                <div class="lbox ">妆面情况：</div>
+                <div class="rbox ">{{clothes_provide }}</div>
+            </div> -->
+
+
+        </div>
+    </div>
+
+
+
+    
+<!--     {{#if is_sign}}
+        <div class="pop-each-other-demand-detail" >
+            <div class="btn" data-role="btn-submit">
+                <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-size-radius-large">
+                        <span class="ui-button-content">报名</span>
+                </button>
+            </div>
+        </div>
+    {{/if}} -->
+
+
+
+    
+</div>

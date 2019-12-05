@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{page_title}</title>
+
+    <!--<link rel="import" href="./webcontrol/head.tpl.htm?__inline">-->
+   
+    <!-- 公共css，js引入 -->
+    {pc_global_top}
+    <link type="text/css" rel="stylesheet" href="../../../style/normal_certificate_list.scss">
+
+</head>
+
+<body>
+{global_top_bar}
+
+
+    <div class="content">
+        <div class="check-pass-page w1000 ">
+            
+
+        <div class="mod-nav-item font_wryh">
+            <a href="./">约约商家主页</a>
+            &gt;
+            <a href="./normal_certificate_basic.php">认证中心</a>
+            &gt;
+            <span>服务认证</span>
+        </div>
+
+        <div class="check-pass-wrap  content-bg normal_certificate_list font_wryh">
+            <div class="p1th">
+                <div class="item-wrap" id="list-item">
+                    <!-- BEGIN service_large_type_array_new -->
+                    <div class="item">
+                       <div class="title f16">{service_belong}：</div>
+
+                       <ul class="list clearfix">
+                           <!-- BEGIN service_belong_array -->
+                           <li>
+
+                               <!-- IF show == "no_record" -->
+                               <a href="./service_certificate_detail.php?type_id={id}"><h3 class="f18">{name}</h3></a>
+                               <a href="./service_certificate_detail.php?type_id={id}"><p class="p1 f14 cor-409">立即认证</p></a>
+                               <!-- ELSEIF show == "checking" -->
+                               <a href="./goods_edit.php?type_id={id}"><h3 class="f18">{name}</h3></a>
+                               <a href="./goods_edit.php?type_id={id}"><p class="p1 f14 cor-fe9">审核中</p></a>
+                               <!-- ELSEIF show == "pass" -->
+                               <a href="./goods_edit.php?type_id={id}"><h3 class="f18">{name}</h3></a>
+                               <a href="./goods_edit.php?type_id={id}"><p class="p1 f14 cor-17b">已认证</p></a>
+                               <!-- ELSEIF show == "recheck" -->
+                               <a href="./service_certificate_detail.php?type_id={id}"><h3 class="f18">{name}</h3></a>
+                               <a href="./service_certificate_detail.php?type_id={id}"><p class="p1 f14 cor-f14">重新认证</p></a>
+                               <!-- ELSEIF show == "no_power" -->
+                               <a href="javascript:;" onclick="return false;"><h3 class="f18">{name}</h3></a>
+                               <p class="p1 f14 cor-f14">商家失效</p>
+                               <!-- ENDIF show -->
+                           </li>
+                           <!-- END service_belong_array -->
+                       </ul>        
+                    </div>
+                    <!-- END service_large_type_array_new -->
+                </div>     
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+
+{footer}
+
+    <script type="text/javascript">
+      // 头部
+      require('../../../modules/common/global-top-bar/global-top-bar');
+
+      $(document).ready(function() {
+          $('#list-item li').not('.click').hover(function() {
+              $(this).addClass('cur')
+          }, function() {
+              $(this).removeClass('cur')
+          });
+
+
+
+      });
+
+  </script>
+
+</body>
+</html>

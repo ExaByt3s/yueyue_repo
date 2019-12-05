@@ -1,0 +1,130 @@
+
+.options_record_panel{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 600px;
+  width: 500px;
+  background: #fff;
+  border: 1px solid #dedede;
+  overflow: auto;
+  .panel_head{
+    cursor: move;
+    height: 50px;
+    border-bottom: 1px solid #d6d6d6;
+    background: #eee;
+    .panel_head_title{
+      line-height: 50px;
+    }
+    .panel_head_option{
+      cursor: pointer;
+      width: 50px;
+    }
+  }
+  .panel_body{
+
+  }
+  .record_buyer_list{
+    width: 30%;
+    overflow: scroll;
+    overflow-x: hidden;
+    background: #2e3238;
+    .inner_item{
+      height: 50px;
+      position: relative;
+      border-bottom: 1px solid #292C34;
+      cursor: pointer;
+
+      font-weight: 400;
+      font-size: 13px;
+      color: #FFF;
+      &:active
+      {
+        background: #3A3F45;
+      }
+      &.current
+      {
+        background: #3A3F45;
+      }
+    }
+  }
+  .record_ops{
+    .extra{
+      height: 70px;
+      font-size: 12px;
+      .ops{
+        padding: 0px 5px;
+        .add_to_list{
+          color: #fff;
+          margin: 10px 0px;
+          padding: 0px 10px;
+          background: #3A3F45;
+          border: 1px solid #292C34;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+      }
+      .more{
+        height: 20px;
+        line-height: 20px;
+        color: rgb(0,110,254);
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+
+  }
+  .record_buyer_msg{
+    overflow: scroll;
+    overflow-x: hidden;
+    .inner_msg{
+      padding: 4px 0px 4px 10px;
+      font-size: 12px;
+      border: 1px solid #fff;
+      .msg_head{
+        .font{
+          margin-right: 5px;
+        }
+      }
+      .msg_body{
+        padding-left: 10px;
+        color: #000000;
+        margin-top: 8px;
+        .merc{
+          padding: 10px;
+          background: #fff;
+          border: 1px dotted #CCC;
+        }
+        .card{
+          padding: 10px;
+          background: #fff;
+          border: 1px dotted #CCC;
+        }
+        .sound_click{
+          background: #eee;
+          cursor: pointer;
+        }
+      }
+      &.receive{
+        .msg_head{
+          color: rgb(0,110,254);
+        }
+      }
+      &.send{
+        .msg_head {
+          color: rgb(66, 180, 117);
+        }
+      }
+      &:hover{
+        border: 1px solid rgb(255,219,141);
+        border-radius: 2px;
+        background: rgb(255,237,196);
+      }
+    }
+  }
+  .record_part_empty{
+    margin-top: 100px;
+    text-align: center;
+    color: #ccc;
+  }
+}

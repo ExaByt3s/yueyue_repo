@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "reset.css",
+    "sources": [
+        "/style/reset.scss"
+    ],
+    "sourcesContent": [
+        "/*CSS Reset*/\r\nbody,\r\ndiv,\r\ndl,\r\ndt,\r\ndd,\r\nul,\r\nol,\r\nli,\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\nh5,\r\nh6,\r\npre,\r\ncode,\r\nform,\r\nfieldset,\r\nlegend,\r\ninput,\r\ntextarea,\r\np,\r\nblockquote,\r\nth,\r\ntd,\r\nheader,\r\nhgroup,\r\nnav,\r\nsection,\r\narticle,\r\naside,\r\nfooter,\r\nfigure,\r\nfigcaption,\r\nmenu,\r\nbutton {\r\n    margin: 0;\r\n    padding: 0;\r\n    outline: 0;   \r\n}\r\n\r\nbody {\r\n    font-family: \"Helvetica Neue\", Helvetica, STHeiTi, sans-serif; \r\n    line-height: 1.5;\r\n    font-size: 14px;\r\n    color: #000;    \r\n    -webkit-user-select: none;\r\n    -webkit-text-size-adjust: none;\r\n    -webkit-tap-highlight-color: rgba(255,255,255,0);\r\n}\r\n\r\nh1, h2, h3, h4, h5, h6 {\r\n    font-size: inherit;\r\n    font-weight: normal;\r\n}\r\n\r\ntable {\r\n    border-collapse: collapse;\r\n    border-spacing: 0;\r\n}\r\n\r\nfieldset,\r\nimg {\r\n    border: 0;\r\n}\r\n\r\nli {\r\n    list-style: none;\r\n}\r\n\r\ninput,\r\nbutton,\r\ntextarea,\r\nselect {\r\n    font-family: inherit;\r\n    font-size: inherit;\r\n    font-weight: inherit;\r\n    border: 0;\r\n    border-radius: 0;\r\n    background: none;\r\n    -webkit-appearance: none;\r\n    outline: 0;\r\n}\r\na,button,input,select,textarea,a:focus,button:focus,input:focus,select:focus,textarea:focus,[onclick]{\r\n    outline: 0;\r\n    -webkit-tap-highlight-color:rgba(255,255,255,0);\r\n}\r\na {\r\n    -webkit-touch-callout:none;\r\n    text-decoration: none;\r\n    color: #000;\r\n    outline: 0;\r\n    \r\n}\r\n\r\nem,i {\r\n    font-style: normal;\r\n    \r\n}\r\nem{color: #f28c48;}\r\n::-webkit-input-placeholder {\r\n    color:#999;\r\n}\r\n\r\n"
+    ],
+    "mappings": "AACA,AAAM,AAAK,AAAI,AAAI,AAAI,AAAI,AAAI,AAAI,AAAI,AAAI,AAAI,AAAI,AAAI,AAAI,AAAK,AAAM,AAAM,AAAU,AAAQ,AAAO,AAAU,AAAG,AAAY,AAAI,AAAI,AAAQ,AAAQ,AAAK,AAAS,AAAS,AAAO,AAAQ,AAAQ,AAAY,AAAM,AAoClN,AAAQ,AACR,AAAS,AACT,AAAS,AAGb,AACI,AAAa,AACb,AAAa,AACb,AAAW,AACX,AAAO,AACP,AAAqB,AACrB,AAA0B,AAC1B,AAA6B,AAGjC,AAAI,AAAI,AAAI,AAAI,AAAI,AAChB,AAAW,AACX,AAAa,AAGjB,AACI,AAAiB,AACjB,AAAgB,AAGpB,AAAU,AAEN,AAAQ,AAGZ,AACI,AAAY,AAGhB,AAAO,AAAQ,AAAU,AAIrB,AAAa,AACb,AAAW,AACX,AAAa,AACb,AAAQ,AACR,AAAe,AACf,AAAY,AACZ,AAAoB,AACpB,AAAS,AAEb,AAAG,AAAQ,AAAO,AAAQ,AAAU,AAAC,AAAQ,AAAM,AAAQ,AAAK,AAAQ,AAAM,AAAQ,AAAQ,AAAQ,AAClG,AAAS,AACT,AAA4B,AAEhC,AACI,AAAsB,AACtB,AAAiB,AACjB,AAAO,AACP,AAAS,AAIb,AAAI,AACA,AAAY,AAGhB,AAAG,AAAO,AACV,AACI,AAAM",
+    "names": []
+}

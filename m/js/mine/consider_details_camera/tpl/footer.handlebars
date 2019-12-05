@@ -1,0 +1,76 @@
+{{#if has_btn}}
+    <div class="btn_footer">
+        {{#if show_button_status}}
+            {{#if show_code_button}}
+                <div class="btn" data-role="show_ewm" data-event-id="{{event_id}}" data-enroll-id="{{enroll_id}}">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large">
+                        <span class="ui-button-content">出示签到券</span>
+                    </button>
+                </div>
+            {{/if}}
+            {{#if show_comment_button}}
+                <div class="btn" data-role="comment" data-from-date-id="{{from_date_id}}" data-to-date-id="{{to_date_id}}" data-date-id="{{date_id}}">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large">
+                        <span class="ui-button-content">评价</span>
+                    </button>
+                </div>
+            {{/if}}
+            {{#if show_accept_button}}
+                <div class="btn" data-role="agreement" data-date-id="{{date_id}}">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-color2 ui-button-size-radius-large">
+                        <span class="ui-button-content">同意</span>
+                    </button>
+                </div>
+            {{/if}}
+            {{#if show_reject_button}}
+                <div class="btn" data-role="refuse">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-color3 ui-button-size-radius-large">
+                        <span class="ui-button-content">拒绝</span>
+                    </button>
+                </div>
+            {{/if}}
+            {{#if show_scan_button}}
+                <div class="btn" data-role="scan">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large">
+                        <span class="ui-button-content">扫描签到</span>
+                    </button>
+                </div>
+            {{/if}}
+            {{#if show_event_finsh_button}}
+                <div class="btn" data-role="confirm" data-event-id="{{event_id}}">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-color2 ui-button-size-radius-large">
+                        <span class="ui-button-content">确认拍摄完成</span>
+                    </button>
+                </div>
+            {{/if}}
+        {{/if}}
+        {{#if show_cancel_button_status}}
+            {{#if display_agree_button}}
+                <div class="btn" data-role="agree">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-color2 ui-button-size-radius-large">
+                        <span class="ui-button-content">同意取消</span>
+                    </button>
+                </div>
+            {{/if}}
+            {{#if display_disagree_button}}
+                <div class="btn" data-role="not_agree">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-color3 ui-button-size-radius-large">
+                        <span class="ui-button-content">不同意取消</span>
+                    </button>
+                </div>
+            {{/if}}
+            {{#if display_refund_button}}
+                <div class="btn" data-role="force_refund">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large">
+                        <span class="ui-button-content">强制退款</span>
+                    </button>
+                </div>
+                <div class="btn fn-hide" data-role="msg">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large">
+                        <span class="ui-button-content">私聊一下</span>
+                    </button>
+                </div>
+            {{/if}}
+        {{/if}}
+    </div>
+{{/if}}

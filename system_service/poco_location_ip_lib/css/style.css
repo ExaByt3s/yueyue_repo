@@ -1,0 +1,139 @@
+/*  全局部分  */
+a:link, a:visited {
+	font-size:12px;
+	font-family:verdana, sans-serif;
+	color:#2951A5;
+	text-decoration:none;
+}
+a:hover {
+	font-size:12px;
+	font-family:verdana, sans-serif;
+	color:#F00;
+	text-decoration:none;
+}
+form {
+	margin:0px;
+	padding:0px;
+}
+ul {
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+img {
+	border:0px;
+}
+body {
+	margin:0px;
+	padding:0px;
+	font-size:12px;
+	font-family:verdana, sans-serif;
+	background:#EFF3FF;
+	color:#000000;
+}
+tr,td {
+	font-size:12px;
+	font-family:verdana, sans-serif;
+}
+p {
+	font-size:12px;
+	font-family:verdana, sans-serif;
+}
+
+div.cover{
+	font-size:12px;
+	font-family:verdana, sans-serif;
+	background:#00FFFF none repeat scroll 0 0;
+}
+
+#apDiv1 {
+	position:absolute;
+	left:333px;
+	top:38px;
+	width:337px;
+	height:21px;
+	z-index:1;
+	text-align:center;
+	color:#dba44f;
+	font-size:14px;
+}
+/* 结构块样式开始  */
+.mypoco_tbl1 { border: 1px solid #9ec9eb ; }
+.mypoco_tbl1 th{
+	background-image:url('http://img5.poco.cn/mypoco/myphoto/20080114/773411120080114211038039.gif') ;
+	background-repeat:repeat-x ; 
+	background-color: #9ec9eb ; 
+	height:auto ; 
+	color: #0249a5 ; 
+	padding-top:0px ; 
+	vertical-align:top ; 
+	line-height: 24px ;
+}
+.mypoco_tbl1 TH a:link { color: #0249a5 ; }
+.mypoco_tbl1 TH a:visited { color: #0249a5 ; }
+.mypoco_tbl1 TH a:hover { color: #0249a5 ; }
+.mypoco_tbl1 TD { COLOR: #003366 ; }
+
+.mypoco_tbl1_th_span_left, .mypoco_tbl_header_left, .mypoco_tbl1_th_span_right, .mypoco_tbl_header_right { color: #0249a5 ; }
+.mypoco_tbl1_th_span_left, .mypoco_tbl_header_left, .mypoco_tbl1_th_span_left a, .mypoco_tbl_header_left a { font-size:14px ; }
+.mypoco_tbl1_th_span_left a, .mypoco_tbl_header_left a, .mypoco_tbl1_th_span_right a, .mypoco_tbl_header_right a { color: #0249a5 ; }
+.mypoco_tbl1_th_span_left, .mypoco_tbl1_th_span_right { line-height: 24px ; }
+
+.mypoco_tbl1_th_span_right { float:right; }
+.mypoco_tbl1_th_span_left { float:left; }
+
+.mypoco_tbl_header_left { BORDER-LEFT:0px ; padding-left:4px ; line-height:24px ;  }
+.mypoco_tbl_header_left { BORDER-LEFT:0px ; padding-left:4px ; line-height:24px ; }
+
+.tbl_header { background-color: #9ec9eb ;color: #0249a5 ; }
+.tbl_header a:link { color: #0249a5 ; }
+.tbl_header a:visited { color: #0249a5 ; }
+.tbl_header a:hover { color: #0249a5 ; }
+.tbl_footer { background-color: transparent;color: #55595e; }
+/* 结构块样式结束  */
+
+/* 固有边框样式 */
+.border_color0{ border-color:#aedef4 !important; }
+.border_color1{ border-color:#014E82 !important; }
+.border_color2{ border-color:#b5e3f8 !important; }
+.border_color3{ border-color:#f6f7f7 !important; }
+.border_color4{ border-color:#fafbfb !important; }
+.border_color5{ border-color:#FFFFFF !important; }
+.border_color6{ border-color:#b5e3f8 !important; }
+.border_color7{ border-color:#FFFFFF !important; }
+
+/* 固有背景样式 */
+.bg_color0 { background-color: #aedef4 !important; }
+.bg_color1 { background-color: #014E82 !important; }
+.bg_color2 { background-color: #b5e3f8 !important; }
+.bg_color3 { background-color: #f6f7f7 !important; }
+.bg_color4 { background-color: #fafbfb !important; }
+.bg_color5 { background-color: #FFFFFF !important; }
+.bg_color6 { background-color: #16ae0e !important; }
+.bg_color7 { background-color: #FFFFFF !important; }
+
+/* 固有字体样式 */
+.font_color0{ color:#aedef4 !important; }
+.font_color1{ color:#014E82 !important; }
+.font_color2{ color:#b5e3f8 !important; }
+.font_color3{ color:#f6f7f7 !important; }
+.font_color4{ color:#fafbfb !important; }
+.font_color5{ color:#FFFFFF !important; }
+.font_color6{ color:#16ae0e !important; }
+.font_color7{ color:#FFFFFF !important; }
+.font_color_default { color:#000000 !important; }
+
+/* 圆角样式 */
+.include{ background:transparent; }
+.s1,.s2,.s3,.s4,.s5{ font-size:1px; overflow:hidden; background:#9ec9eb; display:none;visibility:hidden; }
+.s1,.s2,.s3,.s4 { height:1px;  display:none; visibility:hidden; }
+.s2,.s3,.s4,.s5{ border-right:1px solid #b1c0cd;border-left:1px solid #b1c0cd; }
+.s1{ margin:0 7px; background:transparent; }
+.s2{ margin:0 5px; border-width:2px; }
+.s3{ margin:0 3px; border-width:2px; }
+.s4{ margin:0 2px; }
+.s5{ margin:0 1px; height:2px; }
+
+/* 行底部虚线 */
+.border-top{ border-top:1px dashed #9ec9eb !important; }
+.border-bottom{ border-bottom:1px dashed #9ec9eb !important; }

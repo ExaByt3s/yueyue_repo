@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>支付成功</title>
+	<meta charset="gbk">
+	{head_html}	
+	<!-- libjs 必须引用 -->
+	<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2predev/static/style/pay_tt/pay_tt.css">
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/back_btn/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/pay_tt/pay_tt_success.js"></script>
+</head>
+	<body>
+		<main role="main">
+			<header class="nav-header fn-hide" id="nav-header">				
+				<div class="title">支付成功</div>
+			</header>								
+			<div class="page-view pay-tt pay-tt-success-wrap" data-role="page-container">
+				<div class="pay-tt-success">
+					<i class="icon icon-select-big"></i>
+					<span class="f18">支付成功</span>
+				</div>
+							
+				<div class="buttom-btn-wrap">
+				<button class="ui-tt-pay-btn" id="confirm-btn">
+					确认
+				</button>
+                </div>
+			</div>
+		</main>
+			 
+	</body>
+	
+</html>
+<script type="text/javascript">
+	require('pay_tt/pay_tt_success');
+</script>
+

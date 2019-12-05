@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{ret.title}</title>
+    {wap_global_top}
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/topic/tpl_demo.scss">
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/swiper3.07.min.scss">
+    <script src="/lib/lib.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <!--模板1-->
+    <div class="page-view tpl-demo">
+
+
+    </div>
+</main> 
+</body>
+<script>
+    var header = require('../../../../modules/common/widget/header/main');
+    var mySwiper = require('../../../../modules/common/widget/swiper/1.0.0/swiper3.07.min.js');
+    var $ = require('zepto');
+    var demo_tpl = __inline("../../../../modules/topic/tpl_demo.tmpl");
+
+    $(function()
+    {   
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"专题模板",
+            header_show : true , //是否显示头部
+            right_icon_show : true, //是否显示右边的按钮
+
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:""  //显示文字内容
+            }
+        });
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: false,
+            autoplay : 3000,
+            speed:300,
+            autoplayDisableOnInteraction : false,
+            // 如果需要分页器
+            pagination: '.swiper-pagination'
+        });
+
+        var arr = JSON.parse('[{"id":"30","topic_id":"0","tpl_type":"img_tpl","sort":"1","custom_data":{"img_url":"http:\/\/image16-d.poco.cn\/yueyue\/cms\/20150902\/95682015090211190690755433.jpg"}},{"id":"31","topic_id":"0","tpl_type":"text_tpl","sort":"2","custom_data":{"text":"\u6587\u6848\u6a21\u7248\u6587\u6848\u6a21\u7248\u6587\u6848\u6a21\u7248\u6587\u6848\u6a21\u7248\u6587\u6848\u6a21\u7248\u6587\u6848\u6a21\u7248\u6587\u6848\u6a21\u7248\u6587\u6848\u6a21\u7248\u6587\u6848\u6a21\u7248\u6587\u6848\u6a21\u7248\u6587\u6848\u6a21\u7248\u6587\u6848\u6a21\u7248"}},{"id":"32","topic_id":"0","tpl_type":"goods_tpl1","sort":"3","custom_data":{"list":[{"goods_id":"2119210","goods_text":"\u4fc3\u9500\u6587\u6848\u4fc3\u9500\u6587\u6848\u4fc3\u9500\u6587\u6848","goods_tag":"\u65b0\u54c1","img_url":"http:\/\/image16-c.poco.cn\/yueyue\/20150902\/20150902012330_748941_132214_58929_320.jpg?750x750_120","price":"1380.00"},{"goods_id":"2119209","goods_text":"\u4fc3\u9500\u6587\u6848\u4fc3\u9500\u6587\u6848\u4fc3\u9500\u6587\u6848","goods_tag":"\u70ed\u9500","img_url":"http:\/\/image16-c.poco.cn\/yueyue\/20150901\/20150901234855_24924_130846_58876_320.jpg?640x960_120","price":"150.00"}]}},{"id":"33","topic_id":"0","tpl_type":"goods_tpl2","sort":"4","custom_data":{"img_url":"http:\/\/image16-c.poco.cn\/yueyue\/20150901\/20150901233009_562875_131476_58844_260.jpg?3840x5760_120","price":"2000.00","goods_id":"2119206","goods_text":"\u4fc3\u9500\u6587\u6848\u4fc3\u9500\u6587\u6848\u4fc3\u9500\u6587\u6848"}},{"id":"34","topic_id":"0","tpl_type":"goods_tpl3","sort":"5","custom_data":{"img_url":"http:\/\/image16-c.poco.cn\/yueyue\/20150901\/20150901224455_387312_122437_58789_260.jpg?700x467_120","price":"1999.00","goods_id":"2119204","goods_text":"\u4fc3\u9500\u6587\u6848\u4fc3\u9500\u6587\u6848\u4fc3\u9500\u6587\u6848"}},{"id":"35","topic_id":"0","tpl_type":"list_tpl1","sort":"6","custom_data":{"img_url":"http:\/\/image16-d.poco.cn\/yueyue\/cms\/20150902\/95682015090211190690755433.jpg","title":"\u4e3b\u6807\u9898","subtitle":"\u526f\u6807\u9898"}},{"id":"36","topic_id":"0","tpl_type":"list_tpl2","sort":"7","custom_data":{"img_url":"http:\/\/image16-d.poco.cn\/yueyue\/cms\/20150902\/95682015090211190690755433.jpg","title":"\u4e3b\u6807\u9898","subtitle":"\u526f\u6807\u9898","button":"http:\/\/www.yueus.com"}},{"id":"37","topic_id":"0","tpl_type":"attr_goods_tpl","sort":"8","custom_data":{"goods_id":"2119201"}}]');
+
+        console.log(arr);
+        var html_str = demo_tpl
+        ({
+            demo : arr
+        });
+        $('.tpl-demo').html(html_str);
+
+        
+    });
+
+</script>
+</html>

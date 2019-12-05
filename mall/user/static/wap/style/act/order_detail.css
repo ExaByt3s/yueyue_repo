@@ -1,0 +1,82 @@
+.event-info-page-container {
+  display: -webkit-box;
+  background: #eeeeee;
+  -webkit-box-orient: vertical; }
+  .event-info-page-container .ui-button-bd-ff6 {
+    background-color: #fff; }
+  .event-info-page-container .refresh-container {
+    display: -webkit-box;
+    height: 44px; }
+
+.event-info-page {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  margin-top: 15px; }
+  .event-info-page .title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    padding: 10px;
+    background: #fff;
+    border-bottom: 1px solid #dddddd; }
+    .event-info-page .title .title-in {
+      display: -webkit-box; }
+      .event-info-page .title .title-in .title-pic-container {
+        display: -webkit-box; }
+        .event-info-page .title .title-in .title-pic-container .title-pic {
+          width: 75px;
+          height: 75px; }
+      .event-info-page .title .title-in .title-describe {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-box-flex: 1;
+        padding-left: 20px;
+        font-size: 16px; }
+        .event-info-page .title .title-in .title-describe .describe_title {
+          display: -webkit-box;
+          margin-bottom: 12px; }
+        .event-info-page .title .title-in .title-describe .describe_price {
+          display: -webkit-box;
+          color: #ff5000;
+          font-size: 14px; }
+          .event-info-page .title .title-in .title-describe .describe_price .bla {
+            color: #666666;
+            font-size: 10px; }
+      .event-info-page .title .title-in .an-arrow {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-box-pack: center;
+        margin-left: 20px; }
+  .event-info-page .button {
+    display: -webkit-box;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 1px 1px 2px #d2d2d2; }
+  .event-info-page .exp {
+    -webkit-box-flex: 1; }
+  .event-info-page .block {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    background: #fff;
+    padding: 10px;
+    margin-top: 15px;
+    box-shadow: 1px 1px 2px #d2d2d2; }
+    .event-info-page .block .describe {
+      color: #ff4978;
+      border-bottom: 1px solid #dddddd;
+      padding-bottom: 10px;
+      margin-bottom: 8px;
+      font-size: 14px; }
+    .event-info-page .block .describe-info {
+      display: -webkit-box;
+      -webkit-box-orient: vertical; }
+      .event-info-page .block .describe-info .describe-info-line {
+        display: -webkit-box;
+        margin-top: 4px;
+        color: #666666;
+        font-size: 14px; }
+      .event-info-page .block .describe-info .tel {
+        margin: 14px 0px 14px 0px; }
+      .event-info-page .block .describe-info .notice {
+        margin-right: 10px; }
+      .event-info-page .block .describe-info .notice-inside {
+        -webkit-box-flex: 1; }

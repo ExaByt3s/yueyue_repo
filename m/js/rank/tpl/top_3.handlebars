@@ -1,0 +1,30 @@
+
+
+{{#if data}}
+<div class="p1th">
+    <div class="item-wrap" data-role="data_top_3">
+        {{#each data}} 
+            <div class="item">
+
+                <div class="img-box-wrap" style="width:{{../img_max_w}}px;height:{{../img_max_h}}px;">
+                    <div class="allow allow-{{index}}">
+                        <i class="icon one-18x18  icon-top-{{index}} "></i>
+                    </div>
+
+                    <i class="img image-img imgbox loaded" user-id="{{user_id}}" data-role="go_url"  style=" background: url({{user_icon}});background-size:cover">
+                    </i>
+                    <div class="fade-box">
+                        {{nickname}}
+                    </div>
+                </div>
+
+                <div class="txt"><span class="cor1">{{num}}</span> <span class="cor2">{{unit}}</span></div>
+                <div class="tags">{{style}}</div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+{{/if}}
+
+
+      

@@ -1,0 +1,95 @@
+
+// --------------------------------------------------
+// 公共 - 用户名片 - 按钮
+// --------------------------------------------------
+
+%button-style {
+    @include inline-block;
+    height: 24px;
+    line-height: 24px;
+    border-width: 1px;
+    border-style: solid;
+    margin-left: 5px;
+    padding: 0 10px; 
+    @include border-radius(3px);
+    text-align: center;
+    cursor: pointer;
+
+    &, &:hover {
+        text-decoration: none;
+    }
+
+    .global-iconfont, .button-content{
+        @include float-left;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+}
+
+%primary-button-color {
+    @extend %button-style;
+
+    border-color: #46bb01 #46bb01 #3ea600 #46bb01;
+    background: #46bb01;
+    @include link-colors(#fff, #fff);
+    &:hover {
+        border-color: #3fa900 #3fa900 #359000 #3fa900;
+        background: #3fa900;
+    }
+}
+
+%dark-button-color {
+    @extend %button-style;
+
+    border-color: #737373 #737373 #595959 #737373;
+    background: #737373;
+    @include link-colors(#fff, #fff);
+    &:hover {
+        border-color: #606060 #606060 #3f3f3f #606060;
+        background: #606060;
+    }
+}
+
+.send-message-button {
+    //@include float-left;
+    @extend %dark-button-color;
+}
+.follow-button, .unfollow-button {
+    //@include float-left;
+    @extend %primary-button-color;
+
+    .unfollow-button-action {
+        display: none;
+    }
+}
+
+.follow-button {
+    .iconfont-plus {
+        margin-right: 5px;
+    }
+}
+
+.unfollow-button {
+    &:hover {
+        .unfollow-button-msg, .iconfont-tick {
+            display: none;
+        }
+        .unfollow-button-action {
+            display: inline;
+        }
+    }
+}
+
+.publish-button {
+    @extend %primary-button-color;
+    height: 32px;
+    line-height: 32px;
+
+    margin: 43px 0;
+
+    font-size: 14px;
+
+    .iconfont-publish {
+        margin-right: 5px;
+    }
+}

@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>注册页</title>
+<!-- 头部公共 -->
+{pc_global_top}
+</head>
+
+<body>
+<!-- 顶栏 -->
+{header_html}
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+<form action="./module/yue_login_register_op.php" method="post" name="yue_register_form" id="yue_register_form" target="form_iframe">
+<div class="register-page w1000 font_wryh">
+    <div class="item-wrap">
+        <div class="item">
+            <div class="wbox clearfix">
+                <div class="lbox fldi">手机号码</div>
+                <div class="rbox fldi">
+                    <input type="text" name="yue_phone" id="yue_phone" class="input-text" />
+                    <div class="txt1">请输入中国大陆手机号，用于登录和密码找回</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="wbox clearfix">
+                <div class="lbox fldi">密码</div>
+                <div class="rbox fldi">
+                    <input type="password" name="yue_password" id="yue_password" class="input-text" />
+                    <div class="txt1">密码由6-32个数字、字符或半角标点符号组成越复杂越安全，但不能使用中文</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="wbox clearfix">
+                <div class="lbox fldi">激活码</div>
+                <div class="rbox fldi">
+                    <div class="fldi mr10"><input type="text" name="yue_active_word" id="yue_active_word" class="input-text input-jhm " /></div>
+                   
+                   <div class="btn-jhm" id="get_yue_active_word" btn-lock="open">免费获取短信激活码</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="ty"><label><input type="checkbox" name="read_check" id="read_check" class="input-checkbox" checked="checked"/> 我已阅读并同意 <a href="http://yueus.com/about.php#zcxy" target="_blank">注册协议</a></label></div>
+    
+    <div class="btn3" id="yue_submit_btn">立即注册</div>
+    <div class="ty" id="yue_error_tips" style="color:red;display:none"></div>
+    <input type="hidden" value="register" name="yue_action_type"></input>
+
+
+</div>
+</form>
+
+<div class="footer boder-top-none">
+    <div class="w1000">
+        <a href="javascript:void(0);">关于约约</a> <span class="pr5 pl5">|</span> Copyright 2003-2015 YUEUS.COM 
+    </div>
+</div>
+
+
+
+
+
+</body>
+<script>
+
+/**
+* hudw 2015.1.23
+* @param  {[type]} window    [description]
+* @param  {[type]} seajs     [description]
+* @param  {[type]} undefined [description]
+* @return {[type]}           [description]
+*/
+;(function(window, seajs, undefined)
+{
+
+
+    // 配置模块
+    seajs.config
+    ({
+
+        paths:
+        {
+            utility: 'http://cb.poco.cn/utility',
+            matcha: 'http://cb.poco.cn/matcha',
+            yueyue_global : 'http://www.yueus.com/js/global'            
+        },
+        alias:
+        {
+            handlebars: 'utility/handlebars/1.0.0/handlebars',
+            jquery: 'utility/jquery/1.11.0/jquery',                        
+            cookie: 'matcha/cookie/1.0.0/cookie',
+            topbar : 'yueyue_global/topbar/topbar'        
+        },
+        comboMaxLength: 5000,
+        charset: 'utf-8'
+    });
+
+    seajs.use(['jquery','topbar'],function($,topbar)
+    {
+        var $user_state = $('#user_state');        
+        // 配置头部
+        topbar.init
+        ({
+            container : $user_state
+        });
+
+        
+        // 注册逻辑
+        //检查电话号码
+    function checkPhone(phone)
+    {
+        var re= /^1[0-9][0-9]\d{8,8}$/;
+        var tips = '';
+      
+        if(!re.test(phone))
+        {
+            tips = false;
+        }
+        else
+        {
+            tips = true;
+        }
+      
+      return tips;
+    }
+    
+    
+    
+    //绑定时候密码检索
+    function bind_password_check(pwd)
+    {
+        //检查密码是否为空，检查长度
+        if($.trim(pwd)=="")
+        {
+            return "pwd_empty";
+        }
+        else if(pwd.length>=32)
+        {
+            return "pwd_over";
+        }
+        else if(pwd.length<6)
+        {
+            return "pwd_short";
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+    
+    //倒计时变量
+    var active_word_html_t = "";
+    var time_out_t = "";
+    
+    function active_change_num(num)
+    {
+        $("#get_yue_active_word").html(num);
+    }
+    
+    function clear_interval()
+    {
+        time_out_t=setTimeout(function(){
+            clearInterval(active_word_html_t);
+            $("#get_yue_active_word").html("免费获取短信激活码");
+            $("#get_yue_active_word").attr("btn-lock","open");
+        },60000);
+    }
+    
+    $("#get_yue_active_word").bind("click",function(){
+            
+        var btn_lock = $("#get_yue_active_word").attr("btn-lock");
+        if(btn_lock=="open")
+        {   
+        
+            var yue_phone = $("#yue_phone").val();
+            var yue_ret = checkPhone(yue_phone);
+            if(!yue_ret)
+            {
+                $("#yue_error_tips").css("display","block");
+                if($.trim(yue_phone)=="")
+                {
+                    $("#yue_error_tips").html("请输入手机号");
+                }
+                else
+                {
+                    $("#yue_error_tips").html("手机号格式有误");
+                }
+                return false;
+            }
+            else
+            {
+                if($("#yue_error_tips").html()=="手机号格式有误" || $("#yue_error_tips").html()=="请输入手机号")
+                {
+                    $("#yue_error_tips").html("");
+                }
+            }
+            
+            clearTimeout(time_out_t);
+            clear_interval();
+            $("#get_yue_active_word").html("60");
+            active_word_html_t = setInterval(function(){
+    
+                var cur_num = $("#get_yue_active_word").html();
+                var new_cur_num = parseInt(cur_num)-1;
+                active_change_num(new_cur_num);
+            
+            },1000);
+            //锁住按钮,防止多次调用
+            $("#get_yue_active_word").attr("btn-lock","lock");
+            
+            //异步发送短信
+            $.ajax
+            ({
+            
+                type:'get',
+                dataType:'json',
+                timeout:5000,
+                url:'./module/yue_get_active_word_ajax.php',
+                data:"yue_phone=" +yue_phone+"&timestamp=" + new Date().getTime(),
+                error:function(XMLHttpRequest,status)
+                {
+                    if(status=='timeout'){
+                        $("#yue_error_tips").css("display","block");
+                        $("#yue_error_tips").html("获取验证码失败，请重新获取");
+                        //打开锁
+                        $("#get_yue_active_word").attr("btn-lock","open");
+                        //清除计时处理
+                        clearTimeout(time_out_t);
+                        clearInterval(active_word_html_t);
+                        $("#get_yue_active_word").html("免费获取短信激活码");
+                        return false;　　　　　 
+            　　　　}
+                },
+                success:function(json_data)
+                {
+                    if(json_data.ajax_status==1)
+                    {
+
+                    }
+                    else
+                    {
+                        $("#yue_error_tips").css("display","block");
+                        $("#yue_error_tips").html("获取验证码失败，请重新获取");
+                        clearTimeout(time_out_t);
+                        clearInterval(active_word_html_t);
+                        $("#get_yue_active_word").html("免费获取短信激活码");
+                        $("#get_yue_active_word").attr("btn-lock","open");
+                        return false;
+
+                    }
+                    
+                    
+                }
+            });
+            
+            
+        }
+        else
+        {
+            return false;
+        }
+    });
+    
+    
+    
+    //表单提交
+    $("#yue_submit_btn").bind("click",function(){
+        submit_function();
+    });
+
+
+    //提交前检索
+    function submit_function()
+    {
+        var yue_phone = $("#yue_phone").val();
+        var yue_password = $("#yue_password").val();
+        var yue_active_word = $("#yue_active_word").val();
+        var yue_ret = '';
+        //检索处理
+        yue_ret = checkPhone(yue_phone)
+        if(yue_ret)
+        {
+            yue_ret = bind_password_check(yue_password);
+            //检测密码情况
+            if(yue_ret=="pwd_empty")
+            {
+                
+                $("#yue_error_tips").css("display","block");
+                $("#yue_error_tips").html("请输入密码，密码不能为空格");
+                return false;
+            }
+            else if(yue_ret=="pwd_over")
+            {
+                
+                $("#yue_error_tips").css("display","block");
+                $("#yue_error_tips").html("密码不能大于32位");
+                return false;
+            }
+            else if(yue_ret=="pwd_short")
+            {
+                $("#yue_error_tips").css("display","block");
+                $("#yue_error_tips").html("密码不能小于6位");
+                return false;
+            }
+            
+            //检查验证码
+            if($.trim(yue_active_word)=="")
+            {
+                $("#yue_error_tips").css("display","block");
+                $("#yue_error_tips").html("验证码不能为空");
+                return false;
+            }
+            
+            //检查是否已经阅读协议
+            var read_check = $("#read_check").is(':checked');
+            if(!read_check)
+            {
+                
+                $("#yue_error_tips").css("display","block");
+                $("#yue_error_tips").html("请勾选同意协议");
+                return false;
+            } 
+            
+            $("#yue_register_form").submit();
+            //过渡处理
+            $("#yue_submit_btn").html("注册中，请稍后...");
+            //清理计时处理
+            clearTimeout(time_out_t);
+            clearInterval(active_word_html_t);
+            $("#get_yue_active_word").html("免费获取短信激活码");
+            $("#get_yue_active_word").attr("btn-lock","open");
+            //清理相关信息
+            $("#yue_error_tips").css("display","none");
+            $("#yue_error_tips").html("");
+            
+        }
+        else
+        {
+            $("#yue_error_tips").css("display","block");
+            if($.trim(yue_phone)=="")
+            {
+                $("#yue_error_tips").html("请输入手机号");
+            }
+            else
+            {
+                $("#yue_error_tips").html("手机号格式有误");
+            }
+            return false;
+            
+        }
+    }
+    
+    //enter键盘处理
+    $(document).keypress(function(e)  
+    {
+        if(e.keyCode==13)
+        {
+            submit_function();
+        }
+    });
+    
+
+
+    });
+
+    
+
+    
+   
+})(window, seajs);
+
+
+</script>
+</html>

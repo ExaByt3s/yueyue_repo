@@ -1,0 +1,40 @@
+<div class="item-wrap">
+    {{#each list}}
+    {{#if is_enroll}}
+        <a href="./detail.php?topic_id={{topic_id}}&state=is_enter">
+    {{else}}
+        <a href="./detail.php?topic_id={{topic_id}}&state=no_enter">
+    {{/if}}
+    
+        <div class="item ui-border-b">
+            <div class="img-item"> <i class="img" style="background-image: url({{img}});"></i>
+            </div>
+
+            <div class="text-item">
+                <div class="txt-con-1">
+                    <h3 class="title f14 fb">{{title}}</h3>
+                    <p class="txt time f10 color-999">征集时间：{{event_time}}</p>
+                    <p class="txt f10 color-999">活动城市：{{city_text}}</p>
+                </div>
+                <div class="txt-con-2">
+                    <span class="color-333 join-in fldi">{{join_text}}</span>
+                    {{#if is_enroll}}
+                    <a href="./info.php?topic_id={{topic_id}}&state=is_enter">
+                        <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 frdi">
+                            <span class="ui-button-content">已参加</span>
+                        </button>
+                    </a>
+                    {{else}}
+                    <a href="./info.php?topic_id={{topic_id}}&state=no_enter">
+                        <button class="ui-button  ui-button-block  ui-button-size-x  ui-button-bg-ff6 frdi">
+                            <span class="ui-button-content">报名参加</span>
+                        </button>
+                    </a>
+                    {{/if}}
+                </div>
+            </div>
+
+        </div>
+    </a>
+    {{/each}}
+</div>

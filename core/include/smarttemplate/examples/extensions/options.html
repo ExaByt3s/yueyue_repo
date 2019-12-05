@@ -1,0 +1,21 @@
+<html>
+<form action="options.php" method="post">
+ 
+<body {nvl:PROPERTY,"text"} = "{nvl:COLOR,"black"}" >
+ 
+Choose Property:
+<select name="PROPERTY">
+{options:all_properties,PROPERTY}
+</select>
+ 
+Choose Color: 
+<select name="COLOR">
+{options:all_colors,COLOR}
+</select>
+ 
+<!-- First Parameter:  Array of Options -->
+<!-- Second (optional) Parameter: Default Selected Option   -->
+ 
+<input type="submit">
+</form>
+</html>

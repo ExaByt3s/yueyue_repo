@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>订单详情</title>
+
+<!-- 公共css，js引入 -->
+{pc_task_top}
+
+<!-- 当前页面css-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/style/order/order_list.css">
+<!-- js 库-->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/modules/common/widget/header/header.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/modules/common/widget/header/main.js"></script>
+</head>
+<body>
+
+{pc_global_nav}
+
+<div class="provide-price-page w960">
+    <div class="p1th">
+        <div class="wbox clearfix">
+            <div class="lbox fldi font_wryh">我需要一个摄影师</div>
+            
+
+            <!-- IF is_archive -->
+            <div class="rbox frdi">已收藏</div>
+            <!-- ELSE -->
+            <div class="rbox frdi" btn-archive  quotes_id={quotes_id}>收藏</div>
+            <!-- ENDIF -->   
+
+        </div>
+    </div>
+
+    <div class="p2th">
+        <div class="wbox clearfix">
+            <div class="main-part fldi">
+
+                <div class="send-area ">
+                    <div class="wbox clearfix">
+                        <div class="lbox fldi"><img src="{quote_info.user_icon}" /></div>
+                        <div class="rbox fldi">
+                        <form name="form" id="form" action="msg_act.php" method="post" target="frame">
+                            <div class="txt-area">
+                                <textarea name="content" id="content"  class="textarea-class" ></textarea>
+                            </div>
+                            <input type="hidden" name="quotes_id" value="{quotes_id}" />
+                            </form>
+                            <div class="btn" id="send">发送</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BEGIN answer_list -->
+                    <!-- IF message_type="message" -->
+                    
+                    <div class="state-area msg-chat">
+                    
+                        <div class="wbox clearfix">
+                            <div class="lbox fldi"><img src="{from_user_icon}" /></div>
+                            <div class="txt-area fldi f14">
+                                <div class="box1">
+                                    <span class="time frdi">{add_time_str}</span>
+                                    {from_user_nickname}
+                                </div>
+                               
+                                <div class="p5">{nl2br:message_content}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ELSEIF message_type="quotes" -->
+                    <div class="state-area">
+                        <div class="wbox clearfix">
+                            <div class="lbox fldi"><img src="{from_user_icon}" /></div>
+                            <div class="txt-area fldi f14">
+                                <div class="box1">
+                                    <span class="time frdi">{add_time_str}</span>
+                                    {from_user_nickname}
+                                </div>
+                                <p class="p2 ">{quotes_content}</p>
+                               <!-- <p class="p3 ">最新价格</p>-->
+                                <div class="p5">留言：{nl2br:message_content}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ELSEIF message_type="read_quotes" -->
+                    
+                     <div class="state-line see-you-price">
+                    <div class="wbox clearfix">
+                        <div class="lbox fldi">{message_content}</div>
+                        <div class="rbox frdi">{add_time_str}</div>
+                    </div>
+                </div>
+                <!-- ELSEIF message_type="read_profile" -->
+                <div class="state-line ">
+                    <div class="wbox clearfix">
+                        <div class="lbox fldi">{message_content}</div>
+                        <div class="rbox frdi">{add_time_str}</div>
+                    </div>
+                </div>
+                <!-- ELSEIF message_type="hired" -->
+                 <div class="state-line get-back-money">
+                    <div class="wbox clearfix">
+                        <div class="lbox fldi">{message_content}</div>
+                        <div class="rbox frdi">{add_time_str}</div>
+                    </div>
+                </div>
+                <!-- ELSEIF message_type="declined" -->
+                 <div class="state-line no-use-you">
+                    <div class="wbox clearfix">
+                        <div class="lbox fldi">{message_content}</div>
+                        <div class="rbox frdi">{add_time_str}</div>
+                    </div>
+                </div>
+                <!-- ELSEIF message_type="earnest" -->
+                 <div class="state-line pay-money">
+                    <div class="wbox clearfix">
+                        <div class="lbox fldi">{message_content}</div>
+                        <div class="rbox frdi">{add_time_str}</div>
+                    </div>
+                </div>
+                <!-- ELSEIF message_type="refund_coins" -->
+                 <div class="state-line get-back-money">
+                    <div class="wbox clearfix">
+                        <div class="lbox fldi">{message_content}</div>
+                        <div class="rbox frdi">{add_time_str}</div>
+                    </div>
+                </div> 
+                 <!-- ENDIF -->  
+
+                <!-- END answer_list -->
+
+            </div>
+            
+
+            <div class="sidebar frdi">
+
+                <div class="has-use-you font_wryh">
+                  
+			<!-- IF feed_info.message_type="quotes" -->{feed_info.quotes_content}<br /><!-- ENDIF -->
+			{feed_info.message_content}
+				   
+                </div>
+
+              
+    
+
+                <div class="user-area">
+                    <div class="line"></div>
+
+                    <div class="clearfix mt10">
+                        <div class="img mt10 fldi"><img src="{quote_info.buyer_user_icon}" /></div>
+                        <h3 class="font_wryh name fldi">{quote_info.buyer_nickname}</h3>
+                    </div>
+
+
+                </div>
+
+                <div class="item-wrap">
+
+                <!-- BEGIN sidebar_list.data -->
+                    <div class="item">
+                        <h3 class="f14">{titles}</h3>
+                        <p class="p1">
+                            <!-- BEGIN data -->
+                            {titles}
+                            <!-- END data -->
+                        </p>
+                    </div>
+
+                <!-- END sidebar_list.data -->
+
+                <!-- IF quote_info.is_pay_coins = "1" -->        
+                <div class="item">
+                    <h3 class="f14">{request_detail_info.nickname}的联系方式</h3>
+                    <p class="p1">{request_detail_info.cellphone}</p>
+                </div>
+                <!-- ENDIF -->
+
+               
+
+
+                </div>
+
+
+            </div> 
+        </div>
+    </div>
+
+</div>
+
+{footer_html}
+
+<iframe name="frame" id="frame" style="display:none"></iframe>
+
+<script type="text/javascript">
+
+	var $ = require('components/jquery/jquery.js');
+	var header = require('common/widget/header/main');
+    var user_role = {seller_id} ; //传入用户缺色
+	$(function() 
+	{
+		// 渲染头部
+		var $header_container = $('#yue-topbar-userinfo-container');
+		header.render($header_container[0],user_role);
+
+		var config = true;
+
+		$('[btn-archive]').click(function() 
+		{
+			var $that = $(this);
+			var quotes_id = $that.attr('quotes_id');
+
+			var data = 
+			{
+				quotes_id : quotes_id
+			}
+
+			if (config) 
+			{
+				if (confirm("确认收藏么？"))
+				{
+					$.ajax({
+						url: window.$__config.ajax_url+'add_quotes.php',
+						data: data,
+						type: 'POST',
+						cache: false,
+						beforeSend: function() 
+						{
+							
+						},
+						success: function(data) 
+						{
+							if (parseInt(data) == 1 ) 
+							{
+							   $that.html('已收藏');
+							   config = false ;
+							}
+						},    
+						error: function() 
+						{
+							
+						},    
+						complete: function() 
+						{
+							
+						} 
+					});   
+				}  
+			}
+			
+		   
+		});
+
+		$('#send').click(function() 
+		{
+			  $('#form').submit();
+		});
+	
+	});
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+.submit_title{
+    -webkit-box-pack:center;
+    height: 61px;
+}
+.submit_title > p{
+    text-align: center;
+    font-size: 16px;
+}
+.submit_back{
+    font-size: 12px;
+    color: #4092f1;
+    position: relative;
+    top: -38px;
+    right: 10px;
+    text-align: end;
+}
+.submit_notice{
+    margin: 0px 10px 10px 10px;
+    border-radius: 4px;
+    background: #333333;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 15px;
+}
+.submit_container{
+    margin: 0px 10px 20px 10px;
+    border-radius: 4px;
+    border:1px solid #cccccc;
+    border-top: 2px solid #ff6763;
+    background: #fff;
+    padding: 15px;
+    font-size: 14px;
+}
+.submit_price{
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+.submit_price_coin{
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid #cccccc;
+    border-radius: 4px 0px 0px 4px;
+    background: #fafafa;
+}
+.submit_price_input{
+    -webkit-box-pack:center;
+    -webkit-box-flex:1;
+    border: 1px solid #cccccc;
+    border-radius: 0px 4px 4px 0px;
+    border-left: none;
+    text-align: center;
+
+}
+.submit_price_input > input{
+    font-size: 20px;
+    width: 80%;
+    border: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 0;
+    -webkit-user-select: auto;
+    outline: 0;
+}
+.submit_container > .exp {
+    font-size: 12px;
+    color: #aaaaaa;
+    margin: 3px 0px 8px 0px;
+}
+.submit_reason > textarea {
+    -webkit-box-flex: 1;
+    resize: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 0;
+    -webkit-user-select: auto;
+    outline: 0;
+    height: 95px;
+    border: none;
+    font-size: 14px;
+}
+.submit_reason{
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    height: 100px;
+    padding-top: 4px;
+}
+.submit_btn{
+    bottom: 0px;
+    height: 45px;
+    color: #fff;
+    line-height: 44px;
+    text-align: center;
+    background: #4092f1;
+    margin: 0px 10px;
+    border-radius: 4px;
+}
+.submit_btn :hover{
+    background: #66a8f4;
+}
+.submit_help_tip{
+    font-size: 12px;
+    color: #aaaaaa;
+    text-align: center;
+    margin-top: 40px;
+}
+.submit_help_phone{
+    font-size: 12px;
+    color: #4092f1;
+    text-align: center;
+    margin-bottom: 40px;
+}

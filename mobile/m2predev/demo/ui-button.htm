@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>通用按钮</title>
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2predev/static/style/base.css">
+<!--基础样式 END-->
+
+<!--App bridge-->
+<script>
+{app_bridge_script}
+</script>  
+
+<script>
+
+    var wifi_link = /yp-wifi/.test(window.location.host)?'-wifi':''
+
+	window.$__domain = 'http://yp'+wifi_link+'.yueus.com/mobile/';
+	window.$__app_version = '2.2.0';
+	window.$__action_version = 'action'+window.$__app_version;
+	window.$__config = 
+	{				
+		ajax_url : 
+		{
+			get_tt_pay_info : window.$__domain + window.$__action_version+'/get_tt_pay_info.php',
+			pay_tt_action : window.$__domain + window.$__action_version+'/pay_tt_action.php',
+			topic : window.$__domain + window.$__action_version+'/get_topic_info.php',
+            get_user_coupon_list_by_tab : window.$__domain + window.$__action_version+'/get_user_coupon_list_by_tab.php',
+            get_user_coupon_list_by_check : window.$__domain + window.$__action_version+'/get_user_coupon_list_by_check.php',
+            recharge_card : window.$__domain + window.$__action_version+'/recharge_card.php',
+            recharge : window.$__domain + window.$__action_version+'/recharge.php',
+            auth_get_user_info : window.$__domain + window.$__action_version+'/auth_get_user_info.php',
+            reg : window.$__domain + window.$__action_version+'/reg.php',
+            bill : window.$__domain + window.$__action_version+'/bill_act.php',
+            withdraw : window.$__domain + window.$__action_version+'/withdraw.php',
+            bind_alipay : window.$__domain + window.$__action_version+'/bind_alipay.php'
+
+		} 
+	};
+</script>  
+    <link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2predev/static/style/common/ui-button.css">
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/lib/lib.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/components/zepto/zepto.js"></script>
+</head>
+<body>
+
+<style type="text/css">
+
+.des{
+    margin: 3px 0;
+}
+
+</style>
+
+
+
+<div style="display:"  class="pb20">
+
+/********大小*******/
+<p class="des">ui-button-block 为block元素</p>
+<p class="des">ui-button-inline-block 为inline-block元素</p>
+
+<p class="des">ui-button-100per 为100%</p>
+
+<p class="des">ui-button-size-x 为高度 30px 按钮 </p>
+<p class="des">ui-button-size-m 为高度 35px 按钮 </p>
+<p class="des">ui-button-size-l 为高度 40px 按钮 </p>
+<p class="des">ui-button-size-xl 为高度 45px 按钮 </p>
+
+
+/********配色*******/
+<p class="des">ui-button-bg-ff6  具体查看实例</p>
+
+
+
+
+</div>
+
+
+<div id="page-container">
+
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-x ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+
+    <br />
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-m ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+
+    <br />
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+    <br />
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-xl ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+
+    <br />
+
+
+    <button class="ui-button  ui-button-inline-block  ui-button-size-x ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+
+    <button class="ui-button  ui-button-inline-block  ui-button-size-x ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+
+    <br />  <br />
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-x ui-button-bg-fff">
+        <span class="ui-button-content">还未选择</span>
+    </button>
+
+    <br />
+
+    <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bg-555">
+        <span class="ui-button-content">获取验证码</span>
+    </button>
+
+    <br />
+
+
+
+    <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-555">
+        <span class="ui-button-content">关闭</span>
+    </button>
+
+    <br />
+
+    <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa">
+        <span class="ui-button-content">关闭</span>
+    </button>
+
+    <br />
+
+
+    <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6">
+        <span class="ui-button-content">支付</span>
+    </button>
+
+    <br />
+
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555">
+        <span class="ui-button-content">咨询</span>
+    </button>
+
+    <br />
+
+    <button class="ui-button-submit">
+        <span class="ui-button-content">提交订单</span>
+    </button>
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+    <div class="ui-button-submit-area">
+        <div class="wbox clearfix">
+            <div class="lbox fldi">
+                <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-555 ui-button-100per">
+                    <span class="ui-button-content">返回修改</span>
+                </button>
+            </div>
+            <div class="rbox fldi">
+                <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-555 ui-button-100per">
+                    <span class="ui-button-content">下一步</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+<script>
+    var $ = require('components/zepto/zepto.js');
+</script>
+</html>

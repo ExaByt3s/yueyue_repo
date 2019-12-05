@@ -1,0 +1,19 @@
+@charset "UTF-8";
+@import "../../sass/compass";
+.topic-end-page {
+  padding: 10px;
+  line-height: 1.2em;
+  .topic-info-container{
+    font: 400 14px/1.12 "Helvetica Neue", Helvetica, arial, sans-serif;
+    font-family: 'Microsoft YaHei',Verdana,SimSun;
+  }
+  .topic-info-container img:before{
+
+  }
+  .topic-info-container img{
+    max-width: 100%;   
+    display: block; 
+    
+  }
+
+}

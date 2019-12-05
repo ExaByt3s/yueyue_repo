@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO摄影app - 我的 - 个人设置
+// -
+
+.yue-about{
+    padding: 20px;
+    .logo{
+        text-align: center;
+        padding: 30px 0 10px 0;
+    }
+    .p1{
+        color: #666666;
+        font-size: 12px;
+        padding: 0px 0 5px 0;
+        text-align: center;
+
+    }
+    .p2{
+        color: #333333;
+        font-size: 16px;
+        text-align: center;
+    }
+    .p3{
+        color: #666666;
+        padding-top: 40px;
+        font-size: 12px;
+        line-height: 22px;
+    }
+    .p4{
+        color: #999999;
+        font-size: 12px;
+        padding-top: 170px;
+        text-align: center;
+    }
+}

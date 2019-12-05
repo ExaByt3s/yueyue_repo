@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="gb2312">
+        <title>约约-模特卡</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link charset="utf-8" rel="stylesheet" href="/wap/css/pai/paiappstyle.css">
+        <link charset="utf-8" rel="stylesheet" href="/wap/css/pai/modelcard.css">
+        <script type="text/javascript" src="/wap/js/libs/sea-package.js"></script>
+        <style type="text/css">
+            html,body
+            {
+                width:320px;
+            }
+            .swipe {
+              overflow: hidden;
+              visibility: hidden;
+              position: relative;
+            }
+            .swipe-wrap {
+              overflow: hidden;
+              position: relative;
+            }
+            .swipe-wrap > div {
+              float:left;
+              width:100%;
+              position: relative;
+            }
+            .inline-block{
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+                
+
+        <div id="page-container">
+            <div class="apps_page">
+                <div role="main">
+                <div class="nav-header mine-model-car-header-opacity" data-role="header">
+                    <div class="left-button-wrap" data-role="page-back">
+                        <a><i class="icon icon-back"></i></a>
+                    </div>
+                    <h3 class="title" data-role="moteka-title">{model_card_info.nickname}</h3>
+                    <div class="right-button-wrap" data-role="menu">
+                        <a><i class="circle-min"></i><i class="circle-min"></i><i class="circle-min"></i></a>
+                    </div>
+                </div>
+                
+                <div class="model-car-v2 native_scroll" data-role="scroll-area" style="padding-top:45px;padding-bottom:0;height:435px">
+                    <div >
+                        <div  data-role="container-img-list" class="grid-pic-content w-100 h-100 swipe">
+                            <div class='swipe-wrap'>
+                                <!-- BEGIN model_card_info.model_pic_list -->   
+                                    <!-- IF idx ="0" -->                                                              
+                                    <div>
+                                           
+                                        <table class="w-100">
+                                            <tr>
+                                                <!-- BEGIN arr -->
+                                                    <!-- IF img_idx ="0" -->
+                                                    <td style="vertical-align:top" rowspan="2" colspan="1" align="left"><i class="img image-img  loaded" data-is-lazyload="" style="background-image: url({img});"></i></td>
+                                                    <!-- ELSE -->
+                                                    <td style="vertical-align:top" align="left"><i class="img image-img  loaded" data-is-lazyload="" style="background-image: url({img});"></i></td>
+                                                    <!-- ENDIF -->                                            
+                                                <!-- END -->
+                                            </tr>
+                                            <tr>
+                                                <!-- BEGIN arr -->
+                                                    <!-- IF img_idx ="2" -->
+                                                    <td style="vertical-align:top" align="left"><i class="img image-img  loaded" data-is-lazyload="" style="background-image: url({img});"></i></td>
+                                                    <!-- ENDIF -->                                            
+                                                <!-- END -->
+                                            </tr>
+                                        </table> 
+                                        
+                                    </div>
+                                    <!-- ENDIF -->
+                                    
+                                    <!-- IF idx ="1" --> 
+                                    <div>
+                                           
+                                        <table class="w-100">
+                                            <tr>
+                                                <!-- BEGIN arr -->
+                                                    <!-- IF img_idx <="5" -->
+                                                    <td style="vertical-align:top" align="left"><i class="img image-img  loaded" data-is-lazyload="" style="background-image: url({img});"></i></td>
+                                                    <!-- ENDIF -->                                            
+                                                <!-- END -->
+                                            </tr>
+                                            <tr>
+                                                <!-- BEGIN arr -->
+                                                    <!-- IF img_idx >="6" -->
+                                                    <td style="vertical-align:top" align="left"><i class="img image-img  loaded" data-is-lazyload="" style="background-image: url({img});"></i></td>
+                                                    <!-- ENDIF -->                                            
+                                                <!-- END -->
+                                            </tr>
+                                        </table>                                         
+                                    </div>
+                                    <!-- ENDIF -->
+                                <!-- END -->
+                            </div>
+                            
+                        </div>
+                        <div class="part-two" style="padding-bottom:50px;">
+                            <div class="item bdtp_none">
+                                <ul class="model-size">
+                                    <li class="icon icon-shengao" data-role="model_data_height">{model_card_info.height}cm</li>
+                                    <li class="icon icon-tizhong" data-role="model_data_weight">{model_card_info.weight}kg</li>
+                                    <li class="icon icon-xiongwei" data-role="model_data_bust">{model_card_info.cup_v2}</li>
+                                    <li class="icon icon-yaowei" data-role="model_data_BWH">{model_card_info.BWH}</li>
+                                </ul>
+                            </div>
+                            <div class="line-top w-100"></div>
+                            <div class="item pdbt_exp" data-role="nav-to-comment">
+                                <ul class="info">
+                                    <i class="icon icon-r-16x26-cur"></i>
+                                    <li>
+                                        <div class="lbox ">综合评价</div>
+                                        <div class="rbox fldi">
+                                            <span data-role="starts"></span>
+                                            <span class="cor-5" data-role="model_data_score" style="color:#ff9c00">{model_card_info.score}分</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="lbox ">拍片次数</div>
+                                        <div class="rbox fldi" data-role="model_data_take_photo_times">{model_card_info.take_photo_times}</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="line-top w-100"></div>
+                            <div class="item mgbt_none bdbt_none">
+                                <ul class="info">
+                                    <li>
+                                        <div class="lbox ">擅长风格</div>
+                                        <!-- BEGIN model_card_info.model_style_combo.main -->
+                                        <div class="rbox fldi"><span class=""><label data-role="cameraman-require">{style}</label></span></div>
+                                        <!-- END -->
+                                    </li>
+                                    <li>
+                                        <div class="lbox ">价格</div>
+                                        <!-- BEGIN model_card_info.model_style_combo.main -->
+                                        <div class="rbox fldi"><span class="cor-y">{price}元（{hour}小时）</span></div>
+                                        <!-- END -->
+                                    </li>
+                                    <!--li>
+                                    <div class="lbox ">拍摄类型</div>
+                                    <div class="rbox fldi" data-role="model_data_style">{{model_type_list}}</div>
+                                </li-->
+                            </ul>
+                        </div>
+                        <div class="item to_more_style" data-role="to_more_style">
+                            <div class="more">查看全部风格和价格</div>
+                        </div>
+                        <div class="line-top w-100"></div>
+                        <div class="item spe-box">
+                            <div class="notice w-100">
+                                <table class="w-100 h-100">
+                                    <tr>
+                                        <td class="td-right-text" >
+                                            <span >信用要求</span>
+                                        </td>
+                                        <td>
+                                            <label data-role="cameraman-require" class="pl15">
+                                                <i class="icon icon-v{model_card_info.level_require}-cam-r" style="vertical-align:middle"></i>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-right-text" >
+                                            <span>拍摄人数</span>
+                                        </td>
+                                        <td>
+                                            <div class="r pl15">不超过<span class="">{model_card_info.limit_num}</span>人</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                               
+                                
+                            </div>                            
+                            <ul class="info fn-hide">
+                                <li>
+                                    <div class="lbox ">信用要求</div>
+                                    <div class="rbox fldi"><span class=""><label data-role="cameraman-require">{model_card_info.level_require_text}}</label></span></div>
+                                </li>
+                                <li>
+                                    <div class="lbox ">拍摄人数</div>
+                                    <div class="rbox fldi">不超过<span class="">{model_card_info.limit_num}</span>人</div>
+                                </li>
+                                <!--li>
+                                <div class="lbox ">拍摄类型</div>
+                                <div class="rbox fldi" data-role="model_data_style">{{model_type_list}}</div>
+                            </li-->
+                        </ul>
+                    </div>
+                    <!-- IF model_card_info.date_log -->
+                    <div class="line-top w-100"></div>
+                    <div class="item master mgbt_none">
+                        <div class="title">这些大师约拍过</div>
+                        <div class="ph_contain" data-role="ph_contain">
+                            <!-- BEGIN model_card_info.date_log -->
+                            <div class="cam_icon_contain" data-role="cam_icon" data-cam_id="{user_id}">
+                                <div class="cam_icon"  style="background-image: url('{user_icon}'); width: 50px; height: 50px;"></div>
+                                <div class="icon icon-v{level}-cam"></div>
+                            </div>
+                            <!-- END model_card_info.date_log -->
+                        </div>
+                    </div>
+                    <!-- ENDIF -->
+                    <div class="partc">
+                        <table class="w-100 h-100">
+                            <tr>
+                                <td>
+                                    <div class="avatar">
+                                        <a data-role="profile">
+                                            <i class="img avatar-img" data-role="user-img" style="background-image:url('{model_card_info.user_icon}')"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="meta-info">
+                                        <div class="model_nickname_sexy_line">
+                                            <div class="nickname" data-role="model-info-name">{model_card_info.user_name}</div>                                            
+                                        </div>
+                                        <div class="model_id_city_line">
+                                            <div class="model_id">ID ：<label data-role="model-id">{model_card_info.user_id}</label></div>
+                                            <div class="model_city">{model_card_info.city_name}</div>
+                                        </div>
+                                    </div>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                        <div>                            
+                            
+                            
+                            
+                        </div>
+                    <div class="line-top w-100"></div>
+                </div>
+                <div class="score-info">
+                    <a data-role="go_fans"><em data-role="be_follow_count">{model_card_info.be_follow_count}</em>粉丝</a>
+                    <div class="line"></div>
+                    <a data-role="level"><em >Lv{model_card_info.level}</em>级别</a>
+                    <div class="line"></div>
+                    <a data-role="jifen"><em >{model_card_info.jifen}</em>魅力值</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+    <div  class="pop-model-car-confirm " >
+        <ul class="list clearfix">
+                <li data-role="yuepai">
+                    <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width" data-role="yuepai">
+                        
+                        <span class="ui-button-content" data-role="yuepai"><i class="icon icon-yuepai-m"></i> 约拍</span>
+                        
+                    </button>
+                </li>
+                <li data-role="msg" class="">
+                    <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width">
+                        
+                        <span class="ui-button-content"><i class="icon icon-siliao-m"></i> 私聊</span>
+                        
+                    </button>
+                </li>
+            </ul>
+    </div>
+    
+    <div class="pop-model-car-tips" style="display:none">
+        <i class="icon icon-close"></i>
+        <div class="txt">
+            <p class="p1">恭喜：</p>
+            <p class="p2">TONY，您的VIP等级符合模特的要求哦。赶紧约拍吧~</p>
+        </div>
+    </div>
+    <div data-role="footer">
+        
+    </div>
+    </div>
+</div>
+</div>
+<script>
+/**
+* hudw 2015.1.22
+* @param  {[type]} window    [description]
+* @param  {[type]} seajs     [description]
+* @param  {[type]} undefined [description]
+* @return {[type]}           [description]
+*/
+/*;(function(window, seajs, undefined)
+{
+
+
+    // 配置模块
+    seajs.config
+    ({
+
+        paths:
+        {
+            utility: 'http://cb.poco.cn/utility',
+            matcha: 'http://cb.poco.cn/matcha',
+            yueyue_mobile : 'http://yp.yueus.com/mobile/js',
+        },
+        alias:
+        {
+            handlebars: 'utility/handlebars/1.0.0/handlebars',
+            jquery: 'utility/jquery/1.11.0/jquery',
+            iscroll: 'utility/iscroll/4.2.5/iscroll',
+            $: 'utility/jquery/1.11.0/jquery',
+            cookie: 'matcha/cookie/1.0.0/cookie',
+            swipe : 'yueyue_mobile/common/swipe'
+        },
+            comboMaxLength: 5000,
+            charset: 'utf-8'
+    });
+
+    seajs.use(['jquery','iscroll','swipe'], function($,Iscroll,Swipe)
+    {
+        var self = this;
+        
+
+        // 设置轮播图高度
+        var $container_img_list = $('[data-role="container-img-list" ]'); 
+        $container_img_list.height(get_slider_size().big_size);
+
+        $container_img_list.find('[data-is-lazyload]').each(function(i,obj)
+        {
+            if(i == 0)
+            {
+                $(obj).width(get_slider_size().big_size).height(get_slider_size().big_size);
+            }
+            else
+            {
+                $(obj).width(get_slider_size().small_size).height(get_slider_size().small_size);
+            }
+        });      
+
+        // 初始化轮播图      
+        self.swipe_obj = new Swipe($container_img_list[0], {         
+          speed: 400,
+          auto: 0,
+          continuous: true,
+          disableScroll: false,
+          stopPropagation: false,
+          callback: function(index, elem) {},
+          transitionEnd: function(index, elem) {}
+        });
+
+        self.ua = 
+        {
+            get : function()
+            {
+                var browser=navigator.appName 
+                var b_version=navigator.appVersion 
+                var version=b_version.split(";"); 
+                var trim_Version=version[1].replace(/[ ]/g,""); 
+
+                var is = null;                
+
+                if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0") 
+                { 
+                    is = 'IE6';
+                } 
+                else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE7.0") { 
+                    is = 'IE7';
+                } 
+                else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE8.0") { 
+                    is = 'IE8';
+                } 
+                else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE9.0") { 
+                    is = 'IE9';
+                } 
+                return is;
+            }
+
+        };
+
+        self.scroll = 
+        {
+            init : function(dom,opt)
+            {
+                
+                console.log(self.ua.get())
+
+                if(self.ua.get() == 'IE8' || self.ua.get() == 'IE7')                        
+                {
+                    $(dom).addClass('native_scroll');
+                
+                    var obj = {};                            
+                    return obj;
+                }
+                else
+                {
+                    $(dom).css('position','relative');                    
+
+                    return new Iscroll(dom,opt);    
+                }
+
+                
+            }            
+        };            
+
+        var $scroll_area = $('[data-role="scroll-area"]');
+
+        $scroll_area.height(window.innerHeight-45);
+
+        // 设置滚动条
+        self.scroll_obj = self.scroll.init($scroll_area[0],
+        {
+            checkDOMChanges : true
+        });        
+    });
+
+    function get_slider_size()
+    {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+
+        var small_size = parseInt(w/3);
+        var big_size  = window.innerWidth - small_size;
+
+        return {
+            small_size : small_size,
+            big_size : big_size
+        }
+    }
+   
+})(window, seajs);*/
+
+</script>
+</body>
+</html>

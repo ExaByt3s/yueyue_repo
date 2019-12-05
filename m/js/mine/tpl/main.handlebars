@@ -1,0 +1,211 @@
+
+<main role="main" class="mine wryh">
+    <header class="nav-header my-zone-header" data-role="debug-header">
+        <div class="left-button-wrap">
+
+        </div>
+        <h3 class="title">我的</h3>
+
+        <div class="right-button-wrap" data-role="setup">
+            <i class="circle-mod fn-hide" data-appver-update-point="1"></i>
+            <a><!-- <i class="icon icon-my-edit-m"></i> --></a>
+        </div>
+    </header>
+
+    <div class="content-body " data-role="container" style="height: 100%">
+        <div data-role="scoll-wrapper" style="height: 100%;">
+                <div data-role="refresh-bar-container" class="refresh-bar-container fn-hide" >
+
+                </div>
+
+                    <section class="group-user-info mt20  {{#if is_login}}{{else}}fn-hide{{/if}}" data-role="login-info">
+                        <ul>
+
+
+                            <!-- <li class="item head-icon-item fn-hide" data-role="nav-to-zone" data-role-name="cameraman">
+                                <div data-role="zone" class="zone">
+                                    <i class="icon icon-home-s"></i>
+                                    <span>空间</span>
+                                </div>
+                                <div data-role="head-icon" class="head-img">
+                                    <i class="img circle-img head-icon" style="background-image:url('{{user_icon}}');"></i>
+                                </div>
+                                <div class="name-and-location">
+                                    <div class="user-name" data-role="user-name">{{nickname}}</div>
+                                    <div class="location">
+                                        <i class="icon icon-place"></i>
+                                        <span data-role="location-name">{{city_name}}</span>
+                                    </div>
+                                </div>
+                            </li> -->
+
+
+                            <li class="item head-icon-item model position" data-role="nav-to-zone" data-role-name="cameraman" >
+                                <div data-role="head-icon" class="head-img">
+                                    <i class="img circle-img head-icon" style="background-image:url('{{user_icon}}');"></i>
+                                </div>
+                                <div class="name-and-location">
+                                    <div class="user-name" data-role="user-name">{{nickname}}</div>
+                                    <div class="location">
+                                       <!--  <i class="icon icon-place"></i> -->
+                                        <span data-role="location-name">{{city_name}}</span>
+                                    </div>
+                                </div>
+                                <div data-role="edit-model-car" class="edit-model-car" >
+                                    <!-- 更新模特卡 -->
+                                    <i class="icon icon-r fn-hide"></i>
+                                </div>
+                            </li>
+
+
+                            <li class="item head-icon-item model position fn-hide" data-role="nav-to-zone" data-role-name="model" >
+                                <div data-role="head-icon" class="head-img">
+                                    <i class="img circle-img head-icon" style="background-image:url('{{user_icon}}');"></i>
+                                </div>
+                                <div class="name-and-location">
+                                    <div class="user-name" data-role="user-name">{{nickname}}</div>
+                                    <div class="location">
+                                       <!--  <i class="icon icon-place"></i> -->
+                                        <span data-role="location-name">{{city_name}}</span>
+                                    </div>
+                                </div>
+                                <div data-role="edit-model-car" class="edit-model-car">
+                                    更新模特卡
+                                    <i class="icon icon-r"></i>
+                                </div>
+                            </li>
+
+
+
+                            <li class="item balance-item balance-item-h">
+                                <div data-role="avaliable-banace" class="avaliable-banace">
+                                    <p class="money" ><label data-role="availiable-balance">金额读取中...</label></p>
+                                    <p class="text">钱包</p>
+                                </div>
+
+                                    <button  data-role="get-money-btn"   class="fn-hide add-btn ui-button ui-button-primary ui-button-size-min ui-button-block ">
+                                        <span class="ui-button-content">提现</span>
+                                    </button>
+
+                                    <button   data-role="add-value-btn"   class="fn-hide add-btn ui-button ui-button-primary ui-button-size-min ui-button-block ">
+                                        <span class="ui-button-content">充值</span>
+                                    </button>
+
+                                <button data-role="to-bill"  class="add-btn ui-button ui-button-primary ui-button-size-min ui-button-block ">
+                                    <span class="ui-button-content">账单</span>
+                                </button>
+
+
+
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="welcome {{#if is_login}}fn-hide{{else}}{{/if}}" data-role="no-login-info">
+                        <h3>欢迎来到约约</h3>
+                        <button class="ui-button ui-button-primary ui-button-size-large ui-button-block" data-role="nav-to-login">
+                            <span class="ui-button-content">登录</span>
+                        </button>
+
+                        
+                    </section>
+
+                    <section class="group-user-info group-user-info-list-other mt20" >
+                        <ul id="{{notice_list}}" data-role="ui-mine-msg-container">
+                            <li class="item" data-role="date">
+                                <div class="container">
+                                    <div class="date left-icon">
+                                        <i class="icon icon-camera-s"></i>
+                                        约拍订单
+                                    </div>
+                                    <i class="icon icon-r"></i>
+                                    <div class="num-box fn-hide" data-role="notice_date_num">0</div>
+                                </div>
+                            </li>
+
+                            <li class="item" >
+                                <div class="container" data-role="act">
+                                    <div class="act left-icon">
+                                        <i class="icon icon-package-s"></i>
+                                        外拍订单
+                                    </div>
+                                    <i class="icon icon-r"></i>
+                                    <div class="num-box fn-hide" data-role="notice_act_num">0</div>
+                                </div>
+
+                            </li>
+
+
+                            <!-- <li class="item fn-hide" data-role="identity_money" data-role-name="cameraman">
+                                <div class="container">
+                                    <div class="identity_money">
+                                        <i class="icon icon-identity"></i>
+                                        个人信用度
+                                    </div>
+                                    <i class="icon icon-r"></i>
+                                </div>
+                            </li> -->
+
+
+                            <li class="item fn-hide" data-role="show-chat-list">
+                                <div class="container">
+                                    <div class="msg">
+                                        <i class="icon icon-letter-s"></i>
+                                        消息
+                                    </div>
+                                    <i class="icon icon-r"></i>
+                                    <div class="num-box fn-hide" data-role="notice_msg_num">0</div>
+                                </div>
+                            </li>
+                            <li class="item" data-role="nav-to-security">
+                                <div class="container no-border-style">
+                                    <div class="act_volume left-icon">
+                                        <i class="icon icon-volume-s"></i>
+                                        二维码签到券
+                                    </div>
+                                    <i class="icon icon-r"></i>
+                                    <div class="num-box-2 fn-hide" data-role="notice_security_container">还有<span class="color"><i data-role="notice_security_num">0</i></span>张二维码未扫</div>
+                                </div>
+                            </li>
+
+
+                            
+
+
+                        </ul>
+                    </section>
+
+
+                    <section class="group-user-info fn-hide mt20" data-role="credit-level">
+                            <li class="item" data-role="">
+                                <div class="container no-border-style">
+                                    <div class="act_volume left-icon">
+                                        <i class="icon icon-credit-level-m"></i>
+                                        信用等级
+                                    </div>
+                                    <i class="icon icon-r"></i>
+                                </div>
+                            </li>
+                    </section>
+
+
+            <section class="group-user-info fn-hide" data-role="change-btn">
+                <button data-role="to-be-model-btn" class="add-btn ui-button ui-button-size-min ui-button-block " style="background: #ff0052;color: white;width: 200px;margin: 30px auto;">
+                    <span class="ui-button-content">我要当模特</span>
+                </button>
+            </section>
+
+
+                    <section class="group-user-info fn-hide" data-role="upload_mutiply">
+                        <div data-role="upload_imgs fn-hide" style="width: 80px;height: 80px;background: #f90;text-align: center;line-height: 80px;color:#fff;">上传单图片</div>
+                        <div data-role="upload_m_imgs fn-hide" style="width: 80px;height: 80px;background: #666;text-align: center;line-height: 80px;color:#fff;">多图zip</div>
+                        <div data-role="upload_m_imgs_no_zip fn-hide" style="width: 80px;height: 80px;background: #ff0052;text-align: center;line-height: 80px;color:#fff;">多图非zip</div>
+                    </section>
+                    <section class="group-user-info fn-hide" data-role="upload_mutiply">
+                        <div data-role="imgs_container"></div>
+                    </section>
+
+        </div>
+    </div>
+
+</main>

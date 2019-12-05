@@ -1,0 +1,31 @@
+<div class="hp">
+{{#each list}} 
+<a href="{{link}}" data-role="items">
+    <div class="item" >
+    <p class="del icon" data-role="del" data-user-id="{{goods_id}}"></p>
+    <div class="layout_box {{#compare is_show "==" 2}}opacity4{{/compare}}">
+        <div class="lbox ">
+            <i data-lazyload-url="{{change_img_size images "260" }}" class="img image-img min-height"></i>
+        </div>
+
+        <div class="rbox ">
+            <h3 class="title color-000 f14">{{titles}}</h3>
+            <div>
+                {{#compare is_show "==" 2}}
+                <div class="is-show">
+                    <i class="tags">!</i>
+                    <span class="tips">已下架</span>
+                </div>
+                {{/compare}}
+                <div class="msg">
+                    <p class="price color-ff6" style="{{#compare is_show "==" 2}}color:#000;{{/compare}}">{{prices}}</p>
+                    <p class="num color-999 f12">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</a>
+{{/each}} 
+</div>

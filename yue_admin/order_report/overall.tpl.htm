@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="gbk">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>订单总览</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../css/sb-admin.css" rel="stylesheet">
+
+<!-- Morris Charts CSS -->
+<link href="../css/plugins/morris.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div id="wrapper"> 
+  
+  <!-- Navigation --> 
+  {MOBILE_ADMIN_TOP}
+  <div id="page-wrapper">
+    <div class="container-fluid"> 
+      
+      <!-- Page Heading -->
+      <div class="row breadcrumb">
+      <form action="" method="get">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="page-header"> {begin_time} {end_time} {channel_cate_name}总览 </h1>
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="navbar-form navbar-left">
+              <div class="input-group">
+              <span class="input-group-btn">
+                <select class="form-control" name="channel_cate">
+                  <option value="">全部品类</option>
+                  <option value="31" <!-- IF channel_cate="31" -->selected<!-- ENDIF -->>模特服务
+                
+                  </option>
+                  <option value="5" <!-- IF channel_cate="5" -->selected<!-- ENDIF -->>摄影培训
+                
+                  </option>
+                  <option value="40" <!-- IF channel_cate="40" -->selected<!-- ENDIF -->>摄影服务
+                
+                  </option>
+                  <option value="3" <!-- IF channel_cate="3" -->selected<!-- ENDIF -->>化妆服务
+                
+                  </option>
+                  <option value="12" <!-- IF channel_cate="12" -->selected<!-- ENDIF -->>影棚租赁
+                
+                  </option>
+                  <option value="41" <!-- IF channel_cate="41" -->selected<!-- ENDIF -->>约美食
+                
+                  </option>
+                  <option value="42" <!-- IF channel_cate="42" -->selected<!-- ENDIF -->>约活动
+                
+                  </option>
+                  <option value="43" <!-- IF channel_cate="43" -->selected<!-- ENDIF -->>约有趣
+                
+                  </option>
+                </select>
+                </span>
+               <span class="input-group-btn">
+                <input type="text" name="begin_time" id="begin_time" class="form-control form_date"  placeholder="开始日期" value="{begin_time}">
+                </span> <span class="input-group-btn">
+                <input type="text" name="end_time" id="end_time" class="form-control form_date"  placeholder="结束日期" value="{end_time}">
+                </span> 
+                <span class="input-group-btn">
+                <select name="day" id="" class="form-control" onchange="set_time(this.value)">
+          <option value="1" <!-- IF day="1" -->selected<!-- ENDIF -->>全部时间</option>
+          <option value="30" <!-- IF day="30" -->selected<!-- ENDIF -->>最近30天</option>
+          <option value="10" <!-- IF day="10" -->selected<!-- ENDIF -->>最近10天</option>
+          <option value="5" <!-- IF day="5" -->selected<!-- ENDIF -->>最近5天</option>
+          <option value="2015-01" <!-- IF day="2015-01" -->selected<!-- ENDIF -->>1月
+          </option>
+          <option value="2015-02" <!-- IF day="2015-02" -->selected<!-- ENDIF -->>2月
+          </option>
+          <option value="2015-03" <!-- IF day="2015-03" -->selected<!-- ENDIF -->>3月
+          </option>
+          <option value="2015-04" <!-- IF day="2015-04" -->selected<!-- ENDIF -->>4月
+          </option>
+          <option value="2015-05" <!-- IF day="2015-05" -->selected<!-- ENDIF -->>5月
+          </option>
+          <option value="2015-06" <!-- IF day="2015-06" -->selected<!-- ENDIF -->>6月
+          </option>
+          <option value="2015-07" <!-- IF day="2015-07" -->selected<!-- ENDIF -->>7月
+          </option>
+          <option value="2015-08" <!-- IF day="2015-08" -->selected<!-- ENDIF -->>8月
+          </option>
+          <option value="2015-09" <!-- IF day="2015-09" -->selected<!-- ENDIF -->>9月
+          </option>
+          <option value="2015-10" <!-- IF day="2015-10" -->selected<!-- ENDIF -->>10月
+                  </option>
+        </select>
+                </span><span class="input-group-btn">
+                <button class="btn btn-success" type="submit">查找</button>
+                </span> </div>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+      <!-- /.row -->
+      
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="huge">订单数<br />
+                    {total_order}张</div>
+                  <div>独立消费人数 {unique_order}个</div>
+                  <br />
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="panel panel-green">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="huge">客单价<br />
+                    ￥{pct}</div>
+                  <div>最高客单价 ￥{max_pct}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="panel panel-yellow">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="huge">复购率<br />
+                    {rebuy}%</div>
+                  <div>复购单数 {rebuy_order}张</div>
+                  <div>复购人数 {rebuy_num}个</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="panel panel-red">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="huge">{max_date}</div>
+                  <div>订单数 {max_order}张</div>
+                  <div>平均客单价 ￥{max_max_pct}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="huge">平均{date_text}<br />
+                    增长率 </div>
+                  <div>订单数 {average_order}%</div>
+                  <div>客单价 {average_pct}%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+      
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> 交易额走势图</h3>
+            </div>
+            <div class="panel-body">
+              <div id="morris-area-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="panel panel-yellow">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> 各品类交易额百分比</h3>
+            </div>
+            <div class="panel-body">
+              <div class="flot-chart">
+                <div class="flot-chart-content" id="flot-pie-chart"></div>
+              </div>
+              <div class="text-right"> </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="panel panel-red">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> 订单走势图</h3>
+            </div>
+            <div class="panel-body">
+              <div id="morris-line-chart"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> 客单价走势图</h3>
+            </div>
+            <div class="panel-body">
+              <div id="morris-bar-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row --> 
+      
+      
+    </div>
+    <!-- /.container-fluid --> 
+    
+  </div>
+  <!-- /#page-wrapper --> 
+  
+</div>
+<!-- /#wrapper --> 
+
+<!-- jQuery --> 
+<script src="../js/jquery.min.js"></script> 
+
+<!-- Bootstrap Core JavaScript --> 
+<script src="../js/bootstrap.min.js"></script> 
+
+<!-- Morris Charts JavaScript --> 
+<script src="../js/plugins/morris/raphael.min.js"></script> 
+<script src="../js/plugins/morris/morris.min.js"></script> 
+<script src="../js/plugins/flot/jquery.flot.js"></script> 
+<script src="../js/plugins/flot/jquery.flot.tooltip.min.js"></script> 
+<script src="../js/plugins/flot/jquery.flot.resize.js"></script> 
+<script src="../js/plugins/flot/jquery.flot.pie.js"></script> 
+<script>
+$(function() {
+
+
+    Morris.Area({
+        element: 'morris-area-chart',
+        data: {chart_json},
+        xkey: 'date',
+        ykeys: ['amount'],
+        labels: ['\u91d1\u989d'],
+        pointSize: 2,
+        hideHover: 'false',
+        resize: true
+    });
+	
+	 Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'morris-line-chart',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: {chart_json},
+        // The name of the data record attribute that contains x-visitss.
+        xkey: 'date',
+        // A list of names of data record attributes that contain y-visitss.
+        ykeys: ['num'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['\u8ba2\u5355\u6570'],
+        // Disables line smoothing
+        smooth: false,
+        resize: true
+    });
+
+	
+	
+	Morris.Bar({
+        element: 'morris-bar-chart',
+        data: {chart_json},
+        xkey: 'date',
+        ykeys: ['pct'],
+        labels: ['\u5ba2\u5355\u4ef7'],
+        barRatio: 0.4,
+        xLabelAngle: 35,
+        hideHover: 'auto',
+        resize: true
+    });
+	
+});
+
+$(function() {
+	var data = {pie_json};
+
+    var plotObj = $.plot($("#flot-pie-chart"), data, {
+        series: {
+            pie: {
+                show: true
+            }
+        },
+        grid: {
+            hoverable: true
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+            shifts: {
+                x: 20,
+                y: 0
+            },
+            defaultTheme: false
+        }
+    });
+});
+
+function set_time(day)
+{
+	
+	if($.inArray(day,['5','10','30'])!=-1)
+	{
+		
+		var now = new Date();
+		var end_time = parseInt(now.getTime() - (3600000 * 24));
+		var begin_time = parseInt(now.getTime() - (3600000 * 24 * day));
+	
+		var b = new Date(begin_time);
+		var b_str = b.getFullYear() + "-" + (b.getMonth()+1) + "-" +b.getDate();
+		
+		var e = new Date(end_time);
+		var e_str = e.getFullYear() + "-" + (e.getMonth()+1) + "-" + e.getDate();
+		
+		
+	}
+	else
+	{
+		if(day=='2015-01')
+		{
+			b_str='2015-01-01';
+			e_str='2015-01-31';
+		}else if(day=='2015-02')
+		{
+			b_str='2015-02-01';
+			e_str='2015-02-28';
+		}else if(day=='2015-03')
+		{
+			b_str='2015-03-01';
+			e_str='2015-03-31';
+		}else if(day=='2015-04')
+		{
+			b_str='2015-04-01';
+			e_str='2015-04-30';
+		}else if(day=='2015-05')
+		{
+			b_str='2015-05-01';
+			e_str='2015-05-31';
+		}else if(day=='2015-06')
+		{
+			b_str='2015-06-01';
+			e_str='2015-06-30';
+		}else if(day=='2015-07')
+		{
+			b_str='2015-07-01';
+			e_str='2015-07-31';
+		}else if(day=='2015-08')
+		{
+			b_str='2015-08-01';
+			e_str='2015-08-31';
+		}else if(day=='2015-09')
+		{
+			b_str='2015-09-01';
+			e_str='2015-09-30';
+		}else if(day=='2015-10')
+		{
+			b_str='2015-10-01';
+			e_str='2015-10-31';
+		}else
+		{
+			b_str='';
+			e_str='';
+		}
+
+	}
+	
+	document.getElementById("begin_time").value = b_str;
+	document.getElementById("end_time").value = e_str;  
+	   
+}
+
+</script> 
+<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script> 
+<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script> 
+<script type="text/javascript">
+    $('.form_date').datetimepicker({
+        language:  'zh-CN',
+		format: 'yyyy-mm-dd',
+		weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+</script>
+</body>
+</html>

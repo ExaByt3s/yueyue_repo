@@ -1,0 +1,10 @@
+<div class="scroll-area swiper-wrapper" data-role="ad-pic" style="height: {{height}}px">
+
+</div>
+<div class="ad-pic-point-out {{#unless no_single}}fn-hide{{/unless}}">
+    <ul data-role="ad-pic-point" class="ad-pic-point">
+        {{#each contents}}
+            <li data-index="{{@index}}" class="{{class}}"></li>
+        {{/each}}
+    </ul>
+</div>

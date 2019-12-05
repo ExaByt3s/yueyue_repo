@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<script type="text/javascript">
+function change_leadtype()
+{
+	var lead_type = {lead_type};
+	if(lead_type ==1)
+	{
+		$('#lead_status_s').prop("checked",true);
+		$('#lead_status_e').prop("checked",false);
+	}
+	else
+	{
+		$('#lead_status_s').prop("checked",false);
+		$('#lead_status_e').prop("checked",true);
+	}
+}
+    $(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: '',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        });
+		$('#lead_status_s').click(function(){
+			 if(!confirm('是否确定修改审核状态？'))
+			 {
+				 change_leadtype();
+				 return;
+			 }
+					$.ajax( {    
+					url:'?lead_type=1',
+					type:'post',    
+					cache:false,    
+					dataType:'json',    
+					success:function(data) {    
+						if(data.result){    
+							alert("修改成功！");    
+						}else{    
+							alert("异常！");  
+						}    
+					 },    
+					 error : function() {    
+						  alert("异常！");
+					 }    
+				});  
+			});
+		$('#lead_status_e').click(function(){
+			 if(!confirm('是否确定修改审核状态？'))
+			 {
+				 change_leadtype();
+				 return;
+			 }			
+					$.ajax( {    
+					url:'?lead_type=0',
+					type:'post',    
+					cache:false,    
+					dataType:'json',    
+					success:function(data) {    
+						if(data.result){    
+							alert("修改成功！");    
+						}else{    
+							alert("异常！");  
+						}    
+					 },    
+					 error : function() {    
+						  alert("异常！");
+					 }    
+				});  
+			});
+    })
+	
+
+</script>
+
+<title>OA</title>
+<style type="text/css">
+.input-text {
+	width:500px;
+}
+.table-list {
+	clear: both;
+}
+.table-list .input-text {
+	width: 100px;
+}
+.table-list .table {
+	float: left;
+	margin-top: 20px;
+ +margin-left:5px;
+}
+.box {
+	position:absolute;
+	width:600px;
+	left:50%;
+	height:auto;
+	z-index:100;
+	background-color:#fff;
+	border:1px #8FA4F5 solid;
+	padding:1px;
+}
+.box h2 {
+	height:25px;
+	font-size:14px;
+	background-color:#3366cc;
+	position:relative;
+	padding-left:10px;
+	line-height:25px;
+	color:#fff;
+}
+.box h2 a {
+	position:absolute;
+	right:5px;
+	font-size:12px;
+	color:#fff;
+}
+.box .mainlist {
+	padding:10px;
+}
+.box .mainlist li {
+	height:24px;
+	line-height:24px;
+	list-style:none
+}
+.box .mainlist li span {
+	margin:0 5px 0 0;
+	font-family:"宋体";
+	font-size:12px;
+	font-weight:400;
+	color:#ddd;
+}
+#TB_overlayBG {
+	background-color:#666;
+	position:absolute;
+	z-index:99;
+	left:0;
+	top:0;
+	display:none;
+	width:100%;
+	height:100%;
+	opacity:0.5;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+}
+.ajax_load {
+	height:100px;
+}
+.ajax_load img {
+	margin:30px 0 0 180px;
+}
+</style>
+</head>
+<body>
+<div id="TB_overlayBG"></div>
+<div class="box" style="display:none" id="remark_box">
+  <h2>备注<a href="javascript:void(0);" class="close">关闭</a></h2>
+  <div class="table-list">
+  
+    <table width="100%" border="0">
+      <tbody>
+        <tr>
+          <td width="24%">备注:</td>
+          <td width="76%"><textarea name="remark" id="remark" cols="45" rows="5"></textarea></td>
+        </tr>
+       
+        <tr>
+          <td colspan="2" align="center"><br />
+            <input name="submit_remark" type="button" id="submit_remark" onclick="submit_remark()" value="提交" />
+            <br /></td>
+        </tr>
+      <input type="hidden" name="request_id" id="request_id" value="" />
+        </tbody>
+      
+    </table>
+ 
+  </div>
+</div>
+<div class="mainbox">
+<table class="search_table" width="100%">
+	<tbody>
+		
+        <tr>
+			<td width="81%" class="search">
+			  <form action="?" method="get">
+                                  
+                    审核状态:
+                        <select name="lead_status" id="lead_status">
+
+                        <option value="all" <!-- IF lead_status="all" -->selected="selected"<!-- ENDIF -->>全部</option>
+                         <option value="0" <!-- IF lead_status="0" -->selected="selected"<!-- ENDIF -->>未审核</option>
+                         <option value="1" <!-- IF lead_status="1" -->selected="selected"<!-- ENDIF -->>已推荐</option>
+                         <option value="2" <!-- IF lead_status="2" -->selected="selected"<!-- ENDIF -->>审核不通过</option>
+
+                        </select>
+                       &nbsp;&nbsp;&nbsp;&nbsp;服务类型:
+                       <select name="service_id" id="service_id">
+                         <option value="all" <!-- IF service_id="0" -->selected="selected"<!-- ENDIF -->>全部</option>
+                         <!-- BEGIN service_list -->
+                         <option value="{service_id}" <!-- IF selected -->selected="selected"<!-- ENDIF -->>{service_name}</option>
+                         <!-- END service_list -->
+                       </select>
+&nbsp;&nbsp;&nbsp;
+                      
+                    
+				 过期时间:
+                  <input id="begin_time" type="text" size="14" name="begin_time" value="{begin_time}" class="ui_timepicker">
+					至
+					<input id="end_time" type="text" size="14" name="end_time" value="{end_time}" class="ui_timepicker" />
+					&nbsp;&nbsp;&nbsp;&nbsp;
+		        <input type="submit" name="button" id="button" value="提交" />&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="list.php?output=1&lead_status={lead_status}&service_id={service_id}&begin_time={begin_time}&end_time={end_time}">导出</a>
+			   </form>
+			</td>
+			<td width="19%" class="search">
+            <form id="form1" name="form1" method="post" action="">
+			  <input name="lead_type" type="radio" id="lead_status_s" value="1" <!-- IF lead_type="1" -->checked="checked"<!-- ENDIF  -->>
+			  自动审核
+		      <input name="lead_type" type="radio" id="lead_status_e" value="0" <!-- IF lead_type="0" -->checked="checked"<!-- ENDIF  -->>
+			人工审核
+			</form>
+            </td>
+		</tr>
+	</tbody>
+</table>
+ 
+    <div id="tabs">
+    <div class="tabbox">
+      <div class="table-list">
+      <!-- IF lead_status="2" -->
+        <table width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th width="10%">用户ID</th>
+                <th>昵称</th>
+                <th width="10%">电话</th>
+                <th width="10%">服务类型</th>
+                <th width="15%">地区</th>
+                <th width="15%">截止报价时间</th>
+                <th width="15%">操作人/时间</th>
+                <th width="8%">备注</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- BEGIN list -->
+              <tr>
+                <td width="10%" align="center">{user_id}</td>
+                <td align="center">{nickname}</td>
+                <td width="10%" align="center">{cellphone}</td>
+                <td width="10%" align="center">{service_name}</td>
+                <td width="15%" align="center">{where_str}</td>
+                <td width="15%" align="center">{expire_time}</td>
+                <td width="15%" align="center">{admin_name}<br>{del_time}</td>
+                <td width="8%" align="center">{admin_note}</td>                  
+              </tr>
+              <!-- END list -->
+            </tbody>
+        </table>
+      <!-- ELSE -->   
+      <table width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th width="7%">ID</th>
+                <th width="7%">用户ID</th>
+                <th>昵称</th>
+                <th width="10%">电话</th>
+                <th width="10%">服务类型</th>
+                <th width="15%">地区</th>
+                <th width="15%">备注</th>
+                <th width="8%">发布时间</th>
+                <th width="8%">审核状态</th>
+                <th width="8%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- BEGIN list -->
+              <tr>
+                <td width="7%" align="center">{request_id}</td>
+                <td width="7%" align="center">{user_id}</td>
+                <td align="center">{nickname}</td>
+                <td width="10%" align="center">{cellphone}</td>
+                <td width="10%" align="center">{service_name}</td>
+                <td width="15%" align="center">{where_str}</td>
+                <td width="15%" align="center">{remark}</td>
+                <td width="8%" align="center">{add_time}</td>
+                <td width="8%" align="center">{lead_status_name}</td>
+                <td width="8%" align="center"><a href="audit_detail.php?request_id={request_id}">查看</a>|<a href="#this" onclick="open_remark({request_id})">加备注</a></td>                  
+              </tr>
+              <!-- END list -->
+            </tbody>
+        </table>
+      <!-- ENDIF  -->
+      </div>
+    </div>
+    <div id="pages" class="page"> {page} </div>  
+</div>
+<script language="javascript">
+function open_remark(request_id)
+{
+	$("#request_id").val(request_id);
+	$("#remark").val("");
+	
+	$("#TB_overlayBG").css({
+		display:"block",height:$(document).height()
+	});
+	$("#remark_box").css({
+		left:($("body").width()-$("#remark_box").width())/2-20+"px",
+		top:($(window).height()-$("#remark_box").height())/10+$(window).scrollTop()+"px",
+		display:"block"
+	});
+}
+
+function submit_remark()
+{
+	var request_id =  $("#request_id").val();
+	var remark = $("#remark").val();
+	
+	if(!request_id)
+	{
+		alert('request_id不能为空');
+		return false;
+	}
+	
+	if(!remark)
+	{
+		alert('备注不能为空');
+		return false;
+	}
+	
+	$.ajax({
+		url: './list.php',
+		type: 'POST',
+		data:{ request_id:request_id,remark:remark,submit_remark:1},
+		timeout: 30000,
+		error: function() { alert('提交超时!'); },
+		success: function(msg) {
+			if(msg){	
+			    alert('提交成功');	
+				$("#TB_overlayBG").css("display","none");
+				$("#remark_box").css("display","none");			
+			}else{
+				alert('操作失败，请联系管理员');	
+			}    
+		}
+	});	
+	
+}
+
+$(".close").click(function(){
+	$("#TB_overlayBG").css("display","none");
+	$("#remark_box").css("display","none");
+});
+</script>
+</body>
+</html>

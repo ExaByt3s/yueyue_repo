@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "register_858901f.css",
+    "sources": [
+        "/modules/common/login_register_change_pw/register.scss"
+    ],
+    "sourcesContent": [
+        "\r\n// 注册\r\n.register-page{\r\n    width: 280px;\r\n    margin: 0 auto;\r\n\r\n    .checkbox-box{\r\n        padding: 20px 0;\r\n    }\r\n\r\n    .ui-input{\r\n        width: 248px;\r\n    }\r\n\r\n    .btn{\r\n        \r\n    }\r\n\r\n    .item{\r\n        .yzm{\r\n            width: 120px;\r\n        }\r\n    }\r\n\r\n    .btn-tel{\r\n        cursor: pointer;\r\n        background: #4092f1;\r\n        font-size: 14px;\r\n        color: #fff;\r\n        border-radius: 4px;\r\n        line-height: 52px;\r\n        padding:0 10px;\r\n        width: 100px;\r\n        text-align: center;\r\n        &:hover{\r\n            background: #66a8f4;\r\n        }\r\n    }\r\n\r\n    .stop{\r\n        background: #dddddd;\r\n    }\r\n\r\n    .ui-button{\r\n        text-align: center;\r\n        line-height: 50px;\r\n    }\r\n\r\n    \r\n}"
+    ],
+    "mappings": "AAEA,AACI,AAAO,AACP,AAAQ,AAEZ,AAAe,AACP,AAAS,AAGjB,AAAe,AACP,AAAO,AAQf,AAAe,AAAM,AACT,AAAO,AAInB,AAAe,AACP,AAAQ,AACR,AAAY,AACZ,AAAW,AACX,AAAO,AACP,AAAe,AACf,AAAa,AACb,AAAQ,AACR,AAAO,AACP,AAAY,AACpB,AAAe,AAAQ,AACX,AAAY,AAIxB,AAAe,AACP,AAAY,AAGpB,AAAe,AACP,AAAY,AACZ,AAAa",
+    "names": []
+}

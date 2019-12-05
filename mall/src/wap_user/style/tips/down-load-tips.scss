@@ -1,0 +1,47 @@
+@import "../../sass/compass";
+.global-tips{
+
+	&.down-load{
+		width: 100%;
+	    position: fixed;
+	    bottom: 0;
+	    left: 0;
+	    background-color: #000;
+	    z-index: 9999;
+	    height: 50px;
+	    padding: 0 15px;
+	    @include box-sizing(border-box);
+	    // @include flexbox((
+     //                        display: box,  // 盒子模型 子元素默认水平左对齐
+     //                        box-pack: justify,  // 水平居中方式  start | center | end | justify
+     //                        box-align : center
+     //                    ));
+
+	    .yue-icon{
+	    	background: url(../../image/yue_icon/yueyue-icon-86x86.png) ;
+        	width: 43px;
+        	height: 43px;
+        	background-size: 43px 43px; 
+            float:left;
+            display:inline;  
+            margin-top: 4px;
+	    }
+	    .text{
+	    	color: #fff;
+	    	font-size: 12px;
+	    	line-height: 50px;
+	    	padding-right: 15px;
+            float: left;
+            margin-left: 10px;
+	    }
+	    .close{
+	    	background: url(../../image/down-loadtips-48x48.png) no-repeat 0 14px ;
+        	width: 24px;
+        	height: 30px;
+            padding-top: 20px;
+        	background-size: 24px 24px; 
+            float: right;
+	    }
+	}
+	
+}

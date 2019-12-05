@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "login-register-page.css",
+    "sources": [
+        "/style/login-register-page.scss"
+    ],
+    "sourcesContent": [
+        " \n\n.login-register-page-body{\n    background: #f2f2f2;\n    .login-register-page-wrap{\n        padding-top: 55px;\n        margin-top: 40px;\n        margin-bottom: 40px;\n        min-height: 515px;\n        background: url(../images/bg-1000x515.jpg) center top no-repeat;\n        width: 100%;\n    }\n    .err-tips{\n        width: 268px;\n        padding-left: 10px;\n        color: #ff6763;\n        border: 1px solid #fadcd3;\n        background: #fff1ed;\n        height: 30px;\n        line-height: 30px;\n        margin-bottom: 20px;\n        .icon-error{\n            display: inline-block;\n            background: url(../images/error-tips-15x15.png) ;\n            width: 15px;\n            height: 15px;\n            vertical-align: -3px;\n            margin: 0 5px 0 0px\n        }\n    }\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    ],
+    "mappings": "AAEA,AACI,AAAY,AAChB,AAA0B,AAClB,AAAa,AACb,AAAY,AACZ,AAAe,AACf,AAAY,AACZ,AAAyC,AACzC,AAAO,AAEf,AAA0B,AAClB,AAAO,AACP,AAAc,AACd,AAAO,AACP,AAAQ,AACR,AAAY,AACZ,AAAQ,AACR,AAAa,AACb,AAAe,AACvB,AAA0B,AAAU,AACxB,AAAS,AACT,AAAY,AACZ,AAAO,AACP,AAAQ,AACR,AAAgB,AAChB,AAAQ",
+    "names": []
+}

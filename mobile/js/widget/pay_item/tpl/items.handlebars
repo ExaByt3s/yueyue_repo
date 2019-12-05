@@ -1,0 +1,84 @@
+<div class="w-100">
+    <p class="pay-details-payment-title">应付金额</p>
+    <div class="pay-details-price-info {{#unless show_price_info}}fn-hide{{/unless}}">
+        <div class="pay-details-price-info-line">
+            <div class="f14">支付总价：<div class="pay-details-price-info-line-price f14" style="margin:0 0 0 15px; color:#000;font-weight: bold;font-size: 14px;">￥<label data-role="pay-details-price-info-line-price">{{total_price}}</label></div>
+            </div>
+
+
+            {{#if is_support_now_out}}
+                <div class="pay-details-price-info-line-notice fn-hide">随时退</div>
+                <i class="icon icon-tui-30x30 fn-hide"></i>
+            {{/if}}
+            {{#if is_support_outtime}}
+                <div class="pay-details-price-info-line-notice fn-hide">过期退</div>
+                <i class="icon icon-tui-30x30 fn-hide"></i>
+            {{/if}}
+
+        </div>
+            <div class="pay-details-price-info-line" data-role="select-coupon-require-row">
+                <div class="f14">使用优惠劵：<div  style="margin:0 0 0 15px;"><label data-role="coupon-money" class="money-color txt-long-cut" style="display: inline-block;"></label> <label data-role="coupon-text" class="pay-coupon-text txt-long-cut" style="width: 120px;display: inline-block;"></label></div>
+                </div>
+                <i class="icon icon-r fn-hide" data-role="r"></i>
+                <i class="icon icon-normal-32x32 " data-role="yes-tag" ></i>
+
+            </div>
+            <div class="pay-details-price-info-line" data-role="select-cameraman-require-row">
+                <div>
+                    <span class="f14">钱包 </span>
+                    <span  style="float: none;" data-role="yes-tag" >￥<label data-role="available-balance-str">{{available_balance}}</label></span><label>：</label>
+                    <span data-role="less-money" class="money-color">{{less_money}}</span>
+                </div>
+
+                <i class="icon icon-normal-32x32 {{#if can_use_balance}}current{{/if}}" data-role="yes-tag"></i>
+
+            </div>
+
+
+        <div class="pay-details-price-info-line">
+            <div style="color: #ff4978;" class="f14">还需支付：<div class="pay-price f14" style="margin:0 0 0 15px;font-weight: bold;font-size: 14px;color: #ff4978;">￥<label data-role="pay-price">0</label></div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div data-role="other-pay-items" class="pay-type-container">
+        <p class="pay-details-payment-title">支付方式</p>
+        <div  class="pay-details-payment">
+            <div class="pay-details-payment-line fn-hide" data-role="choosen-pay-type" data-type="tenpay_wxpub">
+                <i class="icon icon-wx-100x60 payment-way" ></i>
+                <div>
+                    <p>微信公众号支付</p>
+                    <p>安装微信5.0及以上版本的使用</p>
+                </div>
+                <i class="icon icon-normal-32x32 payment-choosen" data-role="yes-tag"></i>
+            </div>
+            <div class="pay-details-payment-line" data-role="choosen-pay-type" data-type="alipay_purse">
+                <i class="icon icon-pay-100x60 payment-way" ></i>
+                <div>
+                    <p>支付宝支付</p>
+                    <p>推荐有支付宝账号的用户使用</p>
+                </div>
+                <i class="icon icon-normal-32x32 payment-choosen" data-role="yes-tag" ></i>
+            </div>
+            <div class="pay-details-payment-line fn-hide" data-role="choosen-pay-type" data-type="caifutong">
+                <i class="icon icon-qq-100x60 payment-way" ></i>
+                <div>
+                    <p>财付通支付</p>
+                    <p>支持银行卡和财付通账户支付</p>
+                </div>
+                <i class="icon icon-normal-32x32 payment-choosen" data-role="yes-tag"></i>
+            </div>
+            <div class="pay-details-payment-line" data-role="choosen-pay-type" data-type="tenpay_wxapp">
+                <i class="icon icon-wx-100x60 payment-way" ></i>
+                <div>
+                    <p>微信支付</p>
+                    <p>安装微信5.0及以上版本的使用</p>
+                </div>
+                <i class="icon icon-normal-32x32 payment-choosen" data-role="yes-tag"></i>
+            </div>
+
+        </div>
+    </div>
+</div>

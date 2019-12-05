@@ -1,0 +1,20 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/package
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+resource/
+测试版地址.txt
+发布说明文档.wps
+下载地址.txt
+android_package.php
+app_version.php
+beta_info.php
+dev_info.php
+info_android.json
+info_ios.json
+ios_package.php
+screen_cover.json
+
+--EOF--

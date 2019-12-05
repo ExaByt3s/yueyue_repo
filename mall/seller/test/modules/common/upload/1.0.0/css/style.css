@@ -1,0 +1,85 @@
+@charset "GB2312";
+
+.ui-item .ui-btn{margin:10px 20px 10px 0;float: left;position: relative;}
+.ui-item .ui-btn a{display: block;height:130px;width: 130px;text-align: center;}
+.bg-color{background:#ddd;}
+/*上传完成*/
+.ui-item .ui-upload .close-img{background:url(http://static.yueus.com/mall/seller/test/static/pc/modules/common/upload/1.0.0/img/close.png) no-repeat; width:23px;height:20px;position: absolute;right: 10px;top: 8px;}
+.ui-item .ui-upload .ui-upload-shadow{display:none;width: 130px;height: 35px;position: absolute;left: 0px;bottom: 0px;background: rgba(0, 0, 0, 0.5)!important;z-index: 99;filter: alpha(opacity=50);background: #000;text-align: center;line-height: 130px;cursor: pointer;}
+.ui-item .show .ui-upload-shadow{display:block;}
+/*上传进行中*/
+.ui-upload-ongo{}
+.ui-item .ui-btn .ui-upload-progress{width: 130px;height: 130px;position: absolute;left: 0;top: 0;  background: rgba(0, 0, 0, 0.5)!important;z-index: 99;filter: alpha(opacity=50);background: #000;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;text-align: center;line-height: 130px;color:#fff;}
+/*添加上传*/
+.ui-item .ui-btn-add{background: url(http://static.yueus.com/mall/seller/test/static/pc/modules/common/upload/1.0.0/img/add.png) no-repeat;  background-position: -1px 0px;}
+.ui-item .ui-btn-add:hover{background-position: -151px 0px;}
+/*禁止*/
+.ui-item .ui-btn-forbid{background: url(http://static.yueus.com/mall/seller/test/static/pc/modules/common/upload/1.0.0/img/forbid.png) no-repeat;  background-position: -1px 0px;}
+/*上传添加按钮*/
+.upload-start-continue{height: 70px;line-height: 70px;padding-left: 10px;border-top: 1px solid #eeeeee;  background: #fff;position:relative;}
+.upload-btn{border: 1px solid #ccc;display: inline-block;height: 40px;width: 125px;text-align: center;line-height: 40px;border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;font: bold 14px/40px arial,verdana;margin-left:10px}
+.upload-start-continue .upload-start{background: #4092f1;color:#fff;cursor: pointer; text-decoration: none;}
+.upload-start-continue .upload-start:hover{background: #4D9AF3;}
+.upload-start-continue .upload-continue{color:#707070}
+.upload-start-continue .upload-tips{  margin-left: 10px;color: #707070;font-weight: bold;}
+/*上传图片弹出页*/
+.upload-page .upload-page-header{  height: 50px;font: bold 14px/50px arial,verdana;padding-left: 20px;border-bottom: 1px solid #ccc;}
+.upload-page-content{ position:relative;height:100%;min-height:343px;text-align: center;font-size: 14px;font-weight: bold;color: #ccc;overflow: auto;}
+.upload-page-btn{  width: 200px;height: 50px;background: #00b7ee;line-height: 50px;margin: 140px 0 10px 1px;}
+.upload-page-btn:hover{background:#00a2d4;}
+.upload-page{position: fixed;width: 800px;height: 450px;background: #fff;left: 50%;top: 50%;margin-left: -400px;margin-top: -225px;-moz-box-shadow: 0px 0px 6px 2px #666;-webkit-box-shadow: 0px 0px 6px 2px #666;box-shadow: 0px 0px 6px 2px #666;-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#666666')";filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#666666');}
+.upload-page-close{  position: absolute;right: 15px;top: 14px;display: block;width: 20px;height: 20px;color: #000;line-height: 20px;text-align: center;}
+/*添加图片按钮*/
+.upload-img-btn{  position: absolute;left: 300px;top: 140px;opacity: 0;}
+.upload-img-btn2{position: absolute;left: 160px;top: 14px;opacity: 0;}
+.upload-btn-invisible{display: block;height: 52px;width:202px;cursor: pointer;}
+.upload-btn-invisible2{display: block;height: 42px;width: 127px;cursor: pointer;}
+
+.upload-page-content .choose-img-btn{
+    padding-top:150px;
+}
+
+
+/*二次修改*/
+.webuploader-container {
+    position: relative;
+}
+.webuploader-element-invisible {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+.webuploader-pick {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+
+    width: 200px;height: 50px;background: #4092f1;line-height: 50px;
+}
+.webuploader-pick-hover {
+    background: #66a8f4;
+}
+
+.webuploader-pick-disable {
+    opacity: 0.6;
+    pointer-events:none;
+}
+
+#go-on-add-page .webuploader-pick{
+    border: 1px solid #ccc;
+    display: inline-block;
+    height: 40px;
+    width: 125px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    font: bold 14px/40px arial,verdana;
+    margin-left: 10px;
+    color: #707070;
+    background:none;
+}

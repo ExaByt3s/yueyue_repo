@@ -1,0 +1,53 @@
+<div class="rows-title">
+    <h1>协议HANDLER错误日志&nbsp;
+        <small>
+            <small>@willike</small>
+        </small>
+    </h1>
+</div>
+<div class="col-md-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			协议捕获错误 列表&nbsp;<small><?php echo empty($message) ? '' : '( '.$message.' )';?></small>
+		</div>
+		<div class="panel-body">
+			<div class="col-md-8 col-xs-12">
+				<ul class="list-group">
+					<?php foreach($list as $k => $err):?>
+						<li class="list-group-item">
+							<label><?php echo ($k+1);?></label>
+							<date><?php echo $err['time'];?></date>
+							<label>ERR: <?php echo $err['message'];?></label>
+							<a class="btn btn-danger btn-xs">查看</a>
+							<span><?php echo $err['url'];?></span>
+							<p>
+								系统:<i><?php echo $err['agent']['os'];?></i>
+								浏览器:<i><?php echo $err['agent']['browser'];?></i>
+							</p>
+							<label class="item-param"><?php echo $err['params'];?></label>
+							<label></label>
+						</li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+			<div class="col-md-4 col-xs-12">
+				<h3>输入显示</h3>
+				<pre><span>请求数据展示</span></pre>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/protocol/master/script/min/bejson.min.js"></script>
+<script type="application/javascript">
+	$(function(){
+		$(".btn").click(function(){
+			$("pre").html("<span>请求数据展示</span>");
+			var BTN_ = $(this);
+			setTimeout(function(){
+				var param = BTN_.siblings('label[class="item-param"]').html();
+				var html = (param === "" || param === undefined) ? "<span>暂无数据</span>" : comfunc.jformat(param);
+				$("pre").html(html);
+			},800);
+		});
+	});
+</script>

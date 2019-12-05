@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>促销列表</title>
+	{wap_global_top}
+	<!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+	<link charset="utf-8" rel="stylesheet" href="../../../../style/sales/list.scss">
+	<script src="/lib/lib.js"></script>
+</head>
+<body class="cor-bg-fff">
+<main role="main">
+	<section id="global-header"></section>
+
+	<div class="page-view " data-role="page-container">
+
+		<div class="sales-list-page">
+			
+			<div>
+		   		<div id="render_ele"></div>
+		   	</div>
+		 
+			<!-- 
+			   	<button class="check-more">
+			   		<span class="check-more-content color-555 f14">
+			   			查看更多
+			   		</span>
+			   	</button> 
+		   -->
+
+		</div>
+
+	</div>
+
+	{wap_global_footer}
+	
+</main>
+<script>
+    var $ = require('zepto');
+	var header = require('../../../../modules/common/widget/header/main');
+
+
+	$(function()
+	{
+		// 渲染头部
+		header.init({
+			ele : $("#global-header"), //头部渲染的节点
+			title:"促销列表",
+			header_show : true , //是否显示头部
+			right_icon_show : false, //是否显示右边的按钮
+
+			share_icon :
+			{
+				show :false,  //是否显示分享按钮icon
+				content:""
+			},
+			omit_icon :
+			{
+				show :false,  //是否显示三个圆点icon
+				content:""
+			},
+			show_txt :
+			{
+				show :false,  //是否显示文字
+				content:"编辑"  //显示文字内容
+			}
+		});
+
+		var SELLER_AJAX_URL = window.$__ajax_domain+'get_sales_list.php';
+		var list_item_class = require('../../../../modules/list/list.js'); 
+		var template  = __inline('./list-item.tmpl');
+		var list_obj = new list_item_class(
+		    {
+		        //渲染目标
+		        ele : $('#render_ele'),
+		        //请求地址
+		        url : SELLER_AJAX_URL,
+		        //传递参数
+		        // params : _page_params,
+		        //模板
+		        template : template,
+		        //lz是否开启
+		        is_open_lz_opts : ''
+
+		    });
+
+
+		// list_obj.$el.find('[data-role="btn-enroll]').on('click', function(event) {
+		// 	console.log(123);
+		//     event.preventDefault();
+		//     var data_topic_id = $(this).attr('data-topic-id');
+		//     var data_state = $(this).attr('data-state');
+		//     location.href = './info.php?data_topic_id=' + data_topic_id +'&data-state=' + data_state ;
+
+		// });
+
+
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery.form.js"></script> 
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+.input-text
+{
+	width: 30px;
+}
+.button 
+{
+	margin-left: 6px;
+}
+.add_img
+{
+	background: url('resources/images/add.png');
+	width: 20px;
+	height: 20px;
+	background-repeat: no-repeat;
+	display: inline-block;
+	padding-left: 5px;
+}
+.del_label
+{
+	background: url('resources/images/delete.png');
+	width: 20px;
+	height: 20px;
+	background-repeat: no-repeat;
+	display: inline-block;
+	padding-left: 5px;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<form name="list_form" id="list_form" action="?uid={uid}" method="post">
+	<div class="table-list">
+	   <div class="table">
+	   	 <table  cellspacing="0">
+	   	 		<thead>
+	   	 			<tr>
+				        <th width="80" align="left">
+				        机构名:
+				        </th>
+				        <th>
+				        	<select id="org_id">
+					        <!-- BEGIN list -->
+					           <option value="{user_id}">{nick_name}</option>
+					         <!-- END list -->
+				            </select>
+				        </th>
+				        <th width="20" align="left"><a href="javascript:void(0);" onclick="add_label()" class="add_img" title="添加机构"></a></th>
+				    </tr>
+	   	 		</thead>
+		    	<tbody class="tbody">
+		    	  <!-- BEGIN selected_org -->
+		    	    <tr><td align='center'><!-- IF priority --><input type='radio' name='priority' value='{org_id}' checked="true" />优先<!-- ELSE --><input type='radio' name='priority' value='{org_id}'/>优先<!-- ENDIF priority --></td><td align='center'>{org_name}<input type='hidden' name='org_id[]' value='{org_id}' /></td><td><a href='javascript:void(0);' class='del_label' title="删除机构"></a></td></tr>
+		    	  <!-- END selected_org -->
+			    </tbody>
+		    </table>
+	   </div>
+	   <div class="btn">
+			<input type="button" class="button" name="dosubmit" value="取消" id="close_layer"/>
+			<input type="button" class="button" name="dosubmit" value="提交" id="send_layer"/> 
+		</div>
+	</div>
+</form>
+</div>
+</body>
+<script type="text/javascript">
+	var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+	//window.alert(parent.uid);
+	$('#close_layer').on('click', function(){
+      parent.layer.close(index); //执行关闭
+     });
+	//提交获取数据
+   $('#send_layer').on('click', function(){
+   	$("#list_form").ajaxSubmit({
+   		dataType : "json",
+        data:{'act': 'insert'},
+		success:function(data)
+		{
+			//window.alert(data.str);
+			//parent.$('#list_style').html(data.str);
+			/*parent.$('#stand_follow_data').append(str);*/
+			if (data.ret != '' && data.ret != 'undefined')
+			{
+				var $ret = data.ret;
+				parent.$('#list_org').html($ret['org_name']);
+			}
+			else
+			{
+				parent.$('#list_org').html('');
+			}
+            parent.layer.close(index);
+		},
+		error:function(data)
+		{
+			//parent.layer.close(index);
+		}
+   	})	
+});
+$(function(){
+	$.del_label();
+});
+//添加输入框
+function add_label()
+{
+	var $str = "";
+	var $org_id   = $("#org_id").val();
+	var $org_name = $("#org_id").find("option:selected").text();
+	$info = checkExist($org_id);
+	if ($info == true) 
+	{
+		$str += "<tr><td align='center'><input type='radio' name='priority' value='"+$org_id+"'/>优先<td align='center'>"+$org_name+"<input type='hidden' name='org_id[]' value='"+$org_id+"' /></td><td><a href='javascript:void(0);' class='del_label'></a></td></tr>";
+	    $(".tbody").append($str);
+	}else
+	{
+		parent.layer.msg('该机构已经存在了，不能重复添加');
+	}
+	$.del_label();
+}
+
+$.extend({
+	//删除输入框
+	del_label:function()
+	{
+		$(".del_label").click(function(){
+			$(this).parent().parent().remove();
+		});
+	}
+})
+
+function checkExist($org_id)
+{
+	var $info = true;
+	$(".tbody").find("input[name='org_id[]']").each(function(){
+		//window.alert($(this).val());
+		if ($(this).val() == $org_id) 
+		{
+			$info = false;
+		}
+	});
+	return $info;
+}
+</script>
+</html>

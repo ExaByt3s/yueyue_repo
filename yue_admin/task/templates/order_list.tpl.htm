@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <title>订单列表</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet"/>
+    <link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet"/>
+    <link href="js/shadowbox/shadowbox.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>    
+    <script type="text/javascript" src="js/shadowbox/shadowbox.js"></script>    
+    <script type="text/javascript">
+        Shadowbox.init({
+            handleOversize: "drag",
+            overlayColor: '#000',
+            modal: true,
+            displayNav: true,
+            displayCounter: false
+        });
+        Shadowbox.setup();
+    </script>
+     <script type="text/javascript">
+	 $(function () {
+    $(".ui_timepicker").datetimepicker({
+        showSecond: true,
+        timeFormat: '',
+        stepHour: 1,
+        stepMinute: 1,
+        stepSecond: 1
+    });
+    $(".pay_time_timepicker").datetimepicker({
+        showSecond: true,
+        timeFormat: '',
+        stepHour: 1,
+        stepMinute: 1,
+        stepSecond: 1
+    });
+    $(".add_time_timepicker").datetimepicker({
+        showSecond: true,
+        timeFormat: '',
+        stepHour: 1,
+        stepMinute: 1,
+        stepSecond: 1
+    });
+    $("#search_keyword_option").change(function () {
+        var input_name = $(this).children('option:selected').attr("data-val");
+        $("#search_keyword_input").attr("name", input_name);
+        $("#search_selected").val(input_name);
+    });
+});
+/**
+ * 以下功能为关闭订单
+ * yue_admin/task/mall_bill.php
+ * @param order_sn
+ */
+function close_order(order_sn) {
+    var dialog_form = $("#dialog-form");
+    var reason = $("#reason");
+    dialog_form.dialog("open");
+    dialog_form.dialog({
+        autoOpen: false,
+        height: 300,
+        width: 350,
+        modal: true,
+        buttons: {
+            "确认取消": function () {
+                var bValid = true;
+                var reason_srt = encodeURIComponent(reason.val());
+                bValid = bValid && checkLength(reason, "reason", 3, 200);
+                if (bValid) {
+                    $.ajax({
+                        url: 'mall_bill.php?action=close_order&order_sn=' + order_sn,
+                        type: 'post',
+                        cache: false,
+                        dataType: 'json',
+                        data: {reason: reason.val()},
+                        success: function (data) {
+                            if (data.result == 1) {
+                                $(this).dialog("close");
+                                location.reload();
+                            }
+                            else {
+                                $(this).dialog("close");
+                                console.log(data);
+                                alert('失败了');
+                            }
+                        },
+                        error: function () {
+                            alert("异常！");
+                        }
+                    });
+                }
+            }
+        },
+        close: function () {
+        }
+    });
+}
+/**
+ * 以下功能为 签到
+ * yue_admin/task/mall_bill.php
+ * @param order_sn
+ */
+function sign_order(order_sn) {
+		$.get("mall_bill.php", { action: "sign_order", order_sn: order_sn },
+  function(data){
+	  var obj = $.parseJSON(data);		
+    if (obj.result == 1) {
+		location.reload();
+	}
+	else {
+		alert("权限不足或者更新失败")
+	}
+  });   
+}
+
+/**
+ * 以下功能为 接受订单
+ * yue_admin/task/mall_bill.php
+ * @param order_sn
+ */
+function accept_order(order_sn) {
+	$.get("mall_bill.php", { action: "accept_order", order_sn: order_sn },
+  function(data){
+	  var obj = $.parseJSON(data);
+    if (obj.result == 1) {
+		location.reload();
+	}
+	else {
+		alert("权限不足或者更新失败")
+	}
+  });      
+}
+
+function checkLength(o, n, min, max) {
+    if (o.val().length < 3) {
+        o.addClass("ui-state-error");
+        updateTips("取消原因必填");
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function updateTips(t) {
+    var tips = $(".validateTips");
+    tips.text(t).addClass("ui-state-highlight");
+    setTimeout(function () {
+        tips.removeClass("ui-state-highlight", 1500);
+    }, 500);
+}
+
+function search_order() {
+    this.form.target = '';
+    $('#action').attr('value', 'list');
+    this.form.submit();
+}
+</script>
+</head>
+<body>
+<div class="mainbox">
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form action="" method="get">
+                    <ul style="width: 15%;">
+                        <li> 订单状态:
+                            <select name="status" id="status">
+                                <option value="-1">全部</option>
+                                <option <!-- IF filter.status = "0" -->selected="selected"<!-- ENDIF --> value="0">待支付
+
+
+                                </option>
+                                <option <!-- IF filter.status = "1" -->selected="selected"<!-- ENDIF --> value="1">待确认
+
+
+                                </option>
+                                <option <!-- IF filter.status = "2" -->selected="selected"<!-- ENDIF --> value="2">待签到
+
+
+                                </option>
+                                <option <!-- IF filter.status = "7" -->selected="selected"<!-- ENDIF --> value="7">已关闭
+
+
+                                </option>
+                                <option <!-- IF filter.status = "8" -->selected="selected"<!-- ENDIF --> value="8">已完成
+
+
+                                </option>
+                            </select>
+                        </li>
+                        <li> 支付状态:
+                            <select name="is_pay">
+                                <option value="-1">全部</option>
+                                <option <!-- IF filter.is_pay = "1" -->selected<!-- ENDIF --> value="1">是
+
+
+                                </option>
+                                <option <!-- IF filter.is_pay = "0" -->selected<!-- ENDIF --> value="0">否
+
+
+                                </option>
+                            </select>
+                        </li>
+                        <li> 是否机构:
+                            <select name="is_org_user">
+                                <option value="-1">全部</option>
+                                <option <!-- IF filter.is_org_user = "1" -->selected<!-- ENDIF --> value="1">是
+
+
+                                </option>
+                                <option <!-- IF filter.is_org_user = "0" -->selected<!-- ENDIF --> value="0">否
+
+
+                                </option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul style="width: 22%;">
+                        <li> 总价区间:
+                            <input type="number" size="10" name="min_total" value="{filter.min_total}"/>
+                            至
+                            <input type="number" size="10" name="max_total" value="{filter.max_total}"/>
+                        </li>
+                        <li> 优惠区间:
+                            <input type="number" size="10" name="min_discount" value="{filter.min_discount}"/>
+                            至
+                            <input type="number" size="10" name="max_discount" value="{filter.max_discount}"/>
+                        </li>
+                        <li> 是否优惠:
+                            <select name="is_use_coupon">
+                                <option value="-1">全部</option>
+                                <option <!-- IF filter.is_use_coupon = "1" -->selected<!-- ENDIF --> value="1">是
+
+
+                                </option>
+                                <option <!-- IF filter.is_use_coupon = "0" -->selected<!-- ENDIF --> value="0">否
+
+
+                                </option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul style="width: 28%;">
+                        <li> 下单时间:
+                            <input id="add_time_begin" type="text" size="14" name="add_time_begin"
+                                   value="{filter.add_time_begin}" class="add_time_timepicker">
+                            至
+                            <input id="add_time_end" type="text" size="14" name="add_time_end"
+                                   value="{filter.add_time_end}" class="add_time_timepicker"/>
+                        </li>
+                        <li> 签到日期:
+                            <input id="sign_time_begin" type="text" size="14" name="sign_time_begin"
+                                   value="{filter.sign_time_begin}" class="ui_timepicker">
+                            至
+                            <input id="sign_time_end" type="text" size="14" name="sign_time_end"
+                                   value="{filter.sign_time_end}" class="ui_timepicker"/>
+                        </li>
+                        <li> 付款时间:
+                            <input id="pay_time_begin" type="text" size="14" name="pay_time_begin"
+                                   value="{filter.pay_time_begin}" class="pay_time_timepicker">
+                            至
+                            <input id="pay_time_end" type="text" size="14" name="pay_time_end"
+                                   value="{filter.pay_time_end}" class="pay_time_timepicker"/>
+                        </li>
+                    </ul>
+                    <ul style="width: 35%;">
+                        <li>
+                            <input name="{filter.search_selected}" type="text" value="{filter.search_selected_val}"
+                                   id="search_keyword_input"/>
+                            <input name="search_selected" type="hidden" value="{filter.search_selected}"
+                                   id="search_selected"/>
+                            <select name="search_keyword" id="search_keyword_option">
+                                <option
+                                <!-- IF filter.search_selected = "order_sn" -->selected<!-- ENDIF -->
+                                data-val="order_sn">订单号
+
+
+                                </option>
+                                <option
+                                <!-- IF filter.search_selected = "buyer_user_id" -->selected<!-- ENDIF -->
+                                data-val="buyer_user_id">买家ID
+
+
+                                </option>
+                                <option
+                                <!-- IF filter.search_selected = "buyer_user_phone" -->selected<!-- ENDIF -->
+                                data-val="buyer_user_phone">买家电话
+
+
+                                </option>
+                                <option
+                                <!-- IF filter.search_selected = "seller_user_id" -->selected<!-- ENDIF -->
+                                data-val="seller_user_id">商家ID
+
+
+                                </option>
+                                <option
+                                <!-- IF filter.search_selected = "goods_id" -->selected<!-- ENDIF -->
+                                data-val="goods_id">商品ID
+
+
+                                </option>
+                                <option
+                                <!-- IF filter.search_selected = "seller_user_phone" -->selected<!-- ENDIF -->
+                                data-val="seller_user_phone">商家电话
+
+
+                                </option>
+                                <option
+                                <!-- IF filter.search_selected = "org_user_id" -->selected<!-- ENDIF -->
+                                data-val="org_user_id">所属机构
+
+
+                                </option>
+                                <option
+                                <!-- IF filter.search_selected = "referer" -->selected<!-- ENDIF -->
+                                data-val="referer">订单来源
+
+
+                                </option>
+                                <option
+                                <!-- IF filter.search_selected = "belong_user_id" -->selected<!-- ENDIF -->
+                                data-val="belong_user_id">管理员ID
+
+
+                                </option>
+                            </select>
+                        </li>
+                        <li>
+                            <input type="button" class="button" name="button" id="button" value="查询"
+                                   onclick="this.form.target='';$('#action').attr('value','list');this.form.submit();"/>
+                            <input type="button" class="button" name="export" id="export" value="导出数据"
+                                   onclick="if(confirm('确定导出')){this.form.target='_blank';$('#action').attr('value','export_order');this.form.submit();}">
+                            <input type="hidden" name="export_limit" value="{export_limit}">
+                            <input type="hidden" name="type_id" value="{type_id}">
+                            <input type="hidden" name="action" id="action" value="">
+                        </li>
+                    </ul>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="tabs">
+        <div class="tabbox">
+            <div class="table-list">
+                <table width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th width="5%">订单ID</th>
+                        <th width="8%">订单号</th>
+                        <th width="8%">交易品类</th>
+                        <th width="8%">商品ID</th>
+                        <th width="5%">来源</th>
+                        <th width="10%">下单时间</th>
+                        <th width="8%">买家</th>
+                        <th width="8%">商家</th>
+                        <th width="5%">优惠</th>
+                        <th width="5%">总金额</th>
+                        <th width="5%">优惠金额</th>
+                        <th width="5%">实际支付</th>
+                        <th width="5%">支付状态</th>
+                        <th width="5%">订单状态</th>
+                        <th width="10%">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- BEGIN list -->
+                    <tr>
+                        <td width="5%" align="center">{order_id}</td>
+                        <td width="8%" align="center">{order_sn}</td>
+                        <td width="8%" align="center">{type_id_str}</td>
+                        <td width="8%" align="center">{goods_id}</td>
+                        <td width="5%" align="center">{referer}</td>
+                        <td width="10%" align="center">{add_time}</td>
+                        <td width="8%" align="center">{buyer_user_name}</td>
+                        <td width="8%" align="center" title="{scalping_titile}">{seller_user_name}
+                            <!-- IF is_flush="1" --><font class="is_flush"></font> <!-- ENDIF --></td>
+                        <td width="5%" align="center">{is_use_coupon}</td>
+                        <td width="5%" align="center">{total_amount}</td>
+                        <td width="5%" align="center">{discount_amount}</td>
+                        <td width="5%" align="center">{pending_amount}</td>
+                        <td width="5%" align="center">{is_pay}</td>
+                        <td width="5%" align="center">{status_str}</td>
+                        <td width="10%" align="center"><a rel="shadowbox[order_detail_{order_id}]"
+                                                          href="?action=detail&amp;order_id={order_id}">详情</a>
+                            <!-- IF is_close = "1" -->
+                            <a onclick="close_order({order_sn})" href="javascript:void(0)">关闭订单</a>
+                            <!-- ENDIF -->
+                            <!-- IF status = "1" -->
+                            <br>
+                            <span style="color: #f14040;cursor:pointer;" onclick="javascript:if(confirm('确实要接受该订单吗?')) accept_order({order_sn})">接受</span>
+                            <!-- ENDIF -->
+                            <!-- IF status = "2" -->
+                            <br>
+                            <span style="color: #f14040;cursor:pointer;" onclick="javascript:if(confirm('确实要签到该订单吗?')) sign_order({order_sn})">签到</span>
+                            <!-- ENDIF --></td>
+                    </tr>
+                    <!-- END list -->
+                    </tbody>
+                </table>
+                <div id="dialog-form" title="取消订单">
+                    <form>
+                        <label for="reason" style="display: block;padding: 10px 0;">原因</label>
+                        <textarea name="reason" id="reason" rows="3" cols="41"
+                                  class="text ui-widget-content ui-corner-all"></textarea>
+                    </form>
+                    <p style="font-weight: bold">请确保商家及消费者已同意取消订单，取消订单后，已付款将全额退给买家</p>
+
+                    <p class="validateTips" style="color: #FF0000">取消原因必填。</p>
+                </div>
+            </div>
+        </div>
+        <div id="pages" class="page"> {page}</div>
+        <div style="color: #ffffff">{url}</div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app -模特卡
+// ------------------------------
+
+.choose-coupon{
+  .right-button-wrap{
+    a{
+      color:#ff5480;
+      font-size: 15px;
+    }
+  }
+  .content-body{
+    margin-top: 45px;
+    padding: 0px 15px 15px 15px;
+    background: #ffffff;
+    .list-container{
+      margin-top: 15px;
+    }
+  }
+}

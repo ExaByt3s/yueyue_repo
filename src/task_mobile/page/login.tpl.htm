@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>µÇÂ¼</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/login/index.scss">
+</head>
+<body>
+
+<main role="main" >
+    <div class="page-view login-container" data-role="page-container">
+        <link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+        <div class="login_input layout_box_v">
+            <div class="login_input_phone layout_box">
+                <input type="tel" placeholder="µÇÂ¼ÕËºÅ" data-role="phone"/>
+            </div>
+            <div class="login_input_code layout_box">
+                <input type="password" placeholder="ÃÜÂë" data-role="password"/>
+            </div>
+        </div>
+        <div class="login_btn" data-role="login_btn">µÇÂ¼</div>
+        <!-- <div class="login_forget" data-role="login_forget">Íü¼ÇÃÜÂë£¿</div> -->
+        <div class="login_contact layout_box"><div class="exp">ºÏ×÷Çëµç£º</div><div><a href="tel:4000-82-9003" class="common_on_tel">4000-82-9003</a></div></div>
+    </div>
+</main>
+
+</body>
+
+<script>
+    window.onload = function()
+    {
+        var yue_ui = require('../modules/yue_ui/frozen');		
+		var r_url = '{r_url}';
+
+        $(function()
+		{
+			$('[data-role="login_btn"]').on('click',function()
+			{
+				var phone = $('[data-role="phone"]').val();
+
+				var password = $('[data-role="password"]').val();
+
+				if(phone.trim() == ""){alert('µÇÂ¼ÕËºÅ');return;}
+				if(password.trim() == ""){alert('ÃÜÂë²»ÄÜÎª¿Õ');return;}
+
+				var data =
+				{
+					phone: phone,
+					yue_password:password,
+					r_url : r_url
+				};
+
+				var $loading = {};
+
+				$.ajax
+				({
+					url : window.$__config.ajax_url+'login.php',
+					data:data,
+					type: 'POST',
+					cache: false,
+					dataType : 'json',
+					beforeSend: function()
+					{
+						$loading = $.loading
+						({
+							content:'ÇëÇóÖÐ...'
+						})
+					},
+					success: function(data)
+					{
+						$loading.loading('hide');
+
+						var jump_url = data.result_data.r_url;
+
+						if(data.result_data.code == 1)
+						{
+							
+							if(jump_url)
+							{
+								window.location.href = decodeURIComponent(jump_url);
+							}
+							else
+							{
+								window.location.href = './list.php';
+							}
+							
+						}
+						else{
+
+							$.tips
+							({
+								content : data.result_data.message,
+								stayTime:3000,
+								type:"success"
+							});
+						}
+					},
+					error: function()
+					{
+						$loading.loading('hide');
+
+						$.tips
+						({
+							content : 'ÍøÂçÒì³£',
+							stayTime:3000,
+							type:"warn"
+						});
+					}
+				});
+			})
+
+			$('[data-role="login_forget"]').on('click',function()
+			{
+				location.href = './change_pw.php';
+			})
+		});
+    }
+</script>
+</html>

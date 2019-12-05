@@ -1,0 +1,261 @@
+.recommend-page {
+  padding-bottom: 100px;
+  color: #666;
+  width: 100%;
+  background: #f5f5f5; }
+  .recommend-page .textarea-class-ta {
+    width: 490px;
+    background: #fff;
+    border: 1px solid #d2d2d2;
+    height: 28px;
+    padding: 2px 4px;
+    margin: 0px 0 0 5px;
+    border-radius: 3px; }
+  .recommend-page .textarea-class-input {
+    width: 490px;
+    background: #fff;
+    border: 1px solid #d2d2d2;
+    height: 24px;
+    padding: 4px 4px;
+    margin: 0px 0 0 5px;
+    border-radius: 3px; }
+  .recommend-page .input-checkbox {
+    width: 12px;
+    height: 12px;
+    border: 1px solid #aaaaaa; }
+  .recommend-page .icon-right {
+    width: 16px;
+    height: 16px;
+    background: url(http://static.yueus.com/taskpredev/static/image/task/right-16x16.png);
+    margin-top: 5px;
+    display: none; }
+  .recommend-page .right .icon-right {
+    display: block; }
+  .recommend-page .error .icon-right {
+    display: block;
+    background: url(http://static.yueus.com/taskpredev/static/image/task/error-16x16.png); }
+  .recommend-page .error .title {
+    color: #ff6763; }
+  .recommend-page .error select {
+    border-color: #ff6763; }
+  .recommend-page .mtitle {
+    font-size: 22px;
+    padding: 40px 0;
+    color: #333333; }
+  .recommend-page .main_box {
+    width: 560px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 40px; }
+  .recommend-page .contentMain .htitle {
+    font-size: 22px;
+    font-weight: normal;
+    color: #000; }
+  .recommend-page .contentMain .model {
+    font-size: 14px;
+    position: relative;
+    padding-top: 45px; }
+    .recommend-page .contentMain .model .title {
+      font-size: 16px;
+      padding-bottom: 10px; }
+    .recommend-page .contentMain .model .list li {
+      background: -webkit-gradient(linear, 0 0, 0 100%, from(#fefefe), to(#f3f3f3));
+      border: 1px solid #d2d2d2;
+      border-bottom: none;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      color: #333; }
+      .recommend-page .contentMain .model .list li:nth-child(1) {
+        border-radius: 5px 5px 0 0; }
+      .recommend-page .contentMain .model .list li:nth-last-child(1) {
+        border-radius: 0 0 5px 5px;
+        border-bottom: 1px solid #d2d2d2;
+        height: px; }
+      .recommend-page .contentMain .model .list li .c {
+        margin: 0 5px 0 10px; }
+      .recommend-page .contentMain .model .list li:hover {
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#f3f3f3), to(#fefefe)); }
+    .recommend-page .contentMain .model .list li.cur {
+      border: 1px solid #d6d6d6;
+      background: #cce5f9; }
+  .recommend-page .contentMain .p1th .input-text-p1th {
+    width: 490px;
+    background: #fff;
+    border: 1px solid #d2d2d2;
+    height: 22px;
+    line-height: 22px;
+    padding: 14px 4px;
+    margin: 4px 0 0 5px;
+    border-radius: 3px; }
+  .recommend-page .contentMain .p1th li:nth-last-child(1) {
+    height: 50px; }
+  .recommend-page .contentMain .p2th {
+    padding-top: 50px; }
+  .recommend-page .contentMain .sec select {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px; }
+  .recommend-page .contentMain .p3th {
+    padding-top: 40px; }
+  .recommend-page .contentMain .p4th .ohter .input-text {
+    border-radius: 3px;
+    height: 22px;
+    line-height: 22px;
+    padding: 6px 5px;
+    border: 1px solid #d2d2d2;
+    margin-top: 8px;
+    width: 550px; }
+  .recommend-page .contentMain .p5th .textarea-class {
+    width: 100%;
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+    padding: 5px;
+    height: 90px;
+    width: 550px; }
+  .recommend-page .contentMain .p6th .item-title {
+    width: 100%;
+    border: 1px solid #d2d2d2;
+    height: 42px;
+    background: #fafafa;
+    border-bottom: none; }
+  .recommend-page .contentMain .p6th .item-title:nth-last-child(1) {
+    border-bottom: 1px solid #d2d2d2;
+    height: 54px; }
+  .recommend-page .contentMain .p6th .list li .c {
+    margin-left: 50px; }
+  .recommend-page .contentMain .p6th .item-area {
+    padding: 12px 0 0 15px; }
+    .recommend-page .contentMain .p6th .item-area .allow {
+      background: url(http://static.yueus.com/taskpredev/static/image/task/allow-10x10.png);
+      width: 10px;
+      height: 10px;
+      margin: 5px 10px 0 0; }
+  .recommend-page .contentMain .p6th .item-wrap-cur .allow {
+    background: url(http://static.yueus.com/taskpredev/static/image/task/allow-10x10-hover.png); }
+  .recommend-page .contentMain .p6th .item-wrap .list {
+    display: none; }
+  .recommend-page .contentMain .p6th .item-wrap:nth-last-child(1) .item-title {
+    border: 1px solid #d2d2d2; }
+  .recommend-page .contentMain .p6th .item-wrap-cur .list {
+    display: block; }
+  .recommend-page .contentMain .p6th .item-title-cur {
+    border-bottom: 1px solid #d2d2d2; }
+    .recommend-page .contentMain .p6th .item-title-cur .allow {
+      background: url(http://static.yueus.com/taskpredev/static/image/task/allow-10x10-hover.png); }
+  .recommend-page .contentMain .p7th .time-area {
+    width: 100%;
+    border-radius: 3px;
+    height: 40px;
+    border: 1px solid #d2d2d2; }
+    .recommend-page .contentMain .p7th .time-area .lbox {
+      border-right: 1px solid #d2d2d2;
+      height: 40px;
+      width: 46px;
+      background: #fafafa; }
+      .recommend-page .contentMain .p7th .time-area .lbox .icon-time {
+        background: url(http://static.yueus.com/taskpredev/static/image/task/time-20-22.png);
+        width: 20px;
+        height: 22px;
+        margin: 9px 0 0 13px; }
+    .recommend-page .contentMain .p7th .time-area .rbox .input-text {
+      height: 40px;
+      width: 490px;
+      padding-left: 10px;
+      font-size: 14px; }
+  .recommend-page .contentMain .p7th .time-area:hover .lbox {
+    background: #eeeeee; }
+  .recommend-page .contentMain .p7th .sec-time select {
+    width: 270px;
+    height: 40px;
+    font-size: 14px;
+    color: #aaaaaa; }
+  .recommend-page .contentMain .p7th .sec-time .lbox {
+    margin-right: 20px; }
+  .recommend-page .contentMain .p8th .address {
+    margin-top: 10px; }
+    .recommend-page .contentMain .p8th .address .input-text {
+      padding: 8px 5px;
+      height: 22px;
+      line-height: 22px;
+      border: 1px solid #d2d2d2;
+      border-radius: 3px;
+      width: 550px; }
+  .recommend-page .contentMain .p9th .btn {
+    width: 110px;
+    height: 40px;
+    line-height: 40px;
+    background: #3288ee;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    float: right;
+    display: inline;
+    margin: 45px 0 0 0; }
+    .recommend-page .contentMain .p9th .btn:hover {
+      background: #247fec; }
+  .recommend-page .contentMain .p10th {
+    text-align: center;
+    clear: both;
+    padding: 55px 0 55px 0;
+    font-size: 18px; }
+  .recommend-page .sidebar {
+    width: 280px;
+    line-height: 26px;
+    font-size: 14px;
+    color: #666; }
+
+.pop_recommend_success {
+  background: #fff;
+  width: 620px;
+  height: 520px;
+  z-index: 999999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -260px;
+  margin-left: -310px;
+  border-radius: 10px; }
+  .pop_recommend_success .p1th {
+    width: 100%;
+    background: #63cb76;
+    height: 220px;
+    padding-top: 50px;
+    border-radius: 10px 10px 0 0; }
+    .pop_recommend_success .p1th .icon-success {
+      width: 100px;
+      height: 100px;
+      background: url(http://static.yueus.com/taskpredev/static/image/task/success-100x100.png);
+      margin: 0 auto;
+      display: block;
+      border: 1px solid #63cb76; }
+    .pop_recommend_success .p1th .p1 {
+      padding-top: 40px;
+      font-size: 30px;
+      text-align: center;
+      color: #fff; }
+  .pop_recommend_success .p2th .p1 {
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 40px; }
+  .pop_recommend_success .p2th .btn {
+    padding-top: 40px; }
+    .pop_recommend_success .p2th .btn a {
+      width: 150px;
+      height: 42px;
+      line-height: 42px;
+      border-radius: 3px;
+      background: #2882ed;
+      display: block;
+      font-size: 18px;
+      color: #fff;
+      margin: 0 auto;
+      text-align: center; }
+      .pop_recommend_success .p2th .btn a:hover {
+        background: #3e8fef; }
+
+/*# sourceMappingURL=recommend.css.map */

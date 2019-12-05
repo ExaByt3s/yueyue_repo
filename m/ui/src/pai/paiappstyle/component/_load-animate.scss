@@ -1,0 +1,115 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 组件 --按钮
+// --
+
+
+.ui-loading {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 2px 5px;
+    font: 0/0 arial;
+
+    i {
+        display: inline-block;
+        width: 5px;
+        height: 12px;
+        background: #b5b5b5;
+        vertical-align: top;
+
+        @include animation(loading-spin 1s infinite linear);
+
+        &.t2 {
+            margin: 0 3px;
+            @include animation-name(loading-spin-one);
+        }
+        &.t3 {
+            @include animation-name(loading-spin-two);
+        }
+    }
+
+    .white {
+        i {
+            background: #fff
+        }
+    }
+}
+
+@include keyframes('loading-spin') {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+        @include transform(scale(1, 1.2));
+    }
+    60% {
+        opacity: 0;
+        @include transform(scale(1));
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@include keyframes('loading-spin-one') {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+        @include transform(scale(1, 1.2));
+    }
+
+    80% {
+        opacity: 0;
+        @include transform(scale(1));
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@include keyframes('loading-spin-two') {
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 1;
+        @include transform(scale(1, 1.2));
+    }
+
+    100% {
+        opacity: 0;
+        @include transform(scale(1));
+    }
+}
+
+
+.ui-loading-animate {
+    @include animation(loading-rotate  2s linear infinite);
+}
+@include keyframes('loading-rotate') {
+    0% {
+        @include transform(rotate(0deg));
+    }
+
+    50% {
+        @include transform(rotate(180deg));
+    }
+
+    100% {
+        @include transform(rotate(360deg));
+    }
+}

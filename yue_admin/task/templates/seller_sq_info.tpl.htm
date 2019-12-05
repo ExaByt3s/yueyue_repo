@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>添加商家申请</title>
+</head>
+
+<style>
+    img { width:200px ! important;}
+</style>   
+
+<body>
+    
+{global_header_html}
+
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>商家申请详情</legend>
+                <table width="90%" align="center">
+                    <!-- BEGIN info -->
+                            <!-- IF basic_type="person" --> 
+                                    <tr>
+                                       <td width="26%" height="25">用户名</td>
+                                       <td width="74%" height="25">
+                                          {user_id}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">状态</td>
+                                         <td width="74%" height="25">
+                                            {status}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">用户类型</td>
+                                       <td width="74%" height="25">
+                                          {basic_type}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="26%" height="25">操作时间</td>
+                                        <td width="74%" height="25">
+                                          {update_time}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">个人真实名称</td>
+                                         <td width="74%" height="25">
+                                            {person_true_name}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">个人昵称</td>
+                                         <td width="74%" height="25">
+                                            {person_nick}
+                                         </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                         <td width="26%" height="25">个人所在</td>
+                                         <td width="74%" height="25">
+                                            {person_zone_id}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">个人身份证号</td>
+                                         <td width="74%" height="25">
+                                            {person_id_card}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">头像</td>
+                                         <td width="74%" height="25">
+                                             <a href="{brand_img_url}" class="tooltip"  target="_blank"><img  src='{brand_img_url}'/></a>
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">正面</td>
+                                         <td width="74%" height="25">
+                                             <a href="{heads_img_url}" class="tooltip"  target="_blank"><img  src='{heads_img_url}'/></a>
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">反面</td>
+                                         <td width="74%" height="25">
+                                            <a href="{tails_img_url}" class="tooltip"  target="_blank"><img  src='{tails_img_url}'/></a>
+                                         </td>
+                                    </tr>
+                                    
+                            <!-- ELSEIF basic_type="company" --> 
+                                    <tr>
+                                       <td width="26%" height="25">用户名</td>
+                                       <td width="74%" height="25">
+                                          {user_id}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">状态</td>
+                                         <td width="74%" height="25">
+                                            {status}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">用户类型</td>
+                                       <td width="74%" height="25">
+                                          {basic_type}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="26%" height="25">操作时间</td>
+                                        <td width="74%" height="25">
+                                          {update_time}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">企业名称</td>
+                                       <td width="74%" height="25">
+                                          {company_name}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">企业营业执照注册号</td>
+                                       <td width="74%" height="25">
+                                          {company_license_num}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">企业所在地</td>
+                                       <td width="74%" height="25">
+                                          {company_place}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">企业营业执照有效期</td>
+                                       <td width="74%" height="25">
+                                          {company_date_line}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">银行</td>
+                                       <td width="74%" height="25">
+                                          {company_bank_id}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">开户银行所在
+                                       <td width="74%" height="25">
+                                          {company_bank_city_id}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">开户银行名称</td>
+                                       <td width="74%" height="25">
+                                          {company_bank_name}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">公司对公帐户银行卡号</td>
+                                       <td width="74%" height="25">
+                                          {company_card_num}
+                                       </td>
+                                    </tr>
+                                     <tr>
+                                       <td width="26%" height="25">法定代表真实姓名</td>
+                                       <td width="74%" height="25">
+                                          {company_true_name}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">法定代表人的身份证号</td>
+                                       <td width="74%" height="25">
+                                          {company_id_card}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">联系人姓名</td>
+                                       <td width="74%" height="25">
+                                          {company_contact_name}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">联系人手机号码</td>
+                                       <td width="74%" height="25">
+                                          {company_contact_phone}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">品牌名称</td>
+                                       <td width="74%" height="25">
+                                          {company_brand_name}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">企业营业执照图片</td>
+                                       <td width="74%" height="25">
+                                           <a href="{company_license_img_url}" class="tooltip"  target="_blank"><img src='{company_license_img_url}'/></a>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">头像</td>
+                                       <td width="74%" height="25">
+                                           <a href="{brand_img_url}" class="tooltip"  target="_blank"><img src='{brand_img_url}'/></a>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">正面</td>
+                                       <td width="74%" height="25">
+                                           <a href="{heads_img_url}" class="tooltip"  target="_blank"><img src='{heads_img_url}'/></a>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">反面</td>
+                                       <td width="74%" height="25">
+                                           <a href="{tails_img_url}" class="tooltip" target="_blank"><img src='{tails_img_url}'/></a>
+                                       </td>
+                                    </tr>
+                                    
+                            <!-- ENDIF -->
+                           
+                    <!-- END info -->
+               </table>
+           </fieldset>
+        </div>
+      </div>
+    </div>   
+</div>
+</div>
+</body>
+</html>

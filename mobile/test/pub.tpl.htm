@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+    <script type="application/javascript" src="http://static.yueus.com/src/task_mobile/components/zepto/zepto.js"></script>
+ </head>
+
+ <body>
+  <h1>菜单显示</h1>
+ </body>
+</html>
+<script>
+
+$(function()
+{
+    /**
+     * 定义App 触发 js事件
+     * @param key 函数名
+     * @param params 参数 {}
+     * @private
+     */
+    window.$_AppCallJSObj  = $({});
+
+    window._AppCallJSFunc = function(key,params)
+    {
+        var self = this;
+
+        $_AppCallJSObj.trigger(key,params);
+    };
+
+    $_AppCallJSObj.on('__showTopBarMenu',function(event,data)
+    {
+        window.__showTopBarMenuCount = 0;
+        window.__showTopBarMenuCount++;
+
+        if(window.__showTopBarMenuCount%2==0)
+        {
+            alert('菜单显示')
+        }
+        else
+        {
+            alert('菜单关闭')
+        }
+    });
+
+
+});
+
+
+</script>

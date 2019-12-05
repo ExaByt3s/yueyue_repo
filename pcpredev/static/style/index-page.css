@@ -1,0 +1,338 @@
+.index-page .mod-title {
+  font-size: 36px;
+  padding-bottom: 8px;
+  text-align: center;
+  background: url(http://static.yueus.com/pcpredev/static/images/line-100x1.jpg) center bottom no-repeat;
+  margin-bottom: 60px; }
+.index-page .p1th .scrollBox {
+  width: 100%;
+  position: relative;
+  overflow: hidden; }
+.index-page .p1th .scrollBox .img_list li {
+  float: left;
+  display: inline;
+  height: 500px;
+  overflow: hidden;
+  position: relative; }
+.index-page .p1th .scrollBox .img_list .text-wrap {
+  cursor: pointer;
+  width: 500px;
+  position: absolute;
+  left: 50%;
+  margin-top: -120px;
+  top: 50%;
+  margin-left: -250px;
+  text-align: center; }
+.index-page .p1th .scrollBox .img_list li.banner1 {
+  background: url(http://static.yueus.com/pcpredev/static/images/banner/banner1-1920x550.jpg) center top no-repeat; }
+.index-page .p1th .scrollBox .img_list li.banner2 {
+  background: url(http://static.yueus.com/pcpredev/static/images/banner/banner1-1920x550.jpg) center top no-repeat; }
+.index-page .p1th .scrollBox .img_list li.banner3 {
+  background: url(http://static.yueus.com/pcpredev/static/images/banner/banner1-1920x550.jpg) center top no-repeat; }
+.index-page .p1th .scrollBox .page-wrap .page-box {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  margin-left: -25px; }
+.index-page .p1th .scrollBox .page-wrap .page-box a {
+  width: 10px;
+  height: 10px;
+  display: inline;
+  float: left;
+  background: url(http://static.yueus.com/pcpredev/static/images/icon-img-10x10.png) no-repeat center center;
+  margin-right: 10px;
+  text-indent: -9999px; }
+.index-page .p1th .scrollBox .page-wrap .page-box a:hover, .index-page .p1th .scrollBox .page-wrap .page-box a.selected {
+  background: url(http://static.yueus.com/pcpredev/static/images/icon-img-10x10-hover.png) no-repeat center center; }
+.index-page .p1th .scrollBox .text-wrap .btn-item a {
+  width: 124px;
+  height: 42px;
+  display: inline-block;
+  background: url(http://static.yueus.com/pcpredev/static/images/btn-img-124x42.png) no-repeat;
+  margin-top: 50px; }
+.index-page .p1th .scrollBox .nav-wrap {
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff; }
+.index-page .p2th {
+  overflow: hidden;
+  padding-top: 85px; }
+  .index-page .p2th .des {
+    text-align: center;
+    font-size: 20px;
+    line-height: 32px; }
+  .index-page .p2th .list {
+    width: 1080px;
+    margin-top: 30px; }
+    .index-page .p2th .list li {
+      position: relative;
+      float: left;
+      display: inline;
+      margin: 20px 20px 0 0;
+      width: 320px;
+      height: 240px; }
+      .index-page .p2th .list li a {
+        color: #fff; }
+      .index-page .p2th .list li a:hover {
+        color: #fff;
+        text-decoration: none; }
+      .index-page .p2th .list li img {
+        border-radius: 3px;
+        max-width: 320px;
+        max-height: 240px; }
+      .index-page .p2th .list li .fade-box {
+        width: 320px;
+        height: 240px;
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#66000000', endColorstr='#66000000');
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        border-radius: 3px; }
+        .index-page .p2th .list li .fade-box .txt {
+          text-align: center;
+          padding-top: 100px;
+          color: #fff;
+          font-size: 32px; }
+          .index-page .p2th .list li .fade-box .txt .f {
+            font-size: 26px; }
+.index-page .p3th {
+  margin: 75px 0 75px 0;
+  padding: 75px 0 100px 0;
+  width: 100%;
+  background: #f8f8f8; }
+  .index-page .p3th .scrollBox-wrap {
+    overflow: hidden; }
+  .index-page .p3th .scrollBox {
+    width: 1080px; }
+  .index-page .p3th .scrollBox ul li {
+    float: left;
+    width: 240px;
+    overflow: hidden;
+    margin-right: 15px; }
+  .index-page .p3th .scrollBox ul li .img-wrap {
+    width: 240px;
+    float: left;
+    position: relative; }
+  .index-page .p3th .scrollBox ul li .txt-item {
+    width: 100%;
+    height: 100px;
+    background: url(http://static.yueus.com/pcpredev/static/images/line-10x100.png) repeat-x;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+  .index-page .p3th .scrollBox ul li .txt-item p {
+    margin-top: 60px; }
+  .index-page .p3th .scrollBox .item-wrap {
+    width: 240px;
+    overflow: hidden;
+    height: 340px;
+    position: relative; }
+  .index-page .p3th .scrollBox .page-wrap .pre {
+    display: inline;
+    background: url(http://static.yueus.com/pcpredev/static/images/leftbtn-35x70.png) no-repeat;
+    width: 35px;
+    height: 70px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    bottom: 130px; }
+  .index-page .p3th .scrollBox .page-wrap .next {
+    width: 35px;
+    height: 70px;
+    display: inline;
+    background: url(http://static.yueus.com/pcpredev/static/images/rightbtn-35x70.png) no-repeat;
+    overflow: hidden;
+    position: absolute;
+    bottom: 130px;
+    left: 965px; }
+  .index-page .p3th .scrollBox .page-wrap {
+    width: 100%;
+    position: relative; }
+  .index-page .p3th .scrollBox .page-box {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -60px; }
+  .index-page .p3th .scrollBox .page-wrap .page-box a {
+    width: 30px;
+    height: 6px;
+    display: inline;
+    float: left;
+    background: url(http://static.yueus.com/pcpredev/static/images/icon-img-30x6.jpg) no-repeat center center;
+    margin-right: 10px;
+    text-indent: -9999px; }
+  .index-page .p3th .scrollBox .page-wrap .page-box a:hover, .index-page .p3th .scrollBox .page-wrap .page-box a.selected {
+    background: url(http://static.yueus.com/pcpredev/static/images/icon-img-30x6-hover.jpg) no-repeat center center; }
+  .index-page .p3th .img-item img {
+    max-width: 240px;
+    max-height: 340px; }
+.index-page .p4th {
+  overflow: hidden; }
+  .index-page .p4th .item-wrap {
+    width: 1080px; }
+  .index-page .p4th .item {
+    width: 320px;
+    float: left;
+    display: inline;
+    margin-right: 20px; }
+  .index-page .p4th .img-area {
+    width: 320px;
+    height: 225px;
+    position: relative; }
+    .index-page .p4th .img-area .img img {
+      max-width: 320px;
+      max-height: 225px; }
+    .index-page .p4th .img-area .txt {
+      position: absolute;
+      background: url(http://static.yueus.com/pcpredev/static/images/line-10x100.png) repeat-x;
+      height: 100px;
+      width: 100%;
+      bottom: 0;
+      left: 0px;
+      font-size: 16px;
+      color: #fff; }
+      .index-page .p4th .img-area .txt .p1 {
+        padding: 62px 15px 10px 15px; }
+  .index-page .p4th .des-area {
+    border-radius: 0 0 5px 5px;
+    border-left: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    padding: 20px 20px 30px 20px; }
+    .index-page .p4th .des-area .icon-txt {
+      background: url(http://static.yueus.com/pcpredev/static/images/icon-txt-30x24.png);
+      width: 30px;
+      height: 24px; }
+    .index-page .p4th .des-area .des {
+      line-height: 22px;
+      font-size: 14px;
+      margin-top: 10px;
+      height: 110px; }
+    .index-page .p4th .des-area .user-area {
+      margin: 20px 0 0 0; }
+      .index-page .p4th .des-area .user-area .lbox {
+        margin-right: 10px; }
+        .index-page .p4th .des-area .user-area .lbox img {
+          border-radius: 30px;
+          max-width: 50px;
+          max-height: 50px; }
+      .index-page .p4th .des-area .user-area .rbox h4 {
+        font-size: 14px;
+        padding-top: 5px; }
+      .index-page .p4th .des-area .user-area .rbox .start {
+        padding-top: 5px; }
+.index-page .p5th {
+  background: #f8f8f8;
+  padding: 80px 0;
+  width: 100%;
+  margin-top: 80px; }
+  .index-page .p5th .wbox {
+    padding: 20px 0 0 335px; }
+  .index-page .p5th .lbox {
+    margin-right: 15px; }
+    .index-page .p5th .lbox img {
+      padding: 6px;
+      border: 1px solid #cccccc;
+      border-radius: 5px; }
+  .index-page .p5th .rbox a:hover {
+    text-decoration: none; }
+  .index-page .p5th .rbox .list li {
+    line-height: 10px;
+    width: 190px;
+    height: 60px;
+    background: #333333;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #fff; }
+    .index-page .p5th .rbox .list li:hover {
+      background: #666666; }
+    .index-page .p5th .rbox .list li .icon-mod {
+      width: 28px;
+      height: 32px;
+      float: left;
+      margin: 15px 0 0 22px; }
+    .index-page .p5th .rbox .list li .icon-iphone {
+      background: url(http://static.yueus.com/pcpredev/static/images/icon-iphone-28x32.png); }
+    .index-page .p5th .rbox .list li .icon-Android {
+      background: url(http://static.yueus.com/pcpredev/static/images/icon-ad-28x32.png); }
+    .index-page .p5th .rbox .list li .txt {
+      margin: 7px 0 0 18px;
+      float: left;
+      display: inline; }
+.index-page .p6th {
+  margin-top: 80px; }
+  .index-page .p6th .list {
+    padding: 30px 0 0 215px; }
+    .index-page .p6th .list li {
+      float: left;
+      width: 160px;
+      text-align: center;
+      margin-left: 85px; }
+      .index-page .p6th .list li .txt {
+        padding-top: 10px;
+        font-size: 14px; }
+      .index-page .p6th .list li img {
+        padding: 6px;
+        border: 1px solid #cccccc;
+        border-radius: 5px; }
+  .index-page .p6th .tel {
+    text-align: center;
+    font-size: 24px;
+    margin: 70px 0 70px 0; }
+
+.pop-info-index {
+  background: url(http://static.yueus.com/pcpredev/static/images/img-bg-720x426_03.png) no-repeat;
+  width: 720px;
+  height: 426px;
+  position: fixed;
+  _position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -213px;
+  margin-left: -360px;
+  z-index: 9999; }
+  .pop-info-index .close {
+    width: 16px;
+    height: 16px;
+    background: url(http://static.yueus.com/pcpredev/static/images/btn-close-16x16_03.jpg) no-repeat;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px; }
+  .pop-info-index a.close:hover {
+    background: url(http://static.yueus.com/pcpredev/static/images/btn-close-16x16-hover.jpg) no-repeat; }
+  .pop-info-index .pop-con .lc-con {
+    text-align: center;
+    padding: 61px 0px 29px 0px; }
+  .pop-info-index .pop-con .txt-con {
+    padding-left: 30px; }
+  .pop-info-index .pop-con .txt-con ul li {
+    width: 200px;
+    float: left;
+    margin-right: 30px; }
+  .pop-info-index .pop-con .txt-con ul li .txt {
+    text-align: center;
+    color: #000;
+    height: 120px; }
+  .pop-info-index .pop-con .txt-con ul li .txt p {
+    line-height: 23px; }
+  .pop-info-index .pop-con .txt-con ul li .txt p.title {
+    font-size: 16px;
+    color: #4092f1;
+    padding-bottom: 20px; }
+  .pop-info-index .pop-con .txt-con ul li .img {
+    padding: 0px 0 20px 0; }
+  .pop-info-index .pop-con .txt-con .more-con {
+    text-align: center; }
+  .pop-info-index .pop-con .txt-con .more-con a.more {
+    color: #4092f1; }
+
+/*# sourceMappingURL=index-page.css.map */

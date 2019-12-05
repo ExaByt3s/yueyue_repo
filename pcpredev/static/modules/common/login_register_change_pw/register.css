@@ -1,0 +1,28 @@
+.register-page {
+  width: 280px;
+  margin: 0 auto; }
+  .register-page .checkbox-box {
+    padding: 20px 0; }
+  .register-page .ui-input {
+    width: 248px; }
+  .register-page .item .yzm {
+    width: 120px; }
+  .register-page .btn-tel {
+    cursor: pointer;
+    background: #4092f1;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 4px;
+    line-height: 52px;
+    padding: 0 10px;
+    width: 100px;
+    text-align: center; }
+    .register-page .btn-tel:hover {
+      background: #66a8f4; }
+  .register-page .stop {
+    background: #dddddd; }
+    .register-page .stop:hover {
+      background: #dddddd; }
+  .register-page .ui-button {
+    text-align: center;
+    line-height: 50px; }

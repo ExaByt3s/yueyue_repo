@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://css-tricks.com/examples/LazyLoading/ -->
+<html lang="en">
+<head>
+    <title>Lazy Loading</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <script src="../lib/lib.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="node_here">
+    <input id='#jjj' valid-index='1' valid-rule='nb1-6' valid-emptyAlert valid-errorAlert='请输入数字1~6位' placeholder="数字1~6位" />
+    <input valid-index='2' valid-rule='zh1-8' valid-emptyAlert valid-errorAlert='请输入中文1~8位' placeholder="中文1~8字"/>
+    <input valid-index='3' valid-rule='en1-2' valid-emptyAlert valid-errorAlert placeholder="英文1~2位"/>
+    <input valid-index='4' valid-rule='**1-5' valid-emptyAlert valid-errorAlert placeholder="任意字符1~5位"/>
+    <input valid-index='5' valid-rule='pw1-6' valid-emptyAlert valid-errorAlert placeholder="密码1~6位"/>
+    <input valid-index='6' valid-rule='ph1-13' valid-emptyAlert valid-errorAlert placeholder="电话号码1~13位"/>
+    <input valid-index='7' valid-rule='ma1-8' valid-emptyAlert valid-errorAlert placeholder="邮箱包括 @ ."/>
+</div>
+<div id='button'>点击</div>
+<script>
+    var $ = require('zepto');
+
+    $(function()
+    {   //引用模块
+        var VA = require('../modules/yue_ui/valid/index');
+
+        //快速匹配
+        var simple = new VA();
+        console.log(simple.txs(15,'nb1-6'));
+
+        //传入父元素节点
+        var te = new VA($('#node_here'));
+        //绑定事件(可选)
+        te.pushfunctions
+        ([
+            {
+                index:'1',
+                //ValidEmpty : function(){alert('empty1')},
+                //ValidClick : function(){console.log('click1')},
+                //ValidBlur : function(){console.log('blur1')},
+                ValidError : function(){alert('111????')}
+            },
+            {
+                index:'2'
+                //ValidEmpty : function(){alert('empty2')},
+                //ValidClick : function(){console.log('click2')},
+                //ValidBlur : function(){console.log('blur2')},
+            }
+        ]);
+
+        $('#button').on('click',function()
+        {
+            //获得结果
+            var a = te.checkValid();
+            console.log(a);
+        })
+    }) 
+
+</script>
+</body>
+</html>

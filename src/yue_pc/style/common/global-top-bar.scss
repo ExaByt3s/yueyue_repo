@@ -1,0 +1,153 @@
+
+// 仅仅为登陆注册的头部
+.global-top-bar{
+    // position: absolute;
+    z-index: 9;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background: #222222;
+    // filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#66000000', endColorstr='#66000000');background:rgba(0,0,0,0.4);
+    height: 60px;
+    .lbox{
+        padding-top: 6px;
+        .logo-icon{
+            background: url('http://static-c.yueus.com/mall/user/static/pc/images/logo-120x48_e58994c.png') no-repeat;
+            width: 152px;
+            height: 48px;
+            display: block;
+        }
+    }
+    
+    .rbox{
+        font-size: 14px;
+        .role{
+            margin-top: 13px;
+            margin-right: 10px;
+            li{
+                float: left;
+                display: inline;
+                margin-right: 20px;
+                a{
+                    display: inline-block;
+                    width: 100px;
+                    height: 34px;
+                    color: #fff;
+                    line-height: 34px;
+                    border-radius: 30px;
+                    text-align: center;
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+                .seller{
+                    background: #fff;
+                    color: #343539;
+                    &:hover{
+                        background: #aaaaaa;
+                    }
+                }
+                .btn-pub{
+                    .icon-pub{
+                        width: 20px;
+                        height: 20px;
+                        background: url(../../images/icon-pub-20x20.png);
+                        display: inline-block;
+                        vertical-align: -5px;
+                        margin-right: 5px;
+                    }
+                    background: #4092f1;
+                    &:hover{
+                        background: #66a8f4;
+                    }
+                }
+
+
+            }
+        }
+        .login{
+            padding: 20px 0 0 0 ;
+            color: #fff;
+            a{
+                color: #fff;
+            }
+            .line{
+                padding: 0px 10px;
+            }
+        }
+    }
+    
+}
+
+
+// 手机端头部处理
+@media screen and (min-width: 320px) and (max-width: 480px)
+{
+    .global-top-bar{
+        .top-bar{
+            width : auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .lbox{
+            padding-top: 4px;
+            .logo-icon{
+                width : 78px;
+                height : 20px;
+                background-size: cover ;
+                margin-top: 16px;
+            }
+        }
+        .rbox{
+            font-size: 10px;
+            margin-top: 3px;
+            .role{
+                margin-top: 18px;
+                li{
+                    margin-right: 5px;
+                    a{
+                        width: 70px;
+                        height: 20px;
+                        line-height: 20px;
+                        font-size: 10px;
+                    }
+                }
+            }
+
+            .login{
+                padding-top: 22px;
+                .line{
+                    padding: 0px 3px;
+                }
+            } 
+            
+        }
+
+    }
+
+    body{
+        .footer{
+            height:35px;
+            .about{
+                width : auto;
+                padding-top: 10px;
+                font-size: 10px;
+            }
+        }
+    }
+
+
+
+    
+}
+
+
+
+//  通用样式，不能修改
+.global-top-bar-opacity{
+    position:  fixed;
+    background: #000;
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#66000000', endColorstr='#66000000');background:rgba(0,0,0,0.4);
+
+}
+

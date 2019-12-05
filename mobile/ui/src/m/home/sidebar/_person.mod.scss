@@ -1,0 +1,150 @@
+// 个人信息模块
+.person-info-mod {
+    padding: 20px 0 16px;
+
+    .intro-item{
+        padding: 0 20px;
+
+        .my-avatar{
+            @include float-left;
+            width: 50px;
+            height: 50px;
+            _margin-right: -3px;
+            
+            img{
+                max-width: 50px;
+                max-height: 50px;
+                _width: 50px;
+            }
+        }
+        .name-info {
+            margin-left: 65px;
+            _margin-left: 62px;
+            line-height: 24px;
+
+            a {
+                padding-right: 10px;
+                font-size: 14px;
+                color: $color-3fa;
+            }
+            .edit{
+                font-size: 12px;
+                color: $color-999; 
+            }
+        }
+    }
+
+    .property-item{
+        border-bottom: 1px solid $color-efe; 
+        padding: 17px 20px 20px;
+        
+        li { 
+            @include float-left; 
+            
+            border-right: 1px solid $color-efe;
+            margin-right: 16px;
+            padding-right: 15px;
+            width: 50px;
+            height: 40px;
+            line-height: 20px;
+
+            &.last{
+                border-right: 0;
+                margin-right: 0;
+                padding-right: 0;
+            }
+        }
+
+        a {
+            display: block;
+            color: $color-3fa;
+
+            strong{
+                font-size: 18px;
+                font-family: Arial;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .achievement-item {
+        padding: 15px 20px 0;
+
+        .item-mod {
+            max-height: 22px;
+            _height: 22px;
+            overflow: hidden;
+
+            @include transition(max-height .3s ease);
+        }
+
+        .title{
+            line-height: 22px;
+        }
+
+        .expand-button {
+            position: relative;
+            @include inline-block(false);
+            padding-right: 10px;
+        }
+        .angle {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            display: block;
+
+            border-width: 4px 4px 0 4px;
+            border-style: solid;
+            border-color: $color-999 transparent transparent transparent;
+            _border-color: $color-999 #FFF #FFF #FFF;
+            _filter: chroma(color=white);
+            margin: 0 0 0 5px;
+
+            width: 0;
+            height: 0;
+            font-size: 0;
+            line-height: 0;
+
+            @include transition(transform .2s ease-in);
+        }
+
+        .help-link {
+            @include float-right;
+            color: $color-999;
+        }
+
+        .list{
+            padding: 2px 10px;
+            &, a {
+                color: $color-999;
+            }
+
+            li {
+                padding: 2px 0;
+            }
+        }
+        .medal-list {
+             li {
+                @include float-left;
+                margin-right: 10px;
+             }
+        }
+        .medal-icon {
+            vertical-align: middle;
+            margin-right: 2px;
+        }
+
+        .item-mod-active {
+            max-height: 500px;
+            _height: auto;
+
+            .angle {
+                border-width: 0 4px 4px 4px\9;
+                border-color: transparent transparent $color-999 transparent\9;
+                _border-color: #FFF #FFF $color-999 #FFF;
+                _filter:chroma(color=white);
+                @include transform(rotate(180deg));
+            }
+        }
+    }
+}

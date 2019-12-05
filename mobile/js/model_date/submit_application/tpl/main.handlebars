@@ -1,0 +1,280 @@
+<main role="main" class="submit_application wryh">
+    <!-- <header class="page-header wryh">
+                <div class="page-back" data-role="page-back" ><i class="icon icon-back-40x40"></i></div>
+                <div class="page-back" data-role="page-back"><i class="icon icon-add-06"></i></div>
+                提交约拍申请
+    </header> -->
+
+    <header class="nav-header mine-nav-header">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title">提交约拍申请</h3>
+        
+        <div class="right-button-wrap">
+            <a><i class="icon icon-cog"></i></a>
+        </div>
+    </header>
+    
+    <div class="content-body">
+            <div class="procedure-1" data-role="container">
+                <div>
+                <!-- 头部模块 start  -->
+                <div class="procedure-header-mod">
+                    <ul class="step">
+                        <li class="current">提交约拍申请</li>
+                        <li>模特接受约拍</li>
+                        <li>拍摄/完成</li>
+                    </ul>
+                    <ul class="num">
+                        <li class="common  current">
+                            <i class="num-icon">1</i>
+                            <div class="line-grey"></div>
+                            <div class="line-red"></div>
+                        </li>
+                        <li class="common ">
+                            <i class="num-icon">2</i>
+                            <div class="line-grey"></div>
+                            <div class="line-red"></div>
+                        </li>
+                        <li class="common ">
+                            <i class="num-icon">3</i>
+                            <div class="line-grey"></div>
+                            <div class="line-red"></div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 头部模块 end  -->
+                <div class="line exp {{#if model_selected_info.is_discount}}fn-hide{{/if}} fn-hide">
+                    <div class="notice">单价</div>
+                    <div class="data_input">
+                        <div class="side_border"></div>
+                        <div class="inside">
+                            <div class="inside_input">
+                                <div class="pre-price" data-role="pre-price">12</div>
+                                <div class="details fn-hide" data-role="pre-price" data-input-name="pre-price"></div>
+                                <div class="inside_arrow exp" style="width: 100px;">元/小时</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="line exp {{#if model_selected_info.is_discount}}fn-hide{{/if}} fn-hide">
+                    <div class="notice">时长</div>
+                    <div class="data_input">
+                        <div class="side_border"></div>
+                        <div class="inside exp">
+                            <div class="inside_input" data-role="begin-time">
+                                <div class="details" data-role="number-btn-container-for-time" data-input-name="time"></div>
+                                <div class="inside_arrow">
+                                    小时
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="line exp mt fn-hide">
+                    <div class="notice">总价</div>
+                    <div class="data_input">
+                        <div class="side_border"></div>
+                        <div class="inside">
+                            <div class="inside_input">
+                                <div class="total-price" data-role="total-price"></div>
+                                <div class="details fn-hide"  data-input-name="total-price"></div>
+                                <div class="inside_arrow exp">元</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="line exp mt">
+                    <div class="notice">价格</div>
+                    <div class="data_input">
+                        <div class="side_border"></div>
+                        <div class="inside">
+                            <div class="inside_input">
+                                <div class="show_detail">
+                                    <div class="show" data-role="detail_price">{{model_selected_info.combo_text}}</div>
+                                    <!--div class="show exp">{{model_selected_info.continue_text}}</div-->
+                                </div>
+                            <!--div class="total-price" data-role="total-price-v2"></div>
+                            <div class="details"  data-input-name="total-price">{{model_selected_info.continue_text}}</div-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-area fn-hide">
+
+                    <div class="choosen">
+                        <div class="notice">风格</div>
+                        <div class="style" data-role="choosen_style_group">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="line mt b fn-hide" data-role="btn-more-sec">
+                    <div class="notice">选填项</div>
+                    <div class="data_input">
+                        <div class="inside" >
+                            <div class="inside_input" >
+                                <div class="details"></div>
+
+                            </div>
+                            <div class="inside_arrow" >
+                                <i class="icon icon-allow exp"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="op">
+                    <div class="content-empty fn-hide" data-role="content-empty"></div>
+                    <div class="content-box" data-role="content-box">
+                        <div class="item item-two select-row-container fn-hide">
+                            <div class="item item-two select-row-container">
+                                <div class="lbox lbox-two ltime">时间：</div>
+                                <div class="select-container">
+                                    <div class="cvox" data-role="select-container-for-year" data-input-name="year">
+                                    </div>
+                                    <label>年</label>
+                                </div>
+                                <div class="select-container">
+                                    <div class="cvox" data-role="select-container-for-month" data-input-name="month">
+                                    </div>
+                                    <label>月</label>
+                                </div>
+                                <div class="select-container">
+                                    <div class="cvox" data-role="select-container-for-day" data-input-name="day">
+                                    </div>
+                                    <label>日</label>
+                                </div>
+                                <div class="select-container">
+                                    <div class="cvox" data-role="select-container-for-hour" data-input-name="hour">
+                                    </div>
+                                    <label>时</label>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="line mt">
+                            <div class="notice">时间</div>
+                            <div class="data_input">
+                                <div class="side_border exp"></div>
+                                <div class="inside b" data-role="time">
+                                    <div class="inside_input">
+                                        <div class="details" data-role="time_str"><span class="notice-span" data-role="notice-span">请选择到场拍摄时间</span></div>
+
+                                    </div>
+                                    <div class="inside_arrow">
+                                        <i class="icon icon-allow mt {{#if model_selected_info.disable_time}}fn-hide{{/if}}"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="line">
+                            <div class="notice">地址</div>
+                            <div class="data_input">
+                                <div class="side_border exp"></div>
+                                <div class="inside b" data-role="address">
+                                    <div class="inside_input" >
+                                        <div class="details" data-role="address_str">
+
+                                        </div>
+
+                                    </div>
+                                    <div class="inside_arrow">
+                                        <i class="icon icon-allow mt {{#if model_selected_info.disable_address}}fn-hide{{/if}}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line b">
+                            <div class="notice"></div>
+                            <div class="data_input">
+                                <div class="side_border exp"></div>
+                                <div class="inside">
+                                    <div class="inside_input">
+                                        <div class="details">
+                                            <input {{#if model_selected_info.disable_detail_address}}readonly{{/if}} value="{{#if model_selected_info.detail_address}}{{model_selected_info.detail_address}}{{/if}}"  class="inh" type="text" data-role="detail-location" data-input-name="detail-location" placeholder="请输入详细地址"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line exp b k mt">
+                            <div class="notice">几人去拍</div>
+                            <div class="data_input">
+                                <div class="side_border"></div>
+                                <div class="inside exp k">
+                                    <div class="inside_input exp" data-role="limit_num">
+                                        <div class="details" data-role="number-btn-container-for-limit_num" data-input-name="limit_num"></div>
+                                        <div class="inside_arrow"></div>
+
+                                    </div>
+                                    <p class="exp_notice">模特限定了每次拍摄人数不得超过{{#if model_selected_info.limit_num}}{{model_selected_info.limit_num}}{{else}}{{limit_num}}{{/if}}人</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="line inh fn-hide">
+                            <div class="notice">类型</div>
+                            <div class="data_input">
+                                <div class="side_border axp"></div>
+                                <div class="inside">
+                                    <div class="inside_input">
+                                        <div class="details" data-role="choosen_type_group">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item item-two select-row-container fn-hide">
+                            <div class="lbox lbox-two ltime">地点</div>
+                            <div class="select-container">
+                                <div class="cvox" data-role="select-container-for-province" data-input-name="province">
+                                </div>
+                                <div class="cvox" data-role="select-container-for-city" data-input-name="city">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item item-three fn-hide">
+                            <div class="lbox lbox-two">&nbsp;</div>
+                            <div class="cvox">
+                                <input type="text"  placeholder="请填写拍摄地点 ">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="empty"></div>
+                <!--  -->
+                </div>
+            </div>
+            <div class="submit-application-page-footer">
+                <div class="btn_container">
+                    <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large" data-role="submit-application-btn">
+                        <span class="ui-button-content">提交</span>
+                    </button>
+                    <!--button  class="ui-button ui-button-primary ui-button-size-middle ui-button-block ">
+                        <span class="ui-button-content"></span>
+                    </button-->
+                </div>
+                <!-- <div class="btn" data-role="submit-application-btn" >提交</div> -->
+            </div>
+
+
+    </div>
+
+
+</main>

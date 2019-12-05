@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="gb2312">
+<title>POCO约拍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no, email=no">
+<link href="./css/test.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src='./js/jquery.js'></script>
+</head>
+<body>
+<style type="text/css">
+body{
+    padding: 20px;
+}
+*{
+    padding: 0px;
+    margin: 0px
+}
+
+
+</style>
+
+
+<script type="text/javascript">
+    var img = new Image();
+    img.src = 'http://yp.yueus.com/mobile/test/images/1.jpg?'+new Date().getTime();
+
+    img.onload = function  () 
+    {
+        console.log(890);
+        console.log(img.height)
+    }
+
+    console.log(5);
+    console.log(6);
+    console.log(7);
+    console.log(8);
+    console.log(9);
+    console.log(10);
+    console.log(img.height)
+
+
+$(document).ready(function() {
+    $('body').append(img);
+    console.log(img.height)
+});
+
+</script>
+
+
+</body>
+</html>
+
+
+

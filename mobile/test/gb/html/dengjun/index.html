@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<title></title>
+<link rel="stylesheet" type="text/css" href="http://misc.360buyimg.com/lib/skin/2013/base.css" media="all">
+<script type="text/javascript" src="http://misc.360buyimg.com/jdf/lib/jquery-1.6.4.js"></script>
+<script type="text/javascript" src="http://misc.360buyimg.com/jdf/1.0.0/unit/base/1.0.0/base.js"></script>
+
+</head>
+<body>
+
+<style type="text/css">
+	.md{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:#fff;color: #333;font-size:14px;line-height:1.8; margin:0 auto;width: 990px;}
+	.md h1,.md h2,.md h3,.md h4,.md h5,.md h6{margin-top:20px;margin-bottom:10px;}
+	.md h1,.md h1{font-size:32px;}
+	.md h2{font-size:22px;}
+	.md h3{font-size:18px;}
+	.md h4{font-size:16px;}
+	.md h5{font-size:14px;}
+	.md h6{font-size:12px;}
+
+	/* pre code */
+	.md code, 
+	.md pre, 
+	.md tt{font-family:Monaco, Consolas, "Lucida Console", monospace;font-size:0.857em;}
+	.md p code,
+	.md li code,
+	.md pre{background-color: #f9f9f9;border: 1px solid #e1e1e8;margin:1em 0;overflow:auto;padding:9px 14px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
+	.md pre pre{border:none;}
+	.md pre code{border:none; }
+	.md p code,
+	.md li code{margin:1em 0;padding:1px 4px;}
+
+	/* md */
+	/*.md{float:left;width:900px;}*/
+	.md ul{padding-left:2em;}
+	.md ul li{list-style-type:disc;}
+	.md ul ul{padding-left:2em;}
+	.md h2{border-bottom:1px solid #eee;}
+
+	.md table{margin:15px 0; border-collapse: collapse;border-spacing: 0;}
+	.md table th,
+	.md table td{border: 1px solid #ddd;padding: 3px 6px;}
+	.md table tr:nth-child(2n){background-color:#f9f9f9;}
+</style>
+
+<div class="dev md">
+	<h1>jdf 快速入�?</h1>
+	<p>2014-12-12</p>
+	<h2>安装使用</h2>
+
+	<p>jdf命令行工具是jdf前端集成解决方案的工具集，基于node.js和npm，jdf前需要先安装<a href="http://nodejs.org/download/">node.js</a>，然后通过npm命令安装jdf</p>
+
+	<pre><code>npm install jdf -g</code></pre>
+
+	<p>安装测试，执行如下命令，如果出现版本号则说明你已安装成功</p>
+
+	<pre><code>jdf -v</code></pre>
+
+	<p>更新jdf</p>
+
+	<pre><code>npm update jdf -g</code></pre>
+
+	<h2>新建项目目录</h2>
+
+	<p>在本机svn目录，主干上新建项目，比如product下项目test，即svn目录�?/product/test<br>注：product为大项目名，test为测试项�?</p>
+
+	<h2>初始化项�?</h2>
+
+	<p>从命令行下进入test文件夹，在命令行执行如下命令，生成标准化的项目文件夹</p>
+
+	<pre><code>jdf install init</code></pre>
+
+	<p>test文件中里包括css、html、js、widget、config.json，其中config.json为配置文件，所有配置都需要修改此文件</p>
+
+	<p>�?1：json文件不允许有注释，单双引号使用时也需要统一<br>�?2：windows7下在当前文件夹打开命令行的方法：Shift+鼠标右键，选择"在此处打开命令窗口"<br>�?3：windows下CMD路径常用操作如下</p>
+
+	<pre><code>C:\Documents and Settings\Administrator&gt;d: //C盘进入D�?
+	C:\Documents and Settings\Administrator&gt;cd xxx //进行C盘xxx目录
+	C:\Documents and Settings\Administrator\xxx&gt;cd .. //返回上一层目�?</code></pre>
+
+	<h2>项目开�?</h2>
+
+	<p>在html，js，css等文件夹中新建相应文�?<br>在widget文件夹新建抽离规划好的widget模块<br>在当前项目中，新建widget的命令为<code>jdf widget -create xxx</code></p>
+
+	<h2>本地预览调试</h2>
+
+	<p>可以通过<code>jdf build</code> 在浏览器中查看构建后的当前工程，包括less，sass编译，widget编译�?</p>
+
+	<pre><code>jdf build</code></pre>
+
+	<p>注意</p>
+
+	<ul>
+	<li>本地服务器默认启�?80端口，如果此端口被占用，工具会自动启�?1080端口，也可以通过<code>config.json</code>�?<code>localServerPort</code>指定新端�?</li>
+	<li>命令执行后工具本地服务器会一直运行，可以使用<code>ctrl+c</code>命令退出本地server</li>
+	<li>如果发现本地服务器在浏览器输出的文件夹和本地项目不一致，可通过<code>jdf clean</code>，清除服务器后台缓存，强制同步一�?</li>
+	</ul>
+
+	<p>本地调试服务器启动成功后，可能通过<code>jdf build -open</code>命令自动打开浏览器，也可以复�?<code><a href="http://localhost/">http://localhost/</a></code>在浏览上打开，同时后台内置了监听文件夹功能，如果在IDE里修改、新增、删除任何文�?/文件夹，均会同步至后台，浏览器里访问总是最新的代码</p>
+
+	<p>在浏览器中查看release后的工程，包括所有widget中js，css合并后效果，可以执行命令如下</p>
+
+	<pre><code>jdf release</code></pre>
+
+	<h2>项目输出</h2>
+
+	<p><code>jdf output</code>输出项目文件夹，包括压缩合并后的css，js，images，静态资源加cdn前缀，同时压缩所有png图片<br><code>jdf output js/test.js，css</code> 自定义输出自己需要的文件或文件夹</p>
+
+	<h2>项目联调和发�?</h2>
+
+	<p><code>jdf upload</code> 发布至远�?145机器，主要包括css/js/widget，供产品，设计师查看效果，以及后端工程师联调<br><code>jdf upload -preview</code> 输出html，并上传�?<a href="http://page.jd.com�?">http://page.jd.com�?</a></p>
+
+	<h2>项目备份</h2>
+
+	<p><code>jdf output -backup</code> 备份app目录至tags文件夹，供和已线上版本对�?</p>
+	<h2>更多</h2>
+	<p>
+		<a href="https://github.com/putaoshu/jdf/blob/master/doc/a_tool_develop.md">请参�?</a>
+	</p>
+</div>
+
+<br>
+<br>
+
+</body>
+</html>

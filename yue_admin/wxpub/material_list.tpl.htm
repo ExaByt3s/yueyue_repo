@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<!-- BEGIN JS_FILES -->
+<script type="text/javascript" src="{js_link}?{top._dev}"></script>
+<!-- END JS_FILES -->
+<!-- BEGIN STYLE_FILES -->
+<link rel="stylesheet" type="text/css" href="{css_link}?{top._dev}">
+<!-- END STYLE_FILES -->
+<script src="../js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" language="javascript" src="../js/jquery.min.js"></script>
+<title>图文列表 Powered by hai - Powered by hai</title>
+</head>
+<body>
+<div class="mainbox">
+<div id="nav" class="mainnav_title">
+    <ul>
+        <a href="./material.php" class="on" target="mcfrm">素材列表</a>|
+        <a href="./material.php?act=manually_sync" target="mcfrm">同步素材</a>|
+    </ul>
+</div>
+<iframe id="mcfrm" name="mcfrm" frameborder="0" width="0" height="0" src="" style="display:none;"></iframe>
+<table class="search_table" width="100%">
+    <tbody>
+        <tr>
+            <td class="search">
+                <form action="material.php" method="get">
+                    素材类型：
+                    <select id="type" width='140' name="type">
+                        <option value="" >请选择</option>
+                        {options:type_enum,type}
+                    </select>
+                    <input type="submit" class="button" value="查询">
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<form name="list_form" id="list_form" action="material.php" method="post">
+    <div class="table-list">
+        <table width="100%" cellspacing="0">
+            <thead>
+            <tr>
+                <th width="314">资源ID</th>
+                <th width="350">标题</th>
+                <th width="">摘要</th>
+                <th width="40">类型</th>
+                <th width="35">预览</th>
+                <th width="60">更新时间</th>
+                <th width="60">添加时间</th>
+                <!-- 
+                <th width="24">操作</th>
+                -->
+            </tr>
+            </thead>
+            <tbody>
+                <!-- IF material_list -->
+                <!-- BEGIN material_list -->
+                <tr>
+                <td align="left">{media_id}</td>
+                <td align="left">
+                    <!-- IF title_list -->
+                        <!-- BEGIN title_list -->
+                        <span style = "display:block">{title}</span>
+                        <!-- END title_list -->
+                    <!-- ELSE -->
+                        {title}
+                    <!-- ENDIF -->
+                </td>
+                <td>
+                    <!-- IF digest_list -->
+                        <!-- BEGIN digest_list -->
+                        <span style = "display:block">{digest}</span>
+                        <!-- END digest_list -->
+                    <!-- ELSE -->
+                        {digest}
+                    <!-- ENDIF -->
+                </td>
+                <td align = "center" >{type_show}</td>
+                <td align = "center" >
+                    <!-- IF url_list -->
+                        <!-- BEGIN url_list -->
+                        <a style = "display:block" href="{url}" target="_blank">预览</a>
+                        <!-- END url_list -->
+                    <!-- ELSE -->
+                        <a style = "display:block" href="{url}" target="_blank">预览</a>
+                    <!-- ENDIF -->
+                </td>
+                <td align = "center" >{update_time_str}</td>
+                <td align = "center" >{add_time_str}</td>
+                <!-- 
+                <td align = "center" >
+                    <a href="./material.php?act=del&news_id={material_id}" target="mcfrm">删除</a>
+                </td>
+                -->
+                </tr>
+                <!-- END material_list -->
+                <!-- ELSE -->
+                暂无数据
+                <!-- ENDIF -->
+            </tbody>
+        </table>
+    </div>
+</form>
+<div id="pages" class="page">
+{page_select}
+</div>
+</div>
+</body>
+</html>

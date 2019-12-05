@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "ui-notice_2753a62.css",
+    "sources": [
+        "/style/widget/ui-notice.scss"
+    ],
+    "sourcesContent": [
+        "@charset \"utf-8\";\r\n/**\r\n * 出错页面\r\n */\r\n.ui-notice{\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tz-index: 999;\r\n\tdisplay: -webkit-box;\r\n\t-webkit-box-orient: vertical;\r\n\t-webkit-box-pack: center;\r\n\t-webkit-box-align: center;\r\n\tposition: absolute;\r\n\ttext-align: center;\r\n}\r\n.ui-notice i{\r\n\tdisplay: block;\r\n\t-webkit-background-size: 100px 100px;\r\n\twidth: 100px;\r\n\theight: 100px;\r\n\tmargin-bottom: 20px;\r\n\tbackground-image: url(http://i.gtimg.cn/vipstyle/frozenui/1.2.0/img/icon_warn.png?_bid=306);\r\n}\r\n.ui-notice-news i{\r\n\tbackground-image: url(http://i.gtimg.cn/vipstyle/frozenui/1.2.0/img/icon_warn_news.png?_bid=306);\r\n}\r\n.ui-notice-nearby i{\r\n\tbackground-image: url(http://i.gtimg.cn/vipstyle/frozenui/1.2.0/img/icon_warn_nearby.png?_bid=306);\r\n}\r\n\r\n.ui-notice p{\r\n\tfont-size: 16px;\r\n\tline-height: 20px;\r\n\tcolor:#a6a6a6;\r\n\ttext-align: center;\r\n\tpadding: 0 15px;\r\n}\r\n.ui-notice-warn{\r\n    width: 100%;\r\n    height: 150px;\r\n    z-index: 999;\r\n    display: -webkit-box;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-align: center;\r\n    text-align: center;\r\n\tcolor: #a6a6a6;\r\n}\r\n.ui-notice-warn i{\r\n\tmargin-bottom: 10px;\r\n}\r\n.ui-notice-btn { width: 100%; -webkit-box-sizing:border-box; padding:50px 15px;}\r\n.ui-notice-btn button {margin: 10px 0px;}\r\n"
+    ],
+    "mappings": "AAIA,AACC,AAAO,AACP,AAAQ,AACR,AAAS,AACT,AAAS,AACT,AAAoB,AACpB,AAAkB,AAClB,AAAmB,AACnB,AAAU,AACV,AAAY,AAEb,AAAW,AACV,AAAS,AACT,AAAyB,AACzB,AAAO,AACP,AAAQ,AACR,AAAe,AACf,AAAkB,AAEnB,AAAgB,AACf,AAAkB,AAEnB,AAAkB,AACjB,AAAkB,AAGnB,AAAW,AACV,AAAW,AACX,AAAa,AACb,AAAM,AACN,AAAY,AACZ,AAAS,AAEV,AACI,AAAO,AACP,AAAQ,AACR,AAAS,AACT,AAAS,AACT,AAAoB,AACpB,AAAkB,AAClB,AAAmB,AACnB,AAAY,AACf,AAAO,AAER,AAAgB,AACf,AAAe,AAEhB,AAAiB,AAAO,AAAM,AAAmB,AAAa,AAAQ,AACtE,AAAe,AAAQ,AAAQ",
+    "names": []
+}

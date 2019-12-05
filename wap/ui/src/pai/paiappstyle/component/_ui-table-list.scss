@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+// ------------------------------
+
+// ------------------------------
+
+
+.ui-table-list {
+    position: relative;
+    background: #fff;
+
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        border-top: 1px solid #e6e6e6;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
+    &:before {
+        top: 0;
+    }
+    &:after {
+        top: auto;
+        bottom: 0;
+    }
+
+    & > li {
+        position: relative;
+        padding: 0 20px;
+        line-height: 45px;
+        @include image-border-m(bottom);
+        @include flexbox((
+            display: box
+        ), $version: 1);
+
+        &:before {
+            content: '';
+            position: absolute;
+            //border-top: 1px solid #e6e6e6;
+            //@include image-border-m(top);
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+
+        &:first-child {
+            &:before {
+                border-top: none;
+            }
+        }
+
+        & > label {
+            vertical-align: top;
+            color: #aaa;
+        }
+        & > div {
+            @include flexbox((
+                box-flex: 1
+            ), $version: 1);
+        }
+        input[type=text], textarea {
+            margin: 0;
+            padding: 0;
+            border: 0 none;
+            width: 100%;
+            display: inline-block;
+        }
+        textarea {
+            margin-top: 14px;
+            height: 90px;
+            @include box-sizing(border-box);
+        }
+        .right-text{
+            color: #aaaaaa;
+        }
+
+        &:nth-last-of-type(1){
+            background: none;
+        }
+    } // end & > li 
+
+    & > .li-text{
+        background: #eeeeee;
+        color: #666666;
+        line-height: 1.5;
+        padding: 10px 20px 20px;
+        border: none;
+    }
+
+    .link {
+        background: #fff;
+        &:active {
+            background: #f2f2f2;
+        }
+
+        a {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        .icon-chevron-right {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -5px;
+        }
+    }
+} // end .table-list

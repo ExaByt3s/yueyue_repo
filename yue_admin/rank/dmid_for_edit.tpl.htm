@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="resources/js/dmid.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/model_audit.css">
+<title>榜单管理后台</title>
+<style type="text/css">
+.table-list
+{
+	min-width: 990px;
+	margin-bottom: 20px;
+}
+.table-list tbody td
+{
+
+	/* border: #eee 1px solid; */
+	border-left: #eee 1px solid;
+}
+.album img
+{
+	margin:2px;
+}
+.button
+{
+	background: url('resources/images/uploadify.png');
+	height: 28px;
+	width: 75px;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	text-shadow:none;
+	box-shadow:none;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list">
+       <h1><b><a href="?act=list" style="cursor:pointer">返回</a></b></h1>
+       <form method="post" action="?" id="myform">
+	   <div class="table" style="width:98%;" id="occu">
+		    <!--list-->
+		    <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+		    	<tbody>
+		    	<tr>
+				<td>城市:</td>
+				<td>
+				   <select name="province" class="prov">
+				 		<option value="0">请选择</option>
+  		                 <!-- BEGIN province_list -->
+  		                 <option value="{c_id}" {selected_prov}>{c_name}</option>
+  		                 <!-- END province_list -->
+  		            </select>
+    	            <select class="city" name="location_id" id="location_id">
+    	                <option value="0">请选择</option>
+    	                 <!-- BEGIN city_list -->
+  		                 <option value="{c_id}" {selected_city}>{c_name}</option>
+  		                 <!-- END city_list -->
+    	            </select>  <font color="red">*</font>
+				</td>
+				</tr>
+				<tr>
+				<td>名称:</td>
+				<td>
+				  <input type="text" name="dmid_name" value="{dmid_name}" class="input-text" id="dmid_name" /><font color="red">*</font>
+				</td>
+				</tr>
+				<tr>
+				<td>时间:</td>
+				<td>
+				  <input type="text" class="input-text Wate" onfocus="WdatePicker()" name="start_time" value="{start_time}" style="width:80px;" id="start_time" readonly="true" />至<input type="text" class="input-text Wate" onfocus="WdatePicker()" name="end_time" value="{end_time}" style="width:80px;" id="end_time" readonly="true"/>
+				</td>
+				</tr>
+				<tr>
+				<td>描述:</td>
+				<td>
+				 	<textarea name="dmid_desc" style="width:400px;height:100px;">{dmid_desc}</textarea>
+				</td>
+				</tr>
+				<tr>
+				<td>操作:</td>
+				<td>
+			       <input type="button" value="提交" class="button" onclick="sub()" />
+                   <input type="reset"  value="重置" class="button"/>
+				</td>
+				</tr>  	
+			    </tbody>
+		    </table>
+	   </div>
+	   <input type="hidden" value="{act}" name="act" />
+	   <input type="hidden" value="{dmid}" name="id" />
+	   </form>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	//获取密码
+	function getPwd()
+	{
+		var $val = generateMixed(6);
+		$("#pwd_hash").val($val);
+	}
+    $(function(){
+	   //获取城市数据
+		$(".prov").change(function(){
+			var $prov_val = $(this).val();
+			$.ajax({
+			   type:"POST",
+			   url:"get_city.php",
+			   dataType: 'json',
+			   data : {'prov_id': $prov_val},
+			   success:function(data)
+			  {
+			  	if (data.ret) 
+			  	{
+			  		var $ret = data.ret;
+			  		var $str = "<option value='0'>请选择</option>";
+			  		for (var i = 0; i < $ret.length; i++) 
+			  		{
+			  			$str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";		
+			  		}
+			  		$(".city").html($str);
+
+			  	}
+
+			  },
+			  error:function(data)
+			 {
+
+			 }
+			});
+		});
+	   //获取所有榜单
+		$(".channel_id").change(function(){
+			var $channel_id = $(this).val();
+			$.ajax({
+			   type:"POST",
+			   url:"rank_event.php",
+			   dataType: 'json',
+			   data : {'act': 'rank', 'channel_id': $channel_id},
+			   success:function(data)
+			  {
+			  	if (data.ret) 
+			  	{
+			  		var $ret = data.ret;
+			  		var $str = "<option value='0'>请选择</option>";
+			  		for (var i = 0; i < $ret.length; i++) 
+			  		{
+			  			$str +="<option value='"+$ret[i]['rank_id']+"'>"+$ret[i]['rank_name']+"</option>";		
+			  		}
+			  		$(".rank_id").html($str);
+
+			  	}
+
+			  },
+			  error:function(data)
+			 {
+
+			 }
+			});
+		});
+
+})
+</script>
+</html>

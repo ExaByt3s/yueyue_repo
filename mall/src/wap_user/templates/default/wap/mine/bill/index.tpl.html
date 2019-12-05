@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>账单</title>
+
+    <meta charset="gbk">
+    {head_html}
+    <!-- libjs 必须引用 -->
+    <script src="/lib/lib.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../../../../../style/bill/bill.scss">
+
+</head>
+<body>
+<main role="main">
+    <div class="page-view bill-list" data-role="page-container">
+        <ul class="ui-tab-nav ui-border-b nav-list" data-role="nav">
+            <!-- IF type="trade" --><li class="current"><!-- ELSE --><li><!-- ENDIF --><a href="./?type=trade">交易记录</a></li>
+            <!-- IF type="recharge" --><li class="current"><!-- ELSE --><li><!-- ENDIF --><a href="./?type=recharge">充值记录</a></li>
+            <!-- IF type="withdraw" --><li class="current"><!-- ELSE --><li><!-- ENDIF --><a href="./?type=withdraw">提现记录</a></li>
+
+        </ul>
+        <div data-role="wrapper">
+            <div class="ui-tab " >
+
+                <div data-role="no-data" class="fn-hide" ></div>
+                <div data-role="has-data">
+                    <ul class="ui-tab-content " style="width: 300%;" >
+                        <li data-role="trade"></li>
+                        <li data-role="recharge"></li>
+                        <li data-role="withdraw"></li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</main>
+
+</body>
+<input type="hidden" value="{type}" id="type" />
+</html>
+<script type="text/javascript">
+    require('bill');
+</script>

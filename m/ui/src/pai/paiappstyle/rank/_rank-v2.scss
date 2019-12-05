@@ -1,0 +1,212 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 排行榜
+// ------------------------------
+.rank-v2{
+    padding-bottom: 5px;
+    // padding-bottom: 10px;
+    .fldi{
+        float: left;
+        display: inline; 
+    }
+    .p1th{
+        background: #fff;
+        padding: 15px 10px;
+        margin-bottom: 10px;
+        // border-bottom: 1px solid #d2d2d2;
+
+        @include image-border-m(bottom);
+        .item-wrap{
+            @include flexbox((
+                display: box,  // 盒子模型 子元素默认水平左对齐
+                box-pack: justify  // 水平居中方式  start | center | end | justify
+            
+            ), $version: 1);
+            .item{
+                .img-box-wrap{
+                    position: relative;
+
+                }
+                .allow{
+                    // border-top-left-radius : 3px;
+                    z-index: 9;
+                    width: 25px;
+                    height: 25px;
+                    position: absolute;
+                    left: 0px;
+                    top: 0;
+                    width: 0;
+                    height: 25px;
+                    border-top: 25px solid #ff4978;
+                    border-right: 25px solid transparent;
+                    border-left :3px;
+                    .icon{
+                        position: absolute;
+                        top: -20px;
+                        left: 2px;
+                    }
+                }
+                
+                .allow-2{
+                    border-top-color: #ff8ba9;
+                }
+                .allow-3{
+                    border-top-color: #ffc6d4;
+                }
+                position: relative;
+                // height: 165px;
+                padding-bottom: 5px;
+                border: 1px solid #dddddd;
+                @include border-radius(3px);
+                .imgbox{
+                    // width: 90px;
+                    // height: 120px;
+                    width: 100%;
+                    height: 100%;
+                    @include border-radius(3px 3px 0 0);
+                    display: block;
+                }
+                .fade-box{
+                    background:rgba(0,0,0,0.5);
+                    width: 100%;
+                    height: 20px;
+                    line-height: 20px;
+                    color: #fff;
+                    font-size: 12px;
+                    @include box-sizing(border-box);
+                    position: absolute;
+                    // top: 100px;
+                    bottom:0px;
+                    padding-left: 10px;
+                }
+                .txt{
+                    padding: 8px 0 2px 0;
+                    text-align: center;
+                    color: $main-color;
+                    .cor1{
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                    .cor2{
+                        font-size: 12px;
+                        margin-left: 5px;
+                    }
+                }
+                .tags{
+                    font-size: 10px;
+                    text-align: center;
+                    color: #666666;
+                }
+            }
+        } 
+    }
+
+    .p2th{
+        .item-wrap{
+            // @include image-border-m(top);
+            // border-top: 1px solid #d2d2d2;
+            
+            margin-top: 10px;
+            background: #fff;
+            .item{
+                padding-bottom: 10px;
+                // border-bottom: 1px solid #d2d2d2;
+                @include image-border-m(bottom);
+
+                @include flexbox((
+                    display: box,  // 盒子模型 子元素默认水平左对齐
+                    box-pack: justify
+                ), $version: 1);
+                .img-box{
+                    width: 60px;
+                    height: 80px;
+                    border: 1px solid #dddddd;
+                    @include border-radius(3px);
+                    display: block;
+                }
+                .lbox{
+
+                    position: relative;
+                    margin: 10px 0 0 15px;
+
+                    .num-wrap-box{
+                        position: absolute;
+                        left: 1px;
+                        top: 1px;
+                        z-index: 99;
+                    }
+
+                    .num{
+                        width: 20px;
+                        text-align: center;
+                        color: #fff;
+                        position: absolute;
+                        top: 4px;
+                        font-size: 10px;
+                        z-index: 99;
+                        left: -3px;
+                    }
+                    .allow-top{
+                        position: absolute;
+                        left: 0px;
+                        top: 0;
+                        width: 15px;
+                        height: 10px;
+                        border-top: 10px solid #a18775;
+                        border-right: 5px solid transparent;
+                        border-left :3px;
+                        @include opacity(0.6);
+                        border-left:3px;
+                        border-left-radius: 5px ;
+                        border-top-left-radius : 3px;
+                    }
+                    .allow-bottom{
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                        width: 15px;
+                        height: 10px;
+                        border-bottom: 10px solid #a18775;
+                        border-right: 5px solid transparent;
+                        border-left :3px;
+                        @include opacity(0.6);
+
+                    }           
+                    .txt-box{
+                        padding: 22px 0 0 15px;
+                        .p1{
+                            font-size:12px;
+                            color: #000;
+                        }
+                        .p2{
+                            padding-top: 5px;
+                            font-size: 10px;
+                            color: #999999;
+                        }
+                    }
+                }
+
+                .rbox{
+                    padding-right: 15px;
+                    margin-top: 38px;
+                    color: $main-color;
+                    font-size: 10px;
+                    .cor1{
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                }
+                
+            }
+        }
+
+        .btn{
+            text-align: center;
+            padding: 5px 0 0 0 ;
+            color: #666666;
+            height: 25px;
+            line-height: 25px;
+            margin-top: 5px;
+        }
+    }
+}

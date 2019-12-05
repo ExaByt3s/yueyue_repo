@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="gbk" />
+    <link href="css/pcsp.css"type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.8.3.min.js.js"></script>
+    <script src="js/layer.js"></script>
+    <title>ui样式</title>
+</head>
+<body>
+        <p>图片上传控件</p>
+    <div class="ui-item">
+        <!--上传完成--><!--上传完成 触发-->
+        <textarea rows="10" cols="150">
+                    /*上传完成*/
+.ui-item .ui-upload .close-img{background:url(../img/close.png) no-repeat; width:23px;height:20px;position: absolute;right: 10px;top: 8px;}
+ .ui-upload-shadow.ui-item .ui-upload .ui-upload-shadow{display:none;width: 130px;height: 38px;position: absolute;left: 0px;bottom: 0px;background: rgba(0, 0, 0, 0.5)!important;z-index: 99;filter: alpha(opacity=50);background: #000;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;text-align: center;line-height: 130px;cursor: pointer;}
+.ui-item .show .ui-upload-shadow{display:block;}
+        </textarea>
+        <div class="clearfix"></div>
+        <div class="ui-upload ui-btn bg-color">
+            <a href="#" class=""><img src="img/upload-img.png" title=""/></a>
+            <div class="ui-upload-shadow"><a href="#"  class="close-img"></a></div>
+        </div>
+        <div class="clearfix"></div>
+        
+        <!--上传进行中-->
+        <textarea rows="10" cols="150">
+                    /*上传进行中*/
+.ui-upload-ongo{}
+.ui-item .ui-btn .ui-upload-progre{width: 130px;height: 130px;position: absolute;left: 0;top: 0;  background: rgba(0, 0, 0, 0.5)!important;z-index: 99;filter: alpha(opacity=50);background: #000;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;text-align: center;line-height: 130px;}
+        </textarea>
+        <div class="clearfix"></div>
+        <div class="ui-upload-ongo ui-btn bg-color">
+            <a href="#" class=""><img src="img/upload-img.png"/>
+            	<div class="ui-upload-progress  ">60%</div>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+        <!--添加-->
+        <textarea rows="10" cols="150">
+                        /*添加上传*/
+.ui-item .ui-btn-add{background: url(../img/add.png) no-repeat;  background-position: -1px 0px;}
+.ui-item .ui-btn-add:hover{background-position: -151px
+.ui-item .ui-btn {margin: 10px 20px 10px 0;float: left;position: relative;
+        </textarea>
+        <div class="clearfix"></div>
+        <div class="ui-btn-add ui-btn">
+            <a href="#this" class="ui-bf" title="添加图片" id="popup"></a>
+        </div>
+                        <div class="clearfix"></div>
+
+                <textarea rows="10" cols="150">
+                 /*禁止上传*/
+.ui-item .ui-btn-forbid{background: url(../img/forbid.png) no-repeat;  background-position: -1px 0px;}
+                </textarea>
+        <div class="clearfix"></div>
+
+          <div class="ui-btn-forbid ui-btn">
+                 <a href="#" class="ui-bf" title="禁止上传"></a>
+          </div>
+
+          <div class="clearfix"></div>
+        /*上传图片页1*/
+
+        <!--上传图片页1-->
+        <!----------------        <div class="upload-page" id="page-hide">
+
+                    <div class="upload-page-header">上传图 片<a href="#this" class="upload-page-close">X</a></div>
+
+                    <div class="upload-page-content">
+                        <a href="#this" class="upload-page-btn upload-btn">选择图片</a>
+                        <div class="upload-img-btn">
+                            <input type="file" name="file" class="upload-btn-invisible" multiple="multiple"/>
+                        </div>
+                        <p>按住Ctrl可多选图片</p>
+                    </div>
+                    <!--上传添加按钮-->
+        <!----------------           <div class="upload-start-continue">
+                       <a href="#" class="upload-start upload-btn">开始上传</a>
+                       <a href="#this" class="upload-continue upload-btn" id="page-show">继续添加</a>
+                       <span class="upload-tips">共3张图片，18.03M（上传过程中请不要删除原始图片）</span>
+                   </div>
+       <!-------------------
+               /*上传图片页2*/
+                   <!--上传图片页2-->
+                  <div class="upload-page" id="page-hide">
+
+                                <div class="upload-page-header">上传图 片<a href="#this" class="upload-page-close">X</a></div>
+                            <!--上传图片页内容--->
+                       <div class="upload-page-content">
+                                   <!--上传完成-->
+                                       <div class="ui-upload ui-btn bg-color" >
+                                                   <a href="#this" class=""><img src="img/upload-img.png" title=""/></a>
+                                                   <div class="ui-upload-shadow"><a href="#this"  class="close-img"></a></div>
+                                               </div>
+                                               <div class="ui-upload ui-btn bg-color" >
+                                                   <a href="#this" class=""><img src="img/upload-img.png" title=""/></a>
+                                                   <div class="ui-upload-shadow"><a href="#this"  class="close-img"></a></div>
+                                               </div>
+                                               <div class="ui-upload ui-btn bg-color" >
+                                                   <a href="#this" class=""><img src="img/upload-img.png" title=""/></a>
+                                                   <div class="ui-upload-shadow"><a href="#this"  class="close-img"></a></div>
+                                               </div>
+                                               <div class="ui-upload ui-btn bg-color">
+                                                   <a href="#this" class=""><img src="img/upload-img.png" title=""/></a>
+                                                   <div class="ui-upload-shadow"><a href="#this"  class="close-img"></a></div>
+                                               </div>
+                                               <div class="ui-upload ui-btn bg-color" >
+                                                   <a href="#this" class=""><img src="img/upload-img.png" title=""/></a>
+                                                   <div class="ui-upload-shadow"><a href="#this"  class="close-img"></a></div>
+                                               </div>
+                                               <div class="ui-upload ui-btn bg-color" >
+                                                   <a href="#this" class=""><img src="img/upload-img.png" title=""/></a>
+                                                   <div class="ui-upload-shadow"><a href="#this"  class="close-img"></a></div>
+                                               </div>
+                                               <div class="ui-upload ui-btn bg-color" >
+                                                   <a href="#this" class=""><img src="img/upload-img.png" title=""/></a>
+                                                   <div class="ui-upload-shadow"><a href="#this"  class="close-img"></a></div>
+                                               </div>
+                                               <div class="ui-upload ui-btn bg-color">
+                                                   <a href="#this" class=""><img src="img/upload-img.png" title=""/></a>
+                                                   <div class="ui-upload-shadow"><a href="#this"  class="close-img"></a></div>
+                                               </div>
+                                               <div class="ui-upload ui-btn bg-color" >
+                                                   <a href="#this" class=""><img src="img/upload-img.png" title=""/></a>
+                                                   <div class="ui-upload-shadow"><a href="#this"  class="close-img"></a></div>
+                                               </div>
+                                               <div class="ui-upload ui-btn bg-color" >
+                                                   <a href="#this" class=""><img src="img/upload-img.png" title=""/></a>
+                                                   <div class="ui-upload-shadow"><a href="#this"  class="close-img"></a></div>
+                                               </div>
+                                               <!--上传进行中-->
+                           <div class="ui-upload-ongo ui-btn bg-color">
+                                       <a href="#this" class=""><img src="img/upload-img.png"/>
+                                           <div class="ui-upload-progress  ">60%</div>
+                                       </a>
+                                   </div>
+                              </div>
+                      <div class="upload-start-continue">
+                                  <a href="#" class="upload-start upload-btn">开始上传</a>
+                                  <a href="#this" class="upload-continue upload-btn" id="page-show">继续添加</a>
+                          <!---file覆盖--->
+                          <div class="upload-img-btn2">
+                              <input type="file" name="file" class="upload-btn-invisible2" multiple="multiple"/>
+                          </div>
+                                  <span class="upload-tips">共3张图片，18.03M（上传过程中请不要删除原始图片）</span>
+                              </div>
+                  </div>
+       </div></div>
+       <script type="text/javascript">
+           $('.ui-upload').hover(function()
+           {
+               $(this).addClass('show');
+           },function()
+           {
+               $(this).removeClass('show');
+           });
+           /*上传图片页弹出*/
+           $('.upload-page-close').click(function(){
+               $('#page-hide').fadeOut(300);
+           })
+           $('.ui-btn-add').click(function(){
+               $('#page-hide').fadeIn(300);
+           })
+           /*删除图片*/
+           $('.close-img').click(function(){
+               $(this).parent().parent().fadeOut(300);
+           })
+/*layer弹出插件*/
+       /*弹出框图片载入前*/
+           /*var str = '<div class="upload-page-content">'+
+                   '<a href="#this" class="upload-page-btn upload-btn">选择图片</a>'+
+                   '<div class="upload-img-btn">'+
+                   '<input type="file" name="file" class="upload-btn-invisible" multiple="multiple"/>'+
+                   '</div>'+
+                   '<p>按住Ctrl可多选图片</p>'+
+                   '</div>'*/
+       /*弹出框图片载入中*/
+           /*    var str =  '<div class="upload-page-content">'+
+                   '</div>'+
+           '<div class="upload-start-continue">'+
+                   '<a href="#this" class="upload-start upload-btn">开始上传</a>'+
+           '<a href="#this" class="upload-continue upload-btn" id="page-show">继续添加</a>'+
+           '<div class="upload-img-btn2">'+
+                   '<input type="file" name="file" class="upload-btn-invisible2" multiple="multiple"/>'+
+                   '</div>'+
+           '<span class="upload-tips">共3张图片，18.03M（上传过程中请不要删除原始图片）</span>'+
+           '</div>'
+
+           $('#popup').on('click', function(){
+               layer.open({
+                   type: 1,
+                   area: ['800px', '450px'],
+                   fix: false, //不固定
+                   title:'上传图片',
+                   maxmin: true,
+                   content: str
+               });
+           });*/
+       </script>
+       </body>
+       </html>

@@ -1,0 +1,10 @@
+{{#each data}}
+    {{#if type=1}}
+        <div id="{{id}}">
+            <div class="title">{{titles}}</div>
+            {{#each data}}
+                <div data-jump_id="{{jump_id}}" data-ans_id="{{id}}">{{titles}}</div>
+            {{/each}}
+        </div>
+    {{/if}}
+{{/each}}

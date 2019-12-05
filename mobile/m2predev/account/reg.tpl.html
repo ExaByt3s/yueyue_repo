@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>约约 注册</title>
+    <meta charset="gbk">
+    {head_html}
+    <!-- libjs 必须引用 -->
+    <script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2predev/static/style/account/reg.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2predev/static/style/frozen/frozen.css">
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/account/reg.js"></script>
+</head>
+<body>
+<main role="main">
+    <div class="page-view reg pr20 pl20" data-role="page-container">
+        <div class="ui-form-table">
+            <div class="ui-input-mod ">
+                <div class="item first-item">
+                    <input  type="tel" class="ui-input ui-input-size-large ui-input-block ui-input-border-bottom-none ui-input-top-left ui-input-top-right" placeholder="手机号" data-role="enter-phone">
+                    <div class="pop-tips">
+                        <button class="verfiy-btn " data-role="get_code">
+                            <span class="ui-button-content">获取验证码</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="item">
+                    <input  type="tel" class="ui-input  ui-input-size-large ui-input-block ui-input-bottom-left ui-input-bottom-right" placeholder="验证码" data-role="account-verfiy-code">
+                </div>
+            </div>
+        </div>
+        <div class="ui-btn-wrap">
+            <a class="ui-btn-lg ui-btn-confirm no-active " style="font-size: 14px" data-role="confrim" >
+                手机号一键注册
+            </a>
+            <div class="go-style">
+                <div class="lbox" data-role="forget-pwd" style="visibility: hidden">
+                    <button class="ui-button  ui-button-size-middle  ui-button-block ui-button-nocolor">
+                        <span class="ui-button-content">忘记密码？</span>
+                    </button>
+                </div>
+                <div class="rbox" data-role="login">
+                    <button class="ui-button  ui-button-size-middle  ui-button-block ui-button-nocolor">
+                        <span class="ui-button-content">老用户登录</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+    require('account/reg');
+</script>

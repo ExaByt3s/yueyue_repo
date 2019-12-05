@@ -1,0 +1,68 @@
+.app_drop_menu_lock {
+  position: fixed;
+  background: none;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  z-index: 9998; }
+
+.app_drop_menu {
+  -webkit-box-orient: vertical;
+  background: rgba(0, 0, 0, 0.7);
+  width: 130px;
+  position: fixed;
+  right: 0px;
+  top: -250px;
+  margin: 10px 5px 0px 0px;
+  border-radius: 4px;
+  padding: 0px 10px;
+  font-size: 16px;
+  z-index: 9999;
+  -webkit-transform-style: preserve-3d; }
+  .app_drop_menu .delta {
+    position: absolute;
+    right: 15px;
+    top: -6px;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 6px solid rgba(0, 0, 0, 0.7); }
+  .app_drop_menu .child {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    height: 50px;
+    color: #fff;
+    border-bottom: 1px solid #5c5b5d; }
+    .app_drop_menu .child p {
+      max-height: 50px;
+      overflow: hidden; }
+    .app_drop_menu .child:active p {
+      color: #999; }
+    .app_drop_menu .child:last-child {
+      border-bottom: none; }
+    .app_drop_menu .child.un {
+      color: #717172; }
+  .app_drop_menu.drop {
+    animation: dropping 0.2s forwards ease-in;
+    -webkit-animation: dropping 0.2s forwards ease-in; }
+  .app_drop_menu.up {
+    animation: upping 0.2s;
+    -webkit-animation: upping 0.2s; }
+
+@-webkit-keyframes dropping {
+  from {
+    top: -250px;
+    display: -webkit-box; }
+
+  to {
+    top: 0px; } }
+
+@-webkit-keyframes upping {
+  from {
+    top: 0px; }
+
+  to {
+    top: -250px;
+    display: none; } }

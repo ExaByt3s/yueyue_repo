@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "ui-header.css",
+    "sources": [
+        "/style/widget/ui-header.scss"
+    ],
+    "sourcesContent": [
+        "@charset \"UTF-8\";\r\n\r\n// 统一圆角\r\n$border-radius : 2px;\r\n\r\n// 高度头部\r\n$height-common-min : 44px;\r\n\r\n//内容margin-top\r\n$content-margin-top : 45px;\r\n\r\n// 高度底部\r\n$height-common : 45px;\r\n\r\n// 粉色代码 主要色\r\n$main-color : #ff4978;\r\n\r\n// 路径\r\n$domain-name : 'http://yp.yueus.com/mobile/';\r\n\r\n//接受邀请 nolest 2014-8-13\r\n$background : #ffffff;\r\n$header_select: #ff0052;\r\n$header_unselect:#f0f0f0;\r\n$choice_unselect: #fafafa;\r\n$header_font:#666666;\r\n$border:#e6e6e6;\r\n$chooen_border:#ebebeb;\r\n.page-header\r\n{\r\n  position: absolute;\r\n  top:0;\r\n  left:0;\r\n  height:$height-common-min;\r\n  line-height: $height-common-min;\r\n  text-align: center;\r\n  z-index: 999;\r\n  color:$header_select;\r\n  background: $background;\r\n  width: 100%;\r\n  border-bottom: 1px solid $chooen_border;\r\n  font:{\r\n    size: 18px;\r\n  }\r\n  .page-back\r\n  {\r\n    position: absolute;\r\n    top:0px;\r\n    left:0px;\r\n    height: 45px;\r\n    width: 45px;\r\n    .icon{\r\n      float: left;\r\n      margin: 12px 0px 0px 7px;\r\n    }\r\n  }\r\n  .share\r\n  {\r\n    position: absolute;\r\n    top:0px;\r\n    right:0px;\r\n    height: 45px;\r\n    width: 45px;\r\n    .icon{\r\n      float: right;\r\n      margin: 12px 10px 0px 0px;\r\n    }\r\n  }\r\n  .location-select\r\n  {\r\n    position: absolute;\r\n    top:0px;\r\n    left:0px;\r\n    height: 43px;\r\n    line-height: 36px;\r\n    padding: 2px 0px 0px 10px;\r\n    vertical-align: middle;\r\n    text-align: left;\r\n    width: 75px;\r\n    overflow: hidden;\r\n    color: $header_select;\r\n    font:{\r\n      size: 14px;\r\n    }\r\n    .icon{\r\n      margin-left: 4px;\r\n    }\r\n    .header_location{\r\n      display: inline-block;\r\n\r\n    }\r\n  }\r\n  .right\r\n  {\r\n\r\n  }\r\n}\r\n\r\n"
+    ],
+    "mappings": "AA4BA,AAEE,AAAU,AACV,AAAI,AACJ,AAAK,AACL,AA3BmB,AA4BnB,AA5BmB,AA6BnB,AAAY,AACZ,AAAS,AACT,AAfc,AAgBd,AAjBY,AAkBZ,AAAO,AACP,AAAe,AACf,AACQ,AAEV,AAAa,AAET,AAAU,AACV,AAAI,AACJ,AAAK,AACL,AAAQ,AACR,AAAO,AACX,AAAa,AAAW,AAClB,AAAO,AACP,AAAQ,AAGd,AAAa,AAET,AAAU,AACV,AAAI,AACJ,AAAM,AACN,AAAQ,AACR,AAAO,AACX,AAAa,AAAO,AACd,AAAO,AACP,AAAQ,AAGd,AAAa,AAET,AAAU,AACV,AAAI,AACJ,AAAK,AACL,AAAQ,AACR,AAAa,AACb,AAAS,AACT,AAAgB,AAChB,AAAY,AACZ,AAAO,AACP,AAAU,AACV,AA1DY,AA2DZ,AACQ,AAEZ,AAAa,AAAiB,AACxB,AAAa,AAEnB,AAAa,AAAiB,AACxB,AAAS",
+    "names": []
+}

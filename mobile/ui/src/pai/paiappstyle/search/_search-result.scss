@@ -1,0 +1,43 @@
+@charset "UTF-8";
+// ------------------------------
+.search-result{
+    .name-show{
+        width: 95%;
+        background: #eeeeee;
+        height: 35px;
+        padding-left: 5%;
+        line-height: 35px;
+        color: #999999;
+    }
+    .list{
+        @include clearfix;
+        li{
+            @include float-left;
+            width: 33.3%;
+            text-align: center;
+            padding-top: 15px;
+            .avatar-size-mod {
+                display: inline-block;
+            }
+            .name{
+                padding-top: 10px;
+                // width: 106px;
+                width: 100%;
+                overflow: hidden;
+                white-space:nowrap;
+                text-overflow:ellipsis;
+            }
+
+
+        }
+    }
+    
+    .btn{
+        text-align: center;
+        color: #999999;
+        font-size: 14px;
+        line-height: 30px;
+        height: 30px;
+        margin-top: 30px;
+    }
+}

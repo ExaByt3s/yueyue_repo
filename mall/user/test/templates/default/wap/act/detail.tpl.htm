@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>活动详情</title>
+  {wap_global_top} 
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline">  -->
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/swiper3.07.min.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/swiper_fix.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/act/detail-v2.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/menu/index.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/collect/collect.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/menu/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_WX_SDK/I_WX_SDK.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/collect/collect.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view act-detail-page-v2" data-role="page-container">
+
+        <div class="p1th">
+            <div class="pics_container">
+        
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                    <!-- BEGIN ret.preview -->
+                        <div class="swiper-slide" data-url="{ad_url}" data-role="swipe" >
+                            
+                             <!-- IF url -->               
+                                 <a href="{url}"><i class="slide-items-bg" style="background-image: url('{thumb}');background-size: cover;"></i></a>
+                             <!-- ELSE -->
+                                 <a href="javascript:;"><i class="slide-items-bg" style="background-image: url('{thumb}');background-size: cover;"></i></a>
+                             <!-- ENDIF -->
+
+                        </div>
+                    <!-- END ret.preview -->   
+                    </div>
+                    <!-- 如果需要分页器 -->
+                    <div class="swiper-pagination"></div>
+                </div>
+        
+
+
+            </div>
+        </div>
+
+
+        <div class="p2th">
+            <div class="p-a ui-border-b">
+                <div class="wbox clearfix ">
+                    <div class="lbox fldi"> 
+                        <h3 class="title color-666">{ret.title}</h3>
+                    </div>
+                    <div class="rbox frdi">
+                        <!-- <div class="icon-collect"></div> -->
+                        <div id="collect" class="dib"></div>
+                        <!-- 收藏 -->
+                    </div>
+                </div>
+                <p class="price pt10"><span class="color-ff6 f16 fb">{ret.prices}</span>
+                    <!-- <span class="color-aaa"> / 两小时 起</span> -->
+                </p>
+            </div>
+            <a href="{ret.business.request}">
+                <div class="p-b ">
+                    <div class="wbox clearfix">
+                        <div class="lbox f16 fldi">服务评价 <div class="stars-all-mod dib">
+                        <div class="ui-stars-grey">
+                            
+                        </div>
+                        <div class="ui-stars-yellow" style="width:{stars_width}">
+                            
+                        </div>
+                </div><div class="ui-stars-yellow" style="width:100%">
+                            
+                        </div></div>
+                        <div class="rbox f14 frdi"><span class="color-aaa">{ret.business.totaltrade.title}</span> <span class="color-ff6  fb">{ret.business.totaltrade.value}</span> <em class="icon-allow-grey"></em></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+
+        <div class="p3th">
+            <div class="wbox clearfix">
+                <div class="lbox fldi f16"><span class="color-333">{ret.showing.title}</span></div>
+                <div class="rbox frdi f14"><span class="color-333">{ret.showing.attend.attend_str}</span> <span class="color-fe9">{ret.showing.attend.attend_num}</span> <span class="color-333">/ {ret.showing.attend.total_num}</span></div>
+            </div>
+
+            <ul class="list clearfix" id="sec_cs">
+
+                <!-- BEGIN show_array -->
+                    <li class="<!-- IF sec -->cur<!-- ENDIF -->"  stage_id="{stage_id}" >{title}</li>
+                <!-- END show_array -->
+
+
+                <!-- IF show_array_more -->               
+                    <div id="cs_more_list" class="fn-hide">
+                        <!-- BEGIN show_array_more -->
+                            <li class="<!-- IF sec -->cur<!-- ENDIF -->"  stage_id="{stage_id}">{title}</li>
+                        <!-- END show_array_more -->
+                    </div>
+                <!-- ENDIF -->
+    
+            </ul>   
+
+            <!-- IF show_more -->               
+                <div class="more f14 color-333" id="cs_more_btn">{ret.showing.more_title} <i class="icon-allow-grey icon-allow-grey-bottom"></i></div> 
+            <!-- ENDIF -->   
+
+
+
+        </div>
+
+        <div class="p4th">
+            <div class="item-wrap f14 color-333 ui-border-b">
+                <div class="item ui-border-b">
+                    <div class="lbox">
+                        {ret.promise_title}
+                    </div>
+                    <div class="rbox">
+                        
+                    </div>
+                </div> 
+
+
+                <!-- BEGIN ret.promise -->
+                    <div class="item ui-border-b">
+                        <div class="lbox">
+                            {title}
+                        </div>
+                        <div class="rbox">
+                            {value}
+                        </div>
+                    </div> 
+                <!-- END xxx -->
+
+
+             
+                
+            </div>    
+
+             <div class="more f14 color-333 fn-hide">更多内容 <i class="icon-allow-grey icon-allow-grey-bottom"></i></div>   
+        </div>
+
+
+        <div class="p5th">
+
+        
+            <div class="p-a">
+                <div class="wbox clearfix ui-border-b pb10">
+                    <div class="lbox fldi f14">组织者信息</div>
+                    <div class="rbox frdi"><em class="icon-allow-grey"></em></div>
+                </div>
+            </div>
+
+           
+                <div class="p-b">
+
+
+                <a href="{ret.user.homepage.request}">
+                    <div class="ui-user-info-mod mb10 ui-border-b">
+                        <div class="item">
+                            <i class="place f14 color-666">{ret.user.location}</i>
+                           <div class="user-info-item">
+                              <div class="ui-avatar-icon ui-avatar-icon-m">
+                                      <span style="background-image:url({ret.user.avatar})"></span>
+                              </div>
+                              <div class="user-info-con">
+                                <h3 class="title">{ret.user.name}</h3>
+                                <p class="txt">ID:{ret.user.user_id}</p>
+                              </div>
+                           </div>
+                        </div>
+                    </div>
+                </a>
+
+                    <p class="des color-666 f14">
+                        {ret.user.introduce.value}
+                    </p>
+
+                </div>
+        
+
+        </div>
+
+
+        <div class="p6th-wrap">
+            <div class="p6th">
+                <div class="nav">
+                    <ul class="list clearfix" data-role="nav">
+                        <li class="cur">活动详情</li>
+                        <li>报名名单</li>
+                        <li>活动回顾</li>
+                    </ul>        
+                </div>
+
+                <div class="content-box">
+
+
+                    <div class="act-des color-666 f14 " data-role="content">
+                        {ret.detail.value}
+                    </div>
+
+                    <div class="act-user dn" data-role="content">
+                        <ul class="list clearfix color-333 " >
+
+
+                            
+                            <!-- BEGIN ret.roster.value -->
+                                <li>
+                                    <p class="p1">{title}</p>
+                                    <p class="p2">{attend_str} <span class="color-fe9">{attend_num}</span> / {total_num}</p>
+                                </li>
+                            <!-- END ret.roster.value -->
+
+                        </ul>        
+                    </div>
+
+                    <div class="act-hg color-666 f14 dn" data-role="content">
+
+
+                        <!-- IF ret.review.value -->               
+                            <div class="has-content ">
+                                {ret.review.value}
+                            </div>
+
+                        <!-- ELSE -->
+                            <div class="no-content">
+                                <div class="icon-32x32-error"></div>暂无活动回顾
+                            </div>
+                        <!-- ENDIF -->
+
+                        
+                        
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="btn-area" >
+            <button id="btn-submit" class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555">
+                    <span class="ui-button-content">立即下单</span>
+                </button>
+        </div>
+
+        
+      
+    </div>
+
+
+
+
+    {wap_global_footer} 
+</main>
+
+
+
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+    //引用模块
+    var LZ = require('common/lazyload/lazyload');
+    var utility = require('common/utility/index');
+    var App =  require('common/I_APP/I_APP');
+    var menu = require('menu/index');
+    var header = require('common/widget/header/main');
+    var WeiXinSDK =  require('common/I_WX_SDK/I_WX_SDK');
+    var collect = require('collect');
+    var share_text = {share}; 
+
+
+
+    $(function()
+    {
+        App.isPaiApp && App.showtopmenu(true);
+
+        //new 对象 新建内置对象
+        var lazyloading = new LZ($('body'),{
+            size : window.innerWidth -20
+        });
+
+        // console.log(share_text);
+        /**** 调用微信分享 ****/
+        if(WeiXinSDK.isWeiXin())
+        {
+            var share = share_text.result_data;
+            // 朋友圈
+            var WeiXin_data_Timeline =
+                {
+                    title: share.title, // 分享标题
+                    link: share.url, // 分享链接
+                    imgUrl: share.img, // 分享图标
+                    success: function ()
+                    {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function ()
+                    {
+                        // 用户取消分享后执行的回调函数
+                    }
+                };
+
+            // 好友、QQ
+            var WeiXin_data =
+                {
+                    title: share.title, // 分享标题
+                    desc: share.content, // 分享描述
+                    link: share.url, // 分享链接
+                    imgUrl: share.img, // 分享图标
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function ()
+                    {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function ()
+                    {
+                        // 用户取消分享后执行的回调函数
+                    }
+                };
+
+            WeiXinSDK.ready(function()
+            {
+                WeiXinSDK.ready(function()
+                {
+                    WeiXinSDK.ShareToFriend(WeiXin_data);
+
+                    WeiXinSDK.ShareTimeLine(WeiXin_data_Timeline);
+
+                    WeiXinSDK.ShareQQ(WeiXin_data);
+                });
+
+            });
+        }
+        /**** 调用微信分享 ****/
+
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"活动详情",
+            header_show : true , //是否显示头部
+            right_icon_show : false, //是否显示右边的按钮
+
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :true,  //是否显示文字
+                content:""  //显示文字内容
+            }
+        });
+
+        utility.$_AppCallJSObj.on('__showTopBarMenu',function(event,data)
+        {
+
+            __showTopBarMenuCount++;
+
+            if(__showTopBarMenuCount%2!=0)
+            {
+                menu.show()
+            }
+            else
+            {
+                menu.hide()
+            }
+        });
+
+
+
+        // 导航切换
+        var nav_li = $('[data-role="nav"]').find('li') ;
+        nav_li.on('click', function(event) {
+
+            // window.scrollTo(0,  $('[data-role="nav"]').offset().top - 45 );
+
+            var index = nav_li.index($(this));
+            nav_li.removeClass('cur');
+            $(this).addClass('cur');
+
+            $('[data-role="content"]').addClass('dn');
+            $('[data-role="content"]').eq(index).removeClass('dn');
+
+        });
+
+        // 选择场次
+        var sec_cs = $('#sec_cs').find('li') ;
+        sec_cs.on('click', function(event) {
+            sec_cs.removeClass('cur');
+            $(this).addClass('cur');
+        });
+
+
+
+        // 收藏操作
+        var collect_obj = new collect({
+            ele : $("#collect"),
+            target_id : '{goods_id}' , //操作对象ID, 商家ID或商品ID
+            target_type : 'goods', // seller/goods
+            value : {ret.favor.value}  //是否收藏的值，接口出
+
+        })
+
+        // 查看更多场次
+        $('#cs_more_btn').on('click', function(event) {
+            
+            $('#cs_more_list').removeClass('fn-hide');
+            $(this).addClass('fn-hide') ;
+
+            // $(this).find('.icon-allow-grey').removeClass('icon-allow-grey-bottom');
+            // $(this).find('.icon-allow-grey').addClass('icon-allow-grey-top');
+        });
+
+
+        // 提交表单
+        $('#btn-submit').on('click', function(event) {
+            event.preventDefault();
+            var stage_id =  $('#sec_cs').find('.cur').attr('stage_id');
+
+            if (!stage_id) 
+            {
+                $.tips({
+                    content: '请选择活动场次！',
+                    stayTime:3000,
+                    type:'warn'
+                });
+                return ;
+            }
+
+            var data = 
+            {
+                stage_id : stage_id ,
+                goods_id : {goods_id}
+            }
+
+            window.location.href = '../order/confirm.php?goods_id='+{goods_id}+'&stage_id='+stage_id ;
+            console.log(data);
+        });
+
+
+    });
+</script>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: '',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        })
+    })
+    </script>
+<link rel="stylesheet" href="../../kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="../../kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="../../kindeditor/lang/zh_CN.js"></script>
+<script>
+	var editor;
+	KindEditor.options.filterMode = false;
+	KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="content"]', {
+			resizeType : 1,
+			allowPreviewEmoticons : false,
+			allowImageUpload : false,
+			newlineTag : 'br',
+			width:'750px',
+			items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+		});
+	});
+</script>
+
+<title></title>
+<style>
+.J_add_btn,.J_add_cover_img{
+    overflow:hidden;
+}
+</style>
+</head>
+<body>
+{global_header_html}
+<script>
+    /**
+     * hudw 2015.1.23
+     * @param  {[type]} window    [description]
+     * @param  {[type]} seajs     [description]
+     * @param  {[type]} undefined [description]
+     * @return {[type]}           [description]
+     */
+    ;(function(window, seajs, undefined)
+    {
+
+
+        // 配置模块
+        seajs.config
+        ({
+
+            paths:
+            {
+                utility: 'http://cb.poco.cn/utility',
+                matcha: 'http://cb.poco.cn/matcha',
+                yueyue_global : 'http://www.yueus.com/js/global'
+            },
+            alias:
+            {
+                handlebars: 'utility/handlebars/1.0.0/handlebars',
+                jquery: 'utility/jquery/1.11.0/jquery',
+                cookie: 'matcha/cookie/1.0.0/cookie',
+                topbar : 'yueyue_global/topbar/topbar'
+            },
+            comboMaxLength: 5000,
+            charset: 'utf-8'
+        });
+
+        seajs.use(['jquery','topbar'],function($,topbar)
+        {
+            var $user_state = $('#user_state');
+
+            topbar.init
+            ({
+                container : $user_state,
+                custom_logout : "http://www.yueus.com/reg/logout.php",
+                custom_html : '<a href="http://www.yueus.com/reg/login.php?r_url='+encodeURIComponent(window.location.href)+'">登录</a><span class="pr15 pl15">|</span><a href="http://www.yueus.com/reg/register.php?r_url='+encodeURIComponent(window.location.href)+'">免费注册</a>'
+            });
+        });
+
+
+    })(window, seajs);
+</script>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<div class="mainbox">
+  <form name="add_form" id="add_form" action="" method="post" target="frame">
+    <div id="tabs" style="margin-top:10px;">
+      <div class="tabbox">
+        <fieldset>
+          <legend>专题编辑</legend> 
+           <table  border="0"  cellpadding="10">
+	        <tr>
+		       <td height="45" align="right">&nbsp;</td>
+		       <td width="470"><iframe allowTransparency="true" height="25" width="650" marginheight="0" marginwidth="0" noResize scrolling="no" frameborder="0" src="http://www.yueus.com/yue_admin/cms/cms_edit_upload_img_frm.php?img_size=0"></iframe></td>
+		    </tr>
+	        <tr>
+		       <td width="146" align="right">标题:</td>
+		       <td width="848"><input class="input-text" type="text" name="title" value="{title}" size="60" class="input-text" /></td>
+		    </tr>
+	        <!--<tr>
+		       <td width="146" align="right">封面图:</td>
+		       <td width="848"><input class="input-text" type="text" name="cover_image" value="{cover_image}" size="60"/>尺寸:140x650</td>
+		    </tr>-->
+           <tr>
+               <td width="146" align="right">上传封面图:</td>
+               <td width="848">
+                   <div class="model-img-list clearfix">
+                       <ul class="J_cover_img_ul" data-mark="1">
+                           <!-- IF act == "edit" -->
+                           <li class="J_upload_cover_img_li" data-mark="1">
+                               <img class="J_upload_cover_img" src="{cover_image}" style="width:80px;" data-mark="1"/>
+                               <input class="J_upload_cover_img_input_item" id="J_upload_cover_img_input_item" type="hidden" value="{cover_image_item_id}" name="cover_image_item_id" data-mark="1"></input>
+                               <input class="J_upload_cover_img_input" id="J_upload_cover_img_input" type="hidden" value="{cover_image}" name="cover_image" data-mark="1"></input>
+                               <a href="javascript:void(0);" class="cancle" data-class="J_delete_upload_cover_img" data-mark="1">删除</a>
+                           </li>
+                           <!-- ENDIF act -->
+                           <li class="add-btn J_add_cover_img" data-mark="1" <!-- IF act =="edit" -->style="width:1px;height:1px;"<!-- ENDIF act -->>
+                           <span id="cover_img_flash_btn"></span>
+                           </li>
+                       </ul>
+                   </div>
+               </td>
+           </tr>
+            <tr>
+		      <td width="146" align="right">版本控制:</td>
+               <td>
+                 <select name="version_type" id="version_type">
+<option value="old" <!-- IF version_type="old" -->selected="selected"<!-- ENDIF -->>旧版</option>
+                 <option value="new" <!-- IF version_type="new" -->selected="selected"<!-- ENDIF -->>新版</option>
+                  
+		           
+                 </select>
+               </td>
+		    </tr>
+		    <tr>
+		      <td width="146" align="right">是否显示报名按钮:</td>
+               <td>
+                 <select name="is_button" id="is_button">
+                  <option value="1" <!-- IF is_button="1" -->selected="selected"<!-- ENDIF -->>是</option>
+		           <option value="0" <!-- IF is_button="0" -->selected="selected"<!-- ENDIF -->>否</option>
+                 </select>
+               </td>
+		    </tr>
+		    <!--内容方式-->
+		    <tr>
+              <td align="right">内容方式:</td>
+	          <td>
+			  <select name="content_type" id="content_type">
+                  <option value="custom" <!-- IF content_type="custom" -->selected="selected"<!-- ENDIF -->>自定义</option>
+                  <option value="rank" <!-- IF content_type="rank" -->selected="selected"<!-- ENDIF -->>榜单关联</option>
+                </select>
+	           &nbsp;&nbsp;榜单关联:issue_id
+		         <input type="text" class="input-text" name="issue_id" id="issue_id" value="{issue_id}" />
+		         &nbsp;&nbsp;可见人群:
+                <select name='display_type'>
+			    <option value='all' <!-- IF display_type="all" -->selected<!-- ENDIF -->>全部</option>
+			    <option value='model' <!-- IF display_type="model" -->selected<!-- ENDIF -->>模特</option>
+			    <option value='cameraman' <!-- IF display_type="cameraman" -->selected<!-- ENDIF -->>摄影师</option>
+			  </select>
+	          </td>
+            </tr>
+		    <!--选择模板-->
+            <tr>
+               <td align="right">选择模板:</td>
+               <td>
+			   <select name="tpl_type" id="tpl_type" <!-- IF content_type="rank" --><!-- ELSE -->disabled="disabled"<!-- ENDIF --> >
+               	  <option value="cover" <!-- IF tpl_type="cover" -->selected<!-- ENDIF -->>封面图</option>
+               	  <option value="custom" <!-- IF tpl_type="custom" -->selected<!-- ENDIF -->>自定义</option>
+                </select>
+               &nbsp;&nbsp;选择地区:
+	          	   <select name="province" class="prov">
+				 		  <option value="0">全部</option>
+  		                 <!-- BEGIN province_list -->
+  		                 <option value="{c_id}" {selected_prov}>{c_name}</option>
+  		                 <!-- END province_list -->
+  		            </select>
+    	            <select class="city" name="location_id">
+    	                <option value="0">全部</option>
+    	                <!-- BEGIN city_list -->
+  		                 <option value="{c_id}" {selected_city}>{c_name}</option>
+  		                 <!-- END city_list -->
+    	            </select>
+	          	&nbsp;&nbsp;可见平台:
+				<select name='type'>
+			     <option value='all' <!-- IF type="all" -->selected<!-- ENDIF -->>全部</option>
+			     <option value='app' <!-- IF type="app" -->selected<!-- ENDIF -->>APP</option>
+			     <option value='weixin' <!-- IF type="weixin" -->selected<!-- ENDIF -->>微信</option>
+			    </select>
+               </td>
+	        </tr>
+	        <!--选择模板-->
+	        <tr>
+		    <td align="right" valign="middle">内容:</td>
+		    <td><textarea id="content" name="content" rows="25">{content}</textarea>
+            </td>
+           </tr>
+           <tr>
+            <td align="right" valign="middle">排序:</td>
+            <td><input class="input-text" type="text" name="sort" value="{sort}" /> 
+              &nbsp;&nbsp;数字越大，排得越前</td>
+           </tr>
+		  </table>
+        </fieldset>
+     
+      </div>
+      <div class="btn">
+       <input type="button" value="返回" class="button" onclick="history.go(-1);"> <input type="submit" value="提交" class="button" id="button">
+      </div>
+    </div>
+    <input name="act" type="hidden" value="{act}">
+    <input name="id" type="hidden" value="{id}">
+  </form>
+</div>
+<input type="hidden" id="add_flash_num" value="0"/><!--要增加的falsh数值，页面有一个，则数值为二，同时也作为id标示-->
+
+
+<script>
+
+    seajs.use(['jquery','./js/img_upload_flash.js?t=1123514239'], function($,img_upload_flash) {
+        $(document).ready(function(){
+            //初始化上传封面图按钮
+            construct_flash("cover_img_flash_btn","cover_img_btn",1,0,0);
+            //初始化第一个模特场地上传图按钮
+            /*var add_flash_num = $("#add_flash_num").val();
+            for(var j=0;j<add_flash_num;j++)
+            {
+                var param_1 = "img_flash_btn_"+j;
+                var param_2 = j;
+                var tmp_len = $(".J_li_ul[data-mark='"+j+"'] > .J_upload_img_li").length;
+                var tmp_param_4 = parseInt(tmp_len);
+                var tmp_param_5 = parseInt(tmp_len);
+                construct_flash(param_1,"img_btn",param_2,tmp_param_4,tmp_param_5);
+            }*/
+
+            //构造flash函数
+            function construct_flash(_swfPlaceholderId,flash_type,id_num,img_mark,construct_img_mark)
+            {
+                img_upload_flash.get_flash(_swfPlaceholderId,flash_type,id_num,img_mark,construct_img_mark);
+            }
+            //提交校验
+            //封面图是否上传
+            $("#button").click(function(){
+                var res = form_check();
+                //form_summit
+                if(res)
+                {
+                    $("#add_form").submit();
+                }
+            });
+            function form_check()
+            {
+                if(($(".J_upload_cover_img[data-mark='1']").length)>0)
+                {
+                    if($(".J_upload_cover_img[data-mark='1']").attr("class").match("J_progress"))
+                    {
+                        alert('封面图在上传中');
+                        return false;
+                    }
+                }
+                //检查图文块
+                /*if(($(".J_upload_img").length)>0)
+                {
+                    var upload_imgs_len = $(".J_upload_img").length;
+                    for(var i=0;i<upload_imgs_len;i++)
+                    {
+                        var cur_class = $($(".J_upload_img")[i]).attr("class");
+
+                        if(cur_class.match("J_progress"))
+                        {
+                            alert('图片还在上传中，请稍后');
+                            return false;
+                        }
+                    }
+                }*/
+                return true;
+                //检查是否有图片在上传，避免flash不能使用
+            }
+        });
+    });
+</script>
+</body>
+<script style="text/javascript">
+  $(function(){
+	   //获取城市数据
+		$(".prov").change(function(){
+			var $prov_val = $(this).val();
+			$.ajax({
+			   type:"POST",
+			   url:"get_city.php",
+			   dataType: 'json',
+			   data : {'prov_id': $prov_val},
+			   success:function(data)
+			  {
+			  	if (data.ret) 
+			  	{
+			  		var $ret = data.ret;
+			  		var $str = "<option value='0'>全部</option>";
+			  		for (var i = 0; i < $ret.length; i++) 
+			  		{
+			  			$str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";		
+			  		}
+			  		$(".city").html($str);
+
+			  	}
+
+			  },
+			  error:function(data)
+			 {
+
+			 }
+			});
+		});
+	//选择榜单
+	$("#content_type").change(function(){
+		//window.alert($(this).val());
+		var $content_val = $(this).val();
+		//window.alert($content_val);
+		if($content_val == 'custom'){$("#tpl_type").attr("disabled","disabled")};
+		if($content_val == 'rank'){$("#tpl_type").removeAttr("disabled")};
+	});
+});
+</script>
+</html>

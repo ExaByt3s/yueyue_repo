@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>评价</title>
+
+    <meta charset="gbk">
+    {wap_global_top}
+    <!-- libjs 必须引用 -->
+    <script src="/lib/lib.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../../../../style/comment/comment.scss">
+
+</head>
+<body class="cor-bg-fff">
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view comment-form" data-role="page-container">
+        <div data-role="wrapper" class="pt15 " style="padding-bottom:80px;">
+            <ul class="info ui-list ui-list-text ">
+                <!-- BEGIN comment_info -->
+                <li>
+                    <div class="ui-list-info">
+                        <h4 class="ui-nowrap">{text}</h4>
+                    </div>
+                    <div class="ui-badge" data-role="{role}" data-star-list>
+                        <i class="icon icon-star"></i>
+                        <i class="icon icon-star"></i>
+                        <i class="icon icon-star"></i>
+                        <i class="icon icon-star"></i>
+                        <i class="icon icon-star"></i>
+
+                    </div>
+                </li>
+                <!-- END -->
+            </ul>
+            <div class="comment-textarea" style="overflow: hidden;"><textarea placeholder="写下你的好评吧（140字以内）" data-role="textarea" style="float: left;"></textarea></div>
+
+            <!-- IF tips.is_show = "1" --> 
+                <div class="tips pt10 pl15 color-333">{tips.tips}</div>
+            <!-- ENDIF -->
+
+            <!-- ui-switch-on 开关 -->
+            <div class="no-name">
+
+                <div class="switch-container">
+                    <label for="#" class="ui-switch-bar db">
+                        <input type="checkbox"  data-role="niming">
+                    </label>
+                </div>
+                <span class="txt">匿名评价</span>
+            </div>
+        </div>
+        <div class="button-wrap">
+            <button class="ui-button-submit">
+                <span class="ui-button-content">发表评价</span>
+            </button>
+        </div>
+
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+<input type="hidden" id="order_sn" value="{order_sn}" />
+<input type="hidden" id="table_id" value="{table_id}" />
+</html>
+<script type="text/javascript">
+    window.__redirect_url = '{redirect_url}';
+    require('comment');
+</script>

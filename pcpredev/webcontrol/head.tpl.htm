@@ -1,0 +1,61 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/pcpredev/static/lib/mod.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/pcpredev/static/lib/lib.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/pcpredev/static/style/common/base.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/pcpredev/static/style/common/button.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/pcpredev/static/style/common/color.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/pcpredev/static/style/common/common.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/pcpredev/static/style/common/global-top-bar.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/pcpredev/static/style/common/footer.css">
+<!--基础样式 END-->
+
+
+<script>
+(function()
+{
+    if(!window.console){
+        console = (function(){
+            var instance = null;
+            function Constructor(){
+                
+            }
+            Constructor.prototype = {
+                log : function(str){
+
+                }
+            }
+            function getInstance(){
+                if(instance == null){
+                    instance =  new Constructor();
+                }
+                return instance;
+            }
+            return getInstance();
+        })()
+    }
+
+    String.prototype.trim = function() {
+        return this.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+})();
+</script>
+
+<head>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/pcpredev/components/jquery/jquery.js"></script>
+</head>
+<!--配置全局变量-->
+<script>
+	window.$__domain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : './ajax/'
+	};
+
+    var $ = require('components/jquery/jquery.js');
+    window.jQuery = $ ;
+</script>  

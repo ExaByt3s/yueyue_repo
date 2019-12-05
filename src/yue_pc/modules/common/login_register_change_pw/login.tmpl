@@ -1,0 +1,35 @@
+<!-- 登陆  -->
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+
+<form action="../action/general_login_op.php" method="post" name="login_form" id="login_form" target="form_iframe">
+
+    <div class="login-page">
+        <div class="err-tips fn-hide" err_tips id="error_tips"><i class="icon-error"></i> <span err_tips_txt  id="err_tips_txt"></span></div>
+        <div class="item-wrap">
+            <div class="item mb20"><input type="tel"  name="phone" id="phone" class="ui-input ui-input-block ui-input-primary ui-input-size-middle f14 " placeholder="请输入手机号码"  phone_number ></div>
+            <div class="item"><input  type="password" name="password" id="password" class="ui-input ui-input-block ui-input-primary ui-input-size-middle f14 " placeholder="请输入密码" pass_word></div>
+        </div>
+<!--         <div class="checkbox-box cor-aaa"><input type="checkbox" name=" " id=" " class="input-checkbox" /> 下次自动登录</div> -->
+
+        <div class="btn mt20">
+            <a href="javascript:void(0)"  class="tdn">
+                <div  btn_submit class="ui-button ui-button-primary ui-button-block ui-button-100per  ui-button-size-s-large">
+                    <span class="ui-button-content"><em id="submit_btn_txt">登录</em></span>
+                </div>
+            </a>
+        </div>
+
+        <div class="des clearfix mt20">
+            <span class="fl"><a href="register.php?r_url={{r_url}}" class="cor-409">新用户注册</a></span>
+            <span class="fr"><a href="change_pw.php?r_url={{r_url}}" class="cor-409">忘记密码</a></span>
+        </div>
+
+        <input type="hidden" value="{{r_url}}" name="r_url"></input>  <!--  来源地址配置 -->
+        <!-- <input type="hidden" value="{r_url}" name="r_url"></input> -->
+        <input type="hidden" value="form" name="action_mode"></input> 
+
+    </div>
+
+</form>
+
+

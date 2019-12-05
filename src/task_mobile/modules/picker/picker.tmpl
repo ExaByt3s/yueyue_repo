@@ -1,0 +1,27 @@
+<div class="ui-picker" data-role="ui-picker">
+    <div class="ui-picker-fade">
+        <div class="ui-picker-container" data-role="ui-picker-container">
+            <div class="choose_area">
+                <div class="picker_line" data-role="picker_line"></div>
+                {{#each data}}
+                    <div class="choose_child">
+                        <div class="title" data-role="choose_child_title">
+                            <p>{{bit}}</p>
+                        </div>
+                        <div class="scroll" data-role="scroll">
+
+                            {{#each data}}
+                                <div data-child="child" data-role="{{@index}}" ><p>{{this}}</p></div>
+                            {{/each}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            <div class="btn_area" data-role="btn_area">
+                <div class="btn cancel"><span>取消</span></div>
+                <div class="btn confirm"><span>确认</span></div>
+            </div>
+
+        </div>
+    </div>
+</div>

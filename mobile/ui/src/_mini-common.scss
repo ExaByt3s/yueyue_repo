@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+$supported-browsers: ("chrome", "firefox", "ie", "opera", "safari") !default;
+
+$browser-minimum-versions: (
+  'chrome':  null,
+  'firefox': null,
+  'ie':      '6',
+  'safari':  null,
+  'opera':   null
+) !default;
+
+@import "compass";
+
+// 停用display: -moz-inline-stack;
+$legacy-support-for-mozilla: false;
+
+@import "./include/partials/base";

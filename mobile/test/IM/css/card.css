@@ -1,0 +1,25 @@
+.card-demo{
+	background: #333;
+	width: 360px;
+	height: 216px;
+	position: relative;
+	text-align: center;
+}
+.card-back{
+	margin-top:15px; 
+	background: #333;
+	width: 360px;
+	height: 216px;
+	position: relative;
+	text-align: center;
+}
+.fonts{
+	color: #fff;
+	margin-left: 20px;
+	margin-bottom: 70px;
+}
+.tels{
+	width: 170px;
+	color: #fff;
+	text-align: left;
+}

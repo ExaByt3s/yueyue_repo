@@ -1,0 +1,38 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 流程第一步
+// 
+
+.ui-number-btn{
+    &.cbox{
+        @include float-left;
+        .b{
+            border: 1px solid #cccccc;
+            height: 35px;
+            line-height: 38px;
+            text-align: center;
+            width: 35px;
+            @include float-left;
+            background: #f0f0f0;
+            @include border-radius($border-radius);
+        }
+        .icon-add{
+            @include get-icon('add-32x32', true, block);
+        }
+        .icon-reduce{
+            @include get-icon('del-32x32', true, block);
+        }
+        .input-text{
+            width: 80px;
+            
+            border-top: 1px solid #cccccc;
+            border-bottom: 1px solid #cccccc;
+            @include float-left;
+            font-size: 14px;
+            text-align: center;
+            color: #666666;
+            padding: 10px 0 9px 0;
+        }
+    }
+}
+ 

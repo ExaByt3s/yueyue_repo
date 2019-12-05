@@ -1,0 +1,106 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 组件
+// --
+
+// 下拉
+$border:#e6e6e6;
+.more-select-drop-cover{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: none;
+  width: 100%;
+  height: 100%;
+  z-index: 996;
+}
+.more-select-drop{
+  position: absolute;
+  top: 45px;
+  right:5px;
+  width: 150px;
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 4px;
+  @include backface-visibility(hidden);
+  z-index: 997;
+  box-shadow:1px 1px 5px #888888;
+
+  &.pin{
+      @include transform(translateY(0) translateZ(0));
+  }
+  .more-select-choosen{
+    display: -webkit-box;
+    height: 50px;
+    width: 140px;
+    border-bottom: 1px solid #424242;
+    text-align: left;
+    cursor: pointer;
+    color: #ffffff;
+    margin: 0px 5px 0px 5px;
+    &:last-child{
+      border-bottom:none;
+    }
+    font:{
+      size: 16px;
+    }
+    &:active{
+
+    }
+    .icon {
+      display: -webkit-box;
+      width: 35px;
+      margin-top: 16px;
+      margin-left: 20px;
+    }
+    .notice{
+      display: -webkit-box;
+      height: 50px;
+      line-height: 50px;
+    }
+    
+  }
+  .delta{
+    width: 0px;
+    height: 0px;
+    border-bottom: 7px solid rgba(0,0,0,0.8);
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    position: absolute;
+    top: -7px;
+    right: 14px;
+  }
+}
+
+.drop-down{
+  @include animation(popup-top-slideup 300ms ease);
+}
+.pull-up{
+  @include animation(popup-top-slidedown 300ms ease);
+}
+.drop-down-stay{
+  @include animation(popup-top-slideup 0ms ease);
+}
+.pull-up-stay{
+  @include animation(popup-top-slidedown 0ms ease);
+}
+
+
+// top
+@include keyframes('popup-top-slideup') 
+{
+    0% {
+        @include transform(translateY(-100%) translateZ(0));
+    }
+    100% {        
+        @include transform(translateY(0) translateZ(0));
+    }
+}
+
+@include keyframes('popup-top-slidedown') {
+    0% {        
+        @include transform(translateY(0) translateZ(0));
+    }
+    100% {        
+        @include transform(translateY(-150%) translateZ(0));
+    }
+}

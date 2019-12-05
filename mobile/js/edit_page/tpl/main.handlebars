@@ -1,0 +1,36 @@
+<main class="mine-edit-page" role="main">
+    <header class="nav-header mine-edit-nav-header nav-header-special-pop">
+        <div class="left-button-wrap">
+            <a data-role="back">
+            <i class="icon icon-back"></i>
+            </a>
+        </div>
+
+        <h3 class="title">{{title}}</h3>
+
+        <div class="right-button-wrap">
+            <button class="ui-button ui-button-primary ui-button-size-default" data-role="save">确定</button>
+        </div>
+    </header>
+
+    <div class="mine-edit-fieldset-container" data-role="container">
+        <div class="fn-hide pb10 pl15 f14" data-role="word-count-wrap">还可以输入<span data-role="word-count" style="color: red"></span>字</div>
+        <ul class="ui-form">
+            <li>
+            {{#if_equal type "text"}}
+                <div class="input-label">
+                    <input style="padding-left: 15px" data-role="inputter" type="{{#if input_type}}{{input_type}}{{else}}text{{/if}}" value="{{{text}}}">
+                </div>
+            {{/if_equal}}
+            {{#if_equal type "textarea"}}
+                <div class="textarea-label">
+                    <textarea style="padding-left: 15px" data-role="inputter">{{{text}}}</textarea>
+                </div>
+            {{/if_equal}}
+            </li>
+        </ul>
+        <p class="pt5 pl15" style="color:#999;">
+            {{des}}
+        </p>
+    </div>
+</main>

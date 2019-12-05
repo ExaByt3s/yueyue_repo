@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/cameraman.js"></script>
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoom.js"></script> 
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoomHTML.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+.table-list ul li 
+{
+   margin-left: 20px;
+   float: left;
+   width: 20%;
+   overflow: hidden;
+   text-align: center;
+   min-height: 292px;
+}
+.table-list ul li img
+{
+	width: 145px;
+	height: 145px;
+}
+.table-list .btn{
+	clear: both;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div id="nav" class="mainnav_title">
+	<ul>
+		<li><a href="javascript:void(0);" class="on">摄影师作品展示页</a></li>
+	</ul>
+</div>
+<form name="list_form" id="list_form" action="?act=del" method="post">
+	<div class="table-list">
+	   <div class="btn">
+			<input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');"/>全选/全不选 &nbsp;&nbsp;
+			<input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="delPic()"/>
+			<font color='red'>(请注意删除后图片将无法恢复)</font> 
+		</div>
+		<!--list-->
+			<ul id="ulPic">
+				<!-- BEGIN list -->
+				<li>
+					<p><input class="inputcheckbox " name="ids[]" value="{id}" type="checkbox"/></p>
+					<p><a href="{img_url}"><img src="{img}" /></a></p>
+					<p>添加时间:{add_time}</p>
+					<p>UID:{user_id}</p>
+				</li>
+				<!-- END list -->
+			</ul>
+		<!--list end-->
+		<div class="btn">
+			<input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="delPic()"/>
+			<font color='red'>(请注意删除后图片将无法恢复)</font> 
+		</div>
+	</div>
+	<input type="hidden" name="user_id" value="{user_id}"/> 
+</form>
+<div id="pages" class="page">
+	{page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+$(function(){
+	setupZoom();
+});
+//删除图片
+function delPic()
+{
+	var a=confirm("您确定要删除吗?");
+	if(a == true)
+	{
+		$("#list_form").submit();
+	}
+	return false;
+}
+</script>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{title}</title>
+    {web_global_top}
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline">  -->
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/seller/index_f4c9ddb.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_fcf77dd.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/list/list_fbc95b3.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/list/list_8faf917.js"></script>
+</head>
+<body class="cor-bg-fff">
+
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view  service-list-page " >
+        <div class="seller-list-wrap">
+
+            <div class="list-max-one-img-mod">
+
+                <div class="render_ele" id="render_ele"></div>
+
+            </div>
+
+            <div class="more fn-hide" id="btn_more"><a href="javascript:;"  class="color-555">正在加载...</a></div>
+
+        </div>
+        <div class="order_list_container" data-role="list_container"></div>
+
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+
+<script>
+
+    var $ = require('components/zepto/zepto.js');
+    var header = require('common/widget/header/main');
+    var utility = require('common/utility/index');
+    var yue_ui = require('yue_ui/frozen');
+    var abnormal = require('common/widget/abnormal/index');
+    var LZ = require('common/lazyload/lazyload');
+    var _self = {};
+
+    $(document).ready(function() {
+
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"{title}",
+            header_show : true , //是否显示头部
+            right_icon_show : false, //是否显示右边的按钮
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :true,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        })
+
+        var SELLER_AJAX_URL = window.$__ajax_domain+'get_customer_goods_list.php';
+        window.__page_params = {page_params}.result_data;
+        var page_params = window.__page_params;
+        page_params.return_query = encodeURIComponent(page_params.return_query);
+        var list_item_class = require('list'); 
+        var template  = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += " \r\n<a href=\"";
+  if (helper = helpers.link) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.link); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-role=\"items\">\r\n    <div class=\"item\">\r\n        <div class=\"lbox \">\r\n            <i data-lazyload-url=\""
+    + escapeExpression((helper = helpers.change_img_size || (depth0 && depth0.change_img_size),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.images), "260", options) : helperMissing.call(depth0, "change_img_size", (depth0 && depth0.images), "260", options)))
+    + "\" class=\"img image-img min-height\"></i>\r\n        </div>\r\n\r\n        <div class=\"rbox \">\r\n            <h3 class=\"title color-000 f14\">";
+  if (helper = helpers.titles) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.titles); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h3>\r\n            <div>\r\n                <p class=\"price color-ff6\">";
+  if (helper = helpers.prices) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.prices); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\r\n                ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.abate), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n                </p>\r\n                <div class=\"num color-999 f12\">\r\n                    <p>";
+  if (helper = helpers.buy_num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.buy_num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n                    ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.notice), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</a>\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n                <span class=\"price-tips\">";
+  if (helper = helpers.abate) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.abate); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</span>\r\n                ";
+  return buffer;
+  }
+
+function program4(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n                    <div class=\"ml15\">\r\n                    <span class=\"tags\">促</span><span class=\"msg\">";
+  if (helper = helpers.notice) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.notice); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</span>\r\n                    </div>\r\n                    ";
+  return buffer;
+  }
+
+  buffer += "<div class=\"hp\">\r\n";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " \r\n</div>";
+  return buffer;
+  });
+        var list_obj = new list_item_class(
+            {
+                //渲染目标
+                ele : $('#render_ele'),
+                //请求地址 
+                url : SELLER_AJAX_URL,
+                //传递参数
+                params : page_params,
+                //模板
+                template : template, 
+                //lz是否开启参数
+                is_open_lz_opts : false  
+            });
+    });
+
+</script>
+</html>

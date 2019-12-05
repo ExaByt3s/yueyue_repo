@@ -1,0 +1,57 @@
+.sales-list-page{
+	background: #fff;
+	.item-wrap{
+		padding-left: 15px;
+		.item{
+			padding: 15px 15px 15px 0px;
+			// border-bottom: 1px solid #e5e5e5;
+			display: -webkit-box;
+			.img-item{
+				width: 100px;
+				.img{
+					width:100px;
+					height: 100px;
+					background-size: cover
+				}
+			}
+			.text-item{
+				-webkit-box-flex:1;
+				margin-left: 15px;
+				.txt-con-1{
+					h3.title{
+						line-height: 20px;
+					}
+					.txt{
+						line-height: 20px;
+					}
+					.time{
+						padding: 3px 0 0px 0;
+					}
+				}
+				.txt-con-2{
+					padding-top: 5px;
+					.join-in{
+						display:block;
+						padding-top: 6px;
+						// line-height: 30px;
+					}
+					.ui-button-bd-ff6 .ui-button-content{
+						padding:0px 20px;
+					}
+					.current{
+						background:#ff696d;
+						.ui-button-content{
+							color:#fff;
+						}
+					}
+				}
+			}
+		}
+	}
+	.check-more{
+		width:100%;
+		height:70px;
+		text-align: center;
+		
+	}
+}

@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO约拍 - 按钮
+// ------------------------------
+.ui-button{
+    .icon{
+        vertical-align: middle;
+    }
+}
+.ui-button-primary{
+    @include box-sizing(border-box);
+}
+
+$default-base-button-namespace: '.ui-button'; // prefix for all classes
+$default-base-button-font-weight: 400; // 按钮字体 粗度
+$default-base-button-height: 25px; // 按钮默认高度
+$default-base-button-padding: 0; // 按钮内边距
+$default-base-button-border-radius: 2px; // 按钮圆角角度
+
+
+// 按钮尺寸
+$default-base-button-size: (
+    'size': 'default',
+    'height': 25px, 'padding': 0 15px,
+    'font-size': 14px, 'border-radius': 2px
+) (
+    'size': 'large',
+    'height': 45px, 'padding': 0 15px,
+    'font-size': 14px, 'border-radius': 2px
+) (
+    'size': 'middle',
+    'height': 35px, 'padding': 0 15px,
+    'font-size': 14px, 'border-radius': 2px
+) (
+    'size': 'min',
+    'height': 30px, 'padding': 0 15px,
+    'font-size': 12px, 'border-radius': 2px
+) (
+    'size': 'radius-large',
+    'border-radius': 90px
+);
+
+$default-base-button-variant: (
+    'name': 'default',
+    'normal': ('txt': #666, 'border': #ff4978, 'background': #ff4978),
+    'active': ('txt': #fff, 'border': #ff7fa8, 'background': #ff7fa8)
+) (
+    'name': 'primary',
+    'normal': ('txt': #fff, 'background': #ff4978, ),
+    'active': ('txt': #fff, 'background': #ff7fa8, )
+) (
+    'name': 'dark',
+    'normal': ('txt': #fff, 'background': #aaaaaa),
+    'active': ('txt': #fff, 'background': #aaaaaa)
+) (
+    'name': 'color2',
+    'normal': ('txt': #fff, 'background': #3fc585),
+    'active': ('txt': #fff, 'background': #74e2ca)
+) (
+    'name': 'color3',
+    'normal': ('txt': #fff, 'background': #ff9c00),
+    'active': ('txt': #fff, 'background': #feb84a)
+)(
+    'name': 'nocolor',
+    'normal': ('txt': #ff4978, 'background': none),
+    'active': ('txt': #ffa4bb, 'background': none)
+);
+
+
+
+.ui-button {
+    &.relation-button {
+        .icon-plus-white:before,
+        .icon-minus:before,
+        .icon-exchange:before {
+            margin: 1px 5px 0 0;
+        }
+
+       
+    }
+}

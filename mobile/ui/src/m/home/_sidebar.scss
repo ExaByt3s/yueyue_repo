@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+// -------------------------------------------------
+// 首页 -- 侧栏
+// -------------------------------------------------
+
+.aside {
+    float: right;
+    width: 260px;
+
+    .aside-module {
+        border: 1px solid $color-efe;
+        margin-bottom: 30px;
+    }
+
+    // 2013成绩单
+    .transcript-mod {
+        border-width: 0;
+    }
+
+    @import "./sidebar/person.mod.scss";
+    @import "./sidebar/bind-thirdpart.mod.scss";
+    @import "./sidebar/_nag-email.mod.scss";
+    //@import "./sidebar/interest-person.mod.scss";
+}

@@ -1,0 +1,414 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 流程第一步
+// 
+
+.procedure-header-mod{
+    border-bottom: 1px solid #f0f0f0;
+    height: 65px; 
+    background-color: #fafafa;
+    .step{
+        padding-left: 8px;
+        @include clearfix;
+        li{
+            padding-top: 11px;
+            float: left;
+            width: 33.3%;
+            text-align: center;
+            color: #aaaaaa;
+            &.current{
+                color: #ff0052;
+            }
+        }
+    }
+    .num{
+        padding-top: 5px;
+ 
+        li{
+            position: relative;
+            height: 25px;
+            width: 33.3%;
+            @include float-left;
+            .num-icon{
+                width: 15px;
+                height: 15px;
+                line-height: 15px;
+                text-align: center;
+                background-color: #dcdcdc;
+                @include border-radius(10px);
+                color: #fff;
+                display: inline-block;
+                font-family:Arial;
+                font-size: 8px;
+                text-align: center;
+            }
+            &.common{
+                .num-icon{
+                    left: 47%;
+                    position: absolute;
+                    z-index: 9;
+                    top: 3px;
+                }
+                .line-grey{
+                    width: 50%;
+                    height: 1px;
+                    overflow: hidden;
+                    background: #dcdcdc;
+                    position: absolute;
+                    right: 0px;
+                    top: 10px;
+                }
+                .line-red{
+                    width: 50%;
+                    height: 1px;
+                    overflow: hidden;
+                    background: #ff0052;
+                    position: absolute;
+                    right: 0px;
+                    top: 10px;
+                    z-index: 3;
+                    display: none;
+                }
+
+            }
+            &.current{
+                .line-red{
+                    display: block;
+                }
+                .num-icon{
+                    background-color: #fe0555
+                }
+            }
+            &:nth-child(1){
+                .num-icon{
+
+                }
+            }
+            &:nth-child(2){
+                .line-grey{
+                    width: 100%;
+                }
+                .line-red{
+                    width: 100%;
+                }
+            }
+            &:nth-child(3){
+                .line-grey{
+                    left: 0px;
+                }
+                .line-red{
+                    left: 0px;
+                }
+            }
+        }
+    }
+}
+.submit_application{
+  .content-body{
+    // margin-top: 45px;
+    .procedure-1{
+      background: #eeeeee;
+      .btn_width{
+        width: 25%;
+      }
+      .btn_wided_sec{
+        width: 90px;
+      }
+      .data-area{
+        margin-top: 15px;
+        background: #ffffff;
+        padding: 0px 0px 0 30px;
+        border-bottom: 1px solid $border;
+        .item{
+          @include clearfix;
+          padding-top: 25px;
+          .lbox{
+            width: 44px;
+            @include float-left;
+            padding-top: 8px;
+            margin-right: 10px;
+            color: #000;
+          }
+
+          .rbox{
+            @include float-left;
+            color: #000;
+            padding-top: 8px;
+            margin-left: 10px;
+          }
+          .style{
+
+          }
+          .ltime
+          {
+            float: none;
+          }
+        }
+        .choosen{
+          @include clearfix;
+
+          padding-top: 15px;
+
+          .notice{
+            line-height:36px;
+            margin-right: 32px;
+            float: left;
+          }
+          .style{
+            float: left;
+            width: 78%;
+            .ui-choosen-group{
+              width: 100%;
+            }
+          }
+        }
+        .choosen-type{
+          @include clearfix;
+          display: -webkit-box;
+          padding-top: 25px;
+          -webkit-box-pack:start;
+          .notice{
+            line-height:36px;
+            margin-right: 12px;
+          }
+        }
+        .select-row-container{
+          @include flexbox((
+                  display: box
+          ), $version: 1);
+          .select-container{
+            @include flexbox((
+                    display: box,
+                    box-pack:justify
+            ), $version: 1);
+          }
+        }
+
+        .partB{
+          border-bottom: 1px solid #dddddd;
+          padding-bottom: 10px;
+          padding-top: 40px;
+
+        }
+
+        .item-two{
+          .lbox-two{
+            padding-top: 0px;
+          }
+
+        }
+        .item-three{
+          .input-text-place{
+            width: 80%;
+            padding: 2px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #cccccc;
+            @include border-radius($border-radius);
+          }
+          padding-top: 10px;
+        }
+      }
+      .op{
+        display: -webkit-box;
+
+        .content-empty{
+          display: -webkit-box;
+          height: 45px;
+        }
+        .content-box{
+          width: 100%;
+
+        }
+      }
+      .show{
+        padding-bottom:0;
+        .content-box{
+          display: block;
+        }
+        .partB .icon-allow{
+          -webkit-transform:rotate(270deg);
+        }
+      }
+      .line{
+        display: -webkit-box;
+        height: 45px;
+        line-height: 45px;
+        background: #ffffff;
+        &.mt{
+          margin-top: 15px;
+        }
+        &.inh{
+          height: inherit;
+          line-height: inherit;
+          padding-top: 14px;
+        }
+        &.b{
+          border-bottom: 1px solid $border;
+        }
+        .notice{
+          padding-right: 15px;
+          text-align: right;
+          width: 60px;
+        }
+
+        .data_input{
+          display: -webkit-box;
+          -webkit-box-flex:1;
+          .side_border{
+            height: 16px;
+            margin: 24px 15px 0px 0px;
+            width: 0px;
+            border-left: 1px solid $border;
+            &.exp{
+              margin-top: 14px;
+            }
+            &.axp{
+              margin-top: 2px;
+            }
+          }
+          .inside{
+            display: -webkit-box;
+            -webkit-box-pack:justify;
+            -webkit-box-flex:1;
+            &.b{
+              border-bottom: 1px solid $border;
+            }
+            &.exp{
+              padding-top: 14px;
+              width:90px;
+            }
+            &.k{
+              -webkit-box-orient: vertical;
+            }
+            .exp_notice{
+              color: #c1c1c1;
+              font:{
+                size:12px;
+              }
+              height: 31px;
+              line-height: 20px;
+            }
+          }
+          .inside_input
+          {
+            display: -webkit-box;
+            -webkit-box-flex:1;
+            overflow: hidden;
+            .details{
+              margin-right: 10px;
+              .inh{
+                height: 40px;
+                line-height: 40px;
+              }
+            }
+            .notice-span{
+              color: #c1c1c1;
+            }
+            &.exp{
+              height: 40px;
+            }
+            .total-price{
+
+            }
+            .show_detail{
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-box-pack:center;
+              line-height: 18px;
+              .show{
+
+              }
+              .exp{
+                color: #c1c1c1;
+                font-size: 12px;
+
+              }
+            }
+          }
+          .inside_arrow
+          {
+            display: -webkit-box;
+            width: 35px;
+            line-height: 38px;
+            .icon{
+              margin-left: 12px;
+            }
+            .icon-allow{
+              @include get-icon('act-list-arr-24x14',true,block)
+            }
+            .icon-deg{
+              @include get-icon('act-list-arr-red-24x14',true,block)
+            }
+            .mt{
+              margin-top: 18px;
+            }
+            .exp{
+              margin-top: 18px;
+              -webkit-transform:rotate(0deg);
+            }
+            &.exp{
+              height: 66px;
+              line-height: 66px;
+            }
+          }
+          .org_font{
+            color: #ff5000;
+          }
+          .red_font{
+            color: #ff4978;
+            font:{
+              size: 12px;
+            }
+          }
+
+        }
+        &.exp{
+          height: 66px;
+          line-height: 66px;
+          border-bottom: 1px solid $border;
+        }
+        &.mt{
+          margin-top: 15px;
+        }
+        &.k{
+          height: 87px;
+        }
+      }
+    }
+  }
+  .empty{
+    height: 15px;
+    background: none;
+  }
+}
+
+
+.submit-application-page-footer{
+  height: 50px;
+  display: -webkit-box;
+  width: 100%;
+  background: #f5f5f5;
+  border-top: 1px solid #e6e6e6;
+  text-align: center;
+  .btn_container{
+    height: 50px;
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 8px;
+  }
+  .btn{
+    width: 170px;
+    text-align: center;
+    background: #ff0052;
+    color: #fff;
+    @include border-radius($border-radius);
+    height: 36px;
+    line-height: 36px;
+    margin: 0 auto;
+    &:active{
+      background: #ff266c;
+    }
+  }
+}
+

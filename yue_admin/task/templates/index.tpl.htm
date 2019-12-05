@@ -1,0 +1,139 @@
+{YUE_ADMIN_TOP}
+<!--main-->
+<div id="Main_content">
+	<div id="MainBox"> 
+	    <div class="main_box">
+			<iframe name="main" id="Main" src="goods.php?status=0" frameborder="false" scrolling="auto" width="100%" height="auto" allowtransparency="true"></iframe>
+		</div>
+    </div>
+	<div id="leftMenuBox">
+    	<div id="leftMenu" style="height: 231px; display: block;overflow-y:auto;position:absolute;overflow:auto">
+			<div style="padding-left:12px;_padding-left:10px;">
+			    <dl id="nav_4" style=" display:none" class="nav_info">
+					<dt>用户管理</dt>
+					<dd>
+						<span><a href="user_list.php" target="main"><strong>用户列表</strong></a></span>
+                           
+					</dd>	
+				</dl>
+				<dl id="nav_1" style=" display:none" class="nav_info">
+					<dt>商家管理</dt>
+					<dd>
+						<span><a href="seller_sq.php" target="main"><strong>申请管理</strong></a></span>
+                            <div><a href="seller_sq.php?status=0" target="main">商家认证审核</a></div>
+                            <div><a href="server_sq.php?status=0"  target="main">服务认证审核</a></div>
+
+						<span><a href="seller_search.php" target="main"><strong>商家管理</strong></a></span>
+                            <div><a href="seller_search.php?action=seller_list&status=1" target="main">有效商家管理</a></div>
+                            <div><a href="seller_search.php?action=seller_list&status=2" target="main">无效商家管理</a></div>
+                            <div><a href="seller_scalping.php" target="main">刷单商家管理</a></div>						
+                            <div><a href="seller_scalping_check_log.php" target="main">刷单检查记录</a></div>
+                        <span><a href="javascript:void(0)" target="main">
+                        <strong>商家管理</strong></a></span>
+                            <div><a href="seller_search.php?type_id=3&status=1" target="main">化妆服务</a></div>
+                            <div><a href="seller_search.php?type_id=5&status=1" target="main">摄影培训</a></div>
+                            <div><a href="seller_search.php?type_id=12&status=1" target="main">影棚租赁</a></div>
+                            <div><a href="seller_search.php?type_id=31&status=1" target="main">模特服务</a></div>
+                            <div><a href="seller_search.php?type_id=40&status=1" target="main">摄影服务</a></div>
+                            <div><a href="seller_search.php?type_id=41&status=1" target="main">约美食</a></div>
+                            <div><a href="seller_search.php?type_id=43&status=1" target="main">约有趣</a></div>
+                            <div><a href="seller_search.php?type_id=42&status=1" target="main">约活动</a></div>
+					</dd>	
+				</dl>
+				<dl id="nav_2" class="nav_info">
+					<dt>商家管理</dt>
+					<dd>
+						<span><a href="goods_search.php?action=goods_list&status=0&is_black=0" target="main"><strong>商品状态管理</strong></a></span>
+						<div><a href="goods_search.php?action=goods_list&status=0&is_black=0" target="main">未审核</a></div>
+						<div><a href="goods_search.php?action=goods_list&status=1&is_black=0" target="main">已通过</a></div>
+						<div><a href="goods_search.php?action=goods_list&status=1&show=1&is_black=0" target="main">&nbsp;&nbsp;已上架</a></div>
+						<div><a href="goods_search.php?action=goods_list&status=1&show=2&is_black=0" target="main">&nbsp;&nbsp;已下架</a></div>
+						<div><a href="goods_search.php?action=goods_list&status=2&is_black=0" target="main">未通过</a></div>
+
+						<span><a href="javascript:void(0)" target="main"><strong>商品分类管理</strong></a></span>
+                            <div><a href="goods_search.php?type_id=3&status=10" target="main">化妆服务</a></div>
+                            <div><a href="goods_search.php?type_id=5&status=10" target="main">摄影培训</a></div>
+                            <div><a href="goods_search.php?type_id=12&status=10" target="main">影棚租赁</a></div>
+                            <div><a href="goods_search.php?type_id=31&status=10" target="main">模特服务</a></div>
+                            <div><a href="goods_search.php?type_id=40&status=10" target="main">摄影服务</a></div>
+                            <div><a href="goods_search.php?type_id=41&status=10" target="main">约美食</a></div>
+                            <div><a href="goods_search.php?type_id=43&status=10" target="main">约有趣</a></div>
+                            <div><a href="goods_search.php?type_id=42&status=10" target="main">约活动</a></div>
+					</dd>	
+				</dl>
+				
+				<dl id="nav_3" style=" display:none" class="nav_info">
+					<dt>订单管理</dt>
+					<dd>
+						<span><a href="mall_bill.php?action=list&type_id=-1&status=-1" target="main"><strong>全部品类</strong></a></span>
+						<span><a href="mall_bill.php?action=list&type_id=3&status=-1" target="main"><strong>化妆服务</strong></a></span>
+						<span><a href="mall_bill.php?action=list&type_id=5&status=-1" target="main"><strong>摄影培训</strong></a></span>
+						<span><a href="mall_bill.php?action=list&type_id=12&status=-1" target="main"><strong>影棚租赁</strong></a></span>
+						<span><a href="mall_bill.php?action=list&type_id=31&status=-1" target="main"><strong>模特服务</strong></a></span>
+						<span><a href="mall_bill.php?action=list&type_id=40&status=-1" target="main"><strong>摄影服务</strong></a></span>
+						<span><a href="mall_bill.php?action=list&type_id=41&status=-1" target="main"><strong>约美食</strong></a></span>
+						<span><a href="mall_bill.php?action=list&type_id=43&status=-1" target="main"><strong>约有趣</strong></a></span>
+                        <span><a href="mall_bill.php?action=list&type_id=42&status=-1" target="main"><strong>约活动</strong></a></span>
+                        <span><a href="mall_bill.php?action=list&type_id=20&status=-1" target="main"><strong>面付</strong></a></span>
+					</dd>
+				</dl>
+				
+			</div>
+		</div>
+		<div id="Main_drop">
+			<a href="javascript:toggle_leftbar(1);" class="on" style="display: inline;"><img src="images/admin_barclose.gif" width="11" height="60" border="0"></a>   
+			<a href="javascript:toggle_leftbar(0);" class="off" style="display: none;"><img src="images/admin_baropen.gif" width="11" height="60" border="0"></a>  
+		</div>
+    </div>
+</div>
+<!--main-->
+<script type="text/javascript">
+if(!Array.prototype.map){
+	Array.prototype.map = function(fn,scope) {
+	  var result = [],ri = 0;
+	  for (var i = 0,n = this.length; i < n; i++){
+		if(i in this){
+		  result[ri++]  = fn.call(scope ,this[i],i,this);
+		}
+	  }
+		return result;
+	};
+}
+var getWindowWH = function(){
+	  return ["Height","Width"].map(function(name){
+	  return window["inner"+name] ||
+		document.compatMode === "CSS1Compat" && document.documentElement[ "client" + name ] || document.body[ "client" + name ]
+	});
+}
+
+window.onload = function (){
+	if(!+"\v1" && !document.querySelector) { 
+		//IE6 IE7
+		document.body.onresize = resize;
+		
+	} 
+	else {
+	
+	  window.onresize = resize;
+	  
+	}
+	function resize() {
+	
+		wSize();
+		return false;
+		
+	}
+}
+function wSize(){
+	var str=getWindowWH();
+	var strs= new Array();
+	strs=str.toString().split(","); //字符串分割
+	var h = strs[0] - 95-30;
+	$('#leftMenu').height(h);
+	$('#Main').height(h); 
+}
+wSize();
+
+</script>
+</body>
+</html>

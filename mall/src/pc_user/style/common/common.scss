@@ -1,0 +1,509 @@
+.mod-title{
+    font-size: 36px;
+    padding-bottom: 8px;
+    text-align: center;
+    background: url(../../images/line-100x1.jpg) center bottom no-repeat;
+    margin-bottom: 60px;
+}
+
+
+.w1000 {
+    margin: 0 auto;
+    width: 1000px;
+}
+.my-placeholder { color: #aaa; }
+.fade {
+    // background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    z-index: 999;
+    zoom: 1;
+    clear: both;
+    _height: 1000px;
+    _position: absolute;
+    // filter: alpha('opacity:60');
+    // @include opacity(0.6);
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#99000000', endColorstr='#99000000');background:rgba(0,0,0,0.6);
+}
+.long-txt-cut {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.tdn {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+.w-100 {
+    width: 100%;
+}
+.h-100 {
+    height: 100%;
+}
+.fn-hide {
+    display: none !important;
+
+}
+// 星星
+.icon-start-gray-m {
+    background: url(../../images/icon-start-gray-16x16.png);
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    *margin-right: 5px;
+}
+.icon-start-yellow-m {
+    background: url(../../images/icon-start-yellow-16x16.png);
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    *margin-right: 5px;
+}
+
+// 翻页
+.page{
+    font-size: 14px; 
+    text-align: center;
+    a{
+        display: inline-block;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+    a.click{
+        font-weight: bold;
+        color: #000;
+    }
+}
+
+// 三角形
+.ui-triangle{
+    position:absolute;
+    left:0;
+    top:0px;
+    width:0px;
+    height:0px;
+    font-size:0px;
+    line-height:0px;
+    border-style:solid;
+    
+    /* 以下是构造三角形代码 */
+    -webkit-transition:-webkit-transform .2s ease-in;/* chrome & safari */
+    -moz-transition:-webkit-transform .2s ease-in;/* firefox */
+    -o-transition:-webkit-transform .2s ease-in;/* Opera */
+    transition:-webkit-transform .2s ease-in;/* ie */
+
+}
+
+// 白色
+.ui-triangle-top-max-white{
+    border-width:0px 7px 7px 7px;/* 大小 */
+    border-color: transparent transparent #ffffff transparent;/* 颜色 */
+    _border-color: #000 #000 #fff #000;/* 颜色 */
+    _filter:chroma(color=black);
+}
+
+
+.ui-triangle-top-mid-white{
+    border-width:0px 6px 6px 6px;/* 大小 */
+    border-color: transparent transparent #ffffff transparent;/* 颜色 */
+    _border-color: #000 #000 #fff #000;/* 颜色 */
+    _filter:chroma(color=black);
+}
+
+
+.ui-triangle-top-min-white{
+    border-width:0px 4px 4px 4px;/* 大小 */
+    border-color: transparent transparent #ffffff transparent;/* 颜色 */
+    _border-color: #000 #000 #fff #000;/* 颜色 */
+    _filter:chroma(color=black);
+}
+
+
+// bottom
+.ui-triangle-bottom-max-white{
+    border-width: 7px 7px  0px 7px;/* 大小 */
+    border-color: #ffffff transparent transparent  transparent;/* 颜色 */
+    _border-color:#fff  #000 #000  #000;/* 颜色 */
+    _filter:chroma(color=black);
+}
+
+
+.ui-triangle-bottom-mid-white{
+    border-width: 6px 6px  0px 6px;/* 大小 */
+    border-color: #ffffff transparent transparent  transparent;/* 颜色 */
+     _border-color:#fff  #000 #000  #000;/* 颜色 */
+     _filter:chroma(color=black);
+}
+
+
+.ui-triangle-bottom-min-white{
+    border-width: 4px 4px  0px 4px;/* 大小 */
+    border-color: #ffffff transparent transparent  transparent;/* 颜色 */
+    _border-color:#fff  #000 #000  #000;/* 颜色 */
+    _filter:chroma(color=black);
+}
+
+
+
+// 黑色
+.ui-triangle-top-max-black{
+    border-width:0px 7px 7px 7px;/* 大小 */
+    border-color: transparent transparent #000 transparent;/* 颜色 */
+    _border-color: #000 #000 #fff #fff;/* 颜色 */
+    _filter:chroma(color=white);
+}
+
+
+.ui-triangle-top-mid-black{
+    border-width:0px 6px 6px 6px;/* 大小 */
+    border-color: transparent transparent #000 transparent;/* 颜色 */
+    _border-color: #000 #000 #fff #fff;/* 颜色 */
+    _filter:chroma(color=white);
+}
+
+
+.ui-triangle-top-min-black{
+    border-width:0px 4px 4px 4px;/* 大小 */
+    border-color: transparent transparent #000 transparent;/* 颜色 */
+    _border-color: #000 #000 #fff #fff;/* 颜色 */
+    _filter:chroma(color=white);
+}
+
+
+// bottom
+.ui-triangle-bottom-max-black{
+    border-width: 7px 7px  0px 7px;/* 大小 */
+    border-color: #000 transparent transparent  transparent;/* 颜色 */
+    _border-color:#000  #fff #fff  #fff;/* 颜色 */
+    _filter:chroma(color=white);
+}
+
+
+.ui-triangle-bottom-mid-black{
+    border-width: 6px 6px  0px 6px;/* 大小 */
+    border-color: #000 transparent transparent  transparent;/* 颜色 */
+    _border-color:#000  #fff #fff  #fff;/* 颜色 */
+    _filter:chroma(color=white);
+}
+
+
+.ui-triangle-bottom-min-black{
+    border-width: 4px 4px  0px 4px;/* 大小 */
+    border-color: #000 transparent transparent  transparent;/* 颜色 */
+    _border-color:#000  #fff #fff  #fff;/* 颜色 */
+    _filter:chroma(color=white);
+}
+
+
+// 翻页
+.page{
+    text-align: center;
+    font-size: 16px;
+    a{
+        display:inline-block;
+        height: 34px;
+        line-height: 34px;
+        padding: 0 13px;
+        color: #333;
+        border: 1px solid #e0e0e0;
+        border-radius: 34px;
+        &.click, &:hover{
+            color: #fff;
+            font-weight: normal;
+            background: #333;
+            border: 1px solid #333;
+            text-decoration: none;
+        }
+      cursor: pointer;
+    }
+}
+
+
+
+// 导航
+.mod-nav{
+    padding: 28px 0;
+    font-size: 14px;
+    color:#333;
+    .cur{
+        color: #999999;
+    }
+}
+
+
+// 用户头像
+.ui-avatar-icon{
+    overflow: hidden;
+    i,
+    span{
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-size: cover;
+        border-radius: 50%;
+    }
+}
+.ui-avatar-icon-ss{
+    width: 34px;
+    height: 34px;
+}
+.ui-avatar-icon-s{
+    width: 64px;
+    height: 64px;
+}
+.ui-avatar-icon-sm{
+    width: 50px;
+    height: 50px;
+}
+.ui-avatar-icon-m{
+    width: 100px;
+    height: 100px;
+}
+
+.ui-avatar-icon-l{
+    width: 160px;
+    height: 160px;
+}
+
+
+// 5个星星通用样式
+.ui-start-mod
+{
+    .icon-s-mod{
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        background-size: contain;
+        margin-right: 3px;
+    }
+    .icon-start-yellow{
+        background-image: url(../../image/pai/star-active.png) ;
+    }
+    .icon-start-grey{
+        background-image: url(../../image/pai/star.png) ;
+        
+    }
+}
+
+.stars-all-mod{
+    position: relative;
+    width:102px;
+   .ui-stars-grey{
+       background: url(../../images/stars-grey-200x32.png) no-repeat;
+       width:100px;
+       height: 16px;
+       background-size: 100px 16px;
+       
+   } 
+   .ui-stars-yellow{
+        background: url(../../images/stars-yellow-200x32.png) no-repeat;
+        height: 16px;
+        background-size: 100px 16px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+   }
+}
+
+// 列表通用
+.list-img-320-mod{
+    width: 1000px;
+    overflow: hidden;
+    margin: 0 auto;
+    .list {
+        width: 1030px;
+        li{
+            width: 318px;
+            overflow: hidden;
+            margin-right: 20px;
+            float: left;
+            margin-bottom: 20px;
+            border: 1px solid #e7e7e7;
+            border-radius: 0 0 3px 3px;
+            &:hover{
+                border-color: #DAD8D8;
+                .img-con{
+                    .fade-box{
+                        opacity: 0;
+                        filter: alpha(opacity=0);
+                    }
+                    
+                }
+            }
+            .img-con{
+                position: relative;
+                .fade-box{
+                    background:#000;
+                    opacity:.2;
+                    filter:alpha(opacity=20);
+                    width:100%;height:100%;
+                    left:0;
+                    top:0;
+                    position:absolute;
+                    transition:opacity .2s ease
+                }
+                .img {
+                    overflow: hidden;
+                    width: 320px;
+                    height: 220px;
+                    background: #f5f5f5;
+
+                }
+            }
+            .txt-con {
+                font-size: 14px;
+                color: #000;
+                padding: 20px;
+                background: #fff;
+                
+                .item-1{
+                    .lbox{
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        width: 280px;
+                    }
+                }
+
+                .item-2{
+                    padding-top: 14px;
+                    .rbox{
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+// 日历输入框
+.ui-date-input-mod{
+    .input{
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 123px;
+        height: 27px;
+        font-size: 16px;
+        color: #666;
+        margin-left: 10px;
+        padding-left: 5px;
+    }
+    .icon{
+        background: url('../../images/ui/date-icon-20x20.png') 96% center no-repeat;
+        background-color: #f8f8f8;
+    }
+}
+
+// 聆听用户声音
+.lt-user-mod{
+
+    width: 1000px;
+    overflow: hidden;
+    .lt-user-area{
+        width: 1080px;
+    }
+    .item{
+        width: 320px;
+        float: left;
+        display: inline;
+        margin-right: 20px;
+        .fade-h5{
+            width:100%; 
+            height:65px; 
+            position:absolute;  
+            bottom:-65px; 
+            left:0;
+            filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');background:rgba(0,0,0,0.5);
+            box-sizing: border-box;
+            transition: bottom 0.1s ease-out;
+        }
+
+
+        &:hover{
+            .fade-h5{
+                bottom:0
+            }
+        }
+    }
+    .img-area{
+        width: 320px;
+        height: 225px;
+        position: relative;
+        overflow: hidden;
+        .img{
+            img{
+                max-width: 320px;
+                max-height: 225px
+            }
+        }
+        .txt{
+            position: absolute;
+            z-index: 99;
+            background: url(../../images/line-10x100.png ) repeat-x;
+            height: 100px;
+            width: 100%;
+            bottom:0;
+            left: 0px;
+            font-size: 16px;
+            color: #fff;
+            .p1{
+                padding: 59px 15px 10px 15px
+            }
+        }
+
+
+    }
+    .des-area{
+        border-radius: 0 0 5px 5px;
+        border-left: 1px solid #eeeeee;
+        border-right: 1px solid #eeeeee;
+        border-bottom: 1px solid #eeeeee;
+        padding: 20px 20px 30px 20px;
+        .icon-txt{
+            background: url(../../images/icon-txt-30x24.png);
+            width: 30px;
+            height: 24px;
+        }
+        .des{
+            line-height: 22px;
+            font-size: 14px;
+            margin-top: 10px;
+            height: 70px;
+        }
+        .user-area{
+            margin:20px 0 0 0;
+            .lbox{
+                img{
+                    border-radius: 30px;
+                    max-width: 50px;
+                    max-height: 50px;
+                }
+                margin-right: 10px;
+            }
+            .rbox{
+                h4{
+                    font-size: 14px;
+                    padding-top: 5px;
+                }
+                .start{
+                    padding-top: 5px;
+                }
+            }
+        }
+        
+    }
+}
+

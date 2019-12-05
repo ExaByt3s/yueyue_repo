@@ -1,0 +1,10 @@
+{{#each lists}}
+<li data-user-id="{{user_id}}" data-role="model">
+    <div class="avatar-size-mod avatar-size-mod-80">
+        <span class="icon avatar-size-area"></span>
+        <i class="img image-img avatar-size-img" data-lazyload="{{user_icon}}"></i>
+    </div>
+    <h3>{{nickname}}</h3>
+    <p><span class="num {{#if comment_score_top}}sec-num{{/if}}">{{num}}</span><span class="txt">{{#if comment_score_top}}分{{/if}}</span></p>
+</li>
+{{/each}}

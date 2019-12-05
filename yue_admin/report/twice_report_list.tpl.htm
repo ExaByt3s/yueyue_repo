@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/laydate/laydate.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>工作监控报表后台</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+.table-list table {
+border-left: #dadcdd 1px solid;
+}
+.table-list tbody td, .table-list thead th {
+border-right: #dadcdd 1px solid;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">二次运营</a> 
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform">
+					<table class="table-list-search" id="quick_search" width="300">
+					      <tbody>
+							       <tr>
+							       		<td>
+							       			选择年月:
+							       		   <input type="text" name="month" class="input-text" id="month" value="{month}"/>
+							       		</td>
+										<!--<td width="260">添加日期: <input type="text" class="input-text Wate" name="start_add_time" value="{start_add_time}" onFocus="WdatePicker()" style="width:80px;"/>~ <input type="text" class="input-text Wate" name="end_add_time" value="{end_add_time}" onFocus="WdatePicker()" style="width:80px;" />
+										</td>-->
+									   <td>
+									    <p><input type="button" class="button" value="查找" onclick="com_export('list')"/> <input type="button" class="button" value="导出" onclick="com_export('export')"></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+					<input type="hidden" name='act' id="act" value="list" />
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+	<div class="table-list" id="table-list">
+		<div class="btn">
+			总条数:{total_count}
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0" style="min-width: 1000px;">
+			<thead>
+			    <tr>
+				<th>&nbsp;</th>
+				<th colspan="4">二次运营工作量</th>
+				<th colspan="2">二次运营成交量</th>
+				<th colspan="2">二次运营附加值</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <tr>
+				<td align="center">日期</td>
+				<td align="center">[系统]<br/>400电话呼入pv</td>
+				<td align="center">[系统]<br/>400电话订单pv</td>
+				<td align="center">[系统]<br/>微信二次运营订单pv</td>
+				<td align="center">[系统]<br/>app二次运营订单pv</td>
+				<td align="center">[系统]<br/>二次运营订单成交pv</td>
+				<td align="center">[系统]<br/>二次运营订单成交金额</td>
+				<td align="center">重复成交uv<br/>(2次及以上)</td>
+				</tr>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center">日期</td>
+				<td align="center">[系统]<br/>400电话呼入pv</td>
+				<td align="center">[系统]<br/>400电话订单pv</td>
+				<td align="center">[系统]<br/>微信二次运营订单pv</td>
+				<td align="center">[系统]<br/>app二次运营订单pv</td>
+				<td align="center">[系统]<br/>二次运营订单成交pv</td>
+				<td align="center">[系统]<br/>二次运营订单成交金额</td>
+				<td align="center">重复成交uv<br/>(2次及以上)</td>
+				</tr>
+				<!-- END list -->
+				<!-- IF ret --> 
+				<tr>
+				<td align="center">日期</td>
+				<td align="center">[系统]<br/>400电话呼入pv</td>
+				<td align="center">[系统]<br/>400电话订单pv</td>
+				<td align="center">[系统]<br/>微信二次运营订单pv</td>
+				<td align="center">[系统]<br/>app二次运营订单pv</td>
+				<td align="center">[系统]<br/>二次运营订单成交pv</td>
+				<td align="center">[系统]<br/>二次运营订单成交金额</td>
+				<td align="center">重复成交uv<br/>(2次及以上)</td>
+				</tr>
+				<tr>
+				<td align="center">日期</td>
+				<td align="center">[系统]<br/>400电话呼入pv</td>
+				<td align="center">[系统]<br/>400电话订单pv</td>
+				<td align="center">[系统]<br/>微信二次运营订单pv</td>
+				<td align="center">[系统]<br/>app二次运营订单pv</td>
+				<td align="center">[系统]<br/>二次运营订单成交pv</td>
+				<td align="center">[系统]<br/>二次运营订单成交金额</td>
+				<td align="center">重复成交uv<br/>(2次及以上)</td>
+				</tr>
+				<!-- ENDIF ret -->   	
+			</tbody>
+		</table>
+	</div>
+	<div id="pages" class="page">
+	{page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+  //导出和查询触动
+  function com_export($actval)
+  {
+  	$("#act").val($actval);
+	//$("#myform").attr("action", $url);
+	//return;
+	$("#myform").submit();
+ }
+ 
+ laydate({
+    elem: '#month',
+    istime: true,
+    format: 'YYYY-MM',
+});
+
+</script>
+</html>

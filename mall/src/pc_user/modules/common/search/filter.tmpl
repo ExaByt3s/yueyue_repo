@@ -1,0 +1,32 @@
+<div>
+	<div class="search-filter-header clearfix">
+	    <div class="search-filter-header-name fldi">品类：</div>	    
+	    <ul class="search-filter-header-con fldi clearfix">
+	        {{#each type_data}}
+	            <li class="fldi"><a href="{{link}}#dw" {{#if selected}}class="a-selected" {{/if}}>{{name}}</a></li>
+	        {{/each}}
+	    </ul>
+	</div>
+	{{#if filter_data}}
+	<div class="search-filter-body " data-role="search-filter-body">
+		{{#each filter_data}}
+		<div data-role-key-name="{{name}}" class="clearfix search-filter-item" data-role="search-filter-list">
+		    <div class="search-filter-body-name fldi" >{{text}}：</div>		   
+		    <ul class="search-filter-body-con fldi clearfix" >
+		        {{#each data}}
+		            <li  data-role="search-filter-list-items" class="fldi {{#if_equal rel_key "self"}}clearfix{{/if_equal}}">
+		            	<a class="{{#if selected}}a-selected{{/if}} {{#if_equal rel_key "self"}}fldi last{{/if_equal}}" href="{{link}}#dw" >{{val}}</a>
+		            	{{#if_equal rel_key "self"}}
+	            		<div class="ui-date-input-mod fldi "><span>开始</span><input id="start-date" type="text" value="" class="icon input pr10" readonly="1" name="huo_add_time_s" /></div>
+	            		<div class="ui-date-input-mod fldi "><span> - 结束</span><input id="end-date" type="text" value="" class="icon input pr10" readonly="1" name="huo_add_time_e"  /></div>
+	            		<button id="search-by-self" class="fldi confirm" data-link="{{link}}">提交</button>
+		            	{{/if_equal}}		            	
+		            </li>
+		        {{/each}}
+		    </ul>
+		    <a href="javascript:;" class="more fn-hide"><span><i class="arrow bottom"><s>◇</s></i><em>展开</em></span></a>
+		</div>
+		{{/each}}	
+	</div>
+	{{/if}}
+</div>

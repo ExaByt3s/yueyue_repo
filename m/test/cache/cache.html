@@ -1,0 +1,38 @@
+<html manifest="manifest.php">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <script type="text/javascript" src="m.js"></script>
+</head>
+<body>
+<p>js:</p><p id="jst"></p>
+ver:1<p>
+    <input type="button" value="shwo_ver" onclick="show_ver();" /><p>
+    <input type="button" value="load_js" onclick="load_js();" /><p>
+    <input type="button" value="is_online" onclick="is_online();" /><p>
+
+</body>
+<script>
+    
+     window.applicationCache.addEventListener('updateready', function(e) 
+		{
+			console.log(window.applicationCache.UPDATEREADY)
+			
+			if (window.applicationCache.status == window.applicationCache.UPDATEREADY) 
+			{
+				window.applicationCache.swapCache();
+
+				if(confirm('检测到约拍有新内容更新啦!将会自动刷新页面'))
+				{
+					window.location.reload()
+				}
+
+				
+			}
+		}, false);
+</script>
+</html>

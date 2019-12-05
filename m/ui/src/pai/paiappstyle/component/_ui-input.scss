@@ -1,0 +1,249 @@
+@charset "UTF-8";
+
+// -------------------------------------------------
+// 输入框
+// -------------------------------------------------
+
+
+// 通用4个圆角
+.ui-input-top-left{
+    @include border-corner-radius(top, left, $border-radius);
+}
+
+.ui-input-top-right{
+    @include border-corner-radius(top, right, $border-radius);
+}
+
+.ui-input-bottom-left{
+    @include border-corner-radius(bottom, left, $border-radius);
+}
+
+.ui-input-bottom-right{
+    @include border-corner-radius(bottom, right, $border-radius);
+}
+
+
+
+// 文本输入框
+.ui-input-mod{
+    .item{
+        position: relative;
+        z-index: 1;
+    }
+    .ui-input{
+        border: 1px solid #dddddd;
+        background-color: #fff;
+        font-size: 14px;
+        padding: 0px 15px;
+    }
+
+    .ui-input-block{
+        width: 100%;
+        @include box-sizing(border-box);
+    }
+
+    .ui-input-border-bottom-none{
+        //border-bottom: none ;
+        border-bottom: 1px solid #fff;
+    }
+
+
+    .ui-input-size-large{
+        height: 45px;
+    }
+
+    .ui-input-size-middle{
+        height: 35px;
+    }
+
+    .ui-input-size-min{
+        height: 30px;
+    }
+
+    .pop-tips{
+        position: absolute;
+        right: 8px;
+        top: 8px;
+    }
+
+
+
+}
+
+// 搜索框
+.ui-input-search-mod{
+    position: relative;
+    .ui-input-search-icon{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 30px;
+        height: 30px;
+        z-index: 99;
+        padding-top: 3px;
+        text-align: center;
+        @include box-sizing(border-box);
+        @include flexbox((
+            box-orient:vertical,
+            display: box,
+            box-pack: center
+        ), $version: 1);
+    }
+    .ui-input{
+        padding-left: 32px;
+    }
+}
+
+
+.ui-input-title-block{
+    width: 100%;
+    display: block;
+}
+
+
+// 标题输入框
+.ui-input-title-mod{
+    font-size: 14px;
+    @include box-sizing(border-box);
+    @include flexbox((
+        display: box,
+        box-pack: left
+    ), $version: 1);
+    background: #fff;
+    border-bottom: 1px solid #d2d2d2;
+    .ui-txt{
+        width: 60px;
+        text-align: right;
+        padding-right: 15px;
+        border-right: 1px solid #dddddd;
+        height: 18px;
+        line-height: 18px;
+        margin-top: 14px;
+        color: #333333;
+    }
+    .ui-input-area{
+        padding: 0px 15px;
+        @include flexbox((
+            box-flex: 1
+        ), $version: 1);
+        .input{
+            height: 45px;
+            background: none;
+        }
+    }
+}
+
+
+.ui-input-title-size-large{
+    height: 45px;
+}
+
+
+// 长文本输入框
+.ui-textarea{
+    .title{
+        font-size: 14px;
+        color: #333333;
+    }
+    .textarea{
+        margin-top: 10px;
+        font-size: 14px;
+        @include flexbox((
+            box-flex: 1
+        ), $version: 1);
+        @include box-sizing(border-box);
+        border: 1px solid #000;
+        background-color: #fff;
+        border: 1px solid #cccccc;
+        width: 100%;
+        height: 75px;
+        padding: 10px;
+    }
+}
+
+.ui-add-reduce{
+    @include flexbox((
+        display: box,
+        box-pack: left,
+    ), $version: 1);
+  line-height: 33px;
+
+
+    // .input-area{margin-top: -1px;}
+    .reduce{
+        padding-top: 4px;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        @include box-sizing(border-box);
+        @include flexbox((
+            display: box,
+            box-orient:vertical,
+            box-pack: center
+        ), $version: 1);
+        background: #f5f5f5;
+        border: 1px solid #dddddd;
+
+        &:active{
+            background-color: #dddddd;
+            .icon-reduce-32x32-m{
+                @include get-icon('reduce-32x32-m-active', true, block);
+            }
+        };
+    }
+    
+    .reduce-no{
+        background: #fafafa;
+        &:active{
+            background-color: #fafafa;
+            .icon-reduce-32x32-m{
+                @include get-icon('reduce-32x32-no', true, block);
+            }
+        };
+    }
+
+
+    .add{
+        padding-top: 4px;
+        @include box-sizing(border-box);
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        @include flexbox((
+            box-orient:vertical,
+            display: box,
+            box-pack: center
+        ), $version: 1);
+        background: #f5f5f5;
+        border: 1px solid #dddddd;
+
+        &:active{
+            background-color: #dddddd;
+            .icon-add-32x32-m{
+                @include get-icon('add-32x32-m-active', true, block);
+            }
+        };
+    }
+
+    .add-no{
+        background: #fafafa;
+        &:active{
+            background-color: #fafafa;
+            .icon-add-32x32-m{
+                @include get-icon('add-32x32-no', true, block);
+            }
+        };
+    }
+    
+    .input{
+        width: 60px;
+        height: 35px;
+        text-align: center;
+        @include box-sizing(border-box);
+        background: #fff;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+        font-size: 14px;
+        color: #000;
+    }
+}

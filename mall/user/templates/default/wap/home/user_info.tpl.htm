@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{name}个人中心</title>
+    {pc_global_top}
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/home/user_info_edffcf6.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_79cae42.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+</head>
+
+
+<body class="cor-bg-fff">
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view " data-role="page-container">
+        <div class="user-info-page">
+            <div class="p1th">
+                <div class="user-icon" style="background-image: url({avatar})"></div>
+
+                <div class="des">
+                    <p class="p1">ID：{user_id}</p>
+                    <p class="p2">{location}</p>
+                </div>
+
+<!--                 <div class="level">
+                    <i class="icon-v1-level"></i>
+                </div> -->
+
+                <!-- IF introduce -->               
+                    <p class="des">
+                        {introduce}
+                    </p>
+                <!-- ENDIF -->
+                
+            </div>
+
+            <div class="p2th">
+                <ul class="list clearfix" >
+<!--                     <li>
+                        <div class="circle">
+                            <div class="hold hold1">
+                                <div class="pie pie1"></div>
+                            </div>
+                            <div class="hold hold2">
+                                <div class="pie pie2"></div>
+                            </div>
+                            <div class="cor-bg"></div>
+                            <div class="time">13</div>
+                        </div>
+                        <p class="txt">会员等级</p>
+
+                    </li> -->
+
+                    <!-- BEGIN property -->  
+                        <li >
+                            <div class="circle">
+            
+                                <div class="hold hold1">
+                                    <div class="pie pie1" style="-webkit-transform: rotate(0deg);"></div>
+                                </div>
+                                <div class="hold hold2">
+                                    <div class="pie pie2"></div>
+                                </div>
+
+
+                                <div class="cor-bg"></div>
+                                <div class="time">{value}</div>
+                            </div>
+                            <p class="txt">{title}</p>
+                        </li>
+                    <!-- END property -->
+
+
+
+                </ul>        
+            </div>
+
+
+            <div class="p3th">
+
+                <!-- IF is_display_record = "1" -->
+                    <div class="title tc">{record_title}</div>
+                    <ul class="list clearfix">
+                    <!-- IF new_recore -->               
+                        <!-- BEGIN new_recore -->
+                            <a href="{link}"><li style="background-image: url({thumb})"></li></a>
+                        <!-- END new_recore -->
+                    <!-- ELSE -->
+                            <li style="width:100%" class="tc">暂无记录！</li>
+                    <!-- ENDIF -->
+                    </ul>    
+                <!-- ENDIF -->
+
+                <!-- BEGIN business -->
+                    <div class="comment tc">{title}</div>
+
+                    <div class="stars-wrap tc">
+                        <div class="stars-all-mod">
+                                <div class="ui-stars-grey">   
+                                </div>
+                                <div class="ui-stars-yellow" style="width:{top.stars_width}">
+                                </div>
+                        </div>
+                    </div>
+
+                    <!-- BEGIN merit -->
+                        <div class="zhxq color-ff6 tc f14">
+                            <a href="{request}" class="color-ff6 pbc">{title}</a>
+                        </div>
+                    <!-- END merit -->
+                <!-- END business -->
+                
+               
+
+            </div>
+
+            <div class="p4th">
+                <div class="title tc f16">{showtitle}</div>
+                <ul class="list clearfix" id="see-max-pic-ele">
+
+                <!-- IF showcase -->               
+                    <!-- BEGIN showcase -->
+                        <li>
+                            <div class="wrap">
+                                <div class="img" data-role="see-max-pic" style="background-image: url({thumb})" data-img="{thumb}"></div>
+                            </div>
+                        </li>
+                    <!-- END showcase -->
+                <!-- ELSE -->
+                        <li style="width:100%" class="tc">暂无记录！</li>
+                <!-- ENDIF -->
+
+
+                   
+                </ul>        
+            </div>
+        
+        </div>
+
+
+    </div>
+    {wap_global_footer}
+    
+</main>
+</body>
+<script>
+    var header = require('common/widget/header/main');
+
+    var WeiXinSDK = require('common/I_WX_SDK/I_WX_SDK');
+    var share = {share}.result_data;
+
+    //头部插件
+    $(document).ready(function() {
+
+        var is_your_self = '{is_your_self}';
+
+        /**** 调用微信分享 ****/
+        if(WeiXinSDK.isWeiXin())
+        {
+            // 朋友圈
+            var WeiXin_data_Timeline =
+            {
+                title: share.title, // 分享标题
+                link: share.url, // 分享链接
+                imgUrl: share.img, // 分享图标
+                success: function ()
+                {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function ()
+                {
+                    // 用户取消分享后执行的回调函数
+                }
+            };
+
+            // 好友、QQ
+            var WeiXin_data =
+            {
+                title: share.title, // 分享标题
+                desc: share.content, // 分享描述
+                link: share.url, // 分享链接
+                imgUrl: share.img, // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function ()
+                {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function ()
+                {
+                    // 用户取消分享后执行的回调函数
+                }
+            };
+
+            WeiXinSDK.ready(function()
+            {
+                WeiXinSDK.ready(function()
+                {
+                    WeiXinSDK.ShareToFriend(WeiXin_data);
+
+                    WeiXinSDK.ShareTimeLine(WeiXin_data_Timeline);
+
+                    WeiXinSDK.ShareQQ(WeiXin_data);
+                });
+
+            });
+        }
+        /**** 调用微信分享 ****/
+
+        var header_obj = header.init({
+            ele        : $("#global-header"), //头部渲染的节点
+            title      : "{name}",
+            header_show: true, //是否显示头部
+            mt_0_ele   : $("#seller-list-page"), //如果头部隐藏，要把当前页节点margin-top改为0
+            right_icon_show: is_your_self, //是否显示右边的按钮
+            share_icon : {
+                show   : false,  //是否显示分享按钮icon
+                content: ""
+            },
+            omit_icon  : {
+                show   : false,  //是否显示三个圆点icon
+                content: ""
+            },
+            show_txt   : {
+                show   : is_your_self,  //是否显示文字
+                content: "编辑"  //显示文字内容
+            }
+        });
+
+        header_obj.$el.on('click:right_btn',function()
+        {
+            // 保存按钮
+            window.location.href = './edit.php';
+        });
+        
+
+        // 微信显示大图操作
+        var src_list = [];
+        var img_list = $('#see-max-pic-ele').find('[data-role="see-max-pic"]');
+        img_list.each(function(index, item) {
+            src_list.push($(item).attr('data-img'))
+        });
+
+        $('[data-role="see-max-pic"]').on('click', function(event) {
+            event.preventDefault();
+            var cur_img = $(this).attr('data-img');
+            if (I_WX_SDK.isWeiXin()) 
+            {
+                I_WX_SDK.imagePreview(cur_img,src_list);
+            }
+        });
+
+    });
+</script>
+</html>

@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+// -------------------------------------------------
+// dialog
+// -------------------------------------------------
+#{$default-base-dialog-namespace} {
+    border: none;
+    padding: $default-base-dialog-outbox-padding;
+
+    background: $default-base-dialog-outbox-background;
+    @include filter-gradient($default-base-dialog-outbox-background, $default-base-dialog-outbox-background);
+
+    outline: none;
+}
+
+// >= IE9
+:root #{$default-base-dialog-namespace} {
+    FILTER: none\9;
+}
+
+#{$default-base-dialog-namespace}-close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    z-index: 10;
+
+    display: block;
+    height: 18px;
+    line-height: 14px;
+
+    color: $default-base-dialog-close-color;
+    
+    font-family: tahoma;
+    font-size: 24px;
+    font-weight: $bold;
+    
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        color: darken($default-base-dialog-close-color, 20%);
+        text-shadow: 0 0 2px lighten($default-base-dialog-close-color, 6.5%);
+        text-decoration: none;
+    }
+}
+
+#{$default-base-dialog-namespace}-container {
+    height: 100%;
+    zoom: 1;
+    background: $default-base-dialog-container-background;
+}
+
+
+#{$default-base-dialog-namespace}-title {
+    height: $default-base-dialog-title-height;
+    line-height: $default-base-dialog-title-height;
+    background: $default-base-dialog-title-background;
+
+    font-size: $default-base-dialog-title-font-size;
+    font-family: $default-base-dialog-title-font-family;
+
+    text-indent: $default-base-dialog-title-text-indent;
+}
+
+#{$default-base-dialog-namespace}-content {
+    padding: $default-base-dialog-content-padding;
+}

@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO约拍app
+// ------------------------------
+ 
+
+$supported-browsers: ("android", "android-chrome", "chrome", "ios-safari", "safari","ie");
+
+$default-base-body-bg: #fff;
+
+$maxZIndex: 20000;
+
+$border-radius: 2px;      
+ 
+//@import "./mini-common";
+
+
+// ===========拼图=============     
+//@import "paiappstyle/icons";
+    
+// 通用   
+//@import "./paiappstyle/include";
+    
+@import "compass";  
+// 模特卡 
+@import "paiappstyle/model-car/model-car_v2";     
+ 

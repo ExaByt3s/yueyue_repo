@@ -1,0 +1,139 @@
+@charset "UTF-8";
+//接受邀请 nolest 2014-8-13
+$background : #ffffff;
+$header_select: #ff0052;
+$header_unselect:#f0f0f0;
+$choice_unselect: #fafafa;
+$header_font:#666666;
+$border:#e6e6e6;
+$chooen_border:#ebebeb;
+.page-header
+{
+  position: absolute;
+  top:0;
+  left:0;
+  height:$height-common-min;
+  line-height: $height-common-min;
+  text-align: center;
+  z-index: 999;
+  color:$header_select;
+  background: $background;
+  width: 100%;
+  border-bottom: 1px solid $chooen_border;
+  font:{
+    size: 18px;
+  }
+  .page-back
+  {
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 45px;
+    width: 45px;
+    .icon{
+      float: left;
+      margin: 12px 0px 0px 7px;
+    }
+  }
+  .share
+  {
+    position: absolute;
+    top:0px;
+    right:0px;
+    height: 45px;
+    width: 45px;
+    .icon{
+      float: right;
+      margin: 12px 10px 0px 0px;
+    }
+  }
+  .location-select
+  {
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 43px;
+    line-height: 36px;
+    padding: 2px 0px 0px 10px;
+    vertical-align: middle;
+    text-align: left;
+    width: 75px;
+    overflow: hidden;
+    color: $header_select;
+    font:{
+      size: 14px;
+    }
+    .icon{
+      margin-left: 4px;
+    }
+    .header_location{
+      display: inline-block;
+
+    }
+  }
+  .hot-find-select
+  {
+    margin:0 auto;
+    width: 150px;
+    text-align: center;
+    color: $header_font;
+    font:{
+      size: 14px;
+    }
+    .hot-find-select-in{
+      width: 150px;
+      height: 25px;
+      margin-top: 10px;
+      border-radius: 2px;
+      background: $header_unselect;
+    }
+    .hot{
+      float: left;
+      width: 50%;
+      height: 25px;
+      line-height: 25px;
+      border-radius: 2px 0px 0px 2px;
+      cursor: pointer;
+      &:active{
+        color: #fff;
+        background: $header_select;
+        border-radius: 2px;
+      }
+    }
+    .find{
+      float: left;
+      width: 50%;
+      height: 25px;
+      line-height: 25px;
+      border-radius: 0px 2px 2px 0px;
+      &:active{
+        color: #fff;
+        background: $header_select;
+        border-radius: 2px;
+      }
+    }
+    .cur{
+      color: #fff;
+      background: $header_select;
+      border-radius: 2px;
+    }
+  }
+}
+.select-drop-trigger
+{
+  position: absolute;
+  top:0px;
+  right:0px;
+  width: 45px;
+  height: 100%;
+  .more-select-icon{
+    float: right;
+    margin: 12px 9px 0px 0px;
+    cursor: pointer;
+  }
+
+}
+.right
+{
+  
+}

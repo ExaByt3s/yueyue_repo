@@ -1,0 +1,78 @@
+<main role="main" class="account wryh">
+    <!-- <header class="page-header login-header-nav wryh">
+        <div class="page-back" data-role="page-back"><i class="icon icon-back-40x40"></i></div>
+        登录
+    </header> -->
+
+    <header class="nav-header mine-nav-header">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title">登录</h3>
+        
+        <div class="right-button-wrap">
+            <a><i class="icon icon-cog"></i></a>
+        </div>
+    </header>
+
+
+
+    <div class="content-body account-login-page" data-role="container">
+        <div class="account-container" data-role="container">
+            <!-- <ul class="ui-form">
+                <li><div class="input-label"><input  type="text" placeholder="手机号" data-role="account-name"></div></li>
+                <li><div class="input-label"><input  type="password" placeholder="密码" data-role="account-pwd"></div></li>
+            </ul> -->
+
+            <div class="ui-input-mod mb10" >
+                <div class="item">
+                    <input type="tel" class="ui-input  ui-input-size-large ui-input-block ui-input-border-bottom-none ui-input-top-left ui-input-top-right" placeholder="手机号" data-role="account-name">
+                    <!--{{#if is_iphone}}{{else}}type="text"{{/if}}-->
+                </div>
+                <div class="item"><input type="password" class="ui-input  ui-input-size-large ui-input-block ui-input-bottom-left ui-input-bottom-right" placeholder="密码" data-role="account-pwd"></div>
+            </div>
+
+
+
+            <div class="submit-btn-container">
+                <button data-role="submit-btn" class="ui-button ui-button-primary ui-button-size-large ui-button-block">
+                    <span class="ui-button-content">登录</span>
+                </button>
+            </div>
+
+            <div class="other-login  fn-hide" >
+                <!-- <button class="ui-button ui-button-primary ui-button-size-large ui-button-block sinaweibo-login-button" data-role="sso-login" data-platform="sina">
+                    <span class="ui-button-content icon-sinaweibo-logo"><i class="icon icon-sina-c"></i> 新浪微博</span>
+                </button> -->
+
+                <button class="ui-button ui-button-primary ui-button-size-large ui-button-block ui-button-color2 fn-hide"  data-role="phone" style="margin-left:0;color:#fff;">
+                    <span class="ui-button-content  icon-phone-logo">手机号登录</span>
+                </button>
+
+                <button class="ui-button ui-button-size-large qzone-login-button fn-hide" data-role="qzone">
+                    <span class="ui-button-content icon icon-qzone-logo"></span>
+                </button>
+            </div>
+
+
+            <div class="go-style">
+                    <div class="lbox" data-role="forget-pwd" >
+                        <button class="ui-button  ui-button-size-middle  ui-button-block ui-button-nocolor">
+                            <span class="ui-button-content">忘记密码？</span>
+                        </button>
+                    </div>
+                    <div class="rbox" data-role="reg">
+                        <button class="ui-button  ui-button-size-middle  ui-button-block ui-button-nocolor">
+                            <span class="ui-button-content">新用户注册</span>
+                        </button>
+                    </div>
+            </div>
+
+
+        </div>
+        <div data-role="nav-to-agreement-login" style="position: absolute;bottom:10px;width: 100%;text-align: center;color:#000000;font-size:11px;">
+            点击“登录”即表示您同意<a href="javascript:;" style="color: #0060ff">《用户许可协议》</a>
+        </div>
+    </div>
+</main>

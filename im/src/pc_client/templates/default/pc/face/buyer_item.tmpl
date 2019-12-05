@@ -1,0 +1,10 @@
+{{#each data}}
+<div class="buyer_list_item ds-box orient-h align-center" data-role="buyer_list_item" manage_id="{{manage_id}}" send_user_id="{{send_user_id}}" to_user_id="{{to_user_id}}" data-buyer-list-item="{{send_user_id}}{{to_user_id}}" data-async-buyer="{{send_user_id}}">
+    <img class="ds-block" src='{{img}}' style="width: 40px;height: 40px;border-radius: 2px" data-async="icon"/>
+    <div class="ds-box orient-v nickname">
+        <div data-async="name">{{name}}</div>
+        <div data-async="id">ID:{{send_user_id}}</div>
+    </div>
+    <div class="point red" data-role="nums" data-nums="{{../nums}}">{{../nums}}</div>
+</div>
+{{/each}}

@@ -1,0 +1,57 @@
+// 手机预览
+.qr_code_preview_ele{
+    position: fixed;
+    top: 210px;
+    cursor: pointer;
+    z-index: 999;
+    .qr_code_preview{
+       position: relative;
+        .phone{
+            .img{
+                background: url(../../../images/perview-50x90.png)  no-repeat;
+
+                width: 50px;
+                height: 90px;
+               
+            }
+            &:hover .img{
+                background: url(../../../images/perview-50x90-hover.png)  no-repeat;
+            }
+        }
+        .qr{
+            position: absolute;
+            // right:-50px;
+            top: 0px;
+            right:52px;
+            .img{
+                
+                // background: url(../../../images/qr_code_150x150.png)  no-repeat;
+                width: 150px;
+                height: 150px;
+                display: inline-block;
+                margin-top: 5px;
+                img{
+                    max-width: 150px;
+                    max-height: 150px;
+                }
+
+
+
+            }
+            text-align: center;
+            width: 160px;
+            height: 210px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            background: #fff;
+        }
+        .p1{
+            line-height: 20px;
+            padding-top: 8px;
+            font-weight: bold;
+        }
+        
+    }
+
+
+}

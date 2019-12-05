@@ -1,0 +1,38 @@
+{{#each list}}
+<div class="item">
+	<label class="fn-hide">{{add_one @index}}</label>
+	<input name="detail[{{arr_index}}][goods_id]" class="fn-hide" value="{{goods_id}}"  />
+	<input name="detail[{{arr_index}}][title]" class="fn-hide" value="{{title}}" />
+	<div class="item-con-1">
+	 	<div class="img-item">
+	 		<i class="img image-img db" data-lazyload-url="{{images}}">
+	 		</i>
+	 	</div>
+	 	<div class="txt-item">
+	 		<h3 class="title f14 color-333">{{title}}</h3>
+	 	</div>
+	</div>
+	{{#each price_arr}}
+	<div class="item-con-2 clearfix">
+		<div class="lbox fldi">
+			<!-- <i class="choose-icon {{#if is_select}}has-choose-icon{{/if}}"></i> -->
+
+
+
+			<input type="checkbox" onclick="cbk_select(this)" id="type_key_{{type_key}}" class="checkbox" {{#if is_select}}checked{{/if}} name="detail[{{../arr_index}}][price_arr][{{@index}}][is_select]" value="1" data-type-key="{{type_key}}" data-p-id="{{../arr_index}}-{{@index}}">
+
+			<label ><em class="money color-666">{{price_text}}</em></label>
+
+			<input name="detail[{{../arr_index}}][price_arr][{{@index}}][price_text]" class="fn-hide" value="{{price_text}}" />
+			<input name="detail[{{../arr_index}}][price_arr][{{@index}}][type_key]" class="fn-hide" value="{{type_key}}" />
+		</div>
+		<div class="rbox frdi">
+			<div id="add-reduction-ele-{{../arr_index}}-{{@index}}" data-role="add-reduc-container" {{#each this}}data-{{@key}}="{{this}}"{{/each}} data-index="{{@index}}" data-parent-index="{{../arr_index}}" class="{{#unless is_select}}fn-hidden{{/unless}}" data-goods-id="{{../goods_id}}">
+			     
+			</div>
+		</div>
+	</div>
+	{{/each}}
+	
+</div>
+{{/each}}

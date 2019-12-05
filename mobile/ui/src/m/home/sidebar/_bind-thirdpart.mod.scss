@@ -1,0 +1,63 @@
+// 绑定第三方
+.bind-thirdpart-mod {
+    padding: 0 20px;
+    line-height: 31px;
+
+    .title {
+        @include float-left;
+    }
+    .thirdpart-web {
+        margin-left: 84px;
+        padding-top: 4px;
+    }
+
+    // a {
+    //     @include float-left;
+    //     overflow: hidden;
+    //     margin-right: 10px;
+    //     text-decoration: none;
+    // }
+
+    // 第三方ICON
+    // .icon-sinaweibo{
+    //     @include get-icon(sinaweibo, true);
+        
+    //     &.active {
+    //         @include get-icon(sinaweibo-active);
+    //     }
+    // }
+    // .icon-qqweibo{
+    //     @include get-icon(txweibo, true);
+
+    //     &.active {
+    //         @include get-icon(txweibo-active);
+    //     }
+    // }
+
+    a {
+        @include float-left;
+        margin-right: 10px;
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
+        background: #bbbbbb;
+        @include border-radius(2px);
+        text-align: center;
+        overflow: hidden;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .icon-sinaweibo, .icon-txweibo {
+        font-size: 18px;
+        color: #fff;
+    }
+
+    .sinaweibo-active {
+        background: #e1212a;
+    }
+    .txweibo-active {
+        background: #1d9ad6;
+    }
+}

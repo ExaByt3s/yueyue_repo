@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "index_66459b1.css",
+    "sources": [
+        "/style/order_list/index.scss"
+    ],
+    "sourcesContent": [
+        ".order-list .tap-title{\r\n    height: 50px;\r\n    line-height: 49px;\r\n    color: #000;\r\n    font-size: 20px;\r\n    padding: 0px 15px;\r\n    background: #fff;\r\n}"
+    ],
+    "mappings": "AAAA,AAAY,AACR,AAAQ,AACR,AAAa,AACb,AAAO,AACP,AAAW,AACX,AAAS,AACT,AAAY",
+    "names": []
+}

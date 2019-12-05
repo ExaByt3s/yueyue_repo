@@ -1,0 +1,208 @@
+ @charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 信用等级认证 
+//
+ .authentication .content-body .small-pic .reset-i i{
+   height: auto;
+   width: auto; 
+ }
+ .authentication .content-body .small-pic .reset-i .pay-details-payment{
+	margin :0;
+ }
+ .authentication .content-body .small-pic .reset-i .pay-details-payment-title{
+	display: none;
+ }
+.authentication{
+	.content-body{
+	  	//padding-top: 15px;
+	  	.title{
+   			font-size: 16px;
+   			color: #000;
+   			border-bottom: 1px solid #ddd;
+   			height: 45px;
+   			line-height: 45px;
+   			padding:0 15px;
+   			background: #fff;
+   			.status{
+   				font-size: 10px;
+   				background: #3fc585;
+   				color: #fff;
+   				@include border-radius(90px);
+   				@include float-right;
+   				padding: 0 15px;
+				height: 20px;
+				line-height: 20px;
+				margin-top: 13px;
+   			}
+   		}
+	  	section{
+	   		background: #fff;
+	   		border-bottom: 1px solid #d2d2d2;
+	   		margin-bottom: 20px;
+	  	}
+		.authentication-list{
+			.ui-input-title-mod{
+				padding-left: 15px;
+				border:none; 
+				div{
+					line-height: 45px;
+					border-bottom: 1px solid #ddd;
+				}
+				div.ok{
+					color: #ff4978
+				}
+				.left{
+					font-weight: bold;
+					color: #666;
+				}
+				.vertical-line{
+					color: #ddd;
+					padding: 0 10px;
+				}
+				.middle{
+					@include flexbox((
+			            box-flex: 1
+			        ), $version: 1);
+			        color: #333;
+				}
+				.icon{
+					margin:0 15px 0 10px;
+				}
+
+		    &:last-child{
+				div{
+					border: none;	
+				} 
+            }
+
+			}
+			
+		}
+		.pic{
+			padding: 15px;
+/* 			img{
+				width: 100%;
+				margin: 0 auto;
+				display: inherit;
+			} */
+			i{
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-position: 50%;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			.tip{
+				padding: 0;
+				color: #aaa;
+				line-height: 1.5;
+				margin-bottom: 0;
+			}
+			.mt0{
+				margin-top: 0;
+			}
+		}
+		.small-pic{
+/* 			img{
+				display: inline-block;
+				width: 85px;
+				height: 100px;
+			} */
+			.grid{
+				@include flexbox((
+                display: box,                
+                box-pack: justify
+            	), $version: 1);
+            	width: 100%;
+			}
+			i{
+				display: inline-block;
+				width: 85px;
+				height: 100px;
+			}
+			.text{
+				display: inline-block;
+				width: 69%;
+				li{
+					width: 90%;
+				}
+			}
+			.money{
+				padding: 40px 0;
+				text-align: center;
+				color: #ff5000;
+				font-size: 24px;
+				font-weight: bold;
+				span{
+					font-size: 12px;
+					font-weight: normal;
+				}
+			}
+			
+			.tip{
+				h4{
+					font-size: 14px;
+					color: #000;
+				}
+				.money-ul{
+					li{
+						padding-top: 15px;
+						span{
+							display: inline-block;
+						}
+						span.point{
+							font-size: 44px;
+							line-height: 0.25;
+							@include float-left;
+							padding: 1px 5px 0 0 ;
+						}
+					}
+				}
+			}
+			span.money-tip{
+				text-align: center;
+				line-height: 1.8;
+			}
+			.btn{
+				border-top: 1px solid #ddd;
+			}
+		}
+		.btn{
+			margin:15px auto 0;
+			padding-top:15px;
+			a{
+				width: 290px;
+				height: 45px;
+				text-align: center;
+				line-height: 45px;
+				background: #ff4978;
+				@include border-radius(3px);
+				color: #fff;
+				font-size: 16px;
+				display: block;
+				margin: 0 auto;
+			}
+		}
+		.money-btn{
+			margin: 0 auto;
+			padding-top: 0;
+			border: none;
+		}
+		.out-btn{
+			//margin:0 auto;
+			margin: 0 15px 15px;
+			padding-top: 0;
+			a{
+				margin: 0 auto;
+			}
+		}
+		.tip{
+			font-size: 12px;
+			margin: 15px 0 ;
+			color: #666;
+			display: block;
+			padding: 0 15px;
+		}
+	}
+}

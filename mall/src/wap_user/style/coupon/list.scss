@@ -1,0 +1,41 @@
+body,html{
+  overflow: hidden;
+}
+.page-view-coupon-list{
+  background-color: #fff;
+  .taps_container{
+    display: -webkit-box;
+    background: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+
+    .inner_tap{
+      display: -webkit-box;
+      -webkit-box-pack:center;
+      -webkit-box-orient:vertical;
+      -webkit-box-flex:1;
+      height: 39px;
+      text-align: center;
+      margin:0px 10px;
+      color: #999999;
+      &.cur{
+        color: #333333;
+        border-bottom: 1px solid #333333;
+      }
+    }
+
+  }
+  .coupon_con{
+    padding: 10px;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  .next_page_btn{
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-box-pack:center;
+    text-align: center;
+    height: 45px;
+    background: #f2f2f2;
+  }
+}

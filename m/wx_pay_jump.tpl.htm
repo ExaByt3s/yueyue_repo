@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>微信支付页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0">
+    <link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/wap/style/libs/common_9529c71.css">
+<style>
+.weixin-pay-jump{text-align: center;}
+.weixin-pay-jump .pay-code{  padding: 75px 0 50px;}
+.weixin-pay-jump .code{  display: inline-block;vertical-align: middle;width: 50px;height: 50px;margin: 0 auto; background:url(images/pai/icons/long-face-100x100.png) no-repeat;background-size: cover;}
+.weixin-pay-jump .code-tips{  padding-top: 20px;color: #666;font-size: 14px;}
+.weixin-pay-jump .pay-pb30{  padding-bottom: 30px;}
+.weixin-pay-jump .pay-btn{width:100px;margin:0 auto;}
+
+</style>
+<title>约约微信支付页</title>
+	{xn_log}
+	<script>
+		/**
+		 * @param {String}  errorMessage   错误信息
+		 * @param {String}  scriptURI      出错的文件
+		 * @param {Long}    lineNumber     出错代码的行号
+		 * @param {Long}    columnNumber   出错代码的列号
+		 */
+		window.onerror = function (errorMessage, scriptURI, lineNumber, columnNumber)
+		{
+
+			// 有callback的情况下，将错误信息传递到options.callback中
+			if (typeof callback === 'function') {
+				callback({
+					message: errorMessage,
+					script: scriptURI,
+					line: lineNumber,
+					column: columnNumber
+				});
+			} else {
+				// 其他情况，都以alert方式直接提示错误信息
+				var err_log_src = 'http://www.yueus.com/mobile_app/log/save_log.php?from_str=app&err_level=2&url='+encodeURIComponent(window.location.href);
+
+				var img = new Image();
+
+				var msgs = [];
+
+				msgs.push("代码有错。。。");
+				msgs.push("\n错误信息：", errorMessage);
+				msgs.push("\n出错文件：", scriptURI);
+				msgs.push("\n出错位置：", lineNumber + '行，' + columnNumber + '列');
+
+
+				if(window.location.href.indexOf('webdev')!=-1)
+				{
+
+					console.log(msgs.join(''));
+				}
+				else
+				{
+					img.src = err_log_src+'&err_str='+encodeURIComponent(msgs.join(''));
+				}
+
+
+			}
+		};
+	</script>
+    <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>-->
+	{wx_js}
+    <!--<script src="http://cdnjs.gtimg.com/cdnjs/libs/jquery/1.8.3/jquery.min.js"></script>-->
+    {zepto_js}
+    <script>
+
+        $(function () {
+			var $pay_fail = $('[data-role="pay-fail"]');
+			var $pay_ing = $('[data-role="pay-ing"]');
+			var $head_title = $('#head-title');
+            /*
+             * 注意：
+             * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+             * 2. 如果发现在 Android 不能分享自定义内容，请到官网下载最新的包覆盖安装，Android 自定义分享接口需升级至 6.0.2.58 版本及以上。
+             * 3. 常见问题及完整 JS-SDK 文档地址：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+             *
+             * 开发中遇到问题详见文档“附录5-常见错误及解决办法”解决，如仍未能解决可通过以下渠道反馈：
+             * 邮箱地址：weixin-open@qq.com
+             * 邮件主题：【微信JS-SDK反馈】具体问题
+             * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
+             */
+            wx.config({
+                debug    : false,
+                appId    : '{wx_sign_package.appId}',
+                timestamp: {wx_sign_package.timestamp},
+                nonceStr : '{wx_sign_package.nonceStr}',
+                signature: '{wx_sign_package.signature}',
+                jsApiList: [
+                    'chooseWXPay'
+                ]
+            });
+            wx.ready(function () {
+                // 在这里调用 API
+
+                pay_action();
+
+                $('#retry-btn').on('click', function () {
+                    window.location.href = window.location.href;
+                });
+
+				$('[data-role="back"]').on('click', function () {
+                    if(document.referrer)
+					{
+						window.history.back();
+
+					}
+					else
+					{
+						window.location.href = "http://yp.yueus.com/mall/user/" ;
+					}
+                });
+
+            });
+			
+			
+
+            var chooseWXPay = function (data, success, fail) {
+                if (data.appId) {
+                    delete data.appId;
+                }
+
+                data.timestamp = data.timeStamp;				
+
+                var callback =
+                {
+                    success    : function (res) {
+
+
+                        var code = 0;
+
+                        var err_log_src = 'http://www.yueus.com/mobile_app/log/save_log.php?err_level=1&url=' + encodeURIComponent(window.location.href);
+
+                        var img = new Image();
+
+						$pay_ing.hide();
+
+                        if (res.errMsg == 'chooseWXPay:ok') {
+                            //支付成功
+                            code = 1;
+
+							$pay_ing.show();
+
+							$pay_ing.find('[data-role="titles"]').html('支付成功!正在为你跳转返回...')
+
+                            setTimeout(function () {
+                                window.location.href = '{output_arr.channel_return}'
+                            }, 1500);
+                        }
+                        else if (res.errMsg == 'chooseWXPay:cancel') {
+                            //支付过程中
+                            code = 10;
+                            $head_title.html('取消支付');
+
+                            $pay_fail.show();							
+
+                        }
+                        else if (res.errMsg == 'chooseWXPay:fail') {
+                            //支付失败
+                            code = -3;
+
+                            img.src = err_log_src + '&err_str=' + encodeURIComponent(res.errMsg);
+
+                            console.log('url=' + window.location.href + '&err_str=' + res.errMsg);
+
+
+                            $head_title.html("支付失败:" + res.err_msg);
+
+                            $pay_fail.show();
+
+                        }
+                        else {
+                            img.src = err_log_src + '&err_str=' + encodeURIComponent(res.errMsg);
+
+                            console.log('url=' + window.location.href + '&err_str=' + res.errMsg);
+
+                            $head_title.html("支付失败，由于网络问题提交失败，请点击左上角关闭并重新进入");
+
+                            $pay_fail.show();
+                        }
+
+
+                        if (typeof success == "function") {
+                            success.call(this, {code: code});
+                        }
+                    },
+                    fail       : function (res) {
+                        console.log(res);
+
+                        if (typeof fail == "function") {
+                            fail.call(this, res);
+                        }
+
+                        $head_title.html("支付失败:" + res.err_msg);
+
+						$pay_ing.hide();
+
+                        $pay_fail.show();
+
+                    }, complete: function (res) {
+
+                    debugger;
+                },
+                    cancel     : function (res) {
+
+                        $head_title.html('取消支付');
+
+						$pay_ing.hide();
+
+                        $pay_fail.show();
+                    }
+                };
+
+                data = $.extend({}, data, callback);
+
+                wx.chooseWXPay(data);
+
+            };
+
+            var pay_action = function () {
+                var pay_json_data = {output_arr.data_json};
+                    var code = '{output_arr.code}';
+                    var message = '{output_arr.message}';
+					var url = '{output_arr.err_page_url}';
+
+                if (code > 0) {
+                    pay_json_data = JSON.parse(pay_json_data);
+
+                    chooseWXPay(pay_json_data);
+                }
+                else {
+                    alert(message);
+
+					window.location.href = url;
+                }
+            }
+        });
+
+
+    </script>
+</head>
+<body>
+<main role="main" data-role="weixin-pay-jump" >
+    <header class="global-header">
+        <div class="wbox clearfix">
+            <a href="javascript:void(0);">
+                <div id="back" class="back" data-role="page-back">
+                    <i class="icon-back"></i>
+                </div>
+            </a>
+            <h3 class="title">微信支付页</h3>
+        </div>
+    </header>
+    <div class="weixin-pay-jump " data-role="page-container">
+		<!--支付失败-->
+        <div data-role="pay-fail" style="display:none;">
+			<div class="pay-code">
+				<i class="code"></i>
+				<h4 class="code-tips" id="head-title">支付失败</h4>
+			</div>		
+			<div class="pay-pb30">
+				<button class="ui-button  ui-button-block ui-button-size-l ui-button-bg-btn-555 pay-btn" data-role="back">
+					<span class="ui-button-content">返回</span>
+				</button>
+			</div>
+			<div class="pay-pb30">
+				<button id="retry-btn" class="ui-button  ui-button-block ui-button-size-l ui-button-bg-btn-555 pay-btn">
+					<span class="ui-button-content">重试</span>
+				</button>
+			</div>
+		</div>
+
+		<!--正在支付-->
+		<div data-role="pay-ing" >
+			<div class="pay-code">
+				<h4 class="code-tips" data-role="titles">正在调用微信支付...</h4>
+			</div>					
+		</div>
+    </div>
+</main>
+</body>
+<script>
+
+    var back = document.getElementById('back');
+    back.onclick = function()
+    {
+        if(document.referrer)
+        {
+            window.history.back();
+
+        }
+        else
+        {
+            window.location.href = "http://yp.yueus.com/mall/user/" ;
+        }
+    };
+    document.body.addEventListener('touchstart',function(){});
+
+</script>
+</html>

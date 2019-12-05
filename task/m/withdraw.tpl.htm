@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>提现</title>
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/m/static/lib/mod_327a0b0.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/m/static/style/libs/common_64aa9a1.css">
+<!--基础样式 END-->
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/m/static/style/task-m_d02a0dc.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__romain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : '../ajax/'
+	};
+    console.log(window.localStorage.getItem("$__storage_first_tips"))
+    if(window.localStorage.getItem("$__storage_first_tips"))
+    {
+        console.log("in")
+    }
+    else
+    {
+        console.log("in2")
+        var data =
+        {
+            "details_1":1,
+            "details_2":1,
+            "submit_1":1,
+            "pay_1":1,
+            "talk_1":1
+        }
+        window.localStorage.setItem("$__storage_first_tips",JSON.stringify(data));
+    }
+</script>  
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/m/static/style/profile/profile_7cdc73d.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/m/static/lib/lib_f794172.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/m/static/js/common/common_fd06c3c.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/m/components/zepto/zepto_9261738.js"></script>
+</head>
+<body style="background: #f2f2f2">
+<div class="withdraw_tips fn-hide" data-role="withdraw_tips" data-hide>
+    <div class="tips_container fn-hide" data-role="tips_container" data-hide>
+        <div class="contain">
+            <p data-role="show_account">支付宝账号:{account_name.third_account}</p>
+            <p data-role="show_name">开户人姓名:{account_name.real_name}</p>
+            <p data-role="show_glod"></p>
+        </div>
+        <div class="btn_contain">
+            <div data-role="cancal_withdraw_btn">取消</div>
+            <div data-role="withdraw_btn">确认提现</div>
+        </div>
+    </div>
+    <div class="tips_container fn-hide" data-role="tips_container_ok" data-hide>
+        <div class="contain">
+            <p>你已成功提现100.00元至{account_name.real_name}支付宝账户{account_name.third_account},我们工作人员会在24小时内进行处理</p>
+        </div>
+        <div class="btn_contain">
+            <div data-role="confirm">确认</div>
+        </div>
+    </div>
+</div>
+<main>
+    <div class="page-view " data-role="page-container">
+        <div class="common_menu" >
+    <div class="common_logo"><i class="icon icon-top-logo"></i></div>
+	<div class="common_btn" data-role="common_btn_menu"><i class="icon icon-right-menu-logo"></i></div>
+    
+</div>
+<div class="common_menu_open layout_box_v fn-hide" data-role="common_menu_open">
+    <a data-role="common_menu_open_business" href="list.php">生意机会</a>
+    <a data-role="common_menu_open_list" href="order_list.php?type=pending">订单列表</a>
+    <a data-role="common_menu_open_mine" href="profile.php">个人中心</a>
+    <a data-role="common_menu_open_log_out" href="logout.php">退出登录</a>
+</div>
+<!--modjs hack 特殊处理，增加head标记-->
+<head></head>
+<!--modjs hack 特殊处理，增加head标记-->
+<script type="text/javascript">
+	
+	var cookie = require('common/cookie/index');
+	var $ = require('components/zepto/zepto.js');	
+
+	(function($,window)
+	{
+		var self = this;
+
+		var no_login = '{no_login}';
+
+		var $common_menu_open = $('[data-role="common_menu_open"]');
+		var $common_btn_menu  = $('[data-role="common_btn_menu"]');
+		var $common_menu_open_log_out = $('[data-role="common_menu_open_log_out"]');
+
+		if(!parseInt(cookie.get('yue_member_id')))
+		{
+			$common_btn_menu.hide();
+		}
+
+		$common_btn_menu.on('click',function()
+		{	
+			if(!parseInt(cookie.get('yue_member_id')))
+			{
+				return;
+			}
+			
+			$common_menu_open.toggleClass("fn-hide");
+		});
+
+		$common_menu_open_log_out.on('click',function()
+		{
+			$.ajax
+			({
+				url: window.$__config.ajax_url + 'login_out.php',
+				type: 'POST',
+				cache: false,
+				dataType: 'json',
+				beforeSend: function () {
+
+				},
+				success: function (data) {
+					window.location.href = './login.php';
+
+				},
+				error: function () {
+
+				},
+				complete: function () {
+
+				}
+			})
+    })
+
+	})($,window);
+</script> 
+        <!--select id="province">
+            <option value=""> -- </option>
+        </select>
+        <select id="city">
+            <option value=""> -- </option>
+        </select-->
+        <div class="profile_container" data-role="profile_container" style="margin-top: 15px">
+           <div class="withdraw_money">
+               <div>
+                   <p class="notice">钱包余额</p>
+                   <p class="red" >￥{info.available_balance}</p>
+               </div>
+               <div>
+                   <p class="notice">可提现</p>
+                   <p class="black" data-ava_bal="{info.available_balance}">￥{info.purse_available_balance}</p>
+               </div>
+           </div>
+            <div class="profile_list_container_common_style n_w" style="margin-top: 15px">
+                <div class="child pd">
+                    <div class="central">
+                        <div class="left_box">
+                            <p class="with_draw_notice">提现金额</p>
+                            <input placeholder="请输入金额" data-role="price">
+                        </div>
+                    </div>
+                </div>
+                <div class="child pd">
+                    <div class="central">
+                        <div class="left_box">
+                            <p class="with_draw_notice">支付宝账号</p>
+                            <input value="{status_resault.data}" data-role="account" readOnly="true"  style="color: #aeaeae">
+                        </div>
+                        <div class="right_box exp fn-hide">
+                            <p style="line-height: 22px">已绑定</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="child pd" style="position: relative">
+                    <div class="central">
+                        <div class="left_box">
+                            <p class="with_draw_notice">手机验证码</p>
+                            <input placeholder="输入验证码" data-role="code" data-self-phone="{info.cellphone}">
+                        </div>
+                        <div class="right_box exp_btn" style="margin-right: 0px">
+                            <p class="count_btn" data-role="count_btn">获取验证码</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="withdraw_btn" data-role="tips_show">提现</div>
+        </div>
+
+    </div>
+</main>
+</body>
+<script>
+
+$(function()
+{
+    $('[data-role="tips_show"]').on('click',function()
+    {
+        var price  = $('[data-role="price"]').val();
+
+        var account = $('[data-role="account"]').val();
+
+        var code = $('[data-role="code"]').val();
+
+        var email_reg = new RegExp(/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/);
+
+        var phone_reg = new RegExp(/^[0-9]{11}$/);
+
+        var ava_bal = $('[data-ava_bal]').attr('data-ava_bal');
+
+        if( ava_bal == 0)
+        {
+            alert('可提现金额为零');
+            return
+        }
+		
+		/**
+        if( price > ava_bal)
+        {
+            alert('输入金额大于可提现金额');
+            return
+        }**/
+
+        if( account.trim() == '' )
+        {
+            alert('请正确输入支付宝账号！');
+            return
+        }
+
+        if( price.trim() == "")
+        {
+            alert('请输入提现金额！');
+            return
+        }
+
+        if( code.trim() == "")
+        {
+            alert('请输入验证码！');
+            return
+        }
+
+
+        $('[data-role="show_glod"]').html("提款金额:" + price);
+
+        $('[data-role="withdraw_tips"]').removeClass('fn-hide');
+
+        $('[data-role="tips_container"]').removeClass('fn-hide');
+    })
+
+    $('[data-role="cancal_withdraw_btn"]').on('click',function()
+    {
+        $('[data-role="withdraw_tips"]').addClass('fn-hide');
+
+        $('[data-role="tips_container"]').addClass('fn-hide');
+    })
+
+    $('[data-role="confirm"]').on('click',function()
+    {
+        $('[data-hide]').addClass('fn-hide');
+    })
+
+    $('[data-role="withdraw_btn"]').on('click',function()
+    {
+        var price  = $('[data-role="price"]').val();
+
+        var account = $('[data-role="account"]').val();
+
+        var code = $('[data-role="code"]').val();
+
+        var email_reg = new RegExp(/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/);
+
+        var phone_reg = new RegExp(/^[0-9]{11}$/);
+
+        // || !(email_reg.test(account) || phone_reg.test(account))
+
+        if( account.trim() == '')
+        {
+            alert('请正确输入支付宝账号！');
+            return
+        }
+
+        if( price.trim() == "")
+        {
+            alert('请输入提现金额！');
+            return
+        }
+
+        if( code.trim() == "")
+        {
+            alert('请输入验证码！');
+            return
+        }
+
+
+        $.ajax
+        ({
+            url : '../ajax/withdraw.php',
+            data:{type:'money',sms_code:code,amount:price},
+            type: 'POST',
+            cache: false,
+            dataType : 'json',
+            beforeSend: function()
+            {
+
+            },
+            success: function(data)
+            {
+                console.log(data);
+                if(data.result_data.code != 1)
+                {
+                    alert(data.result_data.msg);					
+                }
+                else
+                {
+
+                    $('[data-role="tips_container"]').addClass('fn-hide');
+                    $('[data-role="tips_container_ok"]').removeClass('fn-hide');
+
+					window.location.href = './pocket.php';
+                }
+            },
+            error: function()
+            {
+                alert('请求超时，请重试')
+            },
+            complete: function()
+            {
+
+            }
+        });
+    })
+
+    var counting
+
+    var itv;
+
+    $('[data-role="count_btn"]').on('click',function()
+    {
+		var price  = $('[data-role="price"]').val();
+
+		if( price.trim() == "")
+        {
+            alert('请输入提现金额！');
+            return
+        }
+
+        if(counting){console.log('return');return}
+
+        var sec = 60;
+
+        var btn_obj = $('[data-role="count_btn"]');
+
+        btn_obj.html(sec);
+
+        btn_obj.addClass('un_click');
+
+        itv = setInterval(function()
+        {
+            counting = true;
+
+            var num = parseInt(btn_obj.html()) - 1;
+            btn_obj.html(num);
+
+            if(num == 0)
+            {
+                counting = false;
+
+                clearInterval(itv);
+
+                btn_obj.html('获取验证码');
+
+                btn_obj.removeClass('un_click');
+            }
+        },1000)
+
+        $.ajax
+        ({
+            url : '../ajax/withdraw.php',
+            data:{type:'sms'},
+            type: 'POST',
+            cache: false,
+            dataType : 'json',
+            beforeSend: function()
+            {
+
+            },
+            success: function(data)
+            {
+                console.log(data);
+
+                if(data.result_data.code == 1)
+                {
+                    alert('发送成功！')
+                }
+                else
+                {
+                    alert(data.result_data.msg)
+                }
+            },
+            error: function()
+            {
+                counting = false;
+
+                clearInterval(itv);
+
+                btn_obj.html('获取验证码');
+
+                btn_obj.removeClass('un_click');
+            },
+            complete: function()
+            {
+
+            }
+        });
+    })
+
+});
+</script>
+</html>

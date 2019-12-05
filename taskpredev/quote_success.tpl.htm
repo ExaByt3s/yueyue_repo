@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>任务</title>
+
+<!-- 公共css，js引入 -->
+{pc_task_top}
+
+<!-- 当前页面css-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/style/person_center/index.css">
+<!-- js 库-->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/modules/common/widget/header/header.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/modules/common/widget/header/main.js"></script>
+</head>
+<body>
+
+{pc_global_nav}
+
+
+
+
+<div class="demand-success w960">
+    <div class="p1th">
+        <div class="wbox clearfix">
+            <div class="lbox fldi"></div>
+            <div class="rbox fldi">
+                <p>报价发送成功</p>
+                <p>你也可以主动联系Ta，电话：{cellphone}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="p2th">
+        <h3 class="font_wryh title">想要提高你被选中的几率吗？</h3>
+        <ul class="list clearfix font_wryh">
+            <li>
+                <div class="lel">2X</div>
+                <p class="num">1条好评</p>
+            </li>
+
+            <li>
+                <div class="lel">4X</div>
+                <p class="num">5条好评</p>
+            </li>
+        </ul>  
+
+        <div class="des font_wryh">有1条好评会提高2倍你被选中的几率。
+有5条好评会提高4倍你被选中的几率。</div>      
+    </div>
+</div>
+
+
+{footer_html}
+
+<script type="text/javascript">
+
+	var $ = require('components/jquery/jquery.js');
+	var header = require('common/widget/header/main');
+    var user_role = {seller_id} ; //传入用户
+	$(function() 
+	{
+		// 渲染头部
+		var $header_container = $('#yue-topbar-userinfo-container');
+		header.render($header_container[0],user_role);
+		
+	});
+
+</script>
+
+</body>
+</html>

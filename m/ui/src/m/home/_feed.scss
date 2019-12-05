@@ -1,0 +1,366 @@
+@charset "UTF-8";
+
+// -------------------------------------------------
+// 首页 -- 动态
+// -------------------------------------------------
+
+// ------------------------
+// 导航
+// ------------------------
+.feed-nav {
+    border-bottom: 1px solid $color-efe;
+    padding-bottom: 7px;
+    margin-bottom: 5px;
+
+    .nav-list {
+        @include float-left;
+        position: relative;
+        _zoom: 1;
+    }
+    .feed-setting {
+        @include float-right;
+        margin-top: 4px;
+        height: 18px;
+        line-height: 1;
+        font-size: 18px;
+        color: #999;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    li {
+        @include float-left;
+
+        a {
+            @include inline-block;
+            margin-right: 10px;
+            padding: 0 11px;
+            height: 26px;
+            line-height: 26px;
+            
+            //@include border-radius(3px);
+
+            color: $color-3fa;
+        }
+
+        .current {
+            //background: $color-efe;
+            color: $color-666;
+
+            cursor: default;
+
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+
+    .background-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        @include inline-block;
+
+        width: 70px;
+        height: 26px;
+        @include border-radius(3px);
+        background: $color-efe;
+
+        @include transition(left 0.4s ease-in-out);
+    }
+}
+
+
+%feed-list-elements-style{
+    .notes {
+        display: block;
+        border: 1px solid $color-fee;
+        margin: 30px 0 5px 0;
+        //padding: 5px 0;
+        height: 28px;
+        line-height: 28px;
+        background: $color-fdf;
+
+        text-align: center;
+    }
+
+    .news-feed-note {
+        color: $color-f48;
+        &:hover{
+            background: #FFFDE0;
+            text-decoration: underline;
+        }
+    }
+
+    .recommend-notice {
+        color: $color-333;
+    }
+
+    .feed-item {
+        padding: 17px 0 20px;
+    }
+
+    // 左侧头像
+    .user-avatar {
+        a {
+            @include float-left;
+            width: 50px;
+            height: 50px;
+            _margin-right: -3px;
+            overflow: hidden;
+        }
+        img {
+            max-width: 50px;
+            max-height: 50px;
+            //margin: 3px 0 0 0;
+        }
+    }
+
+    // 右侧内容
+    .detail {
+        margin-left: 65px;
+        _margin-left: 62px;
+        //@include float(left);
+        //width:588px;
+
+        header {
+            line-height: 1;
+        }
+    }
+
+    // 右侧内容 - 头部
+    h3.title {
+        margin: 0px 0px 15px 0;
+
+        a {
+            @include link-colors($color-3fa, false, false, #bcbcbc);
+        }
+    }
+    .time{
+        @include float-right;
+        color: $color-999;
+    }
+
+    // 右侧内容 - 正文
+    .content {
+        .lazyload-img {
+            @include opacity(0);
+        }
+        .loaded{
+            @include opacity(1);
+        }
+
+        // 封面图
+        .cover {
+            a {
+                @include float-left;
+                width: 165px;
+                //height: 165px;
+                line-height: 0;
+                _margin-right: -3px;
+                overflow: hidden;
+                text-align: center;
+            }
+            img {
+                //margin: 0 15px 0 0;
+                max-width: 165px;
+                max-height: 165px;
+                
+                @include transition(opacity .4s ease);
+            }
+
+            .lazyload-img{
+                height: 165px;
+            }
+        }
+
+        .text {
+            margin-left: 180px;
+            _margin-left: 177px;
+            line-height: 20px;
+        }
+
+        .sub-title {
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            @include force-wrap;
+
+            a {
+                @include link-colors($color-666, false, false, #bcbcbc);
+            }
+
+            .small-medal-logo{
+                vertical-align: middle;
+            }
+        }
+
+        .summary {
+            margin-bottom: 15px;
+            @include force-wrap;
+            //color: $color-999;
+        }
+
+        .more-photo-link {
+            color: $color-3fa;
+        }
+
+        // 引导性连接(如: 如何获得勋章、快来留言给TA鼓励、)
+        .guide-link {
+            color: $color-3fa;
+            text-decoration: underline;
+
+            &:hover{
+                text-decoration: none;
+            }
+        }
+
+        // 图片列表
+        .photos {
+            margin-bottom: 6px;
+            li {
+                @include float-left;
+                margin: 0 1px 0 0;
+                line-height: 0;
+            }
+
+            img{
+                width: 145px;
+                height: 145px;
+                @include transition(opacity .4s ease);
+            }
+        }
+
+        // 用户头列表(如关注)
+        .user-list {
+            li {
+                @include float-left;
+                margin-right: 10px;
+                width: 120px;
+            }
+            .avatar {
+                a {
+                    @include float-left;
+                    width: 50px;
+                    height: 50px;
+                    _margin-right: -3px;
+                    overflow: hidden;
+                    text-align: center;
+                }
+                img {
+                    max-width: 50px;
+                    max-height: 50px;
+                }
+            }
+            .con {
+                margin-left: 60px;
+                _margin-left: 57px;
+            }
+            .name {
+                margin-bottom: 6px;
+                width: 59px;
+                height: 18px;
+                overflow: hidden;
+                white-space: nowrap;
+                color: $color-3fa;
+            }
+        }
+
+        .medal-logo {
+            img {
+                @include float-left;
+                width: 64px;
+                height: 64px;
+                //margin: 0 0 15px 0;
+            }
+        }
+
+        .rating {
+            margin-bottom: 10px;
+            color: $color-999;
+            
+            %star-style{
+                @include inline-block(false);
+                margin: 0 5px;
+                vertical-align: -2px;
+                *vertical-align: middle;
+                @include get-icon(star-0, true);
+            }
+            .icon-star-0 {
+                @extend %star-style;
+                @include get-icon(star-0);
+            }
+            .icon-star-1 {
+                @extend %star-style;
+                @include get-icon(star-1);
+            }
+            .icon-star-2 {
+                @extend %star-style;
+                @include get-icon(star-2);
+            }
+            .icon-star-3 {
+                @extend %star-style;
+                @include get-icon(star-3);
+            }
+            .icon-star-4 {
+                @extend %star-style;
+                @include get-icon(star-4);
+            }
+            .icon-star-5 {
+                @extend %star-style;
+                @include get-icon(star-5);
+            }
+        }
+
+        .rank-star {
+            i {
+                
+            }
+        }
+    } // End .content
+
+    .no-cover {
+        .text {
+            margin-left: 0;
+        }
+    }
+    .has-medal-logo {
+        .text {
+            margin-left: 65px;
+        }
+    }
+
+    .lazyload-tip {
+        margin: 2px 0 17px;
+        padding: 20px 0 10px;
+        text-align: center;
+        @include background(image-url('icon-loading-16x16.gif') no-repeat 67% 22px);
+        font-size: 16px;
+    }
+
+    .ui-pagination {
+        padding: 35px 0 15px 0;
+        text-align:center;
+    }
+}
+
+.feed-list {
+    @extend %feed-list-elements-style;
+}
+
+.no-feeds{
+    font-size: 22px;
+    text-align: center;
+}
+
+.simple-feed-list {
+    .feed-item {
+        padding: 16px 0;
+        border-bottom: 1px dashed #e0e0e0;
+    }
+    h3.title {
+        font-size: 14px;
+        margin: 0;
+    }
+}

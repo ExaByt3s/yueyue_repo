@@ -1,0 +1,58 @@
+
+
+<div class="procedure-page-wrap" style="padding-bottom:40px">
+<div class="procedure-header-mod">
+    <ul class="step">
+        <li>提交约拍申请</li>
+        <li>模特接受约拍</li>
+        <li class="current">拍摄/完成</li>
+    </ul>
+    <ul class="num">
+        <li class="common">
+            <i class="num-icon">1</i>
+            <div class="line-grey"></div>
+            <div class="line-red"></div>
+        </li>
+        <li class="common">
+            <i class="num-icon">2</i>
+            <div class="line-grey"></div>
+            <div class="line-red"></div>
+        </li>
+        <li class="common current">
+            <i class="num-icon">3</i>
+            <div class="line-grey"></div>
+            <div class="line-red"></div>
+        </li>
+    </ul>
+</div>
+<div class="icon-yes"><i class="icon icon-success-60x60"></i></div>
+    {{#if event_status}}
+        <div class="notice-one">约拍已失效</div>
+        {{^}}
+        <div class="notice-one">祝贺你，模特已经接受邀请。</div>
+    {{/if}}
+
+<div class="details-content {{#if event_status}}fn-hide{{/if}}" data-role="nav-to-model" data-model-id="{{to_date_id}}" data-date_id="{{date_id}}">
+    <div class="details-content-top">
+        <i class="icon icon-time-48x46 icon-one"></i>
+        <div class="middle">
+            <p>模特：</p><p data-role="finish-date-name">{{model_nickname}}</p>
+            <p>时间：</p><p data-role="finish-date-time">{{date_time}}</p>
+        </div>
+        <i class="icon icon-r-16x26-cur icon-two"></i>
+    </div>
+    <div class="details-content-bot">
+        <p>密码：</p>
+        <p class="pw" data-role="finish-date-pw">{{#each code}}{{this.code}}{{/each}}</p>
+        <img class="ewm" data-role="finish-date-ewm" src="{{#each qr_code}}{{this}}{{/each}}"/>
+    </div>
+</div>
+
+
+<div class="details-notice {{#if event_status}}fn-hide{{/if}}">
+    <p>约拍三步走：</p>
+    <p>第一步，出示交易二维码或密码</p>
+    <p>第二步，模特扫描，开始私拍</p>
+    <p>第三步，给模特进行评价</p>
+</div>
+</div>

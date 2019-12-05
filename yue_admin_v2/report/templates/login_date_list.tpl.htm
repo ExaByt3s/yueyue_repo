@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <title>工作监控报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <li><a href="javascript:void(0);" class="on">订单列表</a></li>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="800">
+                        <tbody>
+                        <tr>
+                            <td>
+                                订单ID:
+                                <input type="text" name="order_id" class="input-text" value="{order_id}" size="8"/>
+                            </td>
+                            <td>
+                                订单编号:
+                                <input type="text" name="order_sn" class="input-text" value="{order_sn}" size="8"/>
+                            </td>
+                            <td>
+                                签到日期:
+                                <input type="text" name="start_sign_time" class="input-text" value="{start_sign_time}" size="12" onfocus="WdatePicker()" readonly="true"/>
+                                至
+                                <input type="text" name="end_sign_time" class="input-text" value="{end_sign_time}" size="12" onfocus="WdatePicker()" readonly="true"/>
+                            </td>
+                            <td rowspan="2">
+                                <p><input type="button" class="button" value="查找" onclick="this.form.target='_self';$('#action').attr('value','');this.form.submit();">&nbsp;&nbsp;
+                                    <input type="button" class="button" value="导出" onclick="this.form.target='_blank';$('#action').attr('value','export');this.form.submit();">
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                商品品类:
+                                <select name="type_id">
+                                    <option value="">全部</option>
+                                    <!-- BEGIN type_list -->
+                                    <option value="{id}" <!-- IF selected -->selected="selected"<!-- ENDIF -->>{name}</option>
+                                    <!-- END type_list -->
+                                </select>
+                            </td>
+                            <td>
+                                订单状态:
+                                <select name="status">
+                                    <option value="-1">全部</option>
+                                    <option value="0" <!-- IF status="0" -->selected='true'<!-- ENDIF --> >待支付</option>
+                                    <option value="1" <!-- IF status="1" -->selected='true'<!-- ENDIF --> >待确认</option>
+                                    <option value="2" <!-- IF status="2" -->selected='true'<!-- ENDIF --> >待签到</option>
+                                    <option value="7" <!-- IF status="7" -->selected='true'<!-- ENDIF --> >已关闭</option>
+                                    <option value="8" <!-- IF status="8" -->selected='true'<!-- ENDIF --> >已完成</option>
+                                </select>
+                            </td>
+                            <td>
+                                关闭日期:
+                                <input type="text" name="start_close_time" class="input-text" value="{start_close_time}" size="12" onfocus="WdatePicker()" readonly="true"/>
+                                至
+                                <input type="text" name="end_close_time" class="input-text" value="{end_close_time}" size="12" onfocus="WdatePicker()" readonly="true"/>
+                            </td
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="act" id="action">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <div class="table-list" id="table-list">
+        <!--list-->
+        <table width="100%" cellspacing="0" style="min-width: 1024px;">
+            <thead>
+            <tr>
+                <th width="120">时间</th>
+                <th width="70">总数</th>
+                <th width="200">最近一周有上线的用户</th>
+                <th width="60">环比</th>
+                <th width="200">最近三十天有上线的用户</th>
+                <th width="60">环比</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center" width="120">{add_time}</td>
+                <td align="center" width="70">{total_num}</td>
+                <td align="center" width="200"><!-- IF role="buyer" -->{yuebuyer_7_login_num}<!-- ELSEIF role="seller" -->{yueseller_7_login_num}<!-- ELSE -->{yuecount_7_login_num} <!-- ENDIF --></td>
+                <td align="center" width="60">{seller_user_id}</td>
+                <td align="center" width="80"><!-- IF role="buyer" -->{yuebuyer_30_login_num}<!-- ELSEIF role="seller" -->{yueseller_30_login_num}<!-- ELSE -->{yuecount_30_login_num} <!-- ENDIF --></td>
+                <td align="center" width="60">{buyer_user_id}</td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        //显示所有文字
+        $("#table-list tbody td").find(".desc").mouseover(function(){
+            var $dmid_desc = $(this).attr('data');
+            layer.tips($dmid_desc, this, {
+                style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+                //maxWidth:185,
+                time: 3,
+                closeBtn:[0, false]
+            });
+        });
+        $("#table-list tbody td").find(".desc").mouseleave(function(){
+            layer.closeTips();
+        });
+    });
+</script>
+</html>

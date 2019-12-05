@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "index.css",
+    "sources": [
+        "/style/index.scss"
+    ],
+    "sourcesContent": [
+        ".icon-camera{\r\n\tdisplay: inline-block;\r\n\tbackground: url('../image/pai/cam-icon.png?__sprite') no-repeat;\r\n\t\r\n\twidth: 212px;\r\n\theight: 212px;\r\n}\r\n\r\n.icon-model{\r\n\tdisplay: inline-block;\r\n\tbackground: url('../image/pai/model-icon.png?__sprite') no-repeat;\t\r\n\twidth: 212px;\r\n\theight: 212px;\r\n}"
+    ],
+    "mappings": "AAAA,AACC,AAAS,AACT,AAAoD,AAEpD,AAAO,AACP,AAAQ,AAGT,AACC,AAAS,AACT,AAAsD,AACtD,AAAO,AACP,AAAQ",
+    "names": []
+}

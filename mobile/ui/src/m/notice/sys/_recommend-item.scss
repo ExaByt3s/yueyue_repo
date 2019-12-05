@@ -1,0 +1,41 @@
+.recommend-item-list{
+    padding-top: 8px;
+    li {
+        @include float-left;
+        width: 145px;
+        margin:0 1px 20px 0;
+        position: relative;
+
+        a {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            width: 145px;
+            height: 145px;
+        }
+        .pic {
+            img {
+                width: 145px;
+                height: 145px;
+                display: block;
+            }
+        }
+
+         h4 {
+            width: 145px; 
+            position: absolute;;
+            left: 0;
+            bottom: 0;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');
+            background: rgba(0,0,0,0.5);
+            a {
+              color: #ffffff; 
+              height: 25px; 
+            }
+        }
+    }
+}

@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+// 统一圆角
+$border-radius : 2px;
+
+// 高度头部
+$height-common-min : 44px;
+
+//内容margin-top
+$content-margin-top : 45px;
+
+// 高度底部
+$height-common : 45px;
+
+// 粉色代码 主要色
+$main-color : #ff4978;
+
+// 路径
+$domain-name : 'http://yp.yueus.com/mobile/';
+
+//接受邀请 nolest 2014-8-13
+$background : #ffffff;
+$header_select: #ff0052;
+$header_unselect:#f0f0f0;
+$choice_unselect: #fafafa;
+$header_font:#666666;
+$border:#e6e6e6;
+$chooen_border:#ebebeb;
+.page-header
+{
+  position: absolute;
+  top:0;
+  left:0;
+  height:$height-common-min;
+  line-height: $height-common-min;
+  text-align: center;
+  z-index: 999;
+  color:$header_select;
+  background: $background;
+  width: 100%;
+  border-bottom: 1px solid $chooen_border;
+  font:{
+    size: 18px;
+  }
+  .page-back
+  {
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 45px;
+    width: 45px;
+    .icon{
+      float: left;
+      margin: 12px 0px 0px 7px;
+    }
+  }
+  .share
+  {
+    position: absolute;
+    top:0px;
+    right:0px;
+    height: 45px;
+    width: 45px;
+    .icon{
+      float: right;
+      margin: 12px 10px 0px 0px;
+    }
+  }
+  .location-select
+  {
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 43px;
+    line-height: 36px;
+    padding: 2px 0px 0px 10px;
+    vertical-align: middle;
+    text-align: left;
+    width: 75px;
+    overflow: hidden;
+    color: $header_select;
+    font:{
+      size: 14px;
+    }
+    .icon{
+      margin-left: 4px;
+    }
+    .header_location{
+      display: inline-block;
+
+    }
+  }
+  .right
+  {
+
+  }
+}
+

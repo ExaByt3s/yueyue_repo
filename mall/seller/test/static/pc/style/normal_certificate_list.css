@@ -1,0 +1,22 @@
+.normal_certificate_list {
+  padding: 10px 60px 60px 80px; }
+  .normal_certificate_list .p1th .item-wrap .item {
+    margin-top: 30px; }
+  .normal_certificate_list .p1th .item-wrap .list {
+    margin-top: 15px; }
+    .normal_certificate_list .p1th .item-wrap .list li {
+      float: left;
+      display: inline;
+      background: url(http://static.yueus.com/mall/seller/test/static/pc/images/yz-180x120.png) no-repeat;
+      width: 180px;
+      height: 120px;
+      margin: 0 15px 30px 0;
+      text-align: center;
+      font-size: 16px;
+      color: #666666; }
+      .normal_certificate_list .p1th .item-wrap .list li h3 {
+        padding-top: 32px; }
+      .normal_certificate_list .p1th .item-wrap .list li .p1 {
+        padding-top: 5px; }
+    .normal_certificate_list .p1th .item-wrap .list li.cur {
+      background: url(http://static.yueus.com/mall/seller/test/static/pc/images/yz-180x120-hover.png) no-repeat; }

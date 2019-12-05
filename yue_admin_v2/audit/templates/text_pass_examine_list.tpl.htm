@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="./js/examine.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <title>约拍APP后台</title>
+    <style type="text/css">
+        .table-list li
+        {
+            margin-left: 20px;
+            border-bottom: 1px solid #d5dfe8;
+        }
+        .table-list li p span
+        {
+            width: 16%;
+            display: inline-block;
+        }
+        .table-list .btn{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="#" class="on">已审核文字</a>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="800">
+                        <tbody>
+                        <tr>
+                            <td>
+                                审核年月:
+                                <input type="text" size="10" class="input-text Wdate" onFocus="WdatePicker( {dateFmt: 'yyyy-MM'} )" name="month" value="{month}" readonly="readonly">
+                            </td>
+                            <td>
+                                审核时间:
+                                <input type="text" size="12" class="input-text Wdate" onFocus="WdatePicker()" name="start_audit_date" value="{start_audit_date}" readonly="readonly">至 <input type="text" size="12" class="input-text Wdate"  onFocus="WdatePicker()" name="end_audit_date" value="{end_audit_date}" readonly="readonly">
+                            </td>
+                            <td>
+                                审核ID:
+                                <input type="text" size="12" class="input-text" name="audit_id" value="{audit_id}">
+                            </td>
+                            <td rowspan="2">
+                                <p><input type="submit" value="查询" class="button">&nbsp;&nbsp;
+                                    <input type="reset" value="重置" class="button">
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;&nbsp;&nbsp;用户ID:
+                                <input type="text" size="10" class="input-text" name="user_id" value="{user_id}">
+                            </td>
+                            <td>
+                                手机号码:
+                                <input type="text" size="12" class="input-text" name="cellphone" value="{cellphone}">
+                            </td>
+                            <td>
+                                类型:
+                                <select name="type">
+                                    <option value="">全部</option>
+                                    <!-- BEGIN type_list -->
+                                    <option value="{type}" <!-- IF selected -->selected="selected"<!-- ENDIF -->>{name}</option>
+                                    <!-- END type_list -->
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <input type="hidden" value="{act}" name="act">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <form name="list_form" id="list_form" action="" method="post">
+        <div class="table-list">
+            <table width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th width="120">
+                        <input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');">全选/全不选
+                    </th>
+                    <th width="200">
+                        <input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="textPassDel('{month}')"/>
+                    </th>
+                    <th>&nbsp;</th>
+                </tr>
+            </table>
+            <!--list-->
+            <ul>
+                <!-- BEGIN list -->
+                <li>
+                    <p><input class="inputcheckbox " name="ids[]" value="{id}" type="checkbox">&nbsp;&nbsp;[<font color="red">{type_name}</font>]</p>
+                    <p>{after_edit}</p>
+                    <p><span>用户名:<a href="?user_id={user_id}">{nickname}</a></span><span>UID: <a href="?user_id={user_id}">{user_id}</a> </span> <span>上传时间:[<font color="green">{add_time}</font>]</span><span>审核人:<a href="?audit_id={audit_id}">{audit_name}</a></span><span>审核时间:{audit_time}</span></p>
+                </li>
+                <!-- END list -->
+            </ul>
+            <!--list end-->
+            <div class="btn">
+                <input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="textPassDel('{month}')">
+            </div>
+        </div>
+    </form>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+
+.content { padding-bottom: 100px; }
+
+/* A_选择类型 */
+.choose-type-page { overflow: hidden; margin-bottom: 100px; }
+.choose-type-page .choose-type-wrap .item-wrap{margin: 0 auto; width: 800px; padding: 80px 0px;}
+.choose-type-page .choose-type-wrap .item-wrap .item{border:1px #ddd solid; border-radius: 5px;margin-bottom: 30px; padding: 30px 40px;}
+.choose-type-page .choose-type-wrap .item-wrap .item .img-con{width: 100px; height: 100px; margin-right: 35px;}
+.choose-type-page .choose-type-wrap .item-wrap .item .text-con{padding: 17px 0px; margin-right: 60px;width:360px; }
+.choose-type-page .choose-type-wrap .item-wrap .item .text-con dl dt{font-size: 24px; color: #000;}
+.choose-type-page .choose-type-wrap .item-wrap .item .text-con dl dd{font-size: 16px; color: #aaa; line-height: 37px;}
+.choose-type-page .choose-type-wrap .item-wrap .item .btn-con{padding-top: 27px; }
+.choose-type-page .choose-type-wrap .item-wrap .item .btn-con .ui-w100{width: 100px; text-align: center;}
+
+.choose-type-page .choose-type-wrap .item-wrap .item .icon-has-pass{width: 30px; height: 30px; background: url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/icon-gou-30x30.png);margin: 18px  0 0 40px}
+
+/* 服务认证-审核通过 */
+
+
+.check-pass-wrap{}
+.check-pass-page{margin-bottom: 50px; padding:0px 0px 60px; }
+/* 服务认证-审核通过和服务认证-D_完成审核公共部分 */
+ .mod-check-page{padding: 30px 60px 60px 50px}
+ .mod-check-page .p1th .item-wrap{margin: 0 auto; width: 800px; padding: 40px 0px 24px;}
+ .mod-check-page .p1th .item-wrap .item{border:1px #ddd solid; border-radius: 5px;margin-bottom: 30px; padding: 30px 40px;}
+ .mod-check-page .p1th .item-wrap .item .img-con{width: 100px; height: 100px; margin-right: 35px;}
+ .mod-check-page .p1th .item-wrap .item .text-con{padding: 17px 0px; margin-right: 60px;width:360px; }
+ .mod-check-page .p1th .item-wrap .item .text-con dl dt{font-size: 24px; color: #000;}
+ .mod-check-page .p1th .item-wrap .item .text-con dl dd{font-size: 16px; color: #aaa; line-height: 37px;}
+ .mod-check-page .p1th .item-wrap .item .btn-con{padding-top: 35px; padding-left: 60px;}
+ .mod-check-page .p1th .item-wrap .item .btn-con .icon-yrz{width: 30px; height: 30px; background: url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/icon-gou-30x30.png);}
+ .mod-check-page .p2th .list-wrap{padding: 40px 0px;}
+ .mod-check-page .p2th .list-wrap .list{width: 820px; overflow: hidden;}
+ .mod-check-page .p2th .list-wrap ul li{width: 180px; height: 120px; float: left; margin: 0px 10px 20px 10px; border: 1px #ddd dotted ;-moz-border-radius:3px; -webkit-border-radius:3px; border-radius: 3px; position: relative; display: table;}
+ .mod-check-page .p2th .list-wrap ul li .txt-con{display: table-cell; vertical-align: middle; text-align:center;} 
+ .mod-check-page .p2th .list-wrap ul li .txt-con dl dt{font-size: 18px;color: #666;}
+ .mod-check-page .p2th .list-wrap ul li .txt-con dl dd{font-size: 14px; line-height: 25px;}
+ .mod-check-page .p2th .list-wrap ul li .txt-con dl dd a{ color: #4092f1; text-decoration: none;}
+ .mod-check-page .p2th .list-wrap ul li .txt-con dl dd a:hover{ color: #66a8f4;}
+ .mod-check-page .p2th .list-wrap ul li .txt-con dl dd.cur a{color: #17b535;}
+ /* 服务认证-D_完成审核 */
+ .check-finish-page{margin-top: 40px; margin-bottom: 100px; padding:40px 100px 60px; }
+ .check-finish-wrap .btn-item{text-align: center; }
+ /* 服务认证-C_审核中*/
+ .checking-page .checking-page-wrap{padding: 40px 0px;}
+ .checking-page .checking-page-wrap .item-wrap{padding-bottom: 90px;}
+ .checking-page .checking-page-wrap .item-wrap .item .img-con{text-align: center; padding-bottom: 60px;}
+ .checking-page .checking-page-wrap .item-wrap .item .txt-con{text-align: center;}
+ .checking-page .checking-page-wrap .item-wrap .item .txt-con p{font-size: 20px; color: #666; line-height: 36px;}
+ .checking-page .checking-page-wrap .btn-item{text-align: center;}
+/* B_编辑服务页_选择品类 */
+.editing-service-page .editing-service-wrap{padding: 100px 110px;}
+.editing-service-page .editing-service-wrap .list{width:830px; overflow: hidden; }
+.editing-service-page .editing-service-wrap ul li{width:178px; height: 108px; border: 1px dotted #ddd; margin-right: 20px; float: left; margin-bottom: 20px;-moz-border-radius:3px; -webkit-border-radius:3px; border-radius: 3px; display: table;cursor: pointer;}
+.editing-service-page .editing-service-wrap ul li .txt-con{display: table-cell;vertical-align: middle; text-align: center; font-size: 18px; height: 100%}
+.editing-service-page .editing-service-wrap ul li a{color: #666; text-decoration: none; display: block;}
+.editing-service-page .editing-service-wrap ul li.click{border: 1px dotted #eee;}
+.editing-service-page .editing-service-wrap ul li.click a{color: #ccc;}
+.editing-service-page .editing-service-wrap ul li.cur{border: 1px dotted #66a8f4;}
+.editing-service-page .editing-service-wrap ul li.cur a{color: #4092f1;}
+
+/* 认证 */
+.mod-attest-page{ padding:0 99px 50px}
+.mod-attest-page .form-warp .item{ padding-top:27px}
+.mod-attest-page .form-warp .item .unit{ height:40px; line-height:40px; font-size:16px; padding-left:10px}
+.mod-attest-page .form-warp .item-2row{ width:800px; overflow:hidden}
+.mod-attest-page .form-warp .item-2row .item-list{ width:910px;}
+.mod-attest-page .form-warp .item-2row .item-term{ width:450px; float: left;}
+.mod-attest-page .form-warp .item-2row .mod-select-item select{ width:348px;}
+.mod-attest-page .form-warp .item-3row{ width:800px; overflow:hidden} 
+.mod-attest-page .form-warp .item-3row .item-list{ width:910px;}
+.mod-attest-page .form-warp .item-3row .item-term{ width:300px; float: left;}
+.mod-attest-page .form-warp .item-3row .mod-select-item select{ width:198px;}
+.mod-attest-page .form-warp .input-txt-1{ width:370px}
+.mod-attest-page .form-warp .input-txt-2{ width:320px;}
+.mod-attest-page .form-warp .input-txt-3{ width:170px;}
+.mod-attest-page .form-warp .input-txt-4{ width:229px;}
+.mod-attest-page .form-warp .date-input{ background: url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/date-icon-18x18.png) 96% center no-repeat;}
+.mod-attest-page .form-warp .photo-select-item select{ width:198px}
+.mod-attest-page .form-warp .mod-select-item-2 select{ width:348px}
+.mod-attest-page .form-warp .img-upload-item .img-item{ float:left; width:130px; padding-right:20px}
+.mod-attest-page .form-warp .img-upload-item .tips{ color: #aaa; padding-top: 10px;}
+.mod-attest-page .form-warp .textarea-txt{ width:770px; height:100px; padding:10px 14px; line-height:20px; border:1px solid #ddd; font-size:14px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius: 3px;}
+.mod-attest-page .btn-item{ text-align:center; border-top:1px solid #eee; margin-top:50px; padding-top:50px}
+
+/* 商家认证 */
+.seller-page .form-warp .item-tips{ border:1px dashed #ddd; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; padding:29px; margin-top:40px;}
+.seller-page .form-warp .item-tips .proof-icon{ float:left; background:url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/icon-120x80.png) no-repeat; width:120px; height:80px; margin-right:30px}
+.seller-page .form-warp .item-tips .text-item{ width:580px; padding-top:25px; color:#aaa; font-size:18px; float:left;}
+.mod-attest-page .form-warp .item-tips .text-item p{ background:url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/icon-point-5x5.png) left 12px no-repeat; padding-left:10px;}
+.seller-page .form-warp .up-load-btn{ width:130px; float:left;}
+.seller-page .form-warp .upload-item .tips{ float:left; width:480px; padding:40px 0 0 20px; font-size:14px; line-height:24px; color:#ccc;}
+.seller-page .form-warp  .upload-paper-item .paper-btn{ float: left; width:200px; height: 120px; padding: 4px; margin-right:20px; border:1px solid #ddd; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;  }
+.seller-page .form-warp  .upload-paper-item .paper-btn a{ display:block; width:200px; height:120px; overflow:hidden; text-align:center; background-repeat:no-repeat; background-image:url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/upload-paper-200x120.png)}
+.seller-page .form-warp  .upload-paper-item .paper-btn img{ max-width: 200px; max-height: 120px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+.seller-page .form-warp  .upload-paper-item .tips{color:#ccc; font-size:14px; line-height:20px; padding-top:30px; float:left;}
+.seller-page .form-warp  .upload-paper-item .tips p{ background:url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/icon-point-5x5.png) left 10px no-repeat; padding-left:10px; }
+.seller-page .form-warp .card-list li{ width:200px; height:120px; padding:4px; margin-right:20px; float:left; position:relative; border:1px solid #ddd; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+.seller-page .form-warp .card-list li a{ display:block; width:200px; height:120px; overflow:hidden; text-align:center; background-repeat:no-repeat;}
+.seller-page .form-warp .card-list li a img{max-width: 200px; max-height: 120px;  -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+.seller-page .form-warp .card-list li .facade-item a{ background-image:url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/idcard-facade-200x120.png)}
+.seller-page .form-warp .card-list li .obverse-item a{ background-image:url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/idcard-obverse-200x120.png)}
+.seller-page .form-warp .card-list li .close-icon{ display:none; background-repeat:no-repeat; background-image:url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/close-icon-30x30.png); cursor:pointer; width:30px; height:30px; position:absolute; top:-7px; right:-7px;}
+.seller-page .form-warp .card-list li .close-icon:hover{background-image:url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/close-icon-hover-30x30.png); }
+.seller-page .form-warp .card-list li.cur .close-icon{ display:block;}
+.seller-page .form-warp .IDcard-item .tips{ color:#ccc; font-size:14px; line-height:20px; padding-top:30px; float:left;}
+.seller-page .form-warp .IDcard-item .tips p{ background:url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/icon-point-5x5.png) left 10px no-repeat; padding-left:10px; }
+
+/* 服务认证 */
+.service-page .add-works-item{ border:1px dashed #ddd; padding:32px 19px; margin-top:39px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+.service-page .add-works-item .listItem{ font-size:16px; color:#000}
+.service-page .add-works-item .works-item{ padding-top:40px}
+.service-page .add-works-item .works-item h3.title{ width:85px; height:40px; line-height:40px; padding-right:3px; text-align:right; font-size:14px; float:left;}
+.service-page .add-works-item .works-item .works-item-con{ width:672px; float:left}
+.service-page .form-warp .add-works-item .textarea-txt{ width:642px; height:90px; padding:10px 14px; line-height:20px; border:1px solid #ddd; font-size:14px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius: 3px;}
+.service-page .add-works-item .textarea-item .tips{ font-size:14px; color:#aaa; padding-top:10px}
+.service-page .add-works-item .upload-img-item .tips{ height:40px; line-height:40px; font-family:"SimSun"; color:#aaa}
+.service-page .add-works-btn{ margin-top:20px;}
+.service-page .add-works-btn a{ display:block; width:112px; height:28px; line-height:28px; text-align:center; color:#000; background:#f5f5f5; border:1px solid #ccc; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius: 3px;}
+.service-page .add-works-btn a:hover{ text-decoration:none; background:#fafafa; border:1px solid #ddd;}
+.service-page .form-warp .textarea-txt-1{ width:370px; }
+.service-page .form-warp .mod-radio-item label{ float:left; height:40px; line-height:40px;}
+.service-page .form-warp .mod-checkbox-item{ width:750px;}
+.service-page .form-warp .mod-checkbox-item label{ float:left; height:40px; line-height:40px;}
+
+/* 服务管理 */
+.productrun-page .productrun-warp { padding-bottom: 50px;}
+.productrun-page .tab-nav{ background:url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/line-5x1.png) left bottom repeat-x; height:78px;}
+.productrun-page .tab-nav .sub-nav{ float:left; width:550px; height:78px;}
+.productrun-page .tab-nav .sub-nav li{ float:left; padding:0 40px;}
+.productrun-page .tab-nav .sub-nav li a{ display:block; height:77px; line-height:77px; font-size:18px; border-bottom:1px solid #eee; color:#aaa}
+.productrun-page .tab-nav .sub-nav li a:hover{ text-decoration:none}
+.productrun-page .tab-nav .sub-nav li.cur a{border-bottom:1px solid #66a8f4; color:#000;}
+.productrun-page .tab-con{ padding:20px 39px}
+.productrun-page .tab-con .listItem{ font-size:14px; padding:15px 0; border-bottom:1px solid #eee}
+.productrun-page .tab-con .listItem .top-title{ float:left;}
+.productrun-page .tab-con .listItem .title-1{ width:526px;}
+.productrun-page .tab-con .listItem .title-2{ width:180px;}
+.productrun-page .tab-con .listItem .title-3{ width:194px; padding-left:20px}
+.productrun-page .product-list .item{ padding:20px 0;font-size:14px; border-bottom:1px solid #eee}
+.productrun-page .product-list .product-info-item{ float:left; width:526px;}
+.productrun-page .product-list .product-info-item .choose-item{ float:left; width:16px; padding-right:10px}
+.productrun-page .product-list .product-info-item .img-item{ width:100px; height:100px; overflow:hidden; float:left; padding-right:20px;}
+.productrun-page .product-list .product-info-item .text-item{ width:370px; float:left; padding-top:20px}
+.productrun-page .product-list .product-info-item .text-item dt{ font-size:18px; color:#000; padding-bottom:10px; word-break:break-all;}
+.productrun-page .product-list .product-info-item .text-item dd{ color:#333;}
+.productrun-page .product-list .date-item{ width:180px; float:left; color:#aaa; height:100px; line-height:100px;}
+.productrun-page .product-list .operate-item{ width:214px; float:left; padding-top:38px;}
+.productrun-page .product-list .operate-item li{ float:left; padding:0 20px; height:20px; border-right: 1px solid #ddd; position:relative}
+.productrun-page .product-list .operate-item li.share-li{ border: 0}
+.productrun-page .product-list .operate-item li a{ color:#000}
+.productrun-page .product-list .operate-item span{ float:left; color:#ddd;}
+.productrun-page .product-list .operate-item .share-pop{ position:absolute; top:15px; right:0; width222px; }
+.productrun-page .product-list .operate-item .share-pop .top-icon{ 
+        width:0;
+        height:0;
+        border-width:8px;
+        border-style:solid;
+        border-color:transparent transparent #ddd transparent;
+        font-size:0;
+        line-height:0;
+        -webkit-transition:-webkit-transform .2s ease-in;
+        -moz-transition:-webkit-transform .2s ease-in;
+        -o-transition:-webkit-transform .2s ease-in;
+        transition:-webkit-transform .2s ease-in;
+        display: block;
+        margin-left: 180px;
+        position:relative;
+}
+.productrun-page .product-list .operate-item .share-pop .top-icon b{
+       display: block;
+        width:0;
+        height:0;
+        border-width:8px;
+        border-style:solid;
+        border-color:transparent transparent #fff transparent;
+        font-size:0;
+        line-height:0;
+        -webkit-transition:-webkit-transform .2s ease-in;
+        -moz-transition:-webkit-transform .2s ease-in;
+        -o-transition:-webkit-transform .2s ease-in;
+        transition:-webkit-transform .2s ease-in; 
+        position: absolute; top: -7px; left: -8px;}
+.productrun-page .product-list .operate-item .share-pop .share-con{border:1px solid #ddd; background: #fff; width:200px; padding:10px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;  -webkit-box-shadow:1px 0 7px rgba(0, 0, 0, .2);   -moz-box-shadow:1px 0 7px rgba(0, 0, 0, .2);   box-shadow:1px 0 7px rgba(0, 0, 0, .2); }
+.productrun-page .product-list .operate-item .share-item{ float:left; width:40px; padding:0 5px;}
+.productrun-page .product-list .operate-item .share-pop i.icon{ background:url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/share-common-icon-164x81.png) no-repeat; width:40px; height:40px; display:block;}
+.productrun-page .pager{ text-align:center}
+.productrun-page .product-list .operate-item .share-pop i.wx-icon{ background-position:0 0}
+.productrun-page .product-list .operate-item .share-pop a:hover i.wx-icon{ background-position:0 -41px}
+.productrun-page .product-list .operate-item .share-pop i.wb-icon{ background-position:-41px 0}
+.productrun-page .product-list .operate-item .share-pop a:hover i.wb-icon{ background-position:-41px -41px}
+.productrun-page .product-list .operate-item .share-pop i.Qzone-icon{ background-position:-82px 0}
+.productrun-page .product-list .operate-item .share-pop a:hover i.Qzone-icon{ background-position:-82px -41px}
+.productrun-page .product-list .operate-item .share-pop i.qq-icon{ background-position:-123px 0}
+.productrun-page .product-list .operate-item .share-pop a:hover i.qq-icon{ background-position:-123px -41px}
+.productrun-page .item-total{ background: #fafafa; border-bottom:1px solid #eee; padding: 19px; }
+.productrun-page .item-tota .total-choose-item{ height:30px; line-height: 30px; float: left;}
+.productrun-page .item-total .total-btn{ margin-left: 20px; height: 28px; border: 1px solid #ccc; background: #f5f5f5; padding: 0 14px; cursor: pointer; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}
+.productrun-page .item-total .total-btn:hover{ background: #fafafa}
+.productrun-page .pager{ padding-top: 50px;}
+.productrun-page .pager a{ display:inline-block; *+display:inline; *+zoom:1; _display:inline; _zoom:1; width:34px; height:34px; line-height:34px; border:1px solid #e0e0e0; margin:0 5px; color:
+#333; font-size:16px; font-family:Arial, Helvetica, sans-serif; -moz-border-radius:17px; -webkit-border-radius:17px; border-radius:17px;}
+.productrun-page .pager a:hover{ text-decoration:none}
+.productrun-page .pager a.click{ color:#fff;  background:#333; border:1px solid #333}
+
+/* 服务编辑 */
+.editing-from-page{}
+.editing-from-page .unit{ color: #999;}
+.editing-from-page h3.title{float: left; text-align: right; width:83px; padding-right: 10px; color: #333;  font-size: 16px; height: 40px; line-height: 40px; }
+.editing-from-page .from-con{ float: left; width: 707px}
+.editing-from-page .item-titleL h3.title{ width: 180px}
+.editing-from-page .item-titleL .from-con{ width:610px;}
+.editing-from-page .item-title5  h3.title{ width: 103px}
+.editing-from-page .item-title5 .from-con{ width:687px;}
+.editing-from-page .item-title7  h3.title{ width: 123px}
+.editing-from-page .item-title7 .from-con{ width:667px;}
+.editing-from-page .from-con .mod-radio-item label{ float:left; height:40px; line-height:40px;}
+.editing-from-page .select-input-list li{ height: 40px; padding-bottom: 20px;}
+.editing-from-page .form-warp .textarea-txt-2{ width:470px; }
+.editing-from-page .packages-List { padding-top: 40px;}
+.editing-from-page .packages-List .listItem{ font-size: 16px; font-weight: bold; color: #333;}
+.editing-from-page .select-input-list li .photo-select-item{width: 55px;}

@@ -1,0 +1,28 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/images/pai
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+icons/
+test/
+add-active.png
+add.png
+authentication.jpg
+avatar-error-min.png
+avatar-error.jpg
+avatar-size-area-64x64.png
+avatar-size-area-100x100.png
+avatar-size-area-160x160.png
+front-bottom.png
+front.jpg
+icons-s0870011a9d.png
+icons-s3d52d3d2b1.png
+icons-s5b916f8211.png
+icons-s5e9326ecc9.png
+icons-s9d08cb039a.png
+icons-s10b933c56e.png
+icons-s41d5350895.png
+icons-sdeeabad127.png
+
+--EOF--

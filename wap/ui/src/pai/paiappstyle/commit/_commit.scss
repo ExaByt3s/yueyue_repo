@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+$background : #ffffff;
+$header_select: #ff0052;
+$select_active:#ff266c;
+$header_unselect:#f0f0f0;
+$choice_unselect: #fafafa;
+$header_font:#666666;
+$border:#e6e6e6;
+$chooen_border:#ebebeb;
+
+.commit{
+  .content-body {
+    width: 100%;
+    // padding-top: 45px;
+    color: $header_font;
+  }
+}
+
+
+
+.commit-block{
+  .notice {
+    height: 45px;
+    line-height: 45px;
+    padding-left: 10px;
+    .commit-notice {
+      display: inline-block;
+    }
+    .commit-fee {
+      display: inline-block;
+    }
+  }
+  .style-content{
+    width: 100%;
+    .notice-style{
+      padding: 0px 10px 0px;
+      height:40px;
+      line-height: 40px;
+      color: #000000;
+    }
+    .choosen-style{
+      padding: 0px 10px 0px;
+      .choosen-style-child{
+        color: #000000;
+        height: 43px;
+        margin-bottom: 10px;
+        background: $background;
+        border-radius: $border-radius;
+        border:1px solid #CCCCCC;
+        cursor: pointer;
+        line-height: 43px;
+        @include flexbox((
+                display: box,
+                box-pack:justify
+            ), $version: 1);
+        &:active{
+          border:1px solid $header_select;
+        }
+  
+        .choosen-style-child-title{
+          margin-left: 15px;
+          
+        }
+        .choosen-style-child-price-container
+        {
+            @include flexbox((
+                display: box
+            ), $version: 1);
+
+            .choosen-style-child-price
+            {
+            
+              color: #ff5000;
+              margin-right:15px;
+              
+            }
+            .icon
+            {
+              margin-right:10px;
+              position: relative;
+              top: 2px;
+            }
+        }
+        
+      }
+      .cur{
+        border:1px solid $header_select;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,97 @@
+@charset "UTF-8";
+@import "../../sass/compass";
+.show-money-detail-page{
+	.item-wrap{
+		.item{
+			padding: 15px 0px 15px 15px;
+			margin-top: 15px;
+			background: #ffffff;
+		}
+		.item-1{
+			.img-con{
+				width: 50px;
+				height: 50px;
+				margin-right: 15px;
+				i.img{
+					width:100%;
+					height:100%;
+					display: block;
+					border-radius: 50%;
+					background-size: cover;
+				}
+			}
+			.txt-con{
+				.cust-name{
+					font-size: 16px;
+					font-weight: 500;
+				}
+				.cust-ip{
+					color: #aaaaaa;
+					margin-top: 5px;
+				}
+			}
+		}
+		.item-2{
+			.txt-con{
+
+				.tip-title{
+					font-size: 14px;
+					color:#333;
+
+				} 
+				.money-txt{
+					font-size: 14px;
+					color:#ff6a6e;
+
+				}
+				.time-txt{
+					font-size: 14px;
+					color:#333333;
+				}
+			}
+			
+		}
+		.item-3{
+
+
+
+			.txt-con{
+				font-size: 14px;
+				padding-right: 10px;
+				@include flexbox((
+				    display: box  // 盒子模型 子元素默认水平左对齐
+				  
+				));
+				.tip-title{
+					color:#333333;
+					// width: 45px;
+				}
+				.money-txt{
+					color:#aaaaaa;
+					@include flexbox((
+					    display: box,  // 盒子模型 子元素默认水平左对齐
+					  
+					    box-flex: 1 //占有空间比例
+					));
+					word-break:break-all ;
+				}
+			}
+
+
+		}
+		.item-4{
+			margin-top: 15px;
+			padding:0px 15px;
+			p.tips{
+				padding:15px 0px;
+				text-align: center;
+				font-size: 14px;
+				color:#aaaaaa;
+			}
+
+			.is-comment{
+				background: #aaaaaa;
+			}
+		}
+	}					
+}

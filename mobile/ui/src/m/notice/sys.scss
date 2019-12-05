@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+@import "../m_common";
+
+// -------------------------------------------------
+// 系统通知
+// -------------------------------------------------
+
+@import "./nav";
+
+.notice-content {
+
+    @import "./sys/index";
+    
+
+    // 图片被喜欢通知
+    @import "./sys/like-you-item";
+
+    // 好友推荐列
+    @import "./sys/recommend-item";
+    
+}

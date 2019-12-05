@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>{page_title}</title>
+
+  <!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+  -->
+  <!-- 公共css，js引入 -->{pc_global_top}</head>
+
+<body>
+  {global_top_bar}
+  <div class="content">
+    <div class="editing-service-page w1000 font_wryh">
+      <div class="mod-nav-item">
+        <a href="./">约约商家主页</a>
+        &gt;
+        <a href="goods_list.php">服务管理</a>
+        &gt;
+        <span>选择品类</span>
+      </div>
+      <div class="editing-service-wrap content-bg">
+        <div class="list-item">
+
+          <!-- IF no_data -->
+          <div style="text-align: center;font-size: 18px;">暂时没有通过服务认证或提交服务认证</div>
+          <!-- ENDIF no_data -->
+
+
+          <ul class="list clearfix" id="list-item">
+
+    <!-- click   -->
+
+
+        <!-- BEGIN type_list -->
+            <li
+                <!-- IF can_click -->
+
+                <!-- ELSE -->
+                    class="click" style="display:none;"
+                <!-- ENDIF -->
+            >
+              <!-- IF can_click -->
+                  <div class="txt-con">
+                    <a href="./goods_edit.php?type_id={id}" >{name}</a>
+                    <!-- IF show == "pass" -->
+                    <a href="./goods_edit.php?type_id={id}" ><span style="font-size:14px;color:#32cd32;">已认证</span></a>
+                    <!-- ELSEIF show == "can_publish" -->
+                    <a href="./goods_edit.php?type_id={id}" ><span style="font-size:14px;color:#4092f1;">可发布</span></a>
+                    <!-- ELSEIF show == "no_power" -->
+                    <span style="font-size:14px;color:#4092f1;">无效商家</span>
+                    <!-- ELSE -->
+                    <a href="./goods_edit.php?type_id={id}" ><span style="font-size:14px;color:#4092f1;">审核中</span></a>
+                    <!-- ENDIF show -->
+                  </div>
+              <!-- ELSE -->
+              <div class="txt-con" style="display:none;">
+                  <a href="javascript:;" onclick="return false">{name}</a>
+              </div>
+              <!-- ENDIF can_click -->
+
+
+
+            </li>
+        <!-- END type_list -->
+
+            
+
+          
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      // 头部
+      require('../../../modules/common/global-top-bar/global-top-bar');
+
+      $(document).ready(function() {
+        $('#list-item li').not('.click').hover(function() {
+            $(this).addClass('cur')
+        }, function() {
+            $(this).removeClass('cur') 
+        });
+
+        
+
+      });
+  </script>
+
+</body>
+</html>

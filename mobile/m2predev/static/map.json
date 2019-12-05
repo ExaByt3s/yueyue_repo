@@ -1,0 +1,530 @@
+{
+    "res": {
+        "components/fastclick/fastclick.js": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/components/fastclick/fastclick.js",
+            "type": "js",
+            "id": "components/fastclick/fastclick.js"
+        },
+        "components/zepto/zepto.js": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/components/zepto/zepto.js",
+            "type": "js",
+            "id": "components/zepto/zepto.js"
+        },
+        "lib/handlebars/handlebars.runtime-v1.3.0.js": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/lib/handlebars/handlebars.runtime-v1.3.0.js",
+            "type": "js"
+        },
+        "lib/html5shiv.min.js": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/lib/html5shiv.min.js",
+            "type": "js"
+        },
+        "lib/lib.js": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/lib/lib.js",
+            "type": "js"
+        },
+        "lib/mod.js": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/lib/mod.js",
+            "type": "js"
+        },
+        "account/login": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/account/login.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/ua/index"
+            ],
+            "id": "account/login"
+        },
+        "account/reg": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/account/reg.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen"
+            ],
+            "id": "account/reg"
+        },
+        "account/set_pwd": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/account/set_pwd.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/ua/index"
+            ],
+            "id": "account/set_pwd"
+        },
+        "bill": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/bill/bill.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/I_APP/I_APP",
+                "common/scroll/index",
+                "common/widget/abnormal/index",
+                "menu/index"
+            ],
+            "id": "bill"
+        },
+        "bind_alipay": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/bind_alipay/bind_alipay.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/I_APP/I_APP",
+                "common/widget/abnormal/index",
+                "menu/index",
+                "common/widget/uploader/index"
+            ],
+            "id": "bind_alipay"
+        },
+        "common/I_APP/I_APP": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/I_APP/I_APP.js",
+            "type": "js",
+            "deps": [
+                "components/zepto/zepto.js",
+                "common/utility/index",
+                "common/ua/index"
+            ],
+            "id": "common/I_APP/I_APP"
+        },
+        "common/cookie/index": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/cookie/index.js",
+            "type": "js",
+            "id": "common/cookie/index"
+        },
+        "common/scroll/dragloader": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/scroll/dragloader.js",
+            "type": "js",
+            "id": "common/scroll/dragloader"
+        },
+        "common/scroll/index": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/scroll/index.js",
+            "type": "js",
+            "deps": [
+                "modules/common/scroll/scroll.scss",
+                "components/zepto/zepto.js",
+                "common/ua/index",
+                "common/scroll/dragloader"
+            ],
+            "id": "common/scroll/index"
+        },
+        "modules/common/scroll/scroll.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/scroll/scroll.css",
+            "type": "css",
+            "id": "modules/common/scroll/scroll.scss"
+        },
+        "common/ua/index": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/ua/index.js",
+            "type": "js",
+            "id": "common/ua/index"
+        },
+        "common/utility/index": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/utility/index.js",
+            "type": "js",
+            "deps": [
+                "components/zepto/zepto.js",
+                "common/cookie/index",
+                "common/ua/index",
+                "common/I_APP/I_APP"
+            ],
+            "id": "common/utility/index"
+        },
+        "common/widget/abnormal/index": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/abnormal/index.js",
+            "type": "js",
+            "deps": [
+                "modules/common/widget/abnormal/main.scss",
+                "components/zepto/zepto.js"
+            ],
+            "id": "common/widget/abnormal/index"
+        },
+        "modules/common/widget/abnormal/main.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/abnormal/main.css",
+            "type": "css",
+            "id": "modules/common/widget/abnormal/main.scss"
+        },
+        "modules/common/widget/back_btn/back-btn.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/back_btn/back-btn.css",
+            "type": "css"
+        },
+        "common/widget/back_btn/main": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/back_btn/main.js",
+            "type": "js",
+            "id": "common/widget/back_btn/main"
+        },
+        "modules/common/widget/header/header.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/header/header.css",
+            "type": "css",
+            "id": "modules/common/widget/header/header.scss"
+        },
+        "common/widget/header/main": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/header/main.js",
+            "type": "js",
+            "deps": [
+                "modules/common/widget/header/header.scss"
+            ],
+            "id": "common/widget/header/main"
+        },
+        "common/widget/uploader/index": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/uploader/index.js",
+            "type": "js",
+            "deps": [
+                "modules/common/widget/uploader/main.scss",
+                "components/zepto/zepto.js",
+                "common/I_APP/I_APP",
+                "common/utility/index",
+                "yue_ui/frozen"
+            ],
+            "id": "common/widget/uploader/index"
+        },
+        "modules/common/widget/uploader/main.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/uploader/main.css",
+            "type": "css",
+            "id": "modules/common/widget/uploader/main.scss"
+        },
+        "modules/common/widget/yueyue_header/header.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/yueyue_header/header.css",
+            "type": "css",
+            "id": "modules/common/widget/yueyue_header/header.scss"
+        },
+        "common/widget/yueyue_header/main": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/yueyue_header/main.js",
+            "type": "js",
+            "deps": [
+                "modules/common/widget/yueyue_header/header.scss"
+            ],
+            "id": "common/widget/yueyue_header/main"
+        },
+        "modules/coupon/list-coupon.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/coupon/list-coupon.css",
+            "type": "css",
+            "id": "modules/coupon/list-coupon.scss"
+        },
+        "coupon/list": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/coupon/list.js",
+            "type": "js",
+            "deps": [
+                "modules/coupon/list-coupon.scss",
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/I_APP/I_APP"
+            ],
+            "id": "coupon/list"
+        },
+        "modules/index/index.css": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/index/index.css",
+            "type": "css",
+            "id": "modules/index/index.css"
+        },
+        "index": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/index/index.js",
+            "type": "js",
+            "deps": [
+                "common/widget/header/main",
+                "components/zepto/zepto.js",
+                "modules/index/index.css"
+            ],
+            "id": "index"
+        },
+        "menu/index": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/menu/index.js",
+            "type": "js",
+            "deps": [
+                "modules/menu/index.scss",
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "common/I_APP/I_APP"
+            ],
+            "id": "menu/index"
+        },
+        "modules/menu/index.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/menu/index.css",
+            "type": "css",
+            "id": "modules/menu/index.scss"
+        },
+        "pay_tt": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/pay_tt/pay_tt.js",
+            "type": "js",
+            "deps": [
+                "common/widget/back_btn/main",
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/I_APP/I_APP",
+                "coupon/list",
+                "common/widget/yueyue_header/main"
+            ],
+            "id": "pay_tt"
+        },
+        "pay_tt/pay_tt_success": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/pay_tt/pay_tt_success.js",
+            "type": "js",
+            "deps": [
+                "common/widget/back_btn/main",
+                "components/zepto/zepto.js",
+                "common/I_APP/I_APP",
+                "components/fastclick/fastclick.js"
+            ],
+            "id": "pay_tt/pay_tt_success"
+        },
+        "recharge/card": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/recharge/card.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/I_APP/I_APP"
+            ],
+            "id": "recharge/card"
+        },
+        "recharge/online": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/recharge/online.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/I_APP/I_APP",
+                "common/ua/index"
+            ],
+            "id": "recharge/online"
+        },
+        "recharge": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/recharge/recharge.js",
+            "type": "js",
+            "deps": [
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/I_APP/I_APP",
+                "common/utility/index"
+            ],
+            "id": "recharge"
+        },
+        "recharge/success": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/recharge/success.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/I_APP/I_APP"
+            ],
+            "id": "recharge/success"
+        },
+        "topic": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/topic/topic.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/I_APP/I_APP"
+            ]
+        },
+        "withdrawals": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/withdrawals/withdrawals.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/I_APP/I_APP",
+                "common/scroll/index",
+                "common/widget/abnormal/index",
+                "menu/index"
+            ],
+            "id": "withdrawals"
+        },
+        "yue_ui/frozen": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/modules/yue_ui/frozen.js",
+            "type": "js",
+            "deps": [
+                "style/frozen/frozen.scss"
+            ],
+            "id": "yue_ui/frozen"
+        },
+        "style/about.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/about.css",
+            "type": "css"
+        },
+        "style/account/login.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/account/login.css",
+            "type": "css"
+        },
+        "style/account/reg.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/account/reg.css",
+            "type": "css"
+        },
+        "style/account/set_pwd.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/account/set_pwd.css",
+            "type": "css"
+        },
+        "style/base.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/base.css",
+            "type": "css"
+        },
+        "style/bill/bill.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/bill/bill.css",
+            "type": "css"
+        },
+        "style/bind_alipay/bind_alipay.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/bind_alipay/bind_alipay.css",
+            "type": "css"
+        },
+        "style/common/ui-button.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/common/ui-button.css",
+            "type": "css"
+        },
+        "style/frozen/frozen.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/frozen/frozen.css",
+            "type": "css",
+            "id": "style/frozen/frozen.scss"
+        },
+        "style/index.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/index.css",
+            "type": "css"
+        },
+        "style/pay_tt/common.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/pay_tt/common.css",
+            "type": "css"
+        },
+        "style/pay_tt/pay_tt.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/pay_tt/pay_tt.css",
+            "type": "css"
+        },
+        "style/recharge/index.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/recharge/index.css",
+            "type": "css"
+        },
+        "style/reset.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/reset.css",
+            "type": "css"
+        },
+        "style/topic/topic.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/topic/topic.css",
+            "type": "css"
+        },
+        "style/widget/animation.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/animation.css",
+            "type": "css"
+        },
+        "style/widget/atom.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/atom.css",
+            "type": "css"
+        },
+        "style/widget/ui-avatar.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-avatar.css",
+            "type": "css"
+        },
+        "style/widget/ui-base.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-base.css",
+            "type": "css"
+        },
+        "style/widget/ui-btn-group.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-btn-group.css",
+            "type": "css"
+        },
+        "style/widget/ui-btn.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-btn.css",
+            "type": "css"
+        },
+        "style/widget/ui-checkbox.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-checkbox.css",
+            "type": "css"
+        },
+        "style/widget/ui-dialog.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-dialog.css",
+            "type": "css"
+        },
+        "style/widget/ui-form.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-form.css",
+            "type": "css"
+        },
+        "style/widget/ui-header.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-header.css",
+            "type": "css"
+        },
+        "style/widget/ui-icon.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-icon.css",
+            "type": "css"
+        },
+        "style/widget/ui-list.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-list.css",
+            "type": "css"
+        },
+        "style/widget/ui-loading.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-loading.css",
+            "type": "css"
+        },
+        "style/widget/ui-notice.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-notice.css",
+            "type": "css"
+        },
+        "style/widget/ui-pay-tt-header.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-pay-tt-header.css",
+            "type": "css"
+        },
+        "style/widget/ui-poptips.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-poptips.css",
+            "type": "css"
+        },
+        "style/widget/ui-progress.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-progress.css",
+            "type": "css"
+        },
+        "style/widget/ui-searchbar.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-searchbar.css",
+            "type": "css"
+        },
+        "style/widget/ui-slider.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-slider.css",
+            "type": "css"
+        },
+        "style/widget/ui-tab.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-tab.css",
+            "type": "css"
+        },
+        "style/widget/ui-tips.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-tips.css",
+            "type": "css"
+        },
+        "style/widget/ui-tooltips.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-tooltips.css",
+            "type": "css"
+        },
+        "style/widget/ui-yue-btn.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/widget/ui-yue-btn.css",
+            "type": "css"
+        },
+        "style/withdrawals/withdrawals.scss": {
+            "uri": "http://yp.yueus.com/mobile/m2predev/static/style/withdrawals/withdrawals.css",
+            "type": "css"
+        }
+    },
+    "pkg": {}
+}

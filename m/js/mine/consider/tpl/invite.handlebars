@@ -1,0 +1,239 @@
+{{#if data.is_cameraman}}
+<div class="child" >
+    <div data-role="model_date_list" data-item-type="{{data.item_type}}" data-date-id="{{data.date_id}}" data-enroll-id="{{data.enroll_id}}" data-date-user-id="{{data.from_date_id}}" data-to-date-id="{{data.to_date_id}}" data-date_status="{{data.date_status}}" data-tap="list">
+        <div class="title">
+            <div class="name">模特：{{data.nickname}}</div>
+            <div class="status">
+                <div class="status-in {{#if data.is_new}}red{{^}}gray{{/if}} {{#if data.is_empty}}fn-hide{{/if}}">{{data.lable}}</div>
+                <div class="arrow"><i class="icon icon-r-16x26"></i></div>
+            </div>
+        </div>
+        <div class="details">
+            <!-- <div class="img-container">
+                <i class="image-img" style="background-image: url({{data.icon}});"></i>
+            </div> -->
+
+            <div class="img-container" data-role="to_model_card" data-date-user-id="{{data.from_date_id}}" data-to-date-id="{{data.to_date_id}}" data-to-tap="icon">
+            <div class="avatar-size-mod avatar-size-mod-80">
+                <span class="icon avatar-size-area "></span>
+                <i class="avatar-size-img" style="background-image: url({{data.icon}}); background-size:cover"></i>
+            </div>
+            </div>
+            
+            <div class="details-container">
+                <p class="notice">价格：{{data.total_price_v2}}</p>
+                <!--p>时间：{{data.hour}}小时</p-->
+                <!--p>类型：{{data.date_type}}</p-->
+                <p class="style">风格：{{data.date_style}}</p>
+
+                {{#if data.event_ready}}
+                    {{#if data.is_scan}}
+                    {{^}}
+                        <p class="btn_style">
+                            <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width" data-event-id="{{data.event_id}}" data-enroll-id="{{data.enroll_id}}" data-to-tap="end" data-role="btn_pub_be_scan">
+                                <span class="ui-button-content" data-to-tap="end"><i class="icon icon-btn-icon-bs" data-to-tap="end"></i>出示二维码</span>
+                            </button>
+                        </p>
+                    {{/if}}
+                {{^}}
+                {{/if}}
+
+                {{#if data.event_finish}}
+                    {{#if data.is_comment}}
+                        <div style="margin-bottom:10px">
+                            已评价:
+                                <span class="starts">
+                                    {{#each data.stars_list}}
+                                        {{#if is_red}}
+                                            <i class="icon icon-stat-s-y"></i>
+                                        {{^}}
+                                            <i class="icon icon-stat-s-g"></i>
+                                        {{/if}}
+                                    {{/each}}
+                                </span>
+                        </div>
+                    {{^}}
+                        <div class="btn-c">
+                            <button class="ui-button ui-button-size-middle ui-button-block ui-button-color3 ui-button-size-radius-large auto_width" {{#unless data.is_comment}}data-can-comment="1"{{/unless}} data-prev-default="1" data-from-date-id="{{data.from_date_id}}" data-to-date-id="{{data.to_date_id}}" data-role="btn_commit" data-date-id="{{data.date_id}}" data-to-tap="commit">
+                                <span class="ui-button-content" data-tap="commit_text" data-to-tap="commit"><i class="icon icon-btn-icon-pj" data-to-tap="commit"></i>评价模特</span>
+                            </button>
+                        </div>
+                    {{/if}}
+                {{^}}
+                {{/if}}
+
+                {{#if data.event_cancel}}
+                {{^}}
+                {{/if}}
+        <!--
+                {{#if data.is_confirm}}
+                    {{#if data.is_end}}
+                        {{#if data.is_comment}}
+                            <div style="margin-bottom:10px">
+                                已评价:
+                                <span class="starts">
+                                {{#each data.stars_list}}
+                                    {{#if is_red}}
+                                        <i class="icon icon-stat-s-y"></i>
+                                    {{^}}
+                                        <i class="icon icon-stat-s-g"></i>
+                                    {{/if}}
+                                {{/each}}
+                                </span>
+                            </div>    
+                        {{^}}
+                            <div class="btn-c">
+                                <button class="ui-button ui-button-size-middle ui-button-block ui-button-color3 ui-button-size-radius-large auto_width" {{#unless data.is_comment}}data-can-comment="1"{{/unless}} data-prev-default="1" data-from-date-id="{{data.from_date_id}}" data-to-date-id="{{data.to_date_id}}" data-role="btn_commit" data-date-id="{{data.date_id}}" data-to-tap="commit">
+                                    <span class="ui-button-content" data-tap="commit_text" data-to-tap="commit"><i class="icon icon-btn-icon-pj" data-to-tap="commit"></i>评价模特</span>
+                                </button>
+                            </div>
+                        {{/if}}
+                    {{^}}
+                        {{#if data.is_scan}}
+                        {{^}}
+
+                            <p class="btn_style">
+                                <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width" data-event-id="{{data.event_id}}" data-enroll-id="{{data.enroll_id}}" data-to-tap="end" data-role="btn_pub_be_scan">
+                                    <span class="ui-button-content" data-to-tap="end"><i class="icon icon-btn-icon-bs" data-to-tap="end"></i>出示二维码</span>
+                                </button>
+                            </p>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+                -->
+            </div>
+        </div>
+    </div>
+</div>
+{{^}}
+<div class="child">
+    <div  data-role="cameraman_date_list"  data-date-id="{{data.date_id}}" data-date-user-id="{{data.from_date_id}}" data-item-type="{{data.item_type}}" data-to-date-id="{{data.date_id}}" data-date_status="{{data.date_status}}">
+        <div class="title">
+            <div class="name">【约拍】摄影师 {{data.nickname}}</div>
+            <div class="status">
+                <div class="status-in {{#if data.is_new}}red{{^}}gray{{/if}} {{#if data.is_empty}}fn-hide{{/if}}">{{data.lable}}</div>
+                <div class="arrow"><i class="icon icon-r-16x26"></i></div>
+            </div>
+        </div>
+        <div class="details">
+            <!-- <div class="img-container">
+                <i class="image-img" style="background-image: url('{{data.icon}}');"></i>
+            </div> -->
+
+            <div class="img-container">
+            <div class="avatar-size-mod avatar-size-mod-80" data-date-user-id="{{data.from_date_id}}" data-role="to-zone">
+                <span class="icon avatar-size-area "></span>
+                <i class="avatar-size-img" style="background-image: url({{data.icon}}); background-size:cover"></i>
+            </div>
+            </div>
+
+            <div class="details-container">
+                <p class="notice">价格：{{data.total_price_v2}}</p>
+                <!--p>时间：{{data.hour}}小时</p-->
+                <!--p>类型：{{data.date_type}}</p-->
+                <p class="style">风格：{{data.date_style}}</p>
+
+                {{#if data.event_ready}}
+                    <div class="btn-c" >
+                    {{#if data.is_scan}}
+                        <button class="ui-button ui-button-size-middle ui-button-block ui-button-color2 ui-button-size-radius-large auto_width" data-event-id="{{data.event_id}}" data-role="confirm_btn" data-to-tap="end">
+                            <span class="ui-button-content" data-to-tap="end"><i class="icon icon-btn-icon-qr" data-to-tap="end"></i>确认完成</span>
+                        </button>
+                    {{^}}
+                        <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width" data-to-tap="end" data-role="btn_pub_scan">
+                            <span class="ui-button-content" data-to-tap="end"><i class="icon icon-btn-icon-sm" data-to-tap="end"></i>扫码签到</span>
+                        </button>
+                    {{/if}}
+                    </div>
+                {{^}}
+                {{/if}}
+
+                {{#if data.event_finish}}
+                    {{#if data.is_comment}}
+                        <div style="margin-bottom:10px">
+                            已评价:
+                            <span class="starts">
+                                {{#each data.stars_list}}
+
+                                    {{#if is_red}}
+                                        <i class="icon icon-stat-s-y"></i>
+                                    {{^}}
+                                        <i class="icon icon-stat-s-g"></i>
+                                    {{/if}}
+
+                                {{/each}}
+                            </span>
+                        </div>
+                    {{^}}
+                        <div class="btn-c" >
+                            <button class="ui-button ui-button-size-middle ui-button-block ui-button-color3 ui-button-size-radius-large auto_width" {{#unless data.is_comment}} data-can-comment="1"{{/unless}} data-prev-default="1" data-from-date-id="{{data.from_date_id}}" data-role="btn_commit" data-date-id="{{data.date_id}}" data-to-tap="commit">
+                                <span class="ui-button-content" data-to-tap="commit"><i class="icon icon-btn-icon-pj" data-to-tap="commit"></i>评价摄影师</span>
+                            </button>
+                        </div>
+                    {{/if}}
+                {{^}}
+                {{/if}}
+
+                {{#if data.event_cancel}}
+                {{^}}
+                {{/if}}
+
+
+                <!--
+                {{#if data.is_confirm}}
+
+                    {{#if data.is_end}}
+
+                        {{#if data.is_comment}}
+                                <div style="margin-bottom:10px">
+                                    已评价:
+                                    <span class="starts">
+                                    {{#each data.stars_list}} 
+                                    
+                                            {{#if is_red}}
+                                                <i class="icon icon-stat-s-y"></i>
+                                            {{^}}
+                                                <i class="icon icon-stat-s-g"></i>
+                                            {{/if}}
+                                        
+                                    {{/each}}
+                                    </span>
+                                </div>    
+                        {{^}}
+                               
+                                <div class="btn-c" >
+
+
+                                    <button class="ui-button ui-button-size-middle ui-button-block ui-button-color3 ui-button-size-radius-large auto_width" {{#unless data.is_comment}} data-can-comment="1"{{/unless}} data-prev-default="1" data-from-date-id="{{data.from_date_id}}" data-role="btn_commit" data-date-id="{{data.date_id}}" data-to-tap="commit">
+                                        <span class="ui-button-content" data-to-tap="commit"><i class="icon icon-btn-icon-pj" data-to-tap="commit"></i>评价摄影师</span>
+                                    </button>
+
+
+
+                                </div>
+
+                        {{/if}}
+
+
+                    {{^}}
+
+                        <div class="btn-c" >
+                            {{#if data.is_scan}}
+                                <button class="ui-button ui-button-size-middle ui-button-block ui-button-color2 ui-button-size-radius-large auto_width" data-event-id="{{data.event_id}}" data-role="confirm_btn" data-to-tap="end">
+                                    <span class="ui-button-content" data-to-tap="end"><i class="icon icon-btn-icon-qr" data-to-tap="end"></i>确认完成</span>
+                                </button>
+                            {{^}}
+                                <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width" data-to-tap="end" data-role="btn_pub_scan">
+                                    <span class="ui-button-content" data-to-tap="end"><i class="icon icon-btn-icon-sm" data-to-tap="end"></i>扫码签到</span>
+                                </button>
+                            {{/if}}
+
+                        </div>
+                    {{/if}}
+                {{/if}}
+                -->
+        </div>
+        </div>
+    </div>
+</div>
+{{/if}}

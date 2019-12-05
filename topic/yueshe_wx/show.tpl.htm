@@ -1,0 +1,70 @@
+{header_html}
+<body>
+	<div class="content">
+		<div class="flyers-page">
+			<div class="img-list">
+				<!-- slider组件 start -->
+					<div class="ui-slider">
+						<div class="ui-slider-pic-wrap">
+							<ul>
+							<!-- BEGIN record_list -->
+								<li>
+									<div class="img-item">
+										<img src="{img_url}">
+									</div>
+									
+									 <!-- IF content --><div class="txt"><strong>{title}</strong><br />{content}</div><!-- ENDIF -->
+									 
+								</li>
+								<!-- END record_list -->
+							</ul>
+					  </div>       
+						<div class="ui-slider-btn-wrap">
+						<ul>
+<!-- BEGIN record_list -->
+							<li></li>
+<!-- END record_list -->
+						</ul>
+						</div>
+					</div>
+					<!-- slider组件 end --> 
+			</div>
+
+			<div class="more-item">
+				<a href='intro.php?id={id}' style='color:white'><span class="more-btn">立即加入，成为约约摄影师</span></a>
+			</div>
+			<div class="img-bar">
+				<span class="back-btn img-btn"></span>
+				<div class="btn-item">
+					 <span class="share-btn img-btn"></span> 
+					 <span class="index-btn img-btn"></span> 
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 分享 -->
+	<div class="share-fade" style='display:none'></div>
+	<div class="share-pop" style='display:none'>
+		<h4 class="title">分享</h4>
+		<div class="share-list">
+			<ul>
+				<li><span class="share-btn"><i class="icon wx-icon"></i></span></li>
+				<li><span class="share-btn"><i class="icon pyq-icon"></i></span></li>
+				<li><span class="share-btn"><i class="icon wb-icon"></i></span></li>
+				<li><span class="share-btn"><i class="icon qq-icon"></i></span></li>
+				<li><span class="share-btn"><i class="icon copy-icon"></i></span></li>
+			</ul>
+		</div>
+		<div class="btn-item">
+			<a href="#">取消</a>
+		</div>
+	</div>
+	<!-- 分享 end -->
+	<script src="http://static.yueus.com/topic/yueshe_wx/js/zepto.js"></script>
+	<script src="http://static.yueus.com/topic/yueshe_wx/js/slider-mobile/0.2.0/slider.js"></script>
+	<script>
+
+	new Slider({wrap: '.ui-slider'});
+
+	</script>
+{footer_html}

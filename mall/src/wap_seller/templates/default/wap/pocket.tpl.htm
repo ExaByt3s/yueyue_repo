@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>钱包</title>
+    {pc_global_top}
+    <link charset="utf-8" rel="stylesheet" href="../../../style/pocket/pocket.scss">
+    <link charset="utf-8" rel="stylesheet" href="../../../style/task-m.scss">
+    <script src="../../../lib/lib.js"></script>
+</head>
+<body class="">
+<main>
+    <div class="page-view page-name-pocket" data-role="page-container">
+        <!--link rel="import" href="./webcontrol/top_nav.tpl.html?__inline"-->
+        <div class="top-bar fn-hide">
+            <div class="top-box ">
+                <div class="return-icon"></div>
+            </div>
+            <div class="top-box-f">钱包</div>
+            <div class="top-box"></div>
+        </div>
+
+        <div class="content-user">
+            <div class="portrait ">
+                <img src="{info.user_icon}"  class="portrait-icon"/>
+                <span class="portrait-f">{info.nickname}</span>
+            </div>
+            <div class="user-bal ui-border-t">
+                <div class="balance">账户余额</div>
+                <div class="amount">
+                    <div class="top-f">￥{info.available_balance}</div>
+                    <span class="bottom-f">可提现￥{info.purse_available_balance}</span>
+                </div>
+            </div>
+            <div class="tips ui-border-t">温馨提示：用户支付的服务金在签到以后即可提现，请别忘记提醒用户评价你的服务哦。申请特殊情况提现请拨打4000-82-9003</div>
+        </div>
+
+        <div class="operation">
+            <div class="operation-box" data-go="bill">
+               <div class="left">
+                <div class="account-icon"></div>
+                <div class="left ">账单</div>
+               </div>
+                <div class="right"></div>
+            </div>
+            <div class="operation-box ui-border-t" data-go="withdraw">
+               <div class="left">
+                <div class="withdraw-icon"></div>
+                <p class="left ">提现</p>
+               </div>
+                <div class="right"></div>
+            </div>
+            <div class="operation-box ui-border-t" data-go="bind" style="border-bottom: 0;">
+                <div class="left">
+                    <div class="zhifubao-icon"></div>
+                    <p>绑定支付宝</p>
+                </div>
+                <div class="right-box">
+                <div>{status_resault.msg}</div>
+                <div class="right"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</main>
+<div id="code" style="visibility: hidden; width: 0px; height: 0px" code="{status_resault.code}"></div>
+</body>
+<script>
+    var utility = require('../../../modules/common/utility/index');
+    var $ = require('zepto');
+	var App = require('../../../modules/common/I_APP/I_APP');
+	var menu = require('../../../modules/menu/index');
+    $(function()
+    {
+        // 权限控制
+        if(App.isPaiApp)
+        {
+            App.check_login(function(data)
+            {
+                if(!utility.int(data.pocoid))
+                {
+                    App.openloginpage(function(data)
+                    {
+                        if(data.code == '0000')
+                        {
+                            utility.refresh_page();
+                        }
+                    });
+
+                    return;
+                }
+
+            });
+
+        }
+
+        //var app_ver = /m2predev/.test(window.location.href)?'m2predev':'m2';
+        var app_ver = 'm2';
+        var app_address = 'http://yp.yueus.com/mobile/'+app_ver;
+
+        $('[data-go="withdraw"]').on('click',function()
+        {
+            var bind_type = $('#code').attr('code');
+            if(bind_type==1)
+            {
+                location.href= app_address+'/mine/withdrawals/';
+            }
+            else
+            {
+                location.href= app_address + '/mine/bind_alipay/';
+            }
+        });
+        $('[data-go="bind"]').on('click',function()
+        {
+            var code = $('#code').attr('code');
+            location.href= app_address+'/mine/bind_alipay/';
+        });
+        $('[data-go="bill"]').on('click',function()
+        {
+            location.href= app_address+'/mine/bill/';
+        });
+
+		/*********** 右上角菜单栏 ************/
+		/*
+		 传入对象
+		 {index:索引值,根据索引值从小到大排列选项顺序}
+		 {content:文本内容}
+		 {click_event:点击事件}
+		 */
+		var menu_data =
+			[
+				{
+					index:0,
+					content:'首页',
+					click_event:function()
+					{
+						App.isPaiApp && App.switchtopage({page:'mine'});
+					}
+				},
+				{
+					index:1,
+					content:'刷新',
+					click_event:function()
+					{
+						window.location.href = window.location.href;
+					}
+				}
+			];
+
+		/*
+		 render() 方法传入(父容器，对象)
+		 show()   下拉菜单
+		 hide()   上拉菜单
+		 */
+		menu.render($('body'),menu_data);
+
+		var __showTopBarMenuCount = 0;
+
+		utility.$_AppCallJSObj.on('__showTopBarMenu',function(event,data)
+		{
+
+			__showTopBarMenuCount++;
+
+			if(__showTopBarMenuCount%2!=0)
+			{
+				menu.show()
+			}
+			else
+			{
+				menu.hide()
+			}
+		});
+		/*********** 右上角菜单栏 ************/
+
+    });
+    
+
+</script>
+</html>

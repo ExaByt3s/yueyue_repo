@@ -1,0 +1,44 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 活动 报名
+// ------------------------------
+.pay-success-page{
+    
+    .pay-wrap{
+        text-align: center;
+        .box1{
+            padding-top: 70px;
+        }
+        .box2{
+            font-size: 18px;
+            padding: 20px 0 20px 0;
+            color: #3fc585;
+        }
+
+        .box3{
+            color: #666666;
+            line-height: 24px;
+            padding: 0px 10px;
+        }
+    }
+
+    .btn-wrap{
+        width: 100%;
+        @include box-sizing(border-box);
+        height: 50px;
+        border-top: 1px solid #cccccc;
+        background-color: #fafafa;
+        position: absolute;
+        bottom: 0;
+        @include flexbox((
+            display: box,  // 盒子模型 子元素默认水平左对齐
+            box-pack: center,  // 水平居中方式  start | center | end | justify
+            box-align: center,  // 垂直居中方式  start | end | center | baseline | stretch
+            box-orient:vertical // 子元素排列方式  horizontal | vertical | inline-axis | block-axis | inherit
+
+        ), $version: 1);
+        .btn{
+            width: 150px;
+        }
+    }
+}

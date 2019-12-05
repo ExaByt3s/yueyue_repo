@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+// -------------------------------------------------
+// 翻页
+// -------------------------------------------------
+
+#{$default-base-pagination-namespace} {
+    @include pie-clearfix;
+
+    font-size: $default-base-pagination-font-size;
+    vertical-align: middle;
+    color: $default-base-pagination-item-color;
+    *word-spacing: -1px;
+    text-align: center;
+
+    %pagination-item {
+        @include inline-block(false);
+
+        border: 1px solid $default-base-pagination-item-border-color;
+        margin: $default-base-pagination-item-margin;
+        padding: $default-base-pagination-item-padding;
+        height: $default-base-pagination-item-height;
+        line-height: $default-base-pagination-item-height;
+
+        background: $default-base-pagination-item-background;
+        color: $default-base-pagination-item-color;
+        text-decoration: none;
+        letter-spacing: normal;
+        word-spacing: normal;
+        vertical-align: middle;
+        
+        &:hover{
+            @extend %pagination-item-hover;
+        }
+    }
+
+    a {
+        @extend %pagination-item;
+    }
+
+    a#{$default-base-pagination-namespace}-disable {
+        border-color: $default-base-pagination-item-disable-border-color;
+        background: $default-base-pagination-item-disable-background;
+        color: $default-base-pagination-item-disable-color;
+        @include opacity(0.7);
+
+        cursor: no-drop;
+    }
+
+
+    // --------------------------------------------------
+    // 上一页
+    // --------------------------------------------------
+    #{$default-base-pagination-namespace}-prev {
+        margin: 0 5px 0 0;
+    }
+
+    // --------------------------------------------------
+    // 下一页
+    // --------------------------------------------------
+    #{$default-base-pagination-namespace}-next {
+        margin: 0 0 0 5px;
+    }
+
+    // --------------------------------------------------
+    // 页码选项
+    // --------------------------------------------------
+    #{$default-base-pagination-namespace}-item {
+        @extend %pagination-item;
+    }
+
+    // --------------------------------------------------
+    // 当前页选项
+    // --------------------------------------------------
+    #{$default-base-pagination-namespace}-current {
+        @extend %pagination-item-hover;
+        cursor: default;
+
+        &:hover{
+            @extend %pagination-item-hover;
+        }
+    }
+
+    %pagination-item-hover {
+        border-color: $default-base-pagination-item-hover-border-color;
+        background: $default-base-pagination-item-hover-background;
+        color: $default-base-pagination-item-hover-color;
+        text-decoration: none; 
+    }
+
+    // --------------------------------------------------
+    // 省略字符
+    // --------------------------------------------------
+    #{$default-base-pagination-namespace}-ellipsis { 
+        line-height: 16px;
+        margin: $default-base-pagination-item-margin;
+        //font-size: 12px;
+        font-weight: $bold;
+        vertical-align: middle;
+    }
+
+}

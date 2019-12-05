@@ -1,0 +1,83 @@
+.pay-container {
+  background: #eee; }
+  .pay-container .pay_tip {
+    padding: 22px 0px;
+    text-align: center;
+    background: #fff; }
+  .pay-container .pay_title {
+    margin-top: 23px;
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #aaaaaa; }
+  .pay-container .pay_container {
+    padding: 0px 15px;
+    background: #fff; }
+  .pay-container .pay_items {
+    -webkit-box-pack: center;
+    font-size: 16px;
+    border-bottom: 1px solid #e6e6e6;
+    height: 50px;
+    padding-right: 15px; }
+  .pay-container .pay_items_inner {
+    -webkit-box-pack: justify; }
+  .pay-container .pay_items_inner > img {
+    width: 10px;
+    margin-bottom: 2px; }
+  .pay-container .pay_notice {
+    -webkit-box-pack: center;
+    height: 75px;
+    background: #fff; }
+  .pay-container .pay_notice_notice {
+    font-size: 12px;
+    margin: 2px 0px;
+    color: #797979; }
+  .pay-container .pay_notice_notice > img {
+    width: 11px;
+    margin-right: 10px; }
+  .pay-container .pay_paypal {
+    -webkit-box-pack: justify;
+    height: 50px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 0px 15px;
+    background: #fff; }
+  .pay-container .pay_paypal_inner > img {
+    width: 47px;
+    margin-top: 18px;
+    margin-right: 10px; }
+  .pay-container .pay_paypal_notice {
+    -webkit-box-pack: center;
+    font-size: 14px;
+    color: #000000; }
+  .pay-container .pay_paypal_notice > .exp {
+    font-size: 10px;
+    color: #999999; }
+  .pay-container .pay_paypal_choose > img {
+    width: 20px;
+    margin-top: 6px; }
+  .pay-container .pay_paypal_choose {
+    -webkit-box-pack: center; }
+  .pay-container .pay_btn {
+    bottom: 0px;
+    height: 45px;
+    color: #fff;
+    line-height: 44px;
+    text-align: center;
+    background: #4092f1;
+    border-radius: 4px; }
+  .pay-container .pay_btn:active {
+    background: #66a8f4; }
+  .pay-container .pay_btn_con {
+    padding: 15px 15px;
+    background: #fff; }
+  .pay-container .pay_help_tip {
+    font-size: 12px;
+    color: #aaaaaa;
+    text-align: center;
+    margin-top: 40px; }
+  .pay-container .pay_help_phone {
+    font-size: 12px;
+    color: #4092f1;
+    text-align: center;
+    margin-bottom: 40px; }
+
+/*# sourceMappingURL=index.css.map */

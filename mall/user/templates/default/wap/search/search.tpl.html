@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>搜索</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/wap/style/search/common_9529c71_4fcba41.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/wap/style/search/search_68c6c8f.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/wap/lib/lib_c74996d.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/wap/js/common/common_170e4f3.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/wap/modules/search/search_76bf4b9.js"></script>
+</head>
+<body>
+<main role="main">
+    <div class="page-view " data-role="page-container">
+        <div class="search">
+            <header class="global-header">
+                <div class="wbox clearfix">
+                    <a href="javascript:void(0);">
+                        <div class="back" data-role="page-back">
+                            <i class="icon-back"></i>
+                        </div>
+                    </a>
+                    <div class="search-head title ">
+                        <div class="search-box">
+                            <div class="search-type" data-role="search-type">
+                                <span>商家</span>
+                                <i class="r-icon"></i>
+                            </div>
+                            <input type="text" placeholder="请输入关键词" value="" class="search-text">
+                        </div>
+                    </div>
+                    <div class="side-txt" style="" data-role="right-btn">
+                        搜索
+                    </div>
+                </div>
+                <div class="type-select fn-hide" id="type-select">
+                    <i class="type-select-i"></i>
+                    <span class="t-span type-select-span" data-role="merchant">商家名称</span>
+                    <span class="b-span type-select-span" data-role="service">服务名称</span>
+                </div>
+            </header>
+            <div class="seach-content">
+                <div class="hot seach-title">
+                    <p class="hot-title ">热门</p>
+                    <div data-role="hot-content">
+
+                    </div>
+                </div>
+                <!--搜索历史-->
+                <div class="history seach-title">
+                    <p class="hot-title">历史搜索</p>
+                    <div data-role="history-content">
+
+                    </div>
+                </div>
+                <!--清空历史--->
+                <button class="ui-button ui-button-size-x ui-button-bg-fff empty" data-role="empty">
+                    <span class="ui-button-content">清空搜索历史</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+<script>
+    var btn_list = [];
+    var tags = {service_tags};
+    for(var i= 0 ;i<tags.result_data.length;i++){
+        var a = {};
+        a.name = tags.result_data[i];
+        btn_list.push(a);
+    }
+    var edit = require('search');
+
+</script>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/js/admin.js"></script>
+    <script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/table.css">
+    <title>工作监控报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <li><a href="javascript:void(0);" class="on">完成订单列表</a></li>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="800">
+                        <tbody>
+                        <tr>
+                            <td>
+                                订单号:
+                                <input type="text" name="enroll_id" class="input-text" value="{enroll_id}" size="6"/>
+                            </td>
+                            <td>
+                                约拍ID:
+                                <input type="text" name="date_id" class="input-text" value="{date_id}" size="6"/>
+                            </td>
+                            <td>
+                                完成开始日期:
+                                <input type="text" name="start_time" class="input-text" value="{start_time}" size="12" onfocus="WdatePicker()" readonly="true"/>
+                                至
+                                <input type="text" name="end_time" class="input-text" value="{end_time}" size="12" onfocus="WdatePicker()" readonly="true"/>
+                            </td>
+                            <td colspan="2">
+                                <p><input type="button" class="button" value="查找" onclick="this.form.target='_self';$('#action').attr('value','');this.form.submit();">                                         <input type="button" class="button" value="导出" onclick="this.form.target='_blank';$('#action').attr('value','export');this.form.submit();">
+                                   <!-- <font color="red">(红色字表示退款后模特得到的流水)</font>-->
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                订单ID:
+                                <input type="text" name="event_id" class="input-text" value="{event_id}" size="6"/>
+                            </td>
+                            <td>
+                                类型:
+                                <select name="type">
+                                    <option value="-1">全部</option>
+                                    <option value="0" <!-- IF type="0" -->selected='true'<!-- ENDIF --> >约拍</option>
+                                    <option value="1" <!-- IF type="1" -->selected='true'<!-- ENDIF --> >外拍</option>
+                                </select>
+                            </td>
+                            <td>
+                                订单状态:
+                                <select name="event_status">
+                                    <option value="">全部</option>
+                                    <option value="2" <!-- IF event_status="2" -->selected='true'<!-- ENDIF --> >已经完成</option>
+                                    <option value="3" <!-- IF event_status="3" -->selected='true'<!-- ENDIF --> >强制退款</option>
+                                    <option value="8" <!-- IF event_status="8" -->selected='true'<!-- ENDIF --> >全额退款</option>
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="act" id="action">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <div class="table-list" id="table-list">
+        <!--<div class="btn">
+            总条数:{total_count}
+        </div>
+         -->
+        <!--list-->
+        <table width="100%" cellspacing="0" style="min-width: 1000px;">
+            <thead>
+            <tr>
+                <th>日期</th>
+                <th>序号</th>
+                <th>订单ID</th>
+                <th>订单号</th>
+                <th>约拍ID</th>
+                <th>商品名称</th>
+                <th>商品状态</th>
+                <th>约拍风格</th>
+                <th>购买人</th>
+                <th>订单总金额</th>
+                <th>订单状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center">{complete_time}</td>
+                <td align="center">{id}</td>
+                <td align="center">{event_id}</td>
+                <td align="center">{enroll_id}</td>
+                <td align="center">{date_id}</td>
+                <td align="center"><a href="http://www.yueus.com/model/card.php?user_id={to_date_id}" target="_blank">{model_name}</a></td>
+                <td align="center">{is_audit}</td>
+                <td align="center">{date_style}</td>
+                <td align="center">{cameraman_name}</td>
+                <td align="center">{price}元&nbsp;&nbsp;
+                </td>
+                <td align="center"><!-- IF event_status="2" --><font color="blue"> 已经完成</font><!-- ELSEIF event_status="3" --><font color="#7fff00">强制退款</font><!-- ELSEIF event_status="8" --><font color="red">全额退款</font><!-- ENDIF --></td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

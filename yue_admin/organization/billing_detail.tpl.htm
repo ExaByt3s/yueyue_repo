@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>机构管理系统</title>
+<style type="text/css">
+.table-list table
+{
+	border-left: #eee 1px solid;
+}
+.table-list tbody td, .table-list thead th
+{
+	border-right: #eee 1px solid;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+	    <a href="javascript:void(0);" class="on">账户总览</a>
+	</ul>
+</div>
+<!--top-->
+	<div class="table-list">
+		<table cellspacing="0" width="400px">
+			<thead>
+				<tr>
+				  <th width="50%">未结算总额</th>
+				  <th width="50%">{total_price}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				  <td align="center">未结算私拍</td>
+				  <td align="center">{yuepai_price}</td>
+				</tr>
+				<tr>
+				  <td align="center">未结算活动</td>
+				  <td align="center">{waipai_price}</td>
+				</tr>    	
+			</tbody>
+		</table>
+</div>
+</body>
+</html>

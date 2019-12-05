@@ -1,0 +1,69 @@
+.ui-picker {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 500;
+  background: none;
+  top: 0px; }
+  .ui-picker .ui-picker-fade {
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); }
+  .ui-picker .ui-picker-container {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    margin: 0 auto;
+    background: #fff; }
+    .ui-picker .ui-picker-container .choose_area {
+      display: -webkit-box;
+      -webkit-box-flex: 1;
+      border-bottom: 1px solid #f2f2f2;
+      position: relative; }
+      .ui-picker .ui-picker-container .choose_area .choose_child {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-box-flex: 1;
+        text-align: center; }
+        .ui-picker .ui-picker-container .choose_area .choose_child .title {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-box-pack: center;
+          border-bottom: 1px solid #f2f2f2; }
+        .ui-picker .ui-picker-container .choose_area .choose_child .scroll {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-box-flex: 1;
+          overflow: scroll; }
+          .ui-picker .ui-picker-container .choose_area .choose_child .scroll div {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-box-pack: center; }
+      .ui-picker .ui-picker-container .choose_area .picker_line {
+        position: absolute;
+        border-top: 1px solid #0079ff;
+        border-bottom: 1px solid #0079ff;
+        z-index: 501;
+        width: 100%; }
+    .ui-picker .ui-picker-container .btn_area {
+      display: -webkit-box;
+      -webkit-box-pack: center; }
+      .ui-picker .ui-picker-container .btn_area .btn {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-box-pack: center;
+        -webkit-box-flex: 1;
+        border-right: 1px solid #f2f2f2; }
+        .ui-picker .ui-picker-container .btn_area .btn:last-child(1) {
+          border-right: none; }
+      .ui-picker .ui-picker-container .btn_area .confirm {
+        text-align: center;
+        color: #0079ff; }
+      .ui-picker .ui-picker-container .btn_area .cancel {
+        text-align: center;
+        color: #cccccc; }
+
+/*# sourceMappingURL=ui-picker.css.map */

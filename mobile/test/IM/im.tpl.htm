@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Mqtt js expamle</title>
+</head>
+<style>
+    .fn-hide{
+        display: none !important;
+    }
+    .tl{
+        display: block;
+        height: 36px;
+        margin: 3px 0px;
+        color: #fff;
+    }
+    .tl > font{
+        background: #1abc9c;
+        border-radius: 4px;
+        padding: 10px;
+    }
+    .tr{
+        display: block;
+        text-align: right;
+        height: 36px;
+        margin: 3px 0px;
+        color: #fff;
+    }
+    .tr > font{
+        background: #333;
+        border-radius: 4px;
+        padding: 10px;
+    }
+</style>
+<body>
+    <input data-role="inputs"/>
+	<div data-role="btn">send</div>
+    <div class="text_contant" data-role="contant"></div>
+</body>
+    <script src="./lib/jquery-1.10.2.min.js"></script>
+    <script src="./lib/browserMqtt.js"></script>
+    <script src="./lib/inflate.min.js"></script>
+    <script src="./lib/md5-min.js"></script>
+    <script src="./lib/IMSDK.js"></script>
+    <script type="text/javascript">
+    $(function(){
+
+        var service_id = '100049';
+        var client_id = '100001';
+        var custom_id = '100029';
+
+        var send_url =
+        {
+            text : 'http://sendtxt-wifi.yueus.com/sendtxt.cgi',
+            media : 'http://sendmedia.yueus.com:8000/sendmedia.cgi',
+            test_url : 'http://14.29.52.13/sendtxt.cgi'
+        };
+
+        IMSDK.init
+        ({
+            url:'ws://online-wifi.yueus.com:8983',
+            client_id:service_id,//client_id,
+            message_receive : function(data)
+            {
+                $('[data-role="contant"]').append('<div class="tr"><font>'+ data.content + '</font></div>');
+            },
+            message_send_success : function(send_data,xhr)
+            {
+                var res = JSON.parse(xhr.response);
+
+                if(res.code == 1)
+                {
+                    $('[data-role="contant"]').append('<div class="tl"><font>'+ send_data.content + '</font></div>');
+                }
+            },
+            message_send_fail : function(send_data,xhr)
+            {
+                console.log(xhr)
+            }
+        });
+        IMSDK.connect();
+        IMSDK.get_msg();
+
+
+    	$('[data-role="btn"]').on('click',function()
+    	{
+            var obj =
+            {
+                send_user_id : custom_id,
+                to_user_id : client_id,
+                media_type : 'text',
+                msg_key : hex_md5(custom_id+client_id+'J&&#3435WS#KSJDF'),
+                content : $('[data-role="inputs"]').val(),
+                send_user_role : 'yuebuyer',//'yueseller',
+                from:"agent"
+            };
+
+            IMSDK.send_msg(obj,send_url.test_url);
+    	})
+
+
+    });
+
+    </script>
+</html>

@@ -1,0 +1,146 @@
+
+// 默认配置
+.ui-button
+{
+    border-radius: 4px;
+    font-size: 16px;
+    color: #fff;
+    &:hover{
+        cursor: pointer;
+        color: #fff;
+        span{
+            text-decoration: none;
+        }
+    }
+
+    .ui-button-content{
+
+    }
+
+}
+
+
+.ui-button-block {
+  display: block;
+}  
+
+.ui-button-100per{
+    width: 100%;
+}
+
+// 圆角
+
+// 默认背景色
+.ui-button-primary{
+    background: #4092f1;
+    &:hover{
+        background: #66a8f4;
+    }
+}
+
+.ui-button-color2{
+    background: #f5f5f5;
+    color: #000;
+    border: 1px solid #cccccc;
+    &:hover{
+        background: #fafafa;
+        color: #000;
+    }
+}
+
+// .ui-button-no-bg-color{
+//     border: 1px solid #dddddd;
+//     border-radius: 3px;
+//     background: #fff;
+//     font-size: 14px;
+//     &:hover{
+//         background: #fff;
+
+//         color: #000;
+//     }
+// }
+
+
+
+// 大小
+.ui-button-size-min{
+    height: 30px;
+    font-size: 12px;
+    .ui-button-content{
+        padding: 0px 15px;
+    }
+
+    .icon{
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: -4px;
+        margin-right: 8px;
+    }
+    .icon-demo{
+        background: #666;
+    }
+
+}
+
+
+.ui-button-size-middle{
+    height: 40px;
+    .ui-button-content{
+        padding: 0px 30px;
+    }
+}
+
+.ui-button-size-s-large{
+    height: 50px;
+    .ui-button-content{
+        padding: 0px 30px;
+    }
+}
+
+
+.ui-button-size-large{
+    height: 60px;
+    .ui-button-content{
+        padding: 0px 50px;
+    }
+    .icon{
+        width: 20px;
+        height: 20px;
+        margin: 3px auto 2px auto;
+    }
+    .icon-demo{
+        background: #666;
+    }
+}
+
+
+// 输入框
+.ui-input
+{
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    padding-left: 15px;
+    padding-right: 15px;
+    &:hover{
+    }
+    .ui-input-content{
+
+    }
+}
+
+
+.ui-input-block {
+  display: block;
+}  
+
+.ui-input-100per{
+    width: 100%;
+}
+
+.ui-input-size-middle{
+    height : 30px;
+    line-height: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

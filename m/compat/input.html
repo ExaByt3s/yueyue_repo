@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="gb2312">
+    <meta name="viewport" content="width=device-width,height=device-height initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <title></title>
+    <style>
+        body{
+            display: -webkit-box;
+            -webkit-box-orient:vertical;
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Microsoft YaHei', 'Verdana', 'SimSun';
+        }
+        .head{
+            display: -webkit-box;
+            -webkit-box-orient:vertical;
+            width: 100%;
+            height: 100px;
+            background: #333333;
+            color: #ff266c;
+            text-align: center;
+            line-height: 100px;
+            font-size: 40px;
+
+        }
+        .ua{
+            margin: 10px 0px;
+            font-size: 20px;
+            padding-left: 40px;
+        }
+        .contain {
+            display: -webkit-box;
+            color: #333333;
+        }
+        .column{
+            display: -webkit-box;
+            -webkit-box-orient:vertical;
+
+        }
+        .column_line{
+            min-height: 40px;
+            min-width: 120px;
+            border-bottom: 1px solid #dddddd;
+            border-right:1px solid #dddddd;
+            text-align: center;
+            line-height: 40px;
+            padding: 0px 10px;
+        }
+        .bg_g{
+            background: #00755e;
+        }
+        .bg_r{
+            background: #d90348;
+        }
+        .notice{
+            display: -webkit-box;
+            padding-left: 40px;
+
+        }
+        .notice p {
+            margin-right: 20px;
+        }
+        .notice_line{
+            height: 40px;
+            width: 60px;
+        }
+        .notice_bot{
+            display: -webkit-box;
+            -webkit-box-orient:vertical;
+            padding-left: 40px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="head">input type = '*'</div>
+<div id="ua" class="ua"></div>
+<div class="notice">
+    <div class="notice_line bg_r"></div><p>不可用</p>
+    <div class="notice_line bg_g"></div><p>可用</p>
+</div>
+<div class="contain">
+    <div class="column">
+        <div class="column_line">*</div>
+        <div class="column_line">机型</div>
+        <div class="column_line">webkit</div>
+        <div class="column_line">color</div>
+        <div class="column_line">date</div>
+        <div class="column_line">datetime</div>
+        <div class="column_line">datetime-local</div>
+        <div class="column_line">month</div>
+        <div class="column_line">week</div>
+        <div class="column_line">time</div>
+        <div class="column_line">email</div>
+        <div class="column_line">number</div>
+        <div class="column_line">range</div>
+        <div class="column_line">search</div>
+        <div class="column_line">tel</div>
+        <div class="column_line">url</div>
+    </div>
+    <div class="column">
+        <div class="column_line">exmaple</div>
+        <div class="column_line"></div>
+        <div class="column_line"></div>
+        <div class="column_line"><input type="color"/></div>
+        <div class="column_line"><input type="date"/></div>
+        <div class="column_line"><input type="datetime"/></div>
+        <div class="column_line"><input type="datetime-local"/></div>
+        <div class="column_line"><input type="month"/></div>
+        <div class="column_line"><input type="week"/></div>
+        <div class="column_line"><input type="time"/></div>
+        <div class="column_line"><input type="email"/></div>
+        <div class="column_line"><input type="number"/></div>
+        <div class="column_line"><input type="range"/></div>
+        <div class="column_line"><input type="search"/></div>
+        <div class="column_line"><input type="tel"/></div>
+        <div class="column_line"><input type="url"/></div>
+    </div>
+    <div class="column">
+        <div class="column_line">Android2.3.5</div>
+        <div class="column_line">小米1</div>
+        <div class="column_line">533.1</div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+    </div>
+    <div class="column">
+        <div class="column_line">Android4.0.4</div>
+        <div class="column_line">sony ericsson xperia</div>
+        <div class="column_line">534.30</div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+    </div>
+    <div class="column">
+        <div class="column_line">Android 4.1.1</div>
+        <div class="column_line">小米2S</div>
+        <div class="column_line">537.36</div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+    </div>
+    <div class="column">
+        <div class="column_line">Android 4.1.2</div>
+        <div class="column_line">sony Xperia</div>
+        <div class="column_line">534.30</div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_r"></div>
+    </div>
+    <div class="column">
+        <div class="column_line">Android 4.4.2</div>
+        <div class="column_line">华为荣耀畅玩版</div>
+        <div class="column_line">537.36</div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+    </div>
+    <div class="column">
+        <div class="column_line">Android 4.4.4</div>
+        <div class="column_line">小米平板</div>
+        <div class="column_line">537.36</div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+    </div>
+    <div class="column">
+        <div class="column_line">iOS 7.0.2</div>
+        <div class="column_line">iphone4s</div>
+        <div class="column_line">537.51.1</div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+    </div>
+    <div class="column">
+        <div class="column_line">iOS 8.1.1</div>
+        <div class="column_line">iphone5s</div>
+        <div class="column_line">600.1.4</div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_r"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+        <div class="column_line bg_g"></div>
+    </div>
+
+</div>
+<div class="notice_bot">
+    <p>本文档对html5中input标签的type属性新增的13个类型作(移动端)兼容性测试结果的展示。</p>
+    <p>后续会完善上述标签的其他相关属性的(移动端)兼容性测试</p>
+    <p>by nolest 2014</p>
+</div>
+</body>
+<script>
+    document.getElementById("ua").innerHTML = '当前userAgent:<br/>' + navigator.userAgent
+</script>
+</html>
+
+

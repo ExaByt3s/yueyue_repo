@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>选择地区</title>
+    {pc_global_top}
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/location/location.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_WX_SDK/I_WX_SDK.js"></script>
+</head>
+<body class="">
+
+<main role="main">
+    <section id="global-header"></section>
+    <div class="location-page" data-role="location-page">
+
+        <div class="p1th">
+            <div class="title color-999">当前定位城市</div>
+            <div class="item-wrap">
+                <div class="item">
+                    <div class="lbox fldi" id="gps_state">GPS定位中...</div>
+                    <div class="cur-city fn-hide" id="cur-city"  data-role="choose-secity">
+                        <button class="ui-button  ui-button-inline-block  ui-button-size-x ui-button-bg-ff6">
+                            <span class="ui-button-content"><i id="city_ele" data-role="city_ele"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="p2th">
+
+        <!-- BEGIN ret.service -->
+            <div class="title color-999">{title}</div>
+            <div class="item-wrap" id="location-ele">
+                <!-- BEGIN list -->
+                    <div class="item" location_id="{location_id}">
+                        <div class="lbox" data-role="city-name">{name}</div>
+                        <div class="icon fn-hide" data-role="allow"></div>
+                    </div> 
+                <!-- END list -->
+            </div>   
+        <!-- END ret.service -->
+
+
+        </div>
+
+        <div class="p3th">
+        <!-- BEGIN ret.other -->
+            <div class="title-top color-999">{title}</div>
+            <div class="item-wrap">
+
+            
+            <!-- BEGIN list -->
+                <div class="item">
+                    <div class="title f14">{title}</div>
+                    <ul class="list clearfix">
+                    <!-- BEGIN items -->
+                        <li data-role="choose-secity">
+                            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bg-fff">
+                                <span class="ui-button-content"><i data-role="city_ele"  location_id="{location_id}">{name}</i></span>
+                            </button>
+                        </li>
+                    <!-- END items -->
+                       
+                    </ul>        
+                </div> 
+
+             <!-- END list -->    
+
+
+            </div>  
+        <!-- END ret.other -->   
+
+        </div>
+
+
+        
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+
+
+
+<script>
+var $ = require('components/zepto/zepto.js');
+var header = require('common/widget/header/main');
+var cookie = require('common/cookie/index');
+var WeiXinSDK = require('common/I_WX_SDK/I_WX_SDK');
+var utility = require('common/utility/index');
+var yue_ui = require('yue_ui/frozen');
+
+$(document).ready(function() {
+
+    // 渲染头部
+    header.init({
+        ele : $("#global-header"), //头部渲染的节点
+        title:"选择城市",
+        left_side_html : '' , //左边按钮区域，自定义html，默认为空，如果传则显示html
+        header_show : true , //是否显示头部
+        mt_0_ele : $('#seller-detail-page'), //如果头部隐藏，要把当前页节点margin-top改为0
+        right_icon_show : false, //是否显示右边的按钮
+        share_icon : 
+        {
+            show :false,  //是否显示分享按钮icon
+            content:""
+        },
+        omit_icon :
+        {
+            show :false,  //是否显示三个圆点icon
+            content:""
+        },
+        show_txt :
+        {
+            show :true,  //是否显示文字
+            content:"编辑"  //显示文字内容
+        }
+    })
+
+    var wx_json = {wx_json};
+    console.log(wx_json);
+
+
+
+    //微信版本判断
+    if( WeiXinSDK.isWeiXin() && !utility.storage.get('has_use_gps') )//(global_config.WeiXin_Version.indexOf('6.0.2') != -1|| global_config.WeiXin_Version.indexOf('6.1') != -1)
+    {
+        window.$loading = $.loading
+        ({
+            content:'定位中...'
+        });
+
+
+
+        wx.ready(function()
+        {
+
+            //获取地区
+
+            wx.getLocation(
+                {
+                    success : function(res)
+                    {
+                        //var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                        //var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                        //var speed = res.speed; // 速度，以米/每秒计
+                        //var accuracy = res.accuracy; // 位置精度
+
+                        console.log(res)
+                        
+                        utility.ajax_request
+                        ({
+                            url: window.$__ajax_domain + 'get_location_by_gps.php',
+                            data:{long:res.longitude,lat:res.latitude},
+                            cache : false,
+                            success : function(response, xhr, options)
+                            {
+                                $loading.loading("hide");
+                                $('#cur-city').removeClass('fn-hide');
+                                $('#gps_state').html('GPS当前定位城市') ;
+
+                                var location_id = response.result_data.data.location_id;
+                                var city = response.result_data.data.city;
+                                var address = response.result_data.data.address;
+                                var province = response.result_data.data.province;
+
+                                cookie.set("yue_location_id",location_id);
+
+                                var location_obj =
+                                {
+                                    location_id : location_id,
+                                    location_name : city
+                                };
+
+                                utility.storage.set('location',location_obj);
+                                $('#city_ele').html(city);
+                                $('#city_ele').attr('location_id', location_id);
+
+                                utility.storage.set('has_use_gps',1);
+                               
+                            },
+                            error : function(collection, response, options)
+                            {
+                                $('#gps_state').html('GPS城市定位失败，默认显示') ;
+
+                                utility.storage.set('has_use_gps',0);    
+
+                                can_not_gps();
+                            },
+                            complete : function(xhr,status)
+                            {
+                                $loading.loading("hide");    
+                            }
+                        });
+                    },
+                    cancel : function()
+                    {
+                        $loading.loading("hide");
+                        alert('您不允许GPS定位当前城市，默认显示');
+                        $('#gps_state').html('显示默认城市') ;
+                        can_not_gps();
+
+                        utility.storage.set('has_use_gps',1);
+                    },
+                    fail : function(xhr,status)
+                    {
+                        $loading.loading("hide");
+                        $('#gps_state').html('GPS城市定位失败，默认显示') ;
+                        can_not_gps();
+
+                        utility.storage.set('has_use_gps',1);
+                    }
+                });
+
+
+        });
+    }
+    else
+    {
+        var loc_obj = utility.storage.get('location');
+        if(loc_obj)
+        {
+            $('#cur-city').removeClass('fn-hide');
+            $('#city_ele').html(loc_obj.location_name);
+            $('#city_ele').attr('location_id', loc_obj.location_id);
+            $('#gps_state').html('当前选择城市') ;
+        }
+        else
+        {
+            $('#gps_state').html('当前选择城市') ;
+            can_not_gps();
+        }
+    }
+   
+
+    // 不能定位默认显示广州
+    function can_not_gps() 
+    {
+        var location_id = 101029001 ;
+        var city = "广州";
+         
+        $('#cur-city').removeClass('fn-hide');
+        $('#city_ele').html(city);
+        $('#city_ele').attr('location_id', location_id);
+        
+        var location_obj =
+        {
+            location_id : location_id,
+            location_name : city
+        };
+        cookie.set("yue_location_id",location_id);
+        utility.storage.set('location',location_obj);
+    }
+
+
+    var $li = $('#location-ele .item');
+    $li.on('click', function() {
+        $li.find('[data-role="allow"]').addClass('fn-hide');
+        $(this).find('[data-role="allow"]').removeClass('fn-hide');
+
+        var yue_location_id = $(this).attr("location_id");
+        var city = $(this).find('[data-role="city-name"]').html();
+        var location_obj =
+        {
+            location_id : yue_location_id,
+            location_name : city
+        };
+        cookie.set("yue_location_id",yue_location_id);
+        utility.storage.set('location',location_obj);
+
+        go_back() ;
+
+    });
+
+
+    // 点击手动选择当前城市
+    $('[data-role="choose-secity"]').on('click', function() {
+
+        var yue_location_id = $(this).find('[data-role="city_ele"]').attr("location_id");
+        var city = $(this).find('[data-role="city_ele"]').html();
+        var location_obj =
+        {
+            location_id : yue_location_id,
+            location_name : city
+        };
+        cookie.set("yue_location_id",yue_location_id);
+        utility.storage.set('location',location_obj);
+        
+        go_back() ;
+
+
+    });
+
+    //  返回
+    function go_back() 
+    {
+        var r_url = "{r_url}";
+        if (!r_url) 
+        {
+            window.location.href = "{index_url}";
+        }
+        else
+        {
+            window.location.href = r_url;
+        }
+    }
+
+});
+
+
+</script>
+
+
+</html>

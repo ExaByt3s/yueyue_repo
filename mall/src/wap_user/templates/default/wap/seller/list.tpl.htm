@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>商家服务列表</title>
+    {pc_global_top} 
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/seller/index.scss">
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/goods/pic_list.scss">
+    <script src="../../../../lib/lib.js"></script>
+</head>
+<body class="cor-bg-fff">
+
+<main role="main">
+    <section id="global-header"></section>
+
+
+    <div class="page-view  seller-list-page " id="seller-list-page" data-role="page-container">
+        <div class="scroll-box" data-role="wrapper">
+            <div class="img-wrap">
+                <div class="pic_list" id="pic_list" >
+                    <div class="list-max-img-mod f14 color-666">
+                        <div class="item-wrap clearfix ">
+                            
+                            <div class="render_item_ele" data-role="render_item_ele" id="render_item_ele"></div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="more tc  color-666 fn-hide " id="btn_more"><a href="javascript:;" >查看更多</a></div>
+            </div>
+        </div>
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+
+<script>
+var $ = require('zepto');
+var header = require('../../../../modules/common/widget/header/main');
+var utility = require('../../../../modules/common/utility/index');
+var yue_ui = require('../../../../modules/yue_ui/frozen');
+var abnormal = require('../../../../modules/common/widget/abnormal/index');
+var WeiXinSDK =  require('../../../../modules/common/I_WX_SDK/I_WX_SDK.js');
+window.__page_params = {page_params}.result_data;
+
+$(document).ready(function() {
+    var header_obj = '';
+
+    var SELLER_AJAX_URL = window.$__ajax_domain + 'service_list.php';
+    var page_params = window.__page_params;
+    console.log(page_params)
+    page_params.return_query = encodeURIComponent(page_params.return_query);
+    var template  = __inline('../goods/item.tmpl');
+
+    var list_item_class = require('../../../../modules/list/list.js'); 
+    var list_obj = new list_item_class(
+        {
+            //渲染目标
+            ele : $('#render_item_ele'), 
+            //请求地址 
+            url : SELLER_AJAX_URL,
+            //传递参数
+            params : page_params,
+            //模板
+            template : template, 
+            //lz是否开启参数
+            is_open_lz_opts : false  
+        });
+    
+        list_obj.$el.on('list_render:before',function(event,el,data)
+        {
+
+            var is_share = true;
+            if(is_share)
+            {
+                is_share = false;
+                /**** 调用微信分享 ****/
+                if(data.result_data.share){
+                if (WeiXinSDK.isWeiXin()) {
+                    var share = data.result_data.share;
+
+                    // 朋友圈
+                    var WeiXin_data_Timeline =
+                        {
+                            title  : share.title, // 分享标题
+                            link   : share.url, // 分享链接
+                            imgUrl : share.img, // 分享图标
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel : function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        };
+
+                    // 好友、QQ
+                    var WeiXin_data =
+                        {
+                            title  : share.title, // 分享标题
+                            desc   : share.content, // 分享描述
+                            link   : share.url, // 分享链接
+                            imgUrl : share.img, // 分享图标
+                            type   : '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel : function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        };
+
+                    WeiXinSDK.ready(function () {
+                        WeiXinSDK.ready(function () {
+                            WeiXinSDK.ShareToFriend(WeiXin_data);
+
+                            WeiXinSDK.ShareTimeLine(WeiXin_data_Timeline);
+
+                            WeiXinSDK.ShareQQ(WeiXin_data);
+                        });
+
+                    });
+                }
+                /**** 调用微信分享 ****/
+                }
+            }
+            console.log(data)
+
+            var title = data.result_data.title;
+
+            if(!header_obj)
+            {
+                // 渲染头部
+                header_obj = header.init({
+                    ele : $("#global-header"), //头部渲染的节点
+                    title: title,
+                    header_show : true , //是否显示头部
+                    mt_0_ele : $('#seller-detail-page'), //如果头部隐藏，要把当前页节点margin-top改为0
+                    right_icon_show : false, //是否显示右边的按钮
+                    share_icon :
+                    {
+                        show :false,  //是否显示分享按钮icon
+                        content:""
+                    },
+                    omit_icon :
+                    {
+                        show :false,  //是否显示三个圆点icon
+                        content:""
+                    },
+                    show_txt :
+                    {
+                        show :true,  //是否显示文字
+                        content:"编辑"  //显示文字内容
+                    }
+                }); 
+
+                document.title = title;
+            }   
+
+            
+        });
+});
+
+</script>

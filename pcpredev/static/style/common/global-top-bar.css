@@ -1,0 +1,97 @@
+.global-top-bar {
+  z-index: 9;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background: #222222;
+  height: 60px; }
+  .global-top-bar .lbox {
+    padding-top: 6px; }
+    .global-top-bar .lbox .logo-icon {
+      background: url('http://static-c.yueus.com/mall/user/static/pc/images/logo-120x48_e58994c.png') no-repeat;
+      width: 152px;
+      height: 48px;
+      display: block; }
+  .global-top-bar .rbox {
+    font-size: 14px; }
+    .global-top-bar .rbox .role {
+      margin-top: 13px;
+      margin-right: 10px; }
+      .global-top-bar .rbox .role li {
+        float: left;
+        display: inline;
+        margin-right: 20px; }
+        .global-top-bar .rbox .role li a {
+          display: inline-block;
+          width: 100px;
+          height: 34px;
+          color: #fff;
+          line-height: 34px;
+          border-radius: 30px;
+          text-align: center; }
+          .global-top-bar .rbox .role li a:hover {
+            text-decoration: none; }
+        .global-top-bar .rbox .role li .seller {
+          background: #fff;
+          color: #343539; }
+          .global-top-bar .rbox .role li .seller:hover {
+            background: #aaaaaa; }
+        .global-top-bar .rbox .role li .btn-pub {
+          background: #4092f1; }
+          .global-top-bar .rbox .role li .btn-pub .icon-pub {
+            width: 20px;
+            height: 20px;
+            background: url(http://static.yueus.com/pcpredev/static/images/icon-pub-20x20.png);
+            display: inline-block;
+            vertical-align: -5px;
+            margin-right: 5px; }
+          .global-top-bar .rbox .role li .btn-pub:hover {
+            background: #66a8f4; }
+    .global-top-bar .rbox .login {
+      padding: 20px 0 0 0;
+      color: #fff; }
+      .global-top-bar .rbox .login a {
+        color: #fff; }
+      .global-top-bar .rbox .login .line {
+        padding: 0px 10px; }
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .global-top-bar .top-bar {
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px; }
+  .global-top-bar .lbox {
+    padding-top: 4px; }
+    .global-top-bar .lbox .logo-icon {
+      width: 78px;
+      height: 20px;
+      background-size: cover;
+      margin-top: 16px; }
+  .global-top-bar .rbox {
+    font-size: 10px;
+    margin-top: 3px; }
+    .global-top-bar .rbox .role {
+      margin-top: 18px; }
+      .global-top-bar .rbox .role li {
+        margin-right: 5px; }
+        .global-top-bar .rbox .role li a {
+          width: 70px;
+          height: 20px;
+          line-height: 20px;
+          font-size: 10px; }
+    .global-top-bar .rbox .login {
+      padding-top: 22px; }
+      .global-top-bar .rbox .login .line {
+        padding: 0px 3px; }
+  body .footer {
+    height: 35px; }
+    body .footer .about {
+      width: auto;
+      padding-top: 10px;
+      font-size: 10px; } }
+
+.global-top-bar-opacity {
+  position: fixed;
+  background: #000;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#66000000', endColorstr='#66000000');
+  background: rgba(0, 0, 0, 0.4); }

@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+
+// --------------------------------------------------
+// 公共 - 顶栏
+// --------------------------------------------------
+
+$topbar-max-zIndex: 8999 !default;
+
+@import "../../mini-common";
+
+@include area-reset('.global-reset');
+
+.global-topbar {
+    height: 41px;
+    @include box-shadow(0 0 0 1px rgba(#000, 0.3));
+    //border-bottom: 1px solid #ccc;
+    background: #282828;
+
+    @import "./icon";
+
+    .icon {
+        background: sprite-url($topbar-icons) no-repeat -999px -999px;
+        _background-image: sprite-url($topbar-icons-ie);
+    }
+
+    .new-point {
+        position: absolute;
+        top: 9px;
+        right: 7px;
+        @include inline-block;
+        width: 8px;
+        height: 8px;
+        overflow: hidden;
+        @include get-icon('point');
+    }
+
+    .global-topbar-body {
+        width: 994px;
+        margin: 0 auto;
+        position: relative;
+        *z-index: $topbar-max-zIndex;
+
+        // 解决webkit 闪烁bug
+        -webkit-backface-visibility: hidden;
+        //-webkit-transform-style: preserve-3d;
+
+        a {
+            &, &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+
+    input::-ms-clear {
+        display: none;
+    }
+    input::-ms-reveal {
+        display: none;
+    }
+    i, em {
+        font-style: normal;
+    }
+    
+
+    %tips-icon-size {
+        width: 22px;
+        height: 14px;
+        overflow: hidden;
+        position: absolute;
+        top: -7px;
+        left: 50%;
+    }
+    .hot-icon {
+        @extend %tips-icon-size;
+        @include get-icon('hot');
+    }
+    .new-icon {
+        @extend %tips-icon-size;
+        @include get-icon('new');
+    }
+
+    @import "./nav";
+    @import "./account";
+    @import "./search";
+    @import "./dropdown-menu";
+    @import "./tips";
+    @import "./state";
+}

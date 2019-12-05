@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "ui-searchbar.css",
+    "sources": [
+        "/style/widget/ui-searchbar.scss"
+    ],
+    "sourcesContent": [
+        ".ui-searchbar-wrap{\r\n    display: -webkit-box;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-align: center;\r\n    background-color: #E4E4E4;\r\n\r\n    button {\r\n        margin-right: 10px;\r\n        \r\n    }\r\n    .ui-searchbar-cancel{\r\n        color: #808080;\r\n        font-size: 16px;\r\n        padding: 4px 8px;\r\n    }\r\n    .ui-searchbar-input,button,.ui-icon-close{\r\n        display: none;\r\n    }\r\n    &.focus{\r\n        -webkit-box-pack:start;\r\n\r\n        .ui-searchbar-input,button,.ui-icon-close{\r\n            display: block;\r\n        }\r\n        .ui-searchbar-text{\r\n            display: none;\r\n        }\r\n    }\r\n}\r\n.ui-searchbar{\r\n    border-radius: 4px;\r\n    height: 30px;\r\n    margin: 7px 10px;\r\n    background: #fff;\r\n    font-size: 14px;\r\n    line-height: 30px;\r\n    position: relative;\r\n    padding-left: 4px;\r\n    -webkit-box-flex:1;\r\n    display: -webkit-box;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-align: center;\r\n    color: #808080;\r\n    width: 100%;\r\n    input{\r\n        -webkit-appearance: none;\r\n        font-size: 14px;\r\n        color: #000;\r\n        border: none;\r\n        width: 100%;\r\n        padding: 7px 0;\r\n    }\r\n    \r\n}\r\n.ui-searchbar-input{\r\n    -webkit-box-flex: 1;\r\n}\r\n"
+    ],
+    "mappings": "AAAA,AACI,AAAS,AACT,AAAkB,AAClB,AAAmB,AACnB,AAAkB,AAEtB,AAAmB,AACX,AAAc,AAGtB,AAAmB,AACX,AAAO,AACP,AAAW,AACX,AAAS,AAEjB,AAAmB,AAAqB,AAAmB,AAAQ,AAAmB,AAC9E,AAAS,AAEjB,AAAkB,AACV,AAAiB,AAEzB,AAAkB,AAAO,AAAqB,AAAkB,AAAO,AAAQ,AAAkB,AAAO,AAC5F,AAAS,AAErB,AAAkB,AAAO,AACb,AAAS,AAIrB,AACI,AAAe,AACf,AAAQ,AACR,AAAQ,AACR,AAAY,AACZ,AAAW,AACX,AAAa,AACb,AAAU,AACV,AAAc,AACd,AAAiB,AACjB,AAAS,AACT,AAAkB,AAClB,AAAmB,AACnB,AAAO,AACP,AAAO,AACX,AAAc,AACN,AAAoB,AACpB,AAAW,AACX,AAAO,AACP,AAAQ,AACR,AAAO,AACP,AAAS,AAIjB,AACI,AAAkB",
+    "names": []
+}

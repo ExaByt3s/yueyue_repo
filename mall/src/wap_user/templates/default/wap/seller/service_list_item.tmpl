@@ -1,0 +1,30 @@
+<div class="hp">
+{{#each list}} 
+<a href="{{link}}" data-role="items">
+    <div class="item">
+        <div class="lbox ">
+            <i data-lazyload-url="{{change_img_size images "260" }}" class="img image-img min-height"></i>
+        </div>
+
+        <div class="rbox ">
+            <h3 class="title color-000 f14">{{titles}}</h3>
+            <div>
+                <p class="price color-ff6">{{prices}}
+                {{#if abate}}
+                <span class="price-tips">{{abate}}</span>
+                {{/if}}
+                </p>
+                <div class="num color-999 f12">
+                    <p>{{buy_num}}</p>
+                    {{#if notice}}
+                    <div class="ml15">
+                    <span class="tags">促</span><span class="msg">{{notice}}</span>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
+{{/each}} 
+</div>

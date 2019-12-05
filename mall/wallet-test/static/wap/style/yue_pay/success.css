@@ -1,0 +1,19 @@
+.success-page .p1th {
+  margin-top: 80px;
+  text-align: center; }
+  .success-page .p1th .icon-success {
+    background: url(http://static.yueus.com/mall/wallet-test/static/wap/image/pai/recharge-success-100x100.png);
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 0 auto;
+    background-size: 50px 50px; }
+  .success-page .p1th .p1 {
+    margin: 20px 0 20px 0; }
+  .success-page .p1th .tips {
+    margin: 20px 0 20px 0; }
+.success-page .p2th {
+  margin-top: 40px; }
+  .success-page .p2th .ui-button {
+    width: 130px;
+    margin: 30px auto 0 auto; }

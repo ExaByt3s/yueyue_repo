@@ -1,0 +1,384 @@
+$consider-background : #ffffff;
+$consider-gray: #fafafa;
+$consider-gray_dark:#666666;
+$consider-gray_font:#aaaaaa;
+$consider-border:#dddddd;
+$consider-header_select: #ff0052;
+$consider-header_unselect:#f0f0f0;
+$consider-border_a:#e6e6e6;
+$consider-chooen_border:#ebebeb;
+.status{
+  .content-body{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    // margin-top: 86px;
+    margin-top: 41px;
+    .measure-choosen {
+      position: absolute;
+      top:45px;
+      z-index: 998;
+      height: 40px;
+      width: 101%;
+      background: $consider-background;
+      border-bottom: 1px solid $chooen_border;
+      .measure-choosen-in {
+        width: 100%;
+        height: 40px;
+        .measure-choosen-child {
+          float: left;
+          height: 39px;
+          line-height: 40px;
+          text-align: center;
+          width: 33%;
+          color: $header_font;
+          padding-top: 1px;
+          border-bottom: 1px;
+          cursor: pointer;
+          background: $choice_unselect;
+          &:nth-child(2){
+            width :34%;
+          }
+          &:active{
+            color: $header_select;
+            border-bottom: 1px solid $header_select;
+          }
+        }
+        .cur {
+          color: $header_select;
+          border-bottom: 1px solid $header_select;
+        }
+      }
+    }
+    .status-container {
+      background: #eeeeee;
+      .paid-inside{
+        position: relative;
+        padding-bottom: 50px;
+      }
+      .pub-inside{
+        position: relative;
+        padding-bottom: 50px;
+      }
+      .unpaid-inside{
+        position: relative;
+        padding-bottom: 50px;
+      }
+      .unpay-inside{
+        position: relative;
+      }
+      .payed-inside{
+        position: relative;
+      }
+      .my_pub-inside{
+        position: relative;
+      }
+      .child{
+        display: -webkit-box;
+        -webkit-box-flex:1;
+        -webkit-box-pack:start;
+        -webkit-box-orient:vertical;
+        border-bottom: 1px solid $border;
+        margin-top: 10px;
+        background: #ffffff;
+        .lists{
+          display: -webkit-box;
+          -webkit-box-flex:1;
+          -webkit-box-pack:start;
+          -webkit-box-orient:horizontal;
+
+          .child-img{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px 20px 10px 10px;
+            background-size:cover;
+            overflow: inherit;
+            position: relative;
+            .tips-con-red{
+              @include color-tips(#ff0052,#d90348);
+            }
+            .tips-con-green{
+              @include color-tips(#1abc9c,#028c71);
+            }
+            .tips-con-orange{
+              @include color-tips(#ff6b28,#be3c00);
+            }
+            .pic-fade{
+              position: absolute;
+              width: 100px;
+              height: 100px;
+              background: #000;
+              opacity: 0.6;
+              top: 0px;
+              z-index: 0;
+            }
+            .pic-logo-reject{
+              position: absolute;
+              top: 0px;
+              padding: 30px 0px 0px 17px;
+            }
+            .pic-logo-no-reject{
+              position: absolute;
+              top: 0px;
+
+              padding: 32px 0px 0px 22px;
+            }
+          }
+          .child-text{
+            display: -webkit-box;
+            -webkit-box-orient:vertical;
+            margin: 10px 10px 10px 0px;
+            -webkit-box-flex:1;
+            .title{
+              margin-bottom: 10px;
+              font:{
+                size:16px;
+                color:#000;
+              }
+            }
+            .detail{
+              color: $gray_font;
+              font: {
+                size:12px;
+              };
+              .icon{
+                margin-right: 5px;
+              }
+            }
+
+          }
+        }
+        .list-btns{
+          display: -webkit-box;
+          margin: 0px 10px 0px 10px;
+          border-top: 1px solid $border;
+          -webkit-box-pack:end;
+          button {
+            width: auto;
+            margin: 5px 0px 5px 10px;;
+          }
+        }
+
+      }
+    }
+    .btn_unpaid_container {
+      display: -webkit-box;
+      -webkit-box-flex:1;
+      -webkit-box-pack:end;
+      margin-top: 5px;
+      .auto_width{
+        margin-left: 10px;
+        width: auto;
+
+        .icon{
+          margin-right: 5px;
+        }
+      }
+      .btn_unpaid_pay {
+        background: $consider-header_select;
+        width: auto;
+        padding: 0px 10px 0px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 2px;
+        color: #FFF;
+        text-align: center;
+      }
+      .btn_unpaid_delete {
+        background: $consider-header_select;
+        width: auto;
+        padding: 0px 10px 0px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 2px;
+        margin-left: 10px;
+        color: #FFF;
+        text-align: center;
+      }
+    }
+    .btn_paid_container{
+      display: -webkit-box;
+      -webkit-box-flex:1;
+      -webkit-box-pack:end;
+      margin-top: 5px;
+      .auto_width{
+        width: auto;
+        margin-left: 10px;
+        .icon{
+          margin-right: 5px;
+        }
+      }
+      .btn_paid_commit{
+        background: $consider-header_select;
+        width: auto;
+        padding: 0px 10px 0px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 2px;
+        color: #FFF;
+        text-align: center;
+      }
+      .canot{
+        background:#cecece;
+      }
+    }
+    .btn_pub_container{
+      display: -webkit-box;
+      -webkit-box-flex:1;
+      -webkit-box-pack:end;
+      margin-top: 5px;
+      .auto_width{
+        width: auto;
+        margin-left: 10px;
+        .icon{
+          margin-right: 5px;
+        }
+      }
+      .btn_pub_finnish{
+        background: $consider-header_select;
+        width: auto;
+        padding: 0px 10px 0px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 2px;
+        color: #FFF;
+        text-align: center;
+        margin-right: 10px;
+      }
+      .btn_pub_cencel{
+        background: $consider-header_select;
+        width: auto;
+        padding: 0px 10px 0px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 2px;
+        color: #FFF;
+        text-align: center;
+      }
+    }
+    .status-content {
+      .unpay-inside{
+        position: relative;
+      }
+      .payed-inside{
+        position: relative;
+      }
+      .my_pub-inside{
+        position: relative;
+      }
+        .child{
+          display: -webkit-box;
+          -webkit-box-flex:1;
+          -webkit-box-pack:start;
+          -webkit-box-orient:horizontal;
+          border-bottom: 1px solid $border;
+          .child-img{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px 20px 10px 10px;
+            background-size:cover;
+            overflow: inherit;
+            .tips-con-red{
+              @include color-tips(#ff0052,#d90348);
+            }
+            .tips-con-green{
+              @include color-tips(#1abc9c,#028c71);
+            }
+            .tips-con-orange{
+              @include color-tips(#ff6b28,#be3c00);
+            }
+
+
+          }
+          .child-text{
+            display: -webkit-box;
+            -webkit-box-orient:vertical;
+            margin: 10px 10px 10px 0px;
+            -webkit-box-flex:1;
+            .title{
+              margin-bottom: 10px;
+              font:{
+                size:16px;
+                color:#000;
+              }
+            }
+            .detail{
+              color: $gray_font;
+              font: {
+                size:12px;
+              };
+
+            }
+            .btn_unpaid_container {
+              display: -webkit-box;
+              margin-top: 5px;
+              .btn_unpaid_pay {
+                background: $consider-header_select;
+                width: auto;
+                padding: 0px 10px 0px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 2px;
+                color: #FFF;
+                text-align: center;
+              }
+              .btn_unpaid_delete {
+                background: $consider-header_select;
+                width: auto;
+                padding: 0px 10px 0px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 2px;
+                margin-left: 10px;
+                color: #FFF;
+                text-align: center;
+              }
+            }
+            .btn_paid_container{
+              display: -webkit-box;
+              margin-top: 5px;
+              .btn_paid_commit{
+                background: $consider-header_select;
+                width: auto;
+                padding: 0px 10px 0px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 2px;
+                color: #FFF;
+                text-align: center;
+              }
+              .canot{
+                background:#cecece;
+              }
+            }
+            .btn_pub_container{
+              display: -webkit-box;
+              margin-top: 5px;
+              .btn_pub_finnish{
+                background: $consider-header_select;
+                width: auto;
+                padding: 0px 10px 0px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 2px;
+                color: #FFF;
+                text-align: center;
+                margin-right: 10px;
+              }
+              .btn_pub_cencel{
+                background: $consider-header_select;
+                width: auto;
+                padding: 0px 10px 0px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 2px;
+                color: #FFF;
+                text-align: center;
+              }
+            }
+          }
+        }
+    }
+  }
+}

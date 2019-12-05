@@ -1,0 +1,96 @@
+.guide-page .setp1 {
+  padding: 20px 0 0 0; }
+.guide-page .setp-2 {
+  width: 620px;
+  background: #fafafa;
+  margin-top: 35px;
+  padding: 35px 170px 40px 170px; }
+  .guide-page .setp-2 .title {
+    font-size: 20px;
+    text-align: center;
+    color: #666666;
+    font-weight: bold; }
+  .guide-page .setp-2 .box1 {
+    color: #666666;
+    margin-top: 20px; }
+  .guide-page .setp-2 .list {
+    color: #666666;
+    line-height: 24px; }
+    .guide-page .setp-2 .list li {
+      margin-top: 12px; }
+  .guide-page .setp-2 .box2 {
+    margin: 30px 0 0 10px; }
+.guide-page .setp-3 {
+  width: 620px;
+  background: #fafafa;
+  color: #666666;
+  margin-top: 35px;
+  padding: 35px 170px 40px 170px; }
+  .guide-page .setp-3 .title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #666666;
+    margin-top: 15px; }
+  .guide-page .setp-3 .box1 {
+    color: #666666;
+    margin-top: 30px; }
+  .guide-page .setp-3 .list {
+    color: #666666;
+    line-height: 24px; }
+    .guide-page .setp-3 .list li {
+      margin-top: 12px; }
+  .guide-page .setp-3 .box2 {
+    margin: 35px 0 0 90px; }
+.guide-page .setp-4 {
+  width: 840px;
+  background: #fafafa;
+  color: #666666;
+  padding: 35px 60px 40px 60px;
+  margin-top: 35px; }
+  .guide-page .setp-4 .title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #666666;
+    margin-top: 15px; }
+  .guide-page .setp-4 .box1 {
+    color: #666666;
+    margin-top: 20px; }
+  .guide-page .setp-4 .list {
+    font-size: 14px;
+    margin-top: 30px;
+    color: #666666;
+    padding: 0px 0 0 100px;
+    line-height: 24px; }
+    .guide-page .setp-4 .list li {
+      margin-top: 12px; }
+  .guide-page .setp-4 .box2 {
+    margin-top: 30px; }
+.guide-page .foot-box {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 45px;
+  padding-bottom: 60px;
+  margin-top: 40px; }
+  .guide-page .foot-box .back {
+    font-size: 15px;
+    margin: 15px 0 0 10px; }
+    .guide-page .foot-box .back a {
+      color: #4092f1; }
+  .guide-page .foot-box .next {
+    width: 110px;
+    height: 42px;
+    line-height: 42px;
+    background: #4092f1;
+    border-radius: 3px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff; }
+    .guide-page .foot-box .next a {
+      color: #fff; }
+    .guide-page .foot-box .next:hover {
+      background: #66a8f4; }
+
+/*# sourceMappingURL=guide.css.map */

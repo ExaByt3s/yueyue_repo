@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{app_info.title}</title>
+</head>
+
+<body style="margin:auto;width:1000px">
+	<div id="top">{header_html}</div>
+	<div id="contnet" style="background-color:#fff;width:100%;">
+		<br/>
+		<br/>	
+	  <div style="width:80%;margin:auto;">
+		api目前支持的接口文档：<a href="http://my.poco.cn/apps/poco/docs/" target="_blank">http://my.poco.cn/apps/poco/docs/</a>
+		<br/>	
+		<hr>
+		<p>/**<br />
+		  * 应用框架应用实例<br />
+		  */</p>
+		<p>//引入应用公共文件<br />
+		  require_once('poco_app_common.inc.php');<br />
+		  <br />
+		</p>
+		<p>//调用会员member模块的API<br />
+		  $user_info = POCO::execute(array('member.get_user_info_by_user_id'), array($login_id));<br />
+		  <br />
+		  返回数据：<br />
+		  {vardump:user_info}<br />
+	    </p>
+		<p>==============================================================================================</p>
+		<p><br />
+		  //取得应用项目配置信息<br />
+		  $ini_info = POCO::ini('/');<br />
+		  <br />
+		  返回数据:<br />
+		  {vardump:ini_info}<br />
+		</p>
+		<p>==============================================================================================</p>
+		<p><br />
+		  //取得模板对象<br />
+		  $tpl = $myApp-&gt;getView('demo.tpl.htm');<br />
+		  <br />
+		  <br />
+		  //取得应用操作对象唯一实例<br />
+		  $app_obj = POCO::singleton('app_register_class');<br />
+		  <br />
+		  //获取应用项目信息<br />
+		  $app_info = $app_obj-&gt;get_app_info('debug');<br />
+		  <br />
+		  返回数据：<br />
+		  {vardump:app_info}<br />
+		</p>
+		<p>==============================================================================================</p>
+		<p><br />
+		  //取得POCO默认头尾<br />
+		  $header_html = $myApp-&gt;webControl('Header', array(), true);<br />
+		  $footer_html = $myApp-&gt;webControl('Footer', array(), true);<br />
+		</p>
+		<p>&nbsp;</p>
+		<p>==============================================================================================</p>
+		<p><br/>
+	      <br/>
+	    </p>
+	  </div>
+	</div>
+	<div id="top">{footer_html}</div>
+</body>
+</html>

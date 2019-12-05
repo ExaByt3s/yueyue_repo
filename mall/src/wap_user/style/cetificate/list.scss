@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+.cetificate{
+.authentication-list{
+  .ui-list-text > li{
+    padding: 12px 15px 12px 0;
+  }
+
+  background: #fff;
+  margin-bottom: 20px;
+  .ui-list-text > li:last-child{
+    border:0;
+  }
+  a{
+    border-bottom: 1px solid #ddd;
+    height: 45px;
+    display: block;
+  }
+  a:last-child{
+    border: none;
+  }
+
+  .ui-input-title-mod{
+    display: -webkit-box;
+    font-size: 14px;
+    box-sizing: border-box;
+    height: 45px;
+    .left{
+      font-weight: bold;
+      color: #666;
+    }
+    .vertical-line{
+      color: #ddd;
+      padding: 0 10px;
+    }
+    .middle{
+      -webkit-box-flex: 1;
+      color: #333;
+    }
+    .right{
+      color: #ff6a6e;
+      .icon{
+        margin: 0 0 0 10px;
+        display:inline-block;
+        }
+      .icon:before{
+        content: '';
+        display: block;
+        background-size: 6px 10px;
+        width: 6px;
+        height: 10px;
+        background-image: url('../../image/pai/arrow-12x20.png');
+      }
+    }
+  }
+  .ui-input-title-size-large{
+
+  }
+}
+.ui-input-title-mod:last-child div{
+  border: none;
+}
+  .tip{
+    font-size: 12px;
+    margin: 15px 0;
+    color: #666;
+    display: block;
+    padding: 0 15px;
+  }
+}

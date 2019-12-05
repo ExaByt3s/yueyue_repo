@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <title>管理员后台</title>
+    <style type="text/css">
+        .table-list
+        {
+            clear:both;
+        }
+        .table-ul
+        {
+            margin-top:10px;
+            min-height:40px;
+        }
+        .table-ul li
+        {
+            margin-top: 20px;
+            list-style:none;
+            float: left;
+            width: 25%;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+        }
+        .table-ul li a
+        {
+            display: inline-block;
+            width: 80%;
+            height: 24px;
+            line-height: 24px;
+            border: 1px solid #ccc;
+            color: black;
+            text-decoration: none;
+        }
+        .table-ul li .cur
+        {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="mainbox" style="min-width:800px;">
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="manage_list.php">返回后台管理系统</a>
+            <a href="javascript:void(0);" class="on">旧后台管理系统</a>
+        </ul>
+    </div>
+    <div class="table-list">
+        <ul class="table-ul">
+            <!-- BEGIN list -->
+            <li><a href="{op_url}" target="_blank">{op_name}</a></li>
+            <!-- END list -->
+        </ul>
+    </div>
+</div>
+</body>
+</html>

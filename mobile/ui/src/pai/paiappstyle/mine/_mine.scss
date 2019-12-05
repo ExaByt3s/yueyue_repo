@@ -1,0 +1,280 @@
+ @charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 我的 
+// 
+
+$border-style:1px solid #e6e6e6;
+$bg-color : #f5f5f5;
+$font-color:#959595;
+
+.mine{
+	//background: $bg-color;
+	.group-user-info{
+		.content-body{
+          margin-bottom: 50px;
+        }
+		background: #fff;
+		@include flexbox((
+                display: box                
+        	), $version: 1);
+		.item{
+            
+            @include image-border-m(bottom);
+
+			height : 50px;
+			line-height: 50px;
+			padding: 0 10px;
+			@include flexbox((
+                display: box,                
+                box-flex: 1,
+                box-align: center
+            ), $version: 1);
+            .head-icon{
+            	width: 50px;
+            	height: 50px;
+            	@include border-radius(25px);
+                display: block;
+            }
+          &:active{
+            background: $bg-color;
+          }
+            .container{
+            	width: 100%;
+            	//border-bottom : $border-style;
+            	@include flexbox((
+                display: box,                
+                box-pack: justify
+            	), $version: 1);
+                position: relative;
+
+                .num-box{
+                    @include border-radius(10px);
+                    background: #ff3d3d;
+                    color: #fff;
+                    height: 18px;
+                    width: 18px;
+                    text-align: center;
+                    line-height: 18px;
+                    position: absolute;
+                    right: 28px;
+                    top: 18px;       
+                }
+
+                .num-box-2{
+                    @include border-radius(10px);
+                    height: 18px;
+                    line-height: 18px;
+                    position: absolute;
+                    right: 28px;
+                    top: 18px;
+                    .color{
+                        color: $main-color;
+                    }
+                }
+
+                .left-icon
+                {
+                    .icon{
+                        vertical-align: -4px;
+                    }
+                }
+            	
+            }
+            .no-border-style{
+				border: none;
+			}
+			.icon{
+					margin-right: 10px;
+                    // vertical-align: -4px;
+			}
+
+		}
+		.head-icon-item
+		{			
+			padding: 20px 0 12px 0;
+			margin: 0px auto;   
+            height: auto;         
+
+            position: relative;
+
+            .position
+            {
+
+            }
+			.zone{				
+				position: absolute;
+				left: 10px;
+				
+				
+			}
+			.head-img{
+				margin : 0 auto;
+                width: 50px;
+                
+			}			
+			.name-and-location{				
+				font-size: 15px;					
+				position: absolute;
+				right: 10px;
+				.user-name{
+                  max-width: 100px;
+                  overflow: hidden;
+					height: 25px;
+					line-height: 25px;
+                  word-break: break-all;
+				}
+				.location{
+                  display: -webkit-box;
+                  -webkit-box-pack:end;
+					height: 25px;
+					line-height: 25px;
+					.icon-place{
+				        @include get-icon('place-14x20', true, block);		
+				        margin-right: 5px;		        
+				    }
+					span{
+						font-size: 12px;
+						color: $font-color;
+					}
+				}
+			}
+			// .edit-model-car{
+			// 	font-size: 15px;					
+			// 	position: absolute;
+			// 	right: 10px;
+			// }                        
+		}
+		.model{
+			.head-img{
+				margin:0;
+				padding:0 15px;
+			}	
+			.name-and-location{									
+				position: relative;
+				right: auto;
+				.location{
+					-webkit-box-pack : start;	
+				}
+			}
+			.edit-model-car{
+				font-size: 12px;					
+				position: absolute;
+				right: 10px;
+                color: #959595;
+                .icon-r{
+                    vertical-align:-2px;
+                }
+			} 
+		}
+		.balance-item{
+			//border-bottom : $border-style;
+			@include flexbox((
+                display: box,                               
+                box-pack: justify
+            ), $version: 1);
+            .avaliable-banace{
+            	margin-left: 5px;
+	           	.money{
+					height: 16px;
+					line-height: 16px;
+					font-size: 18px;
+					color:$main-color;
+                    padding-bottom: 5px;
+
+	            }
+	            .text{
+                    padding-top: 2px;
+	            	height: 10px;
+					line-height: 10px;
+					font-size: 10px;
+					//text-align: center;
+					color: #aaaaaa;
+                    padding-left: 5px;
+	            }	
+            }
+            .add-btn{
+                width: 50px;
+                padding: 0 5px;
+                font-size: 15px;
+            }
+		}
+
+        .balance-item-h{
+            height: 60px;
+        }
+        
+		.add-value-btn{
+			span{
+				padding: 5px;
+				background-color: #ff0052;
+				color: #fff;
+				@include border-radius(2px);
+				font-size: 15px;
+			}
+			
+		}
+		.icon-r{
+			@include get-icon('r-16x26', true, block);
+            vertical-align: middle;
+		}
+		ul{
+			width: 100%;
+			li{
+				//border-bottom: 1px solid #dddddd;
+			}
+		}
+		&:nth-child(1)
+		{
+            li:nth-child(1){
+                padding-top: 15px;
+            }
+
+            padding: 0px 0 0 0;		
+			
+		}
+		&:nth-child(2)
+		{
+			//padding-top: 20px;
+			//border-top : $border-style;
+			//border-bottom : $border-style;
+			
+		}
+		
+	}
+
+
+
+    .group-user-info-list-other{
+        .container{
+            .icon-r{
+                vertical-align: -2px;
+            }
+        }
+        .item{
+            padding: 0px 10px;
+          border-bottom: none;
+            //margin: 0px 10px;
+            // &:nth-last-of-type(1){
+            //     border-bottom: none
+            // };
+        }
+      .container{
+        //border-bottom: 1px solid #ebebeb;
+        @include image-border-m(bottom);
+        &:active{
+          background: $bg-color;
+        }
+      }
+    }
+
+	.welcome{
+        padding: 15px 0 20px 0;
+        width: 260px;
+        margin: 0 auto;
+        h3{
+            font-size: 16px;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+    }
+}

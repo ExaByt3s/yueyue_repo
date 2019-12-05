@@ -1,0 +1,7 @@
+{
+	"author" : "hudw",
+	"dev_domain" : "http://localhost/yueyue/sell_admindev",
+	"predev_domain" : "http://static.yueus.com/sell_adminpredev",
+	"pub_test_domain" : "http://localhost/yueyue/sell_adminpt",
+	"pub_domain" : "http://static.yueus.com/sell_admin"
+}

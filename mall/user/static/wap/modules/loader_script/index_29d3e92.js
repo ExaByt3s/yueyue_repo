@@ -1,0 +1,1 @@
+define("loader_script/index",function(e,t,o){var n=e("components/zepto/zepto.js");o.exports={collect:function(){for(var e=n("script"),t=0;t<e.length;t++)console.log(e[t].src);var o=new XMLHttpRequest;o.open("GET",e[0].src,!0),o.onreadystatechange=function(){4==o.readyState&&200==o.status&&console.log(o.responseText)},o.send()}}});

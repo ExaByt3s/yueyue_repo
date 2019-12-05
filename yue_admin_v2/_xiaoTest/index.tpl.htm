@@ -1,0 +1,519 @@
+{YUE_ADMIN_V2_ADMIN_TEST_HEADER}
+<div id="page-wrapper">
+<div class="container-fluid">
+
+<!-- Page Heading -->
+<div class="row breadcrumb">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <button type="button" class="btn btn-primary btn-lg" onclick="location.href='add.php'">生成推广链接</button>
+        </h1>
+        <form action="" method="get" class="navbar-form navbar-left">
+            <div class="input-group"> <span class="input-group-btn">
+              <select class="form-control" name="channel_cate">
+                  <option value="">全部品类</option>
+                  <option value="31">模特服务
+
+                  </option>
+                  <option value="5">摄影培训
+
+                  </option>
+                  <option value="40">摄影服务
+
+                  </option>
+                  <option value="3">化妆服务
+
+                  </option>
+                  <option value="12">影棚租赁
+
+                  </option>
+                  <option value="41">约美食
+
+                  </option>
+                  <option value="42">约活动
+
+                  </option>
+                  <option value="43">约有趣
+
+                  </option>
+              </select>
+              <span class="input-group-btn">
+              <input type="text" name="begin_time" class="form-control form_date" placeholder="签到开始日期" value="">
+              </span>
+               <span class="input-group-btn">
+              <input type="text" name="end_time" class="form-control form_date" placeholder="签到结束日期" value="">
+              </span>
+               <span class="input-group-btn">
+              <input type="text" name="channel_oid" class="form-control" placeholder="订单号" value="">
+              </span>
+              </span> <span class="input-group-btn">
+              <button class="btn btn-success" type="submit">查找</button>
+              </span> </div>
+        </form>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+<div class="col-lg-12">
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+    <th>业务订单号</th>
+    <th>品类</th>
+    <th>支出者用户ID</th>
+    <th>收入者用户ID</th>
+    <th>订单金额</th>
+    <th>实收金额</th>
+    <th>已使用优惠券金额</th>
+    <th>支付日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>19571221</td>
+    <td>约培训</td>
+    <td>204810</td>
+    <td>113054</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>56581428</td>
+    <td>约培训</td>
+    <td>205514</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>45583867</td>
+    <td>约培训</td>
+    <td>205737</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>76608246</td>
+    <td>约培训</td>
+    <td>207405</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>16626696</td>
+    <td>约培训</td>
+    <td>208702</td>
+    <td>113054</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>53665348</td>
+    <td>化妆服务</td>
+    <td>200001</td>
+    <td>172432</td>
+    <td>500.00</td>
+    <td>400.00</td>
+    <td>100.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>87667024</td>
+    <td>约有趣</td>
+    <td>210443</td>
+    <td>157877</td>
+    <td>100.00</td>
+    <td>50.00</td>
+    <td>50.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>84669154</td>
+    <td>模特服务</td>
+    <td>212706</td>
+    <td>100223</td>
+    <td>600.00</td>
+    <td>500.00</td>
+    <td>100.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>45669473</td>
+    <td>模特服务</td>
+    <td>162059</td>
+    <td>195988</td>
+    <td>500.00</td>
+    <td>400.00</td>
+    <td>100.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>47581402</td>
+    <td>约培训</td>
+    <td>205516</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>48583883</td>
+    <td>约培训</td>
+    <td>205731</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>25587634</td>
+    <td>约培训</td>
+    <td>206034</td>
+    <td>120740</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>25622810</td>
+    <td>约培训</td>
+    <td>133597</td>
+    <td>113054</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>819958</td>
+    <td>约活动</td>
+    <td>104270</td>
+    <td>133804</td>
+    <td>1.00</td>
+    <td>1.00</td>
+    <td>0.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>820509</td>
+    <td>约活动</td>
+    <td>104591</td>
+    <td>100832</td>
+    <td>50.00</td>
+    <td>50.00</td>
+    <td>0.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>90668309</td>
+    <td>约摄影师</td>
+    <td>210700</td>
+    <td>154346</td>
+    <td>68.00</td>
+    <td>58.00</td>
+    <td>10.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>34669161</td>
+    <td>约摄影师</td>
+    <td>210485</td>
+    <td>203904</td>
+    <td>50.00</td>
+    <td>40.00</td>
+    <td>10.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>69671222</td>
+    <td>模特服务</td>
+    <td>116869</td>
+    <td>123814</td>
+    <td>540.00</td>
+    <td>510.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>34678349</td>
+    <td>约培训</td>
+    <td>213596</td>
+    <td>195022</td>
+    <td>1500.00</td>
+    <td>1400.00</td>
+    <td>100.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>65583893</td>
+    <td>约培训</td>
+    <td>205738</td>
+    <td>120740</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>53614731</td>
+    <td>约培训</td>
+    <td>208016</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>82624851</td>
+    <td>约培训</td>
+    <td>208562</td>
+    <td>113054</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>69648870</td>
+    <td>模特服务</td>
+    <td>132699</td>
+    <td>104278</td>
+    <td>200.00</td>
+    <td>200.00</td>
+    <td>0.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>55671183</td>
+    <td>化妆服务</td>
+    <td>212965</td>
+    <td>110455</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>23672498</td>
+    <td>约有趣</td>
+    <td>196014</td>
+    <td>157877</td>
+    <td>100.00</td>
+    <td>50.00</td>
+    <td>50.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>12676802</td>
+    <td>约有趣</td>
+    <td>213496</td>
+    <td>201522</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>20577404</td>
+    <td>约培训</td>
+    <td>205221</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>40581453</td>
+    <td>约培训</td>
+    <td>205517</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>42583912</td>
+    <td>约培训</td>
+    <td>205709</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>49604854</td>
+    <td>约培训</td>
+    <td>207139</td>
+    <td>120740</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>34608259</td>
+    <td>约培训</td>
+    <td>207406</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>86626727</td>
+    <td>约培训</td>
+    <td>208705</td>
+    <td>113054</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>36650531</td>
+    <td>约有趣</td>
+    <td>210329</td>
+    <td>201520</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>820582</td>
+    <td>约活动</td>
+    <td>105502</td>
+    <td>100832</td>
+    <td>1.00</td>
+    <td>1.00</td>
+    <td>0.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>40668188</td>
+    <td>约摄影师</td>
+    <td>132716</td>
+    <td>209661</td>
+    <td>9688.00</td>
+    <td>9688.00</td>
+    <td>0.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>20577421</td>
+    <td>约培训</td>
+    <td>205268</td>
+    <td>120740</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>37581441</td>
+    <td>约培训</td>
+    <td>181607</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>19589280</td>
+    <td>约培训</td>
+    <td>205631</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>43593907</td>
+    <td>约培训</td>
+    <td>181685</td>
+    <td>122187</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+<tr>
+    <td>66603230</td>
+    <td>约培训</td>
+    <td>207021</td>
+    <td>120740</td>
+    <td>31.00</td>
+    <td>1.00</td>
+    <td>30.00</td>
+    <td>2015-10-31</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-sm-6"><div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div>
+    <div class="col-sm-6">
+        <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+            <ul class="pagination">
+                <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous">
+                    <a href="#">Previous</a>
+                </li>
+                <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
+                    <a href="#">1</a>
+                </li>
+                <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                    <a href="#">2</a>
+                </li>
+                <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"
+                    ><a href="#">Next</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="../resources/bootstrap/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

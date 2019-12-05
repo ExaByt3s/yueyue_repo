@@ -1,0 +1,184 @@
+$consider-background : #ffffff;
+$consider-gray: #fafafa;
+$consider-gray_dark:#666666;
+$consider-gray_font:#aaaaaa;
+$consider-border:#dddddd;
+$consider-header_select: #ff0052;
+$consider-header_unselect:#f0f0f0;
+$consider-border_a:#e6e6e6;
+$consider-chooen_border:#ebebeb;
+.consider{
+  .auto_width{
+    width: auto;
+
+    .icon{
+      margin-right: 10px;
+    }
+  }
+  .content-body{
+    // margin-top: $content-margin-top;
+    .accept{
+      display: -webkit-box;
+      -webkit-box-pack:justify;
+      div{
+        -webkit-box-flex:1;
+        text-align: center;
+        height: 39px;
+        line-height: 40px;
+        background: $consider-gray;
+        border-bottom: 1px solid $consider-border_a;
+        color: $consider-gray_dark;
+        &.cur{
+          color: $consider-header_select;
+          border-bottom: 1px solid $consider-header_select;
+        }
+        &:active{
+          color: $consider-header_select;
+          border-bottom: 1px solid $consider-header_select;
+        }
+      }
+    }
+    .child-content-inside{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      position: relative;
+      padding-bottom: 10px;
+      .child{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-box-flex:1;
+        margin: 10px 10px 0px 10px;
+        border:1px solid $consider-border;
+        background: #ffffff;
+        @include border-radius($border-radius);
+        .title{
+          display: -webkit-box;
+          -webkit-box-pack:justify;
+          height: 44px;
+          line-height: 45px;
+          background: #f5f5f5;
+          border-bottom: 1px solid $consider-border;
+          padding:0px 15px 0px 15px;
+          .name{
+            max-width:70%;
+            word-break: break-all;
+            overflow: hidden;
+          }
+          .status{
+            display: -webkit-box;
+            -webkit-box-pack:end;
+
+            .status-in{
+              text-align: center;
+              height: 18px;
+              line-height: 18px;
+              margin-top: 13px;
+              color:#FFF;
+              padding: 0px 4px 0px 4px;
+
+              border-radius: 9px;
+              margin-right: 10px;
+              font:{
+                size: 9px;
+                weight: bold;
+              }
+              &.red
+              {
+                font:{
+                  size: 10px;
+                }
+                background: #ff6c6c;
+              }
+              &.gray
+              {
+                font:{
+                  size: 10px;
+                }
+                background: #c8c8c8;
+              }
+              &.wait{
+                //background: #ff6c6c;
+              }
+              &.cancel{
+                font:{
+                  size: 10px;
+                }
+                //background: #c8c8c8;
+              }
+              &.confirm
+              {
+
+              }
+            }
+          }
+        }
+        .details{
+          display: -webkit-box;
+          -webkit-box-pack:start;
+          .img-container{
+            margin: 15px 15px 15px 15px;
+            width: 80px;
+            height: 80px;
+            //background: #FAF;
+            @include border-radius($border-radius);
+            img{
+              @include border-radius($border-radius);
+            }
+          }
+          .details-container{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            margin-top: 11px;
+            p{
+              width: 188px;
+              margin-bottom: 4px;
+              &.notice{
+                color: #ff5000;
+                font:{
+                  size: 18px;
+                };
+              }
+            }
+            .style{
+              margin-bottom: 10px;
+            }
+            .btn_style{
+              margin-bottom: 10px;
+            }
+            .ss{
+              background: #ff0052;
+              width: auto;
+              padding: 0px 10px 0px;
+              height: 30px;
+              line-height: 30px;
+              border-radius: 2px;
+              color: #FFF;
+              text-align: center;
+              margin: 0px 10px 10px 0;
+            }
+            .canot{
+              background: #cccccc;
+            }
+          }
+
+          .starts{
+            display: inline-block;
+            margin-left: 10px;
+            .icon{
+              vertical-align: middle;
+            }
+          }
+
+          .btn-c{
+            margin: 0px 0 10px 0;
+          }
+
+        }
+      }
+    }
+    .container{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+  }
+}

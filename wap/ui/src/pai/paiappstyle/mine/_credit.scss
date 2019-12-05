@@ -1,0 +1,45 @@
+@charset "UTF-8";
+// ------------------------------
+// 账单
+// ------------------------------
+.credit{
+  .content-body {
+    width: 100%;
+    .credit-inside{
+      display: -webkit-box;
+      -webkit-box-pack:start;
+      -webkit-box-orient:vertical;
+      border-bottom: 1px solid #dddddd;
+    }
+  }
+  .item{
+    display: -webkit-box;
+    -webkit-box-pack:justify;
+    height: 50px;
+    background: #ffffff;
+
+    padding: 0px 10px 0px 10px;
+    .available{
+      height: 50px;
+      margin-left: 29px;
+    }
+    .available_balance{
+      height: 25px;
+      line-height: 25px;
+      color: #ff0052;
+      margin-top: 3px;
+    }
+    .available_notice{
+      padding-top: 2px;
+      height: 10px;
+      line-height: 10px;
+      font-size: 10px;
+      text-align: center;
+      color: #959595;
+    }
+    button{
+      margin-top: 10px;
+    }
+  }
+}
+

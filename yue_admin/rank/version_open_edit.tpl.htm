@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/model_audit.css">
+    <title>榜单管理后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <div class="table-list">
+        <h1><b><a href="version_open.php?act=list" style="cursor:pointer">返回</a></b></h1>
+        <iframe name="frame" id="frame" style="display:none"></iframe>
+        <form method="post" action="?" id="myform" target="frame">
+            <div class="table" style="width:98%;" id="occu">
+                <!--list-->
+                <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+                    <tbody>
+                        <tr>
+                            <td>版本:</td>
+                            <td>
+                                <input type="text" name="version_num" value="{version_num}" class="input-text" /><font color="red">*</font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>操作:</td>
+                            <td>
+                                <input type="submit" value="提交" class="button"/>
+                                <input type="reset"  value="重置" class="button"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input type="hidden" value="{act}" name="act" />
+            <input type="hidden" value="{id}" name="id" />
+        </form>
+    </div>
+</div>
+</body>
+</html>

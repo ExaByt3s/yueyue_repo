@@ -1,0 +1,50 @@
+.stream-abnormal {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+
+  height: 100%;
+  text-align: center;
+
+  .icon-stream-network-error{
+    width: 80px;
+    height: 80px;
+
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background-image: url('../../../../image/pai/network-error-160x160.png?__sprite');
+  }
+  .icon-stream-empty{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background-image: url('../../../../image/pai/empty-160x160.png?__sprite');
+  }
+
+  h4 {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+
+    &:before {
+      margin: 0 auto 20px;
+    }
+  }
+
+  &.stream-network-error {
+    h4 {
+      color: #666;
+    }
+    p {
+      color: #666;
+    }
+  }
+  &.stream-empty {
+    h4 {
+      color: #bbb;
+    }
+  }
+}

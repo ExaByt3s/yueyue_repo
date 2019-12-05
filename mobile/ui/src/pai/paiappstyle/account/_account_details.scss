@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO约拍app - 账户明细
+// ------------------------------
+.account_details{
+
+    .list{
+        li{
+            border-bottom: 1px solid #dddddd;
+            padding: 15px 10px 15px 10px;
+            @include clearfix;
+        }
+        .lbox{
+            @include float-left;
+            .box1{
+                font-size: 14px;
+                color: #000;
+            }
+            .box2{
+                font-size: 10px;
+                color: #666666;
+                padding-top: 3px;
+            }
+        }
+        .rbox{
+            text-align: right;
+            @include float-right;
+            .box1{
+                color: #ff5000;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            .box2{
+                padding-top: 3px;
+                .cor1{
+                    color: #666666;
+                }
+                .cor2{
+                    color: #3fc585;
+                }
+            }
+        }
+    }
+}

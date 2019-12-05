@@ -1,0 +1,209 @@
+@import "../../sass/compass";
+@charset "utf-8";
+
+.user-info-page{
+    
+    color: #333333;
+    .p1th{
+        padding: 37px 0 37px 0;
+        padding-bottom: 37px;
+        border-bottom: 1px solid #eeeeee;
+        .user-icon{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-size: cover;
+            margin: 0px auto 0 auto;
+
+        }
+        .level{
+            text-align: center;
+            margin-top: 8px;
+        }
+        .des{
+            text-align: center;
+            line-height: 22px;
+            font-size: 14px;
+            line-height: 24px;
+            padding: 10px 15px 15px 15px;
+        }
+    }
+
+    .p2th{
+        padding-top: 37px;
+        padding-bottom: 37px;
+        border-bottom: 1px solid #eeeeee;
+        .list{
+            @include flexbox((
+                display: box,  // 盒子模型 子元素默认水平左对齐
+                box-pack: center
+            ));
+            li{
+                margin: 0 15px 0 15px;
+                width:60px;
+               .txt{
+                    color: #333;
+                    text-align: center;
+                    padding-top: 10px;
+               }
+
+
+
+               .circle{
+                    height: 65px;
+                    .pie {
+                        width:60px; 
+                        height:60px; 
+                        background-color:#eeeeee;
+                        border-radius:50%;
+                        position:absolute;
+                    }
+                    .pie1 { 
+                        clip:rect(0px,60px,60px,30px); 
+                    }
+                    .pie2 { 
+                        clip:rect(0px,30px,60px,0px); 
+                    }
+                    .hold {
+                        width:60px; 
+                        height:60px;
+                        position:absolute;
+                        z-index:1;
+                    }
+                    .hold1 { 
+                        clip:rect(0px,60px,60px,30px); 
+                    }
+                    .hold2 { 
+                        clip:rect(0px,30px,60px,0px); 
+                    }
+                    .cor-bg {
+                        width:58px; 
+                        height:58px; 
+                        background-color:#555555; 
+                        border-radius:50%; 
+                        position:absolute; 
+                        margin:1px 0 0 1px
+                    }
+                    .time { 
+                        width:52px; 
+                        height:52px; 
+                        margin:4px 0 0 4px; 
+                        background-color:#fff; 
+                        border-radius:50%; 
+                        position:absolute; 
+                        z-index:1;
+                        text-align: center;
+                        line-height: 54px;
+                        color: #666666;
+                        font-size: 14px;
+                    }
+               }
+
+
+
+
+            }
+        }
+
+
+       
+    }
+
+    .p3th{
+        padding-top: 37px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #eeeeee;
+        
+        .title{
+            font-size: 16px;
+
+        }
+
+        .list{
+            padding-top: 30px;
+            // padding-left: 6%;
+            text-align: center;
+            width: 100%;
+            overflow: hidden;
+        }
+        li{
+            width:50px;
+            height:50px;
+            background-size: cover;
+            margin-right: 5px;
+            background-repeat: no-repeat;
+            display: inline-block;
+        }
+        .comment{
+            font-size: 16px;
+            padding: 25px 0 25px 0;
+        }
+        .ui-start-mod{
+            text-align: center;
+        }
+        .zhxq{
+            padding: 20px 0 25px 0;
+        }
+        .pbc{
+            padding: 10px 20px;
+            border: solid 1px #ff6a6e;
+            border-radius: 50px;
+            color: #ff6a6e;
+        }
+
+        .stars-all-mod{
+            // margin: 0 auto;
+            display: inline-block;
+        }
+    }
+
+    .p4th{
+        padding-top: 37px;
+        padding-bottom: 30px;
+        .list{
+
+            padding-left: 13px;
+            margin-top: 30px;
+            li{
+                width: 33%;
+                padding: 0 10px 10px 0;
+                float: left;
+                position: relative;
+                -webkit-box-sizing: border-box;
+                .wrap{
+                    width: 100%;
+                }
+                .img{
+                    padding-top: 100%;
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    // position: absolute;
+
+                }
+            }
+        }
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

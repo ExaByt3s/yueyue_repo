@@ -1,0 +1,17 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/ui/template/action
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+action-apply.html
+action-info.html
+action-intro.html
+action-list.html
+action-preview.html
+action-pub.html
+action-security.html
+action-signin.html
+event-info.html
+
+--EOF--

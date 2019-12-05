@@ -1,0 +1,714 @@
+/* line 7, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-card .content-body {
+  margin-top: 45px;
+}
+
+/* line 11, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.wx_card_notice {
+  color: #333333;
+}
+
+/* line 14, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.wx_card_login_btn {
+  display: inline;
+  width: 70%;
+  margin-top: 25px;
+}
+
+/* line 19, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.wx_card_no_download {
+  margin-top: 20px;
+  color: #1471b3;
+  text-decoration: underline;
+}
+
+/* line 24, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 {
+  background: #eeeeee;
+  padding-bottom: 51px;
+}
+/* line 27, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .grid-pic-content {
+  position: relative;
+  overflow: hidden;
+}
+/* line 32, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .grid-pic-content .grid-pic {
+  float: left;
+}
+/* line 35, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .grid-pic-content .grid-pic.mid {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-top: none;
+}
+/* line 43, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .back {
+  position: absolute;
+  z-index: 9;
+  top: 20px;
+  left: 5px;
+  padding: 10px;
+}
+/* line 51, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .list-img {
+  height: 320px;
+  overflow-y: auto;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 55, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .list-img li {
+  width: 33.3%;
+  float: left;
+}
+/* line 58, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .list-img li img {
+  width: 100%;
+  display: block;
+}
+/* line 63, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .list-img li:nth-child(4) {
+  width: 66.6%;
+}
+/* line 67, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .list-num {
+  overflow: hidden;
+  *zoom: 1;
+  border-bottom: 1px solid #dddddd;
+  padding: 22px 0 20px 0;
+}
+/* line 72, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .list-num .pa {
+  font-size: 14px;
+  color: #ff5000;
+}
+/* line 76, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .list-num .pb {
+  font-size: 10px;
+  color: #959595;
+}
+/* line 81, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .bar {
+  clear: both;
+  height: 45px;
+  background: #ff0052;
+  color: #fff;
+  font-size: 15px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+}
+/* line 91, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .bar li {
+  padding-top: 9px;
+  -webkit-box-flex: 1;
+  text-align: center;
+}
+/* line 101, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .bar li:active {
+  background-color: #ff266c;
+}
+/* line 104, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .bar li .icon-r-16x26-white {
+  float: right;
+  margin: 7px 10px 0 0;
+}
+/* line 110, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .img-area {
+  width: 220px;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
+  padding: 22px 50px 17px;
+}
+/* line 115, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .img-area div {
+  float: left;
+}
+/* line 118, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .img-area .img-area-icon-container {
+  height: 69px;
+  width: 69px;
+}
+/* line 122, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .img-area .user-img {
+  width: 78px;
+  height: 78px;
+  background-size: cover;
+}
+/* line 128, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .img-area .user-img {
+  width: 78px;
+  height: 78px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  overflow: hidden;
+  border: 1px solid #ff0052;
+}
+/* line 134, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .img-area .user-img img {
+  width: 100%;
+}
+/* line 139, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-info {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-align: center;
+}
+/* line 143, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-info .line_one {
+  display: -webkit-box;
+  -webkit-box-pack: center;
+}
+/* line 146, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-info .line_one .model-info-name {
+  margin: 0px 10px 0px 5px;
+}
+/* line 149, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-info .line_one .model-info-city_name {
+  margin: 0px 0px 0px 5px;
+}
+/* line 153, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-info .line_two {
+  height: 20px;
+  margin-bottom: 5px;
+}
+/* line 156, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-info .line_two p {
+  color: #bebebe;
+  font-size: 11px;
+}
+/* line 164, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .p1 {
+  color: #434343;
+  font-size: 15px;
+}
+/* line 169, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .p2 {
+  padding-top: 5px;
+  color: #aeaeae;
+  font-size: 10px;
+}
+/* line 175, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-size {
+  overflow: hidden;
+  *zoom: 1;
+  font-size: 15px;
+  padding-top: 5px;
+}
+/* line 179, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-size li {
+  width: 25%;
+  float: left;
+  text-align: center;
+}
+/* line 185, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-size li:before {
+  margin: 0px auto 0px;
+  width: 76px;
+  height: 76px;
+  margin-bottom: 8px;
+}
+/* line 191, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-size li:nth-child(1):before {
+  width: 38px;
+  height: 38px;
+}
+/* line 196, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-size li:nth-child(2):before {
+  width: 38px;
+  height: 38px;
+}
+/* line 201, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-size li:nth-child(3):before {
+  width: 38px;
+  height: 38px;
+}
+/* line 206, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .model-size li:nth-child(4):before {
+  width: 38px;
+  height: 38px;
+}
+/* line 213, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .wrap-box {
+  clear: both;
+  overflow: hidden;
+  *zoom: 1;
+  font-size: 14px;
+  padding: 15px 10px 20px 10px;
+}
+/* line 218, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .wrap-box .com {
+  float: left;
+}
+/* line 220, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .wrap-box .com .icon-red {
+  vertical-align: middle;
+}
+/* line 224, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .wrap-box .com .icon-grey {
+  vertical-align: middle;
+}
+/* line 228, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .wrap-box .com .red {
+  color: #ff0052;
+}
+/* line 232, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .wrap-box .num {
+  float: right;
+}
+/* line 234, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .wrap-box .num .icon-r {
+  vertical-align: middle;
+}
+
+/* line 242, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-model-car-tips {
+  height: 70px;
+  position: absolute;
+  bottom: 0px;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+}
+/* line 248, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-model-car-tips .txt {
+  color: #fff;
+  font-size: 12px;
+  padding: 20px 0 0 10px;
+}
+/* line 252, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-model-car-tips .txt .p2 {
+  padding-top: 5px;
+}
+/* line 256, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-model-car-tips .icon-close {
+  position: absolute;
+  right: 13px;
+  top: 14px;
+}
+
+/* line 264, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-available_notice_text {
+  position: absolute;
+  bottom: 0px;
+  z-index: 1000;
+  width: 100%;
+  background: none;
+  height: 70px;
+  color: #FFF;
+  font-size: 12px;
+}
+/* line 276, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-available_notice_text .congratulations {
+  margin-top: 15px;
+  padding: 0px 10px 0px 10px;
+}
+/* line 281, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-available_notice_text .congratulations-notice {
+  margin-top: 5px;
+  padding: 0px 10px 0px 10px;
+}
+
+/* line 286, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-available_notice {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background: #000000;
+  height: 70px;
+  opacity: 0.6;
+  z-index: 1000;
+}
+
+/* line 297, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two {
+  background: #eeeeee;
+  background-size: cover;
+}
+/* line 300, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .cor-y {
+  color: #ed5565;
+}
+/* line 304, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .line-top {
+  height: 1px;
+}
+/* line 308, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .line-bottom {
+  height: 1px;
+}
+/* line 313, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item {
+  background-color: #ffffff;
+  padding: 8px 0 12px;
+  margin-bottom: 10px;
+}
+/* line 324, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item .td-right-text {
+  width: 70px;
+  text-align: right;
+}
+/* line 327, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item.bdtp_none {
+  border-top: none;
+}
+/* line 330, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item.bdbt_none {
+  border-bottom: none;
+}
+/* line 333, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item.mgbt_none {
+  margin-bottom: 0px;
+}
+/* line 336, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item.pdbt_exp {
+  padding-bottom: 8px;
+}
+/* line 339, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item.to_more_style {
+  color: #999999;
+  padding: 0px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+}
+/* line 346, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item.master {
+  color: #999999;
+  padding: 12px 15px 15px 15px;
+}
+/* line 350, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item.master .ph_contain {
+  margin-top: 8px;
+}
+/* line 354, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item.master .ph_contain .cam_icon_contain {
+  width: 50px;
+  height: 50px;
+}
+/* line 358, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item.master .ph_contain .cam_icon {
+  border-radius: 25px;
+  background-position: 50%;
+  background-size: cover;
+}
+/* line 364, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item.master .ph_contain .icon {
+  position: relative;
+  bottom: 16px;
+  left: 34px;
+}
+/* line 371, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item .info {
+  padding: 0px 10px;
+  position: relative;
+}
+/* line 375, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item li {
+  overflow: hidden;
+  *zoom: 1;
+  font-size: 14px;
+  color: #221a15;
+}
+/* line 386, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item .info .lbox {
+  width: 60px;
+  text-align: right;
+  float: left;
+  padding-top: 5px;
+  margin-right: 15px;
+  color: #999999;
+}
+/* line 395, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item .info .rbox {
+  font-size: 14px;
+  width: 60%;
+  float: left;
+  padding-top: 5px;
+}
+/* line 403, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item .info .more {
+  float: left;
+  text-align: center;
+  color: #999999;
+  height: 45px;
+  line-height: 45px;
+}
+/* line 412, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .item .icon-r-16x26-cur {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+}
+/* line 418, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .spe-box {
+  padding: 0px;
+}
+/* line 422, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .spe-box .notice {
+  height: 75px;
+  padding-right: 15px;
+}
+/* line 427, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .spe-box .notice .l {
+  color: #999999;
+  padding: 6px 0px 5px 0px;
+  text-align: end;
+}
+/* line 435, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .spe-box .details .r {
+  font-size: 14px;
+  padding: 6px 0px 5px 0px;
+  height: 20px;
+}
+/* line 442, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .spe-box .details .r .icon {
+  margin-top: 3px;
+}
+/* line 449, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two header {
+  display: -webkit-box;
+}
+/* line 456, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .partc {
+  margin-top: 10px;
+  background-color: #ffffff;
+  position: relative;
+  padding: 15px 0 5px 15px;
+  -webkit-box-pack: center;
+}
+/* line 466, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .partc .follw {
+  position: absolute;
+  right: 20px;
+  top: 22px;
+  z-index: 9;
+}
+/* line 474, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .score-info {
+  background-color: #ffffff;
+  margin-bottom: 51px;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 60px;
+}
+/* line 487, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .score-info .line {
+  height: 24px;
+  border-left: 1px solid #dddddd;
+}
+/* line 492, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .score-info a {
+  width: 33%;
+  position: relative;
+  display: block;
+  -webkit-box-flex: 1;
+  color: #999;
+  text-align: center;
+}
+/* line 504, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .score-info a em {
+  display: block;
+  font-size: 16px;
+  color: #000;
+}
+/* line 510, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .score-info a:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+}
+/* line 519, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .score-info a:first-child:before {
+  border-left: none;
+}
+/* line 526, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .avatar {
+  display: -webkit-box;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+/* line 527, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .avatar .user-data {
+  padding-top: 3px;
+}
+/* line 535, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .avatar > a {
+  width: 80px;
+  height: 80px;
+}
+/* line 539, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .avatar .avatar-img {
+  -webkit-border-radius: 80px;
+  border-radius: 80px;
+  border: 2px solid #fff;
+}
+/* line 545, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .meta-info {
+  width: 100px;
+  padding-right: 10px;
+}
+/* line 547, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .meta-info .nickname {
+  font-size: 16px;
+  padding-bottom: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 5px;
+}
+/* line 557, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .meta-info .model_nickname_sexy_line {
+  display: -webkit-box;
+}
+/* line 560, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .meta-info .model_id_city_line {
+  display: -webkit-box;
+  margin-bottom: 8px;
+}
+/* line 565, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .meta-info .model_id_city_line .model_id {
+  padding-right: 10px;
+  border-right: 1px solid #e6e6e6;
+  font-size: 12px;
+}
+/* line 572, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .meta-info .model_id_city_line .model_city {
+  font-size: 12px;
+  padding-left: 10px;
+  color: #a0a0a0;
+}
+/* line 581, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .focus-contain {
+  padding-top: 11px;
+}
+/* line 601, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.model-car-v2 .part-two .model-id {
+  font-size: 12px;
+  color: #786a63;
+}
+
+/* line 609, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-model-car-confirm {
+  z-index: 999;
+  height: 50px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #dad1cd;
+}
+/* line 618, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-model-car-confirm .list {
+  padding: 0px 20px;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-flex: 1;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 621, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-model-car-confirm .list .icon {
+  vertical-align: 4px;
+  margin-right: 5px;
+}
+/* line 633, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-model-car-confirm .list li {
+  width: 45%;
+  padding: 8px 5% 0 5%;
+  text-align: center;
+}
+/* line 639, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-model-car-confirm .list li .ui-button-block {
+  height: 34px;
+  line-height: 34px;
+}
+/* line 643, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-model-car-confirm .list li:nth-child(1) {
+  padding-left: 0px;
+}
+/* line 649, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-model-car-confirm .list li:nth-child(2) {
+  padding-right: 0px;
+}
+
+/* line 659, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.grid-pic-content .scroll-area {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+/* line 663, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.grid-pic-content .scroll-area > ul {
+  position: relative;
+  overflow: hidden;
+  font-size: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 670, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.grid-pic-content .scroll-area > ul li {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+}
+/* line 678, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.grid-pic-content .scroll-area > ul img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+  -ms-transform: scale(1) translate(0, 0) translateZ(0);
+  -webkit-transform: scale(1) translate(0, 0) translateZ(0);
+  transform: scale(1) translate(0, 0) translateZ(0);
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* line 719, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.grid-pic-content .ad-pic-point-out {
+  position: relative;
+  bottom: 20px;
+  height: 0px;
+  width: 100%;
+  text-align: center;
+}
+/* line 730, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.grid-pic-content .ad-pic-point-out span {
+  -webkit-border-radius: 32px;
+  border-radius: 32px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  height: 6px;
+  width: 6px;
+  margin-top: 6px;
+  display: inline-block;
+  margin-right: 5px;
+  background: rgba(0, 0, 0, 0.5);
+}
+/* line 740, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.grid-pic-content .ad-pic-point-out span.swiper-visible-switch {
+  background-color: #ff4978;
+}
+
+/* line 747, ../../ui/src/pai/paiappstyle/model-car/_model-car_v2.scss */
+.pop-max-dabenxiang {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  left: 0px;
+  top: 0px;
+  z-index: 99999;
+}

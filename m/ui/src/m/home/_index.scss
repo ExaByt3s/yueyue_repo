@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+%welcome-tips-style {
+    position: fixed;
+    _position: absolute;
+    top: -200px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+.welcome-tips-iframe{
+    @extend %welcome-tips-style;
+    z-index: 9995;
+
+    background: none;
+    @include opacity(0);
+}
+
+.welcome-tips {
+    @extend %welcome-tips-style;
+    z-index: 9996;
+
+    .welcome-mask {
+        background: #000;
+        @include opacity(0.7);
+        position: absolute;
+        z-index: 9996;
+        width: 100%;
+        height: 100%;
+        // background: rgba(#000, 0.7);
+        // _background: none;
+        // _filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#B3000000, endColorstr=#B3000000);
+    }
+
+    .welcome-content {
+        position: absolute;
+        z-index: 9997;
+        top: 280px;
+        width: 100%;
+        height: 100%;
+        //padding-top: 280px;
+        text-align: center;
+    }
+    .png {
+        //$png-url: image-url('welcome.png', true);
+        $png-url: 'http://my.poco.cn/m/assets/images/welcome.png';
+
+        @include background(url(#{$png-url}) no-repeat);
+        _background: none;
+        _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{$png-url}');
+        width: 740px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    a {
+        font-size: 14px;
+        @include link-colors(#b4b4b4, #b4b4b4);
+    }
+}
+
+// -------------------------------------------------
+// 浮标
+// -------------------------------------------------
+.fix-right-tools {
+    position: fixed;
+    _position: absolute;
+    left: 50%;
+    bottom: 55px;
+    margin-left: 457px;
+    visibility: hidden;
+
+    .button {
+        display: block;
+        border: 1px solid #e1e1e1;
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+
+        text-align: center;
+        text-decoration: none;
+        color: #c7c7c7;
+
+        cursor: pointer;
+        clear: both;
+        overflow: hidden;
+        *zoom: 1;
+
+        span {
+            display: none;
+            font-size: 12px;
+        }
+        i {
+            font-size: 22px;
+        }
+
+        &:hover {
+            //text-decoration: none;
+
+            i {
+                display: none;
+            }
+            span {
+                display: block;
+            }
+            
+        }
+    }
+    .first {
+        border-bottom: 0;
+    }
+
+    .feedback-button {
+        background: #f7f7f7;
+    }
+    
+    .back-top-button {
+        background: #fafafa;
+    }
+}
+
+
+.ams-feed-top {
+    width: 994px;
+    //height: 90px;
+    //margin-bottom: 20px;
+    margin: auto;
+    overflow: hidden;
+}

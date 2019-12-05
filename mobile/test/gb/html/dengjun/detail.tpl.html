@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="gb2312">
+    <title>POCO摄影</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    
+<link type="text/css" rel="stylesheet" href="http://172.18.4.201:1080/css/detail.css" source="combo">
+<link type="text/css" rel="stylesheet" href="http://172.18.4.201:1080/widget/pocowap_h1/pocowap_h1.css" source="widget">
+<link type="text/css" rel="stylesheet" href="http://172.18.4.201:1080/widget/pocowap_attension/pocowap_attension.css" source="widget">
+<link type="text/css" rel="stylesheet" href="http://172.18.4.201:1080/widget/pocowap_comment/pocowap_comment.css" source="widget">
+<link type="text/css" rel="stylesheet" href="http://172.18.4.201:1080/widget/pocowap_input/pocowap_input.css" source="widget">
+</head>
+<body>
+   <div class="base_body">
+       <div class="base_page" id="base_detail">
+           <div class="base_detail_h1">
+
+               <h1 class="_pocowap_h1">
+    <!--后退按钮-->
+        <a href="javascript:history.go(-1)" class="_pocowap_back hover"></a>
+    <bdo>
+            POCO摄影
+    </bdo>
+        <a href="http://www.baidu.com" class="_pocowap_share hover"></a>
+</h1>
+
+           </div>
+
+           <div class="base_box">
+               <div class="base_personcard">
+
+                   <div class="base_personhead">
+                       <a href="" class="base_personimg"><img src="{user_icon}"></a>
+                       <a href="" class="base_personname">{user_name}</a>
+                   </div>
+
+                   <div class="base_attension">
+
+                       <a href="" data-userid=" {nvl:userid,0} " class="_pocowap_attension hover"></a>
+
+                   </div>
+
+               </div>
+
+               <div class="base_detail_content">
+
+                   <h2 class="h2_f32 h2_bold base_detail_title">{photo_title}</h2>
+
+                   <!-- BEGIN photo_list_arr -->
+                   <div class="base_detail_imagebox"><img src="{img_fix}" data-bigimg="{bimg}"></div>
+                   <!-- END photo_list_arr -->
+
+
+                   <div class="base_detail_article">{fix_content}</div>
+
+                   <div class="base_detail_footer">
+                       <span class="base_detail_date">2015-03-26</span>
+                       <span class="base_detail_preview">浏览 <i>{hit_count}</i></span>
+                   </div>
+
+               </div>
+
+               <div class="base_detail_comment">
+
+                   <div class="_pocowap_comment" data-url="http://m.poco.cn/vision/module/get_comment_ajax.php" data-userid=" {nvl:cmt_topic_id,0} ">
+    <div class="_pocowap_comment_head">评论<span class="s1">(<i class="i1"> {replier} </i>)</span></div>
+    <div class="_pocowap_comment_list">
+
+    </div>
+
+    <div class="_pocowap_comment_more hover">
+        <div class="s_default hover">查看更多评论 </div>
+        <div class="s_loading"><i class="i1"></i>正在加载，请稍候…</div>
+    </div>
+
+</div>
+
+               </div>
+
+               <div class="base_detail_more">
+                   <h2 class="h2_f24">更多作品</h2>
+                   <ul>
+                       <li><a href="http://m.poco.cn/vision/test/detail.php?photo_id=4274287&b_index_type=hot&b_genus_id=-1&b_page=1&is_debug=dengjun" data-pjax="abc"><img src="http://172.18.4.201:1080/css/i/tmp/3.png"></a></li>
+                       <li><a href=""><img src="http://172.18.4.201:1080/css/i/tmp/3.png"></a></li>
+                       <li><a href=""><img src="http://172.18.4.201:1080/css/i/tmp/3.png"></a></li>
+                       <li><a href=""><img src="http://172.18.4.201:1080/css/i/tmp/3.png"></a></li>
+                       <li><a href=""><img src="http://172.18.4.201:1080/css/i/tmp/3.png"></a></li>
+                       <li><a href=""><img src="http://172.18.4.201:1080/css/i/tmp/3.png"></a></li>
+                   </ul>
+               </div>
+
+               <div class="base_detail_input">
+
+                   <div class="_pocowap_input">
+    <div class="_pocowap_input_in">
+        <i class="i1"></i>
+        评论作品
+    </div>
+</div>
+
+               </div>
+           </div>
+       </div>
+   </div>
+
+<script type="text/javascript" src="http://172.18.4.201:1080/js/src/view/detail.js" source="combo"></script>
+<script type="text/javascript" src="http://172.18.4.201:1080/widget/pocowap_h1/pocowap_h1.js" source="widget"></script>
+<script type="text/javascript" src="http://172.18.4.201:1080/widget/pocowap_attension/pocowap_attension.js" source="widget"></script>
+<script type="text/javascript" src="http://172.18.4.201:1080/widget/pocowap_comment/pocowap_comment.js" source="widget"></script>
+<script type="text/javascript" src="http://172.18.4.201:1080/widget/pocowap_input/pocowap_input.js" source="widget"></script>
+</body>
+</html>

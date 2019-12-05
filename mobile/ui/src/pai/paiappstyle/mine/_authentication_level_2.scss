@@ -1,0 +1,139 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 等级认证v2
+// ------------------------------
+
+.authentication_level_2_notice{
+
+  .content-body{
+    margin-top: 45px;
+    //margin-bottom: 50px;
+    padding: 0px 15px 65px 15px;
+    background: #ffffff;
+    -webkit-transform: translateZ(0);
+    .list-container{
+      margin-top: 15px;
+    }
+    .img-con{
+      display: -webkit-box;
+    }
+    .text-con{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      .line{
+        margin-top: 10px;
+      }
+    }
+
+    .red{
+      color: #ff0000;
+    }
+    .exp{
+      padding-left: 15px;
+    }
+  }
+
+}
+
+.authentication_level_2_ready{
+  .content-body{
+    margin-top: 45px;
+    //margin-bottom: 50px;
+    padding: 0px 15px 65px 15px;
+    background: #ffffff;
+    -webkit-transform: translateZ(0);
+    .list-container{
+      margin-top: 15px;
+    }
+    .img-con{
+      display: -webkit-box;
+      -webkit-box-pack: center;
+    }
+    .text-con{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      .line{
+        margin-top: 10px;
+      }
+    }
+    .ui-input-mod{
+      margin-top: 15px;
+    }
+  }
+}
+
+.authentication_level_2_status{
+  .content-body{
+    display: -webkit-box;
+    margin-top: 45px;
+    margin-bottom: 50px;
+    padding: 0px 15px 15px 15px;
+    background: #ffffff;
+    .list-container{
+      display: -webkit-box;
+      -webkit-box-flex: 1;
+      -webkit-box-pack: center;
+      -webkit-box-orient: vertical;
+      margin-top: 15px;
+    }
+    .img-con{
+      display: -webkit-box;
+      -webkit-box-pack: center;
+    }
+    .text-con{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      color: #666666;
+      .title{
+        margin: 8px 0px;
+        text-align: center;
+        font-size: 18px;
+        color: #3fc585;
+      }
+      .text{
+        text-align: center;
+        font-size: 14px;
+
+      }
+      .line{
+        margin-top: 10px;
+      }
+      &.exp{
+        color:#000;
+
+      }
+    }
+    .ui-input-mod{
+      margin-top: 15px;
+    }
+  }
+}
+
+.authentication_btn-con{
+  display: -webkit-box;
+  -webkit-box-pack:center;
+  border-top:1px solid #cccccc;
+  height: 49px;
+  width: 100%;
+  background: #f2f2f2;
+  position: absolute;
+  bottom: 0px;
+  &.notice{
+    button{
+      width: 140px;
+      margin: 7px 50px 7px 50px;
+    }
+  }
+  &.ready{
+    button{
+      width: 140px;
+      margin: 7px;
+    }
+  }
+  &.status{
+    button{
+      width: 140px;
+      margin: 7px;
+    }
+  }
+}

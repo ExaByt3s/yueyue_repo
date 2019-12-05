@@ -1,0 +1,28 @@
+.ui-tap .global-header .select-mod {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 45px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 60%;
+  margin: 0 auto; }
+  .ui-tap .global-header .select-mod .list-type {
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    width: 120px;
+    margin: 6px auto;
+    border-radius: 6px;
+    border: 1px solid #333;
+    overflow: hidden; }
+    .ui-tap .global-header .select-mod .list-type .header-btn {
+      width: 60px;
+      height: 30px;
+      font-size: 14px;
+      text-align: center;
+      line-height: 30px;
+      letter-spacing: 2px; }
+    .ui-tap .global-header .select-mod .list-type .cur {
+      background-color: #333;
+      color: #fff; }

@@ -1,0 +1,16 @@
+<div>
+    <div class="stream-abnormal {{#if broken_network}}stream-network-error{{else}}stream-empty{{/if}}" data-role="tap-screen" style="height:{{content_height}}px">
+        <h4 data-role="a" class="icon {{#if broken_network}}icon-stream-network-error{{else}}icon-stream-empty{{/if}}">{{#if broken_network}}当前网络不可用{{else}}暂无内容{{/if}}</h4>
+        {{#if broken_network}}<p>请检查网络后，轻触屏幕重新加载</p>{{/if}}
+        {{#if error_status}}<p>网页数据加载异常，请点击返回按钮</p>{{/if}}
+    </div>
+
+    {{#if error_status}}
+    <div class="mr10 ml10">
+        <button class="ui-button ui-button-primary ui-button-size-large ui-button-block " data-role="error-page-back">
+            <span class="ui-button-content">返回</span>
+        </button>
+    </div>
+    {{/if}}
+
+</div>

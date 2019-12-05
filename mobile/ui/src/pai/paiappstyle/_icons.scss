@@ -1,0 +1,281 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO约拍app - ICON
+// ------------------------------
+// $layout: smart
+$icons: sprite-map("pai/icons/*.png", $layout: smart, $spacing: 6px, $cleanup: false, $sort-by: 'name');
+$icons-clean-up: false;
+
+@mixin get-icon($sprite, $dimensions: true, $display: inline-block, $pos: 'before') {
+    @if $display==inline-block {
+        line-height: 1; // 修复inline-block带来的空格bug
+    }
+    &:#{$pos} {
+        content: '';
+
+        @if $display {
+            display: $display;
+        }
+        // 修复inline-block带来的空格bug
+        // http://css-tricks.com/fighting-the-space-between-inline-block-elements/
+        @if $display==inline-block {
+            vertical-align: top;
+        }
+
+        $icon-sprite-position: sprite-position($icons, $sprite);
+        $icon-pos-x: round(nth($icon-sprite-position, 1) / 2);
+        $icon-pos-y: round(nth($icon-sprite-position, 2) / 2);
+        background-position: $icon-pos-x $icon-pos-y;
+
+        @if $dimensions {
+            $icon-sprite-file: sprite-file($icons, $sprite);
+
+            width: image-width($icon-sprite-file) / 2;
+            height: image-height($icon-sprite-file) / 2;
+        }
+    }
+}
+
+$icon-sprite-generate-path: sprite-url($icons);
+
+@mixin get-icon-base {
+    background-image: $icon-sprite-generate-path;
+
+    $icon-sprite-path: sprite-path($icons);
+    $icon-size-width: image-width($icon-sprite-path) / 2;
+    $icon-size-height: image-height($icon-sprite-path) / 2;
+    background-size: $icon-size-width $icon-size-height;
+
+    background-position: -9999px -9999px;
+    background-repeat: no-repeat;
+}
+
+.icon {
+    display: inline-block;
+
+    &:before {
+        @include get-icon-base;
+    }
+}
+
+.icon-add-40x40 { @include get-icon('add-40x40',true,block);}
+.icon-allow-22x12 { @include get-icon('allow-22x12',true,block);}
+
+.icon-add-40x40-new { @include get-icon('add-40x40-new',true,block);}
+.icon-add-40x40-new-c { @include get-icon('add-40x40-new-c',true,block);}
+
+//同组，下面是新命名方式
+.icon-back-40x40 { @include get-icon('back-40x40',true,block);}
+.icon-back{
+    @include get-icon('back-40x40',true,block);
+    &:active{
+        @include get-icon('back-40x40-active',true,block);
+    }
+}
+
+
+
+.icon-normal-32x32 {
+  @include get-icon('normal-32x32', true, block);
+  &:active{ @include get-icon('sec-32x32',true,block);}
+  &.current{ @include get-icon('sec-32x32',true,block);}
+}
+.icon-add-32x32 { @include get-icon('add-32x32', true, block);}
+.icon-pay-100x60 { @include get-icon('pay-100x60', true, block);}
+.icon-pay-100x60 { @include get-icon('pay-100x60', true, block);}
+.icon-pub-50x50 { @include get-icon('pub-50x50',true,block);}
+.icon-qq-100x60 { @include get-icon('qq-100x60',true,block);}
+.icon-r-16x26 { @include get-icon('r-16x26', true, block);}
+.icon-r-16x26-cur { @include get-icon('r-16x26-cur', true, block);}
+.icon-r-16x26-white { @include get-icon('r-16x26-white', true, block);}
+.icon-sao-50x50 { 
+    @include get-icon('sao-50x50',true,block);
+    &:active {@include get-icon('sao-50x50-active', true, block);} 
+}
+
+
+.icon-close-20x20 { @include get-icon('close-20x20',true,block);}
+.icon-close-20x20-w {@include get-icon('close-20x20-w',true,block);}
+.icon-close-20x20-c { @include get-icon('close-20x20-c',true,block);}
+.icon-sec-32x32 { @include get-icon('sec-32x32',true,block);}
+.icon-add-130x130{@include get-icon('add-130x130',true,block);}
+.icon-add-130x130-c{@include get-icon('add-130x130-c',true,block);}
+.icon-set-50x50 { @include get-icon('set-50x50',true,block);}
+.icon-success-60x60 { @include get-icon('success-60x60',true,block);}
+.icon-time-48x46 { @include get-icon('time-48x46',true,block);}
+.icon-close-40x40{@include get-icon('close-40x40',true,block);}
+.icon-close-28x28-cur {@include get-icon('close-28x28-cur',true,block);}
+.icon-close-40x40-hover{@include get-icon('close-40x40-hover',true,block);}
+.icon-tui-30x30 { @include get-icon('tui-30x30',true,block);}
+.icon-wx-100x60 { @include get-icon('wx-100x60',true,block);}
+.icon-add-98x98
+{
+    @include get-icon('add-98x98', true, block);
+    &:active {@include get-icon('add-98x98-active', true, block);} 
+}
+.icon-pay-100x60 {@include get-icon('pay-100x60',true,block);}
+
+.icon-loading-40x40 {@include get-icon('loading-40x40',true,block);}
+.icon-refresh-success-40x40 {@include get-icon('refresh-success-40x40',true,block);}
+.icon-more-24x32 {@include get-icon('more-24x32',true,block);}
+.icon-loading-40x40 {@include get-icon('loading-40x40', true, block);}
+.icon-moder-ka-back {@include get-icon('moder-ka-back', true, block);}
+.icon-r-16x26-white {@include get-icon('r-16x26-white', true, block);}
+
+.icon-camera-s {@include get-icon('icon-camera-34x30', true, block);}
+.icon-home-s {@include get-icon('icon-home-32x32', true, block);}
+.icon-letter-s {@include get-icon('icon-letter-34x28', true, block);}
+.icon-package-s {@include get-icon('icon-package-32x32', true, block);}
+.icon-volume-s {@include get-icon('icon-volume-32x32', true, block);}
+
+.icon-add-s-pic {@include get-icon('add-pic-40x40', true, block);}
+.icon-add-s-pic-c {@include get-icon('add-pic-40x40-c', true, block);}
+
+.icon-follows {@include get-icon('follow-40x40',true,block);}
+.icon-comments {@include get-icon('comment-40x40',true,block);}
+.icon-share {@include get-icon('share-40-40',true,block);}
+
+.icon-refuse-s{@include get-icon('no-60x60',true,block);}
+
+.icon-person{@include get-icon('person-20x20', true, block);}
+.icon-place{@include get-icon('place-14x20', true, block);}
+.icon-laba{@include get-icon('laba-40x40',true,block);}
+.icon-des {@include get-icon('des-98x98',true,block);}
+.icon-des-active {@include get-icon('des-98x98-active',true,block);}
+
+.icon-start-l-y{@include get-icon('start-y-60x60',true,block);}
+.icon-start-l-g{@include get-icon('start-g-60x60',true,block);}
+.icon-up-cancel-m{@include get-icon('up-cancel-38x38',true,block);}
+
+.icon-spinner {@include get-icon('spinner-40x40');}
+.icon-info-circle {@include get-icon('info-circle-40x40');}
+.icon-check-circle {@include get-icon('check-circle-40x40');}
+.icon-stat-s-y {@include get-icon('start-24x24-y');}
+.icon-stat-s-g {@include get-icon('start-24x24-g');}
+.icon-siliao-m {@include get-icon('siliao-40x40');}
+.icon-yuepai-m {@include get-icon('yuepai-40x40');}
+
+.icon-focus-yes {@include get-icon('add-98x98',true,block);}
+.icon-focus-yes-c {@include get-icon('add-98x98-active',true,block);}
+.icon-focus-yes-no {@include get-icon('des-98x98-active',true,block);}
+.icon-focus-yes-no-c {@include get-icon('des-98x98',true,block);}
+.icon-sina-m{@include get-icon('sina-80x80',true,block);}
+.icon-sina-c{@include get-icon('sina-c-50x40',true,block);}
+.icon-my-edit-m{@include get-icon('my-edit',true,block);}
+
+.icon-act-list-athor{@include get-icon('athor-24x24',true,block);}
+.icon-act-list-date{@include get-icon('date-24x24',true,block);}
+.icon-act-list-price{@include get-icon('price-24x24',true,block);}
+.icon-act-list-starts{@include get-icon('starts-24x24',true,block);}
+.icon-act-list-join-num{@include get-icon('join_num-24x24',true,block);}
+
+.icon-act-list-arrow {@include get-icon('act-list-arr-24x14',true,block);}
+.icon-act-list-arrow-red {@include get-icon('act-list-arr-red-24x14',true,block);}
+
+.icon-pic-reject {@include get-icon('reject-132x76',true,block);}
+.icon-pic-no-reject {@include get-icon('no-reject-112x76',true,block);}
+
+.icon-btn-icon-cs {@include get-icon('btn-icon-cs-40x40',true,block);}
+.icon-btn-icon-pj {@include get-icon('btn-icon-pj-40x40',true,block);}
+.icon-btn-icon-qr {@include get-icon('btn-icon-qr-40x40',true,block);}
+.icon-btn-icon-qx {@include get-icon('btn-icon-qx-40x40',true,block);}
+.icon-btn-icon-sm {@include get-icon('btn-icon-sm-40x40',true,block);}
+.icon-btn-icon-fk {@include get-icon('btn-icon-fk-40x40',true,block);}
+.icon-btn-icon-bs {@include get-icon('btn-icon-bs-40x40',true,block);}
+.icon-start-m-1 {@include get-icon('start-m-1',true,block);}
+.search-top-m-w {@include get-icon('search-top-m-w',true,block);}
+.icon-msg-f{@include get-icon('msg-50x50-f',true,block);}
+
+
+.icon-model-change-price {@include get-icon('change-price-50x50',true,block);}
+.icon-model-change-price-active {@include get-icon('change-price-50x50-active',true,block);}
+.icon-model-preview {@include get-icon('preview-50x50',true,block);}
+.icon-model-preview-active {@include get-icon('preview-50x50-active',true,block);}
+.icon-model-change-info {@include get-icon('change-info-50x50',true,block);}
+.icon-model-change-info-active {@include get-icon('change-info-50x50-active',true,block);}
+.edit-work-c {@include get-icon('edit-work-c',true,block);}
+.edit-work-c-cur {@include get-icon('edit-work-c-cur',true,block);}
+
+
+.icon-circle-add {@include get-icon('circle-add-40x40',true,block);}
+.icon-circle-minus {@include get-icon('circle-minus-40x40',true,block);}
+
+
+.btn-icon-cs-46x40
+{
+  @include  get-icon('btn-icon-cs-46x40',true,block);
+  &:active {@include  get-icon('btn-icon-cs-46x40-c',true,block);}
+}
+
+
+.icon-search-top-m
+{
+    @include get-icon('search-top-m', true, block);
+    &:active {@include get-icon('search-top-m-active', true, block);} 
+}
+
+.icon-srarch-m
+{
+    @include get-icon('srarch-40x40', true, block);
+    &:active {@include get-icon('srarch-40x40-active', true, block);} 
+}
+.icon-search-gray{@include get-icon('search-gray',true,block);} 
+.icon-refresh-m{@include get-icon('refresh-m',true,block);} 
+.icon-search-gray-s{@include get-icon('search-gray-s',true,block);} 
+.icon-er-wei-ma-w{@include get-icon('er-wei-ma-w',true,block);} 
+.icon-credit-level-m{@include get-icon('credit-level-m',true,block);} 
+.icon-r-red-m{@include get-icon('r-red-m-12x20',true,block);} 
+.icon-r-grey-m{@include get-icon('r-grey-m-12x20',true,block);}
+
+.icon-triangle-grey{@include get-icon('triangle-grey-20x12',true,block);} 
+.icon-triangle-red{@include get-icon('triangle-red-20x12',true,block);} 
+.icon-triangle-top{@include transform(rotate(180deg));}
+
+
+
+.icon-stream-empty {
+    @include get-icon('empty-160x160', true, block);
+}
+.icon-stream-network-error {
+    @include get-icon('network-error-160x160', true, block);
+}
+
+.icon-icon-money-c {@include get-icon('icon-money-c',true,block);}
+.icon-icon-zhi-c {@include get-icon('icon-zhi-c',true,block);}
+.icon-identity {@include get-icon('icon-identity-32x32',true,block);}
+.icon-yue-about-m{@include get-icon('yue-about-m',true,block);}
+
+.icon-add-32x32-m{@include get-icon('add-32x32-m',true,block);}
+.icon-reduce-32x32-m{@include get-icon('reduce-32x32-m',true,block);}
+
+.icon-right-m {@include get-icon('right-32x32-m',true,block);}
+.icon-v1-cam{@include get-icon('v1-32x32',true,block);}
+.icon-v2-cam{@include get-icon('v2-32x32',true,block);}
+.icon-v3-cam{@include get-icon('v3-32x32',true,block);}
+.icon-v1-cam-r{@include get-icon('v1-r-126x32',true,block);}
+.icon-v2-cam-r{@include get-icon('v2-r-126x32',true,block);}
+.icon-v3-cam-r{@include get-icon('v3-r-126x32',true,block);}
+
+.icon-ui-follow-m { @include get-icon('ui-follow-add-m',true,block);}
+.icon-ui-hasfollow-m { @include get-icon('ui-hasfollow-add-m',true,block);}
+.icon-ui-eachotherfollow-m { @include get-icon('ui-eachotherfollow-mod',true,block);}
+
+.icon-commit_good { @include get-icon('commit-good-24x24',true,block);}
+.icon-commit_bad { @include get-icon('commit-bad-24x24',true,block);}
+
+.icon-model-card-share {
+  @include  get-icon('model-card-share-40x40',true,block);
+  &:active {@include get-icon('model-card-share-c-40x40', true, block);}
+}
+
+
+.icon-new-sign-arr-up { @include get-icon('new-sign-arr-up-20x12',true,block);}
+.icon-new-sign-arr-down {@include get-icon('new-sign-arr-down-20x12',true,block);}
+
+.act_is_finish { @include get-icon('finish-112x76',true,block);}
+
+.icon-right-24x16 {@include get-icon('right-24x16',true,block);}
+
+.icon-success-max {@include get-icon('success-100x100',true,block);}
+.icon-success-level {@include get-icon('success-100x100-g',true,block);}

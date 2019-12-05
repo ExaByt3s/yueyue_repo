@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <title>ueditor demo</title>
+    <script src="../lib/lib.js"></script>
+</head>
+
+<body>
+
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+        这里写你的初始化内容
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="./lib/ueditor/ueditor.config.js?2"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="./lib/ueditor/ueditor.all.js?2"></script>
+    <!-- 实例化编辑器 -->
+    <div id="btns">点击</div>
+    <script type="text/javascript">
+
+    window.UEDITOR_HOME_URL = 'http://yueus.com/wappredev/lib/ueditor/'
+    var $ = require('zepto');
+    
+    $(function(){
+        var ue = UE.getEditor('container',{
+            toolbars: [
+            ['source', 'undo', 'redo', 'simpleupload','insertvideo'] // 
+    ]
+        });
+        $('#btns').on('click',function(){
+            var html = ue.getContent();
+            console.log(html);
+        })
+    })     
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+// -------------------------------------------------
+// 底部
+// -------------------------------------------------
+
+.global-footer {
+    width: 994px;
+    border-top: 1px solid #f0f0f0;
+    margin: 0 auto;
+    padding: 11px 0 15px;
+    color: $color-999;
+
+    a {
+        color: $color-999;
+
+        .des{
+            color: $color-3fa;
+        }
+
+        .mobile{
+            color: $color-fff; 
+            background-color: #3fa900; 
+            @include inline-block; 
+            height: 12px; 
+            line-height: 11px; 
+            font-size: 12px; 
+            padding: 0 2px
+        }
+    }
+    .separator{
+        margin: 0 5px;
+        color: #f0f0f0;
+    }
+    .copyright {
+        @include float-right;
+    }
+}

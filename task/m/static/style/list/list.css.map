@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "list_ff79daa.css",
+    "sources": [
+        "/style/list/list.scss"
+    ],
+    "sourcesContent": [
+        ".list_title{\r\n    display: -webkit-box;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-pack:center;\r\n    height: 80px;\r\n    font-size: 20px;\r\n    font-weight: 600;\r\n    padding: 0px 15px;\r\n    background: #fff;  \r\n}"
+    ],
+    "mappings": "AAAA,AACI,AAAS,AACT,AAAoB,AACpB,AAAiB,AACjB,AAAQ,AACR,AAAW,AACX,AAAa,AACb,AAAS,AACT,AAAY",
+    "names": []
+}

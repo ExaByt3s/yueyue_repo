@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>榜单管理系统</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">榜单列表</a> 
+		<a href="rank_event.php?act=add">榜单添加</a>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform">
+					<table class="table-list-search" id="quick_search" width="1000">
+					      <tbody>
+							       <tr>
+										<td width="260">添加日期: <input type="text" class="input-text Wate" name="start_add_time" value="{start_add_time}" onFocus="WdatePicker()" style="width:80px;"/>~ <input type="text" class="input-text Wate" name="end_add_time" value="{end_add_time}" onFocus="WdatePicker()" style="width:80px;" />
+										</td>
+										<td width="150">添加者UID:
+										<input type="text" class="input-text" name="add_id" value="{add_id}" style="width:60px;" />
+										</td>
+                                       <!-- IF aut_location -->
+                                       <!-- ELSE -->
+									    <td width="200">
+									    城市:
+											<select name="province" class="prov">
+											  <option value="0">请选择</option>
+										  	  <!-- BEGIN province_list -->
+										  	  <option value="{c_id}" {selected_prov}>{c_name}</option>
+										  	  <!-- END province_list -->
+										  	</select>
+										    <select class="city" name="location_id" id="location_id">
+										    	<option value="0">请选择</option>
+										    	<!-- BEGIN city_list -->
+										  		<option value="{c_id}" {selected_city}>{c_name}</option>
+										  		<!-- END city_list -->
+										    </select>
+									    </td>
+                                       <!-- ENDIF -->
+									    <td width="100">
+									    角色:
+									    	<select name="role">
+											  <option value="">全部</option>
+										  	  <option value="model" {role_1}>模特</option>
+										  	  <option value="cameraman" {role_2}>摄影师</option>
+										  	</select>
+									    </td>
+									   <td>
+									    <p><input type="submit" class="button" value="查找"/> <!-- <input type="button" class="button" value="导出" onclick="com_export('export')"> --></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+	<div class="table-list" id="table-list">
+		<div class="btn">
+			总条数:{total_count}
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0" style="min-width: 1025px;">
+			<thead>
+				<tr>
+                <th>序号</th>
+				<th>榜单ID</th>
+				<th>名称</th>
+				<th>单位</th>
+				<th>说明</th>
+				<th>url</th>
+				<th>APP排序</th>
+				<th>促销ID</th>
+				<th>角色</th>
+				<th>排序</th>
+				<th>地区</th>
+				<th>添加时间</th>
+				<th>添加者ID</th>
+				<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center">{id}</td>
+				<td align="center">{rank_id}</td>
+				<td align="center">{channel_name}{rank_name}</td>
+				<td align="center"><!-- IF unit="1" -->魅力<!-- ELSEIF unit="2" -->分<!-- ELSEIF unit="3" -->小时<!-- ELSEIF unit="4" -->备注<!-- ELSE -->无<!-- ENDIF unit --></td>
+				<td align="center"><a href="javascript:void(0);" class="desc" data="{rank_desc}">{desc}</a></td>
+				<td align="center"><a href="javascript:void(0);" class="url" data="{url}">{url_desc}</a></td>
+				<td align="center"><!-- IF app_sort="1" -->数值正序<!-- ELSEIF app_sort="2" -->数值倒序<!-- ELSE -->默认<!-- ENDIF app_sort --></td>
+				<td align="center">{dmid}</td>
+				<td align="center"><!-- IF role="model" -->模特<!-- ELSEIF role="cameraman" -->摄影师<!-- ELSE -->全部<!-- ENDIF role --></td>
+				<td align="center">{sort_order}</td>
+				<td align="center">{city}</td>
+				<td align="center">{add_time}</td>
+				<td align="center">{add_id}</td>
+				<td align="center"><a href="?act=edit&id={id}">修改</a> | <a href="javascript:void(0);" onclick="del('?act=del&id={id}&location_id={location_id}')">删除</a></td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+	</div>
+	<div id="pages" class="page">
+	{page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+	//导出和查询触动
+  function com_export($actval)
+  {
+  	$("#act").val($actval);
+	//$("#myform").attr("action", $url);
+	//return;
+	$("#myform").submit();
+ }
+     $(function(){
+ 	   //获取城市数据
+ 		$(".prov").change(function(){
+ 			var $prov_val = $(this).val();
+ 			$.ajax({
+ 			   type:"POST",
+ 			   url:"get_city.php",
+ 			   dataType: 'json',
+ 			   data : {'prov_id': $prov_val},
+ 			   success:function(data)
+ 			  {
+ 			  	if (data.ret) 
+ 			  	{
+ 			  		var $ret = data.ret;
+ 			  		var $str = "<option value='0'>请选择</option>";
+ 			  		for (var i = 0; i < $ret.length; i++) 
+ 			  		{
+ 			  			$str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";		
+ 			  		}
+ 			  		$(".city").html($str);
+
+ 			  	}
+
+ 			  },
+ 			  error:function(data)
+ 			 {
+
+ 			 }
+ 			});
+ 		});
+
+ 		//显示所有文字
+ 		$("#table-list tbody td").find(".desc").mouseover(function(){
+ 			var $dmid_desc = $(this).attr('data');
+ 			layer.tips($dmid_desc, this, {
+ 				style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+ 				    //maxWidth:185,
+ 				time: 3,
+ 				closeBtn:[0, false]
+ 			});
+ 		});
+ 		$("#table-list tbody td").find(".desc").mouseleave(function(){
+ 			layer.closeTips();
+ 		});
+ 		//url
+ 		$("#table-list tbody td").find(".url").mouseover(function(){
+ 			var $dmid_desc = $(this).attr('data');
+ 			layer.tips($dmid_desc, this, {
+ 				style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+ 				    //maxWidth:185,
+ 				time: 3,
+ 				closeBtn:[0, false]
+ 			});
+ 		});
+ 		$("#table-list tbody td").find(".url").mouseleave(function(){
+ 			layer.closeTips();
+ 		});
+    });
+</script>
+</html>

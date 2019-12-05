@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/model_audit.css">
+<title>信息发送后台</title>
+<style type="text/css">
+.table-list
+{
+	min-width: 990px;
+	margin-bottom: 20px;
+}
+.table-list tbody td
+{
+
+	border-left: #eee 1px solid;
+}
+.album img
+{
+	margin:2px;
+}
+.special_button
+{
+	background: url('resources/images/uploadify.png');
+	height: 28px;
+	width: 75px;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	text-shadow:none;
+	box-shadow:none;
+}
+.disabledd
+{
+	background: url('');
+	background-color:#ccc;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list">
+       <h1><b>发送信息</b></h1>
+       <iframe name="frame" id="frame" style="display:none"></iframe>
+       <form method="post" action="?" id="myform" target="frame">
+	   <div class="table" style="width:98%;" id="occu">
+		    <!--list-->
+		    <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+		    	<tbody>
+		    	<tr>
+		    		<td width="140">导入链接:</td>
+		    		<td><input type="text" name="data_url" id="data_url" class="input-text" style="width:400px;" value="{data_url}"/></td>
+		    	</tr>
+		    	<tr>
+		    		<td><input type="checkbox" name="is_multi" value="1" id="is_multi"/>群发功能</td>
+		    		<td>
+		    		 选择地区: 
+		    		 <select name="province" class="prov">
+				 		<option value="0">全部</option>
+  		                 <!-- BEGIN province_list -->
+  		                 <option value="{c_id}" {selected_prov}>{c_name}</option>
+  		                 <!-- END province_list -->
+  		            </select>
+    	            <select class="city" name="location_id">
+    	                <option value="0">全部</option>
+    	                <!-- BEGIN city_list -->
+  		                 <option value="{c_id}" {selected_city}>{c_name}</option>
+  		                 <!-- END city_list -->
+    	            </select>
+    	            &nbsp;&nbsp;
+		    		 选择人群:
+		    		 <select name="role" id="role">
+						<option value="">全部</option>
+						<option value="model" <!-- IF role="model" -->selected='true'<!-- ENDIF -->>模特</option>
+						<option value="cameraman" <!-- IF role="cameraman" -->selected='true'<!-- ENDIF -->>摄影师</option>
+					  </select>
+					&nbsp;&nbsp;
+					 <select name="only_send_online" id="only_send_online">
+					 	<option value="0">全部</option>
+					 	<option value="1" <!-- IF only_send_online="1" -->selected='true'<!-- ENDIF -->>在线</option>
+					 </select>
+		    		</td>
+		    	</tr>
+		    	<!-- 发送日期段 -->
+		    	<tr>
+                    <td>发送日期段:</td>
+                    <td><input type="text" value="{start_time}" name="start_time" class="input-text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd' })" id="start_time" readonly="true" style="width:80px;"/>
+                    至 <input type="text" value="{end_time}" name="end_time" class="input-text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd' })" id="end_time" readonly="true" style="width:80px;"/>
+                    </td>
+                </tr>
+                <!-- END发送日期段 -->
+                <!-- 发送时间段 -->
+		    	<tr>
+                    <td>发送时间段:</td>
+                    <td>
+                    <select name="start_interval" id="start_interval">
+                    	<option value="09:00:00">09</option>
+                    	<option value="10:00:00">10</option>
+                    	<option value="11:00:00">11</option>
+                    	<option value="12:00:00">12</option>
+                    	<option value="13:00:00">13</option>
+                    	<option value="14:00:00">14</option>
+                    	<option value="15:00:00">15</option>
+                    	<option value="16:00:00">16</option>
+                    	<option value="17:00:00">17</option>
+                    	<option value="18:00:00">18</option>
+                    	<option value="19:00:00">19</option>
+                    	<option value="20:00:00">20</option>
+                    	<option value="21:00:00">21</option>
+                    	<option value="22:00:00">22</option>
+                    </select>
+                    至 <select  name="end_interval" id="end_interval">
+                    	<option value="09:00:00">09</option>
+                    	<option value="10:00:00">10</option>
+                    	<option value="11:00:00">11</option>
+                    	<option value="12:00:00">12</option>
+                    	<option value="13:00:00">13</option>
+                    	<option value="14:00:00">14</option>
+                    	<option value="15:00:00">15</option>
+                    	<option value="16:00:00">16</option>
+                    	<option value="17:00:00">17</option>
+                    	<option value="18:00:00" selected="true">18</option>
+                    	<option value="19:00:00">19</option>
+                    	<option value="20:00:00">20</option>
+                    	<option value="21:00:00">21</option>
+                    	<option value="22:00:00">22</option>
+                    </select>
+                    </td>
+                </tr>
+                <!-- END发送时间段 --> 
+				<tr>
+				<td>请选择推送消息的账号:</td>
+				<td>
+				 	<select name="send_uid" id="send_uid">
+				 		<option value="10002" >约yue小助手</option>
+				 		<option value="10005" <!-- IF send_uid="10005" -->selected='true'<!-- ENDIF -->>约yue系统助手</option>
+				 	</select>
+				</td>
+				</tr>
+				<tr>
+				<td>填写UID:</td>
+				<td>
+				   <textarea name="user_str" style="width:400px;height:100px;" id="user_str">{user_str}</textarea>(填写UID发送以,为分隔符)
+				</td>
+				</tr>
+				<!-- 验证码部分 -->
+				<tr>
+				<td>约约助手验证码:</td>
+				<td><input type="text" name="send_code" class="input-text" value style="width:80px;" id="send_code"/>&nbsp;(<font color="red">大小写敏感</font>)</td>
+				</tr>
+				<tr>
+				<td>市场负责人验证码:</td>
+				<td><input type="text" name="market_code" class="input-text" value style="width:80px;" id="market_code"/>&nbsp;(<font color="red">大小写敏感</font>)</td>
+				</tr>
+				<tr>
+				<td>技术负责人验证码:</td>
+				<td><input type="text" name="technical_code" class="input-text" value style="width:80px;" id="technical_code"/>&nbsp;(<font color="red">大小写敏感</font>)
+				<input type="button" value="验证" class="button" onclick="checkCode();"/>
+				<input type="button" value="发送验证码" class="button" onclick="send_test()"/></td>
+				</tr>
+				<!-- //END验证码部分 -->
+				<tr>
+				<td>请选择发送格式:</td>
+				<td>
+				 	<select name="card_style" onchange="hidde_text(this.value);" id="card_style">
+				 		<option value="1">有金额卡片</option>
+				 		<option value="2" selected="true">没金额卡片</option>
+				 	</select>
+				</td>
+				</tr>
+				<tr>
+				<td>卡片描述:</td>
+				<td>
+				   <textarea name="card_text1" style="width:400px;height:50px;" id="card_text1"></textarea>
+				</td>
+				</tr>
+				<tr id="jiner" style="display:none;">
+				<td>卡片金额:</td>
+				<td>
+				   <input type="text" id="card_text2" name="card_text2" value="" class="input-text" />
+				</td>
+				</tr>
+				<tr>
+				<td>卡片标题:</td>
+				<td>
+				   <input type="text" id="card_title" name="card_title" value="" class="input-text" style="width:400px;"/>
+				</td>
+				</tr>
+				<tr>
+				<td>移动跳转链接:</td>
+				<td>
+				   <input type="text" id="link_url" name="link_url" value="" class="input-text" style="width:400px;" />
+				</td>
+				</tr>
+				<tr>
+				<td>wif跳转链接:</td>
+				<td>
+				   <input type="text" id="wifi_url" name="wifi_url" value="" class="input-text" style="width:400px;"/>
+				</td>
+				</tr>
+				<tr>
+				<td>操作:</td>
+				<td>
+				   <input type="reset" value="取消" class="button special_button"/>
+			       <input type="button" value="录入" class="button disabledd" id="submited" disabled="true"/>
+				</td>
+				</tr>  	
+			    </tbody>
+		    </table>
+	   </div>
+	   <input type="hidden" value="{act}" name="act" id="act"/>
+	   <input type="hidden" value="{id}" name="id" />
+	   </form>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+$(function(){
+	//获取城市数据
+	$(".prov").change(function(){
+		var $prov_val = $(this).val();
+		$.ajax({
+		   type:"POST",
+		   url:"get_city.php",
+		   dataType: 'json',
+		   data : {'prov_id': $prov_val, 'act' : 'city_list'},
+		   success:function(data)
+		  {
+		  	if (data.ret) 
+		  	{
+		  		var $ret = data.ret;
+		  		var $str = "<option>请选择</option>";
+		  		for (var i = 0; i < $ret.length; i++) 
+		  		{
+		  			$str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";		
+		  		}
+		  		$(".city").html($str);
+
+		  	}
+
+		  },
+		  error:function(data)
+		 {
+
+		 }
+		});
+	});
+	//数据提交判断
+	$("#submited").click(function(){
+		var $start_time = $("#start_time").val();
+		var $end_time   = $("#end_time").val();
+		var $start_interval = $("#start_interval").val();
+		var $end_interval   = $("#end_interval").val();
+		var $card_text1     = $("#card_text1").val();
+		var $card_title     = $("#card_title").val();
+		if($start_time == '')
+		{
+			window.alert('开始日期不能为空');
+			//$("#start_time").focus();
+			return false;
+		}
+		if($end_time == '')
+		{
+			window.alert('结束日期不能为空');
+			//$("#end_time").focus();
+			return false;
+		}
+		//时间
+		if($start_interval == '')
+		{
+			window.alert("开始时间不能为空");
+			//$("#start_interval").focus();
+			return false;
+			
+		}
+		if($end_interval == '')
+		{
+			window.alert("结束时间不能为空");
+			//$("#end_interval").focus();
+			return false;
+		}
+		if($card_text1 == '')
+		{
+			window.alert("卡片描述不能为空");
+			return false;
+		}
+		if ($card_title == '') 
+	    {
+	    	window.alert("卡片标题不能为空");
+	    	return false;
+	    }
+		/*$DisSelects = $("select[disabled='disabled']");//获取所有被禁用的select  
+        $DisSelects.attr("disabled", false); */
+        $("#act").val('insert');
+		$("#myform").submit();
+		$("#send_code").val('');
+		$("#market_code").val('');
+		$("#technical_code").val('');
+		$("#submited").addClass('disabledd');
+	    $("#submited").attr({ 'disabled':'disabled' });
+		//$DisSelects.attr("disabled", true);
+	});
+	
+});
+	
+	//判断是否不需要金额那个选项
+	function hidde_text($values)
+	{
+		if($values == 2)
+		{
+			$("#jiner").hide();
+		}
+		else
+		{
+			$("#jiner").show();
+		}
+		//var $values = $obj.val();
+		//window.alert($values);
+	}
+	//发送信息
+	function send_test()
+	{
+        var $start_time = $("#start_time").val();
+        var $end_time   = $("#end_time").val();
+        var $start_interval = $("#start_interval").val();
+        var $end_interval   = $("#end_interval").val();
+        var $card_text1     = $("#card_text1").val();
+        var $card_title     = $("#card_title").val();
+        if($start_time == '')
+        {
+            window.alert('开始日期不能为空');
+            return false;
+        }
+        if($end_time == '')
+        {
+            window.alert('结束日期不能为空');
+            //$("#end_time").focus();
+            return false;
+        }
+        //时间
+        if($start_interval == '')
+        {
+            window.alert("开始时间不能为空");
+            return false;
+
+        }
+        if($end_interval == '')
+        {
+            window.alert("结束时间不能为空");
+            return false;
+        }
+        if($card_text1 == '')
+        {
+            window.alert("卡片描述不能为空");
+            return false;
+        }
+        if ($card_title == '')
+        {
+            window.alert("卡片标题不能为空");
+            return false;
+        }
+        $("#act").val('send_test');
+        //发送验证消息
+        $("#myform").submit();
+        $("#user_str").attr({ 'readonly':'readonly' });
+        $("#content").attr({ 'readonly':'readonly' });
+    }
+
+	//验证验证码是否正确
+	function checkCode()
+	{
+		var $send_code      = $("#send_code").val();
+		var $market_code    = $("#market_code").val();
+		var $technical_code = $("#technical_code").val();
+		$.ajax ({
+			url : 'send_message_edit_v2.php',
+			type: 'POST',
+			dataType: 'json',
+			data : { act:'checkcode',send_code:$send_code,market_code: $market_code,technical_code:$technical_code},
+		    success:function(data)
+		    {
+		    	if(data == 2)
+		    	{
+		    	  window.alert("验证码校验成功");
+		    	  $("#user_str").attr({ 'readonly':'readonly' });
+		    	  $("#card_text1").attr({ 'readonly':'readonly' });
+		    	  $("#submited").removeClass('disabledd');
+			      $("#submited").removeAttr('disabled');
+		    	}
+		    	else
+		    	{
+		    		$("#submited").addClass('disabledd');
+			        $("#submited").attr({ 'disabled':'disabled' });
+		    		window.alert("校验失败");
+		    	}
+		    },
+		    error:function(data)
+		    {
+		    	$("#submited").addClass('disabledd');
+			    $("#submited").attr({ 'disabled':'disabled' });
+		    	window.alert("验证失败");
+		    }
+		});
+	}
+
+	//录入按钮颜色
+	function button_style()
+	{
+		var $send_code      = $("#send_code").val();
+		var $send_data      = $("#send_code").attr('data');
+		var $market_code    = $("#market_code").val();
+		var $market_data    = $("#market_code").attr('data');
+		var $technical_code = $("#technical_code").val();
+		var $technical_data = $("#technical_code").attr('data');
+		if($send_code != '' && $send_code == $send_data && $market_code != '' && $market_code == $market_data && $technical_code != '' && $technical_code == $technical_data)
+		{
+			$("#submited").removeClass('disabledd');
+			$("#submited").removeAttr('disabled');
+		}
+		else
+		{
+			$("#submited").addClass('disabledd');
+			$("#submited").attr({ 'disabled':'disabled' });
+		}
+	}
+</script>
+</html>

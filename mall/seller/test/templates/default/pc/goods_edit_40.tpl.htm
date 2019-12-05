@@ -1,0 +1,1515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{page_title}</title>
+
+    <!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+    -->
+    <!-- 公共css，js引入 -->{pc_global_top}<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/pc/modules/common/layer/skin/layer.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/pc/modules/common/upload/1.0.0/css/style.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/pc/modules/common/qr_code_preview/qr_code_preview.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/global-top-bar/global-top-bar.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/layer/layer.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/json/json.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/core.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/widget.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/mouse.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/sortable.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/upload/1.0.0/yueyue_uploader.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/qr_code_preview/qr_code_preview.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/valid/index.js"></script>
+</head>
+
+<body>
+{global_top_bar}
+
+
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+<form action="./module/pai_mall_goods_op.php" method="post"  name="publish_form" target="form_iframe" id="publish_form">
+
+    <div class="editing-from-page w1000 font_wryh content">
+        <div class="msg_info mt10 font_wryh f14" id="system_msg_div" style="<!-- IF hide_system_msg == "1" -->display:none;<!-- ENDIF hide_system_msg -->">
+            <ul class="list clearfix">
+
+                <li>
+                    <a href="javascript:;" class="close" id="system_msg_close"></a>
+                    {system_msg}
+                    <!--<a href="#">去看看</a>-->
+                </li>
+            </ul>
+
+        </div>
+    <div class="mod-nav-item">
+        <a href="./">约约商家主页</a>
+        &gt;
+        <a href="./goods_list.php">服务管理</a>
+        &gt;
+        <span>编辑服务</span>
+    </div>
+    <div class="editing-from-wrap mod-attest-page content-bg">
+    <div class="mod-listItem">
+        <span>{page_title}</span>
+        <span style="font-size: 14px;display: block">温馨提示：单个摄影服务须对应一个系列的拍摄样图集。详细的作品图片描述将大大增加接单机会。</span>
+    </div>
+    <div class="form-warp" id='form-warp'>
+        <div class="item clearfix">
+            <div class="mod-form-title"><span>拍摄类别：(单选，方便消费者按拍摄人数查找服务)</span></div>
+            <div class="from-con">
+                <div class="mod-radio-item" id="J_photo_type_div">
+                    <!-- IF action == "edit" -->
+                    <!-- BEGIN system_data.8613985ec49eb8f757ae6439e879bb2a.child_data -->
+                    <label>
+                        <input type="radio" class="J_photo_type" data-mark="{id}" name="system_data[8613985ec49eb8f757ae6439e879bb2a]" value="{key}" <!-- IF key=top.system_data.8613985ec49eb8f757ae6439e879bb2a.value -->checked="checked"<!-- ENDIF key --> />
+                        {name}
+                    </label>
+                    <!-- END system_data.8613985ec49eb8f757ae6439e879bb2a.child_data -->
+                    <!-- ELSE -->
+                    <!-- BEGIN system_data.8613985ec49eb8f757ae6439e879bb2a.child_data -->
+                    <label>
+                        <input type="radio" class="J_photo_type" data-mark="{id}" name="system_data[8613985ec49eb8f757ae6439e879bb2a]" value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT --> />
+                        {name}
+                    </label>
+                    <!-- END system_data.8613985ec49eb8f757ae6439e879bb2a.child_data -->
+                    <!-- ENDIF action -->
+                </div>
+            </div>
+            <div class="mod-form-title fl" id="J_child_title" <!-- IF show_J_child_title =="1" --><!-- ELSE -->style="display:none;"<!-- ENDIF show_J_child_title -->><span>子类别：(单选，方便消费者按拍摄风格查找服务)</span></div>
+                <div class="from-con">
+                    <!-- BEGIN photo_detail_data_arr -->
+                    <div class="mod-checkbox-item font_wryh clearfix J_child_photo_type_div" id="{parent_id}" style="padding-top:8px;<!-- IF match != "1" -->display: none;<!-- ENDIF match -->">
+                    <!-- IF child_data -->
+                    <!-- BEGIN child_data -->
+                    <label style="padding-right:32px;">
+                        <input type="radio" name="system_data[{parent.parent_key}]" value="{key}" class="J_child_photo_type" data-parent="{parent.parent_id}" <!-- IF is_select == "1" -->checked="checked"<!-- ENDIF is_select -->/>
+                        {name}
+                    </label>
+                    <!-- END child_data -->
+                    <!-- ENDIF child_data -->
+                    </div>
+                    <!-- END photo_detail_data_arr -->
+            </div>
+        </div>
+        <div class="item clearfix">
+            <div class="mod-form-title"><span>标签：(双选，方便消费者利用关键词搜索到服务)</span></div>
+            <div class="from-con">
+                <div class="mod-radio-item clearfix" id="J_lable_type_div">
+                    <!-- IF action == "edit" -->
+                    <!-- BEGIN system_data.839ab46820b524afda05122893c2fe8e.child_data -->
+                    <label>
+                        <input type="checkbox" class="J_lable_type" data-mark="{id}" name="system_data[839ab46820b524afda05122893c2fe8e][]" value="{key}" <!-- IF is_select == "1" -->checked="checked"<!-- ENDIF is_select --> />
+                        {name}
+                    </label>
+                    <!-- END system_data.839ab46820b524afda05122893c2fe8e.child_data -->
+                    <!-- ELSE -->
+                    <!-- BEGIN system_data.839ab46820b524afda05122893c2fe8e.child_data -->
+                    <label>
+                        <input type="checkbox" class="J_lable_type" data-mark="{id}" name="system_data[839ab46820b524afda05122893c2fe8e][]" value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT --> />
+                        {name}
+                    </label>
+                    <!-- END system_data.839ab46820b524afda05122893c2fe8e.child_data -->
+                    <!-- ENDIF action -->
+                </div>
+            </div>
+        </div>
+
+    <div class="item clearfix">
+        <h3 class="title">封面图：</h3>
+        <div class="from-con">
+            <div class="img-upload-item">
+                <div class="img-list clearfix">
+                    <div class="J_upload-container_1 ui-item" style="overflow:hidden;" >
+
+                    </div>
+                </div>
+                <div class="tips">建议尺寸：750*750像素；最多上传1张图片；文件格式为jpg、jpeg、png（每张图片大小不超过3M）</div>
+            </div>
+        </div>
+    </div>
+    <div class="item clearfix">
+        <h3 class="title">服务名称：</h3>
+        <div class="from-con">
+            <div class="mod-input-item">
+                <input type="text" name="default_data[titles]" class="input-txt input-txt-2 font_wryh" placeholder="设置一个有特色的标题，可以提高你的吸引力噢" value="{default_data.titles.value}" valid-rule="**1-30" valid-index='1'/>
+            </div>
+        </div>
+    </div>
+
+    <div class="item clearfix">
+        <h3 class="title">拍摄地点：</h3>
+        <div class="from-con">
+            <div class="mod-input-item">
+                <input type="text" class="input-txt input-txt-2 font_wryh" placeholder="拍摄地点" valid-rule="**1-10000" valid-index='2' name="system_data[98dce83da57b0395e163467c9dae521b]" value="{system_data.98dce83da57b0395e163467c9dae521b.value}"/>
+            </div>
+        </div>
+    </div>
+    <div class="item clearfix">
+        <h3 class="title">主题描述：</h3>
+        <div class="from-con">
+            <div class="textarea-item">
+                <textarea name="system_data[f4b9ec30ad9f68f89b29639786cb62ef]" class="textarea-txt textarea-txt-2 font_wryh" placeholder="主题描述"  valid-rule="**1-100000" valid-index='4'>{system_data.f4b9ec30ad9f68f89b29639786cb62ef.value}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- BEGIN new_price_list -->
+    <div class="edit-details-mod">
+        <div class="item cor-333 font_wryh  clearfix">
+            <div class="lbox fl mr20">
+                <!-- IF ROWCNT == "0" --><p class="tags">规格</p><!-- ENDIF ROWCNT -->
+                <h3 class="title" style="width:180px;text-align:left;">{html_name}</h3>
+            </div>
+            <div class="rbox fl">
+                <!-- IF ROWCNT == "0" --><p class="tags">价格</p><!-- ENDIF ROWCNT -->
+                <div class="item-con clearfix">
+                    <div class="mod-input-item fl">
+                        <input type="text" class="input-txt  input-txt-1 font_wryh J_prices_list" placeholder="" name="prices_de[{id}]" value="{value}" valid-rule="{valid_rule}" valid-index='{id}'>
+                    </div>
+                    <span class="unit fl">元</span>
+                </div>
+            </div>
+        </div>
+        <div class="item mt10">
+            <p class="tigs cor-aaa">
+                {intro}
+            </p>
+        </div>
+        <div class="item mt10">
+            <a href="javascript:;" class="ui-btn ui-btn-border-gray J_service_edit" data-role="{data_role}">编辑详情</a>
+        </div>
+    </div>
+    <!-- END new_price_list -->
+
+
+    <div class="item clearfix">
+        <div class="mod-form-title">
+            <span>请传入拍摄套样图：<span style="color:#aaa;font-size:12px;">（至少上传5张图片；文件格式为jpg、jpeg、png（每张图片大小不超过3M））</span></span>
+        </div>
+        <div class="from-con">
+            <div class="img-upload-item">
+                <div class="img-list clearfix">
+                    <div class="J_upload-container_2 ui-item" style="overflow:hidden;" >
+
+                    </div>
+                </div>
+                <!--<div class="tips">建议尺寸：750*750像素；文件格式为jpg、jpeg、png（每张图片大小不超过3M）</div>-->
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div class="item">
+        <div class="mod-form-title">
+            <span>图文详情：</span><span style="color:#aaa;font-size:16px;">（简单介绍一下所提供的套系并上传对应的套系拍摄样图）</span>
+            <textarea name="default_data[content]" id="J_content" style="display: none;"></textarea>
+        </div>
+        加载编辑器的容器
+        <script id="container" name="container" type="text/plain">{default_data.content.value}</script>
+        <div class="item-con fn-hide" style="display:none;">
+            <div class="mod-imgtext-item">
+                <div class="tool-item clearfix">
+                    <div class="tool-bar">
+                        <ul>
+                            <li>
+                                <a href="javascript:;"> <i class="icon img-icon"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;"> <i class="icon vedio-icon"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-item"></div>
+            </div>
+        </div>
+    </div>-->
+
+
+    <div class="btn-item">
+        <a href="javascript:;" class="ui-btn ui-btn-blue J_form_submit" data-type="{action}" id="J_form_submit" data-lock="unlock">保存</a>
+        <!-- IF action == "edit" -->
+        <input type="checkbox" id="money_edit" style="margin-left: 10px">勾选后，表示您只修改了价格，此服务则无需再次被审核。
+        <!-- ENDIF action -->
+    </div>
+        <div style="text-align:center;color:#333;padding-top:10px;font-size:16px">等待审核过程中，可先发布服务</div>
+        <div style="text-align:center;color:#333;padding-top:10px;font-size:14px">若有问题，请联系客服4000-82-9003</div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+<div class="fade" style="display: none;"></div>
+<!--弹窗-->
+
+
+
+<!-- 创意裸价 -->
+<div class="pop-creative-price J_div" style="display:none" id="J_creative_div">
+    <div class="item-wrap font_wryh">
+        <div class="item-title cor-333 mt20">套餐详情</div>
+        <div class="path1 item-w-380 clearfix">
+            <!--<div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">套餐名称：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input type="text" name="system_data[758874998f5bd0c393da094e1967a72b][{system_data.758874998f5bd0c393da094e1967a72b.format_data.b068931cc450442b63f5b3d276ea4297.key}]" value="{system_data.758874998f5bd0c393da094e1967a72b.format_data.b068931cc450442b63f5b3d276ea4297.value}" class="input-txt  input-txt-2 font_wryh J_creative" placeholder="拍摄时长">
+                    </div>
+                    <span class="unit fl">小时</span>
+                </div>
+            </div>-->
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">拍摄时长：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="ap1-200" valid-index="1000" type="text" name="system_data[758874998f5bd0c393da094e1967a72b][{system_data.758874998f5bd0c393da094e1967a72b.format_data.812b4ba287f5ee0bc9d43bbf5bbe87fb.key}]" value="{system_data.758874998f5bd0c393da094e1967a72b.format_data.812b4ba287f5ee0bc9d43bbf5bbe87fb.value}" class="input-txt  input-txt-2 font_wryh J_creative" placeholder="拍摄时长" data-old-value="{system_data.758874998f5bd0c393da094e1967a72b.format_data.812b4ba287f5ee0bc9d43bbf5bbe87fb.value}">
+                    </div>
+                    <span class="unit fl">小时</span>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">底片张数：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="zi1-200" valid-index="1001" type="text" name="system_data[758874998f5bd0c393da094e1967a72b][{system_data.758874998f5bd0c393da094e1967a72b.format_data.26657d5ff9020d2abefe558796b99584.key}]" value="{system_data.758874998f5bd0c393da094e1967a72b.format_data.26657d5ff9020d2abefe558796b99584.value}" class="input-txt  input-txt-2 font_wryh J_creative" placeholder="底片张数" data-old-value="{system_data.758874998f5bd0c393da094e1967a72b.format_data.26657d5ff9020d2abefe558796b99584.value}">
+                    </div>
+                    <span class="unit fl">张</span>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">修片时间：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="zi1-200" valid-index="1002" type="text" name="system_data[758874998f5bd0c393da094e1967a72b][{system_data.758874998f5bd0c393da094e1967a72b.format_data.a9a9afdb0bbd8327831ac8485f716322.key}]" value="{system_data.758874998f5bd0c393da094e1967a72b.format_data.a9a9afdb0bbd8327831ac8485f716322.value}" class="input-txt  input-txt-2 font_wryh J_creative" placeholder="修片时间" data-old-value="{system_data.758874998f5bd0c393da094e1967a72b.format_data.a9a9afdb0bbd8327831ac8485f716322.value}">
+                    </div>
+                    <span class="unit fl">天</span>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">精修张数：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="zi1-200" valid-index="1003" type="text" name="system_data[758874998f5bd0c393da094e1967a72b][{system_data.758874998f5bd0c393da094e1967a72b.format_data.e2ef524fbf3d9fe611d5a8e90fefdc9c.key}]" value="{system_data.758874998f5bd0c393da094e1967a72b.format_data.e2ef524fbf3d9fe611d5a8e90fefdc9c.value}" class="input-txt  input-txt-2 font_wryh J_creative" placeholder="精修张数" data-old-value="{system_data.758874998f5bd0c393da094e1967a72b.format_data.e2ef524fbf3d9fe611d5a8e90fefdc9c.value}">
+                    </div>
+                    <span class="unit fl">张</span>
+                </div>
+            </div>
+        </div>
+        <div class="path2 item-w-380 clearfix">
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">服装：</h3>
+                <div class="item-con fl clearfix">
+                    <h3 class="title cor-333 fl">不提供</h3>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">服装：</h3>
+                <div class="item-con fl clearfix">
+                    <h3 class="title cor-333 fl">不提供</h3>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">原片：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-radio-item clearfix">
+                        <!-- IF action == "edit" -->
+                        <!-- BEGIN system_data.758874998f5bd0c393da094e1967a72b.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <label><input class="J_creative_radio" data-mark="{top.system_data.758874998f5bd0c393da094e1967a72b.format_data.ec8956637a99787bd197eacd77acce5e.key}" type="radio" name="system_data[758874998f5bd0c393da094e1967a72b][{top.system_data.758874998f5bd0c393da094e1967a72b.format_data.ec8956637a99787bd197eacd77acce5e.key}]" value="{key}" <!-- IF key == top.system_data.758874998f5bd0c393da094e1967a72b.format_data.ec8956637a99787bd197eacd77acce5e.value -->checked="checked"<!-- ENDIF key -->>{name}</label>
+                        <!-- END system_data.758874998f5bd0c393da094e1967a72b.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <!-- ELSE -->
+                        <!-- BEGIN system_data.758874998f5bd0c393da094e1967a72b.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <label><input class="J_creative_radio" data-mark="{top.system_data.758874998f5bd0c393da094e1967a72b.format_data.ec8956637a99787bd197eacd77acce5e.key}" type="radio" name="system_data[758874998f5bd0c393da094e1967a72b][{top.system_data.758874998f5bd0c393da094e1967a72b.format_data.ec8956637a99787bd197eacd77acce5e.key}]" value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT -->>{name}</label>
+                        <!-- END system_data.758874998f5bd0c393da094e1967a72b.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <!-- ENDIF action -->
+                    </div>
+                </div>
+                <input class="J_creative_radio_hidden" data-mark="{system_data.758874998f5bd0c393da094e1967a72b.format_data.ec8956637a99787bd197eacd77acce5e.key}" type="hidden" value="{system_data.758874998f5bd0c393da094e1967a72b.format_data.ec8956637a99787bd197eacd77acce5e.value}" />
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">相册：</h3>
+                <div class="item-con fl clearfix">
+                    <h3 class="title cor-333 fl">不提供</h3>
+                    <!--<div class="mod-select-item">
+                        <select class="province font_wryh">
+                            <option>不提供</option>
+                        </select>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        <div class="path3">
+            <div class="item  clearfix">
+                <div class="btn-item">
+                    <a href="javascript:;" class="ui-btn ui-btn-border-gray J_cancel" data-role="J_creative">取消</a>
+                    <a href="javascript:;" class="ui-btn ui-btn-blue J_save" data-role="J_creative">保存</a>
+                </div>
+                <div class="pt5" style="color:#4092f1;text-align:center">创意裸价内容为必填项</div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<!-- 标准服务弹窗 -->
+<div class="pop-standard-service J_div" style="display:none" id="J_standard_div">
+    <div class="item-wrap font_wryh">
+        <div class="path1">
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">套餐名称：</h3>
+                <div class="item-con fl">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="**1-8" valid-index="2000" type="text" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.b068931cc450442b63f5b3d276ea4297.key}]" value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.b068931cc450442b63f5b3d276ea4297.value}" class="input-txt  input-txt-1 font_wryh J_standard" placeholder="不包括特殊字符，8个字以内" data-old-value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.b068931cc450442b63f5b3d276ea4297.value}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item-title cor-333">套餐详情</div>
+        <div class="path2 item-w-380 clearfix">
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">拍摄时长：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="ap1-200" valid-index="2001" type="text" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.812b4ba287f5ee0bc9d43bbf5bbe87fb.key}]" value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.812b4ba287f5ee0bc9d43bbf5bbe87fb.value}" class="input-txt  input-txt-2 font_wryh J_standard" placeholder="拍摄时长" data-old-value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.812b4ba287f5ee0bc9d43bbf5bbe87fb.value}">
+                    </div>
+                    <span class="unit fl">小时</span>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">底片张数：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="zi1-200" valid-index="2002" type="text" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.26657d5ff9020d2abefe558796b99584.key}]" value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.26657d5ff9020d2abefe558796b99584.value}" class="input-txt  input-txt-2 font_wryh J_standard" placeholder="底片张数" data-old-value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.26657d5ff9020d2abefe558796b99584.value}">
+                    </div>
+                    <span class="unit fl">张</span>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">修片时间：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="zi1-200" valid-index="2003" type="text" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.a9a9afdb0bbd8327831ac8485f716322.key}]" value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.a9a9afdb0bbd8327831ac8485f716322.value}" class="input-txt  input-txt-2 font_wryh J_standard" placeholder="修片时间" data-old-value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.a9a9afdb0bbd8327831ac8485f716322.value}">
+                    </div>
+                    <span class="unit fl">天</span>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">精修张数：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="zi1-200" valid-index="2004" type="text" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.e2ef524fbf3d9fe611d5a8e90fefdc9c.key}]" value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.e2ef524fbf3d9fe611d5a8e90fefdc9c.value}" class="input-txt  input-txt-2 font_wryh J_standard" placeholder="精修张数" data-old-value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.e2ef524fbf3d9fe611d5a8e90fefdc9c.value}">
+                    </div>
+                    <span class="unit fl">张</span>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">服装数目：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="zi1-200" valid-index="2005" type="text" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ed3d2c21991e3bef5e069713af9fa6ca.key}]" value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ed3d2c21991e3bef5e069713af9fa6ca.value}" class="input-txt  input-txt-2 font_wryh J_standard" placeholder="服装数目" data-old-value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ed3d2c21991e3bef5e069713af9fa6ca.value}">
+                    </div>
+                    <span class="unit fl">套</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="path3 item-w-380 clearfix">
+            <div class="item mt10 clearfix">
+                <h3 class="title cor-333 fl">化妆：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-radio-item clearfix">
+                        <!-- IF action == "edit" -->
+                        <!-- BEGIN system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ac627ab1ccbdb62ec96e702f07f6425b.child_data -->
+                        <label><input class="J_standard_radio" data-mark="{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ac627ab1ccbdb62ec96e702f07f6425b.key}" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ac627ab1ccbdb62ec96e702f07f6425b.key}]" type="radio" value="{key}" <!-- IF key == top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ac627ab1ccbdb62ec96e702f07f6425b.value -->checked="checked"<!-- ENDIF key -->>{name}</label>
+                        <!-- END system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ac627ab1ccbdb62ec96e702f07f6425b.child_data -->
+                        <!-- ELSE -->
+                        <!-- BEGIN system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ac627ab1ccbdb62ec96e702f07f6425b.child_data -->
+                        <label><input class="J_standard_radio" data-mark="{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ac627ab1ccbdb62ec96e702f07f6425b.key}" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ac627ab1ccbdb62ec96e702f07f6425b.key}]" type="radio" value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT -->>{name}</label>
+                        <!-- END system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ac627ab1ccbdb62ec96e702f07f6425b.child_data -->
+                        <!-- ENDIF action -->
+                    </div>
+                </div>
+                <input class="J_standard_radio_hidden" data-mark="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ac627ab1ccbdb62ec96e702f07f6425b.key}" type="hidden" value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ac627ab1ccbdb62ec96e702f07f6425b.value}" />
+            </div>
+            <div class="item mt10 clearfix">
+                <h3 class="title cor-333 fl">原片：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-radio-item clearfix">
+                        <!-- IF action == "edit" -->
+                        <!-- BEGIN system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <label><input class="J_standard_radio" data-mark="{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ec8956637a99787bd197eacd77acce5e.key}" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ec8956637a99787bd197eacd77acce5e.key}]" type="radio"  value="{key}" <!-- IF key == top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ec8956637a99787bd197eacd77acce5e.value -->checked="checked"<!-- ENDIF key -->>{name}</label>
+                        <!-- END system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <!-- ELSE -->
+                        <!-- BEGIN system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <label><input class="J_standard_radio" data-mark="{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ec8956637a99787bd197eacd77acce5e.key}" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ec8956637a99787bd197eacd77acce5e.key}]" type="radio"  value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT -->>{name}</label>
+                        <!-- END system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <!-- ENDIF action -->
+                    </div>
+                </div>
+                <input class="J_standard_radio_hidden" data-mark="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ec8956637a99787bd197eacd77acce5e.key}" type="hidden" value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.ec8956637a99787bd197eacd77acce5e.value}" />
+            </div>
+            <div class="item  clearfix">
+                <h3 class="title cor-333 fl">相册：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-radio-item clearfix">
+                        <!-- IF action == "edit" -->
+                        <!-- BEGIN system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.child_data -->
+                        <label><input class="J_standard_radio" data-mark="{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.key}" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.key}]" type="radio"  value="{key}" <!-- IF key == top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.value -->checked="checked"<!-- ENDIF key -->>{name}</label>
+                        <!-- END system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.child_data -->
+                        <!-- ELSE -->
+                        <!-- BEGIN system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.child_data -->
+                        <label><input class="J_standard_radio" data-mark="{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.key}" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{top.system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.key}]" type="radio"  value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT -->>{name}</label>
+                        <!-- END system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.child_data -->
+                        <!-- ENDIF action -->
+                    </div>
+                </div>
+                <input class="J_standard_radio_hidden" data-mark="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.key}" type="hidden" value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.value}" />
+            </div>
+        </div>
+        <div class="path4">
+            <div class="item mt10 clearfix">
+                <h3 class="title cor-333 fl">相册内容：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-index="2006" type="text" name="system_data[ad13a2a07ca4b7642959dc0c4c740ab6][{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.73e0714c4591b4faf232838206b9660e.key}]" value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.73e0714c4591b4faf232838206b9660e.value}" class="input-txt  input-txt-1 font_wryh J_standard" placeholder="相册内容" data-old-value="{system_data.ad13a2a07ca4b7642959dc0c4c740ab6.format_data.73e0714c4591b4faf232838206b9660e.value}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="path5">
+            <div class="item clearfix">
+                <div class="btn-item">
+                    <a href="javascript:;" class="ui-btn ui-btn-border-gray J_cancel" data-role="J_standard">取消</a>
+                    <a href="javascript:;" class="ui-btn ui-btn-blue J_save" data-role="J_standard">保存</a>
+                </div>
+                <div class="pt5" style="color:#4092f1;text-align:center">标配服务内容为必填项</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 尊享 -->
+<div class="pop-enjoyable J_div" style="display: none" id="J_enjoyabel_div">
+    <div class="item-wrap font_wryh">
+        <div class="path1">
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">套餐名称：</h3>
+                <div class="item-con fl">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="**0-8" valid-index="3000" type="text" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.b068931cc450442b63f5b3d276ea4297.key}]" value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.b068931cc450442b63f5b3d276ea4297.value}" class="input-txt  input-txt-1 font_wryh J_enjoyabel" placeholder="不包括特殊字符，8个字以内" data-old-value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.b068931cc450442b63f5b3d276ea4297.value}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item-title cor-333">套餐详情</div>
+        <div class="path2 item-w-380 clearfix">
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">拍摄时长：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="ap0-200" valid-index="3001" type="text" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.812b4ba287f5ee0bc9d43bbf5bbe87fb.key}]" value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.812b4ba287f5ee0bc9d43bbf5bbe87fb.value}" class="input-txt  input-txt-2 font_wryh J_enjoyabel" placeholder="拍摄时长" data-old-value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.812b4ba287f5ee0bc9d43bbf5bbe87fb.value}">
+                    </div>
+                    <span class="unit fl">小时</span>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">底片张数：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="zi0-200" valid-index="3002" type="text" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.26657d5ff9020d2abefe558796b99584.key}]" value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.26657d5ff9020d2abefe558796b99584.value}" class="input-txt  input-txt-2 font_wryh J_enjoyabel" placeholder="底片张数" data-old-value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.26657d5ff9020d2abefe558796b99584.value}">
+                    </div>
+                    <span class="unit fl">张</span>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">修片时间：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="zi0-200" valid-index="3003" type="text" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.a9a9afdb0bbd8327831ac8485f716322.key}]" value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.a9a9afdb0bbd8327831ac8485f716322.value}" class="input-txt  input-txt-2 font_wryh J_enjoyabel" placeholder="修片时间" data-old-value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.a9a9afdb0bbd8327831ac8485f716322.value}">
+                    </div>
+                    <span class="unit fl">天</span>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">精修张数：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="zi0-200" valid-index="3004" type="text" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.e2ef524fbf3d9fe611d5a8e90fefdc9c.key}]" value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.e2ef524fbf3d9fe611d5a8e90fefdc9c.value}" class="input-txt  input-txt-2 font_wryh J_enjoyabel" placeholder="精修张数" data-old-value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.e2ef524fbf3d9fe611d5a8e90fefdc9c.value}">
+                    </div>
+                    <span class="unit fl">张</span>
+                </div>
+            </div>
+            <div class="item mt20 clearfix">
+                <h3 class="title cor-333 fl">服装数目：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="zi0-200" valid-index="3005" type="text" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ed3d2c21991e3bef5e069713af9fa6ca.key}]" value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ed3d2c21991e3bef5e069713af9fa6ca.value}" class="input-txt  input-txt-2 font_wryh J_enjoyabel" placeholder="服装数目" data-old-value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ed3d2c21991e3bef5e069713af9fa6ca.value}">
+                    </div>
+                    <span class="unit fl">套</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="path3 item-w-380 clearfix">
+            <div class="item mt10 clearfix">
+                <h3 class="title cor-333 fl">化妆：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-radio-item clearfix">
+                        <!-- IF action == "edit" -->
+                        <!-- BEGIN system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ac627ab1ccbdb62ec96e702f07f6425b.child_data -->
+                        <label><input class="J_enjoyable_radio" data-mark="{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ac627ab1ccbdb62ec96e702f07f6425b.key}" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ac627ab1ccbdb62ec96e702f07f6425b.key}]" type="radio"  value="{key}" <!-- IF key == top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ac627ab1ccbdb62ec96e702f07f6425b.value -->checked="checked"<!-- ENDIF key -->>{name}</label>
+                        <!-- END system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ac627ab1ccbdb62ec96e702f07f6425b.child_data -->
+                        <!-- ELSE -->
+                        <!-- BEGIN system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ac627ab1ccbdb62ec96e702f07f6425b.child_data -->
+                        <label><input class="J_enjoyable_radio" data-mark="{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ac627ab1ccbdb62ec96e702f07f6425b.key}" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ac627ab1ccbdb62ec96e702f07f6425b.key}]" type="radio"  value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT -->>{name}</label>
+                        <!-- END system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ac627ab1ccbdb62ec96e702f07f6425b.child_data -->
+                        <!-- ENDIF action -->
+                    </div>
+                </div>
+                <input class="J_enjoyable_radio_hidden" data-mark="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ac627ab1ccbdb62ec96e702f07f6425b.key}" type="hidden" value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.value}" />
+            </div>
+            <div class="item mt10 clearfix">
+                <h3 class="title cor-333 fl">原片：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-radio-item clearfix">
+                        <!-- IF action == "edit" -->
+                        <!-- BEGIN system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <label><input class="J_enjoyable_radio" data-mark="{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ec8956637a99787bd197eacd77acce5e.key}" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ec8956637a99787bd197eacd77acce5e.key}]" type="radio"  value="{key}" <!-- IF key == top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ec8956637a99787bd197eacd77acce5e.value -->checked="checked"<!-- ENDIF key -->>{name}</label>
+                        <!-- END system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <!-- ELSE -->
+                        <!-- BEGIN system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <label><input class="J_enjoyable_radio" data-mark="{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ec8956637a99787bd197eacd77acce5e.key}" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ec8956637a99787bd197eacd77acce5e.key}]" type="radio"  value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT -->>{name}</label>
+                        <!-- END system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ec8956637a99787bd197eacd77acce5e.child_data -->
+                        <!-- ENDIF action -->
+                    </div>
+                </div>
+                <input class="J_enjoyable_radio_hidden" data-mark="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.ec8956637a99787bd197eacd77acce5e.key}" type="hidden" value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.value}" />
+            </div>
+            <div class="item  clearfix">
+                <h3 class="title cor-333 fl">相册：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-radio-item clearfix">
+                        <!-- IF action == "edit" -->
+                        <!-- BEGIN system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.child_data -->
+                        <label><input class="J_enjoyable_radio" data-mark="{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.key}" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.key}]" type="radio"  value="{key}" <!-- IF key == top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.value -->checked="checked"<!-- ENDIF key -->>{name}</label>
+                        <!-- END system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.child_data -->
+                        <!-- ELSE -->
+                        <!-- BEGIN system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.child_data -->
+                        <label><input class="J_enjoyable_radio" data-mark="{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.key}" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{top.system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.key}]" type="radio"  value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT -->>{name}</label>
+                        <!-- END system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.child_data -->
+                        <!-- ENDIF action -->
+                    </div>
+                </div>
+                <input class="J_enjoyable_radio_hidden" data-mark="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.key}" type="hidden" value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.f0935e4cd5920aa6c7c996a5ee53a70f.value}" />
+            </div>
+        </div>
+        <div class="path4">
+            <div class="item mt10 clearfix">
+                <h3 class="title cor-333 fl">相册内容：</h3>
+                <div class="item-con fl clearfix">
+                    <div class="mod-input-item fl">
+                        <input valid-rule="**0-200" valid-index="3006" type="text" name="system_data[3fe94a002317b5f9259f82690aeea4cd][{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.73e0714c4591b4faf232838206b9660e.key}]" value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.73e0714c4591b4faf232838206b9660e.value}" class="input-txt  input-txt-1 font_wryh J_enjoyabel" placeholder="相册内容" data-old-value="{system_data.3fe94a002317b5f9259f82690aeea4cd.format_data.73e0714c4591b4faf232838206b9660e.value}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="path5">
+            <div class="item clearfix">
+                <div class="btn-item">
+                    <a href="javascript:;" class="ui-btn ui-btn-border-gray J_cancel" data-role="J_enjoyabel">取消</a>
+                    <a href="javascript:;" class="ui-btn ui-btn-blue J_save" data-role="J_enjoyabel">保存</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹窗-->
+
+<!-- 手机预览插入节点  -->
+<div data-role="qr_code_preview_ele" class="qr_code_preview_ele"></div>
+<!-- 手机预览插入节点 end  -->
+<input type="hidden" value="{type_id}" name="type_id" id="type_id">
+<input type="hidden" value="{action}" name="action" id="J_action">
+<input type="hidden" value="{goods_id}" name="goods_id">
+</form>
+
+<input type="hidden" value="{user_id}" id="J_user_id">
+<input type="hidden" value="{cover_img}" id="J_cover_img">
+<input type="hidden" value="{system_data.c3e878e27f52e2a57ace4d9a76fd9acf.value}" id="J_guide_img">
+<input type="hidden" value="" id="qr_code_url">
+<input type="hidden" value="" id="qr_code_img">
+{footer}
+
+
+<script type="text/javascript" src="http://static.yueus.com/yue_ui/upload/1.0.0/webuploader.min.js"></script>
+<script type="text/javascript">
+// 头部
+require('common/global-top-bar/global-top-bar');
+
+require('common/layer/layer');
+
+//初始化作品上传
+require('common/upload/1.0.0/yueyue_uploader');
+
+
+
+//手机二维码预览 start
+// 初始化
+var qr_code_preview = require('common/qr_code_preview/qr_code_preview');
+window.__qr_code_preview_obj = new qr_code_preview({
+    render_ele : $('[data-role="qr_code_preview_ele"]'),
+    click_ele : 'J_form_submit' //点击class
+});
+// 初始化 end
+// 点击触发
+/*$('.click_ele').on('click', function() {
+ // 设置二维码
+ __qr_code_preview_obj.set_qr_img('http://image16.poco.cn/yueyue/20150907/20150907210529_353313_100207_66636_640.jpg?1600x1067_120');
+
+ // dosomething
+
+ });*/
+//手机二维码预览 end
+
+//添加输入框的tabindex属性
+$('input').attr("tabindex","1");
+$('textarea').attr("tabindex","1");
+
+
+/**********初始化并绑定其他按钮************/
+init_other_label_input("J_standard_radio",106,2006);
+init_other_label_input("J_enjoyable_radio",106,3006);
+
+
+function init_other_label_input(obj_class,data_mark,valid_index)
+{
+    var tmp_len =$("."+obj_class+"[data-mark='"+data_mark+"']:checked").length;
+    for(var i=0;i<tmp_len;i++)
+    {
+        if($($("."+obj_class+"[data-mark='"+data_mark+"']:checked")[i]).val()!="提供")
+        {
+
+            $("[valid-index='"+valid_index+"']").val("");
+            $("[valid-index='"+valid_index+"']").attr("disabled","disabled");
+
+
+        }
+
+    }
+
+    $("."+obj_class+"[data-mark='"+data_mark+"']").on("change",function(){
+        var cur_value = $(this).val();
+        if(cur_value!="提供")
+        {
+            $("[valid-index='"+valid_index+"']").val("");
+            $("[valid-index='"+valid_index+"']").attr("disabled","disabled");
+
+        }
+        else
+        {
+            $("[valid-index='"+valid_index+"']").removeAttr("disabled");
+        }
+
+    })
+
+}
+
+
+/**********初始化并绑定其他按钮************/
+
+
+
+add_collection("J_upload-container_1","1",1);
+add_collection("J_upload-container_2","2",15);//套系样图
+
+
+function error_tips(ele,str)
+{
+    $("html,body").animate({scrollTop:ele.offset().top},300);
+    layer.alert(str);
+    return false;
+}
+
+// 表达验证类
+var VA = require('common/valid/index');
+// 设置容器
+var valid = new VA($('#publish_form'));
+
+valid.pushfunctions
+        ([
+            {
+                index:'1',
+                ValidError : function(){
+                    error_tips($("[valid-index='1']").parents(".item"),'请正确填入服务名称，不超过30个字');
+                }
+            },
+            {
+                index:'2',
+                ValidError : function(){
+                    error_tips($("[valid-index='2']").parents(".item"),'请正确填入拍摄地点');
+                }
+            },
+            {
+                index:'310',
+                ValidError : function(){
+                    error_tips($("[valid-index='310']").parents(".item"),'请正确填入创意裸价的价钱，为大于0的整数和小数（小数默认两位）');
+                }
+            },
+            {
+                index:'311',
+                ValidError : function(){
+                    error_tips($("[valid-index='311']").parents(".item"),'请正确填入标配服务的价钱，为大于0的整数和小数（小数默认两位）');
+                }
+            },
+            {
+                index:'312',
+                ValidError : function(){
+                    error_tips($("[valid-index='312']").parents(".item"),'请正确填入尊享服务的价钱，为大于0的整数和小数（小数默认两位）');
+                }
+            },
+            {
+                index:'1000',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_creative']").parents(".item"),'请正确填入创意裸价的拍摄时长');
+                }
+            },
+            {
+                index:'1001',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_creative']").parents(".item"),'请正确填入创意裸价的底片张数');
+                }
+            },
+            {
+                index:'1002',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_creative']").parents(".item"),'请正确填入创意裸价的修片时间');
+                }
+            },
+            {
+                index:'1003',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_creative']").parents(".item"),'请正确填入创意裸价的精修张数');
+                }
+            },
+            {
+                index:'2000',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_standard']").parents(".item"),'请正确填入标配服务的套餐名称，不超过8个字');
+                }
+            },
+            {
+                index:'2001',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_standard']").parents(".item"),'请正确填入标配服务的拍摄时长');
+                }
+            },
+            {
+                index:'2002',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_standard']").parents(".item"),'请正确填入标配服务的底片张数');
+                }
+            },
+            {
+                index:'2003',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_standard']").parents(".item"),'请正确填入标配服务的修片时间');
+                }
+            },
+            {
+                index:'2004',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_standard']").parents(".item"),'请正确填入标配服务的精修张数');
+                }
+            },
+            {
+                index:'2005',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_standard']").parents(".item"),'请正确填入标配服务的服装数目');
+                }
+            },
+            /*{
+                index:'2006',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_standard']").parents(".item"),'请正确填入标配服务的相册内容');
+                }
+            },*/
+            {
+                index:'3000',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_enjoyabel']").parents(".item"),'请正确填入尊享服务的套餐名称，不超过8个字');
+                }
+            },
+            {
+                index:'3001',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_enjoyabel']").parents(".item"),'请正确填入尊享服务的拍摄时长');
+                }
+            },
+            {
+                index:'3002',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_enjoyabel']").parents(".item"),'请正确填入尊享服务的底片张数');
+                }
+            },
+            {
+                index:'3003',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_enjoyabel']").parents(".item"),'请正确填入尊享服务的修片时间');
+                }
+            },
+            {
+                index:'3004',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_enjoyabel']").parents(".item"),'请正确填入尊享服务的精修张数');
+                }
+            },
+            {
+                index:'3005',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_enjoyabel']").parents(".item"),'请正确填入尊享服务的服装数目');
+                }
+            },
+            {
+                index:'3006',
+                ValidError : function(){
+                    error_tips($(".J_service_edit[data-role='J_enjoyabel']").parents(".item"),'请正确填入尊享服务的相册内容');
+                }
+            }
+
+
+        ]);
+
+//require('../../../modules/common/ueditor/1.0.0/ueditor');
+// 初始化生成编辑器
+/*var ueditor = new Ueditor({
+    target:'#container'
+
+});*/
+
+
+
+//拍摄分类操作
+$(".J_photo_type").on("click",function(){
+    var data_mark = $(this).attr("data-mark");
+    $(".J_child_photo_type_div").css("display","none");
+
+    //循环清理其他选中项
+    var J_child_photo_type_len = $(".J_child_photo_type").length;
+    var J_child_photo_type = $(".J_child_photo_type");
+    for(var i=0;i<J_child_photo_type_len;i++)
+    {
+        if($(J_child_photo_type[i]).attr("data-parent")!=data_mark)
+        {
+            $(J_child_photo_type[i]).prop("checked",false);
+        }
+
+    }
+    if($("#"+data_mark).length>0)
+    {
+        $("#"+data_mark).css("display","block");
+        $("#J_child_title").css("display","");
+    }
+    else
+    {
+        $("#J_child_title").css("display","none");
+    }
+
+
+})
+
+
+init_edit_btn_html("J_creative");
+init_edit_btn_html("J_standard");
+init_edit_btn_html("J_enjoyabel");
+//初始化按钮文案
+function init_edit_btn_html(handle_type)
+{
+    var input_value = "";
+    var input_len = "";
+    var input_not_empty = false;
+    //遍历出input框，赋值给属性
+    input_len = $("."+handle_type).length;
+    for(var i=0;i<input_len;i++)
+    {
+        input_value = $($("."+handle_type)[i]).val();
+        if(input_value!="")
+        {
+            input_not_empty = true;
+        }
+    }
+
+    //根据input框是否有值，修改按钮文案
+    if(input_not_empty)
+    {
+        $(".J_service_edit[data-role='"+handle_type+"']").html("修改详情");
+    }
+    else
+    {
+        $(".J_service_edit[data-role='"+handle_type+"']").html("编辑详情");
+    }
+}
+
+
+//取消按钮
+$(".J_cancel").on("click",function(e){
+    var target = e.target;
+    var data_role = $(target).attr("data-role");
+    $(".J_div").css("display","none");
+    $(".fade").css("display","none");
+    //to do清理输入框内容
+    cancel_btn_handle(data_role,"input");
+    cancel_btn_handle(data_role,"radio");
+});
+
+//保存
+$(".J_save").on("click",function(e){
+    var target = e.target;
+    var data_role = $(target).attr("data-role");
+    $(".J_div").css("display","none");
+    $(".fade").css("display","none");
+    save_btn_handle(data_role,"input");
+    save_btn_handle(data_role,"radio");
+
+});
+
+//处理弹框保存按钮跟取消按钮公共函数
+function save_btn_handle(handle_type,html_type)
+{
+    //参数控制是弹框类型，html结构类型，input或者radio,处理逻辑不通
+    var input_value = "";
+    var input_radio_value ="";
+    var data_mark = "";
+    var input_len = "";
+    var input_radio_len = "";
+    var input_not_empty = false;
+    var checked_value = "";
+    if(html_type=="input")
+    {
+        //遍历出input框，赋值给属性
+        input_len = $("."+handle_type).length;
+        for(var i=0;i<input_len;i++)
+        {
+            input_value = $($("."+handle_type)[i]).val();
+            $($("."+handle_type)[i]).attr("data-old-value",input_value);
+            if(input_value!="")
+            {
+                input_not_empty = true;
+            }
+        }
+
+        //修改按钮文案
+        if(input_not_empty)
+        {
+            //console.log(handle_type+"1");
+            $(".J_service_edit[data-role='"+handle_type+"']").html("修改详情");
+        }
+        else
+        {
+            //console.log(handle_type+"2");
+            $(".J_service_edit[data-role='"+handle_type+"']").html("编辑详情");
+        }
+
+    }
+    else if(html_type=="radio")
+    {
+        //遍历选中的radio，赋值给对应隐藏框值
+        input_radio_len = $("."+handle_type+"_radio:checked").length;
+        for(var j=0;j<input_radio_len;j++)
+        {
+            input_radio_value =  $($("."+handle_type+"_radio:checked")[j]).val();
+            data_mark = $($("."+handle_type+"_radio:checked")[j]).attr("data-mark");
+            //判断选项是否有作选择改变
+            checked_value = $($("."+handle_type+"_radio:checked")[j]).val();
+            if(input_radio_value!=checked_value)
+            {
+                input_not_empty = true;
+            }
+            //判断是否有作选择改变
+            $("."+handle_type+"_radio_hidden[data-mark='"+data_mark+"']").val(input_radio_value);
+        }
+        if(input_not_empty)
+        {
+            //console.log(handle_type+"1");
+            $(".J_service_edit[data-role='"+handle_type+"']").html("修改详情");
+        }
+
+    }
+
+
+}
+
+function cancel_btn_handle(handle_type,html_type)
+{
+    //参数控制是弹框类型，html结构类型，input或者radio,处理逻辑不通
+    var input_value = "";
+    var input_radio_hidden_value ="";
+    var data_mark = "";
+    var input_len = "";
+    var input_radio_len = "";
+    var input_radio_hidden_len = "";
+    if(html_type=="input")
+    {
+        //遍历对应的input的属性值，赋值给value
+        input_len = $("."+handle_type).length;
+        for(var i=0;i<input_len;i++)
+        {
+            input_value = $($("."+handle_type)[i]).attr("data-old-value");
+            $($("."+handle_type)[i]).val(input_value);
+        }
+
+    }
+    else if(html_type=="radio")
+    {
+        //遍历出记录选中的隐藏框，把对应的radio根据隐藏的值,设回对应的radio列表为checked
+        input_radio_hidden_len = $("."+handle_type+"_radio_hidden").length;
+        for(var j=0;j<input_radio_hidden_len;j++)
+        {
+            input_radio_hidden_value =  $($("."+handle_type+"_radio_hidden")[j]).val();
+            data_mark = $($("."+handle_type+"_radio_hidden")[j]).attr("data-mark");
+
+            $("."+handle_type+"_radio[data-mark='"+data_mark+"']").prop("checked",false);
+            input_radio_len = $("."+handle_type+"_radio[data-mark='"+data_mark+"']").length;
+            for(var k=0;k<input_radio_len;k++)
+            {
+                if($($("."+handle_type+"_radio[data-mark='"+data_mark+"']")[k]).val()==input_radio_hidden_value)
+                {
+                    $($("."+handle_type+"_radio[data-mark='"+data_mark+"']")[k]).prop("checked",true);
+                }
+            }
+
+
+        }
+
+    }
+}
+
+
+
+
+
+//提交form
+$(".J_form_submit").on("click",function(){
+    /*预览处理*/
+    var data_type = $(this).attr("data-type");
+    $("#J_action").val(data_type);
+    if(data_type=="preview")
+    {
+        var img_display = $("#qr").css("display");
+        if(img_display!="none")
+        {
+            __qr_code_preview_obj.set_qr_img('http://static.yueus.com/mall/seller/test/static/pc/images/qr_loading.jpg');
+            __qr_code_preview_obj.change_hide();
+            return;
+        }
+    }
+    /*预览处理*/
+
+    var resault = valid.checkValid();
+    //console.log(resault);
+
+
+    if(resault.isPass)
+    {
+        //判断封面图
+        if(!$(".J_upload-container_1 input").val())
+        {
+            error_tips($('.J_upload-container_1').parents(".item"), '请传入封面图');
+            return
+        }
+
+        //判断套系图是否大于五张
+        var taoxi_img_len = $(".J_upload-container_2 input").length;
+        if(taoxi_img_len<5)
+        {
+            error_tips($('.J_upload-container_2').parents(".item"), '请传入五张以上套系图');
+            return
+        }
+
+
+        //判断主类别
+        var ret = check_radio_checked("J_photo_type","J_photo_type_div","请选择拍摄类别");
+        if(!ret)
+        {
+            return;
+        }
+
+
+        //判断是否有勾选子类别
+        var J_child_title_display = $("#J_child_title").css("display");
+        if(J_child_title_display!="none")
+        {
+            var ret = check_radio_checked("J_child_photo_type","J_child_title","请选择类别");
+            if(!ret)
+            {
+                return;
+            }
+
+        }
+
+        //判断不能超过2种标签
+        //判断选项
+        var J_lable_type_len = $(".J_lable_type:checked").length;
+        if(J_lable_type_len==0)
+        {
+            error_tips($('.J_lable_type').parents(".item"), '请勾选身份标签');
+            return
+        }
+        //判断不能超过三个
+
+        if(J_lable_type_len>2)
+        {
+
+            error_tips($('.J_lable_type').parents(".item"), '不能超过2个标签');
+            return
+        }
+
+        //判断创意裸价是否有填写
+        var J_creative_len = $(".J_creative").length;
+        for(var k=0;k<J_creative_len;k++)
+        {
+            if($($(".J_creative")[k]).val()=="")
+            {
+
+                error_tips($(".J_service_edit[data-role='J_creative']"), '请把创意裸价内容填写完整');
+                return
+
+            }
+        }
+
+
+        //判断标准服务是否有填写
+        var J_standard_len = $(".J_standard").length;
+        for(var k=0;k<J_standard_len;k++)
+        {
+            if($($(".J_standard")[k]).val()=="")
+            {
+                if($($(".J_standard")[k]).attr("valid-index")==2006)//相册可以不填
+                {
+                    continue;
+                }
+                else
+                {
+                    error_tips($(".J_service_edit[data-role='J_standard']"), '请把标准服务内容填写完整');
+                    return
+                }
+
+
+            }
+        }
+
+
+
+        //根据尊享服务是否有标价要求填写尊享服务内容-2015-10-13
+        var J_enjoyabel_pirce = $("[valid-index='312']").val();
+        var J_enjoyabel_len = $(".J_enjoyabel").length;
+        if(J_enjoyabel_pirce!="")
+        {
+
+            for(var k=0;k<J_enjoyabel_len;k++)
+            {
+                if($($(".J_enjoyabel")[k]).val()=="")
+                {
+                    if($($(".J_enjoyabel")[k]).attr("valid-index")==3006)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        error_tips($(".J_service_edit[data-role='J_enjoyabel']"), '请把尊享服务内容填写完整');
+                        return
+                    }
+                }
+            }
+        }
+        else
+        {
+            for(var k=0;k<J_enjoyabel_len;k++)
+            {
+                if($($(".J_enjoyabel")[k]).val()!="")
+                {
+                    if($($(".J_enjoyabel")[k]).attr("valid-index")==3006)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        if(J_enjoyabel_pirce=="")
+                        {
+                            error_tips($("[valid-index='312']").parents(".item"), '尊享服务套餐有内容，请把尊享服务价格填写完整');
+                            return
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+        var data_lock = $(this).attr("data-lock");
+
+        if(data_lock!="lock")
+        {
+            /*****2015-8-14只修改价格******/
+            //获取是否勾选了修改价钱
+            var j_action = $("#J_action").val();
+            if(j_action!="add")
+            {
+                var money_edit_res = $("#money_edit").prop("checked");
+                if(money_edit_res)
+                {
+                    $("#J_action").val("money_edit");
+                }
+                else
+                {
+                    $("#J_action").val(j_action);
+                }
+            }
+            /*****2015-8-14只修改价格******/
+
+            //var content = ueditor.editor.getContent();
+            //判断图文是否为空（2015-7-6）
+            /*if(!content)
+            {
+                error_tips($('#J_content').parents(".item"), '请填入图文详情');
+                return
+            }
+            $("#J_content").html(content);*/
+
+
+            /**预览处理**/
+            if(data_type=="preview")
+            {
+                layer.msg("生成二维码中...");
+            }/**预览处理**/
+            else
+            {
+                $(this).attr("data-lock","lock");//锁住
+                layer.msg("正在提交中...");
+            }
+            $("#publish_form").submit();
+
+        }
+        else
+        {
+            layer.msg("正在提交中...");
+            return false;
+        }
+    }
+
+
+})
+
+//判断主分类是否有选2015-7-22
+function check_radio_checked(J_class,J_locate,J_text)
+{
+    var J_type = $("."+J_class);
+    var J_type_len = J_type.length;
+    var J_type_has_checked = false;
+    for(var i=0;i<J_type_len;i++)
+    {
+        if($(J_type[i]).prop("checked"))
+        {
+            J_type_has_checked = true;
+            break;
+        }
+    }
+
+    if(!J_type_has_checked)
+    {
+        error_tips($('#'+J_locate).parents(".item"), J_text);
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+
+
+//添加作品集
+/*
+ *ele_container:容器
+ *part_id：模块标记值
+ *phone_num //图片张数
+ *
+ */
+function add_collection(ele_container,part_id,$photo_num)
+{
+    $(function()
+    {
+
+
+        //todo 使用之前要确定userid是否传递进去
+        var user_id = $("#J_user_id").val();
+        if($photo_num==1)//获取封面图
+        {
+            var cover_img = $("#J_cover_img").val();
+            if(cover_img!="")
+            {
+                //处理js数组
+                var imgs_arr = cover_img.split(",");
+
+
+                //var imgs_arr = [cover_img];
+            }
+            else
+            {
+                var imgs_arr = [];
+            }
+        }
+        else
+        {
+            var guide_img = $("#J_guide_img").val();
+            if(guide_img!="")
+            {
+                //处理js数组
+                var imgs_arr = guide_img.split(",");
+
+
+                //var imgs_arr = [cover_img];
+            }
+            else
+            {
+                var imgs_arr = [];
+            }
+        }
+
+        var yue_upload_obj = new yue_upload_class
+        ({
+            upload_total_limit : $photo_num,
+            upload_container : $('.'+ele_container),
+            user_id :  user_id,
+            multiple : true,
+            imgs : imgs_arr,
+            sortable : true,
+            fileSizeLimit: 3 * $photo_num * 1024 * 1024,    // 9 M 总文件大小
+            fileSingleSizeLimit: 3 * 1024 * 1024,    // 3 M 单文件大小
+            gid : part_id
+        });
+
+        $('#popup_'+part_id).on('click', function()
+        {
+            var upload_obj = {};
+            first_layer = layer.open
+            ({
+                type: 1,
+                area: ['800px', '450px'],
+                fix: false, //不固定
+                title:'上传图片',
+                maxmin: false,
+                content: yue_upload_obj.tpl,
+                success : function($el,index)
+                {
+                    var sec_layer = null;
+                    var index = index;
+
+
+                    setTimeout(function()
+                    {
+                        upload_obj = yue_upload_obj.init_upload($el);
+
+                        upload_obj.on('uploadProgress',function()
+                        {
+
+                        })
+                                .on('fileQueued',function(file)
+                                {
+
+                                })
+                                .on('fileDequeued',function(file)
+                                {
+
+                                })
+                                .on('uploadSuccess',function(file,response)
+                                {
+                                    // response 服务端返回数据
+                                    //console.log(response);
+                                })
+                                .on('uploadError',function()
+                                {
+
+                                })
+                                .on('uploadFinished',function()
+                                {
+                                    layer.close(index);
+                                })
+                    },500);
+                },
+                cancel : function()
+                {
+                    if(!confirm('注意！关闭弹窗会终止上传图片'))
+                    {
+                        return false;
+                    }
+
+                    upload_obj && upload_obj && upload_obj.stop(true);
+                }
+            });
+        });
+    });
+}
+
+
+
+
+
+//点击编辑绑定
+$(".J_service_edit").on("click",function(e){
+    var target = e.target;
+    var data_role = $(target).attr("data-role");
+    $(".J_div").css("display","none");
+    $(".fade").css("display","block");
+    $("#"+data_role+"_div").css("display","block");
+
+});
+
+
+
+
+
+
+
+//cookie
+$("#system_msg_close").on("click",function(){
+
+    /*var type_id = $("#type_id");
+     var cookie_name = "mall_pai_goods_edit_"+type_id;
+     cookie.set(cookie_name,"hide_system_msg",{
+     expires :1000,
+     domain : 'yueus.com',
+     path : '/'
+     });*/
+
+    $("#system_msg_div").css("display","none");
+
+
+});
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+@charset "utf-8";
+@mixin transitionTransform{
+    transition: transform .5s;
+    -moz-transition: -moz-transform .5s;   /* Firefox 4 */
+    -webkit-transition: -webkit-transform .5s;    /* Safari 和 Chrome */
+    -o-transition: -o-transform .5s;
+}
+.head
+.bg-opacity{
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5)!important;
+}
+//头部
+.global-header{
+    .select-mod {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 45px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 60%;
+    margin: 0 auto;
+    }
+  .list-type{
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    width: 120px;
+    margin: 6px auto;
+    border-radius: 6px;
+    border: 1px solid #333;
+    overflow: hidden;
+    .header-btn{
+      width: 60px;
+      height: 30px;
+      font-size: 14px;
+      text-align: center;
+      line-height: 30px;
+      letter-spacing: 2px;
+    }
+   .cur{
+     background-color: #333;
+     color: #fff;
+    }
+  }
+
+ }
+.list_container{
+  background-color: #fff;
+  .operate{
+    position: fixed;
+    z-index: 4;
+    display: -webkit-box;
+    width: 100%;
+    color: #999;
+    background-color: #fff;
+    border-bottom: 1px solid #cdcdd1;
+    .category{
+      position: relative;
+      -webkit-box-flex: 1;
+      width: 45px;
+      line-height: 45px;
+      text-align: center;
+    }
+    .tag{
+      position: absolute;
+      top: 20px;
+      right: 16px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #aaa;
+      -webkit-transition: -webkit-transform .5s;
+    }
+    .tag-trfm{
+      -webkit-transform: rotate(180deg);
+    }
+  }
+  .top006{
+    top: -600px;
+  }
+  .top90{
+    top:90px;
+  }
+  .menu{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    height: 70%;
+    text-align: center;
+    background-color: #fff;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #cdcdcd;
+    transition: top .5s;
+    -moz-transition: top .5s;	/* Firefox 4 */
+    -webkit-transition: top .5s;	/* Safari 和 Chrome */
+    -o-transition: top .5s;
+    .subtag{
+      height:98%;overflow: auto;
+      padding-bottom:5px;
+      background-color: #f2f2f2;
+    }
+    .bar{
+      height: 12px;
+      background-color: #FFFFFF;
+      background-image: url("../../image/pai/border-78x12.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 35px 5px;
+    }
+    .submenu{
+      height: 45px;
+      line-height: 45px;
+    }
+    .submenu:active{
+      background: #f2f2f2;
+    }
+  }
+  .collection-list-page{
+    .collection_list{
+      //图片列表模块goods
+      .hp{
+      .item{
+        position: relative;
+        padding: 15px 0  15px 0 ;
+        margin: 0 15px 0 15px;
+        border-bottom: 1px solid #e6e6e6;
+        display: -webkit-box;
+        display: box;
+        .del{
+          position: absolute;
+          right: 10px;
+          bottom: 4px;
+          z-index: 2;
+          display: block;
+          background-image: url("../../image/pai/icon-tran-40x40.png");
+          background-repeat: no-repeat;
+          width: 50px;
+          height: 40px;
+          background-size: 20px;
+          background-position: right;
+        }
+        .lbox{
+          position: relative;
+          width: 100px;
+          height: 100px;
+          i{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            display: block;
+            background-repeat: no-repeat;
+          }
+        }
+        .rbox{
+          -webkit-box-pack: justify;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          margin-left: 15px;
+          -webkit-box-flex: 1;
+          .msg{
+            display: -webkit-box;
+            -webkit-box-pack: justify;
+          }
+
+          .title {
+            line-height: 20px;
+            -webkit-box-flex: 1;
+          }
+          box-flex: 1;
+          .price{
+            margin-top: 2px;
+            font-size: 16px;
+          }
+          .num{
+            padding-top: 2px;
+            padding-left: 10px;
+          }
+        }
+      }
+      }
+
+      //  图片列表模块
+      .item-list{
+        background: #ffffff;
+        padding-top: 46px;
+        .item{
+          position:relative;
+          padding: 15px 0  15px 0 ;
+          margin: 0 15px 0 15px;
+          border-bottom: 1px solid #e6e6e6;
+          display: -webkit-box;
+          display: box;
+          .del{
+            position: absolute;
+            right: 10px;
+            bottom: 4px;
+            z-index: 2;
+            display: block;
+            background-image: url("../../image/pai/icon-tran-40x40.png");
+            background-repeat: no-repeat;
+            width: 50px;
+            height: 40px;
+            background-size: 20px;
+            background-position: right;
+          }
+          .lbox{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            i{
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 2;
+              background-repeat: no-repeat;
+              -webkit-background-size: cover;
+              display: block;
+              background-repeat: no-repeat;
+            }
+          }
+          .rbox{
+            -webkit-box-pack: justify;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            margin-left: 15px;
+            -webkit-box-flex: 1;
+            .sidebar{
+              display: -webkit-box;
+              -webkit-box-orient: horizontal;
+            }
+            .msg{
+              display: -webkit-box;
+              -webkit-box-pack: justify;
+            }
+            .title {
+              line-height: 20px;
+              -webkit-box-flex: 1;
+            }
+            box-flex: 1;
+            .price{
+              margin-top: 2px;
+              font-size: 16px;
+            }
+            .num{
+              padding-top: 2px;
+            }
+
+          }
+        }
+      }
+      //  图片列表模块 end
+
+    }
+  }
+  .opacity4{
+    filter: alpha(opacity=40);
+    -omz-opacity:.4;
+    opacity: .4;
+    .is-show{
+      .tags{
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        line-height: 16px;
+        border-radius: 50px;
+        background: #ff0000;
+        color: #fff;
+        font-weight:bold;
+        text-align: center;
+        margin-right: 5px;
+      }
+      .tips{
+        color: #ff0000;
+      }
+    }
+  }
+
+}

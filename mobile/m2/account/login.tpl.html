@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>约约 登录</title>
+	<meta charset="gbk">
+	{head_html}	
+	<!-- libjs 必须引用 -->
+	<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/lib/lib_880856d.js"></script>
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/style/account/login_3d2bafc.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/style/libs/common_b54bda3.css">
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/components/zepto/zepto_9261738.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/js/common/common_3c4ec94.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/components/fastclick/fastclick_8c3e8ee.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/modules/account/login_6898b66.js"></script>
+</head>
+	<body>
+		<main role="main">
+			<div class="page-view login pr20 pl20" data-role="page-container">
+                <div class="ui-form-table">
+                    <div class="ui-input-mod ">
+                        <div class="item">
+                            <input  type="tel" class="ui-input  ui-input-size-large ui-input-block ui-input-border-bottom-none ui-input-top-left ui-input-top-right" placeholder="手机号" data-role="account-number">
+                            <!--type="text"-->
+                        </div>
+                        <div class="item">
+                            <input name="pwd" type="password" class="ui-input  ui-input-size-large ui-input-block ui-input-bottom-left ui-input-bottom-right" placeholder="密码" data-role="account-pwd">
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-btn-wrap">
+                    <a class="ui-btn-lg ui-btn-confirm" data-role="confrim" style="font-size: 14px;">
+                        登录
+                    </a>
+                    <div class="go-style">
+                        <div class="lbox" data-role="forget-pwd" style="visibility: hidden;">
+                            <button class="ui-button  ui-button-size-middle  ui-button-block ui-button-nocolor">
+                                <span class="ui-button-content">忘记密码？</span>
+                            </button>
+                        </div>
+                        <div class="rbox" >
+                            <button data-role="reg"  class="ui-button  ui-button-size-middle  ui-button-block ui-button-nocolor">
+                                <span class="ui-button-content">新用户注册</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+			</div>            
+		</main>
+			 
+	</body>
+	
+</html>
+
+<script type="text/javascript">
+    require('account/login');
+</script>

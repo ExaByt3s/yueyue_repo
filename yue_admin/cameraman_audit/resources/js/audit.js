@@ -1,0 +1,8 @@
+function subcheck($url)
+{
+	layer.prompt({title: '«Î ‰»Î±∏◊¢'}, function(reason){
+    $url = $url+"&reason="+reason;
+    //window.alert($url);
+    location.href=$url;
+});
+}

@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{title_key}</title>
+    <meta name="keywords" content="{keywords_key}">
+    <meta name="description" content="{description_key}">
+    
+    <!-- 公共css，js引入 -->
+    {pc_global_top}
+    
+    <!-- modjs 必须引用 -->
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/lib/mod.js"></script>
+<!-- <link rel="import" href="./page/webcontrol/head.tpl.htm?__inline"> -->
+
+    <!-- 当前页css -->
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/style/index-page.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/modules/common/search/search.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/modules/yue_ui/selectbox/ui-selectbox.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/modules/common/go_top/go_top.css">
+</head>
+
+<body class="bg-f8f index-page-body">
+
+    <!-- bar -->
+    {global_top_bar}
+    <!-- bar end -->
+
+    <!-- 首页 -->
+    <div class="index-page">
+
+        <div class="p1th" >
+            <div class="scrollBox" id="scrollBox">
+                <ul class="img_list clearfix" id="foo2">
+                    <!-- BEGIN top_banner_ret -->
+                    <li class="banner1" style="background-image: url({img_url})">
+                        <a href="{link_url}" target="_blank" style="height:100%;" class="db">
+                        </a>
+                    </li>
+                    <!-- END top_banner_ret -->
+                </ul>
+
+                <div class="page-wrap">
+                    <a href="javascript:;" class="pre fl " id="prev2" ></a>
+                    <div class="page-box fl" id="pager2">
+                        <a href="javascript:;" class="selected"></a>
+                        <a href="javascript:;"></a>
+                    </div>
+                   <a href="javascript:;" class="next fl " id="next2" ></a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+        
+
+        <div class=" ui-search-container" >
+            <div class="ui-search-com" >
+                <div class="font_wryh search_input" data-role="search-input"></div>   
+            </div>
+        </div>
+
+
+        <div class="w1000">
+            <div class="font_wryh search_hot fn-hide" data-role="search_hot"></div>
+        </div>
+
+        <div class="w1000">
+            <div class="font_wryh search_filter fn-hide" data-role="search_filter"></div>
+        </div>
+
+        <div class="p2th w1000 font_wryh">
+            <h3 class="mod-title ">寻找一种体验</h3>
+
+            <div class="des cor-333">
+               体验一种全新的时间电商服务，从现在的约模特、找摄影师、化妆师、求学摄影培训 <br />到即将推出的舌尖上的约美食和五花八门的特色达人服务，这些都值得你一一体验，让你的生活变得更美好。
+            </div>
+
+            <ul class="list clearfix">
+                <!-- BEGIN arr -->
+                <a href="{url}">
+                    <li  class=" <!-- IF is_hide --> fn-hide <!-- ENDIF --> " >
+
+                        <div class="fade-h5"></div>
+
+                        <div class="fade-box">
+                            <p class="txt">
+                                {str}
+                            </p>
+                        </div>
+
+                        <img src="{img_url}" />
+                    </li>
+                </a>
+                <!-- END arr --> 
+            </ul>
+
+        </div>
+
+        <div class="p3th ">
+            <h3 class="mod-title font_wryh">创造一种故事</h3>
+
+            <div class="w1000">
+                <div class="des cor-333 font_wryh">
+                   他们的故事，让你一一感受，你的生活因此发生了微妙的变化。私约模特、找摄影师捕捉自己最美丽的一面、 <br />让爸爸妈妈开心的画面永久保存、各种有趣的影像培训和咨询让摄影师学以致用...... <br />如果你觉得你也有这样的故事可以服务于他人，你也可以加入约约供应商行列，一起玩转时间电商。
+                </div>
+            </div>
+
+            <div class="scrollBox-wrap w1000">
+                <div class="scrollBox " id="img_cen">
+
+
+                    <ul class="img_list clearfix" id="foo3">
+
+
+
+                        <!-- BEGIN hot_tuijian -->
+                        <li>
+                            <a href="{url}">
+                                <div class="item-wrap">
+                                    <div class="img-item">
+                                        <img data-lazyload-url="{img}" />
+                                    </div>
+
+                                    <div class="fade-h5"></div>
+
+                                    <div class="txt-item font_wryh">
+                                        <p class="p1">{title}</p>
+                                        <p class="p2">{desc}</p>
+                                    </div>
+
+
+                                </div>
+                            </a>
+                        </li>
+                        <!-- END hot_tuijian -->
+                    </ul>
+
+
+                    <div class="page-wrap clearfix">
+                        <a href="javascript:;" class="pre" id="prev3"></a>
+                        <a href="javascript:;" class="next" id="next3"></a>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="p4th  ">
+        <h3 class="mod-title font_wryh">让我们聆听用户的声音</h3>
+
+        <div class="w1000">
+            <div class="lt-user-mod">
+                <div class="lt-user-area">
+
+
+                    <a href="{index_url}/goods/service_detail.php?goods_id=2115251">
+                    <div class="item">
+
+                        <div class="img-area">
+                            <div class="img">
+                                <img src="http://static.yueus.com/mall/user/test/static/pc/images/test/mt.jpg" />
+                            </div>
+
+                            <div class="txt">
+                                <p class="p1 long-txt-cut font_wryh">【淘宝】Iacey日韩风服装拍摄/代言</p>
+                            </div>
+
+                            <div class="fade-h5"></div>
+                        </div>
+
+                        <div class="des-area">
+                            <div class="icon-txt"></div>
+                            <p class="des ">模特很专业，拍摄服装基本上几分钟就能完成一件，店铺用了她的图服装销量显著提高，下次还会继续找她合作！</p>
+                            <div class="user-area clearfix">
+
+                                <div class="lbox fldi">
+                                    <img src="http://static.yueus.com/mall/user/test/static/pc/images/test/mt2.jpg" />
+                                </div>
+                                <div class="rbox fldi">
+                                    <h4 class="cor-666">风行摄影工作室</h4>
+                                    <div class="start">
+                                        <i class="icon-start-yellow-m"></i>
+                                        <i class="icon-start-yellow-m"></i>
+                                        <i class="icon-start-yellow-m"></i>
+                                        <i class="icon-start-yellow-m"></i>
+                                        <i class="icon-start-yellow-m"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+
+
+
+                    <a href="{index_url}/goods/service_detail.php?goods_id=2115540">
+                    <div class="item">
+                        <div class="img-area">
+                            <div class="img">
+                                <img src="http://static.yueus.com/mall/user/test/static/pc/images/test/ys.jpg" />
+                            </div>
+                            <div class="txt">
+                                <p class="p1 long-txt-cut font_wryh">少女情怀总是诗/利物浦摄影</p>
+                            </div>
+                            <div class="fade-h5"></div>
+                        </div>
+                        <div class="des-area">
+                            <div class="icon-txt"></div>
+                            <p class="des ">摄影师很好沟通，拍摄过程很愉快，出片快成片质量也很不错，最重要的是价格很实惠，想要拍摄个人写真的朋友可以关注一下。</p>
+                            <div class="user-area clearfix">
+
+                                <div class="lbox fldi">
+                                    <img src="http://seller-icon.yueus.com/10/100186_86.jpg?20150907" />
+                                </div>
+                                <div class="rbox fldi">
+                                    <h4 class="cor-666">不二菇凉    </h4>
+                                    <div class="start">
+                                        <i class="icon-start-yellow-m"></i>
+                                        <i class="icon-start-yellow-m"></i>
+                                        <i class="icon-start-yellow-m"></i>
+                                        <i class="icon-start-yellow-m"></i>
+                                        <i class="icon-start-yellow-m"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+
+                
+                    <a href="{index_url}/goods/service_detail.php?goods_id=2118242">
+                    <div class="item">
+                        <div class="img-area">
+                            <div class="img">
+                                <img src="http://static.yueus.com/mall/user/test/static/pc/images/test/px.jpg" />
+                            </div>
+                            <div class="txt">
+                                <p class="p1 long-txt-cut font_wryh">Youth疯子私教永久进阶班</p>
+                            </div>
+                            <div class="fade-h5"></div>
+                        </div>
+                        <div class="des-area">
+                            <div class="icon-txt"></div>
+                            <p class="des ">老师为人耿直不做作，这是传授技艺及理念者最优秀的品质。另外老师教导风格独特，能让人形成自己的风格，这是每个人最需要的东西。</p>
+                            <div class="user-area clearfix">
+
+                                <div class="lbox fldi">
+                                    <img src="http://seller-icon.yueus.com/11/113054_86.jpg?20150907" />
+                                </div>
+                                <div class="rbox fldi">
+                                    <h4 class="cor-666">70</h4>
+                                    <div class="start">
+                                        <i class="icon-start-yellow-m"></i>
+                                        <i class="icon-start-yellow-m"></i>
+                                        <i class="icon-start-yellow-m"></i>
+                                        <i class="icon-start-yellow-m"></i>
+                                        <!-- <i class="icon-start-gray-m"></i> -->
+                                        <i class="icon-start-yellow-m"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                  
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    {down_app_area}
+</div>
+{footer}
+<div class="fade dn" id="fade"></div>
+
+<div class="pop-info-index "  id="des_txt" style="top:-1000px;">
+    <a href="javascript:void(0)" class="close" id="close"></a>
+    <div class="pop-con font_wryh">
+        <div class="lc-con">
+            <img src="http://static.yueus.com/mall/user/test/static/pc/images/st-img-480x20.jpg" />
+        </div>
+        <div class="txt-con clearfix">
+            <ul>
+                <li>
+                    <div class="txt">
+                        <p class="title font_wryh">发摄影需求</p>
+                        <p>无论是模特、活动、场地、化妆、培训你都可以在约约上找到</p>
+                    </div>
+                    <div class="img">
+                        <img src="http://static.yueus.com/mall/user/test/static/pc/images/st-img-200x140_03.jpg" />
+                    </div>
+                </li>
+                <li>
+                    <div class="txt">
+                        <p class="title font_wryh">预定供应商</p>
+                        <p>联系供应商、确认使用日期、支付等，一切都通过约约倡导信赖的服务完成。</p>
+                    </div>
+                    <div class="img">
+                        <img src="http://static.yueus.com/mall/user/test/static/pc/images/st-img-200x140_05.jpg" />
+                    </div>
+                </li>
+                <li>
+                    <div class="txt">
+                        <p class="title font_wryh">发摄影需求</p>
+                        <p>无论是模特、活动、场地、化妆、培训你都可以在约约上找到</p>
+                    </div>
+                    <div class="img">
+                        <img src="http://static.yueus.com/mall/user/test/static/pc/images/st-img-200x140_07.jpg" />
+                    </div>
+                </li>
+            </ul>
+            <div class="more-con">
+                <a href="#" class="more">了解更多</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0-auto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/placeholder/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/yue_ui/selectbox/popup.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/yue_ui/selectbox/selectbox.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/search/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/go_top/go_top.js"></script>
+<script type="text/javascript">
+
+var $ = require('components/jquery/jquery.js');
+
+// 头部大图滚动
+var carouFredSel_auto = require('common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0-auto');
+
+// 创造一种故事 滚动
+var carouFredSel = require('common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0');
+
+// 引入图片居中处理组件
+var lazyload = require('common/lazyload/lazyload');
+
+var search = require('common/search/index');
+
+
+$(function() 
+{
+
+    // 引入返回顶部组件
+    var go_top = require('common/go_top/go_top');
+    var go_top_obj = new go_top({
+        render_ele: $('body') // 后加载的父容器
+    });
+
+   $('#foo2').carouFredSel_auto({
+        prev: '#prev2',
+        next: '#next2',
+        pagination: "#pager2",
+        auto: true
+    });
+
+   // 头部banner左右箭头处理
+   $('#scrollBox').hover(function() {
+       $(this).addClass('slide-pic-hover') ;
+   }, function() {
+       $(this).removeClass('slide-pic-hover');
+   });
+
+
+
+
+
+   $('#foo3').carouFredSel({
+        prev: '#prev3',
+        next: '#next3',
+        pagination: "#pager3",
+        auto: true
+    });
+
+
+
+
+    // 图片后加载处理
+    var lazyload_obj = new lazyload({
+        contain: $('#img_cen'), // 后加载的父容器
+        size: '320', // 可传可不传，压位
+        img_center: {
+            is_open : true,  //是否开启图片居中功能
+            width : '320',   //图片居中盒子的宽
+            height : '192'  //图片居中盒子的高
+        } 
+    });
+
+
+    var arr = {type_data};
+
+    var page_data = {page_data}.result_data;
+
+    var search_obj = search.init
+    ({
+        total_data : page_data,
+        icon_search : 'http://static.yueus.com/mall/user/test/static/pc/images/search-20x20.png',        
+        input_container : $('[data-role="search-input"]')        
+    });
+
+});
+
+</script>
+
+
+
+
+<!-- 底部统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d3f6d15244a0b41207c934710304445d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 底部统计 end -->
+
+<!-- poco log start -->
+<script type="text/javascript">__poco_site_stat_request_filename = 'yueus.css';</script>
+<script type="text/javascript" src="//www.yueus.com/js/site_stat_code.js"></script>
+<!-- poco log end; -->
+</body>
+
+</html>

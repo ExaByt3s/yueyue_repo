@@ -1,0 +1,13 @@
+<div class="ui-popup{{#if start}} ui-popup-start-{{start}}{{/if}}">
+    <div class="ui-popup-container" data-role="container">
+        <div class="ui-popup-content" data-role="content">
+            {{formatString content}}
+        </div>
+
+        {{#if closeButton}}
+        <footer class="ui-popup-footer" data-role="footer">
+            <button data-role="close-button">取消</button>
+        </footer>
+        {{/if}}
+    </div>
+</div>

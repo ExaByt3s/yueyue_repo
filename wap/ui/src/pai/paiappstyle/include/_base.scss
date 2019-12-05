@@ -1,0 +1,362 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO摄影app - 基础文件
+// ------------------------------
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
+    @include placeholder(#aaa);
+    
+}
+
+// 背景色
+.apps_page{
+    background-color: #eeeeee;
+}
+
+// 第二个颜色白色
+.secondary{
+    background-color: #fff;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(#fff, 0);
+    -webkit-touch-callout: none;
+    @include user-select(none);
+    //@include backface-visibility(hidden);
+}
+
+a {
+    &, &:hover{
+        text-decoration: none;
+    }
+}
+
+input, textarea {
+    @include user-select(auto);
+    outline: 0;
+
+}
+
+//去外边框
+input, textarea, button {
+-webkit-appearance : none ;
+-webkit-tap-highlight-color:rgba(0,0,0,0);
+border-radius:0
+}
+
+
+
+a, a:hover {
+  text-decoration: none;
+  outline: 0;
+}
+
+
+input[type=search] {
+    @include appearance(textfield);
+    //-webkit-appearance: textfield;
+}
+
+button {
+    background: rgba(#fff, 0);
+    border: none;
+    @include box-sizing(content-box);
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+    outline: 0;
+}
+
+
+#page-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .apps_page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        //background: #F5F5F5;
+
+        .tran_cover {
+            z-index: 1100;
+            position: absolute;
+            width: 100%;
+            height: 100%
+        }
+
+        & > main {
+            width: 100%;
+            height: 100%;
+            @include flexbox((
+                display: box,
+                box-orient: vertical,
+                box-pack:justify
+            ), $version: 1);
+            @include box-sizing(border-box);
+
+            & > div, & > section, & > article {
+                @include flexbox((
+                    box-flex: 1
+                ), $version: 1);
+            }
+        }
+    }
+
+
+
+    .emoticon {
+        min-width: 20px;
+        min-height: 20px;
+        vertical-align: text-bottom;
+
+        &[src$="wub.gif"] {
+            width: 22px;
+            height: 29px;
+        }
+    }
+}
+
+.img {
+    border: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.image-img 
+{
+    
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    background-color: #fafafa;
+    @include background-size(100% auto);
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    @include box-sizing(border-box);
+
+    &:before 
+    {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-image: url('../../images/pai/avatar-error-min.png');
+        background-size: cover; 
+        content:'';
+        margin-top: -25px;
+        margin-left: -24px;
+        //$icon-sprite-file: sprite-file($icons, 'add-32x32');
+        //margin-top: -(image-height($icon-sprite-file) / 4);
+        //margin-left: -(image-width($icon-sprite-file) / 4);
+
+    }
+
+    // 重新加载
+    &.refresh 
+    {
+        &:before 
+        {
+            //@include get-icon-base;
+        }
+        //@include get-icon('refresh-60x60');
+
+        &:active 
+        {
+            //@include get-icon('refresh-60x60-active');
+        }
+    }
+
+    // 重新加载ing
+    &.reload 
+    {
+        &:before {
+            //@include get-icon-base;
+            //@include animation(loading-rotate 2s linear infinite);
+        }
+        &, &:active {
+            //@include get-icon('loading-60x60');
+        }
+    }
+
+    // 加载完成
+    &.loaded 
+    {
+        &:before {
+            display: none;
+        }
+    }
+
+    // 加载失败
+    &.error 
+    {
+        &:before {
+            //@include get-icon-base;
+        }
+        //@include get-icon('img-error-60x60');
+    }
+}
+
+.circle-img{
+    width: 100%;
+    height: 100%;    
+
+    @include background-size(cover);
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    &.no-radius {
+        @include border-radius(0 !important);
+    }
+}
+
+.scroll_bar_classV
+{
+    width:3px;
+    position: absolute;
+    z-index: 100;
+    bottom: 2px;
+    top: 2px;
+    right: 1px;
+    overflow: hidden;
+    opacity: 1;
+}
+.scroll_bar_classV > div
+{
+    position: absolute;
+    z-index: 100;
+    border: none;
+    -webkit-background-clip: padding-box;
+    width: 100%;
+    @include box-sizing(border-box);    
+    @include border-radius(2px);
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.stream-abnormal {
+    @include flexbox((
+        display: box,
+        box-orient: vertical,
+        box-pack: center
+    ), $version: 1);
+    
+    height: 100%;
+    text-align: center;
+
+    h4 {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 8px;
+
+        &:before {
+            margin: 0 auto 20px;
+        }
+    }
+
+    &.stream-network-error {
+        h4 {
+            color: #666;
+        }
+        p {
+            color: #666;
+        }
+    }
+    &.stream-empty {
+        h4 {
+            color: #bbb;
+        }
+    }
+}
+
+@include keyframes('slideinfromright') {
+    0% {
+        @include transform(translate3d(100%, 0px, 0px));
+    }
+    100% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+}
+@include keyframes('slideoutfromleft') {
+    0% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+    100% {
+        @include transform(translate3d(-100%, 0px, 0px));
+    }
+}
+@include keyframes('slideinfromleft') {
+    0% {
+        @include transform(translate3d(-100%, 0px, 0px));
+    }
+    100% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+}
+@include keyframes('slideoutfromright') {
+    0% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+    100% {
+        @include transform(translate3d(100%, 0px, 0px));
+    }
+}
+
+// slideup
+@include keyframes('slideupinfrombottom') {
+    0% {
+        @include transform(translate3d(0px, 100%, 0px));
+    }
+    100% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+}
+@include keyframes('slideupoutfromtop') {
+    0% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+    100% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+}
+@include keyframes('slideupinfromtop') {
+    0% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+    100% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+}
+@include keyframes('slideupoutfrombottom') {
+    0% {
+        @include transform(translate3d(0px, 0px, 0px));
+    }
+    100% {
+        @include transform(translate3d(0px, 100%, 0px));
+    }
+}
+@include keyframes('fadein') {
+    0% { opacity : 0; }
+    100% { opacity : 1; }
+}
+@include keyframes('fadeout') {
+    0% { opacity : 1; }
+    100% { opacity : 0; }
+}
+@include keyframes('none') {
+}

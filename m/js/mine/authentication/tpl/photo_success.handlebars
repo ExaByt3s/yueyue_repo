@@ -1,0 +1,18 @@
+<div data-role="photo">
+    <section class="pic">
+        <div>
+        <i class="image-img" data-lazyload="{{img}}" data-size="{{img_width}}" style="height: 270px"></i>
+        </div>
+        <span class="tip">你的资料已经提交，请耐心等候我们的审核，稍后我们将以系统信息推送通知你的实名认证结果，感谢你的配合。</span>
+    </section>
+    <div class="btn out-btn" data-role="take-photo">
+        <button class="ui-button ui-button-primary ui-button-size-large ui-button-block">
+            <span class="ui-button-content">立即拍照</span>
+        </button>
+    </div>
+    <div class="btn out-btn" data-role="{{#if is_v2}}{{#if from_date}}back-to-date{{else}}have-a-see{{/if}}{{else}}have-a-see{{/if}}">
+        <button class="ui-button ui-button-primary ui-button-size-large ui-button-block">
+            <span class="ui-button-content">{{#if is_v2}}{{#if from_date}}继续约拍{{else}}随便逛逛{{/if}}{{else}}随便逛逛{{/if}}</span>
+        </button>
+    </div>
+</div>

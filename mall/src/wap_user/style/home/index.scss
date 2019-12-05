@@ -1,0 +1,179 @@
+@charset "utf-8";
+
+.personal-center {
+  color: #999;
+
+  .po-r {
+    position: relative;
+  }
+  .d-box {
+    display: -webkit-box;
+  }
+  .v-c {
+    -webkit-box-align: center;
+  }
+  .ui-tips-r {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    padding-right: 14px;
+  }
+  .ui-line-item-mod {
+    margin-top: 15px;
+
+    .height-80 {
+      height: 80px;
+    }
+    .available_balance {
+      position: absolute;
+      right: 30px;
+      top: 0;
+      color: #ff6a6e;
+    }
+    .item {
+      border: none;
+      -webkit-box-pack: justify;
+
+      .user-info-item {
+        display: -webkit-box;
+        width: 100%;
+        -webkit-box-align: center;
+
+        .order-item {
+          -webkit-box-flex: 1;
+          text-align: center;
+          display: -webkit-box;
+          -webkit-box-orient: horizontal;
+          -webkit-box-pack: center;
+
+          .tips-num {
+            display: block;
+            position: absolute;
+            right: -6px;
+            top: 0px;
+            border: solid 1px red;
+            border-radius: 10px;
+            width: 16px;
+            height: 16px;
+            color: red;
+            background-color: #fff;
+            line-height: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 12px;
+          }
+          .icon-order-item {
+            padding: 5px;
+            margin: 0;
+            display: inline-block;
+          }
+        }
+      }
+      .icon-ui:before {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .icon-ui-top{
+        width: 30px;
+        height: 30px;
+      }
+      .icon-ui-top:before {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .lineh{
+        line-height: 44px;
+      }
+      .order-icon:before {
+        background-image: url("../../image/pai/order-icon-40x40.png?__sprite");
+      }
+      .wallet-icon:before {
+        background-image: url("../../image/pai/wallet-icon-40x40.png?__sprite");
+      }
+      .icon-collect:before {
+        background-image: url("../../image/pai/icon-collect-40x40.png?__sprite");
+      }
+      .icon-coupons:before {
+        background-image: url("../../image/pai/icon-coupons-40x40.png?__sprite");
+      }
+      .icon-sign:before {
+        background-image: url("../../image/pai/icon-sign-60x60.png?__sprite");
+      }
+      .icon-order:before {
+        background-image: url("../../image/pai/icon-order-60x60.png?__sprite");
+      }
+      .icon-activity:before {
+        background-image: url("../../image/pai/icon-activity-40x40.png?__sprite");
+      }
+      .icon-exit:before {
+        background-image: url("../../image/pai/icon-exit-40x40.png?__sprite");
+      }
+      .border-b {
+        width: 100%;
+        border-bottom: 1px solid #f2f2f2;
+        display: -webkit-box;
+      }
+      .justify {
+        -webkit-box-pack: justify;
+        width: 100%;
+      }
+      .item-r-txt {
+        padding-right: 15px;
+        color: #ff6a6e;
+      }
+      .top-35 {
+        top: 35px;
+      }
+      .left {
+        display: -webkit-box;
+        -webkit-box-align: center;
+
+        .icon-f {
+          margin-left: 15px;
+        }
+        .icon-f-t {
+          display: -webkit-box;
+          font-size: 15px;
+          font-weight: bold;
+          color: #000;
+        }
+        .ui-avatar-icon {
+        }
+        .ui-avatar-icon-m {
+          .bar-img {
+            background-color: #ccc;
+          }
+        }
+      }
+    }
+    .b-b {
+      border-bottom: 1px solid #f2f2f2;
+    }
+    .h80 {
+      height: 80px;
+      padding: 0;
+    }
+  }
+  .c999 {
+    color: #999;
+  }
+  .c333 {
+    color: #333;
+  }
+  a:link {
+    color: #999;
+    -webkit-box-flex: 1;
+  }
+  a:visited {
+    color: #999;
+    -webkit-box-flex: 1;
+  }
+  a:active {
+    color: #999;
+    -webkit-box-flex: 1;
+  }
+}

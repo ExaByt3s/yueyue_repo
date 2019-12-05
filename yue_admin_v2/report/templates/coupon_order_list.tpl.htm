@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <title>工作监控报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="javascript:void(0);" class="on">{title}</a>
+            <input type="button" value="导出数据" onclick="location.href='?id={id}&type={type}&act=export'"/>
+        </ul>
+    </div>
+    <!--top-->
+    <div class="table-list" id="table-list">
+        <!--<div class="btn">
+            总条数:{total_count}
+        </div>
+         -->
+        <!--list-->
+        <table width="100%" cellspacing="0" style="min-width: 1024px;">
+            <thead>
+            <tr>
+                <!-- <th>关闭日期</th>-->
+                <th width="45">订单ID</th>
+                <th width="70">订单编号</th>
+                <th width="80">商家昵称</th>
+                <th width="60">商家ID</th>
+                <th width="80">买家昵称</th>
+                <th width="60">买家ID</th>
+                <th width="60">商品品类</th>
+                <th width="60">商品ID</th>
+                <th width="100">商品名</th>
+                <th width="60">交易额</th>
+                <th width="60">套餐码</th>
+                <th width="60">优惠码</th>
+                <th width="60">优惠券金额</th>
+                <th width="80">付款时间</th>
+                <th width="80">签到时间</th>
+                <th width="80">服务时间</th>
+                <th>服务地点</th>
+                <th width="60">订单状态</th>
+                <th width="100">商家机构<br/>归属</th>
+                <th width="80">商家审核人员</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <!--<td align="center">
+                    &lt;!&ndash; IF close_time &ndash;&gt;{dateformat:close_time,'Y-m-d H:i:s'}&lt;!&ndash; ELSE &ndash;&gt;0&lt;!&ndash; ENDIF &ndash;&gt;
+                </td>-->
+                <td align="center" width="45">{order_id}</td>
+                <td align="center" width="70">{order_sn}</td>
+                <td align="center" width="80">{seller_name}</td>
+                <td align="center" width="60">{seller_user_id}</td>
+                <td align="center" width="80">{buyer_name}</td>
+                <td align="center" width="60">{buyer_user_id}</td>
+                <td align="center" width="60">{type_name}</td>
+                <td align="center" width="60">{detail_list.0.goods_id}</td>
+                <td align="center" width="100">{detail_list.0.goods_name}</td>
+                <td align="center" width="60">{total_amount}</td>
+                <td align="center" width="60">{package_sn}</td>
+                <td align="center" width="60">{coupon_sn}</td>
+                <td align="center" width="60">{discount_amount}</td>
+                <td align="center" width="80">{pay_time_str}</td>
+                <td align="center" width="80">
+                    <!-- IF sign_time -->{dateformat:sign_time,'Y-m-d H:i:s'}<!-- ELSE -->--<!-- ENDIF -->
+                </td>
+                <td align="center" width="80">{dateformat:detail_list.0.service_time,'Y-m-d H:i:s'}</td>
+                <td align="center"><a href="javascript:void(0);" class="desc" data="{detail_list.0.service_address}">{detail_list.0.service_address_cut}</a></td>
+                <td align="center"  width="60"><!-- IF status="0" --><font color="red">{status_str2}</font><!-- ELSEIF status="1" --><font color="orange">{status_str2}</font><!-- ELSEIF status="2" --><font color="#ffd700">{status_str2}</font><!-- ELSEIF status="7" --><font color="green">{status_str2}</font><!-- ELSEIF status="8" --><font color="blue">{status_str2}</font><!-- ENDIF --></td>
+                <td align="center" width="100">{org_user_name}</td>
+                <td align="center" width="80">{audit_name}</td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        //显示所有文字
+        $("#table-list tbody td").find(".desc").mouseover(function(){
+            var $dmid_desc = $(this).attr('data');
+            layer.tips($dmid_desc, this, {
+                style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+                //maxWidth:185,
+                time: 3,
+                closeBtn:[0, false]
+            });
+        });
+        $("#table-list tbody td").find(".desc").mouseleave(function(){
+            layer.closeTips();
+        });
+    });
+</script>
+</html>

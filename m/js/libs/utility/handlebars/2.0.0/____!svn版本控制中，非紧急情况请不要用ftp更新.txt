@@ -1,0 +1,12 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/js/libs/utility/handlebars/2.0.0
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+handlebars-debug.js
+handlebars.js
+runtime-debug.js
+runtime.js
+
+--EOF--

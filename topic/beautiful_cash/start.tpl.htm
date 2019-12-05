@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta http-equiv = "X-UA-Compatible" content ="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>女神指数大测试</title>
+
+
+<link href="css/wap.css?v33" type="text/css" rel="stylesheet" />
+<!-- <script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script> -->
+<script type="text/javascript" src="js/jquery-1.7.2-min.js"></script>
+
+
+</head>
+<body class="start-page-body">
+    <script type="text/javascript">
+        document.addEventListener('touchstart',function(){},false);
+    </script>
+
+<script type="text/javascript">
+var data = 
+[
+    {
+        "img" : "images/img-one-1.jpg",
+        "num" : "40号约女神",
+        "money" : "73310.00",
+        "level" : "神级女神",
+        "author" : "约女神：Tomi   摄影师：豆腐  ",
+        "footClass" : "pop-footer-one"
+    },
+    {
+        "img" : "images/img-two-1.jpg",
+        "num" : "08号约女神",
+        "money" : "69288.00",
+        "level" : "标准女神",
+        "author" : "约女神：Ceci   摄影师：Hansen   ",
+        "footClass" : "pop-footer-two"
+    },
+    {
+        "img" : "images/img-three-1.jpg",
+        "num" : "29号约女神",
+        "money" : "63242.00",
+        "level" : "标准女神",
+        "author" : "约女神：Hedy   摄影师：Hansen  ",
+        "footClass" : "pop-footer-three"
+    },
+    {
+        "img" : "images/img-four-1.jpg?1",
+        "num" : "04号约女神",
+        "money" : "84055.00",
+        "level" : "神级女神",
+        "author" : "约女神：小绿   摄影师：Yuki   ",
+        "footClass" : "pop-footer-four"
+    }
+]
+
+$(document).ready(function() {
+    var len = data.length ;
+    var index = Math.floor((Math.random()*len)); 
+    var now_arr = data[index];
+
+    $("#img").attr('src', now_arr.img);
+    $("#num").html(now_arr.num);
+    $("#money").html(now_arr.money);
+    $("#author").html(now_arr.author);
+    $("#level").html(now_arr.level);
+
+    $("#foot-class").addClass(now_arr.footClass);
+
+});
+</script>
+
+<div class="start-page">
+    <div class="box1"><img src="images/" id="img"></div>
+</div>
+
+
+<div class="pop-footer" id="foot-class">
+    <div class="box1 tc" id="num">40号约女神</div>
+    <!-- <div class="box2 tc">每月可变现</div> -->
+    <div class="box3 "><span class="nv">女神身价：</span><span class="money">￥</span><span id="money">73310.00</span></div>
+    <div class="box3 "><span class="nv">女神级别：</span><span class="money">￥</span><span class="nv color" id="level">神级女神</span></div>
+    <div class="box4 tc"><div  class="a" id="go-url">测测我的女神指数</div></div> <!-- href="auth.php" -->
+    <div class="box5 tc" id="author">约女神：Tomi   摄影师：豆腐  </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#go-url').click(function() {
+                var url = window.location.origin+'/topic/beautiful_cash/auth.php';
+                location.href = url ;
+        });
+    });
+</script>
+
+
+
+<div style='display:none'>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254053904'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1254053904%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+</body>
+</html>

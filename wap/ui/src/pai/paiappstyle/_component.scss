@@ -1,0 +1,89 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 首页
+// ------------------------------
+
+
+// 方图模型
+@import "component/grid_box";
+
+//首页加号下拉组件
+@import "component/select-drop";
+
+// 下拉刷新
+@import "component/pull-down";
+
+// 加载更多
+@import "component/load-more";
+
+// 按钮动画
+@import "component/load-animate";
+
+// 选择按钮
+@import "component/choosen_group";
+
+// 提示层
+@import "component/ui-alert";
+
+@import "component/ui-number";
+
+//发布页65*65小图
+@import "component/upload-pic";
+
+//发布页“增加模块”按钮
+@import "component/add_btn";
+
+//发布页“模特模块”组件
+@import "component/panel_text_pic";
+
+// 按钮
+@import "./component/ui-button";
+
+// 按钮
+@import "./component/button";
+
+// 表单
+@import "component/ui-form";
+
+//发布页“领队模块”组件
+@import "component/panel-leader";
+
+//绝对布局提示
+@import "component/notice";
+
+// 头像基础样式
+@import "component/avatar";
+
+// 编辑列表
+@import "component/ui-table-list";
+
+// 功能弹窗
+@import "component/ui-dialog";
+
+// 遮罩
+@import "component/ui-mask";
+
+// 上下弹窗基础样式
+@import "component/ui-popup";
+
+// 按钮
+@import "component/ui-switch";
+
+// 轮播滑动
+@import "component/ui-slider";
+
+// 评价
+@import "component/comment";
+
+// 头像size
+@import "component/avatar-size-mod";
+
+// 下拉框组件
+@import "component/ui-select";
+
+// 输入框
+@import "component/ui-input";
+
+// 关注
+@import "component/follow";
+

@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "ui-checkbox.css",
+    "sources": [
+        "/style/widget/ui-checkbox.scss"
+    ],
+    "sourcesContent": [
+        ".ui-checkbox input{\r\n    display: inline-block;\r\n\twidth: 25px;\r\n\theight: 1px;\r\n\tposition: relative;\r\n\toverflow: visible;\r\n\tborder: none;\r\n    background: none;\r\n    -webkit-appearance: none;\r\n    outline: none;\r\n    vertical-align: middle;\r\n\r\n}\r\n.ui-checkbox input:before{\r\n\tbackground:url(http://i.gtimg.cn/vipstyle/frozenui/1.2.0/img/icon.png?_bid=306) no-repeat -50px -25px;\r\n\t-webkit-background-size: 150px auto;\r\n\tcontent:\"\";\r\n\tdisplay: block;\r\n\twidth: 25px;\r\n\theight:25px;\r\n\tposition: absolute;\r\n\tleft:0px;\r\n\ttop:-10px;\r\n}\r\n.ui-checkbox input:checked:before{\r\n\tbackground-position: -25px -25px;\r\n}\r\n\r\n/*new checkbox start*/\r\n.ui-yue-checkbox i{\r\n  display: inline-block;\r\n  width: 24px;\r\n  height: 1px;\r\n  position: relative;\r\n  overflow: visible;\r\n  border: none;\r\n  background: none;\r\n  -webkit-appearance: none;\r\n  outline: none;\r\n  vertical-align: middle;\r\n\r\n}\r\n.ui-yue-checkbox i:before{\r\n  background: url('../../image/pai/right-24x16.png?__sprite');\r\n  content:\"\";\r\n  display: block;\r\n  width: 24px;\r\n  height:16px;\r\n  position: absolute;\r\n  left:4px;\r\n  top:-5px;\r\n}\r\n.ui-yue-checkbox i.no-selected:before{\r\n  background-position: -25px -25px;\r\n}\r\n/*new checkbox end*/\r\n\r\n.ui-checkbox-s{\r\n\twidth: 19px;\r\n}\r\n.ui-checkbox-s input:before{\r\n\twidth: 19px;\r\n\theight: 19px;\r\n\tbackground-position: -100px -25px;\r\n}\r\n.ui-checkbox-s input:checked:before{\r\n\tbackground-position: -75px -25px;\r\n}"
+    ],
+    "mappings": "AAAA,AAAa,AACT,AAAS,AACZ,AAAO,AACP,AAAQ,AACR,AAAU,AACV,AAAU,AACV,AAAQ,AACL,AAAY,AACZ,AAAoB,AACpB,AAAS,AACT,AAAgB,AAGpB,AAAa,AAAK,AACjB,AAAkF,AAClF,AAAyB,AACzB,AAAQ,AACR,AAAS,AACT,AAAO,AACP,AAAO,AACP,AAAU,AACV,AAAK,AACL,AAAI,AAEL,AAAa,AAAK,AAAQ,AACzB,AAAqB,AAItB,AAAiB,AACf,AAAS,AACT,AAAO,AACP,AAAQ,AACR,AAAU,AACV,AAAU,AACV,AAAQ,AACR,AAAY,AACZ,AAAoB,AACpB,AAAS,AACT,AAAgB,AAGlB,AAAiB,AAAC,AAChB,AAAY,AACZ,AAAQ,AACR,AAAS,AACT,AAAO,AACP,AAAO,AACP,AAAU,AACV,AAAK,AACL,AAAI,AAEN,AAAiB,AAAC,AAAY,AAC5B,AAAqB,AAIvB,AACC,AAAO,AAER,AAAe,AAAK,AACnB,AAAO,AACP,AAAQ,AACR,AAAqB,AAEtB,AAAe,AAAK,AAAQ,AAC3B,AAAqB",
+    "names": []
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+
+
+<script src="js/shadowbox/shadowbox.js" type="text/javascript"></script>
+<link href="js/shadowbox/shadowbox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+$(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: '',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        });
+    })
+
+function change_rule_type()
+{
+    $("[ref='rule_cate']").attr('disable','disabled'); 
+    $("[ref='rule_cate']").attr('style','display:none'); 
+    rule_type = $("#rule_type_id").val();
+    rule_type = rule_type.length<1?'0':rule_type;
+    $('.rule_cate_'+rule_type).removeAttr('disable');
+    $('.rule_cate_'+rule_type).removeAttr('style');
+}
+Shadowbox.init({
+handleOversize: "drag",
+overlayColor: '#000',
+modal: true,
+displayNav: true,
+onClose: function(){
+//location.reload();
+},
+displayCounter: false
+});
+Shadowbox.setup();
+</script>
+<script type="text/javascript">
+</script>
+<title>OA</title>
+</head>
+<body>
+<div class="mainbox">
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td width="81%" class="search">
+                <form action="?" method="get">
+                    商家ID：
+                    <input id="seller_user_id" type="text" size="10" name="seller_user_id" value="{search.seller_user_id}" />
+                    &nbsp;&nbsp;
+                    服务品类：
+                    <select name="service_type_id" onchange="">
+                        <option value="">全部</option>
+                        <option value="3" <!-- IF top.search.service_type_id=="3" -->selected="selected" <!-- ENDIF --> >化妆服务</option>
+                        <option value="5" <!-- IF top.search.service_type_id=="5" -->selected="selected" <!-- ENDIF -->>摄影培训</option>
+                        <option value="12" <!-- IF top.search.service_type_id=="12" -->selected="selected" <!-- ENDIF -->>影棚租赁</option>
+                        <option value="31" <!-- IF top.search.service_type_id=="31" -->selected="selected" <!-- ENDIF -->>模特服务</option>
+                        <option value="40" <!-- IF top.search.service_type_id=="40" -->selected="selected" <!-- ENDIF --> >摄影服务</option>
+                        <option value="41" <!-- IF top.search.service_type_id=="41" -->selected="selected" <!-- ENDIF --> >约美食</option>
+                        <option value="43" <!-- IF top.search.service_type_id=="43" -->selected="selected" <!-- ENDIF --> >约有趣</option>
+                    </select>
+                    &nbsp;&nbsp;
+                    规则类型：
+                    <select name="rule_type_id" id="rule_type_id" onchange="change_rule_type()">
+                        <option value="">全部</option>
+                        <option value="0" <!-- IF top.search.rule_type_id=="0" -->selected="selected" <!-- ENDIF --> >通用规则</option>
+                        <option value="31" <!-- IF top.search.rule_type_id=="31" -->selected="selected" <!-- ENDIF --> >模特服务专用规则</option>
+                    </select>
+                    &nbsp;&nbsp;
+                    规则：
+                    <select name="rule_code" onchange="">
+                        <option value="">全部</option>
+                        <!-- BEGIN rules_list -->
+                            <option value="{code}" ref="rule_cate" class='rule_cate_0' <!-- IF top.search.rule_type_id>"0" -->disable="disabled" style="display:none"<!-- ENDIF --><!-- IF code==top.search.rule_code -->selected="selected" <!-- ENDIF --> >
+                                {code}、{remark.0}
+                            </option>
+                        <!-- END rules_list -->
+                        <!-- BEGIN rules_list -->
+                            <!-- IF remark.31!="" -->
+                                <option value="{code}" ref="rule_cate" class='rule_cate_31' <!-- IF top.search.rule_type_id=="31" --><!-- ELSE -->disable="disabled" style="display:none"<!-- ENDIF --><!-- IF code==top.search.rule_code -->selected="selected" <!-- ENDIF --> >
+                                    {code}、{remark.31}
+                                </option>
+                            <!-- ENDIF -->
+                        <!-- END rules_list -->
+                    </select>
+                    <br />
+                    检查时间：
+                    <input id="check_start_time" type="text" size="10" name="check_start_time" value="{search.check_start_time}" class="ui_timepicker" />
+                    至
+                    <input id="check_end_time" type="text" size="10" name="check_end_time" value="{search.check_end_time}" class="ui_timepicker" />
+                    &nbsp;&nbsp;
+                    <input type="button" name="button" id="button" onclick="this.form.target='_self';$('#action').attr('value','');this.form.submit();" value="查询" />
+                    &nbsp;&nbsp;
+                    <input type="button" name="button2" id="button2" value="导出数据" onclick="if(confirm('确定导出?')){this.form.target='_blank';$('#action').attr('value','export');this.form.submit();}"/>
+                    <input name="action" type="hidden" id="action" value="" />
+                </form>
+            </td>
+            <td width="10%" align="center" class="search">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div id="tabs">
+        <div class="tabbox">
+            <div class="table-list">
+                <table width="100%" cellspacing="0">
+                    <thead>
+                        <tr align="center">
+                            <th width="24">商家ID</th>
+                            <th width="90">商家名称</th>
+                            <th width="70">认证服务</th>
+                            <th width="70">规则类型</th>
+                            <th >命中规则</th>
+                            <!-- <th width="30" align="center">分数</th> -->
+                            <th width="170" colspan='2'>签到时段</th>
+                            <th width="75">检查时间</th>
+                            <th width="90">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- IF check_log_list -->
+                    <!-- BEGIN check_log_list -->
+                    <tr>
+                        <td align="center">{seller_user_id}</td>
+                        <td align="center">{seller_name}</td>
+                        <td align="center">
+                            <!-- BEGIN type_list -->
+                            <span style="display:block;">
+                                {name}
+                            </span>
+                            <!-- END type_list -->
+                        </td>
+                        <td align="center">{rule_type}</td>
+                        <td align="left">
+                            <!-- BEGIN rules_rst -->
+                            <span style="display:block;">
+                                <a rel="shadowbox[rule_info_{parent.seller_user_id}]" href="?action=rule_info&rule_code={rule_code}&rule_type_id={parent.rule_type_id}&seller_user_id={parent.seller_user_id}&start_time={parent.start_time}&end_time={parent.end_time}">
+                                    {rule_code}、{remark}
+                                </a>
+                            </span>
+                            <!-- END check_log_list -->
+                        </td>
+                        <!-- <td align="right">{rule_score_s}</td> -->
+                        <td width="75" align="center">{start_date}</td>
+                        <td width="75" align="center">{end_date}</td>
+                        <td align="center">{add_date}</td>
+                        <td >
+                            <a rel="shadowbox[show_scalping_seller_{parent.seller_user_id}]" href="./seller_scalping.php?user_id={seller_user_id}">
+                                查看商家 
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- END check_log_list -->
+                    <!-- ELSE -->
+                    <tr>
+                        <td align="center" colspan='7'>没有命中该商家的自动检查记录</td>
+                    </tr>
+                    <!-- ENDIF -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="pages" class="page" style=" background: white; "> {page} </div>
+    </div>
+    </body>
+    </html>

@@ -1,0 +1,38 @@
+@charset "UTF-8";
+// ------------------------------
+.search-history{
+    background: #eeeeee;
+    height: 100%;
+    .list{
+        li{
+            padding: 0px 0 0 15px;
+            border-bottom: 1px solid #dddddd;
+            height: 60px;
+            line-height: 60px;
+            .lbox{
+                @include float-left;
+                width: 80%;
+                .icon-search-gray-s{
+                    vertical-align: middle;
+                    padding-right: 15px;
+                }
+            }
+            .rbox{
+                @include float-right;
+                width: 40px;
+                height: 60px;
+                text-align: center;
+            }
+        }
+    }
+    .btn{
+        text-align: center;
+        font-size: 14px;
+        height: 60px;
+        line-height: 60px;
+        color: #999999;
+        &:active{
+            color: #cccccc;    
+        };
+    }
+}

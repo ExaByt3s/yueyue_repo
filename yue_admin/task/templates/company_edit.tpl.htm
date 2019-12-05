@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>修改商家资料</title>
+</head>
+<body>
+<style>
+    .J_add_btn,.J_add_cover_img{
+        overflow: hidden;
+    }
+    .model-img-list li{
+        float:left; width:85px; height:100px; text-align:center; margin-right:10px
+    }
+</style>
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>修改公司资料</legend>
+			<form id="form1" name="form1" method="post" action="" target="_self">
+			  <table width="90%" align="center">
+                    <!-- BEGIN default_data -->
+				    <tr>
+                         <td width="26%" height="25">{name}</td>
+                         <td width="74%" height="25">
+                         <!-- IF input="3" -->
+                         <input name="{key}" type="text" id="{key}" value="{value}" size="50" maxlength="50" />
+                         <!-- ELSE -->
+                         <textarea name="{key}" cols="50" rows="5" id="{key}">{value}</textarea>
+                         <!-- ENDIF -->
+                         </td>
+					</tr>
+                    <!-- END default_data -->
+				<tr>
+				  <td colspan="2" align="center">
+                  <input name="goods_id" type="hidden" id="goods_id" value="{id}" />
+                  <input type="submit" name="button" id="button" value="提交" />
+                  </td>
+				</tr>
+			  </table>
+			</form>
+          </fieldset>
+        </div>
+      </div>
+    </div>   
+    </div>
+     </div>
+</body>
+</html>

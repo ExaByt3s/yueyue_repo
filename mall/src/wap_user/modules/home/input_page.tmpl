@@ -1,0 +1,31 @@
+<!-- input²ã -->
+<div data-role="global-header" ></div>
+<div class="page-view input-page" data-role="page-container">
+    <div class="input-information">
+        {{#if_equal type "textarea"}}
+            <!--**¸öÈË¼ò½é**-->
+            <div class="textarea-con pt15" data-role="intro-page">
+                <textarea id="introduce" class="ui-textarea-info input-content" placeholder="{{input_title}}" data-role="text">{{input_content}}</textarea>
+                <div class="num-word">
+                    <span id="setNums">0</span>
+                    <span>/&nbsp;{{limit}}</span>
+                </div>
+                <!--<span class="red tips" style="display: none">ÇëÌîĞ´ÄÚÈİ</span>-->
+            </div>
+        {{/if_equal}}
+
+        {{#if_equal type "text"}}
+            <!--**ÊäÈëêÇ³Æ**-->
+            <div class="ui-input-info-mod mb10 pt15 " data-role="nickname-page">
+                <div class="item border-radius0">
+                    <input id="nickname" value="{{input_content}}" type="text" maxlength="16" class="ui-input-info input-content" placeholder="{{input_title}}" data-role="text">
+                    <i class="icon-delete" style="display: none"></i>
+                </div>
+                <span class="red tips" style="display: none">ÇëÌîĞ´ÄÚÈİ</span>
+            </div>
+        {{/if_equal}}
+
+ 
+
+    </div>
+</div>

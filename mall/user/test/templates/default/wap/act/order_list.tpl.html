@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>活动订单</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/act/order_list.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/swiper3.07.min.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/scroll.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/qrcode/qrcode.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/dragloader.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/swiper/1.0.0/swiper3.07.min.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/qrcode/qrcode.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/act/order_list.js"></script>
+</head>
+<body>
+<main role="main" class="act-order-list">
+    <section id="global-header"></section>
+    <div class="page-view status" data-role="page-container">
+        <ul class="ui-tab-nav ui-border-b nav-list" data-role="nav">
+            <!-- IF type="unpaid" --><li class="current"><!-- ELSE --><li><!-- ENDIF --><a href="./order_list.php?type=unpaid">待付款</a></li>
+            <!-- IF type="paid" --><li class="current"><!-- ELSE --><li><!-- ENDIF --><a href="./order_list.php?type=paid">已付款</a></li>
+            <!-- IF type="pub" --><li class="current"><!-- ELSE --><li><!-- ENDIF --><a href="./order_list.php?type=pub">我发布的</a></li>
+
+        </ul>
+        <div class="content-body " >
+            <div class="ui-tab " data-role="wrapper">
+
+                    <div data-role="no-data" class="fn-hide" ></div>
+                    <div data-role="has-data" class="{type}">
+
+                        <div class="status-container" >
+                            <div class="{type}-inside h-100" data-role="status-container">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+             </div>
+        </div>
+
+        <div class="ui-button-submit-area">
+            <a href="./checkins.php" class="db">
+                <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6" style="margin: 10px auto;width: 150px;" data-role="nav-to-code">
+                    <span class="ui-button-content">数字密码</span>
+                </button>
+            </a>
+        </div>
+    </div>
+
+
+    <div id="render_qrcode"></div>
+    
+    <input type="hidden" data_user_id="{user_id}">
+    <input type="hidden" data_nick_name="{nick_name}">
+    <input type="hidden" data_user_icon="{user_icon}">
+    {wap_global_footer}
+</main>
+</body>
+<script>
+
+    var order_list = require('act/order_list');
+
+    var _page_params = {page_params};
+
+    order_list.init();
+
+</script>
+</html>

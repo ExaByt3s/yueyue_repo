@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "success.css",
+    "sources": [
+        "/style/pay/success.scss"
+    ],
+    "sourcesContent": [
+        "@charset \"UTF-8\";\r\n.pay-success{\r\n  font-size: 16px;\r\n  color: #aaa;\r\n\r\n.pay-status{\r\n  display: -webkit-box;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-align: center; \r\n  -webkit-box-orient: vertical;\r\n  padding-top: 75px;\r\n.success-icon{\r\n  width:50px;\r\n  height:50px;\r\n\r\n.icon{\r\n  width:50px;\r\n  height:50px;\r\n  }\r\n}\r\n.pay-order{\r\n  text-align: center;\r\n  width: 80%;\r\n  margin-top: 10px;\r\n  padding: 10px;\r\n}\r\n.consult{\r\n  text-align: center;\r\n  width: 100%;\r\n  margin-top: 40px;\r\n  padding: 10px 0;\r\n  .btn{\r\n    width: 100px;\r\n    height: 40px;\r\n    background-color: #555;\r\n    border-radius: 6px;\r\n    color: #fff;\r\n  }\r\n  .btn:active{\r\n    background-color:#aaa;\r\n  }\r\n    }\r\n  }\r\n}"
+    ],
+    "mappings": "AACA,AACE,AAAW,AACX,AAAO,AAET,AAAa,AACX,AAAS,AACT,AAAkB,AAClB,AAAmB,AACnB,AAAoB,AACpB,AAAa,AACf,AAAa,AAAY,AACvB,AAAM,AACN,AAAO,AAET,AAAa,AAAY,AAAc,AACrC,AAAM,AACN,AAAO,AAGT,AAAa,AAAY,AACvB,AAAY,AACZ,AAAO,AACP,AAAY,AACZ,AAAS,AAEX,AAAa,AAAY,AACvB,AAAY,AACZ,AAAO,AACP,AAAY,AACZ,AAAS,AACX,AAAa,AAAY,AAAS,AAC9B,AAAO,AACP,AAAQ,AACR,AAAkB,AAClB,AAAe,AACf,AAAO,AAEX,AAAa,AAAY,AAAS,AAAI,AAClC,AAAiB",
+    "names": []
+}

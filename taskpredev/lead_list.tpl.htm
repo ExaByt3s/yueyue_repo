@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>生意机会</title>
+
+<!-- 公共css，js引入 -->
+{pc_task_top}
+
+<meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+
+<script>
+(function()
+{
+    if(!window.console){
+        console = (function(){
+            var instance = null;
+            function Constructor(){
+                
+            }
+            Constructor.prototype = {
+                log : function(str){
+
+                }
+            }
+            function getInstance(){
+                if(instance == null){
+                    instance =  new Constructor();
+                }
+                return instance;
+            }
+            return getInstance();
+        })()
+    }
+
+    String.prototype.trim = function() {
+        return this.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+})();
+</script>
+
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/style/common/base.css">
+<!--基础样式 END-->
+
+<!--公共模块 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/style/common/common.css">
+<!--公共模块 END-->
+
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/style/task-pc.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__domain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : './ajax/'
+	};
+</script>  
+
+<!-- 当前页面css-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/style/lead_list/index.css">
+<!-- 引导页css -->
+<!--RESOURCE_style/lead_list/index.scss_PLACEHOLDER--><!-- js 库-->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/modules/common/guide/guide.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/modules/common/guide/guide.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/modules/lead_list/lead_list.js"></script>
+</head>
+<body>
+
+{pc_global_nav}
+
+
+<div class="list-page w960 fn-hide" id="list-page" >
+    <div class="p1th">
+        <div class="title font_wryh">生意机会</div>
+    </div>
+
+    <div class="p2th">
+ 
+<!-- BEGIN list -->
+        <div class="wbox clearfix"  go_url_lead_id={lead_id} >
+            <div class="lbox fldi">
+            <!-- IF is_read -->
+             <div class="icon-has"></div>
+                <p class="txt">已查看</p>
+            <!-- ELSE -->
+                <div class="icon-new"></div>
+                <p class="txt">新的任务</p>
+             <!-- ENDIF -->   
+            </div>
+            <div class="cbox fldi">
+                <h3><a href="lead_detail.php?lead_id={lead_id}">{buyer_nickname}</a></h3>
+                <p class="p1">{where_str} {title} {when_str}</p>
+                <p class="p2">
+                    <!-- BEGIN answer -->
+                        <!-- BEGIN data -->
+                            {titles}
+                        <!-- END data -->
+                    <!-- END answer -->
+                </p>
+            </div>
+            <div class="rbox frdi">
+                <div class="time">{time_format}</div>
+                <div class="btn"><a href="#this" lead_id="{lead_id}" action="1">删除</a></div>
+            </div>
+        </div>
+<!-- END list -->
+
+    </div>
+
+    <div class="page-mod">
+        {page}
+    </div>
+
+    
+    <!-- IF no_page_data -->               
+        <div class="no_page_data font_wryh">暂无订单</div>
+    <!-- ENDIF -->
+</div> 
+
+
+<!-- 引导图  -->
+<div class="first-login " id="guide">
+    
+</div>
+
+
+
+{footer_html}
+
+<script type="text/javascript">
+
+	var lead_list_obj = require('lead_list');
+
+    lead_list_obj.init({seller_id : {seller_id} });
+
+
+</script>
+
+
+
+</body>
+</html>

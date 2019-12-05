@@ -1,0 +1,24 @@
+
+
+{{#each data}} 
+
+    <div class="item-wrap" order-id="{{order_id}}">
+        <div class="state">{{sign_text}}</div>
+        <div class="item">
+            <div class="lbox ">时间：</div>
+            <div class="rbox ">{{time}}</div>
+        </div>
+        
+        <div class="item ">
+            <div class="lbox ">预算：</div>
+            <div class="rbox "><span class="cor2">{{budget}}</span></div>
+        </div>
+      
+        <div class="item ">
+            <div class="lbox ">风格：</div>
+            <div class="rbox ">{{style}}</div>
+        </div>
+
+
+    </div>
+{{/each}}

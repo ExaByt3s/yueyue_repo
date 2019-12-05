@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/model_audit.css">
+    <title>聊天详情</title>
+    <style type="text/css">
+        .table-list
+        {
+            min-width: 990px;
+            margin-bottom: 20px;
+        }
+        .table-list tbody td
+        {
+
+            /* border: #eee 1px solid; */
+            border-left: #eee 1px solid;
+        }
+        .album img
+        {
+            margin:2px;
+        }
+    </style>
+</head>
+<body>
+<div class="mainbox">
+    <div class="table-list">
+        <div class="table" style="width:98%;" id="occu">
+            <!--list-->
+            <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+                <thead>
+                <th width="80" align="left"><b><a href="seller_reply_message_list.php" style="cursor:pointer">返回</a></b></th>
+                <th align="left">商家ID:<font color="red">[<a href="http://www.yueus.com/mall/{receive_id}" target="_blank">{receive_id}</a>]</font></th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>聊天信息:</td>
+                    <td colspan="2">
+                        <!-- IF list -->
+                        <!-- BEGIN list -->
+                            <p>
+                               时间:{send_time} [{send_user_role_name}]{send_user_id} TO [{to_user_role_name}]{to_user_id} :{content}
+                            </p>
+                        <!-- END list -->
+                        <!-- ELSE -->
+                        暂无
+                        <!-- ENDIF -->
+                    </td>
+                </tr>
+                <tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

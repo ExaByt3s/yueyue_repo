@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>级联</title>
+    <script type="text/javascript" src="http://static-c.yueus.com/yue_ui/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://static-c.yueus.com/yue_ui/handlebars/3.0.3/handlebars-v3.0.3.js"></script>
+    <script type="text/javascript" src="./spread-1.0.0.js"></script>
+</head>
+<style>
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+    div{float: left;margin-right: 20px}
+    .contain{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .btn{
+        display: block;
+        border: 1px solid #ccc;
+        height: 30px;
+        width: 100px;
+        line-height: 30px;
+        text-align: center;
+        margin: 20px 0px;
+        border-radius: 5px;
+    }
+    .title{
+        width: 100%;
+        margin: 5px 0px;
+    }
+</style>
+<body>
+<div class="contain">
+    <div class="title">ajax demo</div>
+    <div data-role="provice"></div>
+    <div data-role="city"></div>
+    <div data-role="area"></div>
+</div>
+<div data-role="res" class="btn">获取结果</div>
+<div class="contain">
+    <div class="title">自定义数据 demo</div>
+    <div data-role="name"></div>
+    <div data-role="style"></div>
+    <div data-role="date"></div>
+    <div data-role="hour"></div>
+</div>
+<div data-role="res2" class="btn">获取结果</div>
+</body>
+<script>
+
+    var a = new Spread
+    ({
+        ajax_url : '', //ajax_url 默认'http://www.yueus.com/action/get_location_data.php'接口
+        ajax_data : {},//ajax上传属性，默认为空
+        ajax_type : '',//ajax dataType 默认jsonp
+        ajax_send_before : function(){},//异步前
+        ajax_send_success : function(res){console.log(res);},//异步成功
+        ajax_send_error : function(res){},//异步失败
+        ajax_send_complete : function(){},//异步完成
+        event_change_after : function(obj){},//修改选中值后，obj为选中项
+        parse_note : '',//层级标记，默认'location_id'
+        parse_value : '',//层级显示值,默认'location_name'
+        parse_stack : 3,//显示层级，默认100级，最少1级
+        random_num : '',//该组别的随机数，可选，用于区分各个组别
+        render_before :function(){},//组件首次渲染前
+        render_after : function(){},//组件首次渲染后
+        render_contain_arr : [$('[data-role="provice"]'),$('[data-role="city"]'),$('[data-role="area"]')],
+        //容器节点数组，
+        //长度为1：全部层级渲染进该节点
+        //长度为0：全部层级渲染进body。
+        //长度为多：按照层级顺序渲染，若个数比渲染数少，则渲染进body。。
+        render_notice_arr :['请选择省','请选择市','请选择区'],//层级提示语数组，不填默认为空。
+        custom_data :[],
+        //自定义数据 参考数据格式 [[{location_id: 101001,location_name: "北京"},{},{}],[{},{},{}],[{},{}]]
+        //该属性会阻止ajax获取数据，令其失效，自定义和ajax二选一
+                /*[
+                    [
+                        {location_id: 100,location_name: "北京1"},
+                        {location_id: 101,location_name: "北京2"},
+                        {location_id: 102,location_name: "北京3"}
+                    ],
+                    [
+                        {location_id: 100001,location_name: "北京11"},
+                        {location_id: 101001,location_name: "北京21"},
+                        {location_id: 101002,location_name: "北京22"}
+                    ],
+                    [
+                        {location_id: 100001001,location_name: "北京111"},
+                        {location_id: 100001002,location_name: "北京112"},
+                        {location_id: 101002002,location_name: "北京222"}
+                    ]
+                ],
+                */
+        select_default_id : 101029001007 //用于设置默认值，该值对应parse_note，
+    });
+
+    $('[data-role="res"]').on('click',function()
+    {
+        var res = a.result();
+
+        alert(JSON.stringify(res));
+        console.log(res);
+    });
+
+    var b = new Spread
+    ({
+        ajax_url : '', //ajax_url 默认'http://www.yueus.com/action/get_location_data.php'接口
+        ajax_data : {},//ajax上传属性，默认为空
+        ajax_type : '',//ajax dataType 默认jsonp
+        ajax_send_before : function(){},//异步前
+        ajax_send_success : function(res){console.log(res);},//异步成功
+        ajax_send_error : function(res){},//异步失败
+        ajax_send_complete : function(){},//异步完成
+        event_change_after : function(obj){},//修改选中值后，obj为选中项
+        parse_note : 'model_type_id',//层级标记，默认'location_id'
+        parse_value : 'service_name',//层级显示值,默认'location_name'
+        parse_stack : 4,//显示层级，默认100级，最少1级
+        random_num : '',//该组别的随机数，可选，用于区分各个组别
+        render_before :function(){},//组件首次渲染前
+        render_after : function(){},//组件首次渲染后
+        render_contain_arr : [$('[data-role="name"]'),$('[data-role="style"]'),$('[data-role="date"]'),$('[data-role="hour"]')],
+        //容器节点数组，
+        //长度为1：全部层级渲染进该节点
+        //长度为0：全部层级渲染进body。
+        //长度为多：按照层级顺序渲染，若个数比渲染数少，则渲染进body。。
+        render_notice_arr :['请选择模特','风格','拍摄日期','时长'],//层级提示语数组，不填默认为空。
+        custom_data :
+        //自定义数据 参考数据格式 [[{location_id: 101001,location_name: "北京"},{},{}],[{},{},{}],[{},{}]]
+        //该属性会阻止ajax获取数据，令其失效，自定义和ajax二选一
+
+                    [
+                        [
+                            {model_type_id: 100,service_name: "燕子"},
+                            {model_type_id: 101,service_name: "赵小七"},
+                            {model_type_id: 102,service_name: "汤唯"}
+                        ],
+                        [
+                            {model_type_id: 100001,service_name: "甜美"},
+                            {model_type_id: 100002,service_name: "性感"},
+                            {model_type_id: 100003,service_name: "清新"},
+                            {model_type_id: 101001,service_name: "旗袍"},
+                            {model_type_id: 101002,service_name: "甜美"},
+                            {model_type_id: 101003,service_name: "透明"},
+                            {model_type_id: 101004,service_name: "COSPLAY"},
+                            {model_type_id: 102001,service_name: "随机"},
+                            {model_type_id: 102002,service_name: "淘宝风"}
+                        ],
+                        [
+                            {model_type_id: 100001044,service_name: "2015-09-21"},
+                            {model_type_id: 100001045,service_name: "2015-09-22"},
+                            {model_type_id: 100001046,service_name: "2015-09-23"},
+                            {model_type_id: 100002044,service_name: "上午"},
+                            {model_type_id: 100002045,service_name: "中午"},
+                            {model_type_id: 100002046,service_name: "下午"},
+                            {model_type_id: 100003044,service_name: "周五"},
+                            {model_type_id: 100003045,service_name: "周六"},
+                            {model_type_id: 100003046,service_name: "周日"},
+                            {model_type_id: 101001066,service_name: "8号早上"},
+                            {model_type_id: 101001067,service_name: "9号下午"},
+                            {model_type_id: 101001068,service_name: "10号全天"},
+                            {model_type_id: 101002066,service_name: "8号早上"},
+                            {model_type_id: 101002067,service_name: "9号下午"},
+                            {model_type_id: 101002068,service_name: "10号全天"},
+                            {model_type_id: 101003066,service_name: "8号早上"},
+                            {model_type_id: 101003067,service_name: "9号下午"},
+                            {model_type_id: 101004009,service_name: "10号全天"},
+                            {model_type_id: 101004010,service_name: "10号早上"},
+                            {model_type_id: 102001952,service_name: "下周一"},
+                            {model_type_id: 102001986,service_name: "下周二"},
+                            {model_type_id: 102001997,service_name: "下周三"},
+                            {model_type_id: 102002662,service_name: "淘宝风-旺旺"},
+                            {model_type_id: 102002668,service_name: "淘宝风-阿狸"},
+                            {model_type_id: 102002670,service_name: "淘宝风-马云"}
+                        ],
+                        [
+                            {model_type_id: 100001044030,service_name: "1小时"},
+                            {model_type_id: 100001044060,service_name: "2小时"},
+                            {model_type_id: 100001045030,service_name: "1天"},
+                            {model_type_id: 100001045060,service_name: "2天"},
+                            {model_type_id: 100001046030,service_name: "4小时"},
+                            {model_type_id: 100001046002,service_name: "8小时"},
+                            {model_type_id: 100002044001,service_name: "2个钟"},
+                            {model_type_id: 100002044002,service_name: "4个钟"},
+                            {model_type_id: 100002045005,service_name: "4个钟"},
+                            {model_type_id: 100002045009,service_name: "8个钟"},
+                            {model_type_id: 100002046666,service_name: "6点~8点"},
+                            {model_type_id: 100002046778,service_name: "3点~6点"},
+                            {model_type_id: 100003044002,service_name: "12:45~13:30"},
+                            {model_type_id: 100003044003,service_name: "14:00~16:30"},
+                            {model_type_id: 100003045888,service_name: "10小时"},
+                            {model_type_id: 100003045999,service_name: "24小时"},
+                            {model_type_id: 100003046566,service_name: "半天"},
+                            {model_type_id: 100003046653,service_name: "一天"},
+                            {model_type_id: 101001066678,service_name: "8~10"},
+                            {model_type_id: 101001066895,service_name: "10~12"},
+                            {model_type_id: 101001067456,service_name: "2hour"},
+                            {model_type_id: 101001067654,service_name: "4hour"},
+                            {model_type_id: 101001068001,service_name: "all day"},
+                            {model_type_id: 101001068003,service_name: "two days"},
+                            {model_type_id: 101002066336,service_name: "两小时"},
+                            {model_type_id: 101002066996,service_name: "4小时"},
+                            {model_type_id: 101002067968,service_name: "9分钟"},
+                            {model_type_id: 101002067888,service_name: "9个钟"},
+                            {model_type_id: 101002068669,service_name: "不想拍！"},
+                            {model_type_id: 101002068331,service_name: "别下单！"},
+                            {model_type_id: 101003066444,service_name: "56mins"},
+                            {model_type_id: 101003066589,service_name: "88mins"},
+                            {model_type_id: 101003067001,service_name: "你想多久就多久"},
+                            {model_type_id: 101003067008,service_name: "你想怎么都可以"},
+                            {model_type_id: 101004009999,service_name: "地球1小时"},
+                            {model_type_id: 101004009111,service_name: "地球4小时"}
+                        ]
+                    ],
+
+        select_default_id : 100003044003 //用于设置默认值，该值对应parse_note，
+    });
+
+    $('[data-role="res2"]').on('click',function()
+    {
+        var res = b.result();
+
+        alert(JSON.stringify(res));
+    });
+
+</script>
+</html>

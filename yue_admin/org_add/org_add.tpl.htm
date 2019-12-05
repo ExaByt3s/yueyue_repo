@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/login.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/model_audit.css">
+<title>机构管理后台</title>
+<style type="text/css">
+.table-list
+{
+	min-width: 990px;
+	margin-bottom: 20px;
+}
+.table-list tbody td
+{
+
+	/* border: #eee 1px solid; */
+	border-left: #eee 1px solid;
+}
+.album img
+{
+	margin:2px;
+}
+.button
+{
+	background: url('resources/images/uploadify.png');
+	height: 28px;
+	width: 75px;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	text-shadow:none;
+	box-shadow:none;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list">
+       <h1><b><a href="org_list.php" style="cursor:pointer">返回</a></b></h1>
+       <form method="post" action="?" id="myform">
+	   <div class="table" style="width:98%;" id="occu">
+		    <!--list-->
+		    <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+		    	<tbody>
+				<tr>
+				<td width="80">机构名:</td>
+				<td>
+				   <input type="text" name="nick_name" value="" class="input-text" id="nick_name" />
+				</td>
+				</tr>
+				<tr>
+				<td>密码:</td>
+				<td>
+				  <input type="text" name="pwd_hash" value="" class="input-text" id="pwd_hash" /><input type="button" value="生成密码" onclick="getPwd()" />
+				</td>
+				</tr>
+				<!-- <tr>
+				<td>机构电话:</td>
+				<td>
+				  <input type="text" name="cellphone" value="" class="input-text" id="cellphone" /><font color="red">*该号码用于机构后台登录，不能为空，专属服务机构</font>
+				</td>
+				</tr> -->
+				<tr>
+				<td>联系人:</td>
+				<td>
+				  <input type="text" name="link_man" value="" class="input-text"/>
+				</td>
+				</tr>
+				<tr>
+				<td>城市:</td>
+				<td>
+				 	<select name="province" class="prov">
+				 		<option value="0">请选择</option>
+  		                 <!-- BEGIN province_list -->
+  		                 <option value="{c_id}" {selected_prov}>{c_name}</option>
+  		                 <!-- END province_list -->
+  		            </select>
+    	            <select class="city" name="location_id">
+    	                <option value="0">请选择</option>
+    	            </select>
+				</td>
+				</tr>
+				<tr>
+				<td>机构地址:</td>
+				<td>
+				 <input type="text" name="address" value="" class="input-text"/>
+				</td>
+				</tr>
+				<tr>
+				<td>机构简介:</td>
+				<td>
+				   <textarea name="org_desc" style="width:400px;height:100px;"></textarea>
+				</td>
+				</tr>
+				<tr>
+				<td>操作:</td>
+				<td>
+			       <input type="button" value="提交" class="button" onclick="sub()" />
+                   <input type="reset"  value="重置" class="button"/>
+				</td>
+				</tr>  	
+			    </tbody>
+		    </table>
+	   </div>
+	   <input type="hidden" value="insert" name="act" />
+	   </form>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	//获取密码
+	function getPwd()
+	{
+		var $val = generateMixed(6);
+		$("#pwd_hash").val($val);
+	}
+    $(function(){
+	   //获取城市数据
+		$(".prov").change(function(){
+			var $prov_val = $(this).val();
+			$.ajax({
+			   type:"POST",
+			   url:"get_city.php",
+			   dataType: 'json',
+			   data : {'prov_id': $prov_val},
+			   success:function(data)
+			  {
+			  	if (data.ret) 
+			  	{
+			  		var $ret = data.ret;
+			  		var $str = "<option value='0'>请选择</option>";
+			  		for (var i = 0; i < $ret.length; i++) 
+			  		{
+			  			$str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";		
+			  		}
+			  		$(".city").html($str);
+
+			  	}
+
+			  },
+			  error:function(data)
+			 {
+
+			 }
+			});
+		});
+})
+</script>
+</html>

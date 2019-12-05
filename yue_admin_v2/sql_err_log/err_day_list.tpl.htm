@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" type="text/css" href='http://www.poco.cn/css_common/v3/reset.css?t=1351752071'>
+<link rel="stylesheet" type="text/css" href='http://www.poco.cn/css_common/v3/global.css?t=1351752071'>
+
+<title>POCO SQL错误管理后台</title>
+<style type="text/css">
+a:link {
+	color:#0000FF !important;
+}
+a:visited {
+	color:#990099 !important;
+}
+a:hover {
+	color:#FF0000 !important;
+}
+.small_font {
+	font-size:x-small
+}
+.a_box {
+	background-color:#F6F6F6;
+	border:1px solid #000;
+	text-decoration:none;
+	line-height:20px;
+	text-align:center;
+	padding:1px 6px 1px 6px;
+}
+</style>
+</head>
+<body bgcolor="#F6F6F6" align="center">
+<form name="form1" action="err_day_list.php" method="post" target="left_Frame">
+  <table width="165" border="0" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
+    <tr>
+      <td height="25" bgcolor="#FFFFFF">起始时间
+        <input name="begin_day" type="text" id="begin_day" size="10" maxlength="10" value="{begin_day}"></td>
+    </tr>
+    <tr>
+      <td height="25" bgcolor="#FFFFFF">结束时间
+        <input name="end_day" type="text" id="end_day" size="10" maxlength="10" value="{end_day}">
+      </td>
+    </tr>
+    <tr>
+      <td height="25" bgcolor="#FFFFFF"><input type="submit" name="Submit" value="查看错误和慢查询"></td>
+    </tr>
+	<tr>
+      <td height="25" align="center" bgcolor="#FFFFFF"><a target="right_Frame" href="show_slow_req_log.php">查看慢请求脚本</a></td>
+    </tr>
+	<tr>
+      <td height="25" align="center" bgcolor="#FFFFFF"><a target="_blank" href="read_log_time.php?file=php-modi.log">文件列表</a></td>
+    </tr>
+	
+    <!-- BEGIN arr_day_list -->
+    <tr>
+      <td height="25" bgcolor="#FFFFFF"> {day}
+        <ul>
+          <!-- BEGIN err_count_info -->
+          <li><a target="right_Frame" href="err_log_list.php?day={parent.day}&err_code={err_code}" style="text-decoration:underline; color:red !important;">
+          <!-- IF err_code="-1" -->
+          全部
+          <!-- ELSE -->
+          CODE_{err_code}
+          <!-- ENDIF -->
+          : ({err_count}项)</a> </li>
+          <!-- END err_count_info -->
+        </ul></td>
+    </tr>
+    <!-- END arr_day_list -->
+    <tr><td>慢查询：</td></tr>
+     <!-- BEGIN slowquery_day_list -->
+    <tr>
+      <td height="25" bgcolor="#EEEE00"> {day}
+        <ul>
+          <!-- BEGIN slowquery_count_info -->
+          <li><a target="right_Frame" href="slowquery_log_list.php?day={parent.day}&query_time_ms={query_time_ms}" style="text-decoration:underline; color:red !important;">
+          <!-- IF query_time_ms="-1" -->
+          全部
+          <!-- ELSE -->
+          查询时间>{query_time_ms}ms
+          <!-- ENDIF -->
+          : ({slowquery_count}项)</a> </li>
+          <!-- END slowquery_count_info -->
+        </ul></td>
+    </tr>
+    <!-- END slowquery_day_list -->
+    
+  </table>
+</form>
+</body>
+</html>

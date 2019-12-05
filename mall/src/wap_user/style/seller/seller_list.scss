@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+.seller-list-page {
+    .seller_list {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        .child {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            background: #fff;
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+            i {
+                &.min-height {
+                    height: 150px;
+                }
+            }
+            .pics_con {
+                position: relative;
+                font-size: 0px;
+                .txt {
+                    position: absolute;
+                    bottom: 0px;
+                    font-size: 14px;
+                    width: 100%;
+                    color: #fff;
+                    padding: 10px 15px;
+                    //background: rgba(0, 0, 0, 0.7);
+                    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8)));
+                }
+            }
+            .notice {
+                display: -webkit-box;
+                -webkit-box-pack: justify;
+                font-size: 14px;
+                padding: 18px 15px;
+                .price {
+                   .p2{
+                        padding-top: 7px;
+                   }
+                }
+                .rbox{
+                    text-align: right;
+                    .stars-all-mod{
+                        display: inline-block;
+                    }
+                    .p1{
+                         padding-top: 5px;
+                    }
+                }
+                .name {
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-pack: center;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+
+
+    //  图片列表模块
+    .item-list{
+        background: #ffffff;
+        .item{
+            padding: 15px 0  15px 0 ;
+            margin: 0 15px 0 15px;
+            border-bottom: 1px solid #e6e6e6;
+            display: -webkit-box;
+            display: box;
+            .lbox{
+                position: relative;
+                width: 100px;
+                height: 100px;
+                i{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                    background-repeat: no-repeat;
+                    -webkit-background-size: cover;
+                    display: block;
+                    background-repeat: no-repeat;
+                }
+            }
+            .rbox{
+                -webkit-box-pack: justify;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                margin-left: 15px;
+                -webkit-box-flex: 1; 
+                .title {
+                    line-height: 20px;
+                }
+                box-flex: 1;
+                .price{
+                    margin-top: 2px;
+                    font-size: 12px;
+                }
+                .num{
+                    padding-top: 2px;
+                }
+            }
+        }
+    }
+    //  图片列表模块 end
+
+}

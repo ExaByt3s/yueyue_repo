@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "index.css",
+    "sources": [
+        "/style/success/index.scss"
+    ],
+    "sourcesContent": [
+        ".success-container{\r\n  background: #eee;\r\n  .success_tip{\r\n    -webkit-box-pack:center;\r\n\r\n    height: 75px;\r\n  }\r\n  .success_tip > p{\r\n    background: #d2fcd0;\r\n    margin: 0px 15px;\r\n    color: #2a912c;\r\n    height: 45px;\r\n    padding: 0px 15px;\r\n    border-radius: 4px;\r\n\r\n  }\r\n  .success_tip > p > img{\r\n    width: 14px;\r\n    margin-right: 15px;\r\n    margin-top: 18px;\r\n  }\r\n  .success_notice{\r\n    -webkit-box-pack:center;\r\n    text-align: center;\r\n    height: 85px;\r\n\r\n  }\r\n  .success_X{\r\n    -webkit-box-pack:center;\r\n\r\n  }\r\n  .X_inner{\r\n    width: 100px;\r\n    text-align: center;\r\n  }\r\n  .X_inner > .blue{\r\n    width: 75px;\r\n    height: 75px;\r\n    border-radius: 40px;\r\n    border: 1px solid #e4e4e4;\r\n    margin-left: 11px;\r\n    font-size: 36px;\r\n    color: #4092f1;\r\n    line-height: 75px;\r\n  }\r\n  .X_inner > span{\r\n    font-size: 12px;\r\n    color: #aaaaaa;\r\n  }\r\n  .success_encourage{\r\n    height: 100px;\r\n    -webkit-box-pack:center;\r\n\r\n    text-align: center;\r\n    font-size: 14px;\r\n  }\r\n\r\n}"
+    ],
+    "mappings": "AAAA,AACE,AAAY,AACd,AAAmB,AACf,AAAiB,AAEjB,AAAQ,AAEZ,AAAmB,AAAe,AAC9B,AAAY,AACZ,AAAQ,AACR,AAAO,AACP,AAAQ,AACR,AAAS,AACT,AAAe,AAGnB,AAAmB,AAAe,AAAI,AAClC,AAAO,AACP,AAAc,AACd,AAAY,AAEhB,AAAmB,AACf,AAAiB,AACjB,AAAY,AACZ,AAAQ,AAGZ,AAAmB,AACf,AAAiB,AAGrB,AAAmB,AACf,AAAO,AACP,AAAY,AAEhB,AAAmB,AAAW,AAC1B,AAAO,AACP,AAAQ,AACR,AAAe,AACf,AAAQ,AACR,AAAa,AACb,AAAW,AACX,AAAO,AACP,AAAa,AAEjB,AAAmB,AAAW,AAC1B,AAAW,AACX,AAAO,AAEX,AAAmB,AACf,AAAQ,AACR,AAAiB,AAEjB,AAAY,AACZ,AAAW",
+    "names": []
+}

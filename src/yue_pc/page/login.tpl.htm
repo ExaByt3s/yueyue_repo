@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>登录</title>
+
+<!-- 公共css，js引入 -->
+{pc_global_top}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+
+<!-- <link rel="import" href="../page/webcontrol/head.tpl.htm?__inline"> -->
+
+<!-- 当前页css -->
+<link type="text/css" rel="stylesheet" href="../style/login-register-page.scss"> 
+
+</head>
+
+<body class="login-register-page-body">
+
+
+<!-- bar -->
+{global_top_bar}
+<!-- bar end -->
+
+<div class="login-register-page-wrap">
+
+
+    <div id="login-area"></div>
+
+
+</div>
+
+{footer}
+
+</body>
+
+
+<script type="text/javascript">
+    var $ = require('jquery');
+
+    // 渲染
+    var $login_ele = $('#login-area');
+    var login_mod = require('../modules/common/login_register_change_pw/login');
+    login_mod.render($login_ele[0],'{r_url}');
+
+</script>
+
+</html>

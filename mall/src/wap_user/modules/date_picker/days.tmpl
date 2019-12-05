@@ -1,0 +1,22 @@
+<div class="native-scroll" data-role="scroll-wrapper">
+    {{#each tree}}
+    <div class="picker-year">
+        {{#each months}}
+            <div class="picker-month">
+                <div class="month_title">{{../year}}年{{month_num}}月</div>
+                <div class="days_contain">
+                    {{#each days}}
+                        <div class="picker-day {{#if choosen}}unchoose{{/if}} {{#if is_default}}now_pick{{/if}}" {{#if num}}data-the-day="{{../../../year}}-{{../../month_num}}-{{num}}" {{#unless choosen}}data-role-picker-day-tap="day"{{/unless}}{{/if}}>
+                            <div class="num">{{num}}</div>
+                            <div class="confirm_tag">
+                                <div class="txt" data-role="confirm_day">确定</div>
+                                <div class="delta"></div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{/each}}
+</div>

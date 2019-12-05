@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="gbk">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>代运营后台</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/sb-admin.css" rel="stylesheet">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div id="wrapper">
+{MOBILE_ADMIN_TOP}
+  <div id="page-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3">
+          <h2>
+            <button name="" type="button" class="btn btn-primary btn-lg" onClick="location.href='admin_edit.php'">添加管理员</button>
+          </h2>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom:10px">
+        <div class="col-lg-3">
+        <form action="" method="get" class="navbar-form navbar-left">
+          <div class="input-group">
+            <span class="input-group-btn">
+            <input type="text" class="form-control" name="admin_user_id" placeholder="搜索约约ID">
+            </span>
+            <span class="input-group-btn">
+            <button class="btn btn-success" type="submit">搜索</button>
+            </span> 
+           </div>
+            </form>
+        </div>
+      </div>
+      
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>管理员名称</th>
+                  <th>约约ID</th>
+                  <th>品类</th>
+                  <th>备注</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- BEGIN list -->
+                <tr  <!-- IF status="0" -->class="danger"<!-- ENDIF -->>
+                <td>{name}</td>
+                <td>{admin_user_id}</td>
+                <td>{type_name}</td>
+                <td>{remark}</td>
+                <td><button type="button" class="btn btn-sm btn-primary" onclick="location.href='admin_edit.php?id={id}&act=edit'">编辑</button>
+				<button type="button" class="btn btn-sm btn-primary" onclick="del_confirm({id});">删除</button>
+				</td>
+              </tr>
+              <!-- END -->
+              
+                </tbody>
+              
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="text-align:center;"> {page} </div>
+    </div>
+  </div>
+</div>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<script src="../js/jquery.min.js"></script> 
+<script src="../js/bootstrap.min.js"></script>
+<script>
+function del_confirm(id)
+{
+	if(confirm('确认删除吗？'))
+	{
+		frame.location.href='admin_list.php?id='+id+'&act=del';
+	}
+}
+</script>
+</body>
+</html>

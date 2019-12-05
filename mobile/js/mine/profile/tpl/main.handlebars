@@ -1,0 +1,86 @@
+<main class="mine-edit-page" role="main">
+    <header class="nav-header mine-edit-nav-header nav-header-special-pop">
+        <div class="left-button-wrap">
+            {{#if is_from_reg}}
+                {{else}}
+                <a data-role="page-back"><i class="icon icon-back"></i></a>
+            {{/if}}
+        </div>
+
+        <h3 class="title">编辑资料</h3>
+
+        <div class="right-button-wrap">
+            <button class="ui-button ui-button-primary ui-button-size-default" data-role="save">
+                <span class="ui-button-content">保存</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mine-edit-container" data-role="container">
+        <article style="height: {{scoll_wrapper_height}}px">
+            <header>
+                <div class="avatar">
+                    <a>
+                        <i class="img avatar-img" style="background-image: url({{user_icon}})"
+                        data-role="avatar-img"></i>
+                    </a>
+                </div>
+
+                <h2>建议上传本人头像</h2>
+            </header>
+
+            <section>
+                <ul class="ui-table-list">
+                    <li>
+                        <label>昵称：</label>
+                        <div class="remarks">
+                            <div data-role="navigate" data-target="edit-nickname" class="icon icon-r-grey-m">{{nickname}}</div>
+                        </div>
+                    </li>
+                    <li>
+                        <label>地区：</label>
+                        <div class="remarks">
+                            <div data-role="location" data-target="edit-location" class="icon icon-r-grey-m">{{city_name}}</div>
+                        </div>
+                    </li>
+                    <li>
+                        <label>备注：</label>
+                        <div class="remarks" data-role="edit-remarks">
+                            <div data-role="remarks" class="icon icon-r-grey-m">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="block">
+                        <label>上传封面：</label>
+                        <div data-role="upload-cover" class="upload-cover"></div>
+                    </li>
+                    <li class="block">
+                        <label>我的作品：</label>
+                        <div data-role="my-photo"></div>
+                    </li>
+                </ul>
+            </section>
+            <section class="fn-hide">
+                <ul class="ui-table-list">
+                    <li class="block">
+                        <label>摄影等级：</label>
+                        <ul>
+                            <li>【POCO摄影网】加盟摄影师、玩家一级</li>
+                            <li>
+                                <div class="component-add-btn">
+                                <div class="component-add-btn-con" data-role="add_panel">
+                                    <div class="mid">
+                                        <i class="icon icon-add-32x32"></i>
+                                        <p>增加认证</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </li>
+                            <li class="fx12"><p>支持【POCO摄影】【网易摄影】【色影无忌】网站</p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </div>
+</main>

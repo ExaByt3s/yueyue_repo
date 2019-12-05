@@ -1,0 +1,42 @@
+.sign-name-list-page .item-wrap {
+  padding: 0px 15px 15px 15px; }
+  .sign-name-list-page .item-wrap .item-title h3.title {
+    font-size: 18px; }
+  .sign-name-list-page .item-wrap .item-title .number-txt .color-fe9920 {
+    color: #fe9920; }
+  .sign-name-list-page .item-wrap .item-list {
+    background: #fff;
+    border: 1px solid #dddddd;
+    border-radius: 5px; }
+    .sign-name-list-page .item-wrap .item-list .list li {
+      width: 33.3%;
+      float: left;
+      text-align: center; }
+      .sign-name-list-page .item-wrap .item-list .list li i.img {
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        margin: 15px 0px 9px 0px;
+        border-radius: 50%;
+        background-size: cover; }
+      .sign-name-list-page .item-wrap .item-list .list li .name-text {
+        height: 22px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 0px 15px; }
+    .sign-name-list-page .item-wrap .item-list .more-btn {
+      padding: 15px 0px;
+      margin-bottom: 15px;
+      text-align: center; }
+      .sign-name-list-page .item-wrap .item-list .more-btn .arrow-txt {
+        width: 12px;
+        height: 13px;
+        margin-left: 3px;
+        display: inline-block;
+        background-image: url(http://static.yueus.com/mall/user/test/static/wap/image/ui/arrow-img-21x25.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center; }
+    .sign-name-list-page .item-wrap .item-list #comment_ele .stream-abnormal {
+      padding-bottom: 150px; }

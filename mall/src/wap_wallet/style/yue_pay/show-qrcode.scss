@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+.show-qrcode-page{
+	.item-wrap{
+		padding: 30px 15px 0px 15px;
+		.item-1{
+
+			margin: 0px 5px;
+			background: #fff;
+			border: 1px solid #dddddd;
+			border-radius: 3px;
+			text-align: center;
+			h3.title{
+				font-size: 16px;
+				padding:15px 0px;
+			}
+			i.code-icon{
+				width: 200px;
+				height: 200px;
+				margin-bottom: 35px;
+				display: inline-block;
+				img{
+					width:100%;
+				}
+			}
+		}
+		.item-2{
+			margin-top: 30px;
+			p.txt{
+				font-size: 14px;
+				line-height: 22px;
+			}
+		}
+		.item-3{
+			text-align: center;
+			margin-top: 30px;
+			.btn-con{
+				display:inline-block;
+				position:relative;
+			}
+			.number-icon{
+				width:15px;
+				height:15px;
+				background:#ff696d;
+				border:2px solid #ffffff;
+				border-radius: 15px;
+				position: absolute;
+				top:-7px;
+				right: -7px;
+				font-size: 10px;
+				color:#ffffff;
+			}
+		}
+	}
+}

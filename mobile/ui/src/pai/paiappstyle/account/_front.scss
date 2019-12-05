@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO约拍app - 封面
+// ------------------------------
+.account-front 
+{
+  .test-tap{
+    width:100px;
+    height: 100px;
+    background: #FAF;
+
+    &:hover
+    {
+      background: #ff0000;
+    }
+    &:active
+    {
+      background: #00755e;
+    }
+
+  }
+  display: -webkit-box;
+  -webkit-box-flex: 1;
+  -webkit-box-orient:vertical;
+
+  .front-container
+  {
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+    -webkit-box-orient:vertical;
+    .role-container
+    {
+      display: -webkit-box;
+      -webkit-box-flex: 1;
+      -webkit-box-orient:vertical;
+      -webkit-box-pack:center;
+      .role
+      {
+        display: -webkit-box;
+        -webkit-box-pack:center;
+        .model{
+
+          margin-right: 35px;
+        }
+        .txt{
+          text-align: center;
+          color: #000000;
+          margin-top: 4px;
+          font:
+          {
+            size: 16px;
+          }
+        }
+      }
+    }
+    .notice
+    {
+      display: -webkit-box;
+      -webkit-box-pack:end;
+      -webkit-box-orient:vertical;
+      height: 19px;
+      padding-bottom: 23px;
+      color: #999999;
+      text-align: center;
+      font:
+      {
+        size: 12px;
+      }
+    }
+  }
+
+
+    .mask{
+        width: 100%;
+        height: 157px;
+        background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+}
+

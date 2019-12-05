@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>´úÔËÓªpc-µÇÂ¼</title>
+    <link href="../../../style/base.scss" rel="stylesheet" type="text/css">
+    <link href="../../../style/index/index.scss" rel="stylesheet" type="text/css">
+    <script src="../../../lib/mod.js"></script>
+
+</head>
+<body>
+<main class="page-main" role="main" style="padding:0">
+    <div class="login-page">
+        <div class="logo">
+            <i class="login_logo"></i>
+        </div>
+        <div class="login-block">
+            <img class="img" src="../../../image/pai/index_code.png" style="width: 210px;height: 210px">
+            <p class="sub_title">É¨Ãè¶þÎ¬Âë´ò¿ªwap°æ</p>
+            <div class="inputs">
+                <div class="input_con">
+                    <input placeholder="´úÀíID" data-role="input_id">
+                </div>
+                <div class="input_con">
+                    <input type="password" placeholder="µÇÂ¼ÃÜÂë" data-role="input_pw">
+                </div>
+            </div>
+            <div class="btns">
+                <div class="btn_white login_btn" data-role="login">µÇÂ¼</div>
+            </div>
+            <!--div class="modd ds-box orient-h pack-justify"  style="margin-top: 20px;font-size: 10px">
+                <div data-role="mod-login" data-mod-id="100008">Ä£ÄâµÇÂ¼100008</div>
+                <div data-role="mod-login" data-mod-id="100049">Ä£ÄâµÇÂ¼100049</div>
+            </div-->
+        </div>
+    </div>
+
+</main>
+</body>
+<script>
+
+window.__test__str = /test/.test(window.location.href)?'test/':'';
+
+window.$__ajax_domain = 'http://www.yueus.com/im/client/'+__test__str + 'ajax/';
+
+var $ = require('jquery');
+
+$(function(){
+    $('[data-role="login"]').on('click',function()
+    {
+        //location.href = './face/face.php';
+
+        //return
+
+        var id = $('[data-role="input_id"]').val();
+
+        var pw = $('[data-role="input_pw"]').val();
+
+        if(!id||!pw)
+        {
+            alert('ÇëÊäÈëÕËºÅÃÜÂë')
+        }
+
+        $.ajax
+        ({
+            url: window.$__ajax_domain + 'agent_login.php',
+            data : {login_id :id,pw: pw},
+            dataType: 'json',
+            type: 'POST',
+            cache: false,
+            beforeSend: function()
+            {
+
+            },
+            success: function(data)
+            {
+                var code = data.result_data.result;
+
+                var message = data.result_data.message;
+
+                if(code == 1)
+                {
+                    location.href = './chat_room/chat_room.php';
+                }
+                else{
+                    alert(message)
+                }
+            },
+            error: function(data)
+            {
+
+            },
+            complete: function()
+            {
+
+            }
+        });
+    })
+
+    $('[data-role="mod-login"]').on('click',function()
+    {
+        var id = $(this).attr('data-mod-id');
+
+        location.href = 'http://yp.yueus.com/_yp_login.php?user_id=' + id
+    })
+
+});
+
+</script>
+</html>

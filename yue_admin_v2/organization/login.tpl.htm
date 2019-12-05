@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<title>约约APP后台</title>
+<link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
+<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+</head>
+<body style="background:#02609b">
+	<div class="login_box">
+		<div class="login_title">机构管理后台</div>
+		<div class="login_left">
+			<img src="../resources/images/admin_logo.gif?11" border="0" alt="hai" >
+		</div>
+		<form method="post" name="login" id="login_form" action="login.php" onsubmit="return sub()">
+        <!-- IF referer_url -->
+        <input type="hidden" name="referer_url" value="{referer_url}" />
+        <!-- ENDIF -->
+			<div class="login_right">
+				<div class="msg"><div id="result" class="result none"></div></div>
+				<div class="login_form">
+					<ul>
+						<li><label>帐&nbsp;&nbsp; 号:</label><input type="text" id="cellphone" class="input-text" name="cellphone" size="16"></li>
+						<li><label>密&nbsp;&nbsp; 码:</label><input type="password"  class="input-text" name="password" size="16" id="password"></li>
+						<li><label></label><input type="submit" value="登录" class="button"> <input type="reset" name="reset" value="重置" class="button" id="reset" /></li> 
+						<input type="hidden" name="act" value="sign" />
+					</ul>
+				</div>
+			</div>
+		</form>
+	</div>
+    <div class="footer" style=" position:fixed; bottom:0;"><a href="http://www.yueus.com/about.php">公司介绍</a>|<a href="http://www.yueus.com/about.php#lxwm">联系我们</a>|<span>Copyright&copy; 2003-2015 YUEUS.COM </span></div>
+</body>
+<script language="JavaScript" type="text/javascript">
+function sub()
+{
+	var $cellphone = $("#cellphone").val();
+	var $password  = $("#password").val();
+	if ($cellphone == '') 
+	{
+		window.alert('账号不能为空');
+		return false;
+	}
+	if ($password == '')
+	{
+		window.alert('密码不能为空');
+		return false;
+	}
+}
+</script>
+</html>

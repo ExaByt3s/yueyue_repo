@@ -1,0 +1,7 @@
+.previewShowWindow{
+	position:absolute;border:1px solid #dadade;
+	background:#95959d;padding:5px;
+	display:none;color:#fff;
+	text-align:center;
+	z-index:999;
+}

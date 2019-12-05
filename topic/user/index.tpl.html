@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>Simpla Admin</title>
+<!--                       CSS                       -->
+<!-- Reset Stylesheet -->
+<link rel="stylesheet" href="resources/css/reset.css" type="text/css" media="screen" />
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen" />
+<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+<link rel="stylesheet" href="resources/css/invalid.css" type="text/css" media="screen" />
+
+<!--                       Javascripts                       -->
+<!-- jQuery -->
+<script type="text/javascript" src="resources/scripts/jquery-1.8.2.min.js"></script>
+<style>
+.delete_span {
+ color:red;
+ cursor:pointer;
+ text-decoration:underline;
+}
+</style>
+
+</head>
+<body>
+<div id="body-wrapper">
+  <!-- Wrapper for the radial gradient background -->
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+      <!-- Sidebar with logo and menu -->
+      <h1 id="sidebar-title"><a href="#">Simpla Admin</a></h1>
+      <!-- Logo (221px wide) -->
+      <a href="#"><img id="logo" src="resources/images/logo.png" alt="Simpla Admin logo" /></a>
+      <!-- Sidebar Profile links -->
+      <div id="profile-links"><a href="index.php?act=logout" title="Sign Out">退出</a> </div>
+      <ul id="main-nav">
+        <!-- Accordion Menu -->
+        <li> <a href="#" class="nav-top-item">
+          <!-- Add the class "current" to current menu item -->
+          个人信息编辑 </a>
+          <ul>
+            <li><a href="preview.php" target="_blank">预览</a></li>
+            <li><a href="index.php">信息修改</a></li>
+            <!-- Add class "current" to sub menu items also -->
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <div id="main-content">
+    <!-- Main Content Section with everything -->
+    <!-- Page Head -->
+    <h2>模特信息后台</h2>
+    <br />
+    <br />
+    <br />
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h3>资料编辑</h3>
+        <ul class="content-box-tabs">
+          <li><a href="#tab1" class="default-tab">Table</a></li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+      <!-- End .content-box-header -->
+      <div class="content-box-content">
+        <div class="tab-content default-tab" id="tab1">
+          <form  enctype ="multipart/form-data"  action="index.php" method="post">
+          <input type="hidden" name="act" value="edit" />
+            <fieldset>
+            <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+            <p>
+              昵称：
+              <input class="text-input" type="text" id="small-input" name="nickname" value="{nickname}" />
+              <!-- Classes for input-notification: success, error, information, attention -->
+              <br />
+           </p>
+           <p>
+              头像：<img src="{icon}" width="145px" />
+           </p>
+           <p>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <input class="text-input" id="small-input" type="file" name="icon" />
+           </p>
+           <p>
+                地区：<select name="area">
+                        <option value="" >全国</option>
+                        {area_str}
+                    </select> 
+           </p>
+           <p>
+                身高：<input class="text-input" type="text" name="height" value="{height}" />cm
+           </p>
+           <p>
+                体重：<input class="text-input" type="text" name="weight" value="{weight}" />kg
+           </p>
+           <p>
+                CUP: 
+                    <select name="cup_num">
+                        <option value="30" {cup_num_30}>30</option>
+                        <option value="32" {cup_num_32}>32</option>
+                        <option value="34" {cup_num_34}>34</option>
+                        <option value="36" {cup_num_36}>36</option>
+                        <option value="38" {cup_num_38}>38</option>
+                    </select>
+                    <select name="cup">
+                        <option value="A" {cup_A}>A</option>
+                        <option value="B" {cup_B}>B</option>
+                        <option value="C" {cup_C}>C</option>
+                        <option value="D" {cup_D}>D</option>
+                        <option value="E" {cup_E}>E</option>
+                        <option value="E+" {cup_E+}>E+</option>
+                    </select>
+           </p>
+           <p>
+                胸围: <input class="text-input" type="text" name="b_size" value="{b_size}"/>&nbsp;&nbsp;
+                腰围: <input class="text-input" type="text" name="w_size" value="{w_size}"/>&nbsp;&nbsp;
+                臀围: <input class="text-input" type="text" name="h_size" value="{h_size}"/>&nbsp;&nbsp;
+           </p>
+           <p>
+                拍摄类型：<input class="text-input large-input" type="text" name="shot_type" value="{shot_type}" />
+           </p>
+           <p>
+            <label>个人图片：</label>
+            <div id="imgup_div"><span style="float:left;"></span>{img_content}</div>
+           </p>
+           <p>
+           <label>图片上传：</label>
+<script type="text/javascript" src="resources/scripts/jquery.uploadify-3.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/uploadify.css"/>
+<script type="text/javascript">
+var img_id_upload=new Array();//初始化数组，存储已经上传的图片名
+var i={num};//初始化数组下标
+$(function() {
+    $('#file_upload').uploadify({
+    	'auto'     : true,//关闭自动上传
+    	'removeTimeout' : 1,//文件队列上传完成1秒后删除
+        'swf'      : 'uploadify.swf',
+        'uploader' : 'http://imgup-yue.yueus.com/ultra_upload_service/yueyue_upload_act.php?poco_id=57165138&hash=3e671259ab8647ee115cc9556a9ab0bc',
+        'method'   : 'post',//方法，服务端可以用$_POST数组获取数据
+		'buttonText' : '选择图片',//设置按钮文本
+        'multi'    : true,//允许同时上传多张图片
+        'uploadLimit' : 10,//一次最多只允许上传10张图片
+        'fileTypeDesc' : 'Image Files',//只允许上传图像
+        'fileTypeExts' : '*.gif; *.jpg; *.png',//限制允许上传的图片后缀
+        'fileObjName' : 'opus', //参数
+        'fileSizeLimit' : '20000KB',//限制上传的图片不得超过200KB 
+        'onUploadSuccess' : function(file, data, response) {//每次成功上传后执行的回调函数，从服务端返回数据到前端
+               if(i==0) document.getElementById("imgup_div").innerHTML ='';
+               img_id_upload[i]=data;
+               i++;
+			   //alert(data);
+               var array_data;
+               array_data = JSON.parse(data);
+               
+               //if(i==1)
+               //{
+               //     document.getElementById("img_icon").src = array_data.url;
+               //    document.getElementById("up_icon").value = array_data.url;
+               //}else{
+                    var insert_html =    '<input name="img[]" type="hidden" value="' + array_data.url + '" id="img_input_'+i+'"/><img id="img_div_'+i+'"  src="'+array_data.url+'" width="200px"><span class="delete_span" id="span_div_'+i+'" onclick="delete_img('+i+');" >删除</span>';
+                    document.getElementById("imgup_div").innerHTML = document.getElementById("imgup_div").innerHTML + insert_html;
+                    /*if(i%4 == 0)
+                    {
+                        document.getElementById("imgup_div").innerHTML = document.getElementById("imgup_div").innerHTML + '<BR>';
+                    }*/
+               //}
+               //document.getElementById("imgup").innerHTML = document.getElementById("imgup").value + '<img src="../upload/images'+data+'" height="100" width="100" />';
+               //document.getElementById("imgup").innerHTML = "已经上传了" + i + "张图";
+        },
+        'onQueueComplete' : function(queueData) {//上传队列全部完成后执行的回调函数
+           // if(img_id_upload.length>0)
+           // alert('成功上传的文件有：'+encodeURIComponent(img_id_upload));
+        }  
+        // Put your options here
+    });
+
+});
+//删除方法
+function  delete_img(num)
+{
+    $("#img_input_"+num).remove();
+    $("#img_div_"+num).remove();
+    $("#span_div_"+num).remove();
+    
+}
+</script>
+<input type="file" name="file_upload" id="file_upload" />
+<!--<p><a href="javascript:$('#file_upload').uploadify('upload','*');">上传</a> -->
+<!--动态传值  $('#file_upload').uploadify('settings', 'formData', {'typeCode':document.getElementById('id_file').value}); -->
+<p><a href="javascript:$('#file_upload').uploadify('settings', 'formData', {'typeCode':document.getElementById('id_file').value});$('#file_upload').uploadify('upload','*')">上传</a>
+<a href="javascript:$('#file_upload').uploadify('cancel','*')">重置上传队列</a>
+<input type="hidden" value="1215154" name="tmpdir" id="id_file" />                
+           </p>
+            <p>
+              <input class="button" type="submit" value="提交查看" />
+            </p>
+            </fieldset>
+            <div class="clear"></div>
+            <!-- End .clear -->
+          </form>
+        </div>
+        <!-- End #tab2 -->
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <!-- End .content-box -->
+    
+    <div id="footer"> <small>
+      </small> </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+</body>
+<!-- Download From www.exet.tk-->
+</html>

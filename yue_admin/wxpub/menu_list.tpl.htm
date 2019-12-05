@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<!-- BEGIN JS_FILES -->
+<script type="text/javascript" src="{js_link}?{top._dev}"></script>
+<!-- END JS_FILES -->
+<!-- BEGIN STYLE_FILES -->
+<link rel="stylesheet" type="text/css" href="{css_link}?{top._dev}">
+<!-- END STYLE_FILES -->
+<title>菜单列表 Powered by hai - Powered by hai</title>
+</head>
+<body>
+<div class="mainbox">
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="./menu.php?act=list" class="on">菜单列表</a>|
+		<a href="./menu.php?act=add">添加菜单</a>|
+	</ul>
+</div>
+<iframe id="mcfrm" name="mcfrm" frameborder="0" width="0" height="0" src="" style="display:none;"></iframe>
+<form name="list_form" id="list_form" action="menu.php" method="post" target="mcfrm">
+<div id="infobox">目前自定义菜单最多包括3个一级菜单，每个一级菜单最多包含5个二级菜单。一级菜单最多4个汉字，二级菜单最多7个汉字，多出来的部分将会以“...”代替。请注意，创建自定义菜单后，由于微信客户端缓存，需要24小时微信客户端才会展现出来。建议测试时可以尝试取消关注公众账号后再次关注，则可以看到创建后的效果。</div>
+	<div class="table-list">
+		<table width="100%" cellspacing="0">
+			<thead>
+			<tr>
+				<th width="40">编号</th>
+				<th width="500">菜单名</th>
+				<th width="80">菜单类型</th>
+				<th width="80">排序</th>
+				<th>操作</th>
+			</tr>
+			</thead>
+			<tbody>
+				<!-- IF menu_list -->
+			    <!-- BEGIN menu_list -->
+				<tr>
+				<td align="center"><input name="menu_id[]" type="hidden" value="{menu_id}">{menu_id}</td>
+				<td align="left">{menu_name}</td>
+				<td>{menu_type_name}</td>
+				<td><input name="sort_{menu_id}" type="text" value="{sort}" style="width: 30px;"></td>
+				<td><a href="menu.php?act=modify&menu_id={menu_id}">编辑</a> | <a href="menu.php?act=del&menu_id={menu_id}" target="mcfrm">删除</a></td>
+				</tr>
+				<!-- BEGIN subclass -->
+					<tr>
+					<td align="center"><input name="menu_id[]" type="hidden" value="{menu_id}">{menu_id}</td>
+					<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;|-{menu_name}</td>
+					<td>{menu_type_name}</td>
+					<td><input name="sort_{menu_id}" type="text" value="{sort}" style="width: 30px;"></td>
+					<td><a href="menu.php?act=modify&menu_id={menu_id}">编辑</a> | <a href="menu.php?act=del&menu_id={menu_id}" target="mcfrm">删除</a></td>
+					</tr>
+				<!-- END subclass -->
+				<!-- END menu_list -->
+				<!-- ELSE -->
+				暂无数据
+				<!-- ENDIF -->
+			</tbody>
+		</table>
+	</div>
+	<div class="btn">
+	<input type="hidden" name="act" value="set_sort">
+	<input type="submit" value="保存排序" class="button">
+	<a class="button" target="mcfrm" href="menu.php?act=wx_menu_create">发布到微信</a>
+	</div>
+</form>
+</div>
+</body>
+</html>

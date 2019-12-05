@@ -1,0 +1,98 @@
+{YUE_ADMIN_V2_ADMIN_TEST_HEADER}
+<div id="page-wrapper">
+
+<div class="container-fluid">
+
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            生成推广链接
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-edit"></i> 生成推广链接
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+<div class="col-lg-6">
+
+    <form role="form"  action="?">
+
+        <div class="form-group">
+            <label>约约链接地址</label>
+            <input class="form-control" placeholder="约约链接地址" name="url" value="{url}">
+        </div>
+        <div class="form-group">
+            <label>活动备注【可以不填】</label>
+            <input class="form-control" placeholder="活动备注" name="remark" value="{remark}">
+        </div>
+        <div class="form-group">
+            <label>生成个数【不要超过100】</label>
+            <input class="form-control" placeholder="生成个数" name="qrcode_num" value="<!-- IF qrcode_num -->{qrcode_num}<!-- ELSE -->1<!-- ENDIF -->">
+        </div>
+        <input type="hidden" name="act" value="create">
+        <button type="submit" class="btn btn-primary" class="mysubmit">{button_name}</button>
+        <button type="reset" class="btn btn-default">重置</button>
+
+    </form>
+
+</div>
+<div class="col-lg-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            二维码
+        </div>
+        <div class="panel-body">
+            <!-- BEGIN list -->
+            <!-- IF img_url --><p><img src="{img_url}"  /></p><!-- ENDIF -->
+            <!-- IF curl --><p>推广地址 <a href="javascript:void(0);" class="api-copy">复制</a>:<span id="api-result">{curl}</span></p><!-- ENDIF -->
+            <!-- END list -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+</div>
+</div>
+<!-- /.row -->
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="./resources/bootstrap/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="./resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="./resources/bootstrap/js/plugins/metisMenu/metisMenu.min.js"></script>
+<script src="./resources/bootstrap/js/sb-admin-2.js"></script>
+<!--复制插件-->
+<script type="text/javascript" src="./js/copy/jquery.zclip.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //复制
+        $('.api-copy').zclip({
+            path: "./js/copy/ZeroClipboard.swf",
+            copy: function(){
+                var $curl =  $("#api-result").text();
+                return $curl;
+            },
+            afterCopy:function(){
+                alert("复制成功");
+                //console.log("复制之后");
+            }
+        });
+    });
+</script>
+</body>
+
+</html>

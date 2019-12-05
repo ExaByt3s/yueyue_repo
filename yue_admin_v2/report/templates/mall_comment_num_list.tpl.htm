@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <title>评价报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <li><a href="javascript:void(0);" class="on">评价数量列表</a></li>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="530">
+                        <tbody>
+                        <tr>
+                            <td>
+                                年月:
+                                <input type="text" name="month" class="input-text" id="date" value="{month}" size="10" onfocus="WdatePicker( {dateFmt: 'yyyy-MM'} )" readonly="true"/>
+                            </td>
+                            <td>
+                                商品品类:
+                                <select name="type_id">
+                                    <option value="">全部</option>
+                                    <!-- BEGIN type_list -->
+                                    <option value="{id}" <!-- IF selected -->selected="selected"<!-- ENDIF -->>{name}</option>
+                                    <!-- END type_list -->
+                                </select>
+                            </td>
+                            <td>
+                                <p><input type="button" class="button" value="查找" onclick="this.form.target='_self';$('#action').attr('value','');this.form.submit();">&nbsp;&nbsp;
+                                    <input type="button" class="button" value="导出" onclick="this.form.target='_blank';$('#action').attr('value','export');this.form.submit();"></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="act" id="action">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <div class="table-list" id="table-list">
+        <table width="100%" cellspacing="0" style="min-width: 1000px;">
+            <thead>
+            <tr>
+                <th>日期</th>
+                <th>总交易数</th>
+                <th>总评价数</th>
+                <th>(评价数/交易数)占比</th>
+                <th>1天内评价的订单</th>
+                <th>3天内评价的订单</th>
+                <th>5天内评价的订单</th>
+                <th>7天内评价的订单</th>
+                <th>超过7天评价的订单</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center">{add_time}</td>
+                <td align="center">{sign_count}</td>
+                <td align="center">{commont_num_for_buyer}</td>
+                <td align="center">{scale_comment_sign}%</td>
+                <td align="center">{commont_1_num_for_buyer}<font color="red">({scale_1_comment_sign})%</font></td>
+                <td align="center">{commont_3_num_for_buyer}<font color="red">({scale_3_comment_sign})%</font></td>
+                <td align="center">{commont_5_num_for_buyer}<font color="red">({scale_5_comment_sign})%</font></td>
+                <td align="center">{commont_7_num_for_buyer}<font color="red">({scale_7_comment_sign})%</font></td>
+                <td align="center">{commont_other_num_for_buyer}<font color="red">({scale_other_comment_sign})%</font></td>
+            </tr>
+            <!-- END list -->
+            <tr>
+                <td align="center">总计</td>
+                <td align="center">{total_sign_count}</td>
+                <td align="center">{total_commont_num_for_buyer}</td>
+                <td align="center">{total_scale_comment_sign}%</td>
+                <td align="center">{total_commont_1_num_for_buyer}</td>
+                <td align="center">{total_commont_3_num_for_buyer}</td>
+                <td align="center">{total_commont_5_num_for_buyer}</td>
+                <td align="center">{total_commont_7_num_for_buyer}</td>
+                <td align="center">{total_commont_other_num_for_buyer}</td>
+            </tr>
+            <tr>
+                <td align="center">日均</td>
+                <td align="center">{avg_total_sign_count}</td>
+                <td align="center">{avg_commont_num_for_buyer}</td>
+                <td align="center">{avg_scale_comment_sign}%</td>
+                <td align="center">{avg_commont_1_num_for_buyer}<font color="red">({avg_scale_1_comment_sign})%</font></td>
+                <td align="center">{avg_commont_3_num_for_buyer}<font color="red">({avg_scale_3_comment_sign})%</font></td>
+                <td align="center">{avg_commont_5_num_for_buyer}<font color="red">({avg_scale_5_comment_sign})%</font></td>
+                <td align="center">{avg_commont_7_num_for_buyer}<font color="red">({avg_scale_7_comment_sign})%</font></td>
+                <td align="center">{avg_commont_other_num_for_buyer}<font color="red">({avg_scale_other_comment_sign})%</font></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

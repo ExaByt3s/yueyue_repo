@@ -1,0 +1,147 @@
+@charset "UTF-8";
+//接受邀请 nolest 2014-8-15
+$background : #ffffff;
+$header_select: #ff0052;
+$select_active:#ff266c;
+$header_unselect:#f0f0f0;
+$choice_unselect: #fafafa;
+$header_font:#666666;
+$border:#e6e6e6;
+$chooen_border:#ebebeb;
+$pay_border:#dddddd;
+$precedure-pay-notice:#3fc585;
+
+.procedure-succeed{
+  .content-body {
+    display: -webkit-box;
+    -webkit-box-pack:justify;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    // padding-top: 45px;
+    color: $header_font;
+    .icon-yes{
+      text-align: center;
+      margin: 35px 0px 15px;
+    }
+  }
+  .details-notice{
+    margin: 34px 10px 10px;
+    color: $header_font;
+    font:{
+      size: 12px;
+    }
+    .tips{
+      color: #000;
+    }
+
+    
+    & > p {
+      padding-bottom: 6px;
+      .icon {
+        vertical-align: -2px;
+        margin-right: 5px;
+      }
+    }
+  }
+  .wx_download_contain{
+    //background: #e5e5e5;
+    //border-top:1px solid #CCCCCC;
+    padding: 0px 25px 0px 25px;
+    .download{
+      margin-bottom: 12px;
+    }
+    .return_find{
+      margin-top: 12px;
+      margin-bottom: 10px;
+      background: #FFFFFF;
+    }
+  }
+  .notice-one{
+    text-align: center;
+    color: $precedure-pay-notice;
+    margin-bottom: 2px;
+    font: {
+      size: 18px;
+    };
+  }
+  .notice-two{
+    text-align: center;
+    padding-top: 5px;
+    font: {
+      size: 12px;
+    };
+  }
+  .btn_container_success {
+
+    border-top: 1px solid #cbcbcb;
+
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    text-align: center;
+    padding: 0px 10px 0px 0px;
+    height: 50px;
+    background: #f5f5f5;
+    .left{
+      display: inline-block;
+      width: 40%;
+      margin-right: 10px;
+      padding-top: 8px;
+    }
+    .right{
+      display: inline-block;
+      width: 40%;
+      padding-top: 8px;
+    }
+  }
+
+  .btn-vacation{
+      margin: 0px  20px 0px 20px;
+      font-size: 12px;
+  }
+
+
+  .v2_area{
+    margin-bottom: 0px;
+  }
+
+
+  .level-des{
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 50px 0 12px 0;
+    color: #000;
+
+    .cor{
+        color: #ff4978;
+    }
+  }
+
+    .list-txt{
+        padding: 90px 10px 50px 10px;
+        li{
+            padding-top: 5px;
+            font-size: 12px;
+            @include flexbox((
+                display: box,
+                box-pack: start
+            ), $version: 1);
+        }
+      .txt
+      {
+        -webkit-box-flex:1;
+      }
+        .circle{
+            width: 5px;
+            height: 5px;
+            @include border-radius(5px);
+            background: #666666;
+            margin: 8px 8px 0 0;
+        }
+    }
+
+}
+
+
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/table.css">
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/js/admin.js"></script>
+    <script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+    <title>优惠券后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="coupon_used_list.php?act=mall_order">商城优惠券使用详情</a>
+            <a href="coupon_used_list.php?act=waipai" target="main">外拍优惠券使用详情</a>
+            <a href="javascript:void(0);" class="on">私拍优惠券使用详情</a>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form action="?" method="get">
+                    摄影师ID:
+                    <input type="text" size="6" class="input-text" name="user_id" value="{user_id}">
+                    使用时间:
+                    <input type="text" size="10" class="input-text" name="cash_time" value="{cash_time}" readonly="true" onfocus="WdatePicker()">
+                    <input type="submit" value="查询" class="button">
+                    <input type="reset" value="重置" class="button">
+                    <input type="hidden" value="yuepai" name="act">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+
+    <div class="table-list" id="table-list">
+        <!--list-->
+        <table width="100%" cellspacing="0" style="min-width: 1000px;">
+            <thead>
+            <tr>
+                <th>订单ID</th>
+                <th colspan="2">摄影师</th>
+                <th colspan="2">模特</th>
+                <th>风格</th>
+                <th>订单金额</th>
+                <th>付款状态</th>
+                <th>优惠券金额</th>
+                <th>使用时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center">{channel_oid}</td>
+                <td align="center">{from_date_id}</td>
+                <td align="center">{cameraman_name}</td>
+                <td align="center">{to_date_id}</td>
+                <td align="center">{model_name}</td>
+                <td align="center">{date_style}</td>
+                <td align="center">{date_price}</td>
+                <td align="center">已付款</td>
+                <td align="center">{cash_amount}</td>
+                <td align="center">{cash_time}</td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<main class="edit-model-page secondary" role="main">
+    <header class="nav-header edit-model-nav-header nav-header-special-pop">
+        <div class="left-button-wrap">
+            <a data-role="page-back" {{#if is_from_reg}}class="fn-hide"{{/if}}><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title " data-role="title">编辑模特卡</h3>
+
+        <div class="right-button-wrap">
+            <button class="ui-button ui-button-primary ui-button-size-default" data-role="save">
+                <span class="ui-button-content icon icon-plus-white">保存</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="edit-model-container edit-to-all" data-role="container">
+        <article>
+            <div class="model-pic" data-role="model_pic" style="height: {{scoll_wrapper_height}}px">
+                <div class="content">
+                    <section>
+                        <h3 data-role="works">个人作品</h3>
+                        <div data-role="upload-pic"></div>
+                    </section>
+                    <section class="edit-to-all-header">
+
+
+                        <div class="avatar">
+
+                            <div class="avatar-size-mod avatar-size-mod-80" data-role="avatar-img">
+                                <span class="icon avatar-size-area "></span>
+                                <i data-role="data-image" class="avatar-size-img" style="background-image: url({{user_icon}});  background-size:cover;background-repeat: no-repeat;background-position: 50%;" data-image="{{user_icon}}"></i>
+                            </div>
+                            
+                        </div>
+
+                        <h2>更换头像</h2>
+
+
+                    </section>
+                </div>
+            </div>
+
+            <div class="model-info fn-hide" data-role="model_info">
+                <div class="content">
+                    <section class="input-list">
+                        <div>
+                            <label>昵称：</label>
+                            <input data-role="nickname" value="{{nickname}}">
+                        </div>
+                        <div class="select-city">
+                            <label>城市：</label>
+                            <div data-role="select-city">
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <ul class="model-size">
+                            <li class="icon" data-role="popup" data-target="height">{{height}}</li>
+                            <li class="icon" data-role="popup" data-target="weight">{{weight}}</li>
+                            <li class="icon" data-role="cup">E+</li>
+                            <li class="icon" data-role="popup" data-target="cwh" data-chest=""
+                                data-waist="" data-hip="">{{chest}}-{{waist}}-{{hip}}</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+
+            <div class="model-price price-style fn-hide" data-role="model_price">
+                <div class="content">
+                    <section class="price-style-list">
+                        <div class="ui-input-title-mod ui-input-title-size-large item title">
+                            <div class="left">价格及风格</div>
+                            <div class="middle"></div>
+                            <div class="right">必选、最多3个</div>
+                        </div>
+                        <div data-role="price-style-list-main">
+
+                        </div>
+                    </section>
+
+                    <section class="price-style-list price-style-list-other">
+                        <div class="ui-input-title-mod ui-input-title-size-large item title" data-role="add-other-style">
+                            <div class="left">其他价格及风格</div>
+                            <div class="middle"></div>
+                            <div class="right pt5"><i class="icon icon-circle-add"></i></div>
+                        </div>
+
+
+                        <div data-role="price-style-list-other">
+
+                        </div>
+                    </section>
+
+                    <section class="money">
+                        <h3>信用等级要求：</h3>
+                        <h4>摄影师约拍你的认证要求</h4>
+                        <div data-role="money"></div>
+                        <div data-role="remark" class="remark">{{level_require_text}}</div>
+                    </section>
+
+                    <section>
+                        <h3>每次拍摄人数不得超过：</h3>
+                        <div class="max-person" data-role="max-person"></div>
+                    </section>
+                </div>
+            </div>
+        </article>
+    </div>
+    <footer class="tab-footer-new edit-tab-footer-new" data-role="footer">
+        <ul>
+
+            <li data-role="nav" data-target="model_pic" class="cur">
+                <div class="nav-wrap">
+                    <i class="icon edit-work-c">修改作品</i>
+                </div>
+            </li>
+
+            <li data-role="nav" data-target="model_info">
+                <div class="nav-wrap">
+                    <i class="icon icon-model-change-info">修改资料</i>
+                </div>
+            </li>
+
+            <li data-role="nav" class="msg" data-target="model_price">
+                <div class="nav-wrap">
+                    <i class="icon icon-model-change-price">修改价格</i>
+                </div>
+            </li>
+
+            <li data-role="nav" data-target="model_preview">
+                <div class="nav-wrap" data-role="footer-my">
+                    <span class="new-tips fn-hide" data-role="num">0</span>
+                    <i class="icon icon-model-preview">预览自己</i>
+                </div>
+            </li>
+        </ul>
+    </footer>
+</main>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>个人中心</title>
+
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/m/static/lib/mod_327a0b0.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/m/static/style/libs/common_64aa9a1.css">
+<!--基础样式 END-->
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/m/static/style/task-m_d02a0dc.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__romain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : '../ajax/'
+	};
+    console.log(window.localStorage.getItem("$__storage_first_tips"))
+    if(window.localStorage.getItem("$__storage_first_tips"))
+    {
+        console.log("in")
+    }
+    else
+    {
+        console.log("in2")
+        var data =
+        {
+            "details_1":1,
+            "details_2":1,
+            "submit_1":1,
+            "pay_1":1,
+            "talk_1":1
+        }
+        window.localStorage.setItem("$__storage_first_tips",JSON.stringify(data));
+    }
+</script>  
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/m/static/style/mine/mine_dcfbba8.css">
+<style>
+
+    .swiper-slide {
+    height: 135px;
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    overflow:hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    }
+    </style>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/m/static/modules/common/widget/swiper/1.0.0/swiper.min_e14ee6b.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/m/static/js/common/common_fd06c3c.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/m/components/zepto/zepto_9261738.js"></script>
+</head>
+<body>
+<main role="main" style="background: #f2f2f2">
+    <div class="page-view order-list" data-role="page-container">
+        <div class="common_menu" >
+    <div class="common_logo"><i class="icon icon-top-logo"></i></div>
+	<div class="common_btn" data-role="common_btn_menu"><i class="icon icon-right-menu-logo"></i></div>
+    
+</div>
+<div class="common_menu_open layout_box_v fn-hide" data-role="common_menu_open">
+    <a data-role="common_menu_open_business" href="list.php">生意机会</a>
+    <a data-role="common_menu_open_list" href="order_list.php?type=pending">订单列表</a>
+    <a data-role="common_menu_open_mine" href="profile.php">个人中心</a>
+    <a data-role="common_menu_open_log_out" href="logout.php">退出登录</a>
+</div>
+<!--modjs hack 特殊处理，增加head标记-->
+<head></head>
+<!--modjs hack 特殊处理，增加head标记-->
+<script type="text/javascript">
+	
+	var cookie = require('common/cookie/index');
+	var $ = require('components/zepto/zepto.js');	
+
+	(function($,window)
+	{
+		var self = this;
+
+		var no_login = '{no_login}';
+
+		var $common_menu_open = $('[data-role="common_menu_open"]');
+		var $common_btn_menu  = $('[data-role="common_btn_menu"]');
+		var $common_menu_open_log_out = $('[data-role="common_menu_open_log_out"]');
+
+		if(!parseInt(cookie.get('yue_member_id')))
+		{
+			$common_btn_menu.hide();
+		}
+
+		$common_btn_menu.on('click',function()
+		{	
+			if(!parseInt(cookie.get('yue_member_id')))
+			{
+				return;
+			}
+			
+			$common_menu_open.toggleClass("fn-hide");
+		});
+
+		$common_menu_open_log_out.on('click',function()
+		{
+			$.ajax
+			({
+				url: window.$__config.ajax_url + 'login_out.php',
+				type: 'POST',
+				cache: false,
+				dataType: 'json',
+				beforeSend: function () {
+
+				},
+				success: function (data) {
+					window.location.href = './login.php';
+
+				},
+				error: function () {
+
+				},
+				complete: function () {
+
+				}
+			})
+    })
+
+	})($,window);
+</script> 
+        <div class="mine_header layout_box_v">
+            <div class="mine_tips layout_box">
+                <img src="http://static.yueus.com/task/m/static/image/task/mine_tips-30x30_11f4c29.png"/>
+                <p>目前暂不支持编辑资料功能，如需修改请拨打服务热线：<a href="tel:4000-82-9003" class="common_on_tel">4000-82-9003</a></p>
+            </div>
+            <div class="mine_details layout_box_v">
+                <img src="{user_icon}"/>
+                <div class="mine_role mgt15">{profile_info.title}</div>
+                <div class="mine_name mgt10" >{user_nickname}</div>
+                <div class="mine_comment layout_box mgt20 mgb20">
+                    <div class="mine_comment_btn">
+                        <!-- BEGIN profile_info.starts_list -->
+                        <!-- IF yes_start -->
+                        <img src="http://static.yueus.com/task/m/static/image/task/start_yes-24x24_9946f31.png" style="width: 12px"/>
+                        <!-- ELSE -->
+                        <img src="http://static.yueus.com/task/m/static/image/task/start_no-24x24_df21e3b.png" style="width: 12px;"/>
+                        <!-- ENDIF -->
+                        <!-- END profile_info.starts_list -->
+                        <!-- BEGIN profile_info -->
+                        {reviews}条评论</div>
+                    <!-- END profile_info -->
+                </div>
+            </div>
+            <!-- BEGIN profile_info -->
+            <div class="mine_lists layout_box_v">
+                <div class="mine_lists_child">
+                    {experience}
+                </div>
+                <div class="mine_lists_child">
+                    {bio_desc}
+                </div>
+                <div class="mine_lists_child">
+                    {cellphone}
+                </div>
+                <div class="mine_lists_child">
+                    {address}
+                </div>
+                <div class="mine_lists_child">
+                    个人主页：{website}
+                </div>
+            </div>
+            <!-- END profile_info -->
+        </div>
+        <div class="mine_about layout_box_v">
+            <div class="mine_about_title layout_box_v">
+                <p>关于我</p>
+            </div>
+            <!-- BEGIN profile_info -->
+            <div class="mine_about_content layout_box_v">
+                <div class="mine_about_text">{nl2br:bio_desc}</div>
+                <div class="mine_about_more" data-role="mine_to_me">查看更多</div>
+            </div>
+            <!-- END profile_info -->
+        </div>
+        <div class="mine_about layout_box_v">
+            <div class="mine_about_title layout_box_v">
+                <p>照片</p>
+            </div>
+            <div class="mine_about_content layout_box_v pdtb15">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!-- BEGIN pic_arr -->
+                        <div class="swiper-slide" style="width: 100px;" data-role="img_tap">
+							<i class="slide-items-bg" style="background-image: url({img});background-size: cover;"></i>
+							<img src="{img}" style="width: 100%;display:-webkit-box;" class="fn-hide"/>
+						</div>
+                        <!-- END profile_info -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mine_about layout_box_v">
+            <div class="mine_about_title layout_box_v">
+                <p>深入了解我</p>
+            </div>
+
+            <div class="mine_about_content layout_box_v">
+                <!-- BEGIN faq -->
+                <div class="mine_about_text">{title}</div>
+                <div class="mine_about_text_gray">{nl2br:content}</div>
+                <!-- END faq -->
+                <div class="mine_about_more" data-role="mine_to_request">查看更多</div>
+            </div>
+
+        </div>
+        <div class="mine_about layout_box_v">
+            <div class="mine_about_title layout_box_v">
+                <!-- BEGIN profile_info -->
+                <p>{reviews}次成单</p>
+                <!-- END profile_info -->
+            </div>
+            <div class="mine_about_content layout_box_v">
+                <!-- BEGIN msg_list -->
+                <div class="mine_about_deal layout_box">
+                    <div class="mine_about_deal_date layout_box_v"><p>{add_time}</p></div>
+                    <div class="mine_about_deal_icon">
+                        <img src="{from_user_icon}"/>
+                    </div>
+                    <div class="mine_about_deal_starts layout_box_v">
+                        <!-- BEGIN starts_list -->
+                        <!-- IF yes_start -->
+                        <img src="http://static.yueus.com/task/m/static/image/task/start_yes-24x24_9946f31.png" style="width: 12px;"/>
+                        <!-- ELSE -->
+                        <img src="http://static.yueus.com/task/m/static/image/task/start_no-24x24_df21e3b.png" style="width: 12px;"/>
+                        <!-- ENDIF -->
+                        <!-- END starts_list -->
+                    </div>
+                </div>
+                <div class="mine_about_deal_name">{from_nickname}</div>
+                <div class="mine_about_text">{nl2br:content}</div>
+                <!-- END msg_list -->
+                <!-- BEGIN profile_info -->
+                <div class="mine_about_more" data-role="mine_to_deal">查看{reviews}次成单</div>
+                <!-- END profile_info -->
+            </div>
+        </div>
+        <div class="mine_about_resent">
+            <div class="title">近期工作记录</div>
+            <!-- BEGIN resent -->
+            <div class="content">{nl2br:title}</div>
+            <div class="date">{dateformat:pay_time,'Y年m月d H:i:s'}</div>
+            <!-- END resent -->
+        </div>
+        <div class="common_copyright_bottom">
+            <p>Copyright?2003-2015 YUEUS.COM</p>
+        </div>
+    </div>
+</main>
+
+</body>
+
+<script>
+    window.onload = function()
+    {
+        $('[data-role="mine_to_me"]').on('click',function()
+        {
+            location.href = './mine_about.php?user_id={user_id}';
+        });
+
+        $('[data-role="mine_to_request"]').on('click',function()
+        {
+            location.href = './mine_request.php?user_id={user_id}';
+        });
+
+        $('[data-role="mine_to_deal"]').on('click',function()
+        {
+            location.href = './mine_deal.php?user_id={user_id}';
+        });
+
+        var s = require('common/widget/swiper/1.0.0/swiper');
+        var mySwiper = new Swiper('.swiper-container',{
+            freeMode : true,
+            spaceBetween : 2,
+            slidesPerView : 'auto'
+        });
+
+		setTimeout(function()
+		{			
+			$('[data-role="img_tap"]').css({width:'100px',height:'150px'});
+
+		},0);
+
+        $('[data-role="img_tap"]').on('click',function()
+        {
+            console.log($(this).index())
+            location.href = './mine_photo.php?user_id={user_id}';
+        })
+    }
+</script>
+
+</html>

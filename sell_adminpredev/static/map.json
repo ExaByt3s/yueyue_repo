@@ -1,0 +1,216 @@
+{
+    "res": {
+        "components/fastclick/fastclick.js": {
+            "uri": "http://static.yueus.com/sell_adminpredev/components/fastclick/fastclick.js",
+            "type": "js",
+            "id": "components/fastclick/fastclick.js"
+        },
+        "components/zepto/zepto.js": {
+            "uri": "http://static.yueus.com/sell_adminpredev/components/zepto/zepto.js",
+            "type": "js",
+            "id": "components/zepto/zepto.js"
+        },
+        "lib/handlebars/handlebars.runtime-v1.3.0.js": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/lib/handlebars/handlebars.runtime-v1.3.0.js",
+            "type": "js"
+        },
+        "lib/html5shiv.min.js": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/lib/html5shiv.min.js",
+            "type": "js"
+        },
+        "lib/lib.js": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/lib/lib.js",
+            "type": "js"
+        },
+        "lib/mod.js": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/lib/mod.js",
+            "type": "js"
+        },
+        "account/login": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/modules/account/login.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen"
+            ],
+            "id": "account/login"
+        },
+        "common/I_APP/I_APP": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/modules/common/I_APP/I_APP.js",
+            "type": "js",
+            "deps": [
+                "components/zepto/zepto.js",
+                "common/utility/index"
+            ]
+        },
+        "common/cookie/index": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/modules/common/cookie/index.js",
+            "type": "js",
+            "id": "common/cookie/index"
+        },
+        "common/pager/index": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/modules/common/pager/index.js",
+            "type": "js",
+            "deps": [
+                "modules/common/pager/pager.scss"
+            ],
+            "id": "common/pager/index"
+        },
+        "modules/common/pager/pager.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/modules/common/pager/pager.css",
+            "type": "css",
+            "id": "modules/common/pager/pager.scss"
+        },
+        "common/ua/index": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/modules/common/ua/index.js",
+            "type": "js",
+            "id": "common/ua/index"
+        },
+        "common/utility/index": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/modules/common/utility/index.js",
+            "type": "js",
+            "deps": [
+                "components/zepto/zepto.js",
+                "common/cookie/index",
+                "common/ua/index"
+            ],
+            "id": "common/utility/index"
+        },
+        "list/index": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/modules/list/index.js",
+            "type": "js",
+            "deps": [
+                "common/utility/index",
+                "components/zepto/zepto.js",
+                "components/fastclick/fastclick.js",
+                "yue_ui/frozen",
+                "common/pager/index"
+            ],
+            "id": "list/index"
+        },
+        "yue_ui/frozen": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/modules/yue_ui/frozen.js",
+            "type": "js",
+            "deps": [
+                "style/frozen/frozen.scss"
+            ],
+            "id": "yue_ui/frozen"
+        },
+        "style/account/login.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/account/login.css",
+            "type": "css"
+        },
+        "style/base.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/base.css",
+            "type": "css"
+        },
+        "style/frozen/frozen.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/frozen/frozen.css",
+            "type": "css",
+            "id": "style/frozen/frozen.scss"
+        },
+        "style/index.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/index.css",
+            "type": "css"
+        },
+        "style/list/index.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/list/index.css",
+            "type": "css"
+        },
+        "style/reset.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/reset.css",
+            "type": "css"
+        },
+        "style/seller-common.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/seller-common.css",
+            "type": "css"
+        },
+        "style/widget/animation.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/animation.css",
+            "type": "css"
+        },
+        "style/widget/atom.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/atom.css",
+            "type": "css"
+        },
+        "style/widget/ui-avatar.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-avatar.css",
+            "type": "css"
+        },
+        "style/widget/ui-base.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-base.css",
+            "type": "css"
+        },
+        "style/widget/ui-btn-group.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-btn-group.css",
+            "type": "css"
+        },
+        "style/widget/ui-btn.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-btn.css",
+            "type": "css"
+        },
+        "style/widget/ui-checkbox.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-checkbox.css",
+            "type": "css"
+        },
+        "style/widget/ui-dialog.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-dialog.css",
+            "type": "css"
+        },
+        "style/widget/ui-form.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-form.css",
+            "type": "css"
+        },
+        "style/widget/ui-header.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-header.css",
+            "type": "css"
+        },
+        "style/widget/ui-icon.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-icon.css",
+            "type": "css"
+        },
+        "style/widget/ui-list.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-list.css",
+            "type": "css"
+        },
+        "style/widget/ui-loading.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-loading.css",
+            "type": "css"
+        },
+        "style/widget/ui-notice.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-notice.css",
+            "type": "css"
+        },
+        "style/widget/ui-poptips.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-poptips.css",
+            "type": "css"
+        },
+        "style/widget/ui-progress.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-progress.css",
+            "type": "css"
+        },
+        "style/widget/ui-searchbar.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-searchbar.css",
+            "type": "css"
+        },
+        "style/widget/ui-slider.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-slider.css",
+            "type": "css"
+        },
+        "style/widget/ui-tips.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-tips.css",
+            "type": "css"
+        },
+        "style/widget/ui-tooltips.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-tooltips.css",
+            "type": "css"
+        },
+        "style/widget/ui-yue-btn.scss": {
+            "uri": "http://static.yueus.com/sell_adminpredev/static/style/widget/ui-yue-btn.css",
+            "type": "css"
+        }
+    },
+    "pkg": {}
+}

@@ -1,0 +1,12 @@
+<div class="scroll-area swiper-wrapper" data-role="ad-pic" data-prevent-scroll="slider" style="height: {{height}}px">
+        {{#each contents}}
+            <div class="swiper-slide"> {{{content}}}</div>
+        {{/each}}
+</div>
+
+<div data-role="ad-pics-num" class="ad-pic-point-out {{#unless no_single}}fn-hide{{/unless}}" >
+    {{#each contents}}
+        <span class="swiper-pagination-switch"></span>
+    {{/each}}
+
+</div>

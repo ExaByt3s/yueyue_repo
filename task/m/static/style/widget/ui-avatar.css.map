@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "ui-avatar_f3be3bf.css",
+    "sources": [
+        "/style/widget/ui-avatar.scss"
+    ],
+    "sourcesContent": [
+        "/**\r\n * 圆角头像，列表场景，默认用100px的\r\n */\r\n@mixin avatar($size: 50) {\r\n    width: #{$size}px;\r\n    height: #{$size}px;\r\n}\r\n.ui-avatar,.ui-avatar-lg,.ui-avatar-s,.ui-avatar-one,.ui-avatar-tiled{\r\n    overflow: hidden;\r\n    -webkit-border-radius: 200px;\r\n    display: block;\r\n    -webkit-background-size: 100% 100%;\r\n    background-image:url(http://yue-icon.yueus.com/10/100026_165.jpg?20150414);\r\n}\r\n.ui-avatar{\r\n    @include avatar;\r\n}\r\n.ui-avatar-lg{\r\n    @include avatar(54);\r\n}\r\n\r\n.ui-avatar-s{\r\n    @include avatar(40);\r\n}\r\n\r\n/* 资料场景 */\r\n.ui-avatar-one{\r\n    @include avatar(64);\r\n}\r\n\r\n/* 平铺场景 */\r\n.ui-avatar-tiled{\r\n    @include avatar(30);\r\n    display: inline-block;\r\n}\r\n.ui-avatar span,.ui-avatar-lg span,.ui-avatar-s span,.ui-avatar-one span,.ui-avatar-tiled span{\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\r\n    -webkit-border-radius: 200px;\r\n    display: block;\r\n    -webkit-background-size: 100% 100%;\r\n}\r\n.ui-avatar img,.ui-avatar-lg img,.ui-avatar-s img,.ui-avatar-one img,.ui-avatar-tiled img{\r\n    width: 100%;\r\n    height: 100%;\r\n}"
+    ],
+    "mappings": ";;;AAOA,AAAY,AAAe,AAAc,AAAgB;EACrD,AAAU;EACV,AAAuB;EACvB,AAAS;EACT,AAAyB;EACzB,AAAiB;;AAErB;EAVI,AAAO;EACP,AAAQ;;AAYZ;EAbI,AAAO;EACP,AAAQ;;AAgBZ;EAjBI,AAAO;EACP,AAAQ;;;AAqBZ;EAtBI,AAAO;EACP,AAAQ;;;AA0BZ;EA3BI,AAAO;EACP,AAAQ;EA4BR,AAAS;;AAEb,AAAW,AAAM,AAAc,AAAM,AAAa,AAAM,AAAe,AAAM,AAAiB;EAC1F,AAAO;EACP,AAAQ;EACR,AAAU;EACV,AAAuB;EACvB,AAAS;EACT,AAAyB;;AAE7B,AAAW,AAAK,AAAc,AAAK,AAAa,AAAK,AAAe,AAAK,AAAiB;EACtF,AAAO;EACP,AAAQ",
+    "names": []
+}

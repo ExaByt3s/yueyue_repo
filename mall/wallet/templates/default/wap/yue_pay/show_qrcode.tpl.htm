@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>马上收款</title>
+	 {wap_global_top}
+	<!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+	<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/wallet/static/wap/style/yue_pay/show-qrcode_22f0a81.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/wallet/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/wallet/static/wap/style/libs/common_d6d32a9.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/wallet/static/wap/js/common/common_c6b381b.js"></script>
+</head>
+<body>
+<main role="main">
+	<section id="global-header"></section>
+	<div class="page-view topic-end-page ">
+	  
+		<div class="show-qrcode-page">
+			<div class="item-wrap">
+				<div class="item-1">
+					<h3 class="title">出示二维码，轻松收款</h3>
+
+					<i class="code-icon" id="code-icon"	><img src="{qr_code_url}" id="qr_code_url" ></i>
+				</div>
+				<div class="item-2">
+					<p class="txt color-333">
+						出示你的专属收款二维码，消费者扫一扫，确认后，即可马上付款!
+					</p>
+				</div>
+				<div class="item-3">
+					<a href="./pay_list.php">
+						<div class="btn-con" id="btn-check">
+							<button class="ui-button  ui-button-size-l ui-button-bg-555">
+							        <span class="ui-button-content">查看我的收款</span>
+							</button>
+
+							<!-- IF remind_count -->    
+								<i class="number-icon">{remind_count}</i>
+							<!-- ENDIF -->
+							
+							
+
+
+						</div>  
+					</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+{wap_global_footer}
+	
+</body>
+<script>
+	var $ = require('components/zepto/zepto.js');
+	var utility = require('common/utility/index');
+	var header = require('common/widget/header/main');
+	var ua = require('common/ua/index');
+
+	$(document).ready(function() {
+
+		// 渲染头部
+		header.init({
+			ele : $("#global-header"), //头部渲染的节点
+			title:"马上收款",
+			header_show : true , //是否显示头部
+			right_icon_show : false, //是否显示右边的按钮
+
+			share_icon :
+			{
+				show :false,  //是否显示分享按钮icon
+				content:""
+			},
+			omit_icon :
+			{
+				show :false,  //是否显示三个圆点icon
+				content:""
+			},
+			show_txt :
+			{
+				show :false,  //是否显示文字
+				content:"编辑"  //显示文字内容
+			}
+		});
+
+		if (ua.isIpad) 
+		{
+			$('#code-icon').css({
+				width: '100px',
+				height: '100px'
+			});
+		}
+
+		// 图片加载失败处理
+		$("#qr_code_url").bind("error",function(){ 
+			$(this).attr('src', '{qr_code_url}')
+		}); 
+	});
+</script>
+</html>

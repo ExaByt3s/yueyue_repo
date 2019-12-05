@@ -1,0 +1,1 @@
+define("topic",function(o){"use strict";var t=o("components/zepto/zepto.js");!function(o){o.ajax({url:"http://yp.yueus.com/mobile/action2.0.0/get_topic_info.php?id=117",type:"GET",data:{},cache:!1,success:function(o){console.log(o)}})}(t)});

@@ -1,0 +1,50 @@
+
+// 注册
+.register-page{
+    width: 280px;
+    margin: 0 auto;
+
+    .checkbox-box{
+        padding: 20px 0;
+    }
+
+    .ui-input{
+        width: 248px;
+    }
+
+    .btn{
+        
+    }
+
+    .item{
+        .yzm{
+            width: 120px;
+        }
+    }
+
+    .btn-tel{
+        cursor: pointer;
+        background: #4092f1;
+        font-size: 14px;
+        color: #fff;
+        border-radius: 4px;
+        line-height: 52px;
+        padding:0 10px;
+        width: 100px;
+        text-align: center;
+        &:hover{
+            background: #66a8f4;
+        }
+    }
+
+    .stop{
+        background: #dddddd;
+    }
+
+    .ui-button{
+        text-align: center;
+        line-height: 50px;
+    }
+
+    
+}

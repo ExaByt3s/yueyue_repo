@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/model_audit.css">
+    <title>报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list">
+<h1><b><a href="coupon_main_list.php" style="cursor:pointer">返回列表</a></b>&nbsp;<b>套餐码添加</b>&nbsp;&nbsp;<b><font color="red">暂时只支持商城套餐码</font></b></h1>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<form method="post" action="?" id="myform" target="frame">
+<div class="table" style="width:98%;" id="occu">
+    <!--list-->
+    <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+        <tbody>
+        <tr>
+            <td width="100">套餐码开始时间:</td>
+            <td>
+                <input type="text" name="begin_time" value="{begin_time}" class="input-text" onfocus="WdatePicker()" readonly="true"/>
+            </td>
+        </tr>
+        <tr>
+            <td>套餐码结束时间:</td>
+            <td>
+                <input type="text" name="end_time" value="{end_time}" class="input-text" onfocus="WdatePicker()" readonly="true"/>
+            </td>
+        </tr>
+        <tr>
+            <td>套餐码:</td>
+            <td>
+                <textarea name="coupon" style="width:400px;height:100px;">{coupon}</textarea>
+                (<font color="red">多个套餐码可以使用','【逗号】或者回车分隔；如果是一序列最后请使用'*'代替，示例:yueyue01,yueyue02....yueyueN个的话,可以使用yueyue*代替</font>)
+            </td>
+        </tr>
+
+        <tr>
+            <td>操作:</td>
+            <td>
+                <input type="reset" value="取消" class="button special_button"/>
+                <input type="submit" value="保存" class="button"/>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<input type="hidden" value="insert" name="act" id="act"/>
+</form>
+</div>
+</div>
+</body>
+</html>

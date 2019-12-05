@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>城市选择</title>
+    <link rel="import" href="../webcontrol/head.tpl.html?__inline">
+    <script src="../../../../lib/lib.js"></script>
+
+</head>
+<body>
+
+<script>
+  document.addEventListener('touchstart',function(){},false);
+</script>
+
+<section id="global-header"></section>
+
+<div id="location">
+    
+</div>
+
+
+</body>
+
+
+<script>
+
+    var $ = require('zepto');
+    var utility = require('../../../../modules/common/utility/index');
+    var header = require('../../../../modules/common/widget/header/main');
+    // 载入组件
+    var location_class = require('../../../../modules/common/widget/location/location_main');
+
+
+    $(document).ready(function(){
+
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"城市选择",
+            header_show : true , //是否显示头部
+            mt_0_ele : $('#seller-detail-page'), //如果头部隐藏，要把当前页节点margin-top改为0
+            right_icon_show : false, //是否显示右边的按钮
+            share_icon : 
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :true,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        })
+
+
+
+
+        // 实例化
+        var location_obj = new location_class({
+            ele : $('#location'), //渲染地区总节点
+            // 热门城市配置
+            hot_city : {
+                is_show : true , // 是否显示热门城市 true显示
+                data : 
+                [
+                    {
+                        city : "茂名",
+                        location_id : 101029010
+                    }
+                ]
+            },
+            callback : function(res)
+            {
+                // 点击选中城市回调
+                console.log(res);
+
+            },
+            city_history_num: "",  //控制浏览历史记录个数，默认12个
+            is_search : false  // 是否开启搜索城市功能 默认不开启
+
+        })
+
+
+        // $('body').on('click', function(event) {
+        //     event.preventDefault();
+        //     location_obj.clear_storage_city()
+        // });
+
+    });
+
+</script>
+</html>

@@ -1,0 +1,18 @@
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+
+
+    {{#each data_code}} 
+
+    
+        <div class="swiper-slide"  data-role="swipe">
+            <img src="{{src_img}}" />
+            <p class="p1 f18  tc">签到码：<span class="color-ff6">{{data_num}}</span></p>
+        </div>
+    {{/each}}
+
+
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+</div>

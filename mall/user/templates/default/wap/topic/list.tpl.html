@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>专题列表</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/topic/list_ed5a74a.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_c4b1997.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/common/scroll/scroll_aff3642.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/menu/index_26590a7.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_f0199c5.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_8410060.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/menu/index_91dc45a.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/topic/list_ceddff8.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view " data-role="page-container">
+        <div data-role="wrapper">
+                <div class="apps_page">
+                    <div class="native_scroll">
+                        <div class="scoll-wrapper ">
+                            <ul class="topic-list-container" data-role="insert">
+
+                            </ul>
+                            <div class="space-bottom"></div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    {wap_global_footer}
+    
+</main>
+<script>
+    require('topic/list');
+    var header = require('common/widget/header/main');
+    var $ = require('components/zepto/zepto.js');
+
+    $(function()
+    {
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"专题列表",
+            header_show : true , //是否显示头部
+            right_icon_show : false, //是否显示右边的按钮
+
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+{{#if data}}
+    <div class="title" data-role="title" data-event_id="{{data.event_id}}">
+        <a class="db w-100" href="./detail.php?event_id={{data.event_id}}">
+            <div class="title-in">
+                <div class="title-pic-container">
+                    <div class="title-pic" style="background:url('{{data.cover_image}}');background-size:cover;background-position:50%"></div>
+                </div>
+                <div class="title-describe">
+                    <p class="describe_title" style="display: block;">
+                        {{{data.event_title}}}
+                    </p>
+                    <p class="describe_price">
+                        <span>￥</span>
+                    <span data-role="price">
+                        {{data.budget}}
+                    </span>
+                        <span class="bla">/人</span>
+                    </p>
+                </div>
+                <div class="an-arrow">
+                    <i class="icon icon-allow-grey"></i>
+                </div>
+            </div>
+        </a>
+    </div>
+    {{#if data.organizers}}
+        {{#if data.event_scan_button}}
+            <div class="button" data-role="act-go-scan">
+                <a href="./sign.php?event_id={{data.event_id}}" class="db w-100">
+                    <button class="ui-button ui-button-block ui-button-size-x ui-button-100per ui-button-bd-555">
+                        <span class="ui-button-content"><i class="icon icon-btn-icon-sm"></i> 扫描签到</span>
+                    </button>
+                </a>
+            </div>
+        {{/if}}
+        <div class="block">
+            {{#if data.scan_detail}}
+                <div class="describe">{{data.scan_detail}}</div>
+            {{/if}}
+            <div class="describe-info">
+                {{#if data.add_time}}
+                    <div class="describe-info-line"><span class="notice">发布时间：</span><span class="notice-inside">{{data.add_time}}</span></div>
+                {{/if}}
+                {{#if data.complete_time}}
+                    <div class="describe-info-line"><span class="notice">完成时间：</span><span class="notice-inside">{{data.complete_time}}</span></div>
+                {{/if}}
+                {{#if data.cancel_time}}
+                    <div class="describe-info-line"><span class="notice">取消时间：</span><span class="notice-inside">{{data.cancel_time}}</span></div>
+                {{/if}}
+            </div>
+        </div>
+    {{/if}}
+    {{#if data.joiner}}
+        {{#if data.enroll_pay_button}}
+            <div class="button" data-role="act-go-pay">
+                <a href="./pay.php?event_id={{data.event_id}}&enroll_id={{data.enroll_id}}" class="db w-100">
+                    <button class="ui-button  ui-button-block  ui-button-size-x ui-button-100per ui-button-bd-ff6">
+                        <span class="ui-button-content"><i class="icon icon-btn-icon-fk"></i> 去支付</span>
+                    </button>
+                </a>
+            </div>
+        {{/if}}
+        {{#if data.enroll_code_button}}
+            <div class="button" data-role="act-show-qr">
+                <button class="ui-button ui-button-block ui-button-size-x ui-button-100per ui-button-bd-555">
+                    <span class="ui-button-content"><i class="icon icon-er-wei-ma-w"></i> 出示活动券二维码</span>
+                </button>
+            </div>
+        {{/if}}
+        {{#if data.enroll_comment_button}}
+            <div class="button" data-role="act-go-commit">
+                <a href="./pay.php?event_id={{data.event_id}}&enroll_id={{data.enroll_id}}&table_id={{data.table_id}}" class="db w-100">
+                    <button class="ui-button ui-button-block ui-button-size-x ui-button-100per ui-button-bd-555">
+                        <span class="ui-button-content"><i class="icon icon-btn-icon-pj"></i> 评价活动</span>
+                    </button>
+                </a>
+
+            </div>
+        {{/if}}
+        <div class="block">
+            {{#if data.bar_text}}
+                <div class="describe">{{data.bar_text}}</div>
+            {{/if}}
+            <div class="describe-info">
+                <div class="describe-info-line"><span class="notice">单号：</span><span class="notice-inside">{{data.order_id}}</span></div>
+
+                {{#if data.pay_time}}
+                    <div class="describe-info-line"><span class="notice">付款时间：</span><span class="notice-inside">{{data.pay_time}}</span></div>
+                {{/if}}
+                {{#if data.scan_time}}
+                    <div class="describe-info-line"><span class="notice">签到时间：</span><span class="notice-inside">{{data.scan_time}}</span></div>
+                {{/if}}
+                {{#if data.phone}}
+                    <div class="describe-info-line tel"><span class="notice">手机号码：</span><span class="notice-inside">{{data.phone}}</span></div>
+                {{/if}}
+                {{#if data.enroll_num}}
+                    <div class="describe-info-line"><span class="notice">人数：</span><span class="notice-inside">{{data.enroll_num}}</span></div>
+                {{/if}}
+                {{#if data.total_budget}}
+                    <div class="describe-info-line"><span class="notice">总价：</span><span class="notice-inside">￥{{data.total_budget}}</span></div>
+                {{/if}}
+
+
+
+
+
+            </div>
+        </div>
+    {{/if}}
+
+
+
+
+    {{#if data.fk_n}}
+        <div class="button fn-hide">
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-100per ui-button-bd-ff6">
+                <span class="ui-button-content"><i class="icon icon-btn-icon-fk"></i> 去支付</span>
+            </button>
+        </div>
+        <div class="block">
+            <div class="describe">待付款</div>
+            <div class="describe-info">
+                <div class="describe-info-line"><span class="notice">单号：</span><span class="notice-inside">{{data.enroll_id}}</span></div>
+                <div class="describe-info-line tel"><span class="notice">手机号码：</span><span class="notice-inside">{{data.phone}}</span></div>
+                <div class="describe-info-line"><span class="notice">人数：</span><span class="notice-inside">{{data.enroll_num}}</span></div>
+                <div class="describe-info-line"><span class="notice">总价：</span><span class="notice-inside">￥{{data.total_budget}}</span></div>
+            </div>
+        </div>
+    {{/if}}
+    {{#if data.sm_n}}
+        <div class="button fn-hide">
+            <button class="ui-button ui-button-block ui-button-size-x ui-button-bd-555 ui-button-100per">
+                <span class="ui-button-content"><i class="icon icon-er-wei-ma-w"></i> 出示活动券二维码</span>
+            </button>
+        </div>
+        <div class="block">
+            <div class="describe">已付款，准备签到</div>
+            <div class="describe-info">
+                <div class="describe-info-line"><span class="notice">单号：</span><span class="notice-inside">{{data.enroll_id}}</span></div>
+                <div class="describe-info-line"><span class="notice">付款时间：</span><span class="notice-inside">{{data.pay_time}}</span></div>
+                <div class="describe-info-line tel"><span class="notice">手机号码：</span><span class="notice-inside">{{data.phone}}</span></div>
+                <div class="describe-info-line"><span class="notice">人数：</span><span class="notice-inside">{{data.enroll_num}}</span></div>
+                <div class="describe-info-line"><span class="notice">总价：</span><span class="notice-inside">￥{{data.total_budget}}</span></div>
+            </div>
+        </div>
+    {{/if}}
+    {{#if data.qd}}
+        <div class="block">
+            <div class="describe">已现场签到</div>
+            <div class="describe-info">
+                <div class="describe-info-line"><span class="notice">单号：</span><span class="notice-inside">{{data.enroll_id}}</span></div>
+                <div class="describe-info-line"><span class="notice">付款时间：</span><span class="notice-inside">{{data.pay_time}}</span></div>
+                <div class="describe-info-line"><span class="notice">签到时间：</span><span class="notice-inside">{{data.scan_time}}</span></div>
+                <div class="describe-info-line tel"><span class="notice">手机号码：</span><span class="notice-inside">{{data.phone}}</span></div>
+                <div class="describe-info-line"><span class="notice">人数：</span><span class="notice-inside">{{data.enroll_num}}</span></div>
+                <div class="describe-info-line"><span class="notice">总价：</span><span class="notice-inside">￥{{data.total_budget}}</span></div>
+            </div>
+        </div>
+    {{/if}}
+    {{#if data.pj_n}}
+        <div class="button fn-hide">
+            <button class="ui-button ui-button-block ui-button-size-x ui-button-bd-555 ui-button-100per">
+                <span class="ui-button-content"><i class="icon icon-btn-icon-pj"></i> 评价活动</span>
+            </button>
+        </div>
+        <div class="block">
+            <div class="describe">活动已完成</div>
+            <div class="describe-info">
+                <div class="describe-info-line"><span class="notice">单号：</span><span class="notice-inside">{{data.enroll_id}}</span></div>
+                <div class="describe-info-line"><span class="notice">付款时间：</span><span class="notice-inside">{{data.pay_time}}</span></div>
+                <div class="describe-info-line"><span class="notice">签到时间：</span><span class="notice-inside">{{data.scan_time}}</span></div>
+                <div class="describe-info-line tel"><span class="notice">手机号码：</span><span class="notice-inside">{{data.phone}}</span></div>
+                <div class="describe-info-line"><span class="notice">人数：</span><span class="notice-inside">{{data.enroll_num}}</span></div>
+                <div class="describe-info-line"><span class="notice">总价：</span><span class="notice-inside">￥{{data.total_budget}}</span></div>
+            </div>
+        </div>
+    {{/if}}
+    {{#if data.pj}}
+        <div class="block">
+            <div class="describe">已评价</div>
+            <div class="describe-info">
+                <div class="describe-info-line"><span class="notice">单号：</span><span class="notice-inside">{{data.enroll_id}}</span></div>
+                <div class="describe-info-line"><span class="notice">付款时间：</span><span class="notice-inside">{{data.pay_time}}</span></div>
+                <div class="describe-info-line"><span class="notice">签到时间：</span><span class="notice-inside">{{data.scan_time}}</span></div>
+                <div class="describe-info-line tel"><span class="notice">手机号码：</span><span class="notice-inside">{{data.phone}}</span></div>
+                <div class="describe-info-line"><span class="notice">人数：</span><span class="notice-inside">{{data.enroll_num}}</span></div>
+                <div class="describe-info-line"><span class="notice">总价：</span><span class="notice-inside">￥{{data.total_budget}}</span></div>
+            </div>
+        </div>
+    {{/if}}
+    {{#if data.qx}}
+        <div class="block">
+            <div class="describe">已取消</div>
+            <div class="describe-info">
+                <div class="describe-info-line"><span class="notice">单号：</span><span class="notice-inside">{{data.enroll_id}}</span></div>
+                <div class="describe-info-line tel"><span class="notice">手机号码：</span><span class="notice-inside">{{data.phone}}</span></div>
+                <div class="describe-info-line"><span class="notice">人数：</span><span class="notice-inside">{{data.enroll_num}}</span></div>
+                <div class="describe-info-line"><span class="notice">总价：</span><span class="notice-inside">￥{{data.total_budget}}</span></div>
+            </div>
+        </div>
+    {{/if}}
+    {{#if data.pub_qd_n}}
+        <div class="button fn-hide">
+            <button class="ui-button ui-button-block ui-button-size-x ui-button-bd-555 ui-button-100per">
+                <span class="ui-button-content"><i class="icon icon-btn-icon-sm"></i> 扫描签到</span>
+            </button>
+        </div>
+        <div class="block">
+            <div class="describe">{{data.scan_detail}}</div>
+            <div class="describe-info">
+                <div class="describe-info-line"><span class="notice">发布时间：</span><span class="notice-inside">{{data.add_time}}</span></div>
+            </div>
+        </div>
+    {{/if}}
+    {{#if data.pub_qd}}
+        <div class="button fn-hide">
+            <button class="ui-button ui-button-block ui-button-size-x ui-button-bd-555 ui-button-100per">
+                <span class="ui-button-content"><i class="icon icon-btn-icon-sm"></i> 扫描签到</span>
+            </button>
+        </div>
+        <div class="block">
+            <div class="describe">{{data.scan_detail}}</div>
+            <div class="describe-info">
+                <div class="describe-info-line"><span class="notice">发布时间：</span><span class="notice-inside">{{data.add_time}}</span></div>
+            </div>
+        </div>
+    {{/if}}
+    {{#if data.pub_wc}}
+        <div class="block">
+            <div class="describe">{{data.scan_detail}}</div>
+            <div class="describe-info">
+                <div class="describe-info-line"><span class="notice">发布时间：</span><span class="notice-inside">{{data.add_time}}</span></div>
+                <div class="describe-info-line"><span class="notice">完成时间：</span><span class="notice-inside">{{data.complete_time}}</span></div>
+            </div>
+        </div>
+    {{/if}}
+    {{#if data.pub_qx}}
+        <div class="block">
+            <div class="describe">{{data.scan_detail}}</div>
+            <div class="describe-info">
+                <div class="describe-info-line"><span class="notice">发布时间：</span><span class="notice-inside">{{data.add_time}}</span></div>
+                <div class="describe-info-line"><span class="notice">取消时间：</span><span class="notice-inside">{{data.cancel_time}}</span></div>
+            </div>
+        </div>
+    {{/if}}
+{{/if}}

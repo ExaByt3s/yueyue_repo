@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{title_txt}-订单列表</title>
+<!-- 公共css，js引入 -->
+{pc_task_top}
+
+<!-- 当前页面css-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/static/style/order/order_list_96a1674.css">
+<!-- js 库-->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/static/lib/lib_880856d.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/static/modules/common/widget/header/header_92eca4d.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/components/jquery/jquery_27c977b.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/static/js/common/common_d86a122.js"></script>
+</head>
+<body>
+
+{pc_global_nav}
+
+
+<div class="order-list-page">
+    <div class="order-bar">
+        <ul class="list clearfix w960">
+
+            <!-- IF type="pending" --><li class="cur"><!-- ELSE --><li><!-- ENDIF --><a href="order_list.php?type=pending"><div class="num <!-- IF pending_remind_num = "0" -->dn<!-- ENDIF --> ">{pending_remind_num}</div>待处理订单</a></li>
+            <!-- IF type="process" --><li class="cur"><!-- ELSE --><li><!-- ENDIF --><a href="order_list.php?type=process"><div class="num <!-- IF process_remind_num = "0" -->dn<!-- ENDIF --> " style="left:65px"   >{process_remind_num}</div>进行中订单</a></li>
+            <!-- IF type="archive" --><li class="cur"><!-- ELSE --><li><!-- ENDIF --><a href="order_list.php?type=archive"><div class="num <!-- IF archive_remind_num = "0" -->dn<!-- ENDIF --> " style="left:24px">{archive_remind_num}</div>收藏</a></li>
+        </ul>        
+    </div>
+
+    <div class="w960">
+
+        <!-- IF type="pending" --><h3 class="dtitle font_wryh">待处理订单</h3><!-- ENDIF -->
+        <!-- IF type="process" --><h3 class="dtitle font_wryh">进行中订单</h3><!-- ENDIF -->
+        <!-- IF type="archive" --><h3 class="dtitle font_wryh">收藏</h3><!-- ENDIF -->
+        
+            <div class="p2th" >
+<ul class="clearfix">
+<!-- BEGIN list -->
+
+
+            <!-- IF order_status="expired" -->
+                <a href="#this">
+            <!-- ELSE -->
+
+                <!-- IF is_pay_coins="0" -->
+                <a href="lead_detail.php?lead_id={lead_id}">
+                <!-- ELSE -->
+                <a href="order_detail.php?quotes_id={quotes_id}">
+                <!-- ENDIF -->
+
+            <!-- ENDIF --><li class='wbox clearfix <!-- IF is_important="1" -->fb_import<!-- ENDIF -->'  go_url_quotes_id={quotes_id}  >
+                    <div class="lbox fldi">
+                   <!-- IF status="1" -->
+                   
+                   <div class="icon-com icon-right"></div>
+                        <p class="txt">已选中</p>
+                   <!-- ELSE -->
+                    <!-- IF order_status="viewed" -->
+                        <div class="icon-com icon-has-see"></div>
+                        <p class="txt">已查看</p>
+                        <!-- ELSEIF order_status="sent" -->
+                         <div class="icon-com icon-has-send"></div>
+                        <p class="txt">已发送</p>
+                        <!-- ELSEIF order_status="refunded" -->
+                        <div class="icon-com icon-has-money"></div>
+                        <p class="txt">有退款</p>
+                        <!-- ELSEIF order_status="pending" -->
+                        <div class="icon-com icon-price"></div>
+                        <p class="txt">待报价</p>
+                        <!-- ELSEIF order_status="expired" -->
+                        <div class="icon-com icon-no-use"></div>
+                         <p class="txt">已作废</p>
+                         <!-- ELSEIF order_status="closed" -->
+                         <div class="icon-com icon-close"></div>
+                         <p class="txt">被拒绝</p>
+                         <!-- ENDIF -->
+                    <!-- ENDIF -->     
+                    </div>
+                    <div class="cbox fldi">
+                    <!-- IF is_pay_coins="0" -->
+						<p class="h3">{buyer_nickname}</p>
+                        <p class="p1">{where_str} {title} {when_str}</p>
+                    <!-- ELSE -->
+                        <p class="h3">{buyer_nickname}</p>
+                        <p class="p1">{where_str} {title} {when_str}</p>
+                        <!-- ENDIF -->
+                        <p class="p2">
+                           
+                        </p>
+                    </div>
+                    <div class="rbox frdi">
+                        <div class="time">{time_format}</div>
+
+                        <div class="btn">
+
+                            <!-- IF top.type=="pending" -->
+                                <!-- IF is_archive="1" -->
+                                    <span href="#this" action="1">已收藏</span>
+                                <!-- ELSE -->
+                                    <span href="#this"  quotes_id = {quotes_id}  action="1">收藏</span>
+                                <!-- ENDIF -->
+                            <!-- ENDIF -->
+
+                            <!-- IF top.type=="process" -->
+                                <!-- IF is_archive="1" -->
+                                    <span href="#this"  action="1">已收藏</span>
+                                <!-- ELSE -->
+                                    <span href="#this"  quotes_id = {quotes_id}  action="1">收藏</span>
+                                <!-- ENDIF -->
+                            <!-- ENDIF -->
+
+
+                        </div>
+                    </div>
+                </li>
+                </a>
+                
+<!-- END list -->
+</ul>               
+                
+
+
+            </div>
+
+
+            <div class="page-mod">
+               {page}
+            </div>
+
+            <!-- IF no_page_data -->               
+                <div class="no_page_data font_wryh">暂无订单</div>
+            <!-- ENDIF -->
+            
+    </div>
+
+
+    
+</div>
+
+
+{footer_html}
+
+
+<script type="text/javascript">
+
+	var $ = require('components/jquery/jquery.js');
+	var header = require('common/widget/header/main');
+
+	$(function() 
+	{
+		// 渲染头部
+		var $header_container = $('#yue-topbar-userinfo-container');
+		header.render($header_container[0]);
+		
+	});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<div class="lp">
+{{#each list}}
+    <div class="item">
+        <div class="item-area">
+            <a href="{{link}}">
+                <div class="img-box">
+                {{#if abate}}
+                    <div class="bar">
+                        <p class="tag">{{abate}}</p>
+                        <p class="triangle"></p>
+                    </div> 
+                {{/if }}
+                    <i style="background-image:url({{images}})"></i>
+                </div>
+            </a> 
+            <div class="txt-area clearfix">
+                <p class="price">{{prices}}</p>
+                <p class="des">{{titles}}</p>
+                {{#if abate}}
+                    <span class="tags">促</span>
+                {{/if }}
+            </div>
+        </div>
+    </div>
+{{/each}}
+</div>

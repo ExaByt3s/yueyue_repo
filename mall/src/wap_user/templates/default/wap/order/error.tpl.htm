@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{title}</title>
+    {wap_global_top}
+    <script src="../../../../lib/lib.js"></script>
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/pay/success.scss">
+</head>
+<body class="">
+<section id="global-header"></section>
+<div class="pay-success">
+    <button data-role="btn" data-params="1">弹出层1</button>
+    <button data-role="btn" data-params="2">弹出层2</button>
+    <button data-role="btn" data-params="3">弹出层3</button>
+</div>
+
+
+{wap_global_footer}
+    
+</body>
+<script>
+    var $ = require('zepto');
+    var header = require('../../../../modules/common/widget/header/main');
+    var _history = require('../../../../modules/common/page/history')
+    $(function()
+    {
+        document.body.addEventListener('touchstart', function () {});
+
+
+        var history = window.history;
+
+        $('[data-role="btn"]').on('click',function(ev)
+        {
+            var $cur_btn = $(ev.currentTarget);
+            var params = $cur_btn.attr('data-params');
+
+            _history.push_state({title : '参数1'},'参数:'+params,window.location.href.split("?")[0] + "?" + params);
+        });
+    });
+
+</script>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title id="specc">{title}</title>
+	{wap_global_top} 
+	<!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+	<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/channel/channel.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/list/list.css">
+</head>
+<body>
+
+<main role="main">
+
+	<section id="global-header"></section>
+	<div class="page-view" data-role="page-container">
+
+		<div class="channel-page">
+			<div class="item-wrap" >
+				<div id="pic_list">
+                    <div class="render_item_ele" data-role="render_item_ele" id="render_item_ele"></div>
+                </div>
+
+                <div class="channel_list" data-role="channel_list">
+
+				<div class="btn-item fn-hide" id="btn_more">
+					<button class="ui-button-block ui-button-100per ui-button-size-l ui-more " >
+					   <span class="ui-button-content">正在加载...</span>
+					</button>
+				</div>
+
+			</div>
+			
+		</div>
+
+	</div>
+
+</main>
+
+
+
+ {wap_global_footer} 
+	
+</body>
+
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/list/list.js"></script>
+<script>
+var $ = require('components/zepto/zepto.js');
+var header = require('common/widget/header/main');
+var utility = require('common/utility/index');
+var abnormal=require('common/widget/abnormal/index');
+var LZ = require('common/lazyload/lazyload');
+var template  = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\n    <div class=\"item\">\n        <div class=\"img-con\">\n            <a href=\"";
+  if (helper = helpers.url) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.url); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\n                <i  data-lazyload-url=\"";
+  if (helper = helpers.img) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.img); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"img image-img min-height\"  style=\"background-size: cover;\"></i>\n            </a>\n        </div>\n        <div class=\"txt-con\">\n            <h3 class=\"title\">";
+  if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h3>\n            <p class=\"txt\">";
+  if (helper = helpers.desc) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.desc); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\n        </div>\n    </div>\n\n";
+  return buffer;
+  }
+
+  buffer += "\n";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  return buffer;
+  });
+var _page_params = {page_params}.result_data || {};
+
+$(document).ready(function() {
+
+	// 渲染头部
+	var header_obj = header.init({
+		ele : $("#global-header"), //头部渲染的节点
+		title:"{title}",
+		header_show : true , //是否显示头部
+		mt_0_ele : $('#seller-detail-page'), //如果头部隐藏，要把当前页节点margin-top改为0
+		right_icon_show : true, //是否显示右边的按钮
+		share_icon : 
+		{
+			show :false,  //是否显示分享按钮icon
+			content:""
+		},
+		omit_icon :
+		{
+			show :false,  //是否显示三个圆点icon
+			content:""
+		},
+		show_txt :
+		{
+			show :false,  //是否显示文字
+			content:"编辑"  //显示文字内容
+		},
+		search_icon : 
+		{
+			show :true,  //是否搜索icon
+			content:""  //显示文字内容
+		}
+	}) 
+
+
+    var SELLER_AJAX_URL = window.$__ajax_domain + 'channel_list.php';
+
+
+    var list_item_class = require('list'); 
+    var list_obj = new list_item_class(
+        {
+            //渲染目标
+            ele : $('#render_item_ele'),
+            //请求地址
+            url : SELLER_AJAX_URL,
+            //传递参数
+            params : _page_params,
+            //模板
+            template : template,
+            //lz是否开启参数
+            is_open_lz_opts : true
+
+        });
+    list_obj.$el.on('list_render:before',function(event,el,data)
+    {
+        var search_url = data.result_data.search_url;
+
+        // 头部搜索按钮点击事件
+	    header_obj.$el.on('click:right_btn',function()
+	    {
+	        window.location.href = search_url;
+	    });
+    });
+
+});
+
+
+
+
+</script>
+
+
+</html>

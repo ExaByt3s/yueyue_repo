@@ -1,0 +1,33 @@
+
+{{#if data}}
+
+    {{#each data}} 
+        <div class="item">
+
+            <div class="lbox">
+
+
+                <div class="num-wrap-box">
+                    <div class="num">{{rank}}</div>
+                    <div class="allow-top">
+                    </div>
+                    <div class="allow-bottom">
+                    </div>
+                </div>
+
+                <i class="img image-img img-box fldi" data-lazyload="{{user_icon}}" user-id="{{user_id}}" data-role="go_url" style="background-size:cover ;width:{{../img_max_w}}px;height:{{../img_max_h}}px;"></i>
+
+                <div class="txt-box fldi">
+                    <p class="p1">{{nickname}}</p>
+                    <p class="p2">{{style}}</p>
+                </div> 
+            </div>
+            <div class="rbox">
+                <div class="txt"><span class="cor1">{{num}}</span> <span class="cor2">{{unit}}</span></div>
+            </div>
+        </div>
+    {{/each}}
+
+{{/if}}
+
+      

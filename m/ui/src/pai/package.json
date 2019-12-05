@@ -1,0 +1,11 @@
+{
+  "name": "paiappstyle",
+  "version": "0.0.1-beta",
+  "build": 
+  {
+    "output": 
+    {
+        "paiappstyle.css": "paiappstyle.scss"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://css-tricks.com/examples/LazyLoading/ -->
+<html lang="en">
+<head>
+    <title>Lazy Loading</title>
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/static/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/wappredev/static/style/base.css">
+<!--基础样式 END-->
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/wappredev/static/style/task-m.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__romain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : '../ajax/'
+	};
+</script>  
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/static/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/wappredev/static/style/lazyload/index.css">
+<style>
+        .lazy {
+            margin: 400px 0;
+            display: block;
+        }
+    </style>
+
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/static/modules/common/lazyload/index.js"></script>
+</head>
+<body>
+<h1>Lazy Loading Image</h1>
+<div class="zone">
+        <div><img width="100%" height="" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/69662015060516560045182192.png" src="" class="lazy"></div>
+        <img width="100%" height="" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/13132015060516593641687084.png" src="" class="lazy">
+        <div style="width:100%;height:150px;background-size: cover;" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/51062015060516583459286619.png" src="" class="lazy"></div>
+        <div style="width:100%;height:150px;background-size: cover;" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/921720150605165855436022.png" src="" class="lazy"></div>
+</div>
+
+
+<script>
+    var $ = require('components/zepto/zepto.js');
+
+    $(function()
+    {   //引用模块
+        var LZ = require('common/lazyload/index');
+        //new 对象 新建内置对象
+        var lazyloading = new LZ();
+        //传入侦听对象
+        lazyloading.init($('body')); 
+
+        //lazyloading.freshELE(con) con传入要刷新的容器
+    }) 
+
+</script>
+</body>
+</html>

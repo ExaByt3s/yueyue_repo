@@ -1,0 +1,86 @@
+<ul class="ui-list ui-list-text ui-border-b">
+	<li>
+		<div class="ui-avatar">
+		   <span style="background-image:url('{{user_icon}}')"></span>
+		</div>
+		<div class="ui-list-info ui-border-t">
+			<h4>{{user_nickname}}</h4>
+			<p>服务类型 {{service_name}}</p>
+		</div>
+	</li>				
+</ul>
+<ul class="ui-list ui-list-text">
+	<li class="ui-border-t">
+		<div class="ui-txt-default ">支付类型：<span>{{pay_type}}</span></div>
+	</li>	
+	<li class="ui-border-t">
+		<div class="ui-txt-default ">报价金额：<span>￥{{total_amount}}</span></div>
+	</li>
+	<li class="ui-border-t">
+		<div class="ui-txt-default ">服务金：<span>￥<label data-role="pay-amount">{{pay_amount}}</label></span></div>
+	</li>
+</ul>
+
+<!--支付模块-->
+<ul class="ui-list ui-list-text mt20 ">  
+	<li >
+		<div class="ui-txt-default ">钱包<span></span></div>
+	</li>
+    <li data-role="coupon-money">
+        <div class="ui-txt-default ">使用优惠券：<span><div class="ui-nowrap" style="width: 200px;" data-role="coupon-money-tag"></div></span></div>
+        <div class="ui-edge-right">
+            <span class="count-money-color" data-role="coupon-money-text"></span>
+            <i class="icon icon-select-no" data-role="yes-tag"></i>
+        </div>
+    </li>
+    <li data-role="select-available-balance">
+		<div class="ui-txt-default ">账户余额：<span>￥<label data-role="available_balance">{{available_balance}}</label></span></div>
+		<div class="ui-edge-right">
+			<span class="count-money-color" data-role="less-money"></span>
+			<i class="icon icon-select-no" data-role="yes-tag"></i>
+		</div>
+	</li>					
+</ul>
+<ul class="ui-list ui-list-text ui-border-b mt20" style="margin-bottom: 0;"  data-role="must-pay-container">
+	<li class="ui-border-t">
+		<div class="ui-txt-default ">还需支付：<span class="count-money-color">￥<label data-role="need-price">{{pay_amount}}</label></span></div>
+	</li>	
+</ul>
+<ul class="ui-list ui-list-text " data-role="other-pay-container">
+	<li class="ui-border-t" data-pay-type="alipay_purse" data-role="pay-li">
+		<div class="ui-txt-default ">
+			<div class="pay-type">
+				<i class="icon icon-zhifubao"></i>
+				<div class="ui-list-info ">
+					<h4 class="ui-nowrap" >支付宝支付</h4>
+					<p class="ui-nowrap">推荐有支付宝账号的用户使用</p>
+				</div>
+			</div>
+			<div class="ui-edge-right">
+				<i class="icon icon-select-no" data-role="yes-tag"></i>
+			</div>
+		</div>
+	</li>	
+	<li class="ui-border-t" data-pay-type="tenpay_wxapp" data-role="pay-li">
+		<div class="ui-txt-default ">
+			<div class="pay-type">
+				<i class="icon icon-wx-pay"></i>
+				<div class="ui-list-info ">
+					<h4 class="ui-nowrap" >微信支付</h4>
+					<p class="ui-nowrap">安装微信5.0及以上版本的使用</p>
+				</div>
+			</div>
+			<div class="ui-edge-right">
+				<i class="icon icon-select-no" data-role="yes-tag"></i>
+			</div>
+		</div>
+	</li>
+</ul>
+
+<div class="last-container"></div>
+<!--支付模块-->
+<div class="buttom-btn-wrap">
+	<button class="ui-tt-pay-btn" id="pay-btn">
+		确认支付
+	</button>
+</div>

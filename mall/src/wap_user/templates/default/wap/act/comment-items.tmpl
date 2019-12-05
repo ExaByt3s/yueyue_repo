@@ -1,0 +1,39 @@
+
+
+
+{{#each list}} 
+
+
+<div class="item ui-border-b">
+    <div class="wbox clearfix">
+
+        <div class="lbox ">
+            <div class="ui-avatar-icon ui-avatar-icon-m">
+                    <i data-lazyload-url="{{user_icon}}"></i>
+            </div>
+        </div>
+        <div class="rbox ">
+            <div class="box-a">
+                <div class="name f14 color-333">{{nickname}}</div>
+
+                   <div class="stars-all-mod">
+                       <div class="ui-stars-grey">
+                       </div>
+                       <div class="ui-stars-yellow" style="width:{{percent overall_score "5"}}">
+                       </div>
+                   </div>
+
+            </div>
+
+            <div class="box-b f10 color-aaa">
+                {{add_time}}
+            </div>
+        </div>
+    </div>
+
+    <div class="des f14 color-333">
+        {{comment}}
+    </div>
+</div>
+
+{{/each}}

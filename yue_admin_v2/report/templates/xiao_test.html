@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="GBK">
+    <title></title>
+</head>
+<body>
+<div id="main" style="height:600px;width:600px;"></div>
+
+<script type="text/javascript" src="../js/echarts2/dist/echarts.js"  charset="GBK"></script>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths: {
+            echarts: '../js/echarts2/dist'
+        }
+    });
+    // 使用
+    require(
+            [
+                /*'echarts',
+                 'echarts/chart/line', // 使用柱状图就加载bar模块，按需加载
+                 'echarts/chart/bar'*/
+                'echarts',
+                'echarts/theme/macarons',
+                'echarts/chart/bar'
+            ],
+            function (ec,theme) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main'),theme);
+
+                var option = {
+                    /*title : {
+                     text: '浏览PV'
+                     //subtext: '纯属虚构'
+                     },*/
+                    tooltip : {
+                        trigger: 'axis',
+                        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                            type : 'shadow'      // 默认为直线，可选为：'line' | 'shadow'
+                        }
+                    },
+                    legend: {
+                        data:['浏览PV']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {show: true, type: ['line', 'bar']},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : false,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            axisLine :
+                            {
+                                show: false
+                            },
+                            //控制x轴的标题
+                            axisLabel :
+                            {
+                                show:false
+                            },
+                            splitLine :
+                            {
+                                show:false
+                            },
+                            //轴标记
+                            axisTick:
+                            {
+                                show: false
+                            },
+                            data : ['07-13','07-14','07-15']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLine :
+                            {
+                                show: false,
+                                lineStyle :
+                                {
+                                    color: '#48b',
+                                    width: 2,
+                                    type: 'dashed'
+                                }
+                            },
+                            //y轴直线
+                            splitLine:
+                            {
+                                show:true,
+                                lineStyle:
+                                {
+                                    color: '#483d8b',
+                                    type: 'dashed',
+                                    width: 1
+                                }
+                            }
+                        },
+
+
+                    ],
+                    series : [
+                        {
+                            name:'浏览PV',
+                            type:'bar',
+                            itemStyle :
+                            {
+                                normal :
+                                {
+                                    color: '#5D9CEC',
+                                    label :
+                                    {
+                                        show : false
+                                    },
+                                    labelLine :{
+                                        show: false
+                                    }
+                                }
+                            },
+                            data:['15.00','131.90','19.10']
+                            /*
+                             //最高值和最低值做特殊处理
+                             markPoint : {
+                             data : [
+                             {type : 'max', name: '最大值'},
+                             {type : 'min', name: '最小值'}
+                             ]
+                             },
+                             //平均值做特殊处理
+                             markLine : {
+                             data : [
+                             {type : 'average', name: '平均值'}
+                             ]
+                             }
+                             */
+                        },
+                        {
+                            name:'浏览PV2',
+                            type:'bar',
+                            itemStyle :
+                            {
+                                normal :
+                                {
+                                    color: '#5D9CEC',
+                                    label :
+                                    {
+                                        show : false
+                                    },
+                                    labelLine :{
+                                        show: false
+                                    }
+                                }
+                            },
+                            data:['88315.00','3194.71','1023.00']
+                            /*
+                             //最高值和最低值做特殊处理
+                             markPoint : {
+                             data : [
+                             {type : 'max', name: '最大值'},
+                             {type : 'min', name: '最小值'}
+                             ]
+                             },
+                             //平均值做特殊处理
+                             markLine : {
+                             data : [
+                             {type : 'average', name: '平均值'}
+                             ]
+                             }
+                             */
+                        }
+                    ]
+                };
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            }
+    );
+</script>
+</body>
+</html>

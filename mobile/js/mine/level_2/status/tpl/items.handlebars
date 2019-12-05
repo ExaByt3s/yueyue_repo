@@ -1,0 +1,17 @@
+{{#if is_auditing}}
+<div class="img-con icon icon-success-level">
+</div>
+<div class="text-con">
+    <div class="title">提交成功，已经进入审核队列</div>
+    <div>若你的证件模糊，照片证件模糊，V2实名认证将不能通过身份信息审核，请重新按照页面示例图上传照片。</div>
+    <div class="text">感谢你的配合</div>
+</div>
+{{^}}
+<div class="img-con icon icon-success-level">
+</div>
+<div class="text-con exp">
+    <div class="title">已通过审核</div>
+    <div class="text">真实姓名：{{data.name}}</div>
+    <div class="text">身份证号：{{data.id_code}}</div>
+</div>
+{{/if}}

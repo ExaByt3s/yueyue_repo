@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>商家{this_seller_id}的聊天记录</title>
+    <link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/im/client/static/pc/style/libs/common_b99c7e4.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/im/client/static/pc/style/chat_record/chat_record_1ff6872.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/im/client/static/pc/lib/mod_327a0b0.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/im/client/static/pc/lib/mqttws31_e175117.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/im/client/static/pc/lib/inflate.min_9588695.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/im/client/static/pc/lib/md5-min_ad930f8.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/im/client/static/pc/lib/IMSDK_4010a08.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/im/client/static/pc/lib/lib_0df1370.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/im/client/static/pc/js/common/common_90272fd.js"></script>
+</head>
+<body>
+<main class="ds-box orient-v align-center pack-center" role="main">
+    <div class="ds-box orient-h chat_record-page">
+        <div class="ds-box orient-v side_bar">
+            <div class="ds-box orient-v pack-center align-center seller_info"><div>商家<{seller_name}>的聊天记录</div></div>
+            <div class="ds-box orient-v buyer_list_con flex-1" data-role="buyer_list_con"></div>
+
+        </div>
+
+        <div class="ds-box orient-v flex-1 record_window" data-role="record_window">
+            <div class="ds-box orient-h pack-justify head_warp"  data-role="record_window_head_warp">
+                <div class="option left"></div>
+                <div class="title" data-role="inner_title"></div>
+                <div class="option right"></div>
+            </div>
+            <div class="ds-box pack-center window_option fn-hide" data-role="window_option">
+                <div class="record_more" data-role="record_more"></div>
+            </div>
+            <div class="ds-box orient-v flex-1 window_body" data-role="window_body"></div>
+        </div>
+        <div class="ds-box orient-v message_control">
+            <div class="ds-box orient-h head_warp pack-center">
+                <div class="title">操作栏</div>
+            </div>
+        </div>
+    </div>
+
+    </main>
+</body>
+
+<script>
+    window.__test__str = /test/.test(window.location.href)?'test/':'';
+
+    window.$__ajax_domain = 'http://www.yueus.com/im/client/'+__test__str + 'ajax/';
+
+    var $ = require('components/jquery/jquery.js');
+
+    var buyer_item_tpl = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n<div class=\"buyer_list_item ds-box orient-h align-center pack-justify\" data-role=\"buyer_list_item\" send_user_id=\"";
+  if (helper = helpers.send_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.send_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" to_user_id=\"";
+  if (helper = helpers.to_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.to_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" custom_id=\"";
+  if (helper = helpers.custom_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" manage_id=\"";
+  if (helper = helpers.manage_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.manage_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n    <div class=\"ds-box left\">\r\n        <img class=\"ds-block\" src='";
+  if (helper = helpers.custom_icon) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_icon); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "' style=\"width: 40px;height: 40px;border-radius: 2px\"/>\r\n        <div class=\"ds-box orient-v info\">\r\n            <div>";
+  if (helper = helpers.custom_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n            <div>ID:";
+  if (helper = helpers.custom_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n        </div>\r\n    </div>\r\n    <div class=\"ds-box right\">\r\n        <div>";
+  if (helper = helpers.last_connect_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n    </div>\r\n</div>\r\n";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
+  });
+
+    var record_tpl = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n    ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.send_user_role), "==", "yuebuyer", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.send_user_role), "==", "yuebuyer", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(13, program13, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.send_user_role), "==", "yueseller", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.send_user_role), "==", "yueseller", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.media_type), "==", "text", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.media_type), "==", "text", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.media_type), "==", "photo", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.media_type), "==", "photo", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.media_type), "==", "sound", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.media_type), "==", "sound", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(9, program9, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.media_type), "==", "merchandise", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.media_type), "==", "merchandise", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(11, program11, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.media_type), "==", "card", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.media_type), "==", "card", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    ";
+  return buffer;
+  }
+function program3(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n            <div class=\"ds-box inner_msg orient-v receive\">\r\n                <div class=\"ds-box msg_head\">\r\n                    <div class=\"font\">";
+  if (helper = helpers.custom_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_day) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_day); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                </div>\r\n                <div class=\"ds-box msg_body\">";
+  if (helper = helpers.content) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.content); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program5(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n            <div class=\"ds-box inner_msg orient-v receive\">\r\n                <div class=\"ds-box msg_head\">\r\n                    <div class=\"font\">";
+  if (helper = helpers.custom_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_day) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_day); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                </div>\r\n                <div class=\"ds-box msg_body\">\r\n                    <img src=\"";
+  if (helper = helpers.file_url) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.file_url); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" style=\"height: 50px;\" data-role=\"scan_photo\"/>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program7(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n            <div class=\"ds-box inner_msg orient-v receive\">\r\n                <div class=\"ds-box msg_head\">\r\n                    <div class=\"font\">";
+  if (helper = helpers.custom_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_day) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_day); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                </div>\r\n                <div class=\"ds-box msg_body\">\r\n                    <div data-role=\"record_play_sound\" data-record-sound-url=\"";
+  if (helper = helpers.file_url) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.file_url); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n                        <div class=\"sound_click\" data-role=\"record_sound_click\">语音 </div>\r\n                        <audio class=\"fn-hide\" controls=\"controls\" type=\"audio/mp3\" src=\"\" data-role=\"record_sound_line\"></audio>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program9(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n            <div class=\"ds-box inner_msg orient-v receive\">\r\n                <div class=\"ds-box msg_head\">\r\n                    <div class=\"font\">";
+  if (helper = helpers.custom_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_day) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_day); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                </div>\r\n                <div class=\"ds-box msg_body\">\r\n                    <div class=\"ds-box orient-v merc\">\r\n                        <div class=\"info_title\">";
+  if (helper = helpers.card_text1) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.card_text1); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                        <div class=\"info_price\">";
+  if (helper = helpers.card_text2) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.card_text2); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program11(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n            <div class=\"ds-box inner_msg orient-v receive\">\r\n                <div class=\"ds-box msg_head\">\r\n                    <div class=\"font\">";
+  if (helper = helpers.custom_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.custom_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_day) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_day); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                </div>\r\n                <div class=\"ds-box msg_body\">\r\n                    <div class=\"ds-box orient-v card\">\r\n                        <!--div class=\"info_title\">";
+  if (helper = helpers.card_title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.card_title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div-->\r\n                        <div class=\"info_title\">";
+  if (helper = helpers.card_text1) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.card_text1); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                        <div class=\"info_price\">";
+  if (helper = helpers.card_text2) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.card_text2); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program13(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(14, program14, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.media_type), "==", "text", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.media_type), "==", "text", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(16, program16, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.media_type), "==", "photo", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.media_type), "==", "photo", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(18, program18, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.media_type), "==", "merchandise", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.media_type), "==", "merchandise", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    ";
+  return buffer;
+  }
+function program14(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n            <div class=\"ds-box inner_msg orient-v send\">\r\n                <div class=\"ds-box msg_head\">\r\n                    <div class=\"font\">";
+  if (helper = helpers.manage_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.manage_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_day) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_day); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                </div>\r\n                <div class=\"ds-box msg_body\">";
+  if (helper = helpers.content) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.content); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program16(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n            <div class=\"ds-box inner_msg orient-v send\">\r\n                <div class=\"ds-box msg_head\">\r\n                    <div class=\"font\">";
+  if (helper = helpers.manage_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.manage_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_day) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_day); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                </div>\r\n                <div class=\"ds-box msg_body\">\r\n                    <img src=\"";
+  if (helper = helpers.file_url) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.file_url); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" style=\"height: 50px;\" data-role=\"scan_photo\"/>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+function program18(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n            <div class=\"ds-box inner_msg orient-v send\">\r\n                <div class=\"ds-box msg_head\">\r\n                    <div class=\"font\">";
+  if (helper = helpers.manage_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.manage_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_day) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_day); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    <div class=\"font\">";
+  if (helper = helpers.last_connect_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.last_connect_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                </div>\r\n                <div class=\"ds-box msg_body\">\r\n                    <div class=\"ds-box orient-v merc\">\r\n                        <div class=\"info_title\">";
+  if (helper = helpers.card_text1) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.card_text1); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                        <div class=\"info_price\">";
+  if (helper = helpers.card_text2) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.card_text2); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        ";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
+  });
+
+    var pics_tpl = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"ds-box orient-v pack-center pics_scan fn-hide\" data-role=\"pics_scan\">\r\n    <div class=\"ds-box pack-center img_con\">\r\n        <img data-role=\"inner_pics\" style=\"width: 100%\"/>\r\n    </div>\r\n</div>";
+  });
+
+    var send_lock = false;
+
+    $(function()
+    {
+        var page =
+        {
+            init : function()
+            {
+                var self = this;
+
+                self.buyer_list_data = buyer_list.result_data;
+
+                self.buyer_list_con = $('[data-role="buyer_list_con"]');
+
+                self.render();
+
+                self.event();
+
+            },
+            event : function()
+            {
+                var self = this;
+
+                $('[data-role="buyer_list_item"]').on('click',function()
+                {
+                    var con = $(this);
+
+                    var manage_id = con.attr('manage_id');
+
+                    var custom_id = con.attr('custom_id');
+                    //设置窗口值
+                    record_window.current_manager_customer({manager : manage_id,customer : custom_id});
+
+                    con.siblings().removeClass('cur');
+                    con.addClass('cur');
+
+                    self.msg_list_ajax
+                    ({
+                        manage_id : manage_id,
+                        custom_id : custom_id,
+                        page : record_window.page_clear(),//点击消费者列表时清空
+                        ajax_before_send : function(data)
+                        {
+
+                        },
+                        ajax_success : function(data)
+                        {
+
+                        },
+                        ajax_error : function(data)
+                        {
+
+                        },
+                        ajax_complete : function(data)
+                        {
+
+                        }
+
+                    });
+                })
+            },
+            render : function()
+            {
+                var self = this;
+
+                self._render_buyer_list();
+            },
+            _render_buyer_list : function()
+            {
+                var self = this;
+
+                self.buyer_list_con.append(buyer_item_tpl({data:self.buyer_list_data}))
+            },
+            msg_list_ajax : function(options)
+            {
+                //取聊天记录ajax 窗口和消费者列表共用
+                var self = this;
+
+                var manage_id = options.manage_id;
+
+                var custom_id = options.custom_id;
+
+                var page = options.page;
+
+                if(send_lock)return;
+
+                $.ajax
+                ({
+                    url: window.$__ajax_domain + 'get_msg_list_v2.php',
+                    data : {seller_id : manage_id,buyer_id : custom_id,page : page},
+                    dataType: 'json',
+                    type: 'POST',
+                    cache: false,
+                    beforeSend: function(data)
+                    {
+                        send_lock = true;
+
+                        record_window.window_option_show();
+
+                        record_window.record_more('加载中');
+
+                        if(typeof options.ajax_before_send == 'function')options.ajax_before_send.call(this,data);
+                    },
+                    success: function(data)
+                    {
+                        if(data.result_data.buyer_msg.list.length == 0)
+                        {
+                            //没有更多的记录了
+                            record_window.record_more('没有更多的记录了');
+                        }
+                        else
+                        {
+                            record_window.record_more('查看更多消息');
+
+                            record_window.page_add();
+
+                            record_window.render_record(data);
+                        }
+                        if(typeof options.ajax_success == 'function')options.ajax_success.call(this,data);
+                    },
+                    error: function(data)
+                    {
+                        record_window.record_more('查看更多消息');
+
+                        if(typeof options.ajax_error == 'function')options.ajax_error.call(this,data);
+                    },
+                    complete: function(data)
+                    {
+                        send_lock = false;
+
+                        if(typeof options.ajax_complete == 'function')options.ajax_complete.call(this,data);
+                    }
+                });
+            }
+        }
+
+        var record_window =
+        {
+            init : function(options)
+            {
+                var self = this;
+
+                self.$el = $('[data-role="record_window"]');
+
+                self.head_warp_el = self.$el.find('[data-role="inner_title"]');
+
+                self.window_option = self.$el.find('[data-role="window_option"]');
+
+                self.record_more_el = self.$el.find('[ data-role="record_more"]');
+
+                self.window_body = self.$el.find('[data-role="window_body"]');
+
+                self.current_page = options.page;
+
+                self.record_text = options.record_text;
+
+                self.record_more(self.record_text);
+
+                self.event();
+            },
+            event: function()
+            {
+                var self = this;
+
+                self.record_more_el.on('click',function()
+                {
+                    page.msg_list_ajax
+                    ({
+                        manage_id : self.current_manager_customer().manager,
+                        custom_id : self.current_manager_customer().customer,
+                        page : self.page(),
+                        ajax_before_send : function(data)
+                        {
+
+                        },
+                        ajax_success : function(data)
+                        {
+
+                        },
+                        ajax_error : function(data)
+                        {
+
+                        },
+                        ajax_complete : function(data)
+                        {
+
+                        }
+                    })
+                })
+
+                //滚动事件，设置底部滚动高度
+                self.window_body.on('scroll',function(e)
+                {
+                    self.scroll_point = e.currentTarget.scrollHeight - e.currentTarget.scrollTop;
+                })
+            },
+            current_manager_customer : function(obj)
+            {
+                var self = this;
+
+                if(obj)
+                {
+                    if(!obj.manager)throw 'manager empty';
+                    if(!obj.customer)throw 'customer empty';
+
+                    self.current_manager = obj.manager;
+
+                    self.current_customer = obj.customer;
+                }
+                else
+                {
+                    return {manager : self.current_manager,customer:self.current_customer}
+                }
+            },
+            page : function()
+            {
+                var self = this;
+
+                return self.current_page
+            },
+            page_add : function ()
+            {
+                var self = this;
+
+                self.current_page++;
+
+                return self.current_page
+            },
+            page_clear : function()
+            {
+                var self = this;
+
+                self.current_page = 1;
+
+                return self.current_page
+            },
+            render_record : function(data)
+            {
+                var self = this;
+
+                var scroll_tall; //滚动高度
+
+                console.log(data.result_data.buyer_msg.list);
+
+                if(data.result_data.buyer_msg.page == 1)
+                {
+                    self.window_body.html(record_tpl({data:data.result_data.buyer_msg.list}));
+
+                    scroll_tall = self.window_body[0].scrollHeight;
+                }
+                else
+                {
+                    self.window_body.prepend(record_tpl({data:data.result_data.buyer_msg.list}));
+
+                    if(!self.scroll_point)
+                    {
+                        //未滚过
+                        scroll_tall = self.window_body[0].scrollHeight;
+                    }
+                    else
+                    {
+                        //已滚过，保持
+                        scroll_tall = self.window_body[0].scrollHeight - self.scroll_point
+                    }
+                }
+
+                self.window_body.scrollTop(scroll_tall);
+
+                self._render_record_after();
+
+            },
+            _render_record_after : function()
+            {
+                var self = this;
+
+                $.each(self.window_body.find('[data-role="record_sound_line"]'),function(k,k_obj)
+                {
+                    var con = $(k_obj);
+
+                    var ogg = con.parents('[data-record-sound-url]').attr('data-record-sound-url');
+
+                    var res = window.btoa(JSON.stringify({url:ogg}));
+
+                    con[0].onloadedmetadata = function()
+                    {
+                        //手机端切换app后会重load
+                        if(con.siblings('[data-role="record_sound_click"]').find('font').length == 0)
+                        {
+                            con.siblings('[data-role="record_sound_click"]').append('<font>' + con[0].duration.toFixed(1) + '"' + '</font>');
+                        }
+                    }
+                    con.attr('src','http://14.29.52.16:8055/ogg2mp3?req='+ res)
+                })
+
+                self.window_body.find('[data-role="record_play_sound"]')
+                        .unbind('click')
+                        .on('click',function()
+                        {
+                            var con = $(this);
+
+                            var sound_obj = con.find('[data-role="record_sound_line"]');
+
+                            //有音频
+                            if(sound_obj[0].paused)
+                            {
+                                sound_obj[0].play();
+                            }
+                            else
+                            {
+                                sound_obj[0].pause();
+                            }
+                        })
+
+                self.window_body.find('[data-role="scan_photo"]')
+                        .unbind('click')
+                        .on('click',function()
+                        {
+                            var con = $(this);
+
+                            var src = con.attr('src');
+
+                            pics_scan.show(src);
+                        })
+            },
+            head_warp : function(title)
+            {
+                var self = this;
+
+                if(title)
+                {
+                    self.head_warp_el.html(title);
+                }
+                else
+                {
+
+                    return self.head_warp_el.html();
+                }
+            },
+            record_more : function(text)
+            {
+                var self = this;
+
+                if(text)
+                {
+                    self.record_more_el.html(text);
+                }
+                else
+                {
+
+                    return self.record_more_el.html();
+                }
+            },
+            window_option_show : function()
+            {
+                var self = this;
+
+                self.window_option.removeClass('fn-hide');
+            },
+            window_option_hide : function()
+            {
+                var self = this;
+
+                self.window_option.addClass('fn-hide');
+            }
+        }
+
+        var pics_scan =
+        {
+            init : function()
+            {
+                var self = this;
+
+                self.render();
+            },
+            render : function()
+            {
+                var self = this;
+
+                $('body').append(pics_tpl({}));
+
+                self.render_after();
+            },
+            render_after : function()
+            {
+                var self = this;
+
+                self.$el = $('[data-role="pics_scan"]');
+
+                self.pics_con = self.$el.find('[data-role="inner_pics"]');
+
+                self.event();
+            },
+            event : function()
+            {
+                var self = this;
+
+                self.$el.on('click',function()
+                {
+                    self.hide();
+                })
+
+
+            },
+            show : function(url)
+            {
+                var self = this;
+
+                self.pics_con.attr('src',url);
+
+                self.$el.removeClass('fn-hide');
+            },
+            hide : function()
+            {
+                var self = this;
+
+                self.$el.addClass('fn-hide');
+            }
+        }
+        pics_scan.init();
+        //初始化
+        record_window.init({page : 1,record_text:'查看更多消息'});
+
+        page.init();
+
+        record_window.head_warp('聊天记录');
+
+    })
+
+    var buyer_list = {buyer_list}
+
+</script>
+</html>

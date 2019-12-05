@@ -1,0 +1,103 @@
+// -------------------------------------------------
+// 信息中心 -- 悄悄话
+// -------------------------------------------------
+
+$defaul-left-panel-width: 298px;
+
+
+
+.leftpanel {
+    position: relative;
+    _zoom: 1;
+    float: left;
+    width: $defaul-left-panel-width;
+    margin-bottom: -5000px;
+    padding-bottom: 5000px;
+    //border-right: 1px solid #d8d8d8;
+    @include box-shadow(2px 0 2px -1px #e3e3e3);
+}
+
+.chat-container {
+    border-left: 1px solid #d8d8d8;
+    @include box-shadow(inset 2px 0 2px -1px #e3e3e3);
+    float: left;
+    width: 994 - 2 - $defaul-left-panel-width - 1;
+
+    margin-bottom: -5000px;
+    padding-bottom: 5000px;
+
+    background: #f6f6f6;
+}
+
+.ps-container {
+    &.hover{
+        @extend %ps-container-hover;
+    }
+    &:hover {
+        @extend %ps-container-hover;
+    }
+
+    .ps-scrollbar-y-rail {
+        right: 0;
+    }
+    .ps-scrollbar-y {
+        background-color: #e6e6e6;
+    }
+    .ps-scrollbar-y-rail:hover {
+        .ps-scrollbar-y {
+            background-color: #d7dbd5;
+        }
+    }
+}
+
+%ps-container-hover {
+    .ps-scrollbar-y-rail {
+        @include opacity(1);
+    }
+}
+
+
+.message-help-tips {
+    position: fixed;
+    _position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    z-index: 9996;
+
+    cursor: pointer;
+
+    .message-help-mask {
+        background: #000;
+        @include opacity(0.5);
+        position: absolute;
+        z-index: 9996;
+        width: 100%;
+        height: 100%;
+    }
+
+    .message-help-content {
+        position: absolute;
+        z-index: 9997;
+        top: 50%;
+        width: 100%;
+        height: 100%;
+        margin-top: -250px;
+        text-align: center;
+    }
+    .png {
+        //$png-url: image-url('welcome.png', true);
+        $png-url: 'http://my.poco.cn/m/assets/images/message-welcome-867x500.png';
+
+        @include background(url(#{$png-url}) no-repeat);
+        _background: none;
+        _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{$png-url}');
+        width: 867px;
+        height: 500px;
+        margin: 0 auto;
+    }
+}

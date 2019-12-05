@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <title>工作监控报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <li><a href="javascript:void(0);" class="on">管理者商家报表(按月)</a></li>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="800">
+                        <tbody>
+                        <tr>
+                            <td>
+                                用户ID:
+                                <input type="text" name="user_id" class="input-text" value="{user_id}" size="8"/>
+                            </td>
+                            <td>
+                                年月:
+                                <input type="text" name="month" class="input-text" value="{month}" size="12" onfocus="WdatePicker( {dateFmt: 'yyyy-MM'} )" readonly="true"/>
+                            </td>
+                            <!-- IF operator_show -->
+                            <td>
+                                管理者:
+                                <select name="operator_id">
+                                    <option value="">全部</option>
+                                    <!-- BEGIN operator_arr -->
+                                    <option value="{operator_id}" <!-- IF selected -->selected="selected"<!-- ENDIF --> >{operator_name}</option>
+                                    <!-- END operator_arr -->
+                                </select>
+                            </td>
+                            <!-- ENDIF -->
+                            <td rowspan="2">
+                                <p><input type="button" class="button" value="查找" onclick="this.form.target='_self';$('#action').attr('value','');this.form.submit();">&nbsp;&nbsp;
+                                    <input type="button" class="button" value="导出" onclick="this.form.target='_blank';$('#action').attr('value','export');this.form.submit();">
+                                </p>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="act" id="action">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <div class="table-list" id="table-list">
+        <!--<div class="btn">
+            总条数:{total_count}
+        </div>
+         -->
+        <!--list-->
+        <table width="100%" cellspacing="0" style="min-width: 1024px;">
+            <thead>
+            <tr>
+                <th width="60">用户ID</th>
+                <th>用户昵称</th>
+                <th width="100">成功金额</th>
+                <th width="60">成功次数</th>
+                <th width="60">关闭次数</th>
+                <th width="100">登录次数</th>
+                <th width="100">回复率</th>
+                <th width="120">管理者</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <!--<td align="center">
+                    &lt;!&ndash; IF sign_time &ndash;&gt;{dateformat:sign_time,'Y-m-d H:i:s'}&lt;!&ndash; ELSE &ndash;&gt;0&lt;!&ndash; ENDIF &ndash;&gt;
+                </td>
+                <td align="center">
+                    &lt;!&ndash; IF close_time &ndash;&gt;{dateformat:close_time,'Y-m-d H:i:s'}&lt;!&ndash; ELSE &ndash;&gt;0&lt;!&ndash; ENDIF &ndash;&gt;
+                </td>
+                <td align="center" width="45">{order_id}</td>-->
+                <td align="center" width="70">{user_id}</td>
+                <td align="center">{nickname}</td>
+                <td align="center" width="100">{success_price}</td>
+                <td align="center" width="60">{success_count}</td>
+                <td align="center" width="60">{cancel_count}</td>
+                <td align="center" width="60">{login_num}</td>
+                <td align="center" width="60">{reply_scala_s}%</td>
+                <td align="center" width="120">{operator_name}</td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

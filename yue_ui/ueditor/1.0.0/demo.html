@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+
+<head>
+    <meta charset="GBK">
+    <title>ueditor demo</title>
+    <script src="http://static.yueus.com/yue_ui/js/jquery.js"></script>
+    <script src="http://static.yueus.com/yue_ui/layer/1.0.0/layer/layer.js"></script>
+    <script src="http://static.yueus.com/yue_ui/upload/1.0.0/webuploader.js"></script>
+
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain"><p style="color:red">这里写你的初始化内容</p></script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" charset="gbk" src="ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+    <script type="text/javascript" charset="gbk" src="ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+    <script type="text/javascript">
+
+        (function()
+        {
+            var doc = document;
+            /**
+             * 默认配置
+             */
+            var defaultConfig = {
+                target: '',
+                toolbars: null,
+                autoFocus: false,
+                autoHeight: false,
+                zIndex: 1
+            },
+
+                extendFun = {
+                    /**
+                     * 初始化
+                     */
+                    _init: function() {
+                        var self = this, cfg = self.config,
+                            editorContainer = doc.createElement('div'),
+                            isImageBtn = $.inArray('simpleupload', cfg.toolbars);
+
+                        self._setup_btn();
+
+
+                        if (cfg.toolbars) {
+
+                            cfg.toolbars = [cfg.toolbars];
+                        }
+
+                        $(editorContainer).insertBefore(cfg.target);
+
+                        if(!cfg.content)
+                        {
+                            cfg.content = $(cfg.target).html();
+                        }
+
+                        self._initEditor(); // 初始化编辑器
+                        self.editor.render(editorContainer); // 显示
+
+                        cfg.target.style.display = 'none';
+
+                        setTimeout(function()
+                        {
+                            self._setup_uploader();
+                        },200);
+
+                    },
+                    _setup_btn : function()
+                    {
+                        var self = this;
+
+                        self._setup_simple_upload_btn();
+                        self._setup_video_upload_btn();
+
+
+                    },
+                    _setup_video_upload_btn :  function()
+                    {
+                        var self = this;
+
+                        UE.registerUI('video-upload', function(editor, uiName) {
+
+
+                            //注册按钮执行时的command命令，使用命令默认就会带有回退操作
+                            editor.registerCommand(uiName,
+                                    {
+                                        execCommand: function()
+                                        {
+
+                                        }
+                                    });
+                            //创建一个button
+                            var btn = new UE.ui.Button
+                            ({
+                                //按钮的名字
+                                name: 'videoupload',
+                                //提示
+                                title: '视频上传',
+                                //label : '<div class="editor-upload-btn" style="height: 20px !important;width: 20px !important;position: absolute;top: 0;left: 0;"></div>',
+                                //添加额外样式，指定icon图标，这里默认使用一个重复的icon
+                                //cssRules: 'background-position: -380px 0px;',
+                                //点击时执行的命令
+                                onclick: function()
+                                {
+                                    layer.open
+                                    ({
+                                        type: 1,
+                                        area: ['600px', '400px'],
+                                        fix: false, //不固定
+                                        title:'上传视频',
+                                        maxmin: false,
+                                        content : '<div class=edit-video-wrapper><div id=videoTab><div id=tabHeads class=tabhead><span tabsrc=video data-content-id=video class=focus>插入视频</span></div><div id=tabBodys class=tabbody><div id=video class="panel focus"><table><tbody><tr><td><label for=videoUrl class=url>视频网址</label><td><input id=videoUrl type=text></table><div id=preview><div class=previewMsg><span>输入的视频地址有误，请检查后再试！</span></div><embed class=previewVideo type=application/x-shockwave-flash pluginspage=http://www.macromedia.com/go/getflashplayer src="" width=420 height=280 wmode=transparent play=true loop=false menu=false allowscriptaccess=never allowfullscreen=true></div><div id=videoInfo><fieldset><legend>视频尺寸</legend><table><tbody><tr><td><label for=videoWidth>宽度</label><td><input class=txt id=videoWidth type=text><tr><td><label for=videoHeight>高度</label><td><input class=txt id=videoHeight type=text></table></fieldset><fieldset><legend>对齐方式</legend><div id=videoFloat><div name=none title=undefined style="background: url(http://ueditor.baidu.com/ueditor/dialogs/video/images/none_focus.jpg);"></div><div name=left title="左浮动" style="background: url(http://ueditor.baidu.com/ueditor/dialogs/video/images/left_focus.jpg);"></div><div name=right title="右浮动" class=focus style="background: url(http://ueditor.baidu.com/ueditor/dialogs/video/images/right_focus.jpg);"></div><div name=center title="独占一行" style="background: url(http://ueditor.baidu.com/ueditor/dialogs/video/images/center_focus.jpg);"></div></div></fieldset></div></div></div></div></div>',
+                                        success : function(index)
+                                        {
+
+                                        },
+                                        cancle : function()
+                                        {
+
+                                        }
+                                    });
+
+
+                                    var videoAttr = {
+                                        //视频地址
+                                        url: 'http://v.youku.com/v_show/id_XMTI3MjYzNDMzMg==_ev_1.html?from=y1.3-idx-uhome-1519-20887.205805-205902.1-1',
+                                        //视频宽高值， 单位px
+                                        width: 200,
+                                        height: 100
+                                    };
+                                    //这里可以不用执行命令,做你自己的操作也可
+                                    editor.execCommand('insertvideo',videoAttr);
+                                }
+                            });
+
+                            return btn;
+                        });
+                    },
+                    _setup_simple_upload_btn : function()
+                    {
+                        var self = this;
+
+                        UE.registerUI('simple-upload', function(editor, uiName) {
+
+
+                            //注册按钮执行时的command命令，使用命令默认就会带有回退操作
+                            editor.registerCommand(uiName,
+                                    {
+                                        execCommand: function()
+                                        {
+
+                                        }
+                                    });
+                            //创建一个button
+                            var btn = new UE.ui.Button
+                            ({
+                                //按钮的名字
+                                name: 'simpleupload',
+                                //提示
+                                title: '图片上传',
+                                //label : '<div class="editor-upload-btn" style="height: 20px !important;width: 20px !important;position: absolute;top: 0;left: 0;"></div>',
+                                //添加额外样式，指定icon图标，这里默认使用一个重复的icon
+                                //cssRules: 'background-position: -380px 0px;',
+                                //点击时执行的命令
+                                onclick: function()
+                                {
+                                    //这里可以不用执行命令,做你自己的操作也可
+                                    editor.execCommand(uiName);
+                                }
+                            });
+
+                            return btn;
+                        });
+                    },
+                    _setup_uploader : function(options)
+                    {
+                        var self = this;
+
+                        $('.edui-for-simpleupload .edui-button-body').prepend('<div class="edui-upload-btn" style="position: absolute;z-index: 999;opacity: 0;"></div>');
+
+                        options = options || {};
+
+                        var default_params =
+                            {
+
+                                swf: './third-party/webuploader/Uploader.swf',
+                                chunked: false,
+                                chunkSize: 512 * 1024,
+                                server: 'http://sendmedia.yueus.com:8079/upload.cgi',
+                                // auto 设置true，选择图片即为自动上传
+                                auto: true,
+                                cover_img : '',
+                                //runtimeOrder: 'flash',
+                                pick :
+                                {
+                                    id : '.edui-upload-btn',
+                                    label : '选择图片'
+                                },
+                                formData :
+                                {
+                                    poco_id : 100000
+                                },
+                                accept:
+                                {
+                                    title: 'Images',
+                                    extensions: 'gif,jpg,jpeg,bmp,png',
+                                    mimeTypes: 'image/*'
+                                },
+                                // 上传表单的name值
+                                fileVal : 'opus',
+                                // 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
+                                disableGlobalDnd: true,
+                                formData :
+                                {
+                                    poco_id : 100000
+                                },
+                                fileNumLimit: 20,
+                                fileSizeLimit: 200 * 1024 * 1024,    // 200 M
+                                fileSingleSizeLimit: 50 * 1024 * 1024   // 50 M
+
+                            };
+
+
+
+                        var params = $.extend(true,default_params,options);
+
+                        // 实例化
+                        self.uploader = WebUploader.create(params);
+
+
+                        self.uploader.on('fileQueued', function(file)
+                        {
+                            var file_id = file.id;
+
+                            self.editor.execCommand('inserthtml', '<img class="loadingclass" id="' + file_id + '" src="./themes/default/images/spacer.gif" >');
+
+                        });
+
+                        // 文件上传成功。
+                        self.uploader.on( 'uploadSuccess', function(file,response)
+                        {
+                            // response 为服务端返回的数据
+                            console.log(response);
+
+                            var url =  'http://image16.poco.cn/yueyue/20150629/20150629150224_191569_100000_3697_260.JPG?1200x1600_120';
+
+                            var file_id = file.id;
+
+                            var loader = self.editor.document.getElementById(file_id);
+
+                            var new_img = new Image();
+                            new_img.src = url;
+
+                            new_img.onload = function()
+                            {
+                                loader.setAttribute('src', url);
+                                loader.setAttribute('_src', url);
+                                loader.removeAttribute('id');
+                                $(loader).removeClass('loadingclass');
+                            };
+
+
+
+
+                        });
+
+                    },
+                    /**
+                     * 初始化编辑器
+                     */
+                    _initEditor: function() {
+                        var self = this, cfg = self.config;
+
+                        self.editor = new baidu.editor.ui.Editor({
+                            initialContent:cfg.content, // 初始化编辑器的内容
+                            //initialStyle:WO_STYLE, // 编辑器内部样式
+                            enterTag:'p', // 编辑器回车标签。p或br
+                            toolbars:cfg.toolbars, // 工具栏上的所有的功能按钮和下拉框
+                            initialFrameHeight : 320,
+                            minFrameHeight:300, // 最小高度
+                            autoHeightEnabled:cfg.autoHeight, // 是否自动长高
+                            autoFloatEnabled:true, // 是否保持toolbar的位置不动
+                            serialize: function() { // 配置过滤标签
+                                return self._serializeConfig();
+                            },
+                            elementPathEnabled:false, // 是否启用elementPath
+                            wordCount:false, // 是否开启字数统计
+                            sourceEditor:'textarea', // 源码的查看方式，codemirror 是代码高亮，textarea是文本框
+                            imagePopup:false, // 图片操作的浮层开关，默认打开
+                            focus:cfg.autoFocus, // 初始化时，是否让编辑器获得焦点true或false
+                            zIndex:cfg.zIndex
+                        });
+
+
+                    }
+
+
+
+                };
+
+            /**
+             * 内容发布编辑器
+             * @constructor
+             */
+            function Ueditor(config) {
+                var self = this;
+
+                // factory or constructor
+                if (!(self instanceof Ueditor)) {
+                    return new Ueditor(config);
+                }
+
+                if (typeof config.target === 'string') {
+                    config.target = $(config.target)[0];
+                }
+
+                // mix config
+                self.config = $.extend(true, {}, defaultConfig, config);
+
+                self.editor;
+
+                // 初始化
+                self._init();
+
+            }
+
+            $.extend(Ueditor.prototype, extendFun);
+
+            window.Ueditor = Ueditor;
+        })();
+
+        var self = this;
+
+        // 初始化生成编辑器
+        var ueditor = new Ueditor({
+            target:'#container',
+            toolbars:[
+
+            ]
+        });
+        self.editor = ueditor.editor; // save editor obj
+
+        document.getElementById('btn').onclick = function()
+        {
+            var ue = self.editor.getContent();
+            console.log(ue)
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+.not-support-tips {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  padding: 25px 30px;
+  margin-top: 20px;
+  background: #fafafa;
+  border: 1px solid #eee; }
+  .not-support-tips a {
+    color: #4092f1;
+    text-decoration: underline; }
+
+.personal-center-edit-page .mod-form-title em.tips {
+  color: #999;
+  margin-left: 10px; }
+.personal-center-edit-page h3.title {
+  float: left;
+  width: 50px;
+  padding-right: 10px;
+  color: #000;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px; }
+.personal-center-edit-page .from-con {
+  float: left;
+  width: 740px; }
+.personal-center-edit-page .unit {
+  color: #999; }
+.personal-center-edit-page .packages-List {
+  padding-top: 40px; }
+  .personal-center-edit-page .packages-List .listItem {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333; }
+.personal-center-edit-page .credit-rating-List {
+  font-size: 14px;
+  color: #999;
+  padding-bottom: 50px;
+  position: relative; }
+  .personal-center-edit-page .credit-rating-List li {
+    float: left;
+    padding-right: 20px;
+    height: 58px; }
+    .personal-center-edit-page .credit-rating-List li .credit-item {
+      display: block;
+      width: 170px;
+      height: 62px; }
+      .personal-center-edit-page .credit-rating-List li .credit-item a {
+        display: block;
+        width: 168px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        color: #999;
+        border: 1px solid #d2d2d2;
+        border-radius: 5px; }
+        .personal-center-edit-page .credit-rating-List li .credit-item a:hover {
+          text-decoration: none; }
+      .personal-center-edit-page .credit-rating-List li .credit-item i.top-icon {
+        display: none;
+        z-index: 9;
+        width: 0;
+        height: 0;
+        border-width: 6px;
+        border-style: solid;
+        border-color: transparent transparent #e6e6e6 transparent;
+        font-size: 0;
+        line-height: 0;
+        -webkit-transition: -webkit-transform .2s ease-in;
+        -moz-transition: -webkit-transform .2s ease-in;
+        -o-transition: -webkit-transform .2s ease-in;
+        transition: -webkit-transform .2s ease-in;
+        margin-left: 76px;
+        position: relative; }
+        .personal-center-edit-page .credit-rating-List li .credit-item i.top-icon b {
+          display: block;
+          width: 0;
+          height: 0;
+          border-width: 6px;
+          border-style: solid;
+          border-color: transparent transparent #fafafa transparent;
+          font-size: 0;
+          line-height: 0;
+          -webkit-transition: -webkit-transform .2s ease-in;
+          -moz-transition: -webkit-transform .2s ease-in;
+          -o-transition: -webkit-transform .2s ease-in;
+          transition: -webkit-transform .2s ease-in;
+          position: absolute;
+          top: -4px;
+          left: -6px; }
+  .personal-center-edit-page .credit-rating-List .tips-pop {
+    display: none;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    width: 798px; }
+    .personal-center-edit-page .credit-rating-List .tips-pop .pop-con {
+      padding: 19px;
+      border: 1px solid #e6e6e6;
+      background: #fafafa;
+      border-radius: 5px; }
+  .personal-center-edit-page .credit-rating-List li.cur a {
+    border: 1px solid #4092f1;
+    color: #4092f1;
+    background: url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/credit-rating-cur-17x17.png) right bottom no-repeat; }
+  .personal-center-edit-page .credit-rating-List li.cur i.top-icon {
+    display: block; }
+  .personal-center-edit-page .credit-rating-List li.cur .tips-pop {
+    display: block; }

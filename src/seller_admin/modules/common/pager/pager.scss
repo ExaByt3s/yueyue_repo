@@ -1,0 +1,116 @@
+/*pager ui*/
+.ui-pager{
+  font: 12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
+  width: 100%;
+}
+.ui-pager .wrapper{
+
+}
+.ui-pager .wrapper .content{
+  padding: 10px 10px 20px;
+  text-align: center;
+  line-height: 28px;
+  background: #eee;
+}
+.ui-pager .wrapper .nav-bar{
+  display: -webkit-box;
+  display: box;
+  text-align: center;
+  -webkit-box-pack: justify;
+  box-pack: justify;
+}
+.ui-pager .wrapper .nav-bar .btn-disable{
+  background-color: #fdfdfd;
+  color: #b4b1b1;
+}
+.ui-pager .wrapper .first ,.ui-pager .end{
+  width: 42px;
+}
+.ui-pager .wrapper .nav-bar > div{
+  background-color: #fff;
+  border: 1px solid #ccc;
+  line-height: 29px;
+  white-space: nowrap;
+  border-radius: 2px;
+  cursor: pointer;
+
+}
+.ui-pager .wrapper .nav-bar > div:active{
+  background-color: #ccc;
+}
+.ui-pager .wrapper .nav-page-cur{
+  -webkit-box-flex: 1;
+  flex: 1;
+  position: relative;
+  box-shadow: 0 3px 3px #d7d7d7 inset;
+  background: #fff;
+}
+.ui-pager .wrapper .nav-page-cur i {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-left: 2px solid #9d9d9d;
+  border-bottom: 2px solid #9d9d9d;
+  -webkit-transform: rotate(-45deg);
+  margin-left: 2px;
+  margin-bottom: 2px;
+}
+
+.ui-pager .wrapper .nav-bar .pre, .ui-pager .nav-bar .next {
+  width: 59px;
+  margin: 0 5px;
+}
+.ui-pager .wrapper .nav-bar .sel-control{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+/*v2 button*/
+.ui-pager .wrapper-v2{
+  height: 55px;
+  width: 100%;
+  .content .nav-bar{
+    background: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: box;
+  }
+  .nav-bar .btn-disable{
+    a{
+      color: #d1d1d1;
+    }
+  }
+  .btn-size{
+    height: 55px;
+    line-height: 55px;
+    min-width: 70px;
+    box-flex: 1;
+    -webkit-box-flex: 1;
+    text-align: center;
+    color: #000;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+
+    .v-line{
+      position: absolute;
+      top: 21px;
+      right: 0;
+      width: 1px;
+      height: 14px;
+      background: #e6e6e6;
+      display: inline-block;
+    }
+  }
+}

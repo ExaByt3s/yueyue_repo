@@ -1,0 +1,35 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/ui/src/pai/paiappstyle/component
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+_add_btn.scss
+_avatar-size-mod.scss
+_avatar.scss
+_button.scss
+_choosen_group.scss
+_comment.scss
+_grid_box.scss
+_load-animate.scss
+_load-more.scss
+_notice.scss
+_panel-leader.scss
+_panel_text_pic.scss
+_pull-down.scss
+_select-drop.scss
+_ui-alert.scss
+_ui-button.scss
+_ui-dialog.scss
+_ui-form.scss
+_ui-input.scss
+_ui-mask.scss
+_ui-number.scss
+_ui-popup.scss
+_ui-select.scss
+_ui-slider.scss
+_ui-switch.scss
+_ui-table-list.scss
+_upload-pic.scss
+
+--EOF--

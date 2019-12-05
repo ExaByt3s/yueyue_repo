@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="js/tools/lstorage.js"></script>
+        <script type="text/javascript" src="js/tools/cross_domain_storage.js"></script>
+        <script type="text/javascript" src="js/tools/cross_domain_lstorage.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            
+            /* 
+             * Testing Local Storage list
+             */
+           /* ls1 = new LStorage(20, 'local_1'); //max: 20 items
+
+            //Note that the specified number of max items (20) are smaller 
+            //than the number of keys to store in the following loop (100):
+            for(var i = 0; i<=100; i++){
+                ls1.set("key-"+i, {'a_tag': 'a value - '+i, 'other_tag': 'other value - '+i});
+            }
+                
+            //There must be only the last 20 values
+            for(var i = 0; i<=100; i++){
+                value = ls1.get("key-"+i);
+                if(value != null){
+                    //you'll need a <div id="results"></div> in your test page...
+                    document.getElementById('results').innerHTML += "<br/>found: key-"+i+", value: "+JSON.stringify(value);
+                }
+            }
+
+            document.getElementById('results').innerHTML += "<br/>-----------------------<br/>";
+                        */
+            /*
+             * Testing Cross Domain Local Storage
+             */
+             
+            cdstorage = new CDStorage("http://yp-wifi.yueus.com", "/mobile/test/cl/crossd_iframe.html");
+            
+            //Now we can use the object to set or get values from a shared localStorage space:
+            
+            cdstorage.setItem('user_id', 998);
+
+            window.localStorage.setItem('user_id', 998); 
+
+            function print_result(key, val){
+                    document.getElementById('results').innerHTML += "<br/>Cross Domain callback: (" + key + ": " + val + ")";
+                }
+     
+            var user_id = cdstorage.getItem('user_id',print_result);
+
+            console.log(user_id)
+
+            
+            
+            /*
+             * We can also use the previous 'cdstorage' object to create a cross domain list with a max number of items:
+             */
+            
+            /*cdls = new CDLStorage(20, 'crossD_storage', cdstorage);//max: 20 items
+            
+            cdls.ready(function(){
+                //The value can be a string or JSON object:
+                cdls.set("cross_key", {'a_key':'Cross Domain data', 'another_key':'another Cross Domain data...'});
+                
+                //...
+                var cdvalue = cdls.get("cross_key");
+                if(cdvalue != null){
+                    document.getElementById('results').innerHTML += "<br/><br/>Cross Domain list value: " + JSON.stringify(cdvalue) + "<br/><br/>";
+                }
+            });*/
+        });
+        </script>
+        <div id="results"></div>
+    </body>
+</html>

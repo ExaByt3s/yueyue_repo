@@ -1,0 +1,214 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 首页 发现
+// ------------------------------
+$background : #ffffff;
+$gray: #fafafa;
+$gray_dark:#666666;
+$gray_font:#aaaaaa;
+$border:#dddddd;
+$header_select: #ff0052;
+$header_unselect:#f0f0f0;
+$border_a:#e6e6e6;
+$chooen_border:#ebebeb;
+
+//定义tips样式
+@mixin color-tips($tip-color,$delta-color) {
+  position: relative;
+  left:-5px;
+  width: 33px;
+  height: 21px;
+  z-index: 1;
+  .tips{
+    color: $background;
+    width: 33px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    background: $tip-color;
+    font:{
+      size: 11px;
+    }
+  }
+  .delta{
+    width: 0;
+    height: 0;
+    border-top: 5px solid $delta-color;
+    border-left: 5px solid transparent;
+  }
+}
+
+.action-list{
+  background: $background;
+  .content-body{
+    // margin-top: 45px;
+    .pull_down_container{
+    }
+  }
+  .measure-choosen {
+    position: relative;
+    z-index: 989;
+    height: 40px;
+    width: 101%;
+    background: #ffffff;
+    border-bottom: 1px solid $chooen_border;
+    .measure-choosen-in {
+      display: -webkit-box;
+      width: 100%;
+      height: 40px;
+      .tap_choosen{
+        display: -webkit-box;
+        -webkit-box-pack:center;
+        text-align: center;
+        -webkit-box-orient:horizontal;
+        width: 33%;
+      }
+      .measure-choosen-child {
+        display: -webkit-box;
+        -webkit-box-pack:end;
+        background: #ffffff;
+        height: 39px;
+        line-height: 40px;
+        color: $header_font;
+        border-bottom: 1px;
+        cursor: pointer;
+        &:active{
+          color: $header_select;
+        }
+      }
+      .icon-container{
+        padding: 10px 0px 0px 5px;
+      }
+      .icon{
+        &.hor{
+          @include get-icon('r-16x26', true, block);
+          -webkit-transform:rotate(90deg);
+        }
+        &.hor_off{
+          @include get-icon('r-16x26', true, block);
+          -webkit-transform:rotate(270deg);
+        }
+
+      }
+      .cur {
+        color: $header_select;
+      }
+    }
+  }
+  .action-list-condition{
+    display: -webkit-box;
+    -webkit-box-pack:start;
+    -webkit-box-orient:vertical;
+    position: absolute;
+    z-index: 995;
+    width: 100%;
+    height: 100%;
+    background: none;
+    .condition{
+      display: -webkit-box;
+      -webkit-box-pack:start;
+      -webkit-box-orient:vertical;
+      .child {
+        display: -webkit-box;
+        width: 100%;
+        background: $background;
+        height: 40px;
+        border-bottom: 1px solid $border;
+        .child-child{
+          font:{
+            size: 14px;
+          }
+          margin: 10px 0px 0px 20px;
+        }
+        &.cur{
+          color:$header_select;
+        }
+
+      }
+    }
+    .fade{
+      -webkit-box-flex:1;
+      background: #000000;
+      opacity: 0.6;
+    }
+  }
+  .action-list-content{
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    position: relative;
+    background: #eeeeee;
+    top:0px;
+    .action-child-con{
+      position: relative;
+      padding-bottom: 44px;
+
+    }
+    .child{
+      display: -webkit-box;
+      -webkit-box-flex:1;
+      -webkit-box-pack:start;
+      -webkit-box-orient:horizontal;
+      border-bottom: 1px solid $border;
+      margin-top: 10px;
+      background: #ffffff;
+      //height: 120px;
+      .child-img{
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        background-size:cover;
+        border-radius: 2px;
+        overflow: inherit;
+
+        .tips-con-red{
+          @include color-tips(#ff4978,#c31b46);
+        }
+        .tips-con-green{
+          @include color-tips(#1abc9c,#00755e);
+        }
+        .tips-con-orange{
+          @include color-tips(#ff6b28,#b63900);
+        }
+
+      }
+      .child-text{
+        display: -webkit-box;
+        -webkit-box-orient:vertical;
+        margin: 10px 10px 10px 0px;
+        -webkit-box-flex:1;
+        .icon{
+          margin-right: 5px;
+        }
+        .title{
+          margin-bottom: 10px;
+          font:{
+            size:16px;
+            color:#000;
+          }
+        }
+        .detail{
+          color: $gray_font;
+          font: {
+            size:12px;
+          };
+        }
+      }
+      .pic-fade{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: #000;
+        opacity: 0.6;
+        top: 0px;
+        z-index: 0;
+      }
+      .act_is_finish{
+        position: absolute;
+        top: 31px;
+        left: 22px;
+        z-index: 1;
+      }
+    }
+  }
+}

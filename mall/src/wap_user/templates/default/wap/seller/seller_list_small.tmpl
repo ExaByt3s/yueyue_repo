@@ -1,0 +1,28 @@
+<div class="item-list">
+    {{#each list}}
+        <a href="{{link}}">
+            <div class="item">
+               <div class="lbox ">
+                   <i data-lazyload-url="{{cover}}"  class="img image-img min-height"></i>
+               </div>
+
+               <div class="rbox ">
+               	<div>
+                   <h3 class="title color-000 f16 fb">{{name}}</h3>
+               </div>
+               <div>
+                   <div class="stars-all-mod">
+                       <div class="ui-stars-grey">
+                       </div>
+                       <div class="ui-stars-yellow" style="width:{{percent score "5"}}">
+                       </div>
+                   </div>
+                   <p class="price color-333 ">{{trade_num}}</p>
+                   <p class="num color-333 f12">{{goods_num}}</p>
+               </div>
+               </div>
+            </div>
+        </a>
+
+    {{/each}}
+</div>

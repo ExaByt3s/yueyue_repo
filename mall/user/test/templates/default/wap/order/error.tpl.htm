@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{title}</title>
+    {wap_global_top}
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/pay/success.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/page/history.js"></script>
+</head>
+<body class="">
+<section id="global-header"></section>
+<div class="pay-success">
+    <button data-role="btn" data-params="1">弹出层1</button>
+    <button data-role="btn" data-params="2">弹出层2</button>
+    <button data-role="btn" data-params="3">弹出层3</button>
+</div>
+
+
+{wap_global_footer}
+    
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+    var header = require('common/widget/header/main');
+    var _history = require('common/page/history')
+    $(function()
+    {
+        document.body.addEventListener('touchstart', function () {});
+
+
+        var history = window.history;
+
+        $('[data-role="btn"]').on('click',function(ev)
+        {
+            var $cur_btn = $(ev.currentTarget);
+            var params = $cur_btn.attr('data-params');
+
+            _history.push_state({title : '参数1'},'参数:'+params,window.location.href.split("?")[0] + "?" + params);
+        });
+    });
+
+</script>
+</html>

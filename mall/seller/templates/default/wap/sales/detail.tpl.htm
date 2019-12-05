@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>活动详情</title>
+	{wap_global_top}
+	<!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+	<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/wap/style/sales/detail_0c23f0e.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/wap/modules/common/widget/header/header_f028320.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/components/zepto/zepto_9261738.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/wap/js/common/common_be848ed.js"></script>
+</head>
+<body class="">
+<main role="main">
+	<section id="global-header"></section>
+
+	<div class="page-view " data-role="page-container">
+
+		<div class="sales-detail-page">
+		   	<div class="item-wrap">
+		   		<div class="item-1 item">
+		   			<div class="img-item">
+		   				<i class="img" >
+		   						<img src="{ret.img}" />
+		   				</i>
+		   			</div>	
+		   			<div class="txt-item">
+		   				<h3 class="title f16 color-333 fb">{ret.title}</h3>
+		   				<p class="sign-in-txt color-666">
+		   					{ret.join_text}
+		   				</p>
+		   			</div>
+		   		</div>
+		   		<div class="item-2 item">
+		   			<div class="txt-item f14 color-333">
+		   			
+
+		   				<div class="txt-con clearfix">
+		   					<p class="title fb ">征集时间：</p>
+		   					<p class="p1">{ret.event_time}</p>
+		   				</div>
+
+		   				<div class="txt-con clearfix">
+		   					<p class="title fb ">促销类型：</p>
+		   					<p class="p1">{ret.event_type}</p>
+		   				</div>
+		   				
+
+		   				<div class="txt-con clearfix">
+		   					<p class="title fb ">参加品类：</p>
+		   					<p class="p1">{ret.type_text}</p>
+		   				</div>
+
+		   				<div class="txt-con clearfix">
+		   					<p class="title fb ">活动城市：</p>
+		   					<p class="p1">{ret.city_text}</p>
+		   				</div>
+		   		
+		   			</div>
+		   		</div>
+		   		<div class="item-3 item">
+		   			<div class="txt-item">
+		   				<h3 class="title f14 color-333 fb">活动规则：</h3>
+		   				<div class="txt-con f14 color-666">
+		   					<p class="txt">
+		   						{ret.content}
+		   					</p>
+		   					
+		   				</div>
+		   			</div>
+		   		</div>
+		   	</div>
+		   	<div class="sign-name-item">
+
+				<!-- IF state = "is_enter" -->   
+				<a href="./info.php?topic_id={topic_id}&state={state}">        
+					<button class="ui-button-submit">
+					    <span class="ui-button-content">修改报名信息</span>
+					</button>
+				</a>
+				<!-- ELSE -->
+				<a href="./info.php?topic_id={topic_id}&state={state}">
+					<button class="ui-button-submit">
+					    <span class="ui-button-content">填写报名信息</span>
+					</button>
+				</a>
+				<!-- ENDIF -->
+
+		   		
+
+
+		   	</div>
+		</div>
+
+	</div>
+
+	{wap_global_footer}
+	
+</main>
+<script>
+   var $ = require('components/zepto/zepto.js');
+	var header = require('common/widget/header/main');
+
+
+	$(function()
+	{
+		// 渲染头部
+		header.init({
+			ele : $("#global-header"), //头部渲染的节点
+			title:"活动详情",
+			header_show : true , //是否显示头部
+			right_icon_show : false, //是否显示右边的按钮
+
+			share_icon :
+			{
+				show :false,  //是否显示分享按钮icon
+				content:""
+			},
+			omit_icon :
+			{
+				show :false,  //是否显示三个圆点icon
+				content:""
+			},
+			show_txt :
+			{
+				show :false,  //是否显示文字
+				content:"编辑"  //显示文字内容
+			}
+		});
+
+
+
+
+	});
+</script>
+</body>
+</html>

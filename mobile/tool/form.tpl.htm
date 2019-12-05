@@ -1,0 +1,516 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> 自定义表单录入 </TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=gbk2312" />
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+     <style>
+         body
+         {
+             margin: 0;
+             padding: 0;
+             font-family: 'Microsoft YaHei', 'Verdana', 'SimSun';
+         }
+         #nav
+         {
+             width: 100%;
+             background: #ffffff;
+         }
+         #title
+         {
+             margin: 0 auto;
+             margin-top: 60px;
+             width: 590px;
+             height: 45px;
+             line-height: 45px;
+             text-align: left;
+             font-size: 30px;
+             font-weight: 700;
+             color: #ff4978;
+
+         }
+         #container
+         {
+             margin: 0 auto;
+             width: 100%;
+         }
+         #left
+         {
+
+         }
+         #right
+         {
+
+         }
+         input
+         {
+             display: inline-block;
+             margin-top: 15px;
+         }
+         .notice
+         {
+             display: inline-block;
+             width: 200px;
+             text-align: right;
+         }
+         #output
+         {
+             word-break:break-all;
+         }
+         .btn_ok
+         {
+             padding: 0px;
+             font-size: 20px;
+             color: #ffffff;
+             width: 100px;
+             line-height: 40px;
+             height: 40px;
+             background:#ff4978;
+             border: 1px solid #ffffff;
+             font-family: 'Microsoft YaHei', 'Verdana', 'SimSun';
+             margin-left: 100px;
+             margin-right: 50px;
+
+         }
+         .btn_empty
+         {
+             padding: 0px;
+             font-size: 20px;
+             color: #ff4978;
+             width: 100px;
+             line-height: 40px;
+             height: 40px;
+             background:#ffffff;
+             border: 1px solid #ff4978;
+             font-family: 'Microsoft YaHei', 'Verdana', 'SimSun';
+         }
+         .btn_copy
+         {
+             padding: 0px;
+             font-size: 20px;
+             color: #ffffff;
+             width: 100px;
+             line-height: 40px;
+             height: 40px;
+             background:#ff4978;
+             border: 1px solid #ffffff;
+             font-family: 'Microsoft YaHei', 'Verdana', 'SimSun';
+             margin-right: 50px;
+         }
+         #timer
+         {
+             margin-bottom: 10px;
+         }
+         /* line 7, ../../ui/src/pai/paiappstyle/component/_ui-button.scss */
+         .ui-button .icon {
+             vertical-align: middle;
+         }
+
+         /* line 11, ../../ui/src/pai/paiappstyle/component/_ui-button.scss */
+         .ui-button-primary {
+             -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+         }
+
+         /* line 74, ../../ui/src/pai/paiappstyle/component/_ui-button.scss */
+         .ui-button.relation-button .icon-plus-white:before,
+         .ui-button.relation-button .icon-minus:before,
+         .ui-button.relation-button .icon-exchange:before {
+             margin: 1px 5px 0 0;
+         }
+
+         /* line 11, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button {
+             display: inline-block;
+             vertical-align: middle;
+             border-width: 1px;
+             border-style: solid;
+             border-color: transparent;
+             outline: 0;
+             height: 25px;
+             line-height: 25px;
+             padding: 0;
+             font-size: 14px;
+             -webkit-border-radius: 2px;
+             border-radius: 2px;
+             font-weight: 400;
+             text-decoration: none;
+             white-space: nowrap;
+             word-wrap: normal;
+             cursor: pointer;
+             text-align: center;
+             background-image: none;
+             -webkit-box-shadow: black, 0.05;
+             box-shadow: black, 0.05;
+             -webkit-user-select: none;
+             user-select: none;
+         }
+         /* line 33, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button:hover, .ui-button:focus {
+             text-decoration: none;
+         }
+         /* line 38, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button.disabled, .ui-button[disabled], fieldset[disabled] .ui-button {
+             cursor: not-allowed;
+             pointer-events: none;
+             opacity: 0.5;
+             -webkit-box-shadow: none;
+             box-shadow: none;
+         }
+
+         /* line 55, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-default {
+             border-color: #ff4978;
+             background: #ff4978;
+             color: #666666;
+         }
+         /* line 78, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-default:active, .ui-button-default.active {
+             border-color: #ff7fa8;
+             background: #ff7fa8;
+             color: white;
+         }
+         /* line 102, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-default.disabled, .ui-button-default.disabled:hover, .ui-button-default.disabled:focus, .ui-button-default.disabled:active, .ui-button-default.disabled.active, .ui-button-default[disabled], .ui-button-default[disabled]:hover, .ui-button-default[disabled]:focus, .ui-button-default[disabled]:active, .ui-button-default[disabled].active, fieldset[disabled] .ui-button-default, fieldset[disabled] .ui-button-default:hover, fieldset[disabled] .ui-button-default:focus, fieldset[disabled] .ui-button-default:active, fieldset[disabled] .ui-button-default.active {
+             border-color: #ff4978;
+             background: #ff4978;
+             color: #666666;
+         }
+
+         /* line 55, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-primary {
+             background: #ff4978;
+             color: white;
+         }
+         /* line 78, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-primary:active, .ui-button-primary.active {
+             background: #ff7fa8;
+             color: white;
+         }
+         /* line 102, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-primary.disabled, .ui-button-primary.disabled:hover, .ui-button-primary.disabled:focus, .ui-button-primary.disabled:active, .ui-button-primary.disabled.active, .ui-button-primary[disabled], .ui-button-primary[disabled]:hover, .ui-button-primary[disabled]:focus, .ui-button-primary[disabled]:active, .ui-button-primary[disabled].active, fieldset[disabled] .ui-button-primary, fieldset[disabled] .ui-button-primary:hover, fieldset[disabled] .ui-button-primary:focus, fieldset[disabled] .ui-button-primary:active, fieldset[disabled] .ui-button-primary.active {
+             background: #ff4978;
+             color: white;
+         }
+
+         /* line 55, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-dark {
+             background: #aaaaaa;
+             color: white;
+         }
+         /* line 78, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-dark:active, .ui-button-dark.active {
+             background: #aaaaaa;
+             color: white;
+         }
+         /* line 102, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-dark.disabled, .ui-button-dark.disabled:hover, .ui-button-dark.disabled:focus, .ui-button-dark.disabled:active, .ui-button-dark.disabled.active, .ui-button-dark[disabled], .ui-button-dark[disabled]:hover, .ui-button-dark[disabled]:focus, .ui-button-dark[disabled]:active, .ui-button-dark[disabled].active, fieldset[disabled] .ui-button-dark, fieldset[disabled] .ui-button-dark:hover, fieldset[disabled] .ui-button-dark:focus, fieldset[disabled] .ui-button-dark:active, fieldset[disabled] .ui-button-dark.active {
+             background: #aaaaaa;
+             color: white;
+         }
+
+         /* line 55, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-color2 {
+             background: #3fc585;
+             color: white;
+         }
+         /* line 78, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-color2:active, .ui-button-color2.active {
+             background: #74e2ca;
+             color: white;
+         }
+         /* line 102, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-color2.disabled, .ui-button-color2.disabled:hover, .ui-button-color2.disabled:focus, .ui-button-color2.disabled:active, .ui-button-color2.disabled.active, .ui-button-color2[disabled], .ui-button-color2[disabled]:hover, .ui-button-color2[disabled]:focus, .ui-button-color2[disabled]:active, .ui-button-color2[disabled].active, fieldset[disabled] .ui-button-color2, fieldset[disabled] .ui-button-color2:hover, fieldset[disabled] .ui-button-color2:focus, fieldset[disabled] .ui-button-color2:active, fieldset[disabled] .ui-button-color2.active {
+             background: #3fc585;
+             color: white;
+         }
+
+         /* line 55, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-color3 {
+             background: #ff9c00;
+             color: white;
+         }
+         /* line 78, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-color3:active, .ui-button-color3.active {
+             background: #feb84a;
+             color: white;
+         }
+         /* line 102, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-color3.disabled, .ui-button-color3.disabled:hover, .ui-button-color3.disabled:focus, .ui-button-color3.disabled:active, .ui-button-color3.disabled.active, .ui-button-color3[disabled], .ui-button-color3[disabled]:hover, .ui-button-color3[disabled]:focus, .ui-button-color3[disabled]:active, .ui-button-color3[disabled].active, fieldset[disabled] .ui-button-color3, fieldset[disabled] .ui-button-color3:hover, fieldset[disabled] .ui-button-color3:focus, fieldset[disabled] .ui-button-color3:active, fieldset[disabled] .ui-button-color3.active {
+             background: #ff9c00;
+             color: white;
+         }
+
+         /* line 55, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-nocolor {
+             background: none;
+             color: #ff4978;
+         }
+         /* line 78, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-nocolor:active, .ui-button-nocolor.active {
+             background: none;
+             color: #ffa4bb;
+         }
+         /* line 102, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-nocolor.disabled, .ui-button-nocolor.disabled:hover, .ui-button-nocolor.disabled:focus, .ui-button-nocolor.disabled:active, .ui-button-nocolor.disabled.active, .ui-button-nocolor[disabled], .ui-button-nocolor[disabled]:hover, .ui-button-nocolor[disabled]:focus, .ui-button-nocolor[disabled]:active, .ui-button-nocolor[disabled].active, fieldset[disabled] .ui-button-nocolor, fieldset[disabled] .ui-button-nocolor:hover, fieldset[disabled] .ui-button-nocolor:focus, fieldset[disabled] .ui-button-nocolor:active, fieldset[disabled] .ui-button-nocolor.active {
+             background: none;
+             color: #ff4978;
+         }
+
+         /* line 122, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-size-default {
+             height: 25px;
+             line-height: 25px;
+             padding: 0 15px;
+             font-size: 14px;
+             -webkit-border-radius: 2px;
+             border-radius: 2px;
+         }
+
+         /* line 122, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-size-large {
+             height: 45px;
+             line-height: 45px;
+             padding: 0 15px;
+             font-size: 14px;
+             -webkit-border-radius: 2px;
+             border-radius: 2px;
+         }
+
+         /* line 122, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-size-middle {
+             height: 35px;
+             line-height: 35px;
+             padding: 0 15px;
+             font-size: 14px;
+             -webkit-border-radius: 2px;
+             border-radius: 2px;
+         }
+
+         /* line 122, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-size-min {
+             height: 30px;
+             line-height: 30px;
+             padding: 0 15px;
+             font-size: 12px;
+             -webkit-border-radius: 2px;
+             border-radius: 2px;
+         }
+
+         /* line 122, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-size-radius-large {
+             -webkit-border-radius: 90px;
+             border-radius: 90px;
+         }
+
+         /* line 135, ../../ui/src/pai/paiappstyle/component/_button.scss */
+         .ui-button-block {
+             display: block;
+             width: 100%;
+             -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+         }
+     </style>
+
+<script language="javascript" type="text/javascript" src="../../cp/js/DatePicker/WdatePicker.js"></script>
+
+ </HEAD>
+
+ <BODY>
+ <div id="nav">
+     <div id="title">
+         自定义表单录入
+     </div>
+ </div>
+ <div id="container">
+     <table style="width: 100%;height:100%;border: 1px;">
+         <tr>
+             <td>
+                 <div id="left">
+                     <div class="notice">小时：</div><INPUT TYPE="text" NAME="hour" id="hour" value="1"><BR>
+                     <div class="notice">价格：</div><INPUT TYPE="text" NAME="price" id="price" value="{price}">元 / 小时<BR>
+                     <div class="notice">风格：</div><INPUT TYPE="text" NAME="style" id="style" value="{style}"><BR>
+                     <div class="notice">城市：</div><INPUT TYPE="text" NAME="address" id="address" value="{city_name}"><BR>
+                     <div class="notice">地址：</div><INPUT TYPE="text" NAME="detail_address" id="detail_address" value="{address}"><BR>
+                     <div class="notice">时间：</div><INPUT TYPE="text" NAME="time" id="time" value="{date_time}" readonly onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm' })"><lable style="color:red">*注意 时间格式如 2015-2-7 14:00</lable><BR>
+                     <div class="notice">人数：</div><INPUT TYPE="text" NAME="person_num" id="person_num" value=""><BR>
+                     <div class="notice">U_id：</div><INPUT TYPE="text" NAME="user_id" id="user_id" value="{user_id}"><BR>
+                     <div class="notice">自动下单_id：</div><INPUT TYPE="text" NAME="direct_confirm_id" id="direct_confirm_id" value="{id}"><BR>
+                     <div class="notice">name：</div><INPUT TYPE="text" NAME="user_name" id="user_name" value=""><BR>
+                     <div class="notice">价格文案：</div><INPUT TYPE="text" NAME="combo_text" id="combo_text" value=""><BR>
+                     <div class="notice">续拍价格：</div><INPUT TYPE="text" NAME="continue_price" id="continue_price" value=""><BR>
+                     <div class="notice">续拍价格文案：</div><INPUT TYPE="text" NAME="continue_text" id="continue_text" value=""><BR>
+                     <div class="notice">地区id：</div><INPUT TYPE="text" NAME="location_id" id="location_id" value="{location_id}"><BR>
+                     <div class="notice">报名上限人数：</div><INPUT TYPE="text" NAME="limit_num" id="limit_num" value="{limit_num}"><BR>
+                     <div class="notice">生成按钮文案：</div><INPUT TYPE="text" NAME="btn_txt" id="btn_txt" value="我要约拍"><BR>
+                     <div class="notice">按钮宽度：</div><INPUT TYPE="text" NAME="btn_width" id="btn_width" value="120"><BR>
+                     <div class="notice">按钮高度：</div><INPUT TYPE="text" NAME="btn_txt" id="btn_height" value="30"><BR>
+                     <div class="notice">是否禁止选择时间：</div>
+                     <label class="choose-item" for="disable_time_yes">
+                         <input type="radio" id="disable_time_yes" value="1" name="disable_time">
+                         是
+                     </label>
+                     <label class="choose-item" for="disable_time_no">
+                         <input type="radio" id="disable_time_no" checked="true" value="0" name="disable_time">
+                         否
+                     </label><BR>
+                     <div class="notice">是否禁止选择地区：</div>
+                     <label class="choose-item" for="disable_address_yes">
+                         <input type="radio" id="disable_address_yes" value="1" name="disable_address">
+                         是
+                     </label>
+                     <label class="choose-item" for="disable_address_no">
+                         <input type="radio" id="disable_address_no" checked="true" value="0" name="disable_address">
+                         否
+                     </label><BR>
+                     <div class="notice">是否禁止填写详细地址：</div>
+                     <label class="choose-item" for="disable_detail_address_yes">
+                         <input type="radio" id="disable_detail_address_yes" value="1" name="disable_detail_address">
+                         是
+                     </label>
+                     <label class="choose-item" for="disable_detail_address_no">
+                         <input type="radio" id="disable_detail_address_no" checked="true" value="0" name="disable_detail_address">
+                         否
+                     </label>
+                     <BR>
+                     <div class="notice">是否禁止选择报名人数：</div>
+                     <label class="choose-item" for="disable_person_num_yes">
+                         <input type="radio" id="disable_person_num_yes" value="1" name="disable_person_num">
+                         是
+                     </label>
+                     <label class="choose-item" for="disable_person_num_no">
+                         <input type="radio" id="disable_person_num_no" checked="true" value="0" name="disable_person_num">
+                         否
+                     </label><BR>
+                     <INPUT class="btn_ok" TYPE="button" VALUE="生成" ONCLICK="btnclick()">
+                     <INPUT class="btn_empty" TYPE="button" VALUE="清空" ONCLICK="btnclean()">
+                 </div>
+             </td>
+             <td>
+                 <div id="right">
+                     <div id="timer"></div>
+                     <div id="output"></div>
+                     <br>
+                     <textarea id="code" style="width:300px;height:200px;"></textarea>
+                 </div>
+             </td>
+         </tr>
+     </table>
+
+
+ </div>
+
+ </BODY>
+ <SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+     <!--
+
+     function $(id)
+     {
+         return document.getElementById(id);
+     }
+
+     function btnclean()
+     {
+         document.getElementById('hour').value = '';
+         document.getElementById('price').value = '';
+         document.getElementById('user_id').value = '';
+         document.getElementById('time').value = '';
+         document.getElementById('user_name').value = '';
+
+         document.getElementById('timer').innerHTML = '';
+         document.getElementById('output').innerHTML = '';
+         $('code').value = '';
+         $('code').innnerHTML = '';
+     }
+
+     function get_radio_value(name)
+     {
+         var tags = document.getElementsByName(name);
+
+         if(tags.length>0)
+         {
+             for(var i=0;i<tags.length;i++)
+             {
+                 if(tags[i].checked)
+                 {
+                     return parseInt(tags[i].value);
+                 }
+             }
+         }
+
+         return '';
+     }
+
+     function btnclick()
+     {
+         var cache  =
+         {
+             combo_text: $('combo_text').value,// 显示价格文案
+             continue_price: $('continue_price').value, // 续拍价格
+             continue_text: $('continue_text').value,// 续拍价格文案
+             hour: $('hour').value,// 时长
+             price: $('price').value,// 单价
+             style: $('style').value,// 风格
+             address : $('address').value,// 地区
+             location_id : $('location_id').value,// 地区id
+             detail_address : $('detail_address').value,//
+             user_id : $('user_id').value,// 模特id
+             direct_confirm_id : $('direct_confirm_id').value,// 自动下单id
+             time : $('time').value,// 时间格式，必须按照xxxx-x-xx xx:xx 格式 ，其中分钟的格式 必须是 00 15 30 45
+             limit_num : $('limit_num').value,// 报名上限人数
+             person_num : $('person_num').value,// 报名人数
+             user_name : $('user_name').value,// 模特名字
+             is_from_custom_data : true,
+             disable_time : get_radio_value('disable_time'),// 禁止选择时间
+             disable_address : get_radio_value('disable_address'),// 禁止选择地区
+             disable_detail_address : get_radio_value('disable_detail_address'),// 禁止填写详细地址
+             disable_person_num : get_radio_value('disable_person_num')// 禁止选择报名人数
+         };
+
+         console.log(cache);
+
+         var str = JSON.stringify(cache);
+
+         var data_role = 'nav-page';
+
+         var direct_confirm_id = $('direct_confirm_id').value;
+
+         if(direct_confirm_id)
+         {
+             data_role = 'nav-direct-confirm';
+         }
+
+         var params = 'model_date/submit_application/'+encodeURIComponent(str);
+
+         //document.getElementById('output').innerHTML = 'model_date/submit_application/'+encodeURIComponent(str);
+
+         var btn_txt = $('btn_txt').value;
+         var btn_width = $('btn_width').value;
+         var btn_height = $('btn_height').value;
+
+         var btn_str = '<div style="text-align:center;"><button class="ui-button ui-button-primary ui-button-size-large ui-button-block" style="width:'+btn_width+'px;height:'+btn_height+'px;line-height:'+btn_height+'px;text-align:center;" data-role="'+data_role+'" data-url-style="inside" data-url="'+params+'" data-no-jump="false"> <span class="ui-button-content">'+btn_txt+'</span> </button></div>'
+
+         var date = new Date();
+
+         $('output').innerHTML = btn_str;
+
+         $('timer').innerHTML = '生成时间：' + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+
+         $('code').value = btn_str;
+
+         $('code').focus();
+         $('code').select();
+
+     }
+
+     //-->
+ </SCRIPT>
+ <BR><BR><BR>
+</HTML>

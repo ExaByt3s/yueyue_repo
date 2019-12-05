@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>约约 上传组件</title>
+    <meta charset="gbk">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--不是上传组件必须使用的样式文件-->
+
+    <link rel="stylesheet" type="text/css" href="http://static-c.yueus.com/yue_ui/upload/1.0.1/css/style.css">
+    <style>
+	    *{
+			font-size: 12px;
+		}
+        .fn-hide{
+            display: none !important;
+        }
+        .webuploader-pick{
+            width:100px;height:30px;line-height: 30px;
+        }
+        .clearfix:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="picker" class="webuploader-container" style="float:left" >
+    <div class="webuploader-pick">上传图片</div> 
+</div>
+<div style="margin-top:5px;float:left;margin-left:5px;">
+    <!--大小:<input type="text" id="size" value="" size="3" />--> <span id="picker_0_text"></span>
+</div>
+<div class="clearfix"></div>
+
+
+
+<script type="text/javascript" src="http://static-c.yueus.com/yue_ui/js/jquery.js"></script>
+<script type="text/javascript" src="http://static-c.yueus.com/yue_ui/upload/1.0.1/webuploader.min.js"></script>
+
+
+</body>
+</html>
+<script >
+
+
+$(function()
+{
+
+    // ============= 传图组件 =============       
+    var BASE_URL = 'http://static-c.yueus.com/yue_ui/upload/1.0.1/';
+    var $pick_0_text = $('#picker_0_text');
+    var $picker = $('#picker');
+    var $picker_txt = $picker.find('.webuploader-pick');
+
+
+    var uploader = WebUploader.create
+    ({
+
+        // 不压缩image
+        resize: false,
+        compress : false,
+        auto : true,
+        // swf文件路径
+        swf: BASE_URL + '/Uploader.swf',
+
+        // 文件接收服务端。
+        server: 'http://sendmedia-w.yueus.com:8079/upload.cgi',
+        // 表单对象
+        formData :
+        {
+            params : '{"poco_id":"10002","sh_type":"cms"}'
+        },
+        // 选择文件的按钮。可选。
+        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+        pick: '#picker'
+    });
+
+    // 初始化文件数
+    uploader.file_count = 0;
+    uploader.file_size = 0;
+
+    // 传图的状态 可能有pedding, ready, uploading, confirm, done.
+    uploader.state = 'pedding';
+
+    uploader.map_obj = {};
+
+    uploader.on('fileQueued',function(file)
+    {
+        uploader.file_count++;
+        uploader.file_size += file.size;
+
+        uploader.map_obj[file.id] = file;
+
+    });
+
+    uploader.on('fileDequeued',function(file)
+    {
+        uploader.file_count--;
+        uploader.file_size -= file.size;
+
+        if(uploader.map_obj[file.id])
+        {
+            delete uploader.map_obj[file.id];
+        }
+    });
+
+    uploader.on('error',function(err)
+    {
+        switch(err)
+        {
+            case 'Q_EXCEED_NUM_LIMIT':
+                alert('上传文件数量超出上限了');
+                break;
+            case 'Q_EXCEED_SIZE_LIMIT':
+                alert('上传文件大小超出上限了');
+                break;
+            case 'Q_TYPE_DENIED':
+                alert('上传文件类型格式错误')
+                break;
+            case 'F_EXCEED_SIZE':
+                alert('上传文件大小超出上限了');
+                break;
+        }
+    });
+
+    uploader.on( 'startUpload', function( file )
+    {        
+        var $picker = $('#picker');
+        var $picker_txt = $picker.find('.webuploader-pick');
+		
+        $picker_txt.html('正在上传');
+
+		$pick_0_text.html("");
+        
+    });
+    uploader.on( 'uploadSuccess', function( file ,response) 
+    {
+        console.log(response);
+
+        var url = response.url;
+
+        if(url instanceof Array)
+        {
+            var img_url = url[0];                
+        }
+        else
+        {
+            var img_url = url;                 
+        }
+		
+		img_url = change_img_resize(img_url);
+		
+		$pick_0_text.html('<a href="'+img_url+'" target="_blank">'+img_url+'</a>');  
+		
+    });
+
+    uploader.on( 'uploadError', function( file )
+    {
+
+    });
+
+    uploader.on( 'uploadComplete', function( file ) 
+    {
+        var $picker = $('#picker');
+        var $picker_txt = $picker.find('.webuploader-pick');
+
+        $picker_txt.html('上传图片');
+    });
+    // ============= 传图组件 =============   
+    
+
+
+})
+
+
+/**
+ * 切换图片size
+ * @param img_url
+ * @param size
+ * @returns {*}
+ */
+function change_img_resize(img_url,size)
+{
+	var size_str = '';
+
+	size = size || '';
+
+	if($.inArray(size, [120,320,165,640,600,145,440,230,260]) != -1)
+	{
+		size_str = '_' +size;
+	}
+	else
+	{
+		size_str = '';
+	}
+	// 解析img_url
+
+	var url_reg = /^http:\/\/(img|image)\d*(-c|-wap|-d)?(.poco.cn.*|.yueus.com.*)\.jpg|gif|png|bmp/i;
+
+	var reg = /_(32|64|86|100|145|165|260|320|440|468|640)\.(jpg|png|jpeg|gif|bmp)/i;
+
+	if (url_reg.test(img_url))
+	{
+		if(reg.test(img_url))
+		{
+			img_url = img_url.replace(reg,size_str+'.$2');
+			
+		}
+		else
+		{
+			img_url = img_url.replace('/(\.\d*).jpg|.jpg|.gif|.png|.bmp/i', size_str+"$1");//两个.jpg为兼容软件的上传图片名
+
+		}
+	}
+
+
+	
+	return img_url;
+}
+
+</script>
+

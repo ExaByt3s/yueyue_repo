@@ -1,0 +1,245 @@
+
+// -------------------------------------------------
+// 信息中心 -- 悄悄话 -- 对话框
+// -------------------------------------------------
+
+.chat-container {
+    .no-conversation-selected {
+        margin-top: 150px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .titlebar {
+        border-bottom: 1px solid #e9e9e9;
+        height: 48px;
+        line-height: 48px;
+        background: #efefef;
+
+        font-size: 14px;
+        color: #3fa900;
+        text-align: center;
+
+        a {
+            &, &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.dialogues-container {
+    position: relative;
+    _zoom: 1;
+    margin: 20px 0;
+    padding: 0 10px;
+    overflow: hidden;
+
+    .timestamp {
+        //float: left;
+        //width: 133px;
+        border-bottom: 1px solid #c2c2c2;
+        margin: 4px 270px 24px;
+        color: #c2c2c2;
+        font-size: 12px;
+        text-align: center;
+
+        time {
+            position: relative;
+            top: 9px;
+            padding: 0 10px;
+            background-color: #f6f6f6;
+        }
+    }
+
+    .dialogue-item {
+        margin-top: 10px;
+    }
+
+    .avatar {
+        a {
+            width: 32px;
+            height: 32px;
+            line-height: 1;
+            overflow: hidden;
+        }
+        img {
+            display: block;
+            max-width: 32px;
+            max-height: 32px;
+            _width: 32px;
+            _height: 32px;
+        }
+    }
+
+    .message-body {
+        position: relative;
+        _zoom: 1;
+        max-width: 552px;
+        padding-bottom: 2px;
+    }
+
+    .message-arrow {
+        position: absolute;
+        top: 10px;
+    }
+
+    .message-text {
+        //@include inline-block;
+        border: 1px solid;
+        //padding: 11px 12px;
+        //font-size: 14px;
+        padding: 7px 10px;
+        font-size: 12px;
+        @include border-radius(3px);
+
+        text-align: left;
+        word-wrap: break-word;
+    }
+
+    .no-msg-tip{
+        margin: 100px 0 0 0;
+        color: #666;
+        text-align: center;
+    }
+
+    .you {
+        //float: left;
+        .avatar a, .message-body {
+            float: left;
+        }
+
+        .message-body {
+            margin-left: 16px;
+            padding-right: 48px;
+        }
+
+        .message-arrow {
+            left: -6px;
+
+            @include angle('left', 7px, 1px, #3fa900, #3fa900);
+        }
+
+        .message-text {
+            border-color: #3fa900;
+            background: #3fa900;
+            color: #fff;
+            @include box-shadow(1px 1px 1px rgba(#898d87, .44));
+        }
+    }
+
+    .me {
+        //float: right;
+        .avatar a, .message-body {
+            float: right;
+        }
+
+        .message-body {
+            margin-right: 16px;
+            padding-left: 48px;
+        }
+
+        .message-arrow {
+            right: 1px;
+
+            @include angle('right', 7px, 1px, #e9eae9, #f1f1f1);
+        }
+
+        .message-text {
+            border-color: #e9eae9;
+            background: #f1f1f1;
+            color: #333;
+            @include box-shadow(-1px 1px 1px rgba(#898d87, .44));
+        }
+    }
+
+    .loading-more-tip {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 10;
+        display: none;
+        width: 300px;
+        margin: 0 0 0 -150px;
+        padding: 8px 10px;
+        @include border-radius(3px);
+        
+        text-align:center;
+        color:#111;
+        opacity:0.4;
+        background: #ddd;
+        word-wrap:break-word;
+    }
+}
+
+// 编辑内容
+.message-editor {
+    position: relative;
+    _zoom: 1;
+    padding: 0 10px 10px;
+
+    .text-input-label {
+        position: absolute;
+        top: 6px;
+        left: 21px;
+        
+        font-size: 12px;
+        color: #e1e1e1;
+
+        cursor: text;
+    }
+
+    .text-input {
+        float:left;
+        border: 0;
+        width: 554px;
+        height: 20px;
+        //line-height: normal;
+        line-height: 18px;
+        border: 1px solid #ebebeb;
+        margin-right: 10px;
+        padding: 5px 10px 3px;
+        background: #fff;
+        @include border-radius(3px);
+        @include box-shadow(inset 1px 1px 1px #f7f7f7);
+
+        //font-size: 14px;
+        font-size: 12px;
+        word-wrap: break-word;
+        outline: none;
+        resize: none;
+        overflow: hidden;
+
+        &::-webkit-input-placeholder {
+            font-size: 12px;
+            color: #e1e1e1;
+        }
+        &:-moz-placeholder {
+            font-size: 12px;
+            color: #e1e1e1;
+        }
+        &::-moz-placeholder {
+            font-size: 12px;
+            color: #e1e1e1;
+        }
+        &:-ms-input-placeholder {
+            font-size: 12px;
+            color: #e1e1e1;
+        }
+    }
+
+    .send-button {
+        float:left;
+        height: 28px;
+        line-height: 28px;
+        //padding: 0 25px;
+        //font-size: 14px;
+        padding: 0 27px;
+        font-size: 12px;
+    }
+}
+.message-editor-focused {
+    .text-input-label {
+        display: none;
+    }
+}

@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>管理导航</title>
+<link href="http://www1.poco.cn/css/main.css" rel="stylesheet" type="text/css">
+<link href="./css/css.css" rel="stylesheet" type="text/css">
+<style>
+body{
+font-family:"宋体";margin:0px;color:black;padding:0px;margin-top:10px;
+}
+td{
+color:black;
+}
+a{
+color:black;text-decoration:none;color:black;
+}
+form{
+margin:0px;
+}
+.tx{
+width:120px;height:20px;color:black;border:1px solid #B9AE88;
+}
+.a_box{ width:90%; overflow-x:auto;overflow-y:hidden;cursor:default; }
+</style>
+<script language="javascript" src="./js/common.js"></script>
+<script language="javascript">
+var option_rank = new Array();
+<!-- BEGIN option_rank -->
+option_rank['{ROWCNT}'] = new Array();
+option_rank['{ROWCNT}']['channel_id'] = '{channel_id}';
+option_rank['{ROWCNT}']['rank_id'] = '{rank_id}';
+option_rank['{ROWCNT}']['rank_name'] = '{rank_name}';
+<!-- END option_rank -->
+
+function changRank(channelId,elementId)
+{
+	if(channelId < 1)
+	{
+		alert('请选择频道');
+		return;
+	}
+	document.getElementById(elementId).options.length = 0;
+	//addOption(elementId, '请选择榜单', '', true);
+	
+	for(var i=0,j=0; i<option_rank.length; i++)
+	{
+		if(option_rank[i]['channel_id']==channelId)
+		{
+			addOption(elementId, option_rank[i]['rank_name'], option_rank[i]['rank_id'], false);
+			j++;
+		}
+	}
+	//addOption(elementId, "", "", false);
+	document.getElementById(elementId).style.display = '';
+	//document.getElementById(elementId).size = document.getElementById(elementId).length+5;
+}
+
+function goUserList()
+{
+	if($('channel').value < 1) return feedback($('channel'),"请选择频道");
+	mainFrameLocation('cms_user_list.php?channel_id='+$('channel').value+'&rank_id='+$('rank').value);
+}
+
+function goIssueList()
+{
+	if($('rank').value < 1) 
+	{
+		alert('请选择榜单');
+		return false;
+	}
+	mainFrameLocation('cms_issue_list.php?rank_id='+$('rank').value);
+}
+
+function goDataImport()
+{
+	if($('rank').value < 1) return feedback($('rank'),"请选择榜单");
+	mainFrameLocation('cms_import.php?rank_id='+$('rank').value);
+}
+
+function mainFrameLocation(url)
+{
+	parent.mainFrame.location=url;
+}
+function get_sub_dom(name)
+{
+	alert(3333);
+}
+</script>
+<script language="JavaScript">
+fs=window.top.document.getElementById("frame_id");
+lm = window.top.document.getElementById("mainFrame");
+node_add="images/tplus.gif";
+node_tmin="images/tminus.gif";
+node_tmin2="images/dashplus.gif";
+node_add2="images/dashminus.gif"
+function change_stat(sIndex,sObject){
+c_stat=document.getElementById("node"+sIndex).style.display;
+document.getElementById("node"+sIndex).style.display=c_stat=='block' ? 'none' : 'block';
+if(sIndex==0){
+	document.getElementById("img0").src=c_stat=='block' ? node_tmin2 : node_add2 ;
+	return;
+	}
+document.getElementById("img"+sIndex).src=c_stat=='block' ? node_add : node_tmin;
+}
+
+
+
+</script>
+</head>
+<body bgcolor="#cdcdcd">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" id="main_board"  style="margin:0px;height:500px;">
+<tr>
+<td id="menu_td" valign="top" align="center">
+<TABLE  cellSpacing=0 cellPadding=0 width=100% border=0 style="background-repeat:repeat-y; background-attachment:fixed;">
+  <TBODY>
+  <tr><td><a href="javascript:location.reload();" class="reload_box float_right">刷新</a>
+<h3>排行榜</h3></td></tr>
+            <TR> 
+              <TD style="WIDTH: 100%" vAlign=top align="center">
+
+<ul id="left_menu" style="text-align:center">
+	<li class="a_box">
+		请选择频道<br>
+
+		<select id="channel" name="channel" onchange="changRank(this.value, 'rank');$('rank_list').href='cms_rank_list.php?channel_id='+this.value;" style="width:100%;">
+		<option>请选择频道</option>
+		{options:option_channel}
+		</select>
+
+	</li>
+	<li class="a_box">
+		请选择榜单<br />
+		<select style="display:none;auto; overflow-y:auto;width:100%" id="rank" name="rank" onclick="if(this.value > 0)mainFrameLocation('cms_issue_list.php?rank_id='+this.value);" size="14" >
+		</select>
+	</li>
+	<li class="a_box"><a href="javascript:;" onclick="javascript:goIssueList();" >查看各期榜单</a></li>
+	<li class="a_box"><a href="cms_rank_list.php" target="mainFrame" id="rank_list">榜单管理</a></li>
+	<li class="a_box"><a href="cms_channel_list.php" target="mainFrame">频道管理</a></li>
+	<li class="a_box"><a href="javascript:;" onclick="javascript:goDataImport();">数据导入</a></li>
+
+
+
+</ul>
+<br>
+		<form action="cms_issue_list.php" target="mainFrame" method="get" >
+		榜单跳转:
+        <input name="rank_id" id="rank_id" type="text" size="8" value="" />
+        <input type="submit"  value="GO" />
+		</form>
+</TD>
+            </TR>
+          </TBODY>
+        </TABLE>
+</td>
+<td valign="middle" width="10" >
+<table cellpadding="0" cellspacing="0" border="0" width="10" ><tr><td align="left" valign="middle" >
+<a href="javascript:void(null);" onMouseDown="javascript:showHide();">
+<img src="images/right.gif" border="0" id="img_obj"></a>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+<script language="JavaScript">
+img_id=document.getElementById("img_obj");
+main_board_id=document.getElementById("main_board");
+menu_td_id=document.getElementById("menu_td");
+g_fs_cols = "200,*";
+
+function showHide()
+{
+	
+	
+	fs.cols=(fs.cols==g_fs_cols) ? "10,*" : g_fs_cols ;
+	if(fs.cols=="10,*")
+	{
+		main_board_id.style.width="10";
+		main_board_id.style.margin=0;
+		menu_td_id.style.display="none";
+		img_id.src="images/left.gif";
+		lm.scrolling="no";
+	}
+	else
+	{
+		main_board_id.style.width="100%";
+		main_board_id.style.margin=0;
+		menu_td_id.style.display="";
+		img_id.src="images/right.gif";
+		lm.scrolling="yes";
+		g_fs_cols = fs.cols;
+	}
+
+	
+}
+</script>

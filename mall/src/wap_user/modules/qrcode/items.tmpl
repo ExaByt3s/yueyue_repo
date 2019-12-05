@@ -1,0 +1,36 @@
+<div class="fade" id="fade">
+    <div class="qrcode_mod" >
+        <div class="close" id="close" data-role="close"></div>
+        <div class="img-area">
+            <div class="swiper-container" >
+
+                <div class="swiper-wrapper">
+                {{#each data_arr}} 
+                    <div class="swiper-slide"  data-role="swipe">
+                        <img src="{{url_img}}" />
+                        <p class="p1 f18  tc">签到码：<span class="color-ff6">{{number}}</span></p>
+                    </div>
+                {{/each}}
+    
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <p class="p2 tc f10 color-999">左右滑动查看上/下一张</p>
+        </div>
+        <div class="ui-user-info-mod ">
+            <div class="item">
+               <div class="user-info-item">
+                  <div class="ui-avatar-icon ui-avatar-icon-m">
+                          <span style="background-image:url({{user_icon}})"></span>
+                  </div>
+                  <div class="user-info-con">
+                    <h3 class="title">{{name}}</h3>
+                    <p class="txt">ID：{{user_id}}</p>
+                  </div>
+               </div>
+            </div>
+        </div>
+
+    </div>
+</div>

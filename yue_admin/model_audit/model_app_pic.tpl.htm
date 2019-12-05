@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery.form.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+.table-list ul li 
+{
+   margin-left: 20px;
+   float: left;
+    width: 40%;
+   overflow: hidden;
+   text-align: center;
+   min-height: 292px;
+}
+.table-list ul li img
+{
+	width: 145px;
+	height: 145px;
+}
+.table-list .btn{
+	clear: both;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<form name="list_form" id="list_form" action="" method="post">
+	<div class="table-list">
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th width="120">
+					<input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');">全选/全不选
+				</th>
+				<th width="50">
+					<input type="button" class="button send_layer" name="dosubmit" value="同步"/>
+				</th>
+				</tr>
+		</table>
+		<!--list-->
+			<ul id="ulPic">
+				<!-- BEGIN list -->
+				<li>
+					<p><input class="inputcheckbox " name="ids[]" value="{id}" type="checkbox"></p>
+					<p><img src="{img}"></p>
+					<p>添加时间:{add_time}</p>
+					<p>UID:{user_id}</p>
+				</li>
+				<!-- END list -->
+			</ul>
+		<!--list end-->
+		<div class="btn">
+			<input type="button" class="button send_layer" name="dosubmit" value="同步"> 
+		</div>
+	</div>
+</form>
+</div>
+</body>
+<script type="text/javascript">
+  var $uid = {uid};
+  //同步
+  $('.send_layer').on('click', function(){
+  	$("#list_form").ajaxSubmit({
+  	      type: 'POST',
+	      dataType : "json",
+          data:{'act': 'same_pic', 'uid': $uid},
+          success:function(data)
+		  {
+			//window.alert(data.str);
+			//parent.$('#list_style').html(data.str);
+			parent.layer.msg("同步成功");
+            parent.location.reload();
+		 },
+		error:function(data)
+		{
+			parent.layer.msg("同步失败");
+			parent.layer.close(index);
+		}
+	 });
+});
+</script>
+</html>

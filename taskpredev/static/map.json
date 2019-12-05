@@ -1,0 +1,276 @@
+{
+    "res": {
+        "components/jquery/jquery.js": {
+            "uri": "http://static.yueus.com/taskpredev/components/jquery/jquery.js",
+            "type": "js",
+            "id": "components/jquery/jquery.js"
+        },
+        "lib/DatePicker/WdatePicker.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/DatePicker/WdatePicker.js",
+            "type": "js"
+        },
+        "lib/DatePicker/calendar.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/DatePicker/calendar.js",
+            "type": "js"
+        },
+        "lib/DatePicker/config.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/DatePicker/config.js",
+            "type": "js"
+        },
+        "lib/DatePicker/lang/en.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/DatePicker/lang/en.js",
+            "type": "js"
+        },
+        "lib/DatePicker/lang/zh-cn.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/DatePicker/lang/zh-cn.js",
+            "type": "js"
+        },
+        "lib/DatePicker/lang/zh-tw.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/DatePicker/lang/zh-tw.js",
+            "type": "js"
+        },
+        "lib/DatePicker/skin/WdatePicker.css": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/DatePicker/skin/WdatePicker.css",
+            "type": "css"
+        },
+        "lib/DatePicker/skin/default/datepicker.css": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/DatePicker/skin/default/datepicker.css",
+            "type": "css"
+        },
+        "lib/DatePicker/skin/whyGreen/datepicker.css": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/DatePicker/skin/whyGreen/datepicker.css",
+            "type": "css"
+        },
+        "lib/handlebars/handlebars.runtime-v1.3.0.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/handlebars/handlebars.runtime-v1.3.0.js",
+            "type": "js"
+        },
+        "lib/html5shiv.min.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/html5shiv.min.js",
+            "type": "js"
+        },
+        "lib/jquery.carouFredSel-5.5.0.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/jquery.carouFredSel-5.5.0.js",
+            "type": "js"
+        },
+        "lib/jquery.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/jquery.js",
+            "type": "js"
+        },
+        "lib/lib.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/lib.js",
+            "type": "js"
+        },
+        "lib/mod.js": {
+            "uri": "http://static.yueus.com/taskpredev/static/lib/mod.js",
+            "type": "js"
+        },
+        "common/cookie/index": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/cookie/index.js",
+            "type": "js",
+            "id": "common/cookie/index"
+        },
+        "common/guide/guide": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/guide/guide.js",
+            "type": "js",
+            "deps": [
+                "modules/common/guide/guide.scss",
+                "components/jquery/jquery.js",
+                "common/cookie/index"
+            ],
+            "id": "common/guide/guide"
+        },
+        "modules/common/guide/guide.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/guide/guide.css",
+            "type": "css",
+            "extras": {},
+            "id": "modules/common/guide/guide.scss"
+        },
+        "common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0.js",
+            "type": "js",
+            "deps": [
+                "components/jquery/jquery.js"
+            ],
+            "id": "common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0"
+        },
+        "common/ua/index": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/ua/index.js",
+            "type": "js"
+        },
+        "common/utility/index": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/utility/index.js",
+            "type": "js",
+            "deps": [
+                "components/jquery/jquery.js",
+                "common/cookie/index",
+                "common/ua/index"
+            ]
+        },
+        "common/widget/DatePicker/WdatePicker": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/DatePicker/WdatePicker.js",
+            "type": "js"
+        },
+        "common/widget/DatePicker/calendar": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/DatePicker/calendar.js",
+            "type": "js"
+        },
+        "common/widget/DatePicker/config": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/DatePicker/config.js",
+            "type": "js"
+        },
+        "common/widget/DatePicker/lang/en": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/DatePicker/lang/en.js",
+            "type": "js"
+        },
+        "common/widget/DatePicker/lang/zh-cn": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/DatePicker/lang/zh-cn.js",
+            "type": "js"
+        },
+        "common/widget/DatePicker/lang/zh-tw": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/DatePicker/lang/zh-tw.js",
+            "type": "js"
+        },
+        "modules/common/widget/DatePicker/skin/WdatePicker.css": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/DatePicker/skin/WdatePicker.css",
+            "type": "css"
+        },
+        "modules/common/widget/DatePicker/skin/default/datepicker.css": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/DatePicker/skin/default/datepicker.css",
+            "type": "css"
+        },
+        "modules/common/widget/DatePicker/skin/whyGreen/datepicker.css": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/DatePicker/skin/whyGreen/datepicker.css",
+            "type": "css"
+        },
+        "modules/common/widget/header/header.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/header/header.css",
+            "type": "css",
+            "extras": {},
+            "id": "modules/common/widget/header/header.scss"
+        },
+        "common/widget/header/main": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/header/main.js",
+            "type": "js",
+            "deps": [
+                "modules/common/widget/header/header.scss",
+                "components/jquery/jquery.js",
+                "common/cookie/index"
+            ],
+            "id": "common/widget/header/main"
+        },
+        "common/widget/selectlocal/selectlocal": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/common/widget/selectlocal/selectlocal.js",
+            "type": "js",
+            "deps": [
+                "components/jquery/jquery.js"
+            ],
+            "id": "common/widget/selectlocal/selectlocal"
+        },
+        "lead_list": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/lead_list/lead_list.js",
+            "type": "js",
+            "deps": [
+                "common/widget/header/main",
+                "common/guide/guide",
+                "components/jquery/jquery.js"
+            ],
+            "id": "lead_list"
+        },
+        "recommend": {
+            "uri": "http://static.yueus.com/taskpredev/static/modules/recommend/recommend.js",
+            "type": "js",
+            "deps": [
+                "common/widget/header/main",
+                "components/jquery/jquery.js",
+                "common/widget/selectlocal/selectlocal"
+            ],
+            "id": "recommend"
+        },
+        "style/cancel-order.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/cancel-order.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/common/base.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/common/base.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/common/button.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/common/button.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/common/color.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/common/color.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/common/common.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/common/common.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/common/reset.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/common/reset.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/customer-service.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/customer-service.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/index.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/index.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/lead_detail/index.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/lead_detail/index.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/lead_list/index.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/lead_list/index.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/my-order.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/my-order.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/order/order_detail.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/order/order_detail.css",
+            "type": "css"
+        },
+        "style/order/order_list.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/order/order_list.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/pay/index.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/pay/index.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/person_center/index.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/person_center/index.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/recommend.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/recommend.css",
+            "type": "css",
+            "extras": {}
+        },
+        "style/task-pc.scss": {
+            "uri": "http://static.yueus.com/taskpredev/static/style/task-pc.css",
+            "type": "css",
+            "extras": {}
+        }
+    },
+    "pkg": {}
+}

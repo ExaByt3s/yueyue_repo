@@ -1,0 +1,235 @@
+.seller-index-page .ui-button {
+  border-radius: 20px;
+  font-size: 14px;
+  background: #fff;
+  display: inline-block; }
+.seller-index-page .p1th {
+  background: #fff; }
+  .seller-index-page .p1th .img-box {
+    width: 100%;
+    height: 127px;
+    background-size: cover;
+    position: relative;
+    background-color: #dddbdb;
+    background-position: 100%; }
+  .seller-index-page .p1th .ui-avatar-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    left: 50%;
+    margin-left: -30px;
+    margin-top: -32px; }
+.seller-index-page .p2th {
+  background: #fff;
+  padding: 40px 20px 40px 20px;
+  border-bottom: 1px solid #eeeeee; }
+  .seller-index-page .p2th .p1 {
+    text-align: center; }
+  .seller-index-page .p2th .p2 {
+    text-align: center;
+    padding: 10px 20px 0 20px;
+    line-height: 1.8; }
+  .seller-index-page .p2th .more {
+    padding-top: 20px; }
+.seller-index-page .model-info {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  margin: 0 0px 0 0px;
+  margin-top: 20px; }
+  .seller-index-page .model-info .list {
+    display: -webkit-box;
+    display: box;
+    -webkit-box-pack: justify;
+    box-pack: justify;
+    padding-top: 20px; }
+  .seller-index-page .model-info li {
+    width: 70px;
+    text-align: center; }
+  .seller-index-page .model-info .icon {
+    width: 38px;
+    height: 38px;
+    background-size: contain; }
+  .seller-index-page .model-info .icon-h {
+    background-image: url(http://static.yueus.com/mall/user/test/static/wap/image/height-76x76.png); }
+  .seller-index-page .model-info .icon-w {
+    background-image: url(http://static.yueus.com/mall/user/test/static/wap/image/weight-76x76.png); }
+  .seller-index-page .model-info .icon-c {
+    background-image: url(http://static.yueus.com/mall/user/test/static/wap/image/chest-76x76.png); }
+  .seller-index-page .model-info .icon-m {
+    background-image: url(http://static.yueus.com/mall/user/test/static/wap/image/measurements-76x76.png); }
+  .seller-index-page .model-info .des {
+    padding-top: 15px; }
+    .seller-index-page .model-info .des p {
+      padding-top: 15px; }
+.seller-index-page .camera-info {
+  padding: 0px 0px 15px 0px;
+  border-bottom: 1px solid #eeeeee; }
+  .seller-index-page .camera-info .col-item {
+    background: #fff;
+    margin-top: 15px;
+    padding-top: 35px;
+    padding-bottom: 35px; }
+  .seller-index-page .camera-info .item {
+    padding-top: 20px; }
+    .seller-index-page .camera-info .item .p1 {
+      padding-top: 15px; }
+  .seller-index-page .camera-info .main-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold; }
+    .seller-index-page .camera-info .main-title .icon-title {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      background-size: cover;
+      margin-right: 5px;
+      background-repeat: no-repeat; }
+.seller-index-page .p4th {
+  background: #fff;
+  padding: 40px 20px 40px 20px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eeeeee; }
+  .seller-index-page .p4th .start {
+    text-align: center;
+    padding: 20px 0; }
+  .seller-index-page .p4th .num {
+    padding-top: 10px; }
+  .seller-index-page .p4th .stars-all-mod {
+    margin: 15px auto 25px auto; }
+.seller-index-page .p5th {
+  background: #fff;
+  padding-top: 40px;
+  padding: 0 20px 0 20px;
+  border-bottom: 1px solid #eeeeee; }
+  .seller-index-page .p5th .item-title {
+    font-size: 18px;
+    text-align: center;
+    padding: 30px 0 15px 0;
+    font-weight: bold; }
+  .seller-index-page .p5th .more {
+    padding: 10px 0 6px 0; }
+    .seller-index-page .p5th .more a {
+      display: block;
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      font-size: 14px; }
+
+.seller-detail-page {
+  padding: 15px;
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.8; }
+  .seller-detail-page img {
+    width: 100%;
+    padding: 5px 0 0 0; }
+
+.seller-list-page .img-wrap {
+  padding: 0 5% 10px 5%; }
+.seller-list-page .more {
+  padding: 10px 0 0px 0; }
+  .seller-list-page .more a {
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #555; }
+
+.seller-comment-page .comment-wrap .comment-box {
+  padding: 0px 15px 0 15px; }
+.seller-comment-page .comment-wrap .item {
+  padding: 20px 0 20px 0; }
+  .seller-comment-page .comment-wrap .item .wbox {
+    display: -webkit-box;
+    display: box; }
+    .seller-comment-page .comment-wrap .item .wbox .lbox {
+      margin-right: 10px; }
+    .seller-comment-page .comment-wrap .item .wbox .rbox {
+      -webkit-box-flex: 1;
+      box-flex: 1; }
+      .seller-comment-page .comment-wrap .item .wbox .rbox .box-a {
+        padding-top: 6px;
+        display: -webkit-box;
+        display: box;
+        -webkit-box-pack: justify;
+        box-pack: justify; }
+        .seller-comment-page .comment-wrap .item .wbox .rbox .box-a .name {
+          width: 140px; }
+      .seller-comment-page .comment-wrap .item .wbox .rbox .ui-start-mod {
+        padding-top: 2px; }
+        .seller-comment-page .comment-wrap .item .wbox .rbox .ui-start-mod .icon-s-mod {
+          width: 12px;
+          height: 12px; }
+      .seller-comment-page .comment-wrap .item .wbox .rbox .box-b {
+        padding-top: 3px; }
+  .seller-comment-page .comment-wrap .item .des {
+    padding-top: 13px; }
+
+.service-list-page .seller-list-wrap {
+  padding: 0px 15px 10px 15px; }
+.service-list-page .list-max-one-img-mod .item {
+  padding: 15px 0 15px 0;
+  border-bottom: 1px solid #e6e6e6;
+  display: -webkit-box;
+  display: box; }
+  .service-list-page .list-max-one-img-mod .item .lbox {
+    position: relative;
+    width: 100px;
+    height: 100px; }
+    .service-list-page .list-max-one-img-mod .item .lbox i {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      display: block;
+      background-repeat: no-repeat; }
+  .service-list-page .list-max-one-img-mod .item .rbox {
+    margin-left: 15px;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-orient: vertical; }
+    .service-list-page .list-max-one-img-mod .item .rbox .price {
+      margin-top: 15px;
+      font-size: 16px; }
+      .service-list-page .list-max-one-img-mod .item .rbox .price .price-tips {
+        position: relative;
+        bottom: 2px;
+        display: inline-block;
+        padding: 0 5px;
+        font-size: 12px;
+        color: #fe9920;
+        border: solid 1px #fe9920;
+        border-radius: 2px; }
+    .service-list-page .list-max-one-img-mod .item .rbox .num {
+      display: -webkit-box; }
+      .service-list-page .list-max-one-img-mod .item .rbox .num .tags {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+        margin-right: 5px;
+        color: #fff;
+        text-align: center;
+        line-height: 20px;
+        background: #fe9920;
+        border-radius: 2px; }
+      .service-list-page .list-max-one-img-mod .item .rbox .num .msg {
+        color: #fe9920; }
+.service-list-page .more a {
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  text-align: center; }

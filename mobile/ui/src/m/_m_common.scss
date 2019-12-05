@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+$default-base-text-color: #666; // 文字颜色
+$default-base-link-color: #3fa900; // 超链接颜色
+$default-base-link-hover-color: $default-base-link-color; // 超链接触发颜色
+
+
+@import "../common";
+
+// -------------------------
+// UI组件
+// -------------------------
+@import "../include/components/button";
+@import "../include/components/pagination";
+
+// -------------------------
+// 项目自身配置
+// -------------------------
+@import "./include/color-cfg";
+@import "./include/iconfont";
+@import "./include/icon";
+@import "./include/base";

@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+@import "../widget/ui-pay-tt-header";
+@import "../widget/ui-base";
+@import "../widget/ui-list";
+@import "../widget/ui-avatar";
+@import "../widget/ui-btn";
+
+.pay-tt{
+	background-color: #f2f2f2;		
+
+	.ui-list-text > li
+	{
+		line-height: 20px;
+		padding: 15px 15px 15px 0;
+		font-size: 14px;
+	}
+	.ui-list-info > p
+	{
+		font-size: 14px;
+		color:#000;
+	}
+	.ui-avatar{
+		margin:0 10px 0 0 ;
+	}
+	.ui-list li .ui-edge-right{
+		margin-top: -10px;		
+
+	}
+	.count-money-color{
+		color:#ff6763;
+		font-size: 14px;
+		margin-right: 15px;
+	}
+
+	.pay-type{
+		display: -webkit-box;
+		height: 30px;
+		h4{
+			line-height: 14px
+		}
+		p{
+			margin-top: 5px;
+			line-height: 10px;
+		}
+	}
+	.pay-type .ui-list-info{
+		padding: 0;
+	}
+	.pay-type .ui-list-info >h4{
+		font-size: 14px;
+	}
+	.pay-type .ui-list-info >p{
+		font-size: 10px;
+		color:#999;
+	}	
+
+	.last-container{
+		margin-bottom: 75px;
+		padding-bottom: 75px;
+	}
+
+    .last-sec-container{
+      margin-bottom: 55px;
+
+    }
+	
+	// 支付成功
+	.pay-tt-success{
+		text-align: center;
+		padding-top: 170px;
+		text-align: center;		
+	}
+
+	.pay-tt-success >span{
+		font-size: 18px;
+		color:#63cb76;
+		display: block;
+		line-height: 18px;
+	}
+
+	// 底部按钮
+	.buttom-btn-wrap{		
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		z-index: 9999;
+		width: 100%;
+		
+	}
+
+	&.pay-tt-success-wrap{
+		background-color: #fff;
+	}
+
+	// 支付选择对号
+	.icon-select-active:before{
+		width: 20px;
+        height: 20px;            
+        display: inline-block;    
+        vertical-align: middle;
+		text-align: center;
+        background-image: url('../../image/pai/select-40x40.png?__sprite');    
+	}
+	.icon-select-no:before{
+		width: 20px;
+        height: 20px;            
+        display: inline-block;    
+        vertical-align: middle;
+		text-align: center;
+        background-image: url('../../image/pai/select-before-40x40.png?__sprite');    
+	}
+	.icon-select-big:before{
+		width: 50px;
+        height: 50px;            
+        display: inline-block;    
+        vertical-align: middle;
+		text-align: center;
+        background-image: url('../../image/pai/select-big-100x100.png?__sprite'); 
+        margin-bottom: 20px;   
+	}
+	// 支付宝icon
+	.icon-zhifubao:before{
+		width: 46px;
+        height: 17px;          
+        margin-top: 8px;
+		margin-right: 15px;  
+        display: inline-block;    
+        vertical-align: middle;
+		text-align: center;
+        background-image: url('../../image/pai/zhifubao-92x34.png?__sprite');    
+	}
+	// 支付宝icon
+	.icon-wx-pay:before{
+		width: 50px;
+        height: 30px;          
+        margin-top: 0px;
+		margin-right: 15px;  
+        display: inline-block;    
+        vertical-align: middle;
+		text-align: center;
+        background-image: url('../../image/pai/wx-100x60.png?__sprite');    
+	}
+
+}
+

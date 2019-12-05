@@ -1,0 +1,1 @@
+define("option_record/wap/option_record",function(e){var r=(e("components/jquery/jquery.js"),Handlebars.template(function(e,r,n,t,o){return this.compilerInfo=[4,">= 1.0.0"],n=this.merge(n,e.helpers),o=o||{},'<div class="ds-box pack-center service_part_empty">----该商家没有服务----</div>'}),{});return r});

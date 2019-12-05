@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+    <title>日销走势图</title>
+    <script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/highcharts/highcharts.js"></script>
+    <style type="text/css">
+
+        .table-list-search td
+        {
+            padding-left: 10px;
+        }
+        .table-list-search .button_search
+        {
+            width: 100px;
+            height: 50px;
+        }
+        #quick_search .table_search
+        {
+            border-bottom: 1px solid #eee;
+        }
+        .table-list table {
+            border-left: #dadcdd 1px solid;
+        }
+        .table-list tbody td, .table-list thead th {
+            border-right: #dadcdd 1px solid;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+
+            $('#container').highcharts({
+                title: {//走势图标题
+                    text: '订单日流水(日)',
+                    x: 20 ,
+                    //style:{display:"none"}可隐藏
+                },
+                subtitle: {//走势图来源
+                    text: 'Source:yp.yueus.com',
+                    x: 20,
+                    style:{display:"none"}//可隐藏
+                },
+                xAxis: {//X轴分类
+                    categories: [ {categories} ]
+                },
+                yAxis: {//Y轴会根据series的data数值自动分格并划分上下限
+                    title: {
+                        text: '元',//Y轴表示的文本
+                        //style:{display:"none"}可隐藏
+                    }
+                },
+                tooltip: {
+                    valueSuffix: '元'//数据的后辍
+                },
+                legend:{//线条所表示的品种分类
+                    enabled:0,//0为隐藏1为显示
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                credits:{//制作人；可作为本站水印
+                    text:"",
+                    href:"yp.yueus.com",
+                    position:{x:-250,y:-180},
+                    style:{"z-index":"999"}
+                },
+                /*series: [{//可以为多个品种
+                 name: '铟',
+                 data: [4200, 4300, 4400, 4350, 4550]
+                 },{
+                 name: '铜',
+                 data: [4100, 4400, 4600, 4150, 4250]
+                 }]*/
+
+                series: [{//可以为多个品种
+                    type: 'column',
+                    // type: 'column表示图表,'pie'饼图,//没有表示走势图
+                    name: '日流水',
+                    data: [ {data} ]
+                }]
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+<div class="mainbox" style="width:1024px;margin:10px auto">
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="250">
+                        <tbody>
+                        <tr>
+                            <td>
+                                年月:
+                                <input type="text" name="month" class="input-text" id="date" value="{month}" size="12" onfocus="WdatePicker( {dateFmt: 'yyyy-MM'} )" readonly="true"/>
+                            </td>
+                            <td>
+                                <p><input type="submit" class="button" value="查看"/></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+</div>
+<div id="container" style="width:1024px;height:600px;margin:10px auto"></div>
+
+</body>
+</html>

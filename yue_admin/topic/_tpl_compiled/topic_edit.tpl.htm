@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: '',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        })
+    })
+    </script>
+    
+<link rel="stylesheet" href="../../kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="../../kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="../../kindeditor/lang/zh_CN.js"></script>
+<script>
+	var editor;
+	KindEditor.options.filterMode = false;
+	KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="content"]', {
+			resizeType : 1,
+			allowPreviewEmoticons : false,
+			allowImageUpload : false,
+			newlineTag : 'br',
+			width:'750px',
+			items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+		});
+	});
+</script>
+
+<title></title>
+
+</head>
+<body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<div class="mainbox">
+  <form name="add_form" id="add_form" action="" method="post" target="frame">
+    <div id="tabs" style="margin-top:10px;">
+      <div class="tabbox">
+        <fieldset>
+          <legend>专题编辑</legend> 
+           <table  border="0"  cellpadding="10">
+	        <tr>
+		       <td height="45" align="right">&nbsp;</td>
+		       <td><iframe allowTransparency="true" height="25" width="650" marginheight="0" marginwidth="0" noResize scrolling="no" frameborder="0" src="http://www.yueus.com/yue_admin/cms/cms_edit_upload_img_frm.php?img_size=0"></iframe></td>
+		    </tr>
+	        <tr>
+		       <td width="146" align="right">标题:</td>
+		       <td width="848"><input class="input-text" type="text" name="title" value="{title}" size="60" class="input-text" /></td>
+		    </tr>
+	        <tr>
+		       <td width="146" align="right">封面图:</td>
+		       <td width="848"><input class="input-text" type="text" name="cover_image" value="{cover_image}" size="60"/>尺寸:140x650</td>
+		    </tr>
+		    <tr>
+		      <td width="146" align="right">是否显示报名按钮:</td>
+               <td>
+                 <select name="is_button" id="is_button">
+                  <option value="1" <!-- IF is_button="1" -->selected="selected"<!-- ENDIF -->>是</option>
+		           <option value="0" <!-- IF is_button="0" -->selected="selected"<!-- ENDIF -->>否</option>
+                 </select>
+               </td>
+		    </tr>
+			<tr>
+		      <td width="146" align="right">可见平台:</td>
+		      <td width="848">
+			  <select name='type'>
+			   <option value='all' <!-- IF type="all" -->selected<!-- ENDIF -->>全部</option>
+			   <option value='app' <!-- IF type="app" -->selected<!-- ENDIF -->>APP</option>
+			   <option value='weixin' <!-- IF type="weixin" -->selected<!-- ENDIF -->>微信</option>
+			  </select>
+			  </td>
+		    </tr>
+			 <tr>
+		       <td width="146" align="right">可见人群:</td>
+		       <td width="848">
+			   <select name='display_type'>
+			    <option value='all' <!-- IF display_type="all" -->selected<!-- ENDIF -->>全部</option>
+			    <option value='model' <!-- IF display_type="model" -->selected<!-- ENDIF -->>模特</option>
+			    <option value='cameraman' <!-- IF display_type="cameraman" -->selected<!-- ENDIF -->>摄影师</option>
+			  </select>
+			   </td>
+		    </tr>
+            <tr>
+              <td align="right" valign="middle">内容方式:</td>
+	           <td><select name="content_type" id="content_type">
+               <option value="custom" <!-- IF content_type="custom" -->selected="selected"<!-- ENDIF -->>自定义</option>
+               <option value="rank" <!-- IF content_type="rank" -->selected="selected"<!-- ENDIF -->>榜单关联</option>
+               </select></td>
+            </tr>
+            <tr>
+		       <td align="right" valign="middle">榜单关联:</td>
+		       <td>issue_id
+		         <input type="text" name="issue_id" id="issue_id" value="{issue_id}" size="50" />
+               &nbsp;&nbsp;&nbsp;&nbsp;</td>
+	        </tr>
+	        <tr>
+		    <td align="right" valign="middle">内容:</td>
+		    <td><textarea id="content" name="content" rows="25">{content}</textarea>
+            </td>
+           </tr>
+           <tr>
+            <td align="right" valign="middle">排序:</td>
+            <td><input class="input" type="text" name="sort" value="{sort}" /> 
+              &nbsp;&nbsp;数字越大，排得越前</td>
+           </tr>
+		  </table>
+        </fieldset>
+     
+      </div>
+      <div class="btn">
+       <input type="button" value="返回" class="button" onclick="history.go(-1);"> <input type="submit" value="提交" class="button">
+      </div>
+    </div>
+    <input name="act" type="hidden" value="{act}">
+<input name="id" type="hidden" value="{id}">
+  </form>
+</div>
+</body>
+</html>

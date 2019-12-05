@@ -1,0 +1,236 @@
+@charset "UTF-8";
+
+$background : #ffffff;
+$header_select: #ff0052;
+$select_active:#ff266c;
+$header_unselect:#f0f0f0;
+$choice_unselect: #fafafa;
+$header_font:#666666;
+$border:#e6e6e6;
+$chooen_border:#ebebeb;
+$pay_border:#dddddd;
+
+.procedure-pay{
+  .auto_width{
+    width: auto;
+
+    .icon{
+      margin-right: 10px;
+    }
+  }
+  .content-body {
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    width: 100%;
+    // margin-top: 45px;
+    color: $header_font;
+  }
+}
+/*定义行函数*/
+@mixin content-line($height){
+  height: $height;
+  width: 100%;
+  padding-top: 1px;
+  border-left:1px solid $pay_border;
+  border-bottom:1px solid $pay_border;
+  border-right:1px solid $pay_border;
+  &:nth-child(1){
+    padding-top: 0px;
+    border-top: 1px solid $pay_border;
+    border-radius: 2px 2px 0px 0px;
+  }
+  &:nth-last-child{
+    border-radius: 0px 0px 2px 2px;
+  }
+}
+
+.pay-details-info{
+  margin: 10px 10px 0px;
+  height: 92px;
+  .pay-details-info-line{
+    div{
+      display: inline-block;
+      margin-top: 12px;
+      &:nth-child(1){
+        width: 50px;
+        margin-left: 10px;
+      }
+  }
+  }
+}
+.pay-details-price-info{
+  margin: 10px 10px 0px;
+  height: 137px;
+  .pay-details-price-info-line{
+    div{
+      display: inline-block;
+      margin-top: 12px;
+      color: #000000;
+      &:nth-child(1){
+        width: auto;
+        margin-left: 10px;
+
+      }
+      &:nth-child(2){
+        width: auto;
+        margin-left: 5px;
+      }
+    }
+    .id-price{
+      float: right;
+      margin-right: 10px;
+    }
+    .pay-price{
+      float: right;
+      margin-right: 10px;
+      color: #ff5000;
+    }
+    i{
+      float: right;
+      margin: 15px 10px 0px 0px;
+    }
+    .pay-details-price-info-line-notice{
+      float: right;
+      color: #3fc585;
+      margin-right: 10px;
+    }
+  }
+}
+.pay-details-payment-title{
+  margin: 10px 10px 0px;
+  height: 17px;
+  color: black;
+}
+.pay-details-payment{
+  margin: 10px;
+  height: 156px;
+  .pay-details-payment-line{
+    .payment-way{
+      float: left;
+      margin: 10px 0px 0px 10px;
+    }
+    .payment-choosen{
+      float: right;
+      margin: 18px 10px 0px 0px;
+    }
+    div{
+      display: inline-block;
+      margin-left: 10px;
+      width: 180px;
+      height: 100%;
+      p{
+        float: left;
+        width: 100%;
+        &:nth-child(1){
+          margin-top: 5px;
+          color: #000000;
+          font: {
+            size: 14px;
+          };
+        }
+        &:nth-child(2){
+          font: {
+            size: 12px;
+          };
+        }
+      }
+    }
+  }
+
+}
+.pay-details-notice{
+  margin: 47px 10px 0px;
+  height: 120px;
+  color: $header_font;
+  font:{
+    size: 12px;
+  }
+}
+.pay-details-btn{
+  display: -webkit-box;
+  -webkit-box-pack:justify;
+  text-align: center;
+  margin: 7px 0px 0px;
+  height: 50px;
+  border-top: 1px solid $border;
+  background: #f5f5f5;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  .left{
+    display: -webkit-box;
+    -webkit-box-flex:1;
+    margin: 0px 10px 0 10px;
+    .data-pay-rest_notice{
+      color: #000000;
+      line-height: 50px;
+    }
+    .data-pay-rest{
+      color: #ff4978;
+      line-height: 50px;
+      font:{
+        size: 20px;
+      }
+    }
+  }
+  .right{
+    display: -webkit-box;
+    -webkit-box-flex:1;
+    -webkit-box-pack:end;
+    max-width: 50%;
+    margin-right: 10px;
+    padding-top: 8px;
+  }
+
+  .pay-details-btn-tap{
+    width: 170px;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 auto;
+    margin-top: 7px;
+    background: $header_select;
+    color: $background;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 2px;
+    font:{
+      size: 16px;
+    }
+    &:active{
+      background: $select_active;
+    }
+  }
+}
+/*传入行高*/
+.pay-details-info-line{ @include  content-line(44px)}
+.pay-details-price-info-line { @include content-line(44px)}
+.pay-details-payment-line { @include content-line(50px)}
+
+.new-pay-items{
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  .new-pay-items-title{
+    color: #000;
+  }
+  .new-pay-items-contain{
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    border: 1px solid #dddddd;
+    .new-items-details{
+      display: -webkit-box;
+      -webkit-box-pack:justify;
+      height: 50px;
+      border-bottom: 1px solid #dddddd;
+      &:last-child{
+        border-bottom: none;
+      }
+      .notice{
+        display: -webkit-box;
+        .notice_details{
+          display: -webkit-box;
+          -webkit-box-orient:vertical;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO摄影app - popup
+// ------------------------------
+
+.ui-popup {
+    position: absolute;
+    z-index: $maxZIndex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    @include backface-visibility(hidden);
+    overflow: hidden;
+    background: rgba(#000, 0);
+
+    // 底滑入显示
+    &.bottom-slideup {
+        @include animation(popup-mask-fade-in 300ms linear 0 1);
+        .ui-popup-container {
+            @include animation(popup-bottom-slideup 300ms ease);
+        }
+    }
+    // 底滑出隐藏
+    &.bottom-slidedown {
+        @include animation(popup-mask-fade-out 300ms linear 0 1);
+        .ui-popup-container {
+            @include transform(translateY(0) translateZ(0));
+            @include animation(popup-bottom-slidedown 300ms ease);
+        }
+    }
+    // 底滑入显示后固定
+    &.bottom-slideup-pin {
+        background: rgba(#000, 0.5);
+        .ui-popup-container {
+            @include transform(translateY(0) translateZ(0));
+        }
+    }
+
+    // 顶部滑入显示
+    &.top-slideup {
+        @include animation(popup-mask-fade-in 300ms linear 0 1);
+        .ui-popup-container {
+            @include animation(popup-top-slideup 300ms ease);
+        }
+    }
+    // 顶部滑出隐藏
+    &.top-slidedown {
+        @include animation(popup-mask-fade-out 300ms linear 0 1);
+        .ui-popup-container {
+            @include transform(translateY(-100%) translateZ(0));
+            @include animation(popup-top-slidedown 300ms ease);
+        }
+    }
+    // 顶部滑入显示后固定
+    &.top-slideup-pin {
+        background: rgba(#000, 0.5);
+        .ui-popup-container {
+            @include transform(translateY(0) translateZ(0));
+        }
+    }
+}
+
+.ui-popup-start-bottom {
+    .ui-popup-container {
+        top: auto;
+        bottom: 0;
+        @include transform(translateY(100%) translateZ(0));
+    }
+}
+.ui-popup-start-top {
+    .ui-popup-container {
+        top: 0;
+        bottom: auto;
+        @include transform(translateY(-100%) translateZ(0));
+    }
+}
+
+.ui-popup-container {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: #f0f0f0;
+    //@include backface-visibility(hidden);
+}
+.ui-popup-content {
+    background: #fff;
+}
+.ui-popup-footer {
+    padding-top: 5px;
+    
+    button {
+        display: block;
+        border-top: 1px solid #e1e1e1;
+        width: 100%;
+        line-height: 40px;
+        @include box-sizing(border-box);
+
+        font-size: 16px;
+        background: #fff;
+
+        text-align: center;
+        &:active {
+            background: #f2f2f2;
+        }
+    }
+}
+
+@include keyframes('popup-mask-fade-in') {
+    0% { background: rgba(#000, 0); }
+    100% { background: rgba(#000, 0.5); }
+}
+@include keyframes('popup-mask-fade-out') {
+    0% { background: rgba(#000, 0.5); }
+    100% { background: rgba(#000, 0); }
+}
+// top
+@include keyframes('popup-top-slideup') {
+    0% {
+        opacity: 0;
+        @include transform(translateY(-100%) translateZ(0));
+    }
+    100% {
+        opacity: 1;
+        @include transform(translateY(0) translateZ(0));
+    }
+}
+
+@include keyframes('popup-top-slidedown') {
+    0% {
+        opacity: 1;
+        @include transform(translateY(0) translateZ(0));
+    }
+    100% {
+        opacity: 0;
+        @include transform(translateY(-100%) translateZ(0));
+    }
+}
+
+// bottom
+@include keyframes('popup-bottom-slideup') {
+    0% {
+        opacity: 0;
+        @include transform(translateY(100%) translateZ(0));
+    }
+    100% {
+        opacity: 1;
+        @include transform(translateY(0) translateZ(0));
+    }
+}
+
+@include keyframes('popup-bottom-slidedown') {
+    0% {
+        opacity: 1;
+        @include transform(translateY(0) translateZ(0));
+    }
+    100% {
+        opacity: 0;
+        @include transform(translateY(100%) translateZ(0));
+    }
+}

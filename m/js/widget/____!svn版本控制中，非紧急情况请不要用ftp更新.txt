@@ -1,0 +1,26 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/js/widget
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+abnormal/
+act_list/
+choosen_group/
+footer/
+load_more/
+model_pic/
+model_style_card/
+number_btn/
+panel_leader/
+panel_pick/
+panel_text_pic/
+pay_item/
+pull_down/
+select/
+slide/
+slide_v2/
+slide_v3/
+upload_pic/
+
+--EOF--

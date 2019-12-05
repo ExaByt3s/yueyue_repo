@@ -1,0 +1,16 @@
+<div class="ui-dialog">
+    {{#if hasMask}}<div class="ui-mask" data-role="close"></div>{{/if}}
+    <div class="ui-dialog-container-out">
+        <div class="ui-dialog-container" data-role="container">
+            <div class="ui-dialog-content" data-role="content">{{formatString content}}</div>
+
+            {{#if hasButtons}}
+            <footer class="ui-dialog-footer" data-role="footer">
+                {{#each buttons}}
+                <button class="ui-dialog-button" data-role="button" data-name="{{name}}">{{text}}</button>
+                {{/each}}
+            </footer>
+            {{/if}}
+        </div>
+    </div>
+</div>

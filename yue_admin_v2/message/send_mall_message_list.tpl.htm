@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <title>约约APP后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="javascript:void(0);" class="on">消息记录</a>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="600">
+                        <tbody>
+                        <tr>
+                            <td>
+                                角色:
+                                <select name="role">
+                                      <option value="">全部</option>
+                                      <option value="yuebuyer" <!-- IF role="yuebuyer" -->selected='true'<!-- ENDIF -->>买家</option>
+                                      <option value="yueseller" <!-- IF role="yueseller" -->selected='true'<!-- ENDIF -->>卖家</option>
+                                </select>
+                            </td>
+                            <td>
+                                操作ID:
+                                <input type="text" name="add_id" class="input-text" value="{add_id}" size="6"/>
+                            </td>
+                            <td>
+                                类型:
+                                <select name="type">
+                                    <option value="">全部</option>
+                                    <option value="text" <!-- IF type="text" -->selected='true'<!-- ENDIF -->>文本</option>
+                                    <option value="notify" <!-- IF type="notify" -->selected='true'<!-- ENDIF -->>链接类型</option>
+                                    <option value="card" <!-- IF type="card" -->selected='true'<!-- ENDIF -->>卡片</option>
+                                </select>
+                            </td>
+                            <td>
+                                状态:
+                                <select name="status">
+                                    <option value="-1">全部</option>
+                                    <option value="0" <!-- IF status="0" -->selected='true'<!-- ENDIF -->>未发送</option>
+                                    <option value="1" <!-- IF status="1" -->selected='true'<!-- ENDIF -->>正在发送</option>
+                                    <option value="2" <!-- IF status="2" -->selected='true'<!-- ENDIF -->>发送完成</option>
+                                    <option value="8" <!-- IF status="8" -->selected='true'<!-- ENDIF -->>发送失效</option>
+                                </select>
+                            </td>
+                            <td>
+                                <p><input type="button" class="button" value="查找" onclick="this.form.target='_self';$('#action').attr('value','');this.form.submit();">
+                                </p>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="act" id="action">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <form name="list_form" id="list_form"  method="post">
+        <div class="table-list" id="table-list">
+            <div class="btn">
+                总共为:{total_count} 条
+            </div>
+            <!--list-->
+            <table width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th width="130">录入时间</th>
+                    <th width="130">更新时间</th>
+                    <th width="60">总发送数量</th>
+                    <th width="60">成功数量</th>
+                    <th width="60">类型</th>
+                    <th width="60">发送地区</th>
+                    <th width="60">发送人群</th>
+                    <th width="80">推送账号</th>
+                    <th>消息内容</th>
+                    <th width="120">卡片描述</th>
+                    <th width="120">卡片标题</th>
+                    <th width="60">操作人</th>
+                    <th width="60">状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- BEGIN list -->
+                <tr>
+                    <td align="center" width="120">{dateformat:add_time,'Y-m-d H:i:s'}</td>
+                    <td align="center" width="120">{dateformat:update_time,'Y-m-d H:i:s'}</td>
+                    <td align="center" width="30">{total}</td>
+                    <td align="center" width="30">{send_total}</td>
+                    <td align="center"><!-- IF type="text" -->内容<!-- ELSEIF type="notify" -->链接类型<!-- ELSEIF type="card" -->卡片<!-- ENDIF --></td>
+                    <td align="center" width="60"><!-- IF is_multi="1" --><!-- IF city -->{city}<!-- ELSE -->全部<!-- ENDIF city --><!-- ENDIF is_multi --></td>
+                    <td align="center" width="60"><!-- IF role="yuebuyer" -->买家<!-- ELSEIF role="yueseller" -->卖家<!-- ENDIF role -->&nbsp;<!-- IF is_multi="1" --><!-- IF only_send_online="1" -->在线<!-- ELSE -->全部<!-- ENDIF only_send_online --><!-- ENDIF is_multi --></td>
+                    <td align="center" width="80"><!-- IF send_uid="10002" -->约yue小助手<!-- ELSEIF send_uid="10005" --> 约yue系统助手<!-- ENDIF --></td>
+                    <td align="center">{desc}</td>
+                    <td align="center" width="60">{card_text1}</td>
+                    <td align="center" width="60">{card_title}</td>
+                    <td align="center" width="60">{send_name}</td>
+                    <td align="center" width="30"><!-- IF status="0" --><font color="red">未发送</font><!-- ELSEIF status="1" --><font color="orange"> 正在发送</font><!-- ELSEIF status="2" --><font color="blue">发送完成</font><!-- ELSE --><font color="#696969">发送失效</font><!-- ENDIF --></td>
+                </tr>
+                <!-- END list -->
+                </tbody>
+            </table>
+            <!--list end-->
+        </div>
+    </form>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

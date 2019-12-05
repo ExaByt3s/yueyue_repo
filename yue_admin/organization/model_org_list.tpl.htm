@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/preview/preview.js"></script>
+<script type="text/javascript" src="js/preview/preview_load.js"></script>
+<link rel="stylesheet" type="text/css" href="js/preview/css/preview.css">
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>机构管理系统</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+	   <!-- IF state="1" -->
+	    <a href="javascript:void(0);" class="on">上架中</a>
+	   <!-- ELSE -->
+		<a href="javascript:void(0);" class="on">下架中</a>
+		<!-- ENDIF state-->
+	</ul>
+</div>
+<!--top-->
+<form name="list_form" id="myform" action="" method="post">
+	<div class="table-list">
+		<div class="btn">
+			符合条件的人数为:{total_count} <font color="red">(模糊的模特表示你无法操作的)</font> 
+			<!-- <span style="position: absolute;right:20px;">
+			    排序:
+				<select name="sort" id="sort">
+				    <option value="ptime_desc">录入时间降序</option>
+					<option value="ptime_asc"  {sort_2}>录入时间升序</option>
+				</select>
+			</span>  -->
+			<!-- IF state="1" -->
+			<input type="button" class="button" name="dosubmit" value="下架" onclick="org_audit('?act=down')">
+			<!-- ELSE -->
+			<input type="button" class="button" name="dosubmit" value="上架" onclick="org_audit('?act=up')">
+			<!-- ENDIF state-->
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th width="120"><input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');" checked="true"></th>
+				<th>头像</th>
+				<th>昵称</th>
+				<th>姓名</th>
+				<th>手机号码</th>
+				<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center">
+				<!-- IF priority -->
+				<input class="inputcheckbox " name="ids[]" value="{user_id}" type="checkbox" checked="true"/>
+				<!-- ELSE -->
+				<input class="inputcheckbox " name="ids[]" value="{user_id}" type="checkbox" disabled="true" checked="true"/>
+				<!-- ENDIF priority -->
+				</td>
+				<td align="center"><a href="javascript:void(0);" path="{thumb}" class="preview"><img src="{icon}" /></a></td>
+				<td align="center">{nickname}</td>
+				<td align="center">{name}</td>
+				<td align="center">{cellphone}</td>
+				<td align="center"><a href="http://www.yueus.com/model/edit_model_card.php?model_id={user_id}" target="_blank">打开模特卡</a></td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+		<!--list end-->
+	</div>
+</form>
+<div id="pages" class="page">
+	{page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		//排序
+		$("#sort").change(function(){
+			var $oUrl = window.location.href.toString();
+			var $re = eval('/(sort=)([^&]*)/gi');
+			//var $res = /sort=/gi;
+			var $search = window.location.search;
+			if ($search == null || $search == '') 
+			{
+				window.location.href = $oUrl+"?sort="+$(this).val();
+			}
+			else
+			{
+				if ($re.test($search)) 
+				{
+					window.location.href = $oUrl.replace($re , "sort="+$(this).val());
+				}
+				else
+				{
+					window.location.href = $oUrl+"&sort="+$(this).val();
+				}
+				
+			}
+		});
+	});
+    //导出触动
+	function org_audit($url)
+	{
+		//$("#myform").attr("method", $method);
+		$("#myform").attr("action", $url);
+		//return;
+		$("#myform").submit();
+	}
+</script>
+</html>

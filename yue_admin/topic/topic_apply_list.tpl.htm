@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script> 
+<script type="text/javascript" src="./js/admin.js"></script> 
+<script type="text/javascript" src="./js/export.js"></script> 
+<script type="text/javascript" src="./js/layer/layer.min.js"></script>
+<script type="text/javascript" src="./js/layer/extend/layer.ext.js"></script>
+<script type="text/javascript" src="./js/preview/preview.js"></script>
+<script type="text/javascript" src="./js/preview/preview_load.js"></script>
+<link rel="stylesheet" type="text/css" href="./js/preview/css/preview.css">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>管理员后台</title>
+<style type="text/css">
+#nav
+{
+  height: 80px;
+  line-height: 80px;
+}
+#nav li
+{
+  line-height: 3em;
+}
+#quick_search .input-text
+{
+  width: 60px;
+}
+#quick_search tr
+{
+  line-height: 30px;
+}
+
+.table-list-search td
+{
+  padding-left: 10px;
+}
+.table-list-search .button_search
+{
+  width: 100px;
+  height: 50px;
+}
+#quick_search .table_search
+{
+  border-bottom: 1px solid #eee;
+}
+#quick_search .edit_style
+{
+  cursor: pointer;
+}
+.special td 
+{
+  color: #ccc;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+  <ul>
+     <li><input type="button" value="活动报名" class="button"/></li>
+     <li><span style="font-size:12px;color: black;margin-left:10px;">请选择活动列表:</span>
+       <select name="topic" id="topic" onchange="window.location.href='topic_apply_list.php?topic_id='+this.value">
+        <option>--请选择活动--</option>
+        <!-- BEGIN topic_list -->
+        <option value='{id}'>{title}</option>
+        <!-- END topic_list -->
+       </select>
+       &nbsp;
+       <!-- IF topic_id -->
+       <font color="black">ID : {topic_id}</font>
+       <!-- ENDIF -->
+     </li>
+  </ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+  <tbody>
+    <tr>
+      <td class="search">
+        <form action="?" method="get">
+          <table class="table-list-search" id="quick_search" width="100%">
+                <tr>
+                 <td class="table_search">
+                  <table width="990">
+                  <tbody>
+                   <tr>
+                      <td width="150">当前价格:
+                       <select name="price">
+                         <option value="all">全部</option>
+                         <option value="1" <!-- IF price="1" -->selected<!-- ENDIF --> >100以下</option>
+                         <option value="100" <!-- IF price="100" -->selected<!-- ENDIF --> >100-200</option>
+                         <option value="200" <!-- IF price="200" -->selected<!-- ENDIF --> >200-400</option>
+                         <option value="400" <!-- IF price="400" -->selected<!-- ENDIF --> >400以上</option>
+                        </select>
+                      </td>
+                      <td width="150">状态:
+                        <select name="state">
+                         <option value="all">全部</option>
+                         <option value="1" <!-- IF state="1" -->selected<!-- ENDIF --> >活动中</option>
+                         <option value="2" <!-- IF state="2" -->selected<!-- ENDIF --> >正常</option>
+                        </select>
+                      </td>
+                      <td width="200">活动剩余时间:
+                         <select name="add_time">
+                          <option value="all">全部</option>
+                          <option value="-1" <!-- IF add_time="-1" -->selected<!-- ENDIF --> >已结束</option>
+                          <option value="1" <!-- IF add_time="1" -->selected<!-- ENDIF --> >1天</option>
+                          <option value="6" <!-- IF add_time="6" -->selected<!-- ENDIF --> >1-7天</option>
+                          <option value="7" <!-- IF add_time="7" -->selected<!-- ENDIF -->>7天以上</option>
+                        </select>
+                      </td>
+                      <td width="120">风格:<span class='style_data'>{style_hide}</span><span class="style_show">{style_show}</span><a class="edit_style" onclick="edit_style('topic_style_list.php');">+</a>
+                      <td rowspan="2"><input type="submit" class="button_search" value="查找">
+                      </td>
+                      <td rowspan="2">
+                        <input type="button" class="button_search" value="导出用户信息" onclick="export_data('show');" />
+                      </td>
+                   </tr>
+                   <tr>
+                      <td>约拍次数:
+                        <select name="yue_count">
+                         <option value="all">全部</option>
+                         <option value="-1" <!-- IF yue_count="-1" -->selected<!-- ENDIF --> >无</option>
+                         <option value="1" <!-- IF yue_count="1" -->selected<!-- ENDIF --> >1-4次</option>
+                         <option value="4" <!-- IF yue_count="4" -->selected<!-- ENDIF --> >4-10次</option>
+                         <option value="10" <!-- IF yue_count="10" -->selected<!-- ENDIF --> >10次以上</option>
+                        </select>
+                      </td>
+                      <td>身高:
+                        <select name="height">
+                         <option value="all">全部</option>
+                         <option value="1" <!-- IF height="1" -->selected<!-- ENDIF --> >160以下</option>
+                         <option value="160" <!-- IF height="160" -->selected<!-- ENDIF --> >160-165</option>
+                         <option value="165" <!-- IF height="165" -->selected<!-- ENDIF --> >165-170</option>
+                         <option value="170" <!-- IF height="170" -->selected<!-- ENDIF --> >170-175</option>
+                         <option value="175" <!-- IF height="175" -->selected<!-- ENDIF --> >175-180</option>
+                         <option value="180" <!-- IF height="180" -->selected<!-- ENDIF --> >180以上</option>
+                        </select>
+                      </td>
+                      <td>约拍总金额:
+                        <select name="yue_price">
+                         <option value="all">全部</option>
+                         <option value="1" <!-- IF yue_price="1" -->selected<!-- ENDIF --> >1000以下</option>
+                         <option value="1000" <!-- IF yue_price="1000" -->selected<!-- ENDIF --> >1000-5000</option>
+                         <option value="5000" <!-- IF yue_price="5000" -->selected<!-- ENDIF --> >5000-10000</option>
+                         <option value="10000" <!-- IF yue_price="10000" -->selected<!-- ENDIF --> >10000以上</option>
+                        </select>
+                      </td>
+                      <td>
+                      <input type="hidden" name="uid_str" value="{uid_str}" id="user_data"  />
+                      <input type="button" class="button"  value="手动添加" id="add_url" /></td>
+                   </tr>
+                </tbody>
+                </table>
+                 </td>
+                 </tr>
+              </tbody>
+          </table>
+          <input type="hidden" name="topic_id" value="{topic_id}" />
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--search form end-->
+  <div class="table-list" id="list_form">
+    <div class="btn">
+      <input type="button" class="button" value="下移置灰" onclick="change_sort('topic_apply_list.php?act=check&sort_status=1');" />
+      <input type="button" class="button" value="上移到顶部" onclick="change_sort('topic_apply_list.php?act=check&sort_status=0');" />
+    </div>
+   <form method="post" id="myform">
+    <table width="100%" cellspacing="0" style="min-width: 900px;">
+      <thead>
+        <tr>
+           <th><input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');" checked="true"></th>
+           <th>用户ID</th>
+           <th>地区</th>
+           <th>昵称</th>
+           <th>报名时间</th>
+           <th width="200px">风格价格</th>
+           <th>状态</th>
+           <th>身高</th>
+           <th>胸围</th>
+           <th>电话</th>
+           <th>封面图</th>
+           <th>约拍次数</th>
+           <th>约拍总金额</th>
+           <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- BEGIN list -->
+        <tr <!-- IF sort_status="1" -->class="special"<!-- ENDIF --> >
+        <td align="center"><input class="inputcheckbox " name="ids[]" value="{id}" type="checkbox" checked="true"></td>
+        <td align="center">{user_id}</td>
+        <td align="center">{location_name}</td>
+        <td align="center">{nickname}</td>
+        <td align="center">{add_time}</td>
+        <td align="center">
+          <!-- BEGIN main -->
+          <font color="red">{style}&nbsp;{price}元/{hour}小时</font>
+          <!-- END -->
+          <!-- BEGIN other -->
+          {style}&nbsp;{price}元/{hour}小时
+          <!-- END -->
+        </td>
+        <td align="center">{state}</td>
+         <td align="center">{height}</td>
+        <td align="center">{chest_inch}{cup}</td>
+        <td align="center">{cellphone}</td>
+        <td align="center"><a href="javascript:void(0);" path="{thumb}" class="preview"><img src="{cover_img}" width="32" height="32"></a></td>
+        <td align="center">{yue_count}</td>
+        <td align="center">{yue_price}</td>
+        <td align="center">
+           <input type="button" class="button" onclick="location.href='http://yp.yueus.com/yue_admin/model_audit/model_detail.php?uid={user_id}'" value="查看详情" />
+        </td>
+        </tr>
+        <!-- END list -->
+      </tbody>
+    </table>
+    </form>
+  </div>
+<div id="pages" class="page">
+  {page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+$(function(){
+    //自动选择报名专题
+    $("#topic").val({topic_id});
+    //手动添加
+    $("#add_url").click(function(){
+        var $user_val = $("#user_data").val();
+        layer.prompt({ title: '请输入UID,不填输入空格点确定', type: 3, val: $user_val }, function(user_id,index){
+           $("#user_data").val(user_id);
+            layer.close(index);
+       });
+    });
+
+});
+
+//修改
+function edit_style($url)
+{
+  var $url = $url+"?style="+$(".style_show").html();
+   $.layer({
+            type: 2,
+            title: '筛选模特',
+            shade: [0.3,'#000'],
+            maxmin: false,
+            shadeClose: false, 
+            area : ['265' , '265'],
+            offset : ['10px', ''],
+            iframe: { src: $url }
+        }); 
+}
+
+//提交
+function change_sort($url)
+{
+  $("#myform").attr( { 'action': $url });
+  $("#myform").submit();
+}
+</script>
+</html>

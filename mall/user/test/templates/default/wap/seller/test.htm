@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>商家服务主页</title>
+    <!-- {pc_global_top} -->
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/base.css">
+<!-- 通用 -->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/common/common.css">
+<!-- 颜色配置 -->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/common/ui-colcor.css">
+<!-- 按钮配置 -->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/common/ui-button.css">
+<!--基础样式 END-->
+
+<!--App bridge-->
+<script>
+{app_bridge_script}
+</script>  
+
+<script>
+
+    var wifi_link = /yp-wifi/.test(window.location.host)?'-wifi':'';
+
+    var test = /test/.test(window.location.href)?'test/':'';
+
+	window.$__ajax_domain = 'http://yp'+wifi_link+'.yueus.com/mall/user/'+test + 'ajax/';
+
+	window.$__config = 
+	{				
+		ajax_url :
+		{
+            get_tt_pay_info : window.$__ajax_domain + 'get_tt_pay_info.php',
+            pay_tt_action : window.$__ajax_domain + 'pay_tt_action.php',
+			list_control : window.$__ajax_domain + 'order_list_control.php',
+            order_submit : window.$__ajax_domain + 'order_submit.php',
+            get_user_coupon_list_by_check : window.$__ajax_domain + 'get_user_coupon_list_by_check.php',
+            get_topic_info : window.$__ajax_domain + 'get_topic_info.php',
+            get_topic_list : window.$__ajax_domain + 'get_topic_list.php',
+            list_pay_judge : window.$__ajax_domain + 'order_list_pay_judge.php',
+            submit_comment : window.$__ajax_domain + 'submit_comment.php'
+
+		}
+
+	};
+    
+    document.addEventListener('touchstart',function(){},false);
+</script>  
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/seller/index.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/scroll.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/dragloader.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/index.js"></script>
+</head>
+
+
+    <body>
+    <main role="main">
+        <div id="global-header"></div>
+        <div class="page-view " data-role="page-container">
+            
+            <div>
+               <div data-role="scroll-view">
+                    页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页页面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内面内面内容页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内面内面内容页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内面内面内容页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内面内面内容页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内面内面内容页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内面内面内容页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内面内面内容容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内页面内容...页面内容...页面内容...页面内容...页页面内容...页面内容...页面内容...页面内容...页面内页面内容...页面内容...页面内容...页面内容...页面内面内面内面内容...
+                </div>
+            </div>
+        </div>
+    </main>
+    </body>
+    <script>
+    // 滚动条模块
+    var scroll = require('common/scroll/index');
+    var scroll_obj = scroll($('[data-role="scroll-view"]'));
+    </script>
+
+<script>
+
+</script>
+
+</html>

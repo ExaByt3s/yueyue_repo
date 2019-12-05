@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "index.css",
+    "sources": [
+        "/modules/menu/index.scss"
+    ],
+    "sourcesContent": [
+        ".app_drop_menu_lock{\r\n  position: fixed;\r\n  background: none;\r\n  width: 100%;\r\n  height: 100%;\r\n  top: 0px;\r\n  z-index: 9998;\r\n\r\n}\r\n.app_drop_menu{\r\n  -webkit-box-orient:vertical;\r\n  background: rgba(0,0,0,0.7);\r\n  width: 130px;\r\n  position: fixed;\r\n  right: 0px;\r\n  top:-250px;\r\n  margin: 10px 5px 0px 0px;\r\n  border-radius: 4px;\r\n  padding: 0px 10px;\r\n  font-size: 16px;\r\n  z-index: 9999;\r\n  -webkit-transform-style: preserve-3d;\r\n  .delta{\r\n    position: absolute;\r\n    right: 15px;\r\n    top: -6px;\r\n    width: 0;\r\n    height: 0;\r\n    border-left: 7px solid transparent;\r\n    border-right: 7px solid transparent;\r\n    border-bottom: 6px solid rgba(0,0,0,.7);;\r\n  }\r\n  .child{\r\n    display: -webkit-box;\r\n    -webkit-box-orient:vertical;\r\n    -webkit-box-pack:center;\r\n    height: 50px;\r\n    color: #fff;\r\n    border-bottom: 1px solid #5c5b5d;\r\n    p{\r\n      max-height: 50px;\r\n      overflow: hidden;\r\n    }\r\n    &:active p{\r\n      color: #999;\r\n    }\r\n    &:last-child{\r\n      border-bottom: none;\r\n    }\r\n    &.un{\r\n      color: #717172;\r\n    }\r\n  }\r\n  &.drop{\r\n    animation:dropping 0.2s forwards ease-in;\r\n    -webkit-animation:dropping 0.2s forwards ease-in;\r\n  }\r\n  &.up{\r\n    animation:upping 0.2s;\r\n    -webkit-animation:upping 0.2s;\r\n  }\r\n}\r\n\r\n@-webkit-keyframes dropping\r\n{\r\n  from {top: -250px;display: -webkit-box;}\r\n  to {top: 0px;}\r\n}\r\n\r\n@-webkit-keyframes upping\r\n{\r\n  from {top: 0px;}\r\n  to {top: -250px;display: none;}\r\n}"
+    ],
+    "mappings": "AAAA,AACE,AAAU,AACV,AAAY,AACZ,AAAO,AACP,AAAQ,AACR,AAAK,AACL,AAAS,AAGX,AACE,AAAmB,AACnB,AAAY,AACZ,AAAO,AACP,AAAU,AACV,AAAO,AACP,AAAI,AACJ,AAAQ,AACR,AAAe,AACf,AAAS,AACT,AAAW,AACX,AAAS,AACT,AAAyB,AAC3B,AAAe,AACX,AAAU,AACV,AAAO,AACP,AAAK,AACL,AAAO,AACP,AAAQ,AACR,AAAa,AACb,AAAc,AACd,AAAe,AAEnB,AAAe,AACX,AAAS,AACT,AAAmB,AACnB,AAAiB,AACjB,AAAQ,AACR,AAAO,AACP,AAAe,AACnB,AAAe,AAAO,AAChB,AAAY,AACZ,AAAU,AAEhB,AAAe,AAAM,AAAQ,AACvB,AAAO,AAEb,AAAe,AAAM,AACf,AAAe,AAErB,AAAe,AAAM,AACf,AAAO,AAGb,AAAc,AACV,AAAU,AACV,AAAkB,AAEtB,AAAc,AACV,AAAU,AACV,AAAkB,AAIH,AAEnB,AAAQ,AAAK,AAAO,AAAS,AAC7B,AAAM,AAAK,AAGQ,AAEnB,AAAQ,AAAK,AACb,AAAM,AAAK,AAAO,AAAS",
+    "names": []
+}

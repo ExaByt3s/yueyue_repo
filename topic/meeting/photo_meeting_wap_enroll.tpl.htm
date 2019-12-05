@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>互联网+摄影 | 跨界O2O高峰论坛</title>
+<link href="css/wap.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<script>
+  //document.addEventListener('touchstart',function(){},false);
+</script>
+
+
+<body>
+<!--报名-->
+<form action="./module/meeting_join_op.php" method="get" id="J_pay_join_form" name="J_pay_join_form">
+<div class="sign-up-page font_wryh" id="J_join_container">
+    <div class="p1th" id="J_join_container_close_btn">请填写个人信息</div>
+
+    <div class="p2th">
+        <div class="ui-input-title-mod ui-input-title-size-large">
+            <div class="ui-txt">姓名</div>
+            <div class="ui-input-area"><input type="text" class="input ui-input-title-block" placeholder="请输入姓名" name="name" id="J_name" value=""/></div>
+        </div>
+
+        <div class="ui-input-title-mod ui-input-title-size-large">
+            <div class="ui-txt">手机号码</div>
+            <div class="ui-input-area"><input type="tel" class="input ui-input-title-block" placeholder="请输入手机号码" name="phone" id="J_phone" value="" style="width:70%"/></div>
+            <div class="pop-tips">
+                <div class="ui-button ui-button-primary ui-button-size-min ">
+                    <span class="ui-button-content" id="J_get_active_word" btn-lock="open" >获取验证码</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui-input-title-mod ui-input-title-size-large">
+            <div class="ui-txt">验证码</div>
+            <div class="ui-input-area"><input type="tel" class="input ui-input-title-block" placeholder="请输入验证码" id="J_active_word" name="active_word"/></div>
+        </div>
+        
+
+        <div class="ui-input-title-mod ui-input-title-size-large" style="border:none">
+            <div class="ui-txt">电子邮箱</div>
+            <div class="ui-input-area"><input type="text" class="input ui-input-title-block" placeholder="请输入你的常用邮箱" name="email" id="J_email" value=""/></div>
+        </div>
+
+    </div>
+
+    <div class="p3th">请选择场次</div>
+
+    <div class="p5th">
+        <ul class="list clearfix">
+            <li id="J_meeting_select_li_1" meeting_id="1" price="{meeting_price_1}">
+                <div class="lbox fldi">摄影人的自我革命</div>
+                <div class="rbox frdi">
+                    <div class="radio radio_cur" id="radio_choose_1"></div>
+                </div>
+            </li>
+
+            <li id="J_meeting_select_li_2" meeting_id="2" price="{meeting_price_2}">
+                <div class="lbox fldi">摄影行业的重构大时代</div>
+                <div class="rbox frdi">
+                    <div class="radio" id="radio_choose_2"></div>
+                </div>
+            </li>
+
+            <li id="J_meeting_select_li_3" meeting_id="3" price="{meeting_price_3}">
+                <div class="lbox fldi">创客路演：点燃创业梦想</div>
+                <div class="rbox frdi">
+                    <div class="radio" id="radio_choose_3"></div>
+                </div>
+            </li>
+        </ul>        
+    </div>
+
+    <div class="p6th">请选择订票数量</div>
+    <div class="p7th">
+        <ul class="list clearfix">
+            <li>
+                <div class="lbox fldi">订票数量</div>
+                <div class="rbox fldi">
+                    <div class="ui-add-reduce">
+                            <div class="add add-no"><i class="icon icon-reduce-32x32-m" id="J_minus_join_num"></i></div>
+                            <div class="input-area"><input type="num" class="input" readonly="" value="1" id="J_join_num" name="num"/></div>
+                            <div class="reduce "><i class="icon icon-add-32x32-m" id="J_add_join_num"></i></div>
+                    </div>
+                </div>
+            </li>
+
+            <li style="border:none">
+                <div class="lbox fldi" >总价</div>
+                <div class="rbox fldi">
+                    <div class="money">￥ <span class="s" id="J_total_price">{meeting_price_1}</span></div>
+                </div>
+            </li>
+        </ul>        
+    </div>
+
+    <div class="p8th">请选择订票数量</div>
+
+    <div class="p9th">
+        <ul class="list clearfix">
+            
+            <!-- IF is_weixin -->
+            <li  class="clearfix" style="border:none">
+
+                <div class="lbox fldi wx"></div>
+                <div class="cbox fldi">微信支付</div>
+                <div class="rbox frdi">
+                    <div class="radio radio_cur"></div>
+                </div>
+
+            </li>
+            <!-- ELSE -->
+            <li class="clearfix">
+
+                <div class="lbox fldi"></div>
+                <div class="cbox fldi">支付宝支付</div>
+                <div class="rbox frdi">
+                    <div class="radio radio_cur"></div>
+                </div>
+
+            </li>
+            <!-- ENDIF is_weixin -->
+        </ul>        
+    </div>
+
+    <div class="p10th">
+    <div class="btn-foot" data-id="1" data-price="{meeting_price_1}" id="J_pay_join_btn">支付并报名</div>
+    </div>
+
+</div>
+<input type="hidden" id="meeting_id" name="meeting_id" value="1"/>
+</form>
+
+
+</body>
+<script>
+$(document).ready(function(){
+
+
+//倒计时变量
+    var active_word_html_t = "";
+    var time_out_t = "";
+//检查电话号码
+    function checkPhone(phone)
+    {
+        var re= /^1[0-9][0-9]\d{8,8}$/;
+        var tips = '';
+      
+        if(!re.test(phone))
+        {
+            tips = false;
+        }
+        else
+        {
+            tips = true;
+        }
+      
+      return tips;
+    }
+    
+//检查email
+    function checkEmail(email)
+    {
+        var re = /^[a-z0-9](\w|\.|-)*@([a-z0-9]+-?[a-z0-9]+\.){1,3}[a-z]{2,4}$/i;
+        var tips = '';
+      
+        if(!re.test(email))
+        {
+            tips = false;
+        }
+        else
+        {
+            tips = true;
+        }
+      
+        return tips;
+    }
+    
+//验证码计时
+    function active_change_num(num)
+    {
+        $("#J_get_active_word").html(num);
+    }
+    
+    function clear_interval()
+    {
+        time_out_t=setTimeout(function(){
+            clearInterval(active_word_html_t);
+            $("#J_get_active_word").html("获取验证码");
+            $("#J_get_active_word").attr("btn-lock","open");
+        },60000);
+    }
+    
+     $("#J_get_active_word").bind("click",function(){
+            
+        var btn_lock = $("#J_get_active_word").attr("btn-lock");
+        if(btn_lock=="open")
+        {   
+        
+            var phone = $("#J_phone").val();
+            var ret = checkPhone(phone);
+            if(!ret)
+            {
+                
+                if($.trim(phone)=="")
+                {
+                    alert("请输入手机号");
+                }
+                else
+                {
+                    alert("手机号格式有误");
+                }
+                return false;
+            }
+            else
+            {
+                
+                //alert("手机号格式有误");
+                
+            }
+            
+            clearTimeout(time_out_t);
+            clear_interval();
+            $("#J_get_active_word").html("60");
+            active_word_html_t = setInterval(function(){
+    
+                var cur_num = $("#J_get_active_word").html();
+                var new_cur_num = parseInt(cur_num)-1;
+                active_change_num(new_cur_num);
+            
+            },1000);
+            //锁住按钮,防止多次调用
+            $("#J_get_active_word").attr("btn-lock","lock");
+            
+            //异步发送短信
+            $.ajax
+            ({
+            
+                type:'get',
+                dataType:'json',
+                timeout:5000,
+                url:'./module/meeting_get_active_word_ajax.php',
+                data:"phone=" +phone+"&timestamp=" + new Date().getTime(),
+                error:function(XMLHttpRequest,status)
+                {
+                    if(status=='timeout'){
+                        
+                        alert("获取验证码失败，请重新获取");
+                        //打开锁
+                        $("#J_get_active_word").attr("btn-lock","open");
+                        //清除计时处理
+                        clearTimeout(time_out_t);
+                        clearInterval(active_word_html_t);
+                        $("#J_get_active_word").html("获取验证码");
+                        return false;　　　　　 
+            　　　　}
+                },
+                success:function(json_data)
+                {
+                    if(json_data.ajax_status==1)
+                    {
+
+                    }
+                    else
+                    {
+                        
+                        alert("获取验证码失败，请重新获取");
+                        clearTimeout(time_out_t);
+                        clearInterval(active_word_html_t);
+                        $("#J_get_active_word").html("获取验证码");
+                        $("#J_get_active_word").attr("btn-lock","open");
+                        return false;
+
+                    }
+                    
+                    
+                }
+            });
+            
+            
+        }
+        else
+        {
+            return false;
+        }
+    }); 
+   
+//用户点击报名按钮
+    $(".J_join_btn").bind("click",function(e){
+        //用户点击报名
+        $("#J_join_container").css("display","block");
+        $("#J_index_page").css("display","none");
+        
+
+    }); 
+
+
+//表单提交
+    $("#J_pay_join_btn").bind("click",function(){
+        var check_res = submit_function_check();
+        if(check_res)
+        {
+            $("#J_pay_join_form").submit();
+            $("#J_join_container").css("display","none");
+            
+        }
+
+    });
+    
+
+//提交前检索
+    function submit_function_check()
+    {
+        var name = $("#J_name").val()//检查名字
+        var phone = $("#J_phone").val();//检查手机
+        var email = $("#J_email").val();//检查email
+        var enroll_num = $("#J_enroll_num").val();//检查报名人数
+        var active_word = $("#J_active_word").val();//验证码
+        
+        //检查验证码
+        if($.trim(name)=="")
+        {
+            
+            alert("名字不能为空");
+            return false;
+        }
+        
+        
+        var ret = '';
+        //检查手机
+        ret = checkPhone(phone)
+        if(ret)
+        {
+            
+            //检查验证码
+            if($.trim(active_word)=="")
+            {
+                
+                alert("验证码不能为空");
+                return false;
+            }
+            
+
+            //过渡处理
+            $("#J_submit_btn").html("注册中，请稍后...");
+            //清理计时处理
+            clearTimeout(time_out_t);
+            clearInterval(active_word_html_t);
+            $("#J_get_active_word").html("获取验证码");
+            $("#J_get_active_word").attr("btn-lock","open");
+
+
+            
+        }
+        else
+        {
+           
+            if($.trim(phone)=="")
+            {
+                alert("请输入手机号");
+            }
+            else
+            {
+                alert("手机号格式有误");
+            }
+            return false;
+            
+        }
+        
+        //检查邮箱
+        ret = checkEmail(email);
+        if(!ret)
+        {
+
+            if($.trim(email)=="")
+            {
+                alert("请输入邮箱");
+            }
+            else
+            {
+                alert("邮箱格式有误");
+            }
+            return false;
+        }
+        return true;
+        
+    }
+
+//计算金额
+//选择不同的场次切换时候计算
+
+    $("#J_meeting_select_li_1").bind("click",function(){
+        var single_price = $(this).attr("price");
+        var meeting_id = $(this).attr("meeting_id");
+        $("#meeting_id").val(meeting_id);
+        $("#J_pay_join_btn").attr("data-id",meeting_id);//设置会议ID
+        $("#J_pay_join_btn").attr("data-price",single_price);//设置会议价格
+        
+        if(!$("#radio_choose_1").hasClass("radio_cur"))
+        {
+            $("#radio_choose_1").addClass("radio_cur");
+            budget_counter();
+        }
+        
+        $("#radio_choose_2").removeClass("radio_cur");
+        $("#radio_choose_3").removeClass("radio_cur");
+    });
+    
+    $("#J_meeting_select_li_2").bind("click",function(){
+        var single_price = $(this).attr("price");
+        var meeting_id = $(this).attr("meeting_id");
+        $("#meeting_id").val(meeting_id);
+        $("#J_pay_join_btn").attr("data-id",meeting_id);//设置会议ID
+        $("#J_pay_join_btn").attr("data-price",single_price);//设置会议价格
+        
+        if(!$("#radio_choose_2").hasClass("radio_cur"))
+        {
+            $("#radio_choose_2").addClass("radio_cur");
+            budget_counter();
+        }
+        
+        $("#radio_choose_1").removeClass("radio_cur");
+        $("#radio_choose_3").removeClass("radio_cur");
+    });
+    
+    $("#J_meeting_select_li_3").bind("click",function(){
+        var single_price = $(this).attr("price");
+        var meeting_id = $(this).attr("meeting_id");
+        $("#meeting_id").val(meeting_id);
+        $("#J_pay_join_btn").attr("data-id",meeting_id);//设置会议ID
+        $("#J_pay_join_btn").attr("data-price",single_price);//设置会议价格
+        
+        if(!$("#radio_choose_3").hasClass("radio_cur"))
+        {
+            $("#radio_choose_3").addClass("radio_cur");
+            budget_counter();
+        }
+        
+        $("#radio_choose_1").removeClass("radio_cur");
+        $("#radio_choose_2").removeClass("radio_cur");
+    });
+    
+
+
+
+//加人数
+    $("#J_add_join_num").bind("click",function(){
+        
+        var new_join_num = parseInt($("#J_join_num").val())+1;
+        if(new_join_num>1000)//暂时控制每个人报不超过1000人
+        {
+            return false;
+        }
+        $("#J_join_num").val(new_join_num);
+        //计算总数
+        budget_counter();
+        
+    });
+    
+//减人数
+    $("#J_minus_join_num").bind("click",function(){
+
+        var cur_join_num = parseInt($("#J_join_num").val());
+        if(cur_join_num<=1)
+        {
+            return false;
+        }
+        else
+        {
+            var new_join_num = cur_join_num-1;
+            $("#J_join_num").val(new_join_num);
+            //计算总数
+            budget_counter();
+           
+        }
+            
+    });
+    
+//计算费用
+    function budget_counter()
+    {
+        //根据按钮类型计算
+        
+        var single_price = $("#J_pay_join_btn").attr("data-price")
+        var cur_join_num = parseInt($("#J_join_num").val());
+        //var total_price = ((single_price.replace(".",""))*cur_join_num)/100;
+        var total_price = single_price*cur_join_num;
+        
+        $("#J_total_price").html(total_price+"元");
+    }
+
+});
+</script>
+</html>

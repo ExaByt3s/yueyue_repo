@@ -1,0 +1,375 @@
+.index-page-body .ui-selectbox-option {
+  text-align: center; }
+.index-page-body .ui-selectbox {
+  height: 54px;
+  line-height: 54px; }
+.index-page-body .ui-search-com .search-form-container .search-text .text {
+  padding: 15px 38px 15px 20px; }
+.index-page-body .ui-search-com .search-form-container .search-text .icon-search {
+  height: 50px;
+  background-position: 2px 18px; }
+.index-page-body .ui-search-com .search-form-container .search-text .label-place-holder {
+  visibility: visible;
+  left: 20px;
+  top: 0;
+  z-index: 1;
+  padding: 15px 38px 15px 0;
+  line-height: 24px;
+  font-size: 16px;
+  height: 24px;
+  max-width: 90%; }
+
+.index-page .search_text > img {
+  margin: 14px; }
+.index-page .p1th .scrollBox {
+  width: 100%;
+  position: relative;
+  overflow: hidden; }
+  .index-page .p1th .scrollBox .img_list li {
+    float: left;
+    display: inline;
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center top; }
+    .index-page .p1th .scrollBox .img_list li .item {
+      position: relative; }
+      .index-page .p1th .scrollBox .img_list li .item .text-item {
+        padding: 140px 0 0 575px;
+        color: #fff; }
+        .index-page .p1th .scrollBox .img_list li .item .text-item h3.title {
+          font-size: 42px;
+          padding-bottom: 10px; }
+        .index-page .p1th .scrollBox .img_list li .item .text-item .p1 {
+          font-size: 20px;
+          letter-spacing: 13px;
+          padding-left: 3px; }
+      .index-page .p1th .scrollBox .img_list li .item .btn-item {
+        padding: 40px 0 0 0; }
+        .index-page .p1th .scrollBox .img_list li .item .btn-item .index-ui-btn {
+          display: inline-block; }
+    .index-page .p1th .scrollBox .img_list li a {
+      display: block;
+      height: 100%; }
+  .index-page .p1th .scrollBox .img_list li.banner1 {
+    background-image: url(../images/banner/banner_1920x450-1.jpg); }
+  .index-page .p1th .scrollBox .img_list li.banner2 {
+    background-image: url(../images/banner/banner_1920x450-2.jpg); }
+    .index-page .p1th .scrollBox .img_list li.banner2 a {
+      display: block;
+      width: 100%;
+      height: 450px; }
+  .index-page .p1th .scrollBox .page-wrap .page-box {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    margin-left: -96px;
+    width: 200px;
+    text-align: center; }
+  .index-page .p1th .scrollBox .page-wrap .page-box a {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 10px;
+    background: #909498;
+    margin-right: 10px;
+    text-indent: -9999px; }
+  .index-page .p1th .scrollBox .page-wrap .page-box a:hover, .index-page .p1th .scrollBox .page-wrap .page-box a.selected {
+    background: #fff; }
+  .index-page .p1th .scrollBox .page-wrap .pre {position: absolute;
+    top: 50%;
+    margin-top: -3px;
+    width: 60px;
+    height: 60px;
+    left: -60px;
+    
+    -webkit-transition: right .2s, left .2s;
+    -moz-transition: right .2s, left .2s;
+    -ms-transition: right .2s, left .2s;
+    -o-transition: right .2s, left .2s;
+    transition: right .2s, left .2s;background-repeat: no-repeat;}
+  .index-page .p1th .scrollBox .page-wrap .next {top: 50%;
+    margin-top: -3px;
+    width: 60px;
+    height: 60px;
+    
+    position: absolute;
+    right: -60px;
+    display: none;
+    -webkit-transition: right .1s, left .1s;
+    -moz-transition: right .1s, left .1s;
+    -ms-transition: right .1s, left .1s;
+    -o-transition: right .1s, left .1s;
+    transition: right .1s, left .1s;background-repeat: no-repeat;}
+.index-page .p1th .slide-pic-hover .page-wrap .pre {
+  left: 80px; }
+.index-page .p1th .slide-pic-hover .page-wrap .next {
+  right: 80px; }
+.index-page .psth {
+  overflow: hidden;
+  padding: 85px 0px 10px 0px;
+  height: 60px;
+  width: 750px;
+  margin: 0 auto; }
+.index-page .phth {
+  overflow: hidden;
+  height: 60px;
+  width: 750px;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #707070; }
+.index-page .pfth {
+  overflow: hidden;
+  width: 1000px;
+  margin: 0 auto;
+  font-size: 16px; }
+.index-page .p2th {
+  overflow: hidden; }
+  .index-page .p2th .mod-title {
+    margin-bottom: 30px; }
+  .index-page .p2th .des {
+    text-align: center;
+    font-size: 20px;
+    line-height: 32px;
+    margin: 0 auto; }
+  .index-page .p2th .list {
+    width: 1080px;
+    margin-top: 30px; }
+    .index-page .p2th .list li {
+      overflow: hidden;
+      position: relative;
+      border-radius: 3px;
+      float: left;
+      display: inline;
+      margin: 20px 20px 0 0;
+      width: 236px;
+      height: 176px; }
+      .index-page .p2th .list li a {
+        color: #fff; }
+        .index-page .p2th .list li a:hover {
+          color: #fff;
+          text-decoration: none; }
+      .index-page .p2th .list li img {
+        border-radius: 3px;
+        width: 236px;
+        height: 176px; }
+      .index-page .p2th .list li .fade-box {
+        width: 236px;
+        height: 176px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        border-radius: 3px; }
+        .index-page .p2th .list li .fade-box .txt {
+          text-align: center;
+          padding-top: 71px;
+          color: #fff;
+          font-size: 26px; }
+          .index-page .p2th .list li .fade-box .txt .f {
+            font-size: 26px; }
+      .index-page .p2th .list li .fade-h5 {
+        border-radius: 3px;
+        position: absolute;
+        width: 236px;
+        height: 176px;
+        left: -256px;
+        top: 0;
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');
+        background: rgba(0, 0, 0, 0.5);
+        box-sizing: border-box;
+        transition: left 0.2s ease-out; }
+      .index-page .p2th .list li:hover .fade-h5 {
+        left: 0; }
+.index-page .p3th {
+  margin: 75px 0 75px 0;
+  padding: 75px 0 0px 0;
+  width: 100%; }
+  .index-page .p3th .mod-title {
+    margin-bottom: 30px; }
+  .index-page .p3th .des {
+    text-align: center;
+    font-size: 20px;
+    line-height: 32px;
+    padding-bottom: 50px; }
+  .index-page .p3th .scrollBox-wrap {
+    overflow: hidden; }
+  .index-page .p3th .scrollBox {
+    width: 1080px; }
+    .index-page .p3th .scrollBox li {
+      float: left;
+      width: 320px;
+      overflow: hidden;
+      margin-right: 22px; }
+      .index-page .p3th .scrollBox li .fade-h5 {
+        width: 100%;
+        height: 65px;
+        position: absolute;
+        bottom: -65px;
+        left: 0;
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');
+        background: rgba(0, 0, 0, 0.5);
+        box-sizing: border-box;
+        transition: bottom 0.1s ease-out; }
+      .index-page .p3th .scrollBox li:hover .fade-h5 {
+        bottom: 0; }
+      .index-page .p3th .scrollBox li .item-wrap {
+        width: 320px;
+        overflow: hidden;
+        height: 192px;
+        position: relative; }
+        .index-page .p3th .scrollBox li .item-wrap .txt-item {
+          width: 100%;
+          height: 70px;
+          background: url(http://static.yueus.com/mall/user/test/static/pc/images/line-10x100.png) repeat-x;
+          font-size: 16px;
+          color: #fff;
+          position: absolute;
+          bottom: 0;
+          left: 0; }
+          .index-page .p3th .scrollBox li .item-wrap .txt-item .p1 {
+            margin-top: 12px;
+            font-size: 18px;
+            padding-left: 20px; }
+          .index-page .p3th .scrollBox li .item-wrap .txt-item .p2 {
+            margin-top: 2px;
+            font-size: 14px;
+            padding-left: 20px; }
+    .index-page .p3th .scrollBox .page-wrap {
+      width: 100%;
+      position: relative; }
+      .index-page .p3th .scrollBox .page-wrap .pre {display: inline;
+        
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        bottom: 65px;background-repeat: no-repeat;}
+      .index-page .p3th .scrollBox .page-wrap .next {display: inline;
+        width: 60px;
+        height: 60px;
+        bottom: 65px;
+        
+        overflow: hidden;
+        position: absolute;
+        left: 940px;background-repeat: no-repeat;}
+.index-page .p4th {
+  overflow: hidden;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background: #fff; }
+.index-page .p5th {
+  background: #f8f8f8;
+  padding: 80px 0;
+  width: 100%;
+  margin-top: 80px; }
+  .index-page .p5th .wbox {
+    padding: 20px 0 0 335px; }
+  .index-page .p5th .lbox {
+    margin-right: 15px; }
+    .index-page .p5th .lbox img {
+      padding: 6px;
+      border: 1px solid #cccccc;
+      border-radius: 5px; }
+  .index-page .p5th .rbox a:hover {
+    text-decoration: none; }
+  .index-page .p5th .rbox .list li {
+    line-height: 10px;
+    width: 190px;
+    height: 60px;
+    background: #333333;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #fff; }
+    .index-page .p5th .rbox .list li:hover {
+      background: #666666; }
+    .index-page .p5th .rbox .list li .icon-mod {
+      width: 28px;
+      height: 32px;
+      float: left;
+      margin: 15px 0 0 22px; }
+    .index-page .p5th .rbox .list li .icon-iphone {
+      background: url(http://static.yueus.com/mall/user/test/static/pc/images/icon-iphone-28x32.png); }
+    .index-page .p5th .rbox .list li .icon-Android {
+      background: url(http://static.yueus.com/mall/user/test/static/pc/images/icon-ad-28x32.png); }
+    .index-page .p5th .rbox .list li .txt {
+      margin: 7px 0 0 18px;
+      float: left;
+      display: inline; }
+.index-page .p6th {
+  margin-top: 80px; }
+  .index-page .p6th .list {
+    padding: 30px 0 0 215px; }
+    .index-page .p6th .list li {
+      float: left;
+      width: 160px;
+      text-align: center;
+      margin-left: 85px; }
+      .index-page .p6th .list li .txt {
+        padding-top: 10px;
+        font-size: 14px; }
+      .index-page .p6th .list li img {
+        padding: 6px;
+        border: 1px solid #cccccc;
+        border-radius: 5px; }
+  .index-page .p6th .tel {
+    text-align: center;
+    font-size: 24px;
+    margin: 70px 0 70px 0; }
+.index-page .down-app-area-mod {
+  margin-top: 0px; }
+.index-page .ui-search-container {
+  width: 732px;
+  margin: 0 auto;
+  padding: 100px 0 80px 0; }
+.index-page .ui-search-com .search-input .search-text .text {
+  background: #fff; }
+
+.pop-info-index {
+  background: url(http://static.yueus.com/mall/user/test/static/pc/images/img-bg-720x426_03.png) no-repeat;
+  width: 720px;
+  height: 426px;
+  position: fixed;
+  _position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -213px;
+  margin-left: -360px;
+  z-index: 9999; }
+  .pop-info-index .close {
+    width: 16px;
+    height: 16px;
+    background: url(http://static.yueus.com/mall/user/test/static/pc/images/btn-close-16x16_03.jpg) no-repeat;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px; }
+  .pop-info-index a.close:hover {
+    background: url(http://static.yueus.com/mall/user/test/static/pc/images/btn-close-16x16-hover.jpg) no-repeat; }
+  .pop-info-index .pop-con .lc-con {
+    text-align: center;
+    padding: 61px 0px 29px 0px; }
+  .pop-info-index .pop-con .txt-con {
+    padding-left: 30px; }
+  .pop-info-index .pop-con .txt-con ul li {
+    width: 200px;
+    float: left;
+    margin-right: 30px; }
+  .pop-info-index .pop-con .txt-con ul li .txt {
+    text-align: center;
+    color: #000;
+    height: 120px; }
+  .pop-info-index .pop-con .txt-con ul li .txt p {
+    line-height: 23px; }
+  .pop-info-index .pop-con .txt-con ul li .txt p.title {
+    font-size: 16px;
+    color: #4092f1;
+    padding-bottom: 20px; }
+  .pop-info-index .pop-con .txt-con ul li .img {
+    padding: 0px 0 20px 0; }
+  .pop-info-index .pop-con .txt-con .more-con {
+    text-align: center; }
+  .pop-info-index .pop-con .txt-con .more-con a.more {
+    color: #4092f1; }
+.index-page .p1th .scrollBox .page-wrap .pre{background-position:0px 0px}.index-page .p3th .scrollBox .page-wrap .pre{background-position:0px 0px}.index-page .p1th .scrollBox .page-wrap .next{background-position:0px -70px}.index-page .p3th .scrollBox .page-wrap .next{background-position:0px -70px}.index-page .p1th .scrollBox .page-wrap .pre,.index-page .p3th .scrollBox .page-wrap .pre,.index-page .p1th .scrollBox .page-wrap .next,.index-page .p3th .scrollBox .page-wrap .next{background-image: url(http://static.yueus.com/mall/user/test/static/pc/style/index-page_z.png)}

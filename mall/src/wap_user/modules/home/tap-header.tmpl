@@ -1,0 +1,20 @@
+<div class="ui-category-popup">
+    <!--µ¯³ö¿ò-->
+    <div class="menu top006" data-role="category-m">
+        <div class="subtag">
+            {{#each result_data.type_data}}
+                <div class="submenu ui-border-b" data-role="btn-col" data-id="{{id}}">{{name}}</div>
+            {{/each}}
+        </div>
+        <div class="bar"></div>
+    </div>
+    <div class="menu top006" data-role="sort" style="height:138px;">
+        <div class="subtag">
+            {{#each result_data.sort_data}}
+                <div class="submenu ui-border-b" data-role="btn-sort" data-type="{{sort_by}}">{{name}}</div>
+            {{/each}}
+
+        </div>
+        <div class="bar"></div>
+    </div>
+</div>

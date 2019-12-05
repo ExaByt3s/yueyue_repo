@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<title>{title} - {type_name} - {page_title}</title>
+<meta name="Keywords" content="{title}" />
+<meta name="Description" content="" />
+<link rel="stylesheet" type="text/css" href="{combo:event_comm_css,_dev}"/>
+<link rel="stylesheet" type="text/css" href="./css/outdoor.css?t={rand}"/>
+<script type="text/javascript" src="{combo:event_comm_js,_dev}"></script>
+<link rel="stylesheet" type="text/css" href="http://poco.cn/css_common/v3/mt/pocoStatusbox.css" />
+
+<link rel="stylesheet" type="text/css" href="./css/waipai.css?t={rand}123"/>
+
+
+<!-- 
+<script type="text/javascript" language="javascript" src="http://my.poco.cn/manage/js/2010/mypoco_common.js"></script>
+<script type="text/javascript" src="http://food.poco.cn/js/linkage_merge.js"></script>
+<script type="text/javascript" src="http://food.poco.cn/js/locate_var.js"></script>
+-->
+
+<script type="text/javascript" src="http://event.poco.cn/module_common/login/login.app.js"></script>
+<script type='text/javascript' src="./js/party_public.js?{_dev}"></script>
+<script type='text/javascript' src="./js/party_enroll.js?{_dev}"></script>
+<script type="text/javascript" src="./js/party_grade.js?{_dev}"></script>
+
+<!-- <script src="http://www.poco.cn/js_common/seajs/2.0.0/sea.js"></script>  -->
+<!-- <script src="http://cb-c.poco.cn/seajs/??2.3.0/sea.js,plugins/seajs-text/1.0.2/seajs-text.js,plugins/seajs-style/1.0.2/seajs-style.js,plugins/seajs-combo/1.0.1/seajs-combo.js"></script>
+<script src="http://www.poco.cn/js_common/channel/common/loader.js?t={_dev}"></script>  -->
+<style>
+#content p{
+word-break:break-all;
+}
+.titles{
+word-break:break-all;
+}
+.font_wryh #coupon_text_login{
+font-family:'微软雅黑','黑体','宋体';
+}
+</style>
+</head>
+<body>
+{global_header_html}
+{header_html}
+
+<script>
+/**
+* hudw 2015.1.23
+* @param  {[type]} window    [description]
+* @param  {[type]} seajs     [description]
+* @param  {[type]} undefined [description]
+* @return {[type]}           [description]
+*/
+;(function(window, seajs, undefined)
+{
+
+
+    // 配置模块
+    seajs.config
+    ({
+
+        paths:
+        {
+            utility: 'http://cb.poco.cn/utility',
+            matcha: 'http://cb.poco.cn/matcha',
+            yueyue_global : 'http://www.yueus.com/js/global'            
+        },
+        alias:
+        {
+            handlebars: 'utility/handlebars/1.0.0/handlebars',
+            jquery: 'utility/jquery/1.11.0/jquery',                        
+            cookie: 'matcha/cookie/1.0.0/cookie',
+            topbar : 'yueyue_global/topbar/topbar'        
+        },
+        comboMaxLength: 5000,
+        charset: 'utf-8'
+    });
+
+    seajs.use(['jquery','topbar'],function($,topbar)
+    {
+        var $user_state = $('#user_state');        
+
+        topbar.init
+        ({
+            container : $user_state,
+            custom_logout : "http://www.yueus.com/reg/logout.php",
+            custom_html : '<a href="http://www.yueus.com/reg/login.php?r_url='+encodeURIComponent(window.location.href)+'">登录</a><span class="pr15 pl15">|</span><a href="http://www.yueus.com/reg/register.php?r_url='+encodeURIComponent(window.location.href)+'">免费注册</a>'
+        });
+    });
+    
+    
+    
+
+    
+   
+})(window, seajs);
+</script>
+
+
+
+<div class="clearfix" id="content">
+<!-- 回到顶部 -->
+<div  class="sy_f_dbox" id="backTop"><div class="sy_qhBtn" ><a href="#" title="回顶部"  class="sy-hdb"></a></div>   </div>
+<script type="text/javascript">window.addEvent('scroll',function(){backToTop()});</script>
+<!-- 回到顶部 -->
+  <div style="padding:0; margin:0;" class="t_line"></div>
+  <div class="location_index pd10">
+
+
+
+
+
+    <input type="hidden" value="{event_id}" id="event_id" name="event_id">
+
+   
+
+  </div>
+
+  <!-- IF is_review == "1" -->
+  <div class="tips_hd fb">你的这个活动正在审核中，通过后将正常显示，敬请留意！</div>
+  <!-- ENDIF is_review -->
+  
+  <!--模板-->
+  <div class="wrapboxh_2 clearfix">
+    <div class="listtab1_2">
+      <!-- IF is_review !="1" -->
+      <div class="toggles mt15 bgchange" style="display:<!-- IF act =="preview" -->none<!-- ENDIF act -->">
+        <ul class="toggle clearfix" >
+          <li><a class="currenNow" href="party_browse.php?event_id={event_id}" >活动介绍</a></li>
+          <li><a href="party_commend_act_list.php?event_id={event_id}">活动作品</a></li>
+          <li><a href="party_sign_list.php?event_id={event_id}" >报名网友</a></li>
+         
+        </ul>
+      </div>
+      <!-- ELSE -->
+      <div class="toggles mt15 bgchange">
+        <ul class="toggle clearfix" >
+          <li><a class="currenNow" href="javascript:void(0)" >活动介绍</a></li>
+          <li><a href="javascript:void(0)" >报名网友</a></li>
+        </ul>
+      </div>
+      <!-- ENDIF is_review -->
+      
+      <div class="lcon_box">
+        <div class="grid_c2f mb15 mt15">
+          <div class="col_main">
+            <div class="main_wrap">
+              <div class="w768">
+              
+                
+
+                
+                <!--介绍-->
+                <div class="w475 fl lh22 mb15">
+                  <h1 class="clear f16"><span class="hdjs_tit">{title}</span> <img style="top:0;display:none" src="{status_img_url}" class="ml20"></h1>
+                  
+                  
+                  <p class="f_info mb5 clear" style="display:<!-- IF act =="preview" -->none<!-- ENDIF act -->"> 
+                    <span class="fl">关注数：{hit_count}人</span> 
+                    <span style="padding-left: 20px;">
+                        <a href="./party_sign_list.php?event_id={event_id}">正选已支付：{first_total_enroll_count}人</a>
+                        <a href="./party_sign_list.php?event_id={event_id}">候补已支付：{true_total_back_enroll_count}人</a> 
+                    </span> 
+                    <span style="padding-left: 2px;"><a href="commend_act_list.php?event_id={event_id}" style="display:none;">活动作品数：{cmd_count}</a></span> 
+                    <!-- IF feature_count --><span style="padding-left: 2px;"><a href="#feature_tab" style="display:none;">花絮数：{feature_count}</a></span><!-- ENDIF feature_count -->
+                  </p>
+                  
+
+                  
+                  <p class="f14 clear pt20">标题：{title}<br>
+                    <!-- 时间：{dateformat:start_time, 'Y-m-d H:i'} 至 {dateformat:end_time, 'Y-m-d H:i'}<br> -->
+                    集合时间：{start_time}<br>
+                    结束时间：{end_time}<br>
+                    地址：{address}<br>
+                    地区：<!-- IF location_name1 -->{location_name1} {location_name2}<!-- ELSE -->全国<!-- ENDIF location_name1 --><br>
+                    费用：<!-- IF budget =="0" --><!-- IF event_id == "41770" -->60元起<!-- ELSE -->免费<!-- ENDIF event_id --><!-- ELSE -->{budget}元/人<!-- ENDIF budget --><br>
+                    <!-- IF club_name -->俱乐部：{club_name}<br><!-- ENDIF club_name --> 
+                    人数：<!-- IF people_count -->{people_count}人<!-- ENDIF people_count -->    
+                  </p>
+                    
+                  <!-- IF is_review !="1" -->
+                  <!--修改按钮-->
+                  <div class="look-waipai-mod pt20">
+                    <!-- IF act == "browse" -->
+                        <!-- IF date_is_over --> 
+                            <!-- IF event_status != "3" -->
+                                <!-- IF is_enroll --> 
+                                        <!-- IF check_event_over_some_days --> 
+                                            活动结束30天后不能发表作品
+                                        <!-- ELSE -->
+                                        <a href="{publish_article_link}" target="_blank"><div class="publish_link_btn"></div></a>
+                                        <!-- ENDIF check_event_over_some_days -->
+                                <!-- ENDIF is_enroll -->
+                            <p>活动已经结束</p>
+                            <!-- ELSE -->
+                            <p>该活动已经取消</p>
+                            <!-- ENDIF event_status -->
+                        <!-- ELSE -->
+                            <!-- IF is_not_author == "1" -->
+                            <div class="btn"><a class="bm mr5" href="javascript:void(0);" id="J_join_btn">马上报名>></a><!-- ({join_mode_name}可参加) --></div>
+                                <!-- IF join_mode =="0" --> 
+                                <!-- <span>(全部POCO用户可加入)</span> -->
+                                <!-- ELSEIF join_mode =="1" --> 
+                                <!-- <span>(发布者好友参加，不是好友，报名进入观望)</span> -->
+                                <!-- ELSEIF join_mode =="2" --> 
+                                <!-- <span>(发布者邀请好友参加，没被邀请，报名进入观望)</span> -->
+                                <!-- ELSEIF join_mode =="3" --> 
+                                <!-- <span>({join_level_name}用户参加，等级不够，报名进入观望)</span> -->
+                                <!-- ELSE --> 
+                                <!-- <span>(全部POCO用户可加入)</span> -->
+                                <!-- ENDIF join_mode -->
+                            <!-- ELSE -->
+                            <span style="font-size:14px;color:red;">抱歉，组织者不能参加自己发起的活动。</span>
+                            <!-- ENDIF is_not_author -->
+                        <!-- ENDIF date_is_over --> 
+                    <!-- ENDIF act -->
+                    
+                    <p class="pt10" style="display:none;">
+                        <span class="pr10 ">支持：</span><img class="vam" src="images/outdoor/tui-16x16.png"> 随时退  <img class="vam ml10" src="images/outdoor/guo-16x16.png"> 过期退
+                    </p>
+
+                  </div>
+                  <!--修改按钮 end-->
+                  <!-- ENDIF is_review -->
+                </div>
+                
+                <!-- IF type_icon == "food" -->
+                    <!-- IF tbl_info.res_id -->
+                    <!--地图-->
+                    <div class="w205 pdt40 lh25" style="margin-left:475px;">
+                      <p class="c_green hd_title">餐厅：<a href="http://food.poco.cn/res_detail-htx-id-{tbl_info.res_id}.shtml" class="c_green fb" target="_blank">{tbl_info.res_name}</a>
+                            
+                      <!-- IF poco_vouch_img_display -->
+                      <span class="join"><img src="images/join.png" width="40" height="17" title="该餐厅已经加盟，结帐出示POCO卡可获优惠"/></span>
+                      <!-- ENDIF -->
+                      </p>
+                      <p><a href="http://my.poco.cn/blog_v2/blog_add.php?publish_type=food&event_id={event_id}&init_res_id={tbl_info.res_id}" target="_blank">发布美食推荐作品</a>&gt;&gt; <a href="http://food.poco.cn/res_detail-htx-id-{tbl_info.res_id}.shtml#comment' target='_blank'">写食评</a>&gt;&gt;</p>
+
+
+                    </div>
+                    <!-- ENDIF -->
+                <!-- ENDIF -->
+
+              </div>
+              <div class="clear"></div>
+              <div class="w768 clear clearfix word_break">
+                {page_content_html}
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+          
+        <div class="col_sub">
+            <div class="sidebar_outdoor">
+                <div class="p1th" style="display:none;">
+                    <img src="images/outdoor/fxj-205x70.png?1" />
+                </div>
+                <div class="p2th" style="display:none;">
+                    <div class="share-mod">
+                        <div class="wbox3 clearfix">
+                            <div class="lbox3 fldi">分    享：</div>
+                            <div id="share-data-wrap" class="rbox3 fldi">
+                                <span data="weixin" id="btn_wx" class="share-icon" data-value="weixin"></span>
+
+                                <span data="sina" class="share-icon share-sina" data-value="sina"></span>
+
+                                <span data="qzone" class="share-icon share-zone" data-value="qzone"></span>
+
+                                <span data="qq" class="share-icon share-qq" data-value="qq"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="p1th" style="margin-top:15px;">
+                    <a href="{publish_article_link}" target="_blank"><div class="publish_link_btn"></div></a>
+                </div> -->
+                <div class="p3th" style="margin-top:0px;">
+                    <div class="box1"><img src="images/outdoor/yue-162x50.png" /></div>
+                    <div class="box2"><img src="images/outdoor/ewm-150x150.png" /></div>
+                    <div class="box3">
+                        扫一扫或<a href="http://www.yueus.com/" target="_blank">点击进入官网下载</a>
+                    </div>
+
+                </div>
+
+                <div class="p4th" style="display:none;">
+                    <a href="http://www.yueus.com/topic/party_topic/" target="_blank">
+                    <img src="images/outdoor/m-205x100.png" />
+                    </a>
+                </div>
+
+                <div class="p5th">
+                    <h4>活动发布者：</h4>
+                    <!-- <p class="p1"><a target="_blank" href="#">约yue摄影社区</a> <img src="images/outdoor/icon-16x16.png" /></p>
+
+                    <div class="wbox clearfix">
+                        <div class="lbox fldi"><img src="images/outdoor/y-64x64.png" /></div>
+                        <div class="rbox fldi"><a href="#">查看他发起过的活动</a></div>
+                    </div> -->
+                    <p class="p1" style="color:#ff4978;">{event_yue_user_name}</p>
+
+                    <div class="wbox clearfix">
+                        <div class="lbox fldi"><img src="{event_yue_user_icon}" /></div>
+                        
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+          
+          
+        </div>
+        <div class="d_line"></div>
+               
+            
+
+
+      </div>
+      <style>
+        .listtab1_2 .toggle li a.currenNow, .listtab1_2 .toggles .toggle li a:hover, .listtab1_2 .toggles .toggle li a.currenNow:hover
+        {
+            color:#ff4978!important;
+        }
+      </style>
+      <div class="wrapboxh_2 clearfix">
+        <div class="listtab1_2">
+          <!--cmt内容-->
+          <!-- IF is_review !="1" -->
+          <div class="hdly_box mt15">
+            {cmt_html}     
+          </div>
+          <!-- ENDIF is_review -->
+          <!--cmt内容-->
+          
+            <!-- IF is_authority != "1" -->
+            <p style="margin-top:20px;color:#8b8b8b">免责声明：<BR>本活动为第三方组织，与POCO无关。若活动产生问题或纠纷，POCO不承担任何责任。
+                您同意，参与活动完全出于您自己的判断，并自行承担风险。<BR>POCO尊重并保护所有使用POCO用户的个人隐私权，您的个人资料，非经您亲自许可或根据相关法律、法规的强制性规定，POCO不会主动地泄露给第三方。</p>
+            <!-- ENDIF -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--模板 end-->
+ 
+</div>
+<input type="hidden" id="join_mode" value="{join_mode}"></input>
+<input type="hidden" name="login_user_name" id="login_user_name" value="" />
+<input type="hidden" value="{category}" id="category" name="category">
+<input type="hidden" name="is_event_admin" id="is_event_admin" value="{is_event_admin}" />
+<input type="hidden" name="is_event_user" id="is_event_user" value="{is_event_user}" />
+<input type="hidden"  id="title" value="{title}" />
+<input type="hidden"  id="cover_image" value="{cover_image}" />
+
+
+
+{partyenroll_container}
+
+
+
+<!--  底部  -->
+{footer_html}
+
+
+<!--分享券跟微信扫毛框-->
+<!--领取优惠卷弹出层-->
+<!--输入手机号码-->
+<div class="pop-receive pop-r-phone font_wryh" style="display:none" id="share_div_nologin"> 
+  <a href="javascript:void(0)" class="close share_coupon_close"></a>
+  <div class="pop-con">
+  <div class="txt-item">
+   <div class="listItem">恭喜您获得200元优惠礼包</div>
+   <div class="input-item clearfix">
+   <input type="text" class="input-txt circle-3px font_wryh J_placeholder" value="请输入手机号马上获取" id="coupon_phone_nologin"/>
+   <a href="javascript:void(0);" class="ui-btn ui-btn-rose-h45 circle-3px" id="coupon_share_btn" data-value="">立即分享获取优惠券</a>
+   </div>
+   <div class="l-txt alert_error" style="padding-top:0px;color:red;" id="coupon_phone_nologin_error"></div>
+   <div class="l-txt" style="padding-top:20px;">好友通过该分享链接成功报名，本人更可获得现金返现</div> 
+    </div>
+    <div class="pop-mod-btn clearfix">
+    <i class="pop-logo"><a href="http://www.yueus.com" target="_blank"></a></i>
+    <div class="btn-item"><a href="http://www.yueus.com" target="_blank" class="ui-btn ui-btn-rose-h35 circle-3px">立即下载</a></div>
+    </div>
+  </div>
+</div>
+<!--输入手机号码 end-->
+<!--优惠券放入账户-->
+<div class="pop-receive pop-r-coupon font_wryh" style="display:none" id="share_div_login"> 
+  <a href="javascript:void(0);" class="close share_coupon_close"></a>
+  <div class="pop-con">
+  <div class="txt-item" id="share_end_div">
+   <div class="listItem">恭喜您获得200元优惠礼包</div>
+   <h4 class="title" id="coupon_text_login">优惠券已放入账号：<span class="num" id="coupon_phone_login"></span></h4>
+   <p class="tips">APP上注册或登录后即可使用</p>
+   <div style="text-align:center;"><img src="" style="display:none;width:150px;" id="coupon_img"></div>
+   <div class="l-txt">复制链接，邀请好友成功报名获得现金返现：<br />
+<a href="javascript:void(0);" id="coupon_phone_url">http://www.poco.cn/?_t_=1425196643990</a></div> 
+    </div>
+    <div class="pop-mod-btn clearfix">
+    <i class="pop-logo"><a href="http://www.yueus.com" target="_blank"></a></i>
+    <div class="btn-item"><a href="http://www.yueus.com" target="_blank" class="ui-btn ui-btn-rose-h35 circle-3px">立即下载</a></div>
+    </div>
+  </div>
+</div>
+<!--优惠券放入账户 end-->
+<!--领取优惠卷弹出层 end-->
+
+
+
+
+<script>
+//关闭活动等级提示层
+function close_event_level_tips()
+{
+    $('event_level_tips').style.display='none';
+
+    writeCookie("event_close_event_level_tips", login_id, 2400); 
+    return false;
+}
+
+
+//关闭评分提示层
+function close_grade_tips()
+{
+    $('grade_tips').style.display='none';
+
+    writeCookie("event_close_grade_tips", login_id, 2400); 
+        
+}
+function display_user_event_list()
+{
+    var obj = $('user_event_list_div');
+    if(obj)
+    {
+        if(obj.style.display=="none")
+        {
+            obj.style.display="";
+        }else{
+            obj.style.display="none";
+        }
+    }
+}
+</script>
+<script>
+//处理分享
+seajs.use(['jquery'], function($) {
+    
+    $(document).ready(function(){
+        $("#share-data-wrap").bind("click",function(e){
+                var target = e.target;
+                var data_value = $(target).attr("data-value");
+                var yue_login_id = $("#yue_login_id").val();
+                var true_enroll_user_phone = $("#enroll_user_phone").val();
+                var enroll_user_phone = parseInt(true_enroll_user_phone);
+                enroll_user_phone  = enroll_user_phone.toString(8);//8进制
+                
+                
+                if(yue_login_id=="" || yue_login_id<0)
+                {
+                    //非登录状态,弹出输入框
+                    $("#J_fade_screen").css("display","block");
+                    $("#share_div_nologin").css("display","block");
+                    $("#coupon_share_btn").attr("data-value",data_value);
+                    
+                }
+                else
+                {
+                    //登录状态
+                    var return_array = construct_share_url(data_value,enroll_user_phone);
+                    
+                    if(data_value=="weixin")
+                    {  
+                    
+                        var coupon_text = '微信扫一扫，分享去朋友圈，优惠券即放入账号：<span class="num">'+true_enroll_user_phone+'</span>';
+                        $("#coupon_text_login").html(coupon_text);
+                        
+                        //生成二维码图片的链接
+                        $("#share_end_div").css("height","335px");//设置放图的块高度
+                        $("#coupon_img").attr("src",return_array[0]);
+                        $("#coupon_img").css("display","inline-block");
+                        
+                        $("#J_fade_screen").css("display","block");
+                        $("#share_div_login").css("display","block");
+                        coupon_add();                        
+                    }
+                    else
+                    {
+                        var coupon_text = '优惠券已放入账号：<span class="num">'+true_enroll_user_phone+'</span>';
+                        $("#coupon_text_login").html(coupon_text);
+                        
+                        $("#share_end_div").css("height","250px");//设置放图的块高度
+                        $("#coupon_img").css("display","none");
+                        $("#J_fade_screen").css("display","block");
+                        $("#share_div_login").css("display","block");
+                        
+                        //异步调用记录优惠劵PHP
+                        coupon_add();
+                        window.open(return_array[1]);
+                        
+                        
+                    }
+                    //修改链接
+                    $("#coupon_phone_url").html(return_array[2]);
+                    
+                    
+                    
+                }
+                
+            
+            
+        
+        
+        });
+        
+        
+        //分享按钮点击
+        $("#coupon_share_btn").bind("click",function(e){
+            var target = e.target;
+            var data_value = $(target).attr("data-value");
+            var true_coupon_phone_nologin = $("#coupon_phone_nologin").val();
+            var checkPhone_res = checkSharePhone(true_coupon_phone_nologin);
+            if(!checkPhone_res)
+            {
+                
+                $("#coupon_phone_nologin_error").html("请输入合法手机号");
+                $("#coupon_phone_nologin_error").addClass("alert_error2");
+                $("#coupon_phone_nologin_error").removeClass("alert_error");
+                return false;
+            }
+            else
+            {
+                $("#coupon_phone_nologin_error").html("");
+                $("#coupon_phone_nologin_error").addClass("alert_error");
+                $("#coupon_phone_nologin_error").removeClass("alert_error2");
+                var coupon_phone_nologin = parseInt(true_coupon_phone_nologin);//转换成数字
+                coupon_phone_nologin = coupon_phone_nologin.toString(8);//8进制
+                
+                var return_array = construct_share_url(data_value,coupon_phone_nologin);
+                if(data_value=="weixin")
+                {
+                    var coupon_text = '微信扫一扫，分享去朋友圈，优惠券即放入账号：<span class="num">'+true_coupon_phone_nologin+'</span>';
+                    $("#coupon_text_login").html(coupon_text);
+                    
+                    $("#share_end_div").css("height","335px");//设置放图的块高度
+                    $("#coupon_img").attr("src",return_array[0]);
+                    $("#coupon_img").css("display","inline-block");
+                    
+                    $("#share_div_nologin").css("display","none");
+                    $("#share_div_login").css("display","block");
+                    coupon_add();
+                    
+                    
+                }
+                else
+                {
+                
+                    var coupon_text = '优惠券已放入账号：<span class="num">'+true_coupon_phone_nologin+'</span>';
+                    $("#coupon_text_login").html(coupon_text);
+                    
+                    $("#share_end_div").css("height","250px");//设置放图的块高度
+                    $("#coupon_img").css("display","none");
+                    $("#share_div_nologin").css("display","none");
+                    $("#share_div_login").css("display","block");    
+                    //异步调用记录优惠劵PHP
+                    coupon_add();
+                    window.open(return_array[1]);
+                    
+                    
+                }
+                //修改链接
+                $("#coupon_phone_url").html(return_array[2]);
+                
+                
+            }
+        });
+        
+        
+        $(".share_coupon_close").bind("click",function(e){
+            $("#J_fade_screen").css("display","none");
+            $("#share_div_login").css("display","none");
+            $("#share_div_nologin").css("display","none");
+            
+        });
+        
+        //构造分享链接跟二维码
+        function construct_share_url(sign,enroll_user_phone)
+        {
+            var ajax_event_id = $("#ajax_event_id").val();//活动ID
+            var title = $("#title").val();//标题
+            
+            var share_url = "http://www.yueus.com/topic/party/party_browse.php?event_id="+ajax_event_id+"&share_data="+enroll_user_phone;
+            //改成中转页
+            
+            var share_title = encodeURIComponent("【"+title+"】火热报名中 ︳约yue");//标题
+            if(sign=="sina")//新浪特殊处理
+            {
+                share_title = encodeURIComponent("【"+title+"】火热报名中 ︳约yue "+share_url);//标题
+            }
+            var share_content = encodeURIComponent("百万礼包拍就送，绝对任性！");//内容
+            
+            
+            var encode_share_url = encodeURIComponent(share_url);
+            
+            
+            //var square_code_img_link = "http://qr.liantu.com/api.php?text="+encode_share_url;//二维码图片
+            var square_code_img_link = "http://www.yueus.com/topic/party/party_square_code_img.php?text="+encode_share_url;//二维码图片
+            
+            //构造微信二维码图片
+            if(sign == "weixin")
+            {
+                var weixin_share_url = "http://www.yueus.com/event/"+ajax_event_id+"?share_event_id="+ajax_event_id+"&ph="+enroll_user_phone;
+                var encode_weixin_share_url = encodeURIComponent(weixin_share_url);
+                //重构微信链接
+                //square_code_img_link = "http://qr.liantu.com/api.php?text="+encode_weixin_share_url;//二维码图片
+                square_code_img_link = "http://www.yueus.com/topic/party/party_square_code_img.php?text="+encode_weixin_share_url;//二维码图片
+            }
+            
+            var cover_image = $("#cover_image").val();
+            
+            if(sign == "weixin")
+            {
+                var pic = square_code_img_link;
+            }
+            else
+            {
+                var pic = cover_image;
+            }
+            
+            //构造真正分享的链接
+            var true_share_url = "http://www.yueus.com/module/share.php?title="+share_title+"&sign="+sign+"&url="+encode_share_url+"&type=other&pic="+pic+"&content="+share_content;
+            
+            
+            var return_array =  new Array();
+            return_array[0] = square_code_img_link;
+            return_array[1] = true_share_url;
+            return_array[2] = share_url;
+            
+            return return_array;
+        }
+        
+        
+        function coupon_add()
+        {
+            var ajax_event_id = $("#ajax_event_id").val();//活动ID
+            var cellphone = $("#enroll_user_phone").val();
+            if(cellphone=="" || cellphone<0)
+            {
+                cellphone = $("#coupon_phone_nologin").val();
+            }
+            //异步调用
+            $.ajax
+            ({
+            
+                type:'post',
+                dataType:'json',
+                timeout:5000,
+                url:'./module/party_coupon_insert_ajax.php',
+                data:"event_id="+ajax_event_id+"&cellphone="+cellphone+"&timestamp=" + new Date().getTime(),
+                error:function(XMLHttpRequest,status)
+                {
+                    
+                },
+                success:function(json_data)
+                {
+                    return true;
+                }
+                
+            });
+        }
+        
+        //检查电话号码
+
+        function checkSharePhone(phone)
+        {
+            var re= /^1[0-9][0-9]\d{8,8}$/;
+            var tips = '';
+          
+            if(!re.test(phone))
+            {
+                tips = false;
+            }
+            else
+            {
+                tips = true;
+            }
+          
+          return tips;
+        }
+        
+        
+        //代替placeholder
+        $(".J_placeholder").focusin(function() {
+            if($(this).val() =="请输入手机号马上获取"){  
+                $(this).val("");
+            }
+        });
+        $(".J_placeholder").focusout(function() {
+            if($(this).val() ==""){ 
+                $(this).val("请输入手机号马上获取");
+            }
+        });
+        
+        
+    })
+    
+});
+</script>
+</body>
+
+
+</html>

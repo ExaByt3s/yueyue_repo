@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "ui-tips_e2468ac.css",
+    "sources": [
+        "/style/widget/ui-tips.scss"
+    ],
+    "sourcesContent": [
+        ".ui-tips{\r\n    padding: 20px 15px;\r\n    text-align: center;\r\n    font-size: 16px;\r\n    color: #808080;\r\n}\r\n\r\n.ui-tips i{\r\n    display: inline-block;\r\n    width: 23px;\r\n    height:1px;\r\n    position: relative;\r\n    overflow: visible;\r\n    margin-right: 8px;\r\n    margin-left:0px;\r\n    font-size: 20px;\r\n    vertical-align: middle;\r\n}\r\n.ui-tips i:before{\r\n    background:url(http://i.gtimg.cn/vipstyle/frozenui/1.2.0/img/icon.png?_bid=306) no-repeat -25px 0px;\r\n    -webkit-background-size: 150px auto;\r\n    content:\"\";\r\n    display: block;\r\n    width: 23px;\r\n    height:23px;\r\n    position: absolute;\r\n    left:0px;\r\n    top: -13px;\r\n}\r\n.ui-tips-success i:before{\r\n  background-position: 0 -25px;\r\n}\r\n.ui-tips-warn i:before{\r\n  background-position: -50px 0;\r\n}\r\n.ui-tips-success{  \r\n    color:#000;\r\n}\r\n"
+    ],
+    "mappings": "AAAA,AACI,AAAS,AACT,AAAY,AACZ,AAAW,AACX,AAAO,AAGX,AAAS,AACL,AAAS,AACT,AAAO,AACP,AAAO,AACP,AAAU,AACV,AAAU,AACV,AAAc,AACd,AAAY,AACZ,AAAW,AACX,AAAgB,AAEpB,AAAS,AAAC,AACN,AAAkF,AAClF,AAAyB,AACzB,AAAQ,AACR,AAAS,AACT,AAAO,AACP,AAAO,AACP,AAAU,AACV,AAAK,AACL,AAAK,AAET,AAAiB,AAAC,AAChB,AAAqB,AAEvB,AAAc,AAAC,AACb,AAAqB,AAEvB,AACI,AAAM",
+    "names": []
+}

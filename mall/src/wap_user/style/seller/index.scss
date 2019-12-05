@@ -1,0 +1,370 @@
+@import "../../sass/compass";
+
+
+// 首页
+.seller-index-page{
+
+    .ui-button{
+        border-radius: 20px;
+        font-size: 14px;
+        background: #fff;
+        display: inline-block;
+    }
+    
+    .p1th{
+        background: #fff;
+        .img-box{
+           width: 100%;
+           height: 127px; 
+           background-size:  cover;
+           position: relative;
+           background-color: #dddbdb;
+           background-position: 100%;
+        }
+        .ui-avatar-icon{
+            position: absolute;
+            width:60px;
+            height:60px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            left: 50%;
+            margin-left: -30px;
+            margin-top: -32px;
+        }
+        
+
+
+    }
+
+    .p2th{
+        background: #fff;
+        padding:40px 20px 40px 20px;
+        border-bottom: 1px solid #eeeeee;
+        .p1{
+            text-align: center;
+        }
+        .p2{
+            text-align: center;
+            padding: 10px 20px 0 20px;
+            line-height: 1.8;
+        }
+        .more{
+            padding-top: 20px;
+        }
+
+
+
+        
+    }
+
+    .model-info{
+        padding-top: 20px;
+        padding-bottom: 15px;
+        margin:0 0px 0 0px;
+        // border-bottom: 1px solid #eeeeee;
+        // border-top: 1px solid #eeeeee;
+        margin-top: 20px;
+        .list{
+            @include flexbox((
+                display: box,  // 盒子模型 子元素默认水平左对齐
+                box-pack: justify  // 水平居中方式  start | center | end | justify
+               
+            ));
+            padding-top: 20px;
+        }
+        li{
+            width:70px;
+            text-align: center;
+        }
+        .icon{
+            width:38px;
+            height: 38px;
+            background-size: contain;
+        }
+        .icon-h{
+            background-image: url(../../image/height-76x76.png) ;
+        }
+        .icon-w{
+            background-image: url(../../image/weight-76x76.png) ;
+        }
+        .icon-c{
+            background-image: url(../../image/chest-76x76.png) ;
+        }
+        .icon-m{
+            background-image: url(../../image/measurements-76x76.png) ;
+        }
+        .des{
+            padding-top: 15px;
+            p{
+                padding-top: 15px;
+            }
+        }
+
+
+    }
+
+    .camera-info{
+        // padding-top: 20px;
+        // padding-bottom: 30px;
+        padding:0px 0px 15px 0px;
+        border-bottom: 1px solid #eeeeee;
+        .col-item{
+            background: #fff;
+            margin-top: 15px;
+            padding-top: 35px;
+            padding-bottom: 35px;
+
+        }
+        .item{
+            padding-top: 20px;
+            .p1{
+                padding-top: 15px;
+            }
+        }
+        .main-title{
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            .icon-title{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                
+                vertical-align: middle;
+                background-size: cover;
+                margin-right: 5px;
+                background-repeat: no-repeat;
+            }
+        }
+
+
+    }
+
+    .p4th{
+        background: #fff;
+        padding:40px 20px 40px 20px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eeeeee;
+        .start{
+           text-align: center;
+           padding: 20px 0;
+        }
+       
+        .num{
+            padding-top: 10px;
+        }
+
+        .stars-all-mod{
+            margin: 15px auto 25px  auto;
+
+        }
+    }
+
+    .p5th{
+        background: #fff;
+        padding-top: 40px;
+        padding:0 20px 0 20px;
+        border-bottom: 1px solid #eeeeee;
+        .item-title{
+            font-size: 18px;
+            text-align: center;
+            padding: 30px 0 15px  0;
+            font-weight: bold;
+        }
+        .more{
+            padding: 10px 0 6px 0;
+            a{
+                display: block;
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+
+// 详情页
+.seller-detail-page{
+    padding: 15px;
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.8;
+    .des{
+    }
+    img{
+        width: 100%;
+        padding: 5px 0 0 0;
+    }
+}
+
+//列表页
+.seller-list-page{
+    .img-wrap{
+        padding: 0  5%  10px  5%;
+    }
+
+    .more{
+        padding: 10px 0 0px 0;
+        a{
+            display: block;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+    }
+}
+
+// 评价页
+.seller-comment-page{
+    .comment-wrap{
+        .comment-box{
+            padding: 0px 15px 0 15px;
+        }
+        
+        
+        .item{
+            padding: 20px 0 20px 0;
+            // border-bottom: 1px solid #eeeeee;
+            .wbox{
+                @include flexbox((
+                    display: box  // 盒子模型 
+                    // box-flex: 1 //占有空间比例
+                ));
+
+                .lbox{
+                    margin-right: 10px;
+                }
+                .rbox{
+                    @include flexbox((
+                        box-flex: 1 //占有空间比例
+                    ));
+                    .box-a{
+                        padding-top: 6px;
+                        @include flexbox((
+                            display: box,  // 盒子模型 子元素默认水平左对齐
+                            box-pack: justify  // 水平居中方式  start | center | end | justify
+
+                        ));
+
+                        .name{
+                            width: 140px;
+                        }
+                    }
+                    .ui-start-mod{
+                        padding-top: 2px;
+                        .icon-s-mod{
+                            width: 12px;
+                            height: 12px;
+                        }
+                    }
+                    .box-b{
+                        padding-top: 3px;
+                    }
+                }
+            }
+
+            .des{
+                padding-top: 13px;
+            }
+        }
+    }
+}
+
+
+
+// 服务列表
+.service-list-page{
+    .seller-list-wrap{
+        padding: 0px 15px 10px 15px;
+    }
+
+
+    //  图片列表模块
+    .list-max-one-img-mod{
+        .item{
+            padding: 15px 0  15px 0 ;
+            border-bottom: 1px solid #e6e6e6;
+            display: -webkit-box;
+            display: box;
+            .lbox{
+                position: relative;
+                width: 100px;
+                height: 100px;
+                i{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                    background-repeat: no-repeat;
+                    -webkit-background-size: cover;
+                    display: block;
+                    background-repeat: no-repeat;
+                }
+            }
+            .rbox{
+                margin-left: 15px;
+                -webkit-box-flex: 1; 
+                box-flex: 1;
+                display: -webkit-box;
+                -webkit-box-pack: justify;
+                -webkit-box-orient: vertical;
+                .price{
+                    margin-top: 15px;
+                    font-size: 16px;
+                    .price-tips{
+                        position: relative;
+                        bottom: 2px;
+                        display: inline-block;
+                          padding: 0 5px;
+                        font-size: 12px;
+                        color: #fe9920;
+                        border: solid 1px #fe9920;
+                        border-radius: 2px;
+                    }
+                }
+                .num{
+                  display: -webkit-box;
+                    .tags{
+                          display: inline-block;
+                          width: 20px;
+                          height: 20px;
+                          margin-left: 10px;
+                          margin-right: 5px;
+                          color: #fff;
+                          text-align: center;
+                          line-height: 20px;
+                          background: #fe9920;
+                          border-radius: 2px;
+                        }
+                    .msg{
+                            color: #fe9920;
+                        }
+                    }
+            }
+        }
+    }
+    //  图片列表模块 end
+
+    .more{
+        a{
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+}
+
+
+
+
+

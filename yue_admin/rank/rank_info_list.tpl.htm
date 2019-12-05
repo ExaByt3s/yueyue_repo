@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>榜单管理系统</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+.tables
+{
+	border-top:solid 1px #eee;
+	border-right:solid 1px #eee;
+	margin-bottom: 100px;
+}
+.tables tr th,.tables tr td
+{
+	border-bottom:solid 1px #eee;
+	border-left:solid 1px #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">榜单内容展示</a> 
+		<!-- <a href="rank_event.php?act=add">榜单添加</a> -->
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform">
+					<table class="table-list-search" id="quick_search" width="1000">
+					      <tbody>
+							       <tr>
+									    <td width="100">
+									    城市:
+										    <select name="location_id" id="location_id">
+										    	<option value="0">全部</option>
+										  		<option value="101029001" <!-- IF location_id="101029001" -->selected='true' <!-- ENDIF --> >广州</option>
+										  		<option value="101019001" <!-- IF location_id="101019001" -->selected='true' <!-- ENDIF -->>武汉</option>
+										  		<option value="101001001" <!-- IF location_id="101001001" -->selected='true' <!-- ENDIF -->>北京</option>
+										  		<option value="101003001" <!-- IF location_id="101003001" -->selected='true' <!-- ENDIF -->>上海</option>
+										  		<option value="101022001" <!-- IF location_id="101022001" -->selected='true' <!-- ENDIF --> >成都</option>
+										  		<option value="101004001" <!-- IF location_id="101004001" -->selected='true' <!-- ENDIF --> >重庆</option>
+										    </select>
+									    </td>
+									    <td width="300">
+									    角色:
+									    	<select name="role">
+										  	  <option value="model" <!-- IF role="model" -->selected='true' <!-- ENDIF -->>模特</option>
+										  	  <option value="cameraman" <!-- IF role="cameraman" -->selected='true' <!-- ENDIF -->>摄影师(未登陆默认摄影师身份)</option>
+										  	</select>
+									    </td>
+									   <td>
+									    <p><input type="submit" class="button" value="查找"/> <!-- <input type="button" class="button" value="导出" onclick="com_export('export')"> --></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+	<div class="table-list">
+		<!-- <div class="btn">
+			总条数:{total_count}
+		</div> -->
+
+			    <!-- BEGIN list -->
+			    <table width="100%" cellspacing="0" style="min-width: 1025px;" class="tables">
+			        <thead>
+			        	<tr><th colspan="9">{name}</th></tr>
+			        </thead>
+					<tr>
+					<td align="center" class="tds">用户ID</td>
+					<td align="center" class="tds">昵称</td>
+					<td  align="center" class="tds">封面图</td>
+					<td  align="center" class="tds">风格</td>
+					<td  align="center" class="tds" >价格</td>
+					<td  align="center" class="tds">备注</td>
+					<td  align="center" class="tds">评分</td>
+					<td  align="center">积分</td>
+					</tr>
+					<!-- BEGIN user_list -->
+					<tr>
+					<td align="center" class="tds">{user_id}</td>
+					<td align="center" class="tds">{nickname}</td>
+					<td align="center" class="tds"><img src="{user_icon}"></td>
+					<td align="center" class="tds">{style}</td>
+					<td align="center" class="tds">{num}{unit}</td>
+					<td align="center" width="200" class="tds">{intro}</td>
+					<td align="center" class="tds">{comment_score}</td>
+					<td align="center">{score}</td>
+					</tr>
+					<!-- END user_list -->
+			</tbody>
+		</table>
+		<!-- END list -->
+	</div>
+	<div id="pages" class="page">
+	{page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+  $(function(){
+ 		//显示所有文字
+ 		$("#table-list tbody td").find(".desc").mouseover(function(){
+ 			var $dmid_desc = $(this).attr('data');
+ 			layer.tips($dmid_desc, this, {
+ 				style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+ 				    //maxWidth:185,
+ 				time: 3,
+ 				closeBtn:[0, false]
+ 			});
+ 		});
+ 		$("#table-list tbody td").find(".desc").mouseleave(function(){
+ 			layer.closeTips();
+ 		});
+ 		//url
+ 		$("#table-list tbody td").find(".url").mouseover(function(){
+ 			var $dmid_desc = $(this).attr('data');
+ 			layer.tips($dmid_desc, this, {
+ 				style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+ 				    //maxWidth:185,
+ 				time: 3,
+ 				closeBtn:[0, false]
+ 			});
+ 		});
+ 		$("#table-list tbody td").find(".url").mouseleave(function(){
+ 			layer.closeTips();
+ 		});
+    });
+</script>
+</html>

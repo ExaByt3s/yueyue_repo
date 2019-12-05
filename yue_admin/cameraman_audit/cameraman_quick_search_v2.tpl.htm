@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/export.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+#list p
+{
+	line-height:auto;
+	margin:0px;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<li><a href="javascrip:void(0);" class="on">快速筛选</a></li>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form action="?" method="get">
+					姓名:
+					<input type="text" size="14" class="input-text" name="name" value="{name}"/>
+					手机号码:
+					<input type="text" size="14" class="input-text" name="cellphone" value="{cellphone}"/>
+					UID:
+					<input type="text" size="10" class="input-text" name="user_id" value="{user_id}"/>
+					<input type="submit" value="查询" class="button" />
+					<input type="hidden" name="sort" value="{sort}"/>
+					&nbsp;
+					<a href="javascript:void(0);" onclick="export_search('cameraman_search_v2_export.php?act=export&name={name}&cellphone={cellphone}&user_id={user_id}&sort={sort}')" target='_blank'>导出</a>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+<form name="list_form" id="list_form" action="model_export.php" method="post">
+	<div class="table-list">
+		<div class="btn">
+			符合条件的人数为:{total_count}
+			<span style="position: absolute;right:20px;">
+			    排序:
+				<select name="sort" id="sort">
+					<option>默认</option>
+					<option value="add_time_asc" <!-- IF sort="add_time_asc" -->selected='true' <!-- ENDIF -->>录入时间升序</option>
+					<option value="add_time_desc" <!-- IF sort="add_time_desc" --> selected='true'<!-- ENDIF -->>录入时间降序</option>
+				</select>
+			</span> 
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0" id="list">
+			<thead>
+				<tr>
+					<th>姓名/APP名/UID</th>
+					<th>手机/微信</th>
+					<th>常驻城市</th>
+					<th>拍摄风格</th>
+					<th>最后登录时间</th>
+					<th>上月交易额</th>
+					<th>上月交易次数</th>
+					<th>平均月交易金额</th>
+					<th>消费区间</th>
+					<th>活跃度</th>
+					<th>空闲时间</th>
+					<th>标签</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+					<td align="center">
+						<p><!-- IF name -->{name}<!-- ELSE --><font color='red'>暂无姓名</font><!-- ENDIF --></p>
+						<p>{nickname}</p>
+						<p>{user_id}</p>
+					</td>
+					<td align="center">
+						<p>{cellphone}</p>
+						<p><!-- IF weixin_name -->{weixin_name}<!-- ELSE --><font color='red'>暂无微信</font><!-- ENDIF --></p>
+					</td>
+					<td align="center">
+						{location_name}
+					</td>
+					<td align="center">
+						{goods_style}
+					</td>
+					<td align="center">
+						{last_login_time}
+					</td>
+					<td align="center">
+						{prev_month_price}
+					</td>
+					<td align="center">
+						{prev_month_num}
+					</td>
+					<td align="center">
+						{avg_month_price}
+					</td>
+					<td align="center">
+						{consumption_name}
+					</td>
+					<td align="center">
+						{login_name}
+					</td>
+					<td align="center">
+						{photo_time}
+					</td>
+					<td align="center">
+						{label_name}
+					</td>
+					<td align="center">
+					   <a href="cameraman_detail_v2.php?user_id={user_id}" target="_blank">查看</a>
+					</td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+		<!--list end-->
+	</div>
+</form>
+<div id="pages" class="page">
+	{page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		//排序
+		$("#sort").change(function(){
+			var $oUrl = window.location.href.toString();
+			var $re = eval('/(sort=)([^&]*)/gi');
+			//var $res = /sort=/gi;
+			var $search = window.location.search;
+			if ($search == null || $search == '') 
+			{
+				window.location.href = $oUrl+"?sort="+$(this).val();
+			}
+			else
+			{
+				if ($re.test($search)) 
+				{
+					window.location.href = $oUrl.replace($re , "sort="+$(this).val());
+				}
+				else
+				{
+					window.location.href = $oUrl+"&sort="+$(this).val();
+				}
+				
+			}
+		});
+	});
+</script>
+</html>

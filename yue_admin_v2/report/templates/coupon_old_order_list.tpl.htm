@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <title>工作监控报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <li><a href="javascript:void(0);" class="on">{title}</a></li>
+        </ul>
+    </div>
+    <!--top-->
+    <div class="table-list" id="table-list">
+        <!--<div class="btn">
+            总条数:{total_count}
+        </div>
+         -->
+        <!--list-->
+        <table width="100%" cellspacing="0" style="min-width: 1000px;">
+            <thead>
+            <tr>
+                <th>订单ID</th>
+                <th>订单号</th>
+                <th>约拍ID</th>
+                <th>商家昵称</th>
+                <th>商家ID</th>
+                <th>消费者昵称</th>
+                <th>消费者ID</th>
+                <th>交易额</th>
+                <th>优惠券金额</th>
+                <th>完成时间</th>
+                <th>订单状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center">{event_id}</td>
+                <td align="center">{enroll_id}</td>
+                <td align="center">{date_id}</td>
+                <td align="center"><a href="http://www.yueus.com/model/card.php?user_id={to_date_id}" target="_blank">{seller_name}</a></td>
+                <td align="center">{to_date_id}</a></td>
+                <td align="center">{buyer_name}</td>
+                <td align="center">{from_date_id}</td>
+                <td align="center">{price}</td>
+                <td align="center">{discount_price}</td>
+                <td align="center">{complete_time}</td>
+                <td align="center"><!-- IF event_status="2" --><font color="blue"> 已经完成</font><!-- ELSEIF event_status="3" --><font color="#7fff00">强制退款</font><!-- ELSEIF event_status="8" --><font color="red">全额退款</font><!-- ENDIF --></td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{{#if data.has_pre}}
+    <a title="上一页" data-index="pre">&lt;</a>
+{{/if}}
+{{#each data.list}}
+    <a {{#if cur}}class="click"{{/if}} data-index="{{{dex}}}">{{num}}</a>
+{{/each}}
+{{#if data.has_next}}
+    <a title="下一页" data-index="next">&gt;</a>
+{{/if}}

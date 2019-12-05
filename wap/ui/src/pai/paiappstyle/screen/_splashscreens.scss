@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+// ------------------------------
+// 开机画面
+// ------------------------------
+
+$splashscreens-backColor: #fff;
+$splashscreens-barColor: #ff4978;
+
+.splashscreens-page {
+    position: relative;
+    z-index: $maxZIndex+1;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: #F5809F;
+    @include box-sizing(border-box);
+
+    .splashscreens-container {
+        @include flexbox((
+            display: box,
+            box-orient: vertical,
+            box-pack: justify
+        ), $version: 1);
+        width: 100%;
+        height: 100%;
+        
+
+        & > div {
+            @include flexbox((
+                box-flex: 1
+            ), $version: 1);
+            margin-top: 66px;
+        }
+    }
+
+    hgroup {
+        padding-top: 118px;
+
+        h1, h2 {
+            display: block;
+            color: #fff;
+
+            &:before {
+                margin: 0 auto;
+            }
+        }
+        h1 {
+            margin-bottom: 13px;
+            font-size: 30px;
+            @include hide-text;
+        }
+        h2 {
+            @include hide-text;
+            font-size: 16px;
+        }
+    }
+
+    footer {
+        padding-bottom: 22px;
+    }
+
+    $progress-radial-size: 30px;
+
+    .progress-wrap {
+        margin: 0 auto;
+        @include square($progress-radial-size);
+    }
+    .progress-radial {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: $splashscreens-barColor;
+
+        @include border-radius(50%);
+        
+        @include background(linear-gradient(90deg, $splashscreens-backColor 50%, transparent 50%, transparent), linear-gradient(90deg, $splashscreens-barColor 50%, $splashscreens-backColor 50%, $splashscreens-backColor));
+
+        &.running {
+            @include animation-name(loading-progress-radial);
+            @include animation-timing-function(linear);
+            @include animation-iteration-count(1);
+        }
+        &.complete {
+            @include background(linear-gradient(90deg, $splashscreens-barColor 50%, transparent 50%, transparent), linear-gradient(270deg, $splashscreens-barColor 50%, $splashscreens-backColor 50%, $splashscreens-backColor));
+        }
+    }
+    .overlay {
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        @include square($progress-radial-size - 2);
+        background-color: #fff;
+
+        @include border-radius(50%);
+    }
+}
+
+
+@include keyframes('loading-progress-radial') {
+    // step of % for created classes
+    $step: 2;
+
+    $loops: round(100 / $step);
+    $increment: 360 / $loops;
+    $half: round($loops / 2);
+    @for $i from 0 through $loops {
+        $percentage: percentage($i*$step / 100);
+        #{$percentage} {
+            @if $i < $half {
+                $nextdeg: 90deg + ( $increment * $i );
+                @include background(linear-gradient(90deg, $splashscreens-backColor 50%, transparent 50%, transparent), linear-gradient($nextdeg, $splashscreens-barColor 50%, $splashscreens-backColor 50%, $splashscreens-backColor));
+            } @else {
+                $nextdeg: -90deg + ( $increment * ( $i - $half ) );
+                @include background(linear-gradient($nextdeg, $splashscreens-barColor 50%, transparent 50%, transparent), linear-gradient(270deg, $splashscreens-barColor 50%, $splashscreens-backColor 50%, $splashscreens-backColor));
+            }
+        }
+    }
+}
+  

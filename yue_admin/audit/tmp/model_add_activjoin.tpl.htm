@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery.form.js"></script> 
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+</head>
+<body>
+<div class="mainbox">
+<form name="list_form" id="list_form" action="?uid={uid}" method="post">
+	<div class="table-list">
+	   <div class="table">
+	   	 <table  cellspacing="0">
+		    	<tbody class="tbody">
+		    	<!-- BEGIN list -->
+				<tr>
+				<td align="center">活动报名:<input type="text" class="input-text" name="activity_join[]" value="{activity_join}"/></td>
+				<td><!-- IF ROWCNT == 0 --><a href="javascript:void(0);" onclick="add_join()">+</a><!-- ELSEIF ROWCNT --><a href='javascript:void(0);' class='del_join'>-</a><!-- ENDIF ROWCNT --></td>
+				</tr>
+				<!-- END list -->
+				<!-- IF default_join -->
+				<tr>
+				<td align="center">活动报名:<input type="text" class="input-text" name="activity_join[]" value="{activity_join}"/></td>
+				<td><a href="javascript:void(0);" onclick="add_join()">+</a></td>
+				</tr>
+				<!-- ENDIF default_join -->
+			    </tbody>
+		    </table>
+	   </div>
+	   <div class="btn">
+			<input type="button" class="button" name="dosubmit" value="取消" id="close_layer"/>
+			&nbsp;&nbsp;
+			<input type="button" class="button" name="dosubmit" value="提交" id="send_layer"/> 
+		</div>
+	</div>
+</form>
+</div>
+</body>
+<script type="text/javascript">
+	var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+	//window.alert(parent.uid);
+	$('#close_layer').on('click', function(){
+      parent.layer.close(index); //执行关闭
+     });
+	//提交获取数据
+   $('#send_layer').on('click', function(){
+   	$("#list_form").ajaxSubmit({
+   		dataType : "json",
+        data:{'act': 'insert'},
+		success:function(data)
+		{
+			//window.alert(data.str);
+			//parent.$('#list_style').html(data.str);
+			/*parent.$('#stand_follow_data').append(str);*/
+			if (data.ret != '' && data.ret != 'undefined')
+			{
+				var $ret = data.ret;
+				parent.$('#list_join').html($ret['activity_join']);
+			}
+            parent.layer.close(index);
+		},
+		error:function(data)
+		{
+			//parent.layer.close(index);
+		}
+   	})	
+});
+$(function(){
+	$.del_join();
+});
+//添加输入框
+function add_join()
+{
+	var $str = "";
+	$str += "<tr><td align='center'>活动报名:<input type='text' class='input-text' name='activity_join[]' value=''/></td><td><a href='javascript:void(0);' class='del_join'>-</a></td></tr>";
+	$(".tbody").append($str);
+	$.del_join();
+}
+
+$.extend({
+	//删除输入框
+	del_join:function()
+	{
+		$(".del_join").click(function(){
+			$(this).parent().parent().remove();
+		});
+	}
+})
+</script>
+</html>

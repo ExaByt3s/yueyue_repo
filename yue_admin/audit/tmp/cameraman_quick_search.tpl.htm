@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<script type="text/javascript" src="resources/js/user_layer.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/model.js"></script>
+<link rel="stylesheet" type="text/css" href="js/Date/date.css">
+<script type="text/javascript" src="js/Date/date.js"></script>
+<script type="text/javascript" src="js/Date/search_year.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="#" class="on">精确筛选</a>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form action="?" method="get">
+					<table class="table-list-search" id="quick_search" width="100%">
+							<!--身材部分-->
+							   <tr>
+							   <td class="table_search">
+							    <table width="700">
+							    <tbody>
+							       <tr><td colspan="3"><strong>个人信息</strong></td></tr>
+								   <tr>
+									    <td width="200">性别:
+										<select class="select-text" name="sex">
+											<option value='0'>全部</option>
+											<option value="1" {sex_1}>男</option>
+											<option value="2" {sex_2}>女</option>
+										</select>
+									    </td>
+										<td width="220">工作室:
+										<select class="select-text" name="is_studio">
+											<option value='-1'>全部</option>
+											<option value="0" {is_studio_s}>有</option>
+											<option value="1" {is_studio_1}>无</option>
+										</select> 
+									    </td>
+									    <td>年龄: <input type="text" class="input-text" name="min_age" style="width:20px;" value="{min_age}"/>~ <input type="text" class="input-text" name="max_age" style="width:20px;" value="{max_age}"/>岁</td>
+									   </tr>
+								</tbody>
+								</table>
+							   </td>
+							   </tr>
+								<!--个人信息 END-->
+								<!--职业部分-->
+								<tr>
+								<td class="table_search">
+								 <table width="900">
+								 <tbody>
+								    <tr><td colspan="3"><strong>职业条件</strong></td></tr>
+								   <tr>
+									     <td width="200">城市:
+									      <select class="select-text" name="city">
+											<option value='-1'>全部</option>
+											<option value="0" {city_c}>广州</option>
+											<option value="1" {city_1}>上海</option>
+											<option value="2" {city_2}>北京</option>
+											<option value="3" {city_3}>成都</option>
+											<option value="4" {city_4}>武汉</option>
+											<option value="5" {city_5}>深圳</option>
+									       </select> 
+									      </td>
+									      <td width="220">职业:
+										    <select class="select-text" name="p_state">
+											 <option value="-1" >全部</option>
+											 <option value="0" {p_state_s}>兼职</option>
+											 <option value="1" {p_state_1}>全职</option>
+											 <option value="2" {p_state_2}>学生</option>
+										    </select>
+									      </td>
+									      <td>摄龄:<input type="text" class="input-text" name="join_age" value="{join_age}"/>年</td>
+									     <td rowspan="3" colspan="3">
+										  <input type="submit" class="button_search" value="查找"/>
+										   <a href="javascript:void(0);" onclick="sub_import('cameraman_export.php')">导出</a>
+										</td>
+									</td>
+								    </tr>
+								    <tr>
+								        <td>风格:
+								         <select class="select-text" name="style">
+										  <option value="-1" >全部</option>
+									      <option value="0" {style_s}>欧美</option>
+									      <option value="1" {style_1}>情绪</option>
+									      <option value="2" {style_2}>清新</option>
+									      <option value="3" {style_3}>复古</option>
+									      <option value="4" {style_4}>韩系</option>
+									      <option value="5" {style_5}>日系</option>
+									      <option value="6" {style_6}>性感</option>
+									      <option value="7" {style_7}>街拍</option>
+									      <option value="8" {style_8}>胶片</option>
+									      <option value="9" {style_9}>商业</option>
+									     </select>
+								        </td>
+								        <td>&nbsp;<!-- 拍摄花费/月:
+								        <input type="text" class="input-text" name="min_price" value="{min_price}" style="width:30px;"/>~ <input type="text" class="input-text" name="max_price" value="{max_price}" style="width:30px;"/>元 --></td>
+								        <td>&nbsp;</td>
+								    </tr>
+								    <tr>
+									    <td>是否愿意出远景拍摄:
+								           <select class="select-text" name="is_fview">
+											 <option value='-1'>全部</option>
+											 <option value="0" {is_fview_f}>愿意</option>
+											 <option value="1" {is_fview_1}>不愿意</option>
+										   </select> 
+								         </td>
+								         <td>&nbsp;<!-- 约拍次数:
+								           <input type="text" class="input-text" name="min_time" value="{min_time}" style="width:30px;"/>~ <input type="text" class="input-text" name="max_time" value="{max_time}" style="width:30px;"/>次 -->
+								         </td>
+									    <td>
+									    跟进日期: <input type="text" class="input-text Wdate" onFocus="WdatePicker()" name="start_follow_time" style="width:80px;" value="{start_follow_time}"/>~ <input type="text" class="input-text Wdate" onFocus="WdatePicker()" name="end_follow_time" style="width:80px;" value="{end_follow_time}"/>
+									    </td>
+								    </tr>
+								 </tbody>
+								 </table>
+								</td>
+							    </tr>
+							   <!--职业条件 END-->
+							</tbody>
+					</table>
+					<input type="hidden" name="act" value="search"/>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+<form name="list_form" id="list_form" action="model_export.php" method="post">
+	<div class="table-list">
+		<div class="btn">
+			符合条件的人数为:{total_count}
+			<span style="position: absolute;right:20px;">
+			    排序:
+				<select name="sort" id="sort">
+					<option value="uid_asc"   {sort_1}>默认</option>
+					<option value="ptime_asc" {sort_2}>录入时间升序</option>
+					<option value="ptime_desc" {sort_3}>录入时间降序</option>
+				</select>
+			</span> 
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th width="120"><input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');" checked="true"></th>
+				<th>姓名</th>
+				<th>手机</th>
+				<th>APP名</th>
+				<th>微信</th>
+				<th>常驻城市</th>
+				<th>拍摄风格</th>
+				<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center"><input class="inputcheckbox " name="ids[]" value="{uid}" type="checkbox" checked="true" /></td>
+				<td align="center">{name}</td>
+				<td align="center">{phone}</td>
+				<td align="center">{app_name}</td>
+				<td align="center">{weixin_id}</td>
+				<td align="center">{city}</td>
+				<td align="center">{style}</td>
+				<td align="center"><a href="cameraman_detail.php?uid={uid}" target="_blank">查看</a></td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+		<!--list end-->
+	</div>
+</form>
+<div id="pages" class="page">
+	{page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		//排序
+		$("#sort").change(function(){
+			var $oUrl = window.location.href.toString();
+			var $re = eval('/(sort=)([^&]*)/gi');
+			//var $res = /sort=/gi;
+			var $search = window.location.search;
+			if ($search == null || $search == '') 
+			{
+				window.location.href = $oUrl+"?sort="+$(this).val();
+			}
+			else
+			{
+				if ($re.test($search)) 
+				{
+					window.location.href = $oUrl.replace($re , "sort="+$(this).val());
+				}
+				else
+				{
+					window.location.href = $oUrl+"&sort="+$(this).val();
+				}
+				
+			}
+		});
+	});
+</script>
+</html>

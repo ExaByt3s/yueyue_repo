@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+// -------------------
+// 实体三角形
+// https://gist.github.com/kidney/9508915
+// -------------------
+@mixin triangle($arrow, $size: null, $color: null) {
+    $arrow: quote($arrow);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+
+    border-color: rgba(#fff, 0);
+    border-color: transparent\0;
+    *border-color: transparent;
+    _border-color: white;
+    _filter: chroma(color=white);
+
+    border-style: solid;
+    overflow: hidden;
+    *zoom: 1;
+
+    @if $arrow == 'top' {
+        @if $size { border-width: 0 $size $size; }
+        @if $color { border-bottom-color: $color; }
+    } @else if $arrow == 'right' {
+        @if $size { border-width: $size 0 $size $size; }
+        @if $color { border-left-color: $color; }
+    } @else if $arrow == 'bottom' {
+        @if $size { border-width: $size $size 0; }
+        @if $color { border-top-color: $color; }
+    } @else if $arrow == 'left' {
+        @if $size { border-width: $size $size $size 0; }
+        @if $color { border-right-color: $color; }
+    }
+}

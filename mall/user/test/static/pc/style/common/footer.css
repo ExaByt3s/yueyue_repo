@@ -1,0 +1,15 @@
+.footer {
+  width: 100%;
+  background: #333333;
+  color: #999999;
+  height: 70px; }
+  .footer a {
+    color: #999999; }
+    .footer a:hover {
+      color: #999999; }
+  .footer .about {
+    text-align: center;
+    padding-top: 26px;
+    font-size: 14px; }
+  .footer .line {
+    padding: 0px 5px; }

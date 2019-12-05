@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{title_txt}</title>
+
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/order_list/index.scss">
+
+</head>
+<body>
+<main role="main" style="background: #f2f2f2">
+    <div class="page-view order-list" data-role="page-container">
+
+        <link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+        <!--order_list 的头部-->
+        <link rel="import" href="./webcontrol/order_list_nav.tpl.html?__inline">
+        <!--order_list 的头部-->
+
+        <div class="common_list_container">
+            <!-- IF show_pager="1" -->
+
+            <!-- ELSEIF show_pager="0" -->
+            <div class="common_no_list"><p>暂无订单</p></div>
+            <!-- ENDIF -->
+
+        <!-- IF type="pending" -->
+
+            <!-- BEGIN list -->
+            <div class="common_list_child" data_lead_id="{lead_id}" data_quotes_id="{quotes_id}" data-request_id="{request_id}">
+                <!-- IF status="1" -->
+                <div class="common_list_child_title status-9" data-role="to_details">
+                    <img src="../image/task/status_9-52x58.png"/>
+                    <p>已选中</p>
+                </div>
+                <!-- ELSE -->
+                <!-- IF order_status="viewed" -->
+                <div class="common_list_child_title status-3" data-role="to_details">
+                    <img src="../image/task/status_3-60x60.png"/>
+                    <p>已查看</p>
+                </div>
+                <!-- ELSEIF order_status="sent" -->
+                <div class="common_list_child_title status-4" data-role="to_details">
+                    <img src="../image/task/status_4-60x42.png"/>
+                    <p>已发送</p>
+                </div>
+                <!-- ELSEIF order_status="refunded" -->
+                <div class="common_list_child_title status-5" data-role="to_details">
+                    <img src="../image/task/status_5-60x54.png"/>
+                    <p>有退款</p>
+                </div>
+                <!-- ELSEIF order_status="pending" -->
+                <div class="common_list_child_title status-6" data-role="to_details" data-pending="1">
+                    <img src="../image/task/status_6-52x58.png"/>
+                    <p>待报价</p>
+                </div>
+                <!-- ELSEIF order_status="expired" -->
+                <div class="common_list_child_title status-7" data-role="to_details" data-expired="1">
+                    <img src="../image/task/status_7-52x58.png"/>
+                    <p>已作废</p>
+                </div>
+                <!-- ELSEIF order_status="closed" -->
+                <div class="common_list_child_title status-8" data-role="to_details">
+                    <img src="../image/task/status_8-52x58.png"/>
+                    <p>被拒绝</p>
+                </div>
+                <!-- ENDIF -->
+                <!-- ENDIF -->
+                <div class="common_list_child_ques" data-role="to_details" <!-- IF order_status="expired" --> data-expired="1"<!-- ENDIF --> <!-- IF is_pay_coins="0" --> data-pending="1"<!-- ENDIF -->>
+                <p class='name <!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{buyer_nickname}</p>
+                <p class='<!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{title}</p>
+                <!--p>{when_str}</p-->
+
+                <!--p class="more_line_text_dotdotdot">
+                    <!-- BEGIN answer -->
+                <!-- BEGIN data -->
+
+                <!-- END data -->
+                <!-- END answer -->
+                <!--/p-->
+            </div>
+                    <div class="common_list_child_control">
+                        <p>{time_format}</p>
+                        <div class="common_list_child_control_delete_btn" data-role="delete" <!-- IF is_archive=="1" -->data-has-get="1"<!-- ELSE --><!-- ENDIF -->  ><!-- IF is_archive=="1" -->已收藏<!-- ELSE -->收藏<!-- ENDIF --></div>
+                </div>
+            </div>
+            <!-- END list -->
+
+        <!-- ELSEIF type="process" -->
+
+            <!-- BEGIN list -->
+            <div class="common_list_child" data_lead_id="{lead_id}" data_quotes_id="{quotes_id}" data-request_id="{request_id}">
+                <!-- IF status="1" -->
+                <div class="common_list_child_title status-9" data-role="to_details">
+                    <img src="../image/task/status_9-52x58.png"/>
+                    <p>已选中</p>
+                </div>
+                <!-- ELSE -->
+                <!-- IF order_status="viewed" -->
+                <div class="common_list_child_title status-3" data-role="to_details">
+                    <img src="../image/task/status_3-60x60.png"/>
+                    <p>已查看</p>
+                </div>
+                <!-- ELSEIF order_status="sent" -->
+                <div class="common_list_child_title status-4" data-role="to_details">
+                    <img src="../image/task/status_4-60x42.png"/>
+                    <p>已发送</p>
+                </div>
+                <!-- ELSEIF order_status="refunded" -->
+                <div class="common_list_child_title status-5" data-role="to_details">
+                    <img src="../image/task/status_5-60x54.png"/>
+                    <p>有退款</p>
+                </div>
+                <!-- ELSEIF order_status="pending" -->
+                <div class="common_list_child_title status-6" data-role="to_details" data-pending="1">
+                    <img src="../image/task/status_6-52x58.png"/>
+                    <p>待报价</p>
+                </div>
+                <!-- ELSEIF order_status="expired" -->
+                <div class="common_list_child_title status-7" data-role="to_details" data-expired="1">
+                    <img src="../image/task/status_7-52x58.png"/>
+                    <p>已作废</p>
+                </div>
+                <!-- ELSEIF order_status="closed" -->
+                <div class="common_list_child_title status-8" data-role="to_details">
+                    <img src="../image/task/status_8-52x58.png"/>
+                    <p>被拒绝</p>
+                </div>
+                <!-- ENDIF -->
+                <!-- ENDIF -->
+                <div class="common_list_child_ques" data-role="to_details" <!-- IF order_status="expired" --> data-expired="1"<!-- ENDIF --> <!-- IF is_pay_coins="0" --> data-pending="1"<!-- ENDIF -->>
+                <p class='name <!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{buyer_nickname}</p>
+                <p class='<!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{title}</p>
+
+
+            </div>
+            <div class="common_list_child_control">
+                <p>{time_format}</p>
+                <div class="common_list_child_control_delete_btn" data-role="delete" <!-- IF is_archive=="1" -->data-has-get="1"<!-- ELSE --><!-- ENDIF -->  ><!-- IF is_archive=="1" -->已收藏<!-- ELSE -->收藏<!-- ENDIF --></div>
+        </div>
+        </div>
+        <!-- END list -->
+
+
+    <!-- ELSEIF type="archive" -->
+
+        <!-- BEGIN list -->
+        <div class="common_list_child" data_lead_id="{lead_id}" data_quotes_id="{quotes_id}" data-request_id="{request_id}">
+            <!-- IF status="1" -->
+            <div class="common_list_child_title status-9" data-role="to_details">
+                <img src="../image/task/status_9-52x58.png"/>
+                <p>已选中</p>
+            </div>
+            <!-- ELSE -->
+            <!-- IF order_status="viewed" -->
+            <div class="common_list_child_title status-3" data-role="to_details">
+                <img src="../image/task/status_3-60x60.png"/>
+                <p>已查看</p>
+            </div>
+            <!-- ELSEIF order_status="sent" -->
+            <div class="common_list_child_title status-4" data-role="to_details">
+                <img src="../image/task/status_4-60x42.png"/>
+                <p>已发送</p>
+            </div>
+            <!-- ELSEIF order_status="refunded" -->
+            <div class="common_list_child_title status-5" data-role="to_details">
+                <img src="../image/task//status_5-60x54.png"/>
+                <p>有退款</p>
+            </div>
+            <!-- ELSEIF order_status="pending" -->
+            <div class="common_list_child_title status-6" data-role="to_details">
+                <img src="../image/task/status_6-52x58.png"/>
+                <p>待报价</p>
+            </div>
+            <!-- ELSEIF order_status="expired" -->
+            <div class="common_list_child_title status-7" data-role="to_details" data-expired="1">
+                <img src="../image/task/img/status_7-52x58.png"/>
+                <p>已作废</p>
+            </div>
+            <!-- ELSEIF order_status="closed" -->
+            <div class="common_list_child_title status-8" data-role="to_details">
+                <img src="../image/task/status_8-52x58.png"/>
+                <p>被拒绝</p>
+            </div>
+            <!-- ENDIF -->
+            <!-- ENDIF -->
+            <div class="common_list_child_ques" data-role="to_details" <!-- IF order_status="expired" -->data-expired="1"<!-- ENDIF -->>
+            <p class='name <!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{buyer_nickname}</p>
+            <p class='<!-- IF is_important=="1" -->is-bold-font<!-- ENDIF -->'>{title}</p>
+
+        </div>
+        <div class="common_list_child_control">
+            <p>{time_format}</p>
+            <div class="common_list_child_control_delete_btn fn-hide" data-role="delete">取消收藏</div>
+        </div>
+        </div>
+        <!-- END list -->
+
+    <!-- ENDIF -->
+
+
+        </div>
+
+    <!--分页参数-->
+    {page_config_script}
+    <!-- IF show_pager="1" -->
+    <div class="common_list_bottom" data-role="pager-container">
+
+    </div>
+    <script>
+        // 处理分页
+        var p = require('../modules/common/pager/index');
+        var pager = window._Pager;
+        var pager_obj = new pager
+        ($('[data-role="pager-container"]'),{
+            total_page : window.__page_config.total_page,
+            pre : window.__page_config.pre,
+            next : window.__page_config.next,
+            cur_page : window.__page_config.cur_page
+        });
+    </script>
+    <!-- ELSEIF show_pager="0" -->
+
+    <!-- ENDIF -->
+
+    </div>
+</main>
+
+</body>
+
+<script>
+    var yue_ui = require('../modules/yue_ui/frozen');
+    $(function()
+    {
+
+        $('[data-role="to_details"]').on('click',function()
+        {
+            var list = $(this).parent(); //订单元素
+
+            var quotes_id = $(this).parent().attr('data_quotes_id');
+
+            var request_id =  $(this).parent().attr('data-request_id');
+
+            var lead_id =  $(this).parent().attr('data_lead_id');
+
+            if($(this).attr("data-expired") == 1)
+            {
+                return
+            }
+
+            if($(this).attr("data-pending") == 1)
+            {
+                location.href = './details.php?lead_id=' + lead_id;
+
+                return
+            }
+
+            var quotes_id = $(this).parent().attr('data_quotes_id');
+
+            var request_id =  $(this).parent().attr('data-request_id');
+
+            location.href = './talk.php?quotes_id=' + quotes_id;
+        });
+
+        $('[data-role="delete"]').on('click',function(ev)
+        {
+            var list = $(this).parents("[data_quotes_id]");
+
+
+
+            var data_quotes_id = list.attr('data_quotes_id');
+
+            var lead_id = $(this).parent().attr('lead_id');
+
+            // hudw 修改收藏后的交互
+            var $cur_btn = $(ev.currentTarget);
+
+            var data =
+            {
+                quotes_id:data_quotes_id
+            };
+
+            if($cur_btn.attr('data-has-get') == 1)
+            {
+                return;
+            }
+
+            if(window.confirm('要收藏该需求吗?'))
+            {
+                $.ajax
+                ({
+                    url : window.$__config.ajax_url+'collection.php',
+                    data:data,
+                    type: 'POST',
+                    dataType : 'json',
+                    cache: false,
+                    beforeSend: function()
+                    {
+                        $.loading
+                        ({
+                            content:'加载中...'
+                        })
+                    },
+                    success: function(data)
+                    {
+                        $.loading.loading("hide");
+
+                        if(data.result_data)
+                        {
+                            var str = '收藏成功！';
+
+                            $cur_btn.html('已收藏');
+
+                            $cur_btn.attr('data-has-get',1);
+                        }
+                        else
+                        {
+                            var str = "该需求已被收藏！"
+
+                        }
+
+                        $.tips
+                        ({
+                            content : str,
+                            stayTime:3000,
+                            type:"success"
+                        });
+                    },
+                    error: function()
+                    {
+                        $.loading.loading("hide");
+                    }
+                });
+            }
+        });
+    });
+</script>
+<link rel="import" href="./webcontrol/tjbottom.tpl.html?__inline">
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="gbk">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>订单列表</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../css/sb-admin.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div id="wrapper"> 
+  
+  <!-- Navigation --> 
+  {MOBILE_ADMIN_TOP}
+  <div id="page-wrapper">
+    <div class="container-fluid"> 
+      
+      <!-- Page Heading -->
+      <div class="row breadcrumb">
+        <div class="col-lg-12">
+          <h1 class="page-header">订单列表 </h1>
+          <form action="" method="get" class="navbar-form navbar-left">
+            <div class="input-group"> <span class="input-group-btn">
+              <select class="form-control" name="channel_cate">
+                <option value="">全部品类</option>
+                  <option value="31" <!-- IF channel_cate="31" -->selected<!-- ENDIF -->>模特服务
+                
+                  </option>
+                  <option value="5" <!-- IF channel_cate="5" -->selected<!-- ENDIF -->>摄影培训
+                
+                  </option>
+                  <option value="40" <!-- IF channel_cate="40" -->selected<!-- ENDIF -->>摄影服务
+                
+                  </option>
+                  <option value="3" <!-- IF channel_cate="3" -->selected<!-- ENDIF -->>化妆服务
+                
+                  </option>
+                  <option value="12" <!-- IF channel_cate="12" -->selected<!-- ENDIF -->>影棚租赁
+                
+                  </option>
+                  <option value="41" <!-- IF channel_cate="41" -->selected<!-- ENDIF -->>约美食
+                
+                  </option>
+                  <option value="42" <!-- IF channel_cate="42" -->selected<!-- ENDIF -->>约活动
+                
+                  </option>
+                  <option value="43" <!-- IF channel_cate="43" -->selected<!-- ENDIF -->>约有趣
+                
+                  </option>
+              </select>
+              <span class="input-group-btn">
+              <input type="text" name="begin_time" class="form-control form_date"  placeholder="签到开始日期" value="{begin_time}">
+              </span>
+               <span class="input-group-btn">
+              <input type="text" name="end_time" class="form-control form_date"  placeholder="签到结束日期" value="{end_time}">
+              </span>
+               <span class="input-group-btn">
+              <input type="text" name="channel_oid" class="form-control"  placeholder="订单号" value="{channel_oid}">
+              </span>
+              </span> <span class="input-group-btn">
+              <button class="btn btn-success" type="submit">查找</button>
+              </span> </div>
+          </form>
+        </div>
+      </div>
+      <!-- /.row -->
+      
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>业务订单号</th>
+                  <th>品类</th>
+                  <th>支出者用户ID</th>
+                  <th>收入者用户ID</th>
+                  <th>订单金额</th>
+                  <th>实收金额</th>
+                  <th>已使用优惠券金额</th>
+                  <th>支付日期</th>
+                </tr>
+              </thead>
+              <tbody>
+              <!-- BEGIN list -->
+                <tr>
+                  <td>{channel_oid}</td>
+                  <td>{channel_cate_name}</td>
+                  <td>{out_user_id}</td>
+                  <td>{in_user_id_str}</td>
+                  <td>{total_amount}</td>
+                  <td>{real_amount}</td>
+                  <td>{discount_amount}</td>
+                  <td>{paid_date}</td>
+                  </tr>
+                  <!-- END list -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- /.row --> 
+       <div class="row">
+        <div class="col-lg-12" style="text-align:center">
+        {page}	
+        </div>
+        </div>
+      <!-- /.row --> 
+      
+    </div>
+    <!-- /.container-fluid --> 
+    
+  </div>
+  <!-- /#page-wrapper --> 
+  
+</div>
+<!-- /#wrapper --> 
+
+<!-- jQuery --> 
+<script src="../js/jquery.min.js"></script> 
+
+<!-- Bootstrap Core JavaScript --> 
+<script src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+    $('.form_date').datetimepicker({
+        language:  'zh-CN',
+		format: 'yyyy-mm-dd',
+		weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>约约 上传组件</title>
+    <meta charset="gbk">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--不是上传组件必须使用的样式文件-->
+
+    <link rel="stylesheet" type="text/css" href="css/pc-ui.css">
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div class="upload-container" >
+
+    <!--dom结构部分-->
+    <div id="uploader-wrapper">
+        <div id="uploader">
+            <div class="queueList" data-role="add-img-container">
+                <div id="dndArea" class="placeholder">
+                    <div id="filePicker"></div>
+                    <p>最多上传10张图片</p>
+                    </div>
+                </div>
+            <div data-role="preview-img-container">
+                <h3>预览图片列表</h3>
+                <div data-role="preview-img-list">
+
+                </div>
+            </div>
+
+            <div class="button-list" data-role="button-list" style="display:none;">
+                <div id="filePicker2" data-role="add-img"></div>
+                <button class="ui-button-start-upload" data-role="start-upload">开始上传</button>
+                <div data-role="upload-info-container"></div>
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <h3>上传成功回来的图片列表</h3>
+    <div data-role="upload-success-img-list">
+
+    </div>
+
+
+
+</div>
+
+
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="webuploader.js"></script>
+<script type="text/javascript" src="yueyue_uploader.js"></script>
+
+</body>
+</html>
+<script >
+    $(function()
+    {
+        var uploader_obj = yueyue_uploader($('#uploader'),
+        {
+            auto : false,
+            fileNumLimit : 20,
+            start_upload :
+            {
+                $el : $('[data-role="start-upload"]')
+            }
+        });
+
+        // 缩略图的size
+        var thumbnailWidth = 100;
+        var thumbnailHeight = 100;
+
+        // 传图的状态 可能有pedding, ready, uploading, confirm, done.
+        uploader_obj.state = 'pedding';
+
+        var $button_list = $('[data-role="button-list"]');
+        var $preview_img_list = $('[data-role="preview-img-list"]');
+        var $add_img_container = $('[data-role="add-img-container"]');
+        var $upload_success_img_list = $('[data-role="upload-success-img-list"]');
+        var $upload_info_container = $('[data-role="upload-info-container"]');
+
+
+        // 点击预览图片
+        $preview_img_list.find('img').on('click',function(ev)
+        {
+            var $cur_btn = $(ev.currentTarget);
+
+            console.log(11111)
+
+
+        });
+
+        // 开始上传按钮
+        uploader_obj.on('startUpload',function()
+        {
+            uploader_obj.upload();
+        });
+
+        // 当有文件添加进来的时候
+        uploader_obj.on( 'fileQueued', function(file)
+        {
+            console.log(file);
+
+            if(uploader_obj.file_count >= 1)
+            {
+                // 当选择的文件数等于1时，可以进行继续选择
+                uploader_obj.refresh();
+
+                $add_img_container.hide();
+
+                $button_list.show();
+            }
+            else
+            {
+                // todo 异常处理
+                return;
+            }
+
+            // 添加文件
+            add_file(file);
+            // 更新状态
+            uploader_obj.state = 'ready';
+
+            // 创建缩略图
+            // 如果为非图片文件，可以不用调用此方法。
+            // thumbnailWidth x thumbnailHeight 为 100 x 100
+            uploader_obj.makeThumb(file, function( error, src )
+            {
+                if(error)
+                {
+                    // 不能预览时的处理
+                    return;
+                }
+
+                // 预览图片的路径
+                console.log(src);
+
+                $preview_img_list.find('#'+file.id+' [data-role="img-wrap"]').append('<img data-role="preview-img" src="'+src+'">');
+
+            }, thumbnailWidth, thumbnailHeight );
+        });
+
+        // 当文件被移除队列后触发。
+        uploader_obj.on( 'fileDequeued', function(file)
+        {
+            if(!uploader_obj.file_count)
+            {
+                // 更新状态
+                uploader_obj.state = 'pedding';
+            }
+
+            remove_file(file);
+        });
+
+        // 所有的事件触发都会响应这里
+        uploader_obj.on('all',function(type)
+        {
+            switch( type )
+            {
+                case 'uploadFinished':
+                    uploader_obj.state = 'confirm';
+                    break;
+
+                case 'startUpload':
+                    uploader_obj.state = 'uploading';
+                    break;
+                case 'stopUpload':
+                    uploader_obj.state = 'paused';
+                    break;
+
+            }
+        });
+
+        // 文件上传过程中创建进度条实时显示。
+        uploader_obj.on('uploadProgress', function(file, percentage)
+        {
+            console.log(percentage);
+        });
+
+        // 文件上传成功。
+        uploader_obj.on( 'uploadSuccess', function(file,response)
+        {
+            // response 为服务端返回的数据
+            console.log(response);
+
+            var url = response.url[0] || '';
+
+            $upload_success_img_list.append('<img src="'+url+'">')
+        });
+
+        // 文件上传失败，显示上传出错。
+        uploader_obj.on( 'uploadError', function(file)
+        {
+
+        });
+
+        // 完成上传完了
+        uploader_obj.on( 'uploadComplete', function(file)
+        {
+
+        });
+
+
+        /**
+         * 添加文件
+         * @param file
+         * @param options
+         */
+        function add_file(file,options)
+        {
+            var $li = $( '<li id="' + file.id + '">' +
+                            '<p class="title">' + file.name + '</p>' +
+                            '<p class="img-wrap" data-role="img-wrap"></p>'+
+                            '<p class="progress"><span></span></p>' +
+                            '</li>' );
+
+            var $btns = $('<div class="file-panel">' +
+                    '<span class="cancel">删除</span>').appendTo( $li );
+
+            var $progress = $li.find('p.progress span');
+            var $wrap = $li.find( 'p.img-wrap' );
+            var $info = $('<p class="error"></p>');
+
+            $preview_img_list.append($li);
+
+            // 安装预览图片操作按钮事件，这里是点击执行删除预上传图片
+            $btns.on('click',function(ev)
+            {
+                var $cur_btn = $(ev.currentTarget);
+
+                uploader_obj.removeFile(file);
+            });
+
+        }
+
+        /**
+         * 删除文件
+         * @param file
+         * @param options
+         */
+        function remove_file(file,options)
+        {
+            var $li = $('#'+file.id);
+
+            $li.off().find('.file-panel').off().end().remove();
+        }
+
+        /**
+         * 设置状态
+         * @param state
+         */
+        function set_state(state)
+        {
+
+        }
+
+        /**
+         * 更新状态
+         * @param state
+         * @param $el
+         * @param options
+         */
+        function update_status(state,$el,options)
+        {
+            var text = '';
+            var stats;
+
+            if (state === 'ready')
+            {
+                text = '选中' + fileCount + '张图片，共' +
+                        WebUploader.formatSize( fileSize ) + '。';
+            }
+            else if ( state === 'confirm' )
+            {
+                stats = uploader_obj.getStats();
+
+                if ( stats.uploadFailNum )
+                {
+                    text = '已成功上传' + stats.successNum+ '张照片至XX相册，'+
+                            stats.uploadFailNum + '张照片上传失败，<a class="retry" href="#">重新上传</a>失败图片或<a class="ignore" href="#">忽略</a>'
+                }
+
+            }
+            else
+            {
+                stats = uploader_obj.getStats();
+                text = '共' + fileCount + '张（' +
+                        WebUploader.formatSize( fileSize )  +
+                        '），已上传' + stats.successNum + '张';
+
+                if ( stats.uploadFailNum )
+                {
+                    text += '，失败' + stats.uploadFailNum + '张';
+                }
+            }
+
+            $el.html( text );
+        }
+    })
+</script>
+

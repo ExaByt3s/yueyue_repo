@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>互联网+摄影 | 跨界O2O高峰论坛</title>
+<link href="css/wap.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body>
+<script>
+  //document.addEventListener('touchstart',function(){},false);
+</script>
+<!--供应商提交信息-->
+<div class="service-info-page font_wryh">
+    <div class="p1th">供应商信息</div>
+    <div class="p2th">
+            <div class="ui-input-title-mod ui-input-title-size-large">
+                <div class="ui-txt">姓名</div>
+                <div class="ui-input-area"><input type="text" class="input ui-input-title-block" placeholder="请输入姓名" id="J_supplier_name" value=""></div>
+            </div>
+
+            <div class="ui-input-title-mod ui-input-title-size-large">
+                <div class="ui-txt">公司名称</div>
+                <div class="ui-input-area"><input type="text" class="input ui-input-title-block" placeholder="请输入公司名称" id="J_supplier_company" value=""></div>
+            </div>
+
+
+            <div class="ui-input-title-mod ui-input-title-size-large">
+                <div class="ui-txt">电话</div>
+                <div class="ui-input-area"><input type="text" class="input ui-input-title-block" placeholder="请输入联系电话" id="J_supplier_phone" value=""></div>
+            </div>
+
+
+            <div class="ui-input-title-mod ui-input-title-size-large">
+                <div class="ui-txt">项目介绍</div>
+                <div class="ui-input-area"><input type="text" class="input ui-input-title-block" placeholder="请输入项目介绍" id="J_supplier_intro" value=""></div>
+            </div>
+    </div>
+
+    <div class="p3th">
+        <div class="btn-foot" id="J_add_supplier_btn">提交</div>
+    </div>
+    
+</div>
+
+
+
+
+</body>
+<script>
+$(document).ready(function(){
+
+//检查电话号码
+    function checkPhone(phone)
+    {
+        var re= /^1[0-9][0-9]\d{8,8}$/;
+        var tips = '';
+      
+        if(!re.test(phone))
+        {
+            tips = false;
+        }
+        else
+        {
+            tips = true;
+        }
+      
+      return tips;
+    }
+
+//供应商报名
+    $("#J_add_supplier_btn").bind("click",function(){
+        var name = $.trim($("#J_supplier_name").val());//检查供应商名字
+        var company = $.trim($("#J_supplier_company").val());//检查供应商名字
+        var phone = $.trim($("#J_supplier_phone").val());//检查供应商手机
+        var intro = $.trim($("#J_supplier_intro").val());//检查供应商介绍
+        var ret = check_supplier(name,company,phone,intro);
+        if(ret)
+        {
+            $("#J_add_supplier_btn").html("提交中,请稍后...");
+            $.ajax
+            ({
+            
+                type:'post',
+                dataType:'json',
+                timeout:5000,
+                url:'./module/meeting_supplier_add_op.php',
+                data:"name="+name+"&company="+company+"&phone="+phone+"&intro="+intro+"&timestamp=" + new Date().getTime(),
+                error:function(XMLHttpRequest,status)
+                {
+                    if(status=='timeout'){
+                        $("#J_add_supplier_btn").html("提交超时，请重新再试");
+                        return false;　　　　　 
+            　　　　}
+                },
+                success:function(json_data)
+                {
+                    if(json_data.ajax_status==1)
+                    {
+                        //成功，相应处理
+                        window.location.href="http://www.yueus.com/topic/meeting/photo_meeting_wap_success.php?type=supplier";
+                    
+                    }
+                    else
+                    {
+                        //提交失败
+                        var error_tips = json_data.error_tips;
+                        switch(error_tips)
+                        {
+                            case "name_empty":
+                            
+                            alert("请输入名称");
+                            break;
+                            case "company_empty":
+                            
+                            alert("请输入公司地址");
+                            break;
+                            case "phone_empty":
+                            
+                            alert("请输入手机号");
+                            break;
+                            case "intro_empty":
+                            
+                            alert("请输入项目简介");
+                            break;
+                            case "insert_error":
+                            
+                            alert("添加失败，请重新提交");
+                            break;
+  
+                        }
+                        return false;
+
+                    }
+                    
+                    
+                }
+            });
+        }
+        else
+        {
+            return false;
+        }
+    });
+    
+    function check_supplier(name,company,phone,intro)
+    {
+        
+        var ret = '';
+        if(name=="")
+        {
+            
+            alert("请输入名称");
+            
+            return false;
+            
+        }
+        if(company=="")
+        {
+            
+            alert("请输入公司地址");
+            
+            return false;
+            
+        }
+        if(phone=="")
+        {
+            
+            alert("请输入手机号");
+            
+            return false;
+            
+        }
+        else
+        {
+            ret = checkPhone(phone);
+            if(!ret)
+            {
+                 
+                alert("手机号格式有误");
+            
+                return false;
+            }
+        }
+        
+        
+        if(intro=="")
+        {
+            
+            alert("请输入项目简介");
+            
+            return false;
+            
+        }
+        
+        return true;
+        
+
+    } 
+   
+
+
+//关闭供应商弹层
+
+
+
+
+});
+</script>
+</html>

@@ -1,0 +1,100 @@
+@import "../widget/animation";
+@import "../widget/ui-dialog";
+@import "../widget/ui-tips";
+@import "../widget/ui-poptips";
+@import "../widget/ui-tooltips";
+@import "../widget/ui-loading";
+@import "../widget/ui-notice";
+@import "../widget/ui-slider";
+@import "../widget/ui-progress";
+@import "../widget/ui-checkbox";
+@import "../widget/ui-form";
+@import "../widget/ui-searchbar";
+@import "../widget/ui-icon";
+@import "../widget/atom";
+.page-name-category{
+  .pics_container{
+    display:-webkit-box;
+    -webkit-box-orient:horizontal;
+    -webkit-box-pack:start;
+    .swiper-container {
+      font-size: 12px;
+      width: 100%;
+      height: 210px;
+    }
+    .slide-items-bg{
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      background-color: #fafafa;
+      -webkit-background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      .notice{
+        text-align: center;
+        display: -webkit-box;
+        -webkit-box-pack:center;
+        -webkit-box-orient:vertical;
+        position: absolute;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,0.4);
+        .category_top{
+          color: #fff;
+          font-size: 20px;
+          margin-bottom: 70px;
+        }
+      }
+    }
+  }
+  .category_notice{
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    height: 135px;
+    -webkit-box-pack:center;
+    text-align: center;
+    background: #fff;
+    .title{
+      font-size: 20px;
+    }
+    .notice{
+      font-size: 14px;
+      color: #8f8f8f;
+    }
+  }
+  .pics_list{
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    .child{
+      background: #fff;
+      position: relative;
+      height: 140px;
+      margin: 0px 5px 5px 5px;
+      .title_con{
+        text-align: center;
+        display: -webkit-box;
+        -webkit-box-pack:center;
+        -webkit-box-orient:vertical;
+        position: absolute;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,0.4);
+        .title{
+          color: #fff;
+          font-size: 20px;
+        }
+        .notice{
+          color: #fff;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+}

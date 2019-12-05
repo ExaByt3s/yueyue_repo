@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gb2312" />
+    <meta http-equiv = "X-UA-Compatible" content ="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>约约--最高效的摄影服务平台</title>
+    <meta name="keywords" content="约约，模特，摄影师，约拍，私拍，外拍，摄影，交易" />
+    <meta name="Description" content="约约是最美的O2O产品，在这里，每个美女都利用自己的零碎时间，用美丽来变现。信用机制让交易更安心，私聊机制确保摄影师与模特真实沟通，多维度搜索帮摄影师到自己想拍的模特，支持一人约多人拍从此创作不再孤单。" />
+    <link href="../../../static/wap/style/s_app_style/wap.css?3" type="text/css" rel="stylesheet" />
+    <meta content="telephone=no" name="format-detection" />
+</head>
+
+<body>
+<script>
+    document.addEventListener('touchstart',function(){},false);
+    function isWeiXin(){
+        var ua = window.navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function download_apk(){
+        if(isWeiXin()){
+            alert('微信用户，请点击页面右上角“┇”―>“在浏览器中打开”，进行安装，谢谢~');
+			return false;
+        }
+    }
+</script>
+<div class="download-page">
+    <div class="download-item">
+        <div class="img-title"><img src="../../../static/wap/image/s_app_image/title-img.png" /></div>
+
+        <div class="btn-link"><a href="http://s.yueus.com/index.php?pc=1">马上认证，成为商家</a></div>
+        <div class="txt-box"><img src="../../../static/wap/image/s_app_image/title-img-txt.png" /></div>
+        <div class="download-btn-con">
+            <div class="iphone-con">
+                <a href="{down_iPhone_app}" class="ui-btn iphone-btn" onclick="javascript:download_apk();">
+                    <i class="icon"></i>
+                    <div class="txt">
+                        <p class="i-versions">iPhone版</p>
+                        <p class="versions"></p>
+                    </div>
+                </a>
+                <p class="tips"><!-- <a href="#">iPhone版备用下载</a> --></p>
+            </div>
+           <div class="android-con clearfix">
+            <a href="{down_android_app}" class="ui-btn android-btn" onclick="javascript:download_apk();">
+                <i class="icon"></i>
+                <div class="txt">
+                    <p class="i-versions">Android版</p>
+                    <p class="versions"></p>
+                </div>
+            </a>
+            <p class="tips"><!-- <a href="#">Android版备用下载</a> --></p>
+           </div>
+        </div>
+    </div>
+
+ 
+    <div class="info-item">
+        <p>约约是由资深投资人士和摄影行业大咔联手重金打造的平台，在成立短短半年，就已经获得天使轮和PreA轮合计近5000万的投资。内测阶段已经获得了许多大师级的认可，同时也和POCO摄影社区形成了战略合作，并且得到众多摄影网站的推荐。</p>
+        <p class="pt10">
+        广州摩幻时信息技术有限公司<br />
+        客服电话 4000-82-9003</p>
+        <p class="">Copyright 2015 &copy Yueus.com</p>
+    </div>
+</div>
+</body>
+</html>

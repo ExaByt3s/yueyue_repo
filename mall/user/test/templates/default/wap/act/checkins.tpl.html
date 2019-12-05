@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>数字密码签到</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/act/checkins.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view checkins" data-role="page-container">
+        <div class="checkins-content">
+            <div class="ui-input-info-mod mb10">
+                <div class="item">
+                    <input id="checkins-input" type="tel" class="ui-input-info" placeholder="请输入数字密码" data-role="tel">
+                    <i class="icon-delete" style="display: none"></i>
+                </div>
+            </div>
+            <button class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555" data-role="submit-password">
+                <span class="ui-button-content" >提交</span>
+            </button>
+        </div>
+    </div>
+</main>
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+    var utility = require('common/utility/index');
+    var header = require('common/widget/header/main');
+    var yue_ui = require('yue_ui/frozen');
+
+
+
+    //头部插件
+    $(document).ready(function() {
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"{input_title}",
+            header_show : true , //是否显示头部
+            mt_0_ele : $("#seller-list-page"), //如果头部隐藏，要把当前页节点margin-top改为0
+            right_icon_show : true, //是否显示右边的按钮
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:""  //显示文字内容
+            }
+        });
+
+        function inputInfo(){
+            //空文提示
+            var checkins_input = $('#checkins-input').val();
+            if(checkins_input==""){
+                $('.icon-delete').hide();
+            }else{
+                $('.icon-delete').show();
+            }
+
+        }
+        $('[data-role="tel"]').on('focus',function(){
+            inputInfo();
+        });
+        $('[data-role="tel"]').on('input',function(){
+            inputInfo();
+        });
+        $('.icon-delete').on('click',function(){
+            $('#checkins-input').val("").focus();
+        });
+
+        var _self = $({});
+        $('[data-role="submit-password"]').on('click',function(){
+            var code = $('#checkins-input').val();
+            var self = this;
+            self._sending = false;
+
+            if(self._sending)
+            {
+                return;
+            }
+
+			code = code.replace(/\u2006/g, '');
+
+            _self.ajax_obj = utility.ajax_request({
+                url       : window.$__ajax_domain+'verify_code.php',
+                data      :
+                {
+                    code:code
+                },
+                cache     : false,
+                beforeSend: function ()
+                {
+                    self._sending = true;
+                    _self.$loading = $.loading
+                    ({
+                        content:'加载中...'
+                    });
+                },
+                success   : function (data)
+                {
+                    self._sending = false;
+
+                    _self.$loading.loading("hide");
+
+                    var res = data.result_data;
+
+
+                    $.tips
+                    ({
+                        content:res.msg,
+                        stayTime:3000,
+                        type:'warn'
+                    });
+
+                    if(res.code > 0)
+                    {
+                        window.location.href = res.data.return_url;
+                    }
+
+
+                    
+                },
+                error : function(res)
+                {
+                    self._sending = false;
+
+                    _self.$loading.loading("hide");
+
+                    $.tips
+                    ({
+                        content:'错误',
+                        stayTime:3000,
+                        type:'warn'
+                    });
+                }
+
+            })
+        });
+
+    });
+
+
+</script>
+</html>

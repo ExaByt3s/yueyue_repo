@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@import "../widget/ui-base";
+@import "../widget/ui-list";
+@import "../widget/ui-tab";
+
+.bill-list{
+
+  .native-scroll{
+    padding-top:45px;
+  }
+  .ui-tab-nav li a{
+    color:#aaa;
+  }
+  .ui-tab-nav li.current{
+
+    border-bottom: 2px #333 solid;
+  }
+  .ui-tab-nav li.current a {
+    color: #333;
+  }
+  .nav-list{
+    background-color: #fafafa;
+    a{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+  .ui-tab-content {
+    margin-top: 0px;
+
+  }
+
+  .coloraaa{
+    color:#aaa;
+  }
+  .color666{
+    color:#666;
+  }
+  .color000{
+    color:#000;
+  }
+  .colore06666{
+    color: #e06666;
+  }
+  .color3fc585
+  {
+    color:#3fc585;
+  }
+  .color0086C5{
+    color:#0086C5;
+  }
+}

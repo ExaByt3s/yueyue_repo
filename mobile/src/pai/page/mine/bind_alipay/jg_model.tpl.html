@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>通知</title>
+
+    <meta charset="gbk">
+    {head_html}
+    <!-- libjs 必须引用 -->
+    <script src="/lib/lib.js"></script>
+
+
+</head>
+<body>
+<main role="main">
+    <div class="page-view bind-alipay-container" data-role="page-container">
+       <div class="limit-money-page" style="padding:20px;">
+                <p style="text-align:left">抱歉，你属于签约模特，暂无法使用支付宝绑定功能。 </p>
+                <p>有疑问可以联系客服   </p>
+                <p>客服电话：4000-82-9003</p>
+            </div>
+    </div>
+</main>
+
+</body>
+
+</html>
+<script type="text/javascript">
+	
+	var App =  require('../../../modules/common/I_APP/I_APP');
+	var menu = require('../../../modules/menu/index');
+	var utility =  require('../../../modules/common/utility/index');
+	var $ = require('zepto');
+
+	if(App.isPaiApp)
+	{
+		App.closeloading();
+	}
+
+    /*********** 右上角菜单栏 ************/
+    /*
+     传入对象
+     { index:索引值,根据索引值从小到大排列选项顺序 }
+     { content:文本内容 }
+     { click_event:点击事件 }
+     */
+    var menu_data =
+        [
+            {
+                index:0,
+                content:'首页',
+                click_event:function()
+                {
+                    App.isPaiApp && App.switchtopage({ page:'hot' });
+                }
+            },
+            {
+                index:1,
+                content:'刷新',
+                click_event:function()
+                {
+                    window.location.href = window.location.href;
+                }
+            }
+        ];
+
+    /*
+     render() 方法传入(父容器，对象)
+     show()   下拉菜单
+     hide()   上拉菜单
+     */
+    menu.render($('body'),menu_data);
+
+    var __showTopBarMenuCount = 0;
+
+    utility.$_AppCallJSObj.on('__showTopBarMenu',function(event,data)
+    {
+
+        __showTopBarMenuCount++;
+
+        if(__showTopBarMenuCount%2!=0)
+        {
+            menu.show()
+        }
+        else
+        {
+            menu.hide()
+        }
+    });
+    /*********** 右上角菜单栏 ************/
+</script>

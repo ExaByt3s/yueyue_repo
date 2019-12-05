@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>修改商家资料</title>
+</head>
+<body>
+<style>
+    .J_add_btn,.J_add_cover_img{
+        overflow: hidden;
+    }
+    .model-img-list li{
+        float:left; width:85px; height:100px; text-align:center; margin-right:10px
+    }
+</style>
+{global_header_html}
+<script>
+    /**
+     * hudw 2015.1.23
+     * @param  {[type]} window    [description]
+     * @param  {[type]} seajs     [description]
+     * @param  {[type]} undefined [description]
+     * @return {[type]}           [description]
+     */
+    ;(function(window, seajs, undefined)
+    {
+
+
+        // 配置模块
+        seajs.config
+        ({
+
+            paths:
+            {
+                utility: 'http://cb.poco.cn/utility',
+                matcha: 'http://cb.poco.cn/matcha',
+                yueyue_global : 'http://www.yueus.com/js/global'
+            },
+            alias:
+            {
+                handlebars: 'utility/handlebars/1.0.0/handlebars',
+                jquery: 'utility/jquery/1.11.0/jquery',
+                cookie: 'matcha/cookie/1.0.0/cookie',
+                topbar : 'yueyue_global/topbar/topbar'
+            },
+            comboMaxLength: 5000,
+            charset: 'utf-8'
+        });
+
+        seajs.use(['jquery','topbar'],function($,topbar)
+        {
+            var $user_state = $('#user_state');
+
+            topbar.init
+            ({
+                container : $user_state,
+                custom_logout : "http://www.yueus.com/reg/logout.php",
+                custom_html : '<a href="http://www.yueus.com/reg/login.php?r_url='+encodeURIComponent(window.location.href)+'">登录</a><span class="pr15 pl15">|</span><a href="http://www.yueus.com/reg/register.php?r_url='+encodeURIComponent(window.location.href)+'">免费注册</a>'
+            });
+        });
+
+
+    })(window, seajs);
+</script>
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>修改商家资料卡</legend>
+			<form id="form1" name="form1" method="post" action="" target="_self">
+			  <table width="90%" align="center">
+				    <tr>
+                         <td width="26%" height="25">已开通的服务</td>
+                         <td width="74%" height="25">
+                         <!-- BEGIN type_list -->
+                         <input name="type_id[]" type="checkbox" id="type_id[]" value="{id}" {checked}/>{name}<br>
+                         <!-- END type_list -->
+                         </td>
+					</tr>
+                    <!-- BEGIN default_data -->
+				    <tr>
+                         <td width="26%" height="25">{name}</td>
+                         <td width="74%" height="25">
+                         <!-- IF input="3" -->
+                         <a href="{big_value}" target="_blank">{img}</a>
+                         <input name="{key}" type="text" id="{key}" value="{value}" size="50" maxlength="250" />
+                         <!-- ELSEIF input="9" -->
+                         {data}
+                         <!-- ELSEIF input="10" -->
+                         <input name="{key}" type="hidden" id="{key}" value="{value}" />
+                         {location_name}
+                         <!-- ELSE -->
+                         <textarea name="{key}" cols="50" rows="5" id="{key}">{value}</textarea>
+                         <!-- ENDIF -->
+                         {message}
+                         </td>
+					</tr>
+                    <!-- END default_data -->
+                    <!-- BEGIN att_data -->
+				    <tr>
+                         <td width="26%" height="25">{name}</td>
+                         <td width="74%" height="25">
+                         <!-- IF input="3" -->
+                         <input name="{key}" type="text" id="{key}" value="{value}" size="50" maxlength="250" />
+                         <!-- ELSEIF input="1" -->
+                         <select name="{key}" id="{key}">
+                           <!-- BEGIN child_data_format -->
+                           <option value="{c_values}" <!-- IF parent.value=c_values -->selected="selected"<!-- ENDIF -->>{c_values}</option>
+                           <!-- END child_data_format -->
+                         </select>
+                         <!-- ELSEIF input="2" -->
+                           <!-- BEGIN child_data_format -->
+                           <input name="{parent.key}[]" type="checkbox" id="{parent.key}[]" value="{c_values}" <!-- IF is_select -->checked="checked"<!-- ENDIF --> />{c_values}&nbsp;&nbsp;
+                           <!-- END child_data_format -->
+                         <!-- ELSE -->
+                         <textarea name="{key}" cols="50" rows="5" id="{key}">{value}</textarea>
+                         <!-- ENDIF -->
+                         </td>
+					</tr>
+                    <!-- END att_data -->
+                    
+				  <tr>
+					  <td width="26%" height="25">{image_data.name}</td>
+					  <td width="74%" height="25">
+                          <!-- BEGIN image_data.value -->
+                          <!--{img_url}<br>-->
+                          <!-- END image_data.value -->
+                          <div class="model-img-list clearfix">
+                              <ul class="J_li_ul" data-mark="0">
+                                  <!-- IF image_data.value -->
+                                  <!-- BEGIN image_data.value -->
+                                  <li class="J_upload_img_li" data-mark="{data_mark}_{ROWCNT}" data-index="SWFUpload_{data_mark}_{ROWCNT}">
+                                      <a href="{big_img_url}" target="_blank"><img class="J_upload_img" src="{img_url}" style="width:80px;" data-mark="{data_mark}_{ROWCNT}"/></a>
+                                      <a href="javascript:void(0);" class="cancle" data-class="J_delete_upload_img" data-mark="{data_mark}_{ROWCNT}" data-mark-par="{data_mark}" data-index="SWFUpload_{data_mark}_{ROWCNT}">删除</a>
+                                      <input class="J_upload_img_input" type="hidden" name="upload_imgs_{data_mark}[]" value="{img_url}" data-mark="{data_mark}_{ROWCNT}"/>
+                                  </li>
+                                  <!-- END image_data.value -->
+                                  <!-- ENDIF image_data.value -->
+                                  <li class="add-btn J_add_btn" data-mark="0" <!-- IF fit_swf -->style="width:1px;height:1px;"<!-- ENDIF fit_swf -->>
+                                      <span id="img_flash_btn_0"></span>
+                                  </li>
+                              </ul>
+                          </div>
+					  </td>
+					</tr>
+				    <tr>
+                         <td width="26%" height="25">审核日期</td>
+                         <td width="74%" height="25">{add_time}
+                         </td>
+					</tr>                    
+				  <tr>
+				<tr>
+				  <td colspan="2" align="center"><input name="id" type="hidden" id="id" value="{id}" />
+				    <input name="seller_id" type="hidden" id="seller_id" value="{seller_id}" /><input type="submit" name="button" id="button" value="提交" /> 
+                  </td>
+				</tr>
+			  </table>
+			</form>
+          </fieldset>
+        </div>
+      </div>
+    </div>   
+    </div>
+     </div>
+<input type="hidden" id="add_flash_num" value="1"/><!--要增加的falsh数值，页面有一个，则数值为二，同时也作为id标示-->
+<script>
+    seajs.use(['jquery','./js/img_upload_flash.js?t=112364651239'], function($,img_upload_flash) {
+        $(document).ready(function(){
+            //初始化上传封面图按钮
+            //construct_flash("cover_img_flash_btn","cover_img_btn",1,0,0);
+            //初始化第一个模特场地上传图按钮
+            var add_flash_num = $("#add_flash_num").val();
+            for(var j=0;j<add_flash_num;j++)
+            {
+                var param_1 = "img_flash_btn_"+j;
+                var param_2 = j;
+                var tmp_len = $(".J_li_ul[data-mark='"+j+"'] > .J_upload_img_li").length;
+                var tmp_param_4 = parseInt(tmp_len);
+                var tmp_param_5 = parseInt(tmp_len);
+                construct_flash(param_1,"img_btn",param_2,tmp_param_4,tmp_param_5);
+            }
+
+            //构造flash函数
+            function construct_flash(_swfPlaceholderId,flash_type,id_num,img_mark,construct_img_mark)
+            {
+                img_upload_flash.get_flash(_swfPlaceholderId,flash_type,id_num,img_mark,construct_img_mark);
+            }
+            //提交校验
+            //封面图是否上传
+            $("#button").click(function(){
+                var res = form_check();
+                //form_summit
+                if(res)
+                {
+                    $("#form1").submit();
+                }
+            });
+            function form_check()
+            {
+                if(($(".J_upload_cover_img[data-mark='1']").length)>0)
+                {
+                    if($(".J_upload_cover_img[data-mark='1']").attr("class").match("J_progress"))
+                    {
+                        alert('封面图在上传中');
+                        return false;
+                    }
+                }
+                //检查图文块
+                if(($(".J_upload_img").length)>0)
+                {
+                    var upload_imgs_len = $(".J_upload_img").length;
+                    for(var i=0;i<upload_imgs_len;i++)
+                    {
+                        var cur_class = $($(".J_upload_img")[i]).attr("class");
+
+                        if(cur_class.match("J_progress"))
+                        {
+                            alert('图片还在上传中，请稍后');
+                            return false;
+                        }
+                    }
+                }
+                return true;
+                //检查是否有图片在上传，避免flash不能使用
+            }
+        });
+    });
+</script>
+</body>
+</html>

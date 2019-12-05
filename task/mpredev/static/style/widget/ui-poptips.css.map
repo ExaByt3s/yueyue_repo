@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "ui-poptips.css",
+    "sources": [
+        "/style/widget/ui-poptips.scss"
+    ],
+    "sourcesContent": [
+        ".ui-poptips{\r\n    width:100%;\r\n    position: fixed;\r\n    top:0px;\r\n    left:0px;\r\n    z-index: 99;\r\n}\r\n.ui-poptips .ui-poptips-cnt{\r\n    margin:0px 10px;\r\n    background-color:rgba(0,0,0,.6);\r\n    line-height:40px;\r\n    height:40px; \r\n    color:#fff;\r\n    font-size: 16px;\r\n    text-align: center;\r\n    border-bottom-left-radius:3px;\r\n    border-bottom-right-radius:3px;\r\n    overflow:hidden;\r\n}\r\n\r\n.ui-poptips i{\r\n    display: inline-block;\r\n    width: 20px;\r\n    height: 1px;\r\n    position: relative;\r\n    overflow: visible;\r\n    margin-right: 8px;\r\n    margin-left:0px;\r\n    font-size: 20px;\r\n    vertical-align: middle;\r\n}\r\n.ui-poptips i:before{\r\n    background:url('../../image/ui/tips-icon.png') no-repeat 0px 0px;\r\n    -webkit-background-size: 150px auto;\r\n    content:\"\";\r\n    display: block;\r\n    width: 20px;\r\n    height:20px;\r\n    position: absolute;\r\n    left:0px;\r\n    top: -11px;\r\n}\r\n.ui-poptips-info i:before{\r\n  background-position: 0 -50px;\r\n}\r\n.ui-poptips-success i:before{\r\n  background-position: -25px -50px;\r\n}\r\n.ui-poptips-warn i:before{\r\n  background-position: -50px -50px;\r\n}\r\n\r\n"
+    ],
+    "mappings": "AAAA,AACI,AAAM,AACN,AAAU,AACV,AAAI,AACJ,AAAK,AACL,AAAS,AAEb,AAAY,AACR,AAAO,AACP,AAAiB,AACjB,AAAY,AACZ,AAAO,AACP,AAAM,AACN,AAAW,AACX,AAAY,AACZ,AAA0B,AAC1B,AAA2B,AAC3B,AAAS,AAGb,AAAY,AACR,AAAS,AACT,AAAO,AACP,AAAQ,AACR,AAAU,AACV,AAAU,AACV,AAAc,AACd,AAAY,AACZ,AAAW,AACX,AAAgB,AAEpB,AAAY,AAAC,AACT,AAA6C,AAC7C,AAAyB,AACzB,AAAQ,AACR,AAAS,AACT,AAAO,AACP,AAAO,AACP,AAAU,AACV,AAAK,AACL,AAAK,AAET,AAAiB,AAAC,AAChB,AAAqB,AAEvB,AAAoB,AAAC,AACnB,AAAqB,AAEvB,AAAiB,AAAC,AAChB,AAAqB",
+    "names": []
+}

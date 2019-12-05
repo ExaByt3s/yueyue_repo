@@ -1,0 +1,35 @@
+{
+    "currentVer": "2.2.100",
+    "cacheTable": {
+        "http://yp.yueus.com/mobile/app": "index.html",
+        "http://yp.yueus.com/mobile/package/resource/2.2.10/sea-package.js": "sea-package.js",
+        "http://yp.yueus.com/mobile/package/resource/2.2.10/utility-package.js": "utility-package.js",
+        "http://yp.yueus.com/mobile/dist/2.2.10/app.js": "app.js",
+        "http://yp.yueus.com/mobile/dist/2.2.10/app-debug.js": "app-debug.js",        
+	"http://yp.yueus.com/mobile/css/pai/paiappstyle.css": "paiappstyle.css",		
+        "http://yp.yueus.com/mobile/images/pai/icons-s92e29275e1.png": "icons-s92e29275e1.png",
+	"http://yp.yueus.com/mobile/images/pai/avatar-error-min.png" : "avatar-error-min.png",
+	"http://yp.yueus.com/mobile/images/640x940.jpg":"640x940.jpg",
+	"http://yp.yueus.com/mobile/images/pai/add.png":"add.png",
+	"http://yp.yueus.com/mobile/images/pai/add-active.png":"add-active.png",
+	"http://yp.yueus.com/mobile/images/pop-modelcar-tips.png":"pop-modelcar-tips.png",
+	"http://yp.yueus.com/mobile/crossd_iframe.html":"crossd_iframe.html",	
+
+	
+
+
+	"http://yp-wifi.yueus.com/mobile/app": "index.html",
+        "http://yp-wifi.yueus.com/mobile/package/resource/2.2.10/sea-package.js": "sea-package.js",
+        "http://yp-wifi.yueus.com/mobile/package/resource/2.2.10/utility-package.js": "utility-package.js",
+        "http://yp-wifi.yueus.com/mobile/dist/2.2.10/app.js": "app.js",
+        "http://yp-wifi.yueus.com/mobile/dist/2.2.10/app-debug.js": "app-debug.js",        
+	"http://yp-wifi.yueus.com/mobile/css/pai/paiappstyle.css": "paiappstyle.css",		
+        "http://yp-wifi.yueus.com/mobile/images/pai/icons-s92e29275e1.png": "icons-s92e29275e1.png",
+	"http://yp-wifi.yueus.com/mobile/images/pai/avatar-error-min.png" : "avatar-error-min.png",
+	"http://yp-wifi.yueus.com/mobile/images/640x940.jpg":"640x940.jpg",
+	"http://yp-wifi.yueus.com/mobile/images/pai/add.png":"add.png",
+	"http://yp-wifi.yueus.com/mobile/images/pai/add-active.png":"add-active.png",
+	"http://yp-wifi.yueus.com/mobile/images/pop-modelcar-tips.png":"pop-modelcar-tips.png",
+	"http://yp-wifi.yueus.com/mobile/crossd_iframe.html":"crossd_iframe.html"		
+    }
+}

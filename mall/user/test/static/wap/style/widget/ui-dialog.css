@@ -1,0 +1,163 @@
+@charset "UTF-8";
+/**
+ * 弹窗类
+ */
+.ui-dialog {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  color: #000; }
+
+.ui-dialog-notice {
+  background: transparent; }
+
+.ui-dialog.show {
+  display: -webkit-box;
+  display: box; }
+
+.ui-dialog .ui-dialog-cnt {
+  border-radius: 6px;
+  width: 270px;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  outline: none;
+  pointer-events: auto;
+  background-color: rgba(253, 253, 253, 0.95);
+  position: relative; }
+
+.ui-dialog .ui-dialog-bd {
+  min-height: 71px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  padding: 18px;
+  font-size: 16px;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  -webkit-box-orient: vertical; }
+
+.ui-dialog .ui-dialog-bd h4 {
+  margin-bottom: 4px;
+  font-size: 16px;
+  width: 100%;
+  text-align: center; }
+
+.ui-dialog .ui-dialog-bd div {
+  width: 100%;
+  text-align: center; }
+
+.ui-dialog .ui-dialog-ft {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px; }
+
+.ui-dialog .ui-dialog-ft button {
+  height: 42px;
+  line-height: 42px;
+  background: transparent; }
+
+.ui-dialog .ui-dialog-ft button:active {
+  background: rgba(0, 0, 0, 0.1); }
+
+.ui-dialog .ui-dialog-ft button:first-child {
+  border-bottom-left-radius: 6px;
+  background-image: none; }
+
+.ui-dialog .ui-dialog-ft button:last-child {
+  border-bottom-right-radius: 6px; }
+
+.ui-dialog-notice .ui-dialog-cnt {
+  width: 130px;
+  height: 110px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 6px;
+  color: #fff; }
+
+/**
+* 底部操作区
+*/
+.ui-btn-group, .ui-btn-group-tiled {
+  display: -webkit-box;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.ui-btn-group button, .ui-btn-group-tiled button {
+  display: block;
+  -webkit-box-flex: 1; }
+
+.ui-btn-group-tiled .ui-btn:first-child, .ui-btn-group-tiled .ui-btn-lg:first-child, .ui-btn-group-tiled .ui-btn-s:first-child {
+  margin-right: 15px; }
+
+.ui-btn-group button {
+  color: #333333;
+  line-height: 50px;
+  height: 48px;
+  text-align: center;
+  font-size: 16px;
+  border-right: 1px #c8c7cc solid;
+  width: 100%;
+  border-top: 1px solid #c8c7cc; }
+
+.ui-btn-group button:active {
+  /*background-color: rgba(0, 0, 0, 0.1);*/
+  background-color: #f2f2f2; }
+
+.ui-btn-group button:last-child {
+  border-right: none; }
+
+.ui-btn-group-bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: #fff; }
+
+.ui-btn-group-bottom button {
+  color: #00a5e0;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f9f9f9), to(#e0e0e0)); }
+
+.ui-btn-group-bottom button:active {
+  background-color: none;
+  color: rgba(0, 165, 224, 0.4); }
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .ui-btn-group button {
+    position: relative;
+    border: 0; }
+  .ui-btn-group button:before {
+    content: "";
+    position: absolute;
+    -webkit-transform-origin: right top;
+    width: 0;
+    border-right: 1px solid #c8c7cc;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transform: scaleX(0.5); }
+  .ui-btn-group button:after {
+    content: "";
+    position: absolute;
+    -webkit-transform-origin: right top;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-top: 1px solid #c8c7cc;
+    top: 0;
+    -webkit-transform: scaleY(0.5); }
+  .ui-btn-group button:last-child:before {
+    border-right: none; } }

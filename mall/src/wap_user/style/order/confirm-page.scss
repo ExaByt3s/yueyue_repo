@@ -1,0 +1,170 @@
+@charset "UTF-8";
+@import "../../sass/compass";
+
+.confirm-page{
+	.confirm-page-wrap{
+		background-color: #f2f2f2;
+		padding-bottom:100px;
+		position:relative;
+		.item-wrap{
+			.item{
+				
+				.title-item{
+					padding:20px 15px 10px;
+					h3.title{
+						color:#666;
+					}
+					.count-words{
+						color:#ff6a6e;
+					}
+				}
+				.good-info{
+					@include flexbox((
+		                display: box, 
+		                box-pack: start  //  start | center | end | justify
+		               
+		            ));
+					img{
+						width: 60px;
+						height: 60px;
+					}
+					p{
+						font-size: 12px;
+						color: #333;
+						padding : 0 0 0 12px;
+						-webkit-box-sizing: border-box;
+						box-sizing: border-box;
+						-webkit-box-flex: 1;
+						display: -webkit-box;
+						display: box;
+    					-webkit-box-align: center;
+    					box-align: center;
+					}
+				}
+				.txt-item{
+					padding:15px;
+					background:#fff;
+					.color-fe9220{
+						color:#fe9220;
+					}
+					.txt-con{
+						&.promotion-info{ 
+							.pt25{
+								padding-top:25px;
+							}
+							
+							ul{
+								li{
+									line-height: 15px;
+								}
+							}
+						}
+						h4.title{
+							color:#333;
+							font-size: 14px;
+							padding-bottom:10px;
+						}
+						.sec-area{
+							.ui-button {
+								margin: 10px 10px 0 0;
+								position:relative;
+							}
+						}
+						.stage-btn{
+							display: block;
+						    text-align: left;
+						    padding: 12px 5px 12px 5px;
+						    line-height: 14px;
+						    @include box-sizing(border-box);
+
+						}
+						.ui-button-bg-ff6{
+							background: #ff6a6e;
+							color : #fff;
+							border: 1px solid #ff6a6e;
+						}
+						.stage-list-size{
+							height: 150px;
+							overflow: hidden;
+						}
+						.txt{
+							
+							.ui-btn-w157{
+								margin: 0px 15px 10px 0px;
+								font-size: 12px;
+							}
+
+							.service-input-text{
+								width:95%;
+								
+							}
+							.service-place-textarea{
+								width:100%;
+								height: 75px;
+							}
+							.sj-liuyan-textarea{
+								width:100%;
+								height:50px;
+							}
+
+						}
+						.more-text{
+							text-align: center;
+						}
+                      	.area-text{
+                        width: 100%;
+                        background:url(../../image/arrow-icon-12x20.png) center right no-repeat;
+                        background-size: 6px 10px;
+                      	}
+						.service-time-txt{
+							width:100%;
+							background:url(../../image/arrow-icon-12x20.png) center right no-repeat;
+							background-size: 6px 10px;
+						}
+						
+					}
+				}
+			}
+		}
+		.btn-item{
+			width:100%;
+			height:50px;
+			position: fixed;
+			left:0;
+			bottom:0;
+			.order-submit-btn{
+				display: block;
+				background:#555;
+				font-size: 16px;
+				color:#fff;
+				text-align: center;
+				line-height: 50px;
+				&:active{
+					background:#aaa;
+				}
+			}
+		}
+		.ui-button-submit-area{
+			.footer-btn-item{
+				padding: 0 25px;
+			}
+			&.v2 button{
+				margin: 5px auto;
+    			width: 100%;
+    			&:active{
+					background:#aaa;
+				}
+			}
+		}
+	}
+	.icon-cu-36x36-m{
+		width: 18px;
+		height: 18px;
+		background-image:url('../../image/icon-cu-36x36.png?__sprite');
+		position:absolute;
+		z-index: 0;
+		right: -5px;
+		top: -5px;
+
+	}
+}

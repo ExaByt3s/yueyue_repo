@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/export.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+#list p
+{
+	line-height:auto;
+	margin:0px;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+	    <li><a href="javascript:void(0);" class="on">精确筛选</a></li>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form action="?" method="get">
+					<table class="table-list-search" id="quick_search" width="100%">
+							<!--身材部分-->
+							   <tr>
+								   <td class="table_search">
+								    <table width="800">
+								    <tbody>
+								       <tr><td colspan="3"><strong>个人信息</strong></td></tr>
+									   <tr>
+										    <td width="200">性别:
+												<select class="select-text" name="sex">
+													<option value=''>全部</option>
+													<option value="男" <!-- IF sex="男" -->selected='true'<!-- ENDIF -->>男</option>
+													<option value="女" <!-- IF sex="女" -->selected='true'<!-- ENDIF -->>女</option>
+												</select>
+										    </td>
+											<td width="220">职业状态:
+												<select class="select-text" name="p_status">
+													<option value=''>全部</option>
+													<option value="业余/爱好" <!-- IF p_status="业余/爱好" -->selected='true'<!-- ENDIF -->>业余/爱好</option>
+													<option value="专业/兼职" <!-- IF p_status="专业/兼职" -->selected='true'<!-- ENDIF -->>专业/兼职</option>
+													<option value="职业/全职" <!-- IF p_status="职业/全职" -->selected='true'<!-- ENDIF -->>职业/全职</option>
+												</select> 
+										    </td>
+										    <td>注册时间: 
+										       <input type="text" class="input-text Wate" name="start_reg_time" value="{start_reg_time}" size="10" onfocus="WdatePicker()"/>到
+										       <input type="text" class="input-text Wate" name="end_reg_time"  value="{end_reg_time}" size="10" onfocus="WdatePicker()"/>
+										    </td>
+										 </tr>
+									</tbody>
+									</table>
+								   </td>
+							   </tr>
+								<!--个人信息 //-->
+								<!--职业部分-->
+								<tr>
+								  <td class="table_search">
+									 <table width="900">
+									 <tbody>
+									    <tr><td colspan="3"><strong>职业条件</strong></td></tr>
+									   <tr>
+										     <td width="200">城市:
+										        <select class="prov" name="province">
+												    <option value="0">请选择</option>
+	  		                                     	<!-- BEGIN province_list -->
+	  		                                     	<option value="{c_id}" {selected_prov}>{c_name}</option>
+	  		                                     	<!-- END province_list -->
+										        </select>
+										         <select class="city" name="location_id">
+	    	                                      	<option value="0">请选择</option>
+	    	                                      	<!-- BEGIN city_list -->
+	  		                                     	<option value="{c_id}" {selected_city}>{c_name}</option>
+	  		                                     	<!-- END city_list -->
+	    	                                      </select> 
+										      </td>
+										      <td width="220">摄龄:
+											     <input type="text" class="input-text" name="join_age" value="{join_age}" size="2"/>年
+										      </td>
+										      <td>跟进时间:
+										      	<input type="text" class="input-text Wdate" onfocus="WdatePicker()" name="f_start_time"  value="{f_start_time}" size="10"/>~ 
+										      	<input type="text" class="input-text Wdate" onfocus="WdatePicker()" name="f_end_time" value="{f_end_time}" size="10"/>
+										     </td>
+										     <td rowspan="2">
+											   <input type="submit" value="查询" class="button"/>
+											   &nbsp;<a href="javascript:void(0);" onclick="export_search('cameraman_exact_export.php?act=export&sex={sex}&p_status={p_status}&start_reg_time={start_reg_time}&end_reg_time={end_reg_time}&province={province}&location_id={location_id}&join_age={join_age}&f_start_time={f_start_time}&f_end_time={f_end_time}&label_id={label_id}&pp_start_price={pp_start_price}&pp_end_price={pp_end_price}&avg_start_price={avg_start_price}&avg_end_price={avg_end_price}&login_sum={login_sum}&last_start_login_time={last_start_login_time}&last_end_login_time={last_end_login_time}&pp_start_num={pp_start_num}&pp_end_num={pp_end_num}&consumption_level={consumption_level}&sort={sort}&photo_time={photo_time}')">导出</a>
+											</td>
+									    </tr>
+									    <tr>
+									        <td>风格:
+									         <select class="select-text" name="goods_style">
+											  <option value="" >全部</option>
+										      <option value="欧美" <!-- IF goods_style="欧美" -->selected='true'<!-- ENDIF -->>欧美</option>
+										      <option value="情绪" <!-- IF goods_style="情绪" -->selected='true'<!-- ENDIF -->>情绪</option>
+										      <option value="清新" <!-- IF goods_style="清新" -->selected='true'<!-- ENDIF -->>清新</option>
+										      <option value="复古" <!-- IF goods_style="复古" -->selected='true'<!-- ENDIF -->>复古</option>
+										      <option value="韩系" <!-- IF goods_style="韩系" -->selected='true'<!-- ENDIF -->>韩系</option>
+										      <option value="日系" <!-- IF goods_style="日系" -->selected='true'<!-- ENDIF -->>日系</option>
+										      <option value="性感" <!-- IF goods_style="性感" -->selected='true'<!-- ENDIF -->>性感</option>
+										      <option value="街拍" <!-- IF goods_style="街拍" -->selected='true'<!-- ENDIF -->>街拍</option>
+										      <option value="胶片" <!-- IF goods_style="胶片" -->selected='true'<!-- ENDIF -->>胶片</option>
+										      <option value="商业" <!-- IF goods_style="商业" -->selected='true'<!-- ENDIF -->>商业</option>
+										     </select>
+									        </td>
+									        <td>是否愿意出远景拍摄:
+									        	<select class="select-text" name="is_fview">
+												 <option value=''>全部</option>
+												 <option value="1" <!-- IF is_fview="1" -->selected='true'<!-- ENDIF -->>看情况</option>
+												 <option value="2" <!-- IF is_fview="2" -->selected='true'<!-- ENDIF -->>愿意</option>
+												 <option value="3" <!-- IF is_fview="3" -->selected='true'<!-- ENDIF -->>不愿意</option>
+											   </select> 
+									        </td>
+									        <td>&nbsp;</td>
+									    </tr>
+									  </tbody>
+									  </table>
+									  </td>
+								 </tr>
+							   <!--职业条件 // -->
+							   
+							   
+							   <!--个人实力-->
+								<tr>
+								  <td class="table_search">
+									 <table width="1200">
+									 <tbody>
+									    <tr><td colspan="4"><strong>职业条件</strong></td></tr>
+									   <tr>
+										     <td width="320">标签:
+										  		  <span id="label_info">{label_name}</span>
+										  		  <input type="hidden" name="label_name" value="{label_name}" id="label_name"/>
+												  <input type="hidden" name="label_id" value="{label_id}" id="label_id"/>
+												  <span id="label_add" onclick="add_label('cameraman_label_manage.php')" style='cursor: pointer;'>+</span>
+										      </td>
+										      <td width="300">上个月交易金额:
+											     <input type="text" class="input-text" name="pp_start_price"  value="{pp_start_price}" size="4"/>至 
+										      	 <input type="text" class="input-text" name="pp_end_price" value="{pp_end_price}" size="4"/>
+										      </td>
+										      <td width="300">平均月消费金额:
+										      	<input type="text" class="input-text" name="avg_start_price"  value="{avg_start_price}" size="4"/>至
+										      	<input type="text" class="input-text" name="avg_end_price" value="{avg_end_price}" size="4"/>
+										     </td>
+										     <td width="280">活跃度:
+											     <select class="select-text" name="login_sum">
+													 <option value=''>不限</option>
+													 <option value="1" <!-- IF login_sum="1" -->selected='true'<!-- ENDIF -->>沉默</option>
+													 <option value="2" <!-- IF login_sum="2" -->selected='true'<!-- ENDIF -->>活跃</option>
+													 <option value="3" <!-- IF login_sum="3" -->selected='true'<!-- ENDIF -->>积极</option>
+												 </select>
+											</td>
+									    </tr>
+									    <tr>
+									        <td>最后登陆时间:
+									          <input type="text" class="input-text Wdate" onfocus="WdatePicker()" name="last_start_login_time"  value="{last_start_login_time}" size="10"/>至 
+										      <input type="text" class="input-text Wdate" onfocus="WdatePicker()" name="last_end_login_time" value="{last_end_login_time}" size="10"/>
+									        </td>
+									        <td>上个月交易次数:
+									        	 <input type="text" class="input-text" name="pp_start_num"  value="{pp_start_num}" size="2"/>至 
+										      	 <input type="text" class="input-text" name="pp_end_num" value="{pp_end_num}" size="2"/>
+									        </td>
+									        <td>消费水平:
+									           <select class="select-text" name="consumption_level">
+													 <option value=''>不限</option>
+													 <option value="1" <!-- IF consumption_level="1" -->selected='true'<!-- ENDIF -->>低价</option>
+													 <option value="2" <!-- IF consumption_level="2" -->selected='true'<!-- ENDIF -->>较低</option>
+													 <option value="3" <!-- IF consumption_level="3" -->selected='true'<!-- ENDIF -->>适中</option>
+													 <option value="4" <!-- IF consumption_level="4" -->selected='true'<!-- ENDIF -->>较高</option>
+													 <option value="5" <!-- IF consumption_level="5" -->selected='true'<!-- ENDIF -->>高价</option>
+												 </select>
+									        </td>
+									         <td>空闲时间:
+									           <select class="select-text" name="photo_time">
+													 <option value=''>不限</option>
+													 <option value="平日空闲" <!-- IF photo_time="平日空闲" -->selected='true'<!-- ENDIF -->>平日空闲</option>
+													 <option value="假日空闲" <!-- IF photo_time="假日空闲" -->selected='true'<!-- ENDIF -->>假日空闲</option>
+												 </select>
+									        </td>
+									    </tr>
+									  </tbody>
+									  </table>
+									  </td>
+								 </tr>
+							   <!-- 个人实力 // -->
+							   
+					</table>
+					<input type="hidden" name="act" value="search"/>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+<form name="list_form" id="list_form" action="model_export.php" method="post">
+	<div class="table-list">
+		<div class="btn">
+			符合条件的人数为:{total_count}
+			<span style="position: absolute;right:20px;">
+			    排序:
+				<select name="sort" id="sort">
+					<option>默认</option>
+					<option value="add_time_asc" <!-- IF sort="add_time_asc" -->selected='true' <!-- ENDIF -->>录入时间升序</option>
+					<option value="add_time_desc" <!-- IF sort="add_time_desc" --> selected='true'<!-- ENDIF -->>录入时间降序</option>
+				</select>
+			</span> 
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0" id="list">
+			<thead>
+				<tr>
+				   <th>姓名/APP名/UID</th>
+					<th>手机/微信</th>
+					<th>常驻城市</th>
+					<th>拍摄风格</th>
+					<th>最后登录时间</th>
+					<th>上月交易额</th>
+					<th>上月交易次数</th>
+					<th>平均月交易金额</th>
+					<th>消费区间</th>
+					<th>活跃度</th>
+					<th>空闲时间</th>
+					<th>标签</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+					<td align="center">
+						<p><!-- IF name -->{name}<!-- ELSE --><font color='red'>暂无姓名</font><!-- ENDIF --></p>
+						<p>{nickname}</p>
+						<p>{user_id}</p>
+					</td>
+					<td align="center">
+						<p>{cellphone}</p>
+						<p><!-- IF weixin_name -->{weixin_name}<!-- ELSE --><font color='red'>暂无微信</font><!-- ENDIF --></p>
+					</td>
+					<td align="center">
+						{location_name}
+					</td>
+					<td align="center">
+						{goods_style}
+					</td>
+					<td align="center">
+						{last_login_time}
+					</td>
+					<td align="center">
+						{prev_month_price}
+					</td>
+					<td align="center">
+						{prev_month_num}
+					</td>
+					<td align="center">
+						{avg_month_price}
+					</td>
+					<td align="center">
+						{consumption_name}
+					</td>
+					<td align="center">
+						{login_name}
+					</td>
+					<td align="center">
+						{photo_time}
+					</td>
+					<td align="center">
+						{label_name}
+					</td>
+					<td align="center">
+					   <a href="cameraman_detail_v2.php?user_id={user_id}" target="_blank">查看</a>
+					</td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+		<!--list end-->
+	</div>
+</form>
+<div id="pages" class="page">
+	{page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		//排序
+		$("#sort").change(function(){
+			var $oUrl = window.location.href.toString();
+			var $re = eval('/(sort=)([^&]*)/gi');
+			//var $res = /sort=/gi;
+			var $search = window.location.search;
+			if ($search == null || $search == '') 
+			{
+				window.location.href = $oUrl+"?sort="+$(this).val();
+			}
+			else
+			{
+				if ($re.test($search)) 
+				{
+					window.location.href = $oUrl.replace($re , "sort="+$(this).val());
+				}
+				else
+				{
+					window.location.href = $oUrl+"&sort="+$(this).val();
+				}
+				
+			}
+		});
+
+		//获取城市数据
+		$(".prov").change(function(){
+			var $prov_val = $(this).val();
+			$.ajax({
+			   type:"POST",
+			   url:"get_city.php",
+			   dataType: 'json',
+			   data : {'prov_id': $prov_val},
+			   success:function(data)
+			  {
+			  	if (data.ret) 
+			  	{
+			  		var $ret = data.ret;
+			  		var $str = "<option value='0'>请选择</option>";
+			  		for (var i = 0; i < $ret.length; i++) 
+			  		{
+			  			$str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";		
+			  		}
+			  		$(".city").html($str);
+
+			  	}
+
+			  },
+			  error:function(data)
+			 {
+
+			 }
+			});
+		});
+
+	});
+	
+	//修改标签进搜索
+	function add_label($url)
+	{
+	     var $url = $url+"?ids="+$("#label_id").val();
+	     $.layer({
+	              type: 2,
+	              title: '选择标签',
+	              shade: [0.3,'#000'],
+	              maxmin: false,
+	              shadeClose: false, 
+	              area : ['400' , '400'],
+	              offset : ['100px', ''],
+	              iframe: { src: $url }
+	          }); 
+	  }
+</script>
+</html>

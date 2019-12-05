@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>商品某条uv纪录详情</title>
+</head>
+
+<style>
+    img { width:200px ! important;}
+</style>   
+
+<body>
+    
+{global_header_html}
+
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>商品某条uv纪录详情</legend>
+                <table width="90%" align="center">
+                    <!-- BEGIN info -->
+                            
+                                    <tr>
+                                       <td width="26%" height="25">uv_id</td>
+                                       <td width="74%" height="25">
+                                          {id}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">商品id</td>
+                                         <td width="74%" height="25">
+                                            {goods_id}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">ip</td>
+                                       <td width="74%" height="25">
+                                          {ip}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">访问时间</td>
+                                       <td width="74%" height="25">
+                                          {v_time}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">来源</td>
+                                       <td width="74%" height="25">
+                                          {source_url}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">访问文件</td>
+                                       <td width="74%" height="25">
+                                          {go_url}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">浏览器</td>
+                                       <td width="74%" height="25">
+                                          {browse}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">系统</td>
+                                       <td width="74%" height="25">
+                                          {system}
+                                       </td>
+                                    </tr>
+                                    
+                    <!-- END info -->
+               </table>
+           </fieldset>
+        </div>
+      </div>
+    </div>   
+</div>
+</div>
+</body>
+</html>

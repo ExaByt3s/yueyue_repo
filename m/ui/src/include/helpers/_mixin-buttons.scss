@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+// -------------------------
+// Button style
+// -------------------------
+@mixin button-variant($color, $background: null, $border: null) {
+    $color: unquote($color);
+    $background: unquote($background);
+    $border: unquote($border);
+
+    @if $border {
+        border-color: $border;
+    }
+    
+    @if $background {
+        background: nth($background, 1);
+        @if length($background) == 3 {
+            $top-bgcolor: nth($background, 2);
+            $bottom-bgcolor: nth($background, 3);
+            @include background(linear-gradient(top, $top-bgcolor, $bottom-bgcolor));
+            @include filter-gradient($top-bgcolor, $bottom-bgcolor);
+        }
+    }
+    
+    color: $color;
+}
+
+// -------------------------
+// Button sizes
+// -------------------------
+@mixin button-size($height: '26px', $padding: null,
+    $font-size: null, $border-radius: null) {
+
+    $height: unquote($height);
+    $padding: unquote($padding);
+    $font-size: unquote($font-size);
+    $border-radius: unquote($border-radius);
+
+    height: $height;
+    line-height: $height;
+
+    @if $padding {
+        padding: $padding;
+    }
+
+    @if $font-size {
+        font-size: $font-size;
+    }
+
+    @if $border-radius {
+        @include border-radius($border-radius);
+    }
+}

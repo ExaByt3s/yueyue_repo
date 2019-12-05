@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="gb2312">
+<title>POCO摄影 - 弹框</title>
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link charset="utf-8" rel="stylesheet" href="../../../css/pai/paiappstyle.css">
+<style type="text/css">
+.ui-dialog .ui-dialog-container:nth-child(2) {
+    top: 10%;
+}
+
+.ui-dialog .ui-dialog-container:nth-child(3) {
+    top: 15%;
+}
+.ui-dialog .ui-dialog-container:nth-child(4) {
+    top: 20%;
+}
+</style>
+</head>
+
+<body>
+    <div class="ui-dialog">
+        <div class="ui-mask"></div>
+        <div class="ui-dialog-container">
+            <!-- 例子1 -->
+            <div class="ui-dialog-content" data-role="content">
+                <p>暂不支持手机发布作品</p>
+                <p>请使用电脑访问以下网站发布：</p>
+                <p>http://photo.poco.cn</p>
+            </div>
+            <footer class="ui-dialog-footer">
+                <button class="ui-dialog-button">我知道了</button>
+            </footer>
+        </div>
+
+        <!-- 例子2 -->
+        <div class="ui-dialog-container">
+            <div class="ui-dialog-content" data-role="content">
+                <p>确认删除？</p>
+            </div>
+            <footer class="ui-dialog-footer">
+                <button class="ui-dialog-button">取消</button>
+                <button class="ui-dialog-button">确认</button>
+            </footer>
+        </div>
+
+        <!-- 例子3 -->
+        <div class="ui-dialog-container">
+            <div class="ui-dialog-content" data-role="content">
+                <p>暂不支持手机发布作品</p>
+                <p>请使用电脑访问以下网站发布：</p>
+                <p>http://photo.poco.cn</p>
+                <button class="ui-button ui-button-dark ui-button-size-default">按钮</button>
+            </div>
+        </div>
+
+        <!-- 例子4 -->
+        <div class="ui-dialog-container">
+            <div class="ui-dialog-content" data-role="content">
+                <section class="input-list">
+                    <div>
+                        <label>身高：</label>
+                        <input type="text">
+                        <p>cm</p>
+                    </div>
+                    <div>
+                        <label>腰围：</label>
+                        <input type="text">
+                        <p>cm</p>
+                    </div>
+                    <div>
+                        <label>臀围：</label>
+                        <input type="text">
+                        <p>cm</p>
+                    </div>
+                </section>
+            </div>
+            <footer class="ui-dialog-footer">
+                <button class="ui-dialog-button">取消</button>
+                <button class="ui-dialog-button">确认</button>
+            </footer>
+        </div>
+    </div>
+    
+</body>
+</html>

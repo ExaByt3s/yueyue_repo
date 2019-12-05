@@ -1,0 +1,206 @@
+
+
+// 头部公共
+.global-top-bar{
+    position: relative;
+    z-index: 9;
+    .no_login{
+        .line{
+            padding: 0px 10px;
+        }
+        padding: 20px 0 0 0;
+        color : #fff;
+        a{
+            color : #fff;
+
+        }
+    }
+
+    height: 60px;
+    background: #000;
+    font-size: 14px;
+    a{
+        color:#ffffff;
+        &:hover{
+            color:#ffffff;
+            text-decoration: none;
+        }
+    }
+    
+
+
+    .nav{
+        margin-left: 20px;
+        float: left;
+        display: inline;
+        .item{
+            position: relative;
+            float:left;
+            display:inline; 
+            padding: 20px 26px 19px 26px;
+            
+
+
+            &:hover{
+                background: #2b333c;
+                cursor: pointer;
+                .ui-triangle{
+                    /* 以下是旋转 */
+                    -moz-transform:rotate(180deg);/* firefox */
+                    -moz-transform-origin:50% 50%;
+                    
+                    -webkit-transform:rotate(180deg);/* chrome & safari */
+                    -webkit-transform-origin:50% 50%;
+                    
+                    -o-transform:rotate(180deg);/* Opera */
+                    -o-transform-origin:50% 50%;
+                    
+                    transform:rotate(180deg);/* ie */
+                    transform-origin:50% 50%;
+                    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+
+                }
+            }
+            .ui-triangle{
+                left: auto;
+                right: 16px;
+                top: 28px;
+
+        
+            }
+
+            .txt{
+                padding-right:5px;
+                width: 70px;
+                display: inline-block;
+            }
+        }
+
+        
+        .dropdown-menu{
+            
+            border: 1px solid #dddddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+
+            -webkit-box-shadow: 0 1px 3px  #dbdada;
+            -moz-box-shadow: 0 1px 3px  #dbdada;
+
+            display:none;
+            position: absolute;
+            top: 60px;
+            left: -1px;
+            background: #fff;
+            padding: 10px 0 10px 0;
+            li{
+                width:140px;
+                padding: 10px 20px 10px 20px;
+                &:hover{
+                    background: #f5f5f5;
+                }
+
+            }
+        }
+
+
+        .dropdown-menu-hover{
+
+            .ui-triangle{
+                border-width:0px 4px 4px 4px;/* 大小 */
+                border-color: transparent transparent #000 transparent;/* 颜色 */
+                _border-color: #000 #000 #fff #fff;/* 颜色 */
+                _filter:chroma(color=white);
+            }
+            .dropdown-menu{
+                // display: block;
+
+               
+            }
+            background: #fff;
+            color:#000;
+            a{
+                color:#000;
+            }
+            &:hover{
+                background: #fff;
+                color:#000;
+            }
+        }
+
+    }
+
+
+    .nav_left{
+        width:400px;
+    }
+
+    .seller-info{
+        float:right;
+        display:inline; 
+        .dropdown-menu{
+            li{
+                width:87px;
+            }
+        } 
+    }
+
+
+}
+
+
+
+
+// 商家头部
+.global-top-bar-seller{
+    .logo{
+        padding:16px 0 0 0;
+        a{
+            display: block;
+            width: 212px;
+            height: 26px;
+            background: url(../../images/logo-seller.png) no-repeat;
+
+        }
+    }
+}
+
+// 消费者头部
+.global-top-bar-consumers{
+    .logo{
+        padding:16px 0 0 0;
+        a{
+            display: block;
+            width: 155px;
+            height: 26px;
+            background: url(../../images/logo-consumers.png) no-repeat;
+
+        }
+    }
+}
+
+
+
+// 首页头部特殊处理
+.index-bg .global-top-bar{
+    .nav{
+        .dropdown-menu{
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                left: 0px;
+
+        }
+        .info-area .item{
+               // padding-right: 27px;
+               li{
+                    width:85px;
+                }
+        }  
+    }
+}
+
+
+
+
+
+
+

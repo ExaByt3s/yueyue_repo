@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/js/admin.js"></script>
+    <script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="js/layer/layer.min.js"></script>
+    <title>榜单管理系统</title>
+</head>
+<body>
+<div class="mainbox" style="min-width: 800px;">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="javascript:void(0);" class="on">地区列表</a>
+            <a href="location_open_edit.php?act=add">地区添加</a>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="500">
+                        <tbody>
+                        <tr>
+                            <td width="260">添加日期: <input type="text" class="input-text Wate" name="start_time" value="{start_time}" onFocus="WdatePicker()" style="width:80px;" readonly/>~ <input type="text" class="input-text Wate" name="end_time" value="{end_time}" onFocus="WdatePicker()" style="width:80px;" readonly/>
+                            </td>
+                            <td width="150">添加者UID:
+                                <input type="text" class="input-text" name="user_id" value="{user_id}" style="width:60px;" />
+                            </td>
+                            <td>
+                                <p><input type="submit" class="button" value="查找"/></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <div class="table-list" id="table-list">
+        <div class="btn">
+            总条数:{total_count}
+        </div>
+        <!--list-->
+        <table width="100%" cellspacing="0">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>城市名</th>
+                <th>版本号</th>
+                <th>添加人</th>
+                <th>添加ID</th>
+                <th>添加时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center">{id}</td>
+                <td align="center">{location_name}</td>
+                <td align="center">{version_num}</td>
+                <td align="center">{nickname}</td>
+                <td align="center">{user_id}</td>
+                <td align="center">{add_time}</td>
+                <td align="center">
+                    <a href="location_open_edit.php?act=edit&id={id}">修改</a> | <a href="javascript:void(0);" onclick="del('location_open_edit.php?act=del&id={id}');">删除</a>
+                </td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

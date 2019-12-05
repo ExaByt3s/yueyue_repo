@@ -1,0 +1,140 @@
+<!DOCTYPE >
+<html  manifest="manifest.php"  >
+<!-- html -->
+<head>
+	<title>POCO拍客社区</title>
+
+	<meta http-equiv="Content-Type" content="text/html;" />
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"  />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" />
+
+	
+
+	<link rel="apple-touch-icon" href="webapp3.jpg" />
+	
+
+    <link type="text/css" rel="stylesheet" href="css/wo.css" />
+	
+
+	
+	<style type="text/css">
+		
+		body,html{ margin:0;padding:0;width:100%;height:100%;-webkit-touch-callout: none; -webkit-user-select: none; -webkit-tap-highlight-color: none;}
+		.apps_page,body{ background: #e1e1e1 }
+
+    </style>
+    
+    <script>
+    </script>
+</head>
+<body >
+	
+
+
+
+    <div class="page_container" style="height:100%;width:100%; position:relative;">
+		<input id="txt" type="text" placeholder="输入cookie" />
+		<button id="set">设置</button>
+		<button id="show">显示</button>
+		<button id="clear">清除</button>
+	</div>
+</body>
+
+
+
+<script >
+var cookie = {   
+    /**  
+     * 读取cookie  
+     *  
+     * @param {String} n=名称  
+     * @return {String} cookie值  
+     * @example  
+     *      $.cookie.get('id_test');  
+     */  
+    get:function(n){   
+        var m = document.cookie.match(new RegExp( "(^| )"+n+"=([^;]*)(;|$)"));      
+        return !m ? "":unescape(m[2]);     
+    },   
+    /**  
+     * 设置cookie  
+     * @param {String} name cookie名称 --必填  
+     * @param {String} value cookie值  --必填  
+     * @param {String} domain 所在域名  
+     * @param {String} path 所在路径  
+     * @param {Number} hour 存活时间，单位:小时  
+     * @example  
+     *  $.cookie.set('value1','cookieval',"id.qq.com","/test",24); //设置cookie  
+     */  
+    set:function(name,value,domain,path,hour){    
+        var expire = new Date();    
+        expire.setTime(expire.getTime() + (hour?3600000 * hour:30*24*60*60*1000));   
+  
+        document.cookie = name + "=" + value + "; " + "expires=" + expire.toGMTString()+"; path="+ (path ? path :"/")+ "; "  + (domain ? ("domain=" + domain + ";") : "");    
+    },   
+       
+    /**  
+     * 删除指定cookie,复写为过期 !!注意path要严格匹配， /id 不同于/id/  
+     *  
+     * @param {String} name cookie名称  
+     * @param {String} domain 所在域  
+     * @param {String} path 所在路径  
+     * @example  
+     *      $.cookie.del('id_test'); //删除cookie  
+     */  
+    del : function(name, domain, path) {   
+        document.cookie = name + "=; expires=Mon, 26 Jul 1997 05:00:00 GMT; path="+ (path ? path :"/")+ "; " + (domain ? ("domain=" + domain + ";") : "");    
+    },   
+    /**  
+     * 删除所有cookie -- 这里暂时不包括目录下的cookie  
+     * @example  
+     *      $.cookie.clear(); //删除所有cookie  
+     */  
+        
+    clear:function(){   
+        var rs = document.cookie.match(new RegExp("([^ ;][^;]*)(?=(=[^;]*)(;|$))", "gi"));   
+        // 删除所有cookie   
+        for (var i in rs){   
+            document.cookie = rs[i] + "=;expires=Mon, 26 Jul 1997 05:00:00 GMT; path=/; " ;   
+        }   
+    },   
+    /**  
+     * uin -- 针对业务,对外开源请删除  
+     *   
+     * @return {String} uin值  
+     * @example  
+     *      $.cookie.uin();  
+     */  
+    uin:function(){   
+        var u = cookie.get("uin");   
+        return !u?null:parseInt(u.substring(1, u.length),10);    
+    }   
+};  
+
+var txt = document.getElementById('txt');
+var show = document.getElementById('show');
+var set = document.getElementById('set');
+var clear = document.getElementById('clear');
+
+show.onclick = function()
+{
+	alert(cookie.get('test'));
+}
+
+clear.onclick = function()
+{
+	alert('clear');
+	cookie.clear();
+}
+
+set.onclick = function()
+{
+	cookie.set('test',txt.value);
+}
+
+//-->
+</script>
+
+</html>

@@ -1,0 +1,17 @@
+// --------------------------------------------------
+// 公共 - 顶栏 - icon
+// --------------------------------------------------
+
+
+$topbar-icons: sprite-map("common/topbar/icons/*.png", $layout: smart, $spacing: 1px, $clean-up: false);
+$topbar-icons-ie: sprite-map("common/topbar/icons-ie/*.png", $layout: smart, $spacing: 1px, $clean-up: false);
+
+$app-icons: sprite-map("common/topbar/app-icons/*.png", $layout: smart, $spacing: 1px, $clean-up: false);
+$app-icons-ie: sprite-map("common/topbar/app-icons-ie/*.png", $layout: smart, $spacing: 1px, $clean-up: false);
+
+@mixin get-icon($sprite, $dimensions: false) {
+    @include sprite($topbar-icons, $sprite, $dimensions);
+}
+@mixin get-app-icon($sprite, $dimensions: false) {
+    @include sprite($app-icons, $sprite, $dimensions);
+}

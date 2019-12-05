@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>欢迎使用hai企业建站系统 Powered by hai - Powered by hai</title>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="/" class="on">文章模型</a>|
+		<a href="/">添加文章</a>|
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form action="list.php" method="get">
+					<input id="title" type="text" size="14" class="input-text" name="keyword" value="">
+					<select name="searchtype">
+						<option value="title">标题</option>						
+						<option value="keywords">关键词</option>
+						<option value="id">ID</option>
+					</select>
+					<input type="submit" value="查询" class="button">
+					<input type="reset" value="重置" class="button">
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+<form name="list_form" id="list_form" action="" method="post">
+	<div class="table-list">
+		<!--list-->
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th width="30"><input type="checkbox" value="" id="check_box" onclick="select_all('ids[]');"></th>
+				<th width="40">排序</th>
+				<th width="40">ID</th>
+				<th>标题</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!--while data-->
+				<tr>
+				<td width="30" align="center"><input class="inputcheckbox " name="ids[]" value="1" type="checkbox"></td>
+				<td width="40" align="center"><input name="listorders[1]" type="text" size="3" value="0" class="input-text-c valid"></td>
+				<td align="center">1</td>
+				<td>[<font color="green">行业新闻</font>] </td>
+				<!--while data-->
+				</tr>      	
+			</tbody>
+		</table>
+		<!--list end-->
+		<div class="btn">
+			<input type="button" class="button" name="dosubmit" value="删除"> 
+		</div>
+	</div>
+</form>
+<div id="pages" class="page">
+	<a href="#this">1</a>
+	<a href="#this" class="cur">2</a>
+</div>
+</div>
+</body>
+</html>

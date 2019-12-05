@@ -1,0 +1,33 @@
+<main role="main" class="consider secondary">
+    <!-- <header class="page-header wryh">
+        <div class="page-back" data-role="page-back"><i class="icon icon-back-40x40"></i></div>
+        约拍邀请
+    </header> -->
+
+    <header class="nav-header mine-nav-header">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title">约拍订单</h3>
+        
+        <div class="right-button-wrap">
+            <a><i class="icon icon-cog"></i></a>
+        </div>
+    </header>
+    
+    <div class="content-body">
+        <div class="accept">
+            {{#if is_cameraman}}
+                <div class="considering cur" data-role="considering">模特考虑中</div>
+                <div class="agreed" data-role="agreed">模特已同意</div>
+            {{^}}
+                <div class="considering cur" data-role="considering">考虑中</div>
+                <div class="agreed" data-role="agreed">已同意</div>
+            {{/if}}
+        </div>
+        <div class="container" data-role="container">
+
+        </div>
+    </div>
+</main>

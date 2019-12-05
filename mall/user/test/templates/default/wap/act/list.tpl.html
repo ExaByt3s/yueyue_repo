@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{title}</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/act/list.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<!--script src="../../../../lib/debuggap.js"></script-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+</head>
+<body>
+<main role="main" class="action-list">
+    <section id="global-header"></section>
+    <div class="action_query">
+        <div class="query" data-tap data-choose="time"><div class="notice">时间</div><div class="arrow"></div></div>
+        <div class="query" data-tap data-choose="price"><div class="notice">价格</div><div class="arrow"></div></div>
+        <div class="query" data-tap data-choose="start"><div class="notice">发起者</div><div class="arrow"></div></div>
+    </div>
+    <div class="page-view" data-role="page-container" style="background-color:#eee;">
+
+        <div class="fade inner_fade fn-hide" data-role="fade">
+            <div class="action-list-condition"  data-role="condition-con">
+                <div class="price-condition condition fn-hide" data-con data-con-type="price">
+                    <div class="child cur" data-carry=""><p class="child-child">全部</p>
+                    </div>
+                    <div class="child" data-type="budget_0-100" data-carry="budget_0-100"><p class="child-child">0-100元</p>
+                    </div>
+                    <div class="child" data-carry="budget_101-200"><p class="child-child">101-200元</p>
+                    </div>
+                    <div class="child" data-carry="budget_201-500"><p class="child-child">201-500元</p>
+                    </div>
+                    <div class="child" data-carry="budget_501-1000"><p class="child-child">501-1000元</p>
+                    </div>
+                </div>
+                <div class="day-condition condition fn-hide" data-con data-con-type="time">
+                    <div class="child cur" data-carry=""><p class="child-child">全部</p>
+                    </div>
+                    <div class="child" data-carry="today"><p class="child-child">今天</p>
+                    </div>
+                    <div class="child" data-carry="weekend"><p class="child-child">周末</p>
+                    </div>
+                    <div class="child" data-carry="history"><p class="child-child">活动回顾</p>
+                    </div>
+                </div>
+                <div class="history-condition condition fn-hide" data-con data-con-type="start">
+                    <div class="child cur" data-carry=""><p class="child-child">全部</p>
+                    </div>
+
+                    <div class="child" data-carry="start_by_authority"><p class="child-child">官方</p>
+                    </div>
+                    <div class="child" data-carry="start_by_net_friends"><p class="child-child">网友</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="action_list_contain" data-role="action_list_contain">
+
+        </div>
+        <div class="load_more fn-hide" data-role="load_more">加载更多</div>
+    </div>
+
+    {wap_global_footer}
+    
+</main>
+</body>
+<script>
+
+    var utility = require('common/utility/index');
+    var $ = require('components/zepto/zepto.js');
+    var header = require('common/widget/header/main');
+    var frozen = require('yue_ui/frozen');
+    var child_temp =  Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n<div class=\"child\" data-role=\"event-item\" data-event-id=\"";
+  if (helper = helpers.event_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.event_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" >\r\n    <i class=\"img image-img child-img\"  data-lazyload-url=\"";
+  if (helper = helpers.cover_image) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.cover_image); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n        ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.is_authority), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.is_free), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.is_recommend), {hash:{},inverse:self.noop,fn:self.program(6, program6, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(8, program8, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.event_status), "==", "2", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.event_status), "==", "2", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    </i>\r\n    <div class=\"child-text\">\r\n        <p class=\"title\">";
+  if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n        <p class=\"detail\"><i class=\"icon icon-act-list-athor\"></i>";
+  if (helper = helpers.nickname) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.nickname); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n        <p class=\"detail\"><i class=\"icon icon-act-list-date\"></i>";
+  if (helper = helpers.start_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.start_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n        <p class=\"detail\"><i class=\"icon icon-act-list-price\"></i>￥";
+  if (helper = helpers.budget) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.budget); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "/人</p>\r\n        <p class=\"detail\"><i class=\"icon icon-act-list-join-num\"></i>报名人数：";
+  if (helper = helpers.event_join) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.event_join); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "人</p>\r\n\r\n    </div>\r\n</div>\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  
+  return "\r\n            <div class=\"tips-con-red\">\r\n                <div class=\"tips\">官方</div>\r\n                <div class=\"delta\"></div>\r\n            </div>\r\n        ";
+  }
+
+function program4(depth0,data) {
+  
+  
+  return "\r\n            <div class=\"tips-con-green\">\r\n                <div class=\"tips\">免费</div>\r\n                <div class=\"delta\"></div>\r\n            </div>\r\n        ";
+  }
+
+function program6(depth0,data) {
+  
+  
+  return "\r\n            <div class=\"tips-con-orange\">\r\n                <div class=\"tips\">推荐</div>\r\n                <div class=\"delta\"></div>\r\n            </div>\r\n        ";
+  }
+
+function program8(depth0,data) {
+  
+  
+  return "\r\n            <div class=\"pic-fade\"></div>\r\n            <div class=\"icon act_is_finish\"></div>\r\n        ";
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n\r\n\r\n";
+  return buffer;
+  });
+    var LZ = require('common/lazyload/lazyload');
+    var abnormal = require('common/widget/abnormal/index');
+
+    var _self = $({});
+
+    var page = 1;
+
+    var time_querys = '{time_querys}';
+
+    var price_querys = '{price_querys}';
+
+    var start_querys = '{start_querys}';
+
+    fresh();
+
+    function fresh()
+    {
+        var sub_data =
+        {
+            page:page,
+            time_querys:time_querys,
+            price_querys:price_querys,
+            start_querys:start_querys,
+            keyword_query : '{keyword_query}',
+            remarks_querys : '{remarks_querys}'
+
+        };
+
+        $.ajax
+        ({
+            url: window.$__ajax_domain + 'act_list.php',
+            data : sub_data,
+            dataType: 'json',
+            cache: false,
+            beforeSend: function()
+            {
+                window.$loading = $.loading
+                ({
+                    content:'加载中'
+                });
+                console.log(sub_data)
+            },
+            success: function(res)
+            {
+                var load_more_btn = $('[data-role="load_more"]');
+
+                load_more_btn.addClass('fn-hide');
+
+                console.log(res);
+
+                console.log($('[data-role="action_list_contain"]'));
+
+                $loading.loading("hide");
+
+                // 无数据处理
+                if(!res.result_data.list || (!res.result_data.list.length && page == 1))
+                {
+                    abnormal.render($('[data-role="action_list_contain"]')[0],{});
+
+                    return;
+                }
+
+                var str = child_temp({data:res.result_data.list});
+
+                if(page == 1)
+                {
+                    $('[data-role="action_list_contain"]').html(str);
+
+                    window.scrollTo(0,0);
+                }
+                else
+                {
+                    $('[data-role="action_list_contain"]').append(str);
+                }
+
+
+                if(res.result_data.has_next_page)
+                {
+                    page = page + 1;
+
+                    load_more_btn.removeClass('fn-hide');
+                }
+                //后加载
+
+                if(!_self.lazyloading)
+                {
+                    _self.lazyloading = new LZ($('body'),
+                            {
+                                size : 100
+                            });
+                }
+                else
+                {
+                    _self.lazyloading.refresh();
+                }
+
+                $('[data-role="event-item"]').on('click',function()
+                {
+                    location.href = './detail.php?event_id=' + $(this).attr('data-event-id')
+                })
+
+            },
+            error: function(data)
+            {
+                $loading.loading("hide");
+
+                $.tips
+                ({
+                    content:'网络异常',
+                    stayTime:3000,
+                    type:'warn'
+                });
+            },
+            complete: function()
+            {
+
+            }
+        });
+    }
+
+    $(function()
+    {
+        $('[data-role="fade"]').on('click',function()
+        {
+            $(this).addClass('fn-hide')
+        })
+
+
+
+
+        $('[data-tap]').on('click',function()
+        {
+            var _sel = $(this);
+
+            _sel.addClass('cur').siblings().removeClass('cur');
+
+            var type = $(this).attr('data-choose');
+
+            $('[data-con]').addClass('fn-hide');
+
+            $('[data-con-type="' + type + '"]').removeClass('fn-hide');
+
+            $('[data-role="fade"]').removeClass('fn-hide');
+        })
+
+        $('[data-carry]').on('click',function()
+        {
+            var _sel = $(this);
+
+            var type_in = _sel.parent().attr('data-con-type');
+
+            var carrying = _sel.attr('data-carry');
+
+            _sel.siblings().removeClass('cur');
+
+            _sel.addClass('cur');
+
+            $('[data-choose="' + type_in +'"]').find('.notice').html(_sel.find('.child-child').html())
+
+            switch (type_in)
+            {
+                case 'time' : time_querys = carrying;break;
+                case 'price' : price_querys = carrying;break;
+                case 'start' : start_querys = carrying;break;
+            }
+
+            page = 1;
+
+            fresh();
+        })
+
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"{title}",
+            header_show : true , //是否显示头部
+            left_icon_show:true,
+            right_icon_show : false, //是否显示右边的按钮
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        })
+
+        $('[data-role="load_more"]').on('click',function()
+        {
+            fresh();
+        })
+    });
+
+</script>
+</html>

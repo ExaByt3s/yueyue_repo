@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>按钮通用模块</title>
+<meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+
+<script>
+(function()
+{
+    if(!window.console){
+        console = (function(){
+            var instance = null;
+            function Constructor(){
+                
+            }
+            Constructor.prototype = {
+                log : function(str){
+
+                }
+            }
+            function getInstance(){
+                if(instance == null){
+                    instance =  new Constructor();
+                }
+                return instance;
+            }
+            return getInstance();
+        })()
+    }
+
+    String.prototype.trim = function() {
+        return this.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+})();
+</script>
+
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/style/common/base.css">
+<!--基础样式 END-->
+
+<!--公共模块 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/style/common/common.css">
+<!--公共模块 END-->
+
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/taskpredev/static/style/task-pc.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__domain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : './ajax/'
+	};
+</script>  
+
+<!-- js 库-->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/taskpredev/static/lib/lib.js"></script>
+</head>
+<body>
+
+<style type="text/css">
+
+.ui-button {
+    margin: 10px 0;
+}
+.des{
+    margin: 3px 0;
+}
+html, body{
+    padding: 20px 20px 50px 20px;
+}
+
+
+</style>
+
+
+<div style="display:"  class="pb20">
+
+/********大小*******/
+<p class="des">ui-button-block 为block元素，100% </p>
+<p class="des">ui-button-size-large 为高度 60px 按钮 </p>
+<p class="des">ui-button-size-middle 为高度 40px 按钮 </p>
+<p class="des">ui-button-size-min 为高度 30px 按钮 </p>
+
+/********圆角*******/
+<p class="des">ui-button-radius-large  圆角为90px </p>
+
+/********配色*******/
+<p class="des">ui-button-primary  默认色蓝色</p>
+
+<p class="des">ui-button-color2  灰色</p>
+
+<p class="des">ui-button-color3   黄色</p>
+<p class="des">ui-button-nocolor   没有背景色</p>
+<p class="des">ui-button-dark   不可以点击黑色</p>
+</div>
+
+
+<div id="page-container">
+
+    <a href="#"  class="tdn">
+        <button class="ui-button ui-button-primary ui-button-block ui-button-100per  ui-button-size-middle">
+            <span class="ui-button-content">示例</span>
+        </button>
+    </a>
+
+
+    <a href="#"  class="tdn">
+        <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ">
+            <span class="ui-button-content">示例</span>
+        </button>
+    </a>
+    
+
+    <a href="#"  class="tdn">
+        <button class="ui-button ui-button-primary ui-button-size-min ui-button-block   ">
+            <span class="ui-button-content">示例</span>
+        </button>
+    </a>
+    
+
+    <a href="#"  class="tdn">
+        <button class="ui-button ui-button-size-min ui-button-block ui-button-dark">
+            <span class="ui-button-content">灰色按钮</span>
+        </button>
+    </a>
+
+
+    <a href="#"  class="tdn">
+        <button class="ui-button ui-button-primary ui-button-size-min ui-button-block ui-button-color2  ">
+            <span class="ui-button-content">小号按钮</span>
+        </button>
+    </a>
+
+    <a href="#"  class="tdn">
+        <button class="ui-button ui-button-primary ui-button-size-min ui-button-block ui-button-color2  ">
+            <span class="ui-button-content"><i class="icon icon-demo"></i>小号按钮带图标</span>
+        </button>
+    </a>
+    
+
+    <a href="#"  class="tdn">
+        <button class="ui-button ui-button-primary ui-button-size-large ui-button-block ui-button-color2">
+            <span class="icon db icon-demo"></span>
+            <span class="ui-button-content">示例</span>
+        </button>
+    </a>
+    
+
+
+</div>
+</body>
+</html>

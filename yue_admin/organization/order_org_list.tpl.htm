@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/preview/preview.js"></script>
+<script type="text/javascript" src="js/preview/preview_load.js"></script>
+<link rel="stylesheet" type="text/css" href="js/preview/css/preview.css">
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>机构管理系统</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">交易详情</a>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform">
+					<table class="table-list-search" id="quick_search" width="900">
+					      <tbody>
+							       <tr>
+										<td width="260">交易日期: <input type="text" class="input-text Wate" name="min_date_time" value="{min_date_time}" onFocus="WdatePicker()" style="width:80px;"/>~ <input type="text" class="input-text Wate" name="max_date_time" value="{max_date_time}" onFocus="WdatePicker()" style="width:80px;" />
+										</td>
+										<td width="150">昵称:
+										<input type="text" class="input-text" name="nick_name" value="{nick_name}" style="width:100px;" />
+										</td>
+									    <td width="180">
+									    手机号码:
+										<input type="text" class="input-text" name="cellphone" value="{cellphone}" style="width:100px;"/>
+									    </td>
+									   <td>
+									    <p><input type="button" class="button" value="查找" onclick="com_export('search')"> <input type="button" class="button" value="导出" onclick="com_export('export')"></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+					<input type="hidden" name="act" value="search" id="act" />
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+	<div class="table-list">
+		<div class="btn">
+			总交易额:{total_count}元
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th>头像</th>
+				<th>昵称</th>
+				<th>手机号</th>
+				<th>交易金额</th>
+				<th>交易次数</th>
+				<th>成功交易数</th>
+				<th>约约钱包余额</th>
+				<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center"><a href="javascript:void(0);" path="{thumb}" class="preview"><img src="{icon}"></a></td>
+				<td align="center">{nickname}</td>
+				<td align="center">{cellphone}</td>
+				<td align="center">{true_budget}</td>
+				<td align="center">{total_count}</td>
+				<td align="center">{success_count}</td>
+				<td align="center">{payment_price}</td>
+				<td align="center"><a href="order_org_detail.php?user_id={user_id}">查看详情</a></td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+		<!--list end-->
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	//导出和查询触动
+  function com_export($actval)
+  {
+  	$("#act").val($actval);
+	//$("#myform").attr("action", $url);
+	//return;
+	$("#myform").submit();
+ }
+</script>
+</html>

@@ -1,0 +1,30 @@
+<div class="act_topic_style_1 native_scroll">
+              <!-- IF content -->
+               <div class="p1th" style="display:; ">
+                    {content}
+               </div>
+              <!-- ENDIF -->
+              <!-- IF list -->
+               <ul class="style_2" >
+                  <!-- BEGIN list -->
+                   <li >
+                       <div class="img_container">
+                           <!-- IF role="model" -->
+                           <i class="img image-img avatar-size-img inner_img loaded" style="background-size: cover; background-image: url( {img_url} );" data-url-style="inside" data-url="model_card/{user_id}" data-role="nav-page"></i>
+							<!-- ELSE -->
+							 <i class="img image-img avatar-size-img inner_img loaded" style="background-size: cover; background-image: url( {img_url} );" data-url-style="inside" data-url="zone/{user_id}/cameraman" data-role="nav-page"></i>
+							<!-- ENDIF -->
+                       </div>
+                       <div class="details">
+                            <div class="name">{user_name}</div>
+                            <div class="wbox ">
+                                <!-- IF price --><div class="lbox ">£¤{price}</div><!-- ENDIF -->
+                                <!-- IF alter_price --><div class="rbox ">£¤{alter_price}</div><!-- ENDIF -->
+                            </div>
+                           <!-- IF remark --> <p class="style"><span class="cor">·ç¸ñ </span>  <span class="pl5">{remark}</span></p><!-- ENDIF -->
+                       </div>
+                   </li> 
+                   <!-- END list -->
+               </ul>
+            <!-- ENDIF -->
+</div>

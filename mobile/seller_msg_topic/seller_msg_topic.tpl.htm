@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0">
+    <title>约约商家V1.1.0版本功能介绍</title>
+    <script>
+    !function(){function e(e){d=e.createElement("iframe"),d.style.display="none",e.documentElement.appendChild(d)}function a(e){if(PocoWebViewJavascriptBridge._messageHandler)throw Error("WebViewJavascriptBridge.init called twice");PocoWebViewJavascriptBridge._messageHandler=e;var a=v;v=null;for(var i=0;i<a.length;i++)c(a[i])}function i(e,a){t({data:e},a)}function n(e,a){u[e]=a}function r(e,a,i){t({handlerName:e,data:a},i)}function t(e,a){if(a){var i="cb_"+g++ +"_"+(new Date).getTime();w[i]=a,e.callbackId=i}l.push(e),d.src=f+"://"+p}function o(){var e=JSON.stringify(l);return l=[],/android/gi.test(window.navigator.userAgent.toLowerCase())?void window.wst.fetchQueue(e):e}function c(e){setTimeout(function(){var a=JSON.parse(e);if(a.responseId){var i=w[a.responseId];if(!i)return;i(a.responseData),delete w[a.responseId]}else{var i;if(a.callbackId){var n=a.callbackId;i=function(e){t({responseId:n,responseData:e})}}var r=PocoWebViewJavascriptBridge._messageHandler;a.handlerName&&(r=u[a.handlerName]);try{r(a.data,i)}catch(o){"undefined"!=typeof console&&console.log("WebViewJavascriptBridge: WARNING: javascript handler threw.",a,o)}}})}function s(e){v?v.push(e):c(e)}if(!window.PocoWebViewJavascriptBridge){var d,l=[],v=[],u={},f="wvjbscheme",p="__WVJB_QUEUE_MESSAGE__",w={},g=1;window.PocoWebViewJavascriptBridge={init:a,send:i,registerHandler:n,callHandler:r,_fetchQueue:o,_handleMessageFromObjC:s};var b=document;e(b);var h=b.createEvent("Events");h.initEvent("WebViewJavascriptBridgeReady"),h.bridge=PocoWebViewJavascriptBridge,b.dispatchEvent(h)}}();
+    </script>
+    <script type="text/javascript" src="http://static.yueus.com/yue_ui/js/jquery-1.10.2.min.js"></script>
+    <link href="css/pcsp.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<img src="http://static.yueus.com/mobile/test/seller_msg_topic/images/bar_icon_72x72.png" style="position: absolute !important;clip: rect(1px 1px 1px 1px);">
+<div class="seller_msg_topic" >
+    <style>
+        .top-bar{
+            height: 45px;
+            border-bottom: solid 1px #ddd;
+            display: -webkit-box;
+            -webkit-box-align: center;
+            -webkit-box-pack: justify;
+            padding: 15px;
+            background-color: #fdfdfd;
+        }
+        .bar-icon{
+            width: 50px;
+            margin: 0 15px 0 0;
+            background: url("http://static.yueus.com/mobile/test/seller_msg_topic/images/bar_icon_72x72.png") no-repeat;
+            background-size: cover;
+            height: 50px;
+            display: inline-block;
+        }
+        .bar-f{
+            width: 60px;
+            margin-bottom: 4px;
+        }
+        .bar-btn{            
+            height: 30px;
+            width: 100px;
+            border-radius: 5px;
+            background-color: #555;
+            color: #fff;
+            border: none;
+        }
+        .bar-btn:active{
+            background-color: #aaa;
+        }
+        .topic{
+            padding: 0 15px;
+            color: #666;
+            background-color: #FFFFFF;
+        }
+        .topic-list{
+            color: #4092f1;
+        }
+        .list{
+            display: -webkit-box;
+            margin-top: 15px;
+        }
+        .list-l{
+
+        }
+        .list-r{
+            display: -webkit-box;
+            -webkit-box-flex: 1;
+        }
+        .topic-title{
+            font-size: 16px;
+            color: #000;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .topic-summary{
+            padding-bottom: 15px;
+        }
+        .content-title{
+            color: #000;
+            padding-top: 30px;
+            padding-bottom: 15px;
+        }
+        .content-summary{
+            padding-bottom: 15px;
+        }
+        .content-img{
+            width: 100%;
+            padding: 30px 0;
+        }
+        .bor-b-p{
+            padding: 0px 45px;}
+        .bor-b{
+            border-bottom: solid 1px #ddd;
+            display: block;
+        }
+        .lis{
+            background: #4092f1;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            margin-top: 6px;
+            margin-right: 6px;
+        }
+    </style>
+    <div class="containe" id="aaa">
+        <div class="top-bar" id="bar" style="display: none">
+            <i class="bar-icon"></i>
+            <img src="http://static.yueus.com/mobile/test/seller_msg_topic/images/bar_f_100x72.png" class="bar-f">
+            <a href="javascript:;" data-role="dl-btn" style="display: -webkit-box;">
+                <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bg-555 bar-btn">
+                    <span class="ui-button-content">立即下载</span>
+                </button>
+            </a>
+        </div>
+        <div class="topic">
+            <h1 class="topic-title">约约商家V1.1.0版本功能介绍</h1>
+            <p class="topic-summary">亲爱的约约商家用户，约约V1.1.0版本发布啦，安卓和iOS均可更新。</p>
+            <p>本次更新集中于消息和订单模块的细节优化，商家们可以更愉快便捷地用app进行服务交易管理，下面就让我们一起来看看这些细节吧！</p>
+            <div class="topic-list">
+                <li id="detail1" class="list"><div class="lis"></div><span class="list-l">细节1：</span><span class="list-r">聊天框菜单增加【发送我的服务】模块</span></li>
+                <li id="detail2" class="list"><div class="lis"></div><span class="list-l">细节2：</span><span class="list-r">【待支付】订单修改价格</span></li>
+                <li id="detail3" class="list"><div class="lis"></div><span class="list-l">细节3：</span><span class="list-r">【我的服务】新增待审核状态，可查看审核不通过原因</span></li>
+                <li id="detail4" class="list"><div class="lis"></div><span class="list-l">细节4：</span><span class="list-r">IM可查看历史咨询记录</span></li>
+            </div>
+            <div id="detail-target1" name="detail-target1">
+                <h3 class="content-title">细节1：聊天框菜单增加【发送我的服务】模块</h3>
+                <p class="content-summary">回复消费者咨询时，可以快速发送服务项目。再也不用再担心描述不清，引导不够啦~</p>
+                <p>设置方法：<br/>在IM界面--点击“+”——点击“我的服务”——选择具体的服务项目--点击发送即可</p>
+                <img src="http://static.yueus.com/mobile/test/seller_msg_topic/images/seller_m_t_510x580_1.png" class="content-img"/>
+                <div class="bor-b-p"><i class="bor-b"></i></div>
+            </div>
+            <div  id="detail-target2" name="detail-target2">
+                <h3 class="content-title">细节2：【待支付】订单修改价格</h3>
+                <p class="content-summary">商家和消费者协商后，可以对订单价格做灵活修改，填好改价说明，交易双方清晰明了。</p>
+                <p>设置方法：<br/>在订单列表/订单详情页——点击“修改价格”——输入“现价”——填写“改价说明”——点击确定即可</p>
+                <img src="http://static.yueus.com/mobile/test/seller_msg_topic/images/seller_m_t_510x580_2.png" class="content-img"/>
+                <div class="bor-b-p"><i class="bor-b"></i></div>
+            </div>
+            <div id="detail-target3" name="detail-target3">
+                <h3 class="content-title">细节3：【我的服务】新增待审核状态，可查看审核不通过原因</h3>
+                <p class="">商家可以实时查看商品审核状态，不通过审核的服务，也可以查看具体原因~</p>
+                <img src="http://static.yueus.com/mobile/test/seller_msg_topic/images/seller_m_t_510x580_3.png" class="content-img"/>
+                <div class="bor-b-p"><i class="bor-b"></i></div>
+            </div>
+            <div  id="detail-target4" name="detail-target4">
+                <h3 class="content-title">细节4：IM可查看历史咨询记录</h3>
+                <p class="content-summary">另外，在不同手机端也可以同步历史咨询记录啦~</p>
+                <p>设置方法：<br/>在IM界面——下拉刷新——即可同步咨询列表和咨询记录</p>
+                <img src="http://static.yueus.com/mobile/test/seller_msg_topic/images/seller_m_t_510x580_4.png" class="content-img"/>
+            </div>
+            <div style="height: 20px"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.onload = function()
+    {
+        var win = window;
+        var nav = win.navigator;
+        var app_version = nav.appVersion;
+        var is_yue_app = (/yue_pai|yueseller/).test(app_version);
+
+        function onDetai(el,obj)
+        {
+            el.on("click",function()
+            {
+                $("body").animate(
+                        {
+                            scrollTop:obj.offset().top
+                        }, 800);
+            })
+        }
+        onDetai($("#detail4"),$("#detail-target4"));
+        onDetai($("#detail3"),$("#detail-target3"));
+        onDetai($("#detail2"),$("#detail-target2"));
+        onDetai($("#detail1"),$("#detail-target1"));
+
+        var bar_hi = $("#bar");
+
+        var test_ua_match_arr = app_version.match(/yueseller.(\d\.\d\.\d)/);
+
+        if(test_ua_match_arr&&test_ua_match_arr.length>0)
+        {
+            var is_old_seller = test_ua_match_arr[1];
+        }
+
+
+
+        if(!is_yue_app)
+        {
+            // app 的开发环境
+            bar_hi.css("display","-webkit-box");
+        }
+        else
+        {
+            if(is_old_seller && is_old_seller < "1.1.0")
+            {
+                bar_hi.css("display","-webkit-box");
+            }
+        }
+
+        var down_load_url = '{down_load_url}';
+
+        /**
+         * 初始化app的通讯通道
+         * @param callback
+         */
+        function init_world_app_bridge(callback)
+        {
+            if (window.PocoWebViewJavascriptBridge) 
+            {
+
+                PocoWebViewJavascriptBridge.init();
+
+                if(typeof callback == 'function')
+                {
+                   
+                    callback.call(this);
+                }
+            } 
+            else 
+            {
+
+                document.addEventListener('WebViewJavascriptBridgeReady', function() 
+                {
+
+                    PocoWebViewJavascriptBridge.init();
+
+                    if(typeof callback == 'function')
+                    {
+                        callback.call(this);
+                    }
+                }, false)
+            }
+            
+            
+        }    
+
+        function openlink(url)
+        {
+
+            var app_protocol = 'yueseller://goto';
+            var params = 
+            {
+                url : url,
+                type : 'outside_web'
+            };
+
+            params = $.param(params);  
+            var app_url = app_protocol + '?' + params;              
+
+            PocoWebViewJavascriptBridge.callHandler('poco.yuepai.function.openlink',{url : app_url},function(data)
+            {
+
+                //console.log("code is :" +data.code);
+                //-- code is 0000  --//
+            });
+        }
+
+        /**
+         * 定义App 触发 js事件
+         * @param key 函数名
+         * @param params 参数 {}
+         * @private
+         */
+        window.$_AppCallJSObj  = $({});
+
+        window._AppCallJSFunc = function(key,params)
+        {
+            var self = this;
+
+            $_AppCallJSObj.trigger(key,params);
+        };
+
+        var __showTopBarMenuCount = 0;
+
+        $_AppCallJSObj.on('__showTopBarMenu',function(event,data)
+        {
+
+            __showTopBarMenuCount++;
+
+            if(__showTopBarMenuCount%2!=0)
+            {
+                show_share();
+            }
+
+            setTimeout(function()
+            {
+                __showTopBarMenuCount = 0;
+            },200);
+           
+        });
+
+
+
+
+
+        function show_top_menu()
+        {
+            PocoWebViewJavascriptBridge.callHandler('poco.yuepai.function.showtopbar',{type : "2"},function(data)
+            {
+
+                //console.log("code is :" +data.code);
+                //-- code is 0000  --//
+            });
+        }
+
+        function show_share()
+        {
+            var content = '约约新增约美食和约有趣两大品类，打造更全面的时间电商平台';
+
+            var option = option || {};
+
+            PocoWebViewJavascriptBridge.callHandler('poco.yuepai.function.sharecard',
+            {
+                url : window.location.href,
+                pic : 'http://static.yueus.com/mobile/test/seller_msg_topic/images/bar_icon_72x72.png',
+                img : 'http://static.yueus.com/mobile/test/seller_msg_topic/images/bar_icon_72x72.png',
+                content : content,
+                title : '约约商家V1.1版全新上线，升级可获得最佳体验。',
+                sinacontent : content,                
+                qrcodeurl : window.location.href,
+                jscbfunc  : '' || function(){},
+                sourceid  : '' || 0
+
+            },
+            function(data)
+            {
+
+            });
+        }
+
+        init_world_app_bridge(function()
+        {
+            show_top_menu();
+
+            $('[data-role="dl-btn"]').on('click',function()
+            {
+
+                if(is_yue_app)
+                {
+                    openlink(down_load_url);
+                }
+                else
+                {
+                    window.location.href = down_load_url;
+                }
+                
+            })
+        });
+
+        document.body.addEventListener("touchstart",function(){});
+
+
+    }
+
+
+</script>
+</body>
+</html>

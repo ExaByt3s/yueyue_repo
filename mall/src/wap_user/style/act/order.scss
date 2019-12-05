@@ -1,0 +1,106 @@
+// ------------------------------
+// 约拍app - 活动 报名
+// ------------------------------
+@import "../../sass/compass";
+$border-radius : 4px;
+.action-apply{
+  .ui-button-submit-area.v2 button {
+    margin: 5px auto;
+    width: 50%;
+
+  }
+  .group{
+    button{
+      text-align: left;
+    }
+  }
+  .pay-items-container{
+    padding:0 15px;
+    padding-bottom: 25px;
+  }
+  .group{
+    &.ul{
+      &.li{
+        margin: 0px 0px 10px 0px;
+      }
+    }
+  }
+  .content-body{
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-box-pack:justify;
+
+
+  }
+  .pay{
+    text-align: center;
+    padding: 7px 50px;
+    background: #f5f5f5;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+
+
+    .pay-btn{
+      background: #ff0052;
+      width: 170px;
+      height: 36px;
+      font-size: 16px;
+      color: #fff;
+      @include border-radius($border-radius);
+    }
+  }
+  .apply-footer_notice{
+    color:#666666;
+    .spe{
+      color: #ff4978;
+    }
+  }
+  .action-apply-content{
+
+    .auto_width{
+      width: 150px;
+    }
+
+    .box-vertical{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+    // padding-top: $content-margin-top;
+    .action-apply-list{
+      padding: 20px 15px 30px;
+      li{
+        @include flexbox((
+                display: box
+        ));
+        margin-bottom: 10px;
+        overflow: hidden;
+        &:last-child{margin-bottom: 0}
+
+        .item-input{
+          @include flexbox((
+                  box-flex: 1
+          ));
+          .ui-choosen-group{
+            width: 100%;
+            .ui-choosen-btn {
+              display: block;
+              @include box-sizing(border-box);
+              margin: 0 0 20px 0;
+              //padding: 0 20px;
+              width: 100%;
+              &:last-child{margin-bottom: 0}
+            }
+          }
+        }
+        .phone-number{
+          padding: 8px 1%;
+          @include border-radius($border-radius);
+          @include box-sizing(border-box);
+          border: 1px solid #cccccc;
+          width: 98%;
+        }
+      }
+    }
+  }
+
+}

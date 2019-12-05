@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>添加商家服务申请</title>
+</head>
+<body>
+<style>
+    .J_add_btn,.J_add_cover_img{
+        overflow: hidden;
+    }
+    .model-img-list li{
+        float:left; width:85px; height:100px; text-align:center; margin-right:10px
+    }
+</style>
+{global_header_html}
+<script>
+    /**
+     * hudw 2015.1.23
+     * @param  {[type]} window    [description]
+     * @param  {[type]} seajs     [description]
+     * @param  {[type]} undefined [description]
+     * @return {[type]}           [description]
+     */
+    ;(function(window, seajs, undefined)
+    {
+
+
+        // 配置模块
+        seajs.config
+        ({
+
+            paths:
+            {
+                utility: 'http://cb.poco.cn/utility',
+                matcha: 'http://cb.poco.cn/matcha',
+                yueyue_global : 'http://www.yueus.com/js/global'
+            },
+            alias:
+            {
+                handlebars: 'utility/handlebars/1.0.0/handlebars',
+                jquery: 'utility/jquery/1.11.0/jquery',
+                cookie: 'matcha/cookie/1.0.0/cookie',
+                topbar : 'yueyue_global/topbar/topbar'
+            },
+            comboMaxLength: 5000,
+            charset: 'utf-8'
+        });
+
+        seajs.use(['jquery','topbar'],function($,topbar)
+        {
+            var $user_state = $('#user_state');
+
+            topbar.init
+            ({
+                container : $user_state,
+                custom_logout : "http://www.yueus.com/reg/logout.php",
+                custom_html : '<a href="http://www.yueus.com/reg/login.php?r_url='+encodeURIComponent(window.location.href)+'">登录</a><span class="pr15 pl15">|</span><a href="http://www.yueus.com/reg/register.php?r_url='+encodeURIComponent(window.location.href)+'">免费注册</a>'
+            });
+        });
+
+
+    })(window, seajs);
+</script>
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>添加商家服务申请</legend>
+            <form id="form1" name="form1" method="post" action="">
+                <table width="90%" align="center">
+                    <tr>
+                         <td width="26%" height="25">昵称</td>
+                         <td width="74%" height="25">
+                            <input name="nick_name" type="text" id="person_true_name" value="" size="50" maxlength="50" />
+                         </td>
+					</tr>
+                    <tr>
+                         <td width="26%" height="25">地区</td>
+                         <td width="74%" height="25">
+                             <select name="area_id">
+                                 <option value="">省份</option>
+                                 <option value="1">广东</option>
+                                 <option value="2">上海</option>
+                             </select>
+                             <select name="city_id">
+                                 <option value="">城市</option>
+                                 <option value="1">广州</option>
+                                 <option value="2">浦东</option>
+                             </select>
+                         </td>
+					</tr>
+                    <tr>
+                         <td width="26%" height="25">性别</td>
+                         <td width="74%" height="25">
+                            <input type='radio' name='sex' value='1'/>男
+                            <input type='radio' name='sex' value='2'/>女
+                         </td>
+					</tr>
+                    
+                    <tr>
+                         <td width="26%" height="25">身高</td>
+                         <td width="74%" height="25">
+                             <input name="height" type="text" id="height" value="" size="50" maxlength="50" />
+                         </td>
+					</tr>
+                    
+                    <tr>
+                         <td width="26%" height="25">体重</td>
+                         <td width="74%" height="25">
+                             <input name="weight" type="text" id="weight" value="" size="50" maxlength="50" />
+                         </td>
+					</tr>
+                    
+                    <tr>
+                         <td width="26%" height="25">三围</td>
+                         <td width="74%" height="25">
+                             <input name="bust" type="text" id="bust" value="" placeholder='胸围' size="50" maxlength="50" />
+                             <input name="waist" type="text" id="waist" value="" placeholder='腰围' size="50" maxlength="50" />
+                             <input name="hips" type="text" id="hips" value="" placeholder='臀围' size="50" maxlength="50" />
+                         </td>
+					</tr>
+                    <tr>
+                         <td width="26%" height="25">cup</td>
+                         <td width="74%" height="25">
+                             <input name="cup_type" type="text" id="cup_type" value="" size="50" maxlength="50" />
+                         </td>
+					</tr>
+                    
+                    <tr>
+                         <td width="26%" height="25">自我介绍</td>
+                         <td width="74%" height="25">
+                            <input name="self_desc" type="text" id="self_desc" value="" size="50" maxlength="50" />
+                         </td>
+					</tr>
+                    <tr>
+					  <td width="26%" height="25">图片</td>
+					  <td width="74%" height="25">
+                          <div class="model-img-list clearfix">
+                              <ul class="J_li_ul" data-mark="0">
+                                  <li class="add-btn J_add_btn" data-mark="0">
+                                      <span id="img_flash_btn_0"></span>
+                                  </li>
+                              </ul>
+                          </div>
+					  </td>
+					</tr>
+                    <input type="hidden" name="service_type" value="model"/>
+                    <input type="hidden" name="basic_id" value="1"/>
+                    <tr>
+                      <td colspan="2" align="center"><input type="button" name="button" id="button" value="提交" /></td>
+                    </tr>
+			  </table>
+			</form>
+          </fieldset>
+        </div>
+      </div>
+    </div>   
+    </div>
+     </div>
+    
+<input type="hidden" id="add_flash_num" value="1"/><!--要增加的falsh数值，页面有一个，则数值为二，同时也作为id标示-->
+<script>
+    seajs.use(['jquery','./js/img_upload_flash.js?t=1123415239'], function($,img_upload_flash) {
+        $(document).ready(function(){
+            //初始化上传封面图按钮
+            //construct_flash("cover_img_flash_btn","cover_img_btn",1,0,0);
+            //初始化第一个模特场地上传图按钮
+            var add_flash_num = $("#add_flash_num").val();
+            for(var j=0;j<add_flash_num;j++)
+            {
+                var param_1 = "img_flash_btn_"+j;
+                var param_2 = j;
+                construct_flash(param_1,"img_btn",param_2,0,0);
+            }
+
+            //构造flash函数
+            function construct_flash(_swfPlaceholderId,flash_type,id_num,img_mark,construct_img_mark)
+            {
+                img_upload_flash.get_flash(_swfPlaceholderId,flash_type,id_num,img_mark,construct_img_mark);
+            }
+            //提交校验
+            //封面图是否上传
+            $("#button").click(function(){
+                var res = form_check();
+                //form_summit
+                if(res)
+                {
+                    $("#form1").submit();
+                }
+            });
+            function form_check()
+            {
+                if(($(".J_upload_cover_img[data-mark='1']").length)>0)
+                {
+                    if($(".J_upload_cover_img[data-mark='1']").attr("class").match("J_progress"))
+                    {
+                        alert('封面图在上传中');
+                        return false;
+                    }
+                }
+                //检查图文块
+                if(($(".J_upload_img").length)>0)
+                {
+                    var upload_imgs_len = $(".J_upload_img").length;
+                    for(var i=0;i<upload_imgs_len;i++)
+                    {
+                        var cur_class = $($(".J_upload_img")[i]).attr("class");
+
+                        if(cur_class.match("J_progress"))
+                        {
+                            alert('图片还在上传中，请稍后');
+                            return false;
+                        }
+                    }
+                }
+                return true;
+                //检查是否有图片在上传，避免flash不能使用
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

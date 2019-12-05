@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta http-equiv = "X-UA-Compatible" content ="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>女神指数大测试</title>
+<link href="css/wap.css?v33" type="text/css" rel="stylesheet" />
+
+<!-- <script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script> -->
+<script type="text/javascript" src="js/jquery-1.7.2-min.js"></script>
+
+<script type="text/javascript">
+    document.addEventListener('touchstart',function(){},false);
+</script>
+</head>
+<body class="bg-eee">
+<div class="geton-page">
+  <div class="item">
+    <div class="listItem"><span>我的女神指数</span></div>
+    <div class="item-con">
+      <div class="input-list">
+        <div class="input-item">
+          <h4 class="title">身高</h4>
+          <div class="input-txt-item">
+            <input type="tel" id="height" placeholder="请输入身高" class="input-txt ponit">
+          </div>
+          <span class="unit">CM</span></div>
+        <div class="input-item">
+          <h4 class="title">体重</h4>
+          <div class="input-txt-item">
+            <input type="tel" id="weight"  class="input-txt"  placeholder="请输入体重">
+          </div>
+          <span class="unit">KG</span></div>
+        <div class="input-item">
+          <h4 class="title">身形</h4>
+          <div class="input-txt-item" id="sanwei">
+            <input type="text" id="measurements" placeholder="请输入三围，如32-24-32" class="input-txt" >
+          </div>
+          <span class="unit">英寸</span></div>
+        <div class="input-item">
+          <h4 class="title">CUP</h4>
+          <div class="input-txt-item">
+            <input type="tel"  readonly  id="cup" class="input-txt" placeholder="请选择罩杯" >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="listItem"><span>我的女神标签（只能单选）</span></div>
+    <div class="item-con">
+      <div class="kind-list clearfix">
+        <ul id="kind-list">
+          <li data-style="性感"><a href="#this">性感</a></li>
+          <li data-style="街拍"><a href="#this">街拍</a></li>
+          <li data-style="复古"><a href="#this">复古</a></li>
+          <li data-style="清新"><a href="#this">清新</a></li>
+          <li data-style="日系"><a href="#this">日系</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="btm-item5 btm-item-6">
+  <div class="ui-btn-item"><div  id="btn" class="ui-btn ui-btn-pink-h35">马上测试</div></div>
+</div>
+
+<!--  弹窗口 -->
+<div class="ui-dialog" style="display:none" id="sanwei-box">
+    <div class="ui-mask" data-role="close"></div>
+    <div class="ui-dialog-container-out">
+        <div class="ui-dialog-container" data-role="container">
+            <div class="ui-dialog-content" data-role="content">
+                <section class="input-list ">
+                    <div>
+                        <label>胸围：</label>
+                        <input type="tel"  id="chest">
+                        <p>英寸</p>
+                    </div>
+                </section>
+                <section class="input-list mt10">
+                    <div>
+                        <label>腰围：</label>
+                        <input type="tel"  id="waist">
+                        <p>英寸</p>
+                    </div>
+                </section>
+                <section class="input-list mt10">
+                    <div>
+                        <label>臀围：</label>
+                        <input type="tel"  id="hip">
+                        <p>英寸</p>
+                    </div>
+                </section>
+
+            </div>
+            <footer class="ui-dialog-footer" data-role="footer">
+                <button class="ui-dialog-button"  id="confirm">确定</button>
+                <button class="ui-dialog-button"  id="cancel">取消</button>
+            </footer>
+            
+        </div>
+    </div>
+</div>
+
+
+<!-- 三围 -->
+<div class="ui-dialog" style="display:none" id="cup-box">
+    <div class="ui-mask" data-role="close"></div>
+    <div class="ui-dialog-container-out">
+        <div class="ui-dialog-container" data-role="container">
+            <div class="ui-dialog-content" data-role="content">
+
+                <section class="input-list " id="cup-are">
+                    <div data-cup="A">
+                        A
+                    </div>
+
+                    <div data-cup="B">
+                        B
+                    </div>
+
+                    <div data-cup="C">
+                        C
+                    </div>
+
+                    <div data-cup="D">
+                        D
+                    </div>
+
+                    <div data-cup="E+">
+                        E+
+                    </div>
+                </section>
+
+            </div>
+            <footer class="ui-dialog-footer" data-role="footer">
+                <button class="ui-dialog-button"  id="confirm_2">确定</button>
+                <button class="ui-dialog-button"  id="cancel_2">取消</button>
+            </footer>
+            
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+var num_reg = new RegExp(/^\d+$/);
+// var num_reg_test = num_reg.test(str); 
+
+
+
+
+$(document).ready(function() {
+
+
+    var content_height = 420 ;
+    var w_h = $(window).height() ;
+    var margin_top = w_h-content_height-64 ;
+
+    if ( parseInt(margin_top)  < 0) 
+    {
+        $("body").addClass('screen_min');
+    } 
+    else
+    {
+        $('.btm-item5').css('marginTop', margin_top+"px");
+    }
+
+
+    var chest,
+        waist,
+        hip ,
+        data_cup ,
+        data_style;
+
+    $("#measurements").focus(function() {
+        $('#sanwei-box').show();
+        $("#chest").focus();
+    });
+    $("#cancel").click(function() {
+        $('#sanwei-box').hide();
+    });
+
+
+    // 文字变红
+    $('input[type=tel]').focus(function() {
+        $('input[type=tel]').removeClass('color_red');
+        $(this).addClass('color_red');
+    });
+
+    $('input[type=tel]').blur(function() {
+        $('input[type=tel]').removeClass('color_red');
+    });
+
+
+    $("#confirm").click(function() 
+    {
+        chest = $('#chest').val().trim();
+        waist = $('#waist').val().trim();
+        hip = $('#hip').val().trim();
+
+        if (!chest || chest == '') 
+        {
+            alert("请输入胸围");
+            $("#chest").focus();
+            return ;
+        };
+
+        if (!num_reg.test(chest)) 
+        {
+            alert("胸围只能输入数字！");
+            $("#chest").focus();
+            return ;
+        };
+
+        if ( parseInt(chest)  < 1 ) 
+        {   
+            alert('胸围填写错误');
+            $("#chest").focus();
+            return ; 
+        };
+
+
+
+
+        if (!waist || waist == '') 
+        {
+            alert("请输入腰围");
+            $("#waist").focus();
+            return ;
+        };
+
+        if (!num_reg.test(waist)) 
+        {
+            alert("腰围只能输入数字！");
+            $("#waist").focus();
+            return ;
+        };
+
+        if ( parseInt(waist)  < 1 ) 
+        {   
+            alert('腰围填写错误');
+            $("#waist").focus();
+            return ; 
+        };
+
+
+        if (!hip || hip == '') 
+        {
+            alert("请输入臀围");
+            $("#hip").focus();
+            return ;
+        };
+
+        if (!num_reg.test(hip)) 
+        {
+            alert("臀围只能输入数字！");
+            $("#hip").focus();
+            return ;
+        };
+
+        if ( parseInt(hip)  < 1 ) 
+        {   
+            alert('臀围填写错误');
+            $("#hip").focus();
+            return ; 
+        };
+
+        
+        $('#measurements').val( chest +"-"+ waist +"-" + hip)
+        $('#sanwei-box').hide();
+    });
+
+    $("#cup").focus(function() {
+
+        if ($('#measurements').val() == '') 
+        {
+            alert("请先输入三围");
+            $("#measurements").focus();
+            $("#chest").focus();
+            return ;
+        };
+
+        $('#cup-box').show();
+        $('#cup-are').click(function(ev) {
+            var target = $(ev.target);
+            target.siblings().removeClass('cur');
+            target.addClass('cur');
+            data_cup = target.attr('data-cup') ;
+        });
+    });
+
+    $("#confirm_2").click(function() {
+        var measurements_val = $('#chest').val();
+        if (!data_cup) 
+        {
+            alert("请选择罩杯")
+            return ;
+        } 
+        $('#cup').val(measurements_val+data_cup);
+        $('#cup-box').hide();
+    });
+
+    $("#cancel_2").click(function() {
+        $('#cup-box').hide();
+    });
+
+    $('#kind-list li').click(function() {
+        $('#kind-list li').removeClass('cur');
+        $(this).addClass('cur');
+        data_style = $(this).attr('data-style');
+
+    });
+
+    //提交数据
+    $('#btn').click(function() 
+    {
+
+        var height = $('#height').val();
+        var weight = $('#weight').val();
+        var measurements = $('#measurements').val();
+        var cup = $('#cup').val();
+
+        if (height =='' || !height) 
+        {
+           alert('请输入身高');
+           $("#height").focus();
+           return ; 
+        };
+
+        if (!num_reg.test(height)) 
+        {
+            alert("身高只能输入数字！");
+            $("#height").focus();
+            return ;
+        };
+  
+
+        if (  parseInt(height) < 1 ) 
+        {   
+            alert('身高填写错误');
+            $("#height").focus();
+            return ; 
+        };
+
+
+        if (weight =='' || !weight) 
+        {
+           alert('请输入体重');
+           $("#weight").focus();
+           return ; 
+        };
+
+        if (!num_reg.test(weight)) 
+        {
+            alert("体重只能输入数字！");
+            $("#weight").focus();
+            return ;
+        };
+        
+
+        if (  parseInt(weight)  < 1 ) 
+        {   
+            alert('体重填写错误');
+            $("#weight").focus();
+            return ; 
+        };
+
+
+        if (measurements =='' || !measurements) 
+        {
+           alert('请输入三围');
+           $("#measurements").focus();
+           return ; 
+        };
+
+        if (cup =='' || !cup) 
+        {
+           alert('请选择罩杯');
+           $("#cup").focus();
+           return ; 
+        };
+
+        if (data_style =='' || !data_style) 
+        {
+            alert('请选择风格');
+            // $("#user_phone").focus();
+            return ;
+        };
+
+        var data = 
+        {
+            height : height,
+            weight : weight,
+            bwh : measurements ,
+            cup : cup ,
+            style : data_style
+        }
+
+        console.log(data);
+
+        $.ajax({
+            type: "POST",
+            url: "act.php",
+            data: data,
+            dataType : "json",
+            cache : false ,
+            success: function(data_back)
+            {
+               if (parseInt(data_back.code) == 1) 
+               {
+                    var url = window.location.origin+'/topic/beautiful_cash/result.php?id='+data_back.id;
+                    // var url = window.location.origin+'/topic/beautiful_cash/result.php?id=1';
+                    location.href = url ;
+               };
+                     
+            }
+        });
+
+
+    });
+});
+</script>
+
+
+<div style='display:none'>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254053904'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1254053904%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+
+</body>
+
+
+
+
+</html>

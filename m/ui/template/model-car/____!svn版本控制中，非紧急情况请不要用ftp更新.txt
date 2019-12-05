@@ -1,0 +1,15 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/ui/template/model-car
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+agreement.html
+edit-condition.html
+edit-model-car.html
+follow.html
+index.html
+model_car.html
+model_car_v2.html
+
+--EOF--

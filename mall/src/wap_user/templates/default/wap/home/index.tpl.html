@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>个人中心</title>
+    {wap_global_top}
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/home/index.scss">
+    <script src="/lib/lib.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view " data-role="page-container">
+        <div class="personal-center">
+                    
+            <div class="ui-line-item-mod c999">
+                <a class="db border-b" href="./user_info.php?buyer_id={buyer_id}">
+                    <div class="item height-80 b-b">
+                        <div class="left">
+                            <div class="ui-avatar-icon ui-avatar-icon-m">
+                                <span class="bar-img" style="background-image:url('{icon}')"></span>
+                            </div>
+                            <div class="icon-f">
+                                <p class="icon-f-t">{nickname}</p>
+                                <p>
+                                    <span>{city}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-box">
+                            <span class="ui-tips-r">更新资料</span>
+                            <i class="icon-allow-grey top-35"></i>
+                        </div>
+                    </div>
+                </a>
+                <div class="item h80">
+                    <div class="user-info-item f16">
+                        <a href="./qrcode_list.php" class="db">
+                            <div class="order-item c333">
+                                <i class="icon icon-ui-top icon-sign icon-order-item po-r">
+                                    <!-- IF code_num>"99" -->
+                                    <i class="tips-num" data-role="code">···</i>
+                                    <!-- ELSEIF code_num > "0" -->
+                                    <i class="tips-num" data-role="code">{code_num}</i>
+                                    <!-- ENDIF -->
+                                </i>
+                                <p class="lineh ml5">签到券</p>
+                            </div>
+                        </a>
+
+                        <a href="../order/list.php" class="db">
+                            <div class="order-item  c333">
+                                <i class="icon icon-ui-top icon-order icon-order-item po-r">
+
+                                    <!-- IF number.all>"99" -->
+                                    <i class="tips-num" data-role="yuepai">···</i>
+                                    <!-- ELSEIF number.all>"0" -->
+                                    <i class="tips-num" data-role="yuepai">{number.all}</i>
+                                    <!-- ENDIF -->
+                                </i>
+                                <p class="lineh ml5">服务订单</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui-line-item-mod">
+                <a class="db" href="./collection_list.php?type_id=0&target_type=seller">
+                    <div class="item c333" data-role="collect">
+                        <div class="d-box justify">
+                            <div class="d-box">
+                                <i class="icon icon-collect icon-ui"></i>
+                                <p class="txt">我的收藏</p>
+                            </div>
+                            <div class="d-box v-c">
+                                <span class="item-r-txt"></span>
+                                <i class="icon-allow-grey"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="ui-line-item-mod ">
+                <a class="db" href="http://yp.yueus.com/mall/wallet-test/index.php ">
+                    <div class="item c333" data-role="order">
+                        <div class="border-b justify">
+                            <div class="d-box">
+                                <i class="icon wallet-icon icon-ui"></i>
+                                <p class="txt">钱包</p>
+                            </div>
+                            <div class="d-box v-c">
+                                <span class="item-r-txt">￥{available_balance}</span>
+                                <i class="icon-allow-grey"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="ui-line-item-mod">
+                <div class="item c333" data-role="exit">
+                    <div class="d-box justify">
+                        <div class="d-box">
+                            <i class="icon icon-exit icon-ui"></i>
+                            <p class="txt">退出登录</p>
+                        </div>
+                        <div class="d-box v-c">
+                            <span class="item-r-txt"></span>
+                            <i class="icon-allow-grey"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt20 mt15 mb20" style="visibility: hidden;">隐藏</div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div id="footer"></div>
+
+    {wap_global_footer}
+    
+</main>
+</body>
+<!--SCRIPT_PLACEHOLDER-->
+<script>
+    var header = require('../../../../modules/common/widget/header/main');
+    var utility = require('../../../../modules/common/utility/index');
+    var App =  require('../../../../modules/common/I_APP/I_APP.js');
+    //头部插件
+    $(document).ready(function() 
+    {
+            header.init
+            ({
+                ele        : $("#global-header"), //头部渲染的节点
+                title      : "我的",
+                header_show: true, //是否显示头部
+                mt_0_ele   : $("#seller-list-page"), //如果头部隐藏，要把当前页节点margin-top改为0
+                right_icon_show: true, //是否显示右边的按钮
+                share_icon : {
+                    show   : false,  //是否显示分享按钮icon
+                    content: ""
+                },
+                omit_icon  : {
+                    show   : false,  //是否显示三个圆点icon
+                    content: ""
+                },
+                show_txt   : {
+                    show   : true,  //是否显示文字
+                    content: ""  //显示文字内容
+                }
+            });
+
+
+            // 底部
+            var footer = require('../../../../modules/common/widget/footer/footer');
+            var footer_obj = new footer({
+                ele : $('#footer'),
+                content : {
+                    index_link : '{index_link}',
+                    my_link : '{my_link}',
+                    current : 1 
+                }
+            })
+            var logout_tips = "{logout_tips}";
+            var $exit = $('[data-role="exit"]');
+            $exit.on('click',function()
+            {
+                var dialog = utility.dialog
+                ({
+                    "content" :　logout_tips,
+                    "buttom" : ["取消","确定"]
+                });
+                dialog.on('confirm',function()
+                {
+                    window.location.href = "http://www.yueus.com/pc/logout.php";
+                });
+            }) ;
+
+            
+    });
+</script>
+</html>

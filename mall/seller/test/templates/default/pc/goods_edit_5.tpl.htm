@@ -1,0 +1,1539 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{page_title}</title>
+
+    <!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+    -->
+    <!-- 公共css，js引入 -->{pc_global_top}
+
+
+
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/pc/modules/common/layer/skin/layer.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/pc/modules/common/upload/1.0.0/css/style.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/seller/test/static/pc/modules/common/qr_code_preview/qr_code_preview.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/global-top-bar/global-top-bar.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/layer/layer.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/json/json.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/core.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/widget.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/mouse.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/sortable/sortable.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/upload/1.0.0/yueyue_uploader.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/calendar/laydate.dev.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/qr_code_preview/qr_code_preview.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/valid/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ueditor/1.0.0/ueditor.config.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ueditor/1.0.0/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ueditor/1.0.0/third-party/zeroclipboard/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ueditor/1.0.0/ueditor.all.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/ueditor/1.0.0/ueditor.js"></script>
+</head>
+<style>
+    /********重写页面一些样式********/
+    .mod-checkbox-item label{
+        padding-right: 30px;
+    }
+
+</style>
+<body>
+{global_top_bar}
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+<form action="./module/pai_mall_goods_op.php" method="post"  name="publish_form" id="publish_form" target="form_iframe">
+
+    <div class="editing-from-page w1000 font_wryh content">
+        <div class="msg_info mt10 font_wryh f14" id="system_msg_div" style="<!-- IF hide_system_msg == "1" -->display:none;<!-- ENDIF hide_system_msg -->">
+            <ul class="list clearfix">
+
+                <li>
+                    <a href="javascript:;" class="close" id="system_msg_close"></a>
+                    {system_msg}
+                    <!--<a href="#">去看看</a>-->
+                </li>
+            </ul>
+
+        </div>
+    <div class="mod-nav-item">
+        <a href="./">约约商家主页</a>
+        &gt;
+        <a href="./goods_list.php">服务管理</a>
+        &gt;
+        <span>编辑服务</span>
+    </div>
+    <div class="editing-from-wrap mod-attest-page content-bg">
+    <div class="mod-listItem">
+        <span>{page_title}</span>
+    </div>
+    <div class="form-warp" id="form-warp">
+        <div class="item clearfix">
+            <h3 class="title">培训类型：</h3>
+            <div class="from-con" style="width:670px;">
+                <div class="mod-radio-item clearfix" id="J_photo_type_div">
+                    <!-- IF action == "edit" -->
+                    <!-- BEGIN system_data.4f6ffe13a5d75b2d6a3923922b3922e5.child_data -->
+                    <label>
+                        <input type="radio" class="J_photo_type" data-mark="{id}" name="system_data[4f6ffe13a5d75b2d6a3923922b3922e5]" value="{key}" <!-- IF key=top.system_data.4f6ffe13a5d75b2d6a3923922b3922e5.value -->checked="checked"<!-- ENDIF key --> />
+                        {name}
+                    </label>
+                    <!-- END system_data.4f6ffe13a5d75b2d6a3923922b3922e5.child_data -->
+                    <!-- ELSE -->
+                    <!-- BEGIN system_data.4f6ffe13a5d75b2d6a3923922b3922e5.child_data -->
+                    <label>
+                        <input type="radio" class="J_photo_type" data-mark="{id}" name="system_data[4f6ffe13a5d75b2d6a3923922b3922e5]" value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT --> />
+                        {name}
+                    </label>
+                    <!-- END system_data.4f6ffe13a5d75b2d6a3923922b3922e5.child_data -->
+                    <!-- ENDIF action -->
+                </div>
+            </div>
+            <h3 class="title" id="J_child_title" <!-- IF show_J_child_title =="1" --><!-- ELSE -->style="display:none;"<!-- ENDIF show_J_child_title -->>子分类：</h3>
+            <div class="from-con" style="position:relative;">
+                <!-- BEGIN teacher_detail_data_arr -->
+                <div class="mod-radio-item font_wryh clearfix J_child_photo_type_div" id="{parent_id}" style="<!-- IF match != "1" -->display: none;<!-- ENDIF match -->">
+                <!-- IF child_data -->
+                <!-- BEGIN child_data -->
+                <label>
+                    <input type="radio" name="system_data[{parent.parent_key}]" value="{key}" class="J_child_photo_type" data-parent="{parent.parent_id}" <!-- IF is_select == "1" -->checked="checked"<!-- ENDIF is_select -->/>
+                    {name}<!-- IF mess -->（{mess}）<!-- ENDIF mess -->
+                </label>
+                    <!-- IF mess --><br/><br/><!-- ENDIF mess -->
+                <!-- END child_data -->
+                <!-- ENDIF child_data -->
+                </div>
+                <!-- END teacher_detail_data_arr -->
+                <div class="mod-checkbox-item font_wryh clearfix" id="J_else_input" style="position:absolute;display:none;">
+                    <label>
+                        <input type="text" name="system_data[9431c87f273e507e6040fcb07dcb4509]" class="checkbox-input font_wryh" placeholder="填写其他"  valid-index='101' tabindex="1" value="{system_data.9431c87f273e507e6040fcb07dcb4509.value}"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="from-con" style="width:670px;display:none;">
+                <div class="mod-radio-item clearfix" id="J_photo_type_div_label">
+                    <!-- IF action == "edit" -->
+                    <!-- BEGIN system_data.f5f8590cd58a54e94377e6ae2eded4d9.child_data -->
+                    <label>
+                        <input type="radio" class="J_photo_type_label" data-mark="{id}" name="system_data[f5f8590cd58a54e94377e6ae2eded4d9]" value="{key}" <!-- IF key=top.system_data.f5f8590cd58a54e94377e6ae2eded4d9.value -->checked="checked"<!-- ENDIF key --> />
+                        {name}
+                    </label>
+                    <!-- END system_data.f5f8590cd58a54e94377e6ae2eded4d9.child_data -->
+                    <!-- ELSE -->
+                    <!-- BEGIN system_data.f5f8590cd58a54e94377e6ae2eded4d9.child_data -->
+                    <label>
+                        <input type="radio" class="J_photo_type_label" data-mark="{id}" name="system_data[f5f8590cd58a54e94377e6ae2eded4d9]" value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT --> />
+                        {name}
+                    </label>
+                    <!-- END system_data.f5f8590cd58a54e94377e6ae2eded4d9.child_data -->
+                    <!-- ENDIF action -->
+                </div>
+            </div>
+            <h3 class="title" id="J_child_title_label" <!-- IF show_J_child_title_label =="1" --><!-- ELSE -->style="display:none;"<!-- ENDIF show_J_child_title_label -->>标签：</h3>
+            <div class="from-con">
+                <!-- BEGIN teacher_detail_data_arr_label -->
+                <div class="mod-checkbox-item font_wryh clearfix J_child_photo_type_div_label" id="{parent_id}" style="padding-top:8px;<!-- IF match != "1" -->display: none;<!-- ENDIF match -->">
+                <!-- IF child_data -->
+                <!-- BEGIN child_data -->
+                <label style="line-height:35px;">
+                    <input type="checkbox" name="system_data[{parent.parent_key}][]" value="{key}" class="J_child_photo_type_label" data-parent="{parent.parent_id}" <!-- IF is_select == "1" -->checked="checked"<!-- ENDIF is_select -->/>
+                    {name}<!-- IF mess -->（{mess}）<!-- ENDIF mess -->
+                </label>
+                <!-- IF mess --><br/><br/><!-- ENDIF mess -->
+                <!-- END child_data -->
+                <!-- ENDIF child_data -->
+                </div>
+                <!-- END teacher_detail_data_arr_label -->
+            </div>
+        </div>
+
+
+    <div class="item clearfix">
+        <h3 class="title">封面图：</h3>
+        <div class="from-con">
+            <div class="img-upload-item">
+                <div class="img-list clearfix">
+                    <div class="J_upload-container_1 ui-item" style="overflow:hidden;" >
+
+                    </div>
+                </div>
+                <div class="tips">建议尺寸：750*750像素；最多上传1张图片；文件格式为jpg、jpeg、png（每张图片大小不超过3M）</div>
+            </div>
+        </div>
+    </div>
+    <div class="item clearfix">
+        <h3 class="title">服务名称：</h3>
+        <div class="from-con">
+            <div class="mod-input-item">
+                <input type="text" name="default_data[titles]" class="input-txt input-txt-2 font_wryh" placeholder="设置一个有特色的标题，可以提高你的吸引力噢" value="{default_data.titles.value}" valid-rule="**1-30" valid-index='1'/>
+            </div>
+        </div>
+    </div>
+
+    <div class="item clearfix">
+        <h3 class="title">招生范围：</h3>
+        <div class="from-con" style="width:670px;">
+                <div class="mod-checkbox-item font_wryh clearfix"  style="padding-top:8px;">
+                <!-- IF location_id_config -->
+                <!-- BEGIN location_id_config -->
+                <label>
+                    <input type="checkbox" class="J_location_id_label" name="" value="{location_id}"  <!-- IF is_select == "1" -->checked="checked"<!-- ENDIF is_select -->/>
+                    {text}
+                </label>
+                <!-- END location_id_config -->
+                <!-- ENDIF location_id_config -->
+                </div>
+        </div>
+        <input type="hidden" name="default_data[location_id]" id="J_location_id" value="{default_data.location_id.value}" valid-rule="**1-100000" valid-index='18'/>
+    </div>
+
+    <div class="item clearfix">
+        <h3 class="title" style="width: 115px;">报名截止时间：</h3>
+        <div class="from-con" style="width: 580px;">
+            <div class="mod-input-item fl" >
+                <input style="width:200px;" type="text" class="input-txt input-txt-2 date-input font_wryh fl mr20" id="J_join_end_ymd" data-role="all" placeholder="截止时间" name="" value="{join_end_time_ymd}" onClick="laydate({istime: true, format: 'YYYY-MM-DD' ,min:'{now_date}'});"  valid-rule="**1-10000" valid-index='17' readonly="true"/>
+            </div>
+            <div class="mod-select-item photo-select-item fl mr10">
+                <select  name="" class="font_wryh" data-role="all" style="width:150px;" value="{join_end_time_hour}" id="J_join_end_hour">
+                    <!-- BEGIN hours_time_arr -->
+                    <option value="{hours}" <!-- IF hours == top.join_end_time_hour -->selected="selected"<!-- ENDIF hours -->>{hours}</option>
+                    <!-- END hours_time_arr -->
+                </select>
+            </div>
+        </div>
+        <input type="hidden" id="J_join_end_time" name="system_data[bbf94b34eb32268ada57a3be5062fe7d]" value="{system_data.bbf94b34eb32268ada57a3be5062fe7d.value}" />
+    </div>
+
+    <div class="item clearfix">
+        <h3 class="title">课程类别：</h3>
+        <div class="from-con">
+            <div class="mod-radio-item clearfix" id="J_course_type_div">
+                <!-- IF action == "edit" -->
+                <!-- BEGIN system_data.47d1e990583c9c67424d369f3414728e.child_data -->
+                <label>
+                    <input type="radio" class="J_course_type" name="system_data[47d1e990583c9c67424d369f3414728e]" value="{key}" <!-- IF key=top.system_data.47d1e990583c9c67424d369f3414728e.value -->checked="checked"<!-- ENDIF key --> />
+                    {name}
+                </label>
+                <!-- END system_data.47d1e990583c9c67424d369f3414728e.child_data -->
+                <!-- ELSE -->
+                <!-- BEGIN system_data.47d1e990583c9c67424d369f3414728e.child_data -->
+                <label>
+                    <input type="radio" class="J_course_type" name="system_data[47d1e990583c9c67424d369f3414728e]" value="{key}" <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT --> />
+                    {name}
+                </label>
+                <!-- END system_data.47d1e990583c9c67424d369f3414728e.child_data -->
+                <!-- ENDIF action -->
+            </div>
+        </div>
+    </div>
+    <div class="item clearfix">
+        <h3 class="title">课程目标：</h3>
+        <div class="from-con">
+            <div class="textarea-item">
+                <textarea name="system_data[093f65e080a295f8076b1c5722a46aa2]" class="textarea-txt textarea-txt-2 font_wryh" placeholder="课程目标" valid-rule="**1-100000" valid-index='2'>{system_data.093f65e080a295f8076b1c5722a46aa2.value}</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="item clearfix">
+        <h3 class="title">课程亮点：</h3>
+        <div class="from-con" style="width:580px;">
+            <div class="textarea-item">
+                <textarea name="system_data[5737c6ec2e0716f3d8a7a5c4e0de0d9a]" class="textarea-txt textarea-txt-2 font_wryh" placeholder="课程亮点" valid-rule="**0-100000" valid-index='11'>{system_data.5737c6ec2e0716f3d8a7a5c4e0de0d9a.value}</textarea>
+            <span class="unit fr">（选填）</span>
+            </div>
+        </div>
+    </div>
+    <div class="item clearfix">
+        <h3 class="title">课程大纲：</h3>
+        <div class="from-con">
+            <div class="textarea-item">
+                <textarea name="system_data[735b90b4568125ed6c3f678819b6e058]" class="textarea-txt textarea-txt-2 font_wryh" placeholder="课程大纲" valid-rule="**1-100000" valid-index='8'>{system_data.735b90b4568125ed6c3f678819b6e058.value}</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="item clearfix">
+        <div class="from-con">
+            <div class="mod-radio-item clearfix">
+                <!-- IF action == "edit" -->
+                <!-- BEGIN system_data.5b8add2a5d98b1a652ea7fd72d942dac.child_data -->
+                <label>
+                    <input class="J_change_course" type="radio" name="system_data[5b8add2a5d98b1a652ea7fd72d942dac]" value="{key}"  <!-- IF key=top.system_data.5b8add2a5d98b1a652ea7fd72d942dac.value -->checked="checked"<!-- ENDIF key --> />
+                    {name}
+                </label>
+                <!-- END system_data.5b8add2a5d98b1a652ea7fd72d942dac.child_data -->
+                <!-- ELSE -->
+                <!-- BEGIN system_data.5b8add2a5d98b1a652ea7fd72d942dac.child_data -->
+                <label>
+                    <input class="J_change_course" type="radio" name="system_data[5b8add2a5d98b1a652ea7fd72d942dac]" value="{key}"  <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT --> />
+                    {name}
+                </label>
+                <!-- END system_data.5b8add2a5d98b1a652ea7fd72d942dac.child_data -->
+                <!-- ENDIF action -->
+            </div>
+        </div>
+    </div>
+
+    <div style="border:1px dotted #ddd;padding:0 30px 30px;border-radius:3px;">
+        <div class="item clearfix">
+            <h3 class="title">授课方式：</h3>
+            <div class="from-con" style="width:500px;">
+                <div class="mod-radio-item clearfix">
+                    <!-- IF action == "edit" -->
+                    <!-- BEGIN system_data.44f683a84163b3523afe57c2e008bc8c.child_data -->
+                    <label>
+                        <input class="J_type_course" type="radio" name="system_data[44f683a84163b3523afe57c2e008bc8c]" value="{key}"  <!-- IF key=top.system_data.44f683a84163b3523afe57c2e008bc8c.value -->checked="checked"<!-- ENDIF key --> />
+                        {name}
+                    </label>
+                    <!-- END system_data.44f683a84163b3523afe57c2e008bc8c.child_data -->
+                    <!-- ELSE -->
+                    <!-- BEGIN system_data.44f683a84163b3523afe57c2e008bc8c.child_data -->
+                    <label>
+                        <input class="J_type_course" type="radio" name="system_data[44f683a84163b3523afe57c2e008bc8c]" value="{key}"  <!-- IF ROWCNT == "0" -->checked="checked"<!-- ENDIF ROWCNT --> />
+                        {name}
+                    </label>
+                    <!-- END system_data.44f683a84163b3523afe57c2e008bc8c.child_data -->
+                    <!-- ENDIF action -->
+                </div>
+            </div>
+        </div>
+        <div class="item clearfix">
+            <h3 class="title">招生名额：</h3>
+            <div class="from-con" style="width: 580px;">
+                <div class="mod-input-item fl">
+                    <input type="text" class="input-txt input-txt-2 font_wryh" placeholder="名额" value="{default_data.stock_num.value}" name="default_data[stock_num]" valid-rule="ze1-20" valid-index='10'/>
+                </div>
+                <span class="unit fl">人</span>
+            </div>
+        </div>
+        <div class="item clearfix">
+            <h3 class="title">课程学费：</h3>
+            <div class="from-con" style="width: 580px;">
+                <div class="mod-input-item fl">
+                    <input type="text" class="input-txt input-txt-2 font_wryh" placeholder="课程学费" value="{default_data.prices.value}" name="default_data[prices]" valid-rule="ap1-20" valid-index='9'/>
+                </div>
+                <span class="unit fl">元</span>
+            </div>
+        </div>
+
+        <div class="item clearfix">
+            <h3 class="title">备注：</h3>
+            <div class="from-con" style="width: 580px;">
+                <div class="textarea-item">
+                    <textarea name="system_data[c058f544c737782deacefa532d9add4c]" class="textarea-txt textarea-txt-2 font_wryh" placeholder="课程学费所包含的内容" valid-rule="**0-100000" valid-index='4'>{system_data.c058f544c737782deacefa532d9add4c.value}</textarea>
+                    <span class="unit fr">（选填）</span>
+                </div>
+            </div>
+        </div>
+        <div class="item clearfix">
+            <h3 class="title">上课地址：</h3>
+            <div class="from-con" style="width: 580px;">
+                <div class="textarea-item">
+                    <textarea name="system_data[fc490ca45c00b1249bbe3554a4fdf6fb]" class="textarea-txt textarea-txt-2 font_wryh J_can_empty" data-role="all" placeholder="地址" valid-rule="**1-10000" valid-index='5' data-type="address">{system_data.fc490ca45c00b1249bbe3554a4fdf6fb.value}</textarea>
+                    <span class="unit fr J_select_choose" data-role="html_display" data-type="address">（选填）</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="item clearfix">
+            <h3 class="title">开课日期：</h3>
+            <div class="from-con" style="width: 580px;">
+                <div class="mod-input-item fl">
+                    <input type="text" class="input-txt input-txt-2 date-input font_wryh fl J_can_empty" data-role="all" placeholder="请选择日期" name="system_data[072b030ba126b2f4b2374f342be9ed44]" value="{system_data.072b030ba126b2f4b2374f342be9ed44.value}" onClick="laydate({istime: true, format: 'YYYY-MM-DD' ,min:'{now_date}'})"  valid-rule="**1-10000" valid-index='3' readonly="true"/>
+                <span class="unit fr J_select_choose" data-role="html_display">（选填）</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!--<div class="item clearfix">
+            <h3 class="title">培训时间：</h3>
+            <div class="from-con" style="width: 580px;">
+                <div class="mod-input-item fl">
+                    <input onClick="laydate({format: 'hh:mm'})" style="width: 129px;" type="text" class="input-txt input-txt-2 font_wryh J_can_empty" data-role="all" placeholder="时间" value="{system_data.e7b24b112a44fdd9ee93bdf998c6ca0e.value}" name="system_data[e7b24b112a44fdd9ee93bdf998c6ca0e]" valid-rule="**1-10000" valid-index='15'/>
+                    &nbsp;&nbsp;至&nbsp;&nbsp;
+                    <input onClick="laydate({format: 'hh:mm'})" style="width: 129px;" type="text" class="input-txt input-txt-2 font_wryh J_can_empty" data-role="all" placeholder="时间" value="{system_data.52720e003547c70561bf5e03b95aa99f.value}" name="system_data[52720e003547c70561bf5e03b95aa99f]" valid-rule="**1-10000" valid-index='16'/>
+                    <span class="unit fr J_select_choose" data-role="html_display">（选填）</span>
+                </div>
+            </div>
+        </div>-->
+
+        <div class="item clearfix">
+            <h3 class="title">培训时间：</h3>
+            <div class="item-con clearfix">
+                <div class="mod-select-item photo-select-item fl mr10">
+                    <select  name="system_data[e7b24b112a44fdd9ee93bdf998c6ca0e]" class="font_wryh J_can_empty" data-role="all" valid-rule="**1-100" valid-index='15' style="width:150px;" value="{system_data.e7b24b112a44fdd9ee93bdf998c6ca0e.value}">
+                        <!-- BEGIN hours_time_arr -->
+                        <option value="{hours}" <!-- IF hours == top.system_data.e7b24b112a44fdd9ee93bdf998c6ca0e.value -->selected="selected"<!-- ENDIF hours -->>{hours}</option>
+                        <!-- END hours_time_arr -->
+                    </select>
+                </div>
+                <div class="mod-input-item fl" >
+                    <span class="unit fr" style="padding-right:20px">&nbsp;&nbsp;至&nbsp;&nbsp;</span>
+                </div>
+                <div class="mod-select-item photo-select-item fl mr10">
+                    <select  name="system_data[52720e003547c70561bf5e03b95aa99f]" class="font_wryh J_can_empty" data-role="all" valid-rule="**1-100" valid-index='16' style="width:150px;" value="{system_data.52720e003547c70561bf5e03b95aa99f.value}">
+                        <!-- BEGIN hours_time_arr -->
+                        <option value="{hours}" <!-- IF hours == top.system_data.52720e003547c70561bf5e03b95aa99f.value -->selected="selected"<!-- ENDIF hours -->>{hours}</option>
+                        <!-- END hours_time_arr -->
+                    </select>
+                </div>
+                <div class="mod-input-item fl" >
+                    <span class="unit fr J_select_choose" data-role="html_display">（选填）</span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="item clearfix">
+            <h3 class="title">课程周期：</h3>
+            <div class="from-con" style="width: 580px;">
+                <div class="mod-input-item fl">
+                    <input type="text" class="input-txt input-txt-2 font_wryh fl J_can_empty" data-role="all" placeholder="示例：8月18号起，每周六" value="{system_data.2a38a4a9316c49e5a833517c45d31070.value}" name="system_data[2a38a4a9316c49e5a833517c45d31070]" valid-rule="**1-10000" valid-index='6'/>
+                    <span class="unit fr J_select_choose" data-role="html_display">（选填）</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="item clearfix">
+            <h3 class="title J_select_choose" style="width:83px;" data-role="course_html_change">课程数量：</h3>
+            <div class="from-con" style="width: 550px;">
+                <div class="mod-input-item fl">
+                    <input type="text" class="input-txt input-txt-2 font_wryh J_can_empty" data-role="ze" placeholder="课程数量" value="{system_data.7647966b7343c29048673252e490f736.value}" name="system_data[7647966b7343c29048673252e490f736]"  valid-rule="ze1-20" valid-index='7'/>
+                </div>
+                <span class="unit fl">节</span>
+                <span class="unit fl J_select_choose" data-role="html_display" style="display: block;">（选填）</span>
+            </div>
+        </div>
+        <div class="item clearfix">
+            <h3 class="title J_select_choose" style="width:100px;" data-role="class_html_change">每课时时长：</h3>
+            <div class="from-con" style="width: 530px;">
+                <div class="mod-input-item fl">
+                    <input type="text" class="input-txt input-txt-2 font_wryh J_can_empty" data-role="ap" placeholder="每课时时长" value="{system_data.caf1a3dfb505ffed0d024130f58c5cfa.value}" name="system_data[caf1a3dfb505ffed0d024130f58c5cfa]"  valid-rule="ap1-20" valid-index='11'/>
+                </div>
+                <span class="unit fl">小时</span>
+                <span class="unit fl J_select_choose" data-role="html_display" style="display: block;">（选填）</span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="item">
+        <div class="mod-form-title">
+            <span>服务详情：</span><span style="color:#aaa;font-size:16px;">（简单介绍一下所提供的服务并上传最能体现品牌影响力的拍摄样图）</span>
+            <textarea name="default_data[content]" id="J_content" style="display: none;"></textarea>
+        </div>
+        <!-- 加载编辑器的容器 -->
+        <script id="container" name="container" type="text/plain">{default_data.content.value}</script>
+        <div class="item-con fn-hide" style="display:none;">
+            <div class="mod-imgtext-item">
+                <div class="tool-item clearfix">
+                    <div class="tool-bar">
+                        <ul>
+                            <li>
+                                <a href="javascript:;"> <i class="icon img-icon"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;"> <i class="icon vedio-icon"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-item"></div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-item">
+        <a href="javascript:;" class="ui-btn ui-btn-blue J_form_submit" data-type="{action}" id="J_form_submit" data-lock="unlock">保存</a>
+        <!-- IF action == "edit" -->
+        <input type="checkbox" id="money_edit" style="margin-left: 10px">勾选后，表示您只修改了价格，此服务则无需再次被审核。
+        <!-- ENDIF action -->
+    </div>
+    <div style="text-align:center;color:#333;padding-top:10px;font-size:16px">等待审核过程中，可先发布服务</div>
+    <div style="text-align:center;color:#333;padding-top:10px;font-size:14px">若有问题，请联系客服4000-82-9003</div>
+    </div>
+    </div>
+    </div>
+    <!-- 手机预览插入节点  -->
+    <div data-role="qr_code_preview_ele" class="qr_code_preview_ele"></div>
+    <!-- 手机预览插入节点 end  -->
+    <input type="hidden" value="{type_id}" name="type_id" id="type_id">
+    <input type="hidden" value="{action}" name="action" id="J_action">
+    <input type="hidden" value="{goods_id}" name="goods_id">
+</form>
+
+
+<input type="hidden" value="{user_id}" id="J_user_id">
+<input type="hidden" value="{cover_img}" id="J_cover_img">
+<input type="hidden" value="{system_data.5b8add2a5d98b1a652ea7fd72d942dac.value}" id="J_change_course">
+<input type="hidden" value="{system_data.44f683a84163b3523afe57c2e008bc8c.value}" id="J_type_course">
+<input type="hidden" value="" id="qr_code_url">
+<input type="hidden" value="" id="qr_code_img">
+{footer}
+
+<script type="text/javascript" src="http://static.yueus.com/yue_ui/upload/1.0.0/webuploader.min.js"></script>
+<script type="text/javascript">
+// 头部
+require('common/global-top-bar/global-top-bar');
+
+require('common/layer/layer');
+//工具包
+var utility_module = require('common/utility/index');
+
+//初始化作品上传
+require('common/upload/1.0.0/yueyue_uploader');
+
+// 日历
+require('common/calendar/laydate.dev');
+
+
+
+//手机二维码预览 start
+// 初始化
+var qr_code_preview = require('common/qr_code_preview/qr_code_preview');
+window.__qr_code_preview_obj = new qr_code_preview({
+    render_ele : $('[data-role="qr_code_preview_ele"]'),
+    click_ele : 'J_form_submit' //点击class
+});
+// 初始化 end
+// 点击触发
+/*$('.click_ele').on('click', function() {
+ // 设置二维码
+ __qr_code_preview_obj.set_qr_img('http://image16.poco.cn/yueyue/20150907/20150907210529_353313_100207_66636_640.jpg?1600x1067_120');
+
+ // dosomething
+
+ });*/
+//手机二维码预览 end
+
+//添加输入框的tabindex属性
+$('input').attr("tabindex","1");
+$('textarea').attr("tabindex","1");
+
+
+add_collection("J_upload-container_1","1",1);
+
+function error_tips(ele,str)
+{
+    $("html,body").animate({scrollTop:ele.offset().top},300);
+    layer.alert(str);
+    return false;
+}
+
+// 表达验证类
+var VA = require('common/valid/index');
+// 设置容器
+var valid = new VA($('#form-warp'));
+
+
+//基础校验
+var common_data_check = [
+    {
+        index:'1',
+        ValidError : function(){
+            error_tips($("[valid-index='1']").parents(".item"),'请正确填入服务名称，不超过30字');
+        }
+    },
+    {
+        index:'2',
+        ValidError : function(){
+            error_tips($("[valid-index='2']").parents(".item"),'请正确填入课程目标');
+        }
+    },
+    {
+        index:'8',
+        ValidError : function(){
+            error_tips($("[valid-index='8']").parents(".item"),'请正确填入课程大纲');
+        }
+    },
+    {
+        index:'9',
+        ValidError : function(){
+            error_tips($("[valid-index='9']").parents(".item"),'请正确填入课程学费，为大于0的整数和小数（小数默认两位）');
+        }
+    },
+    {
+        index:'10',
+        ValidError : function(){
+            error_tips($("[valid-index='10']").parents(".item"),'请正确填入名额，大于等于1个名额');
+        }
+    },
+    {
+        index:'17',
+        ValidError : function(){
+            error_tips($("[valid-index='17']").parents(".item"),'请正确填入报名截止时间');
+        }
+    }
+];
+
+//刷新文档，控制选填
+function fresh_bind(action)
+{
+    if(action=="not_can_choose")
+    {
+        valid.pushfunctions
+        (
+            common_data_check.concat([
+            {
+                index:'3',
+                ValidError : function(){
+                    error_tips($("[valid-index='3']").parents(".item"), '请正确填入开课时间');
+                }
+            },
+            {
+                index:'5',
+                ValidError : function(){
+                    error_tips($("[valid-index='5']").parents(".item"), '请正确填入地址');
+                }
+            },
+            {
+                index:'6',
+                ValidError : function(){
+                    error_tips($("[valid-index='6']").parents(".item"), '请正确填入课程周期');
+                }
+            },
+            {
+                index:'7',
+                ValidError : function(){
+                    error_tips($("[valid-index='7']").parents(".item"),'请正确填入课程数量');
+                }
+            },
+            {
+                index:'11',
+                ValidError : function(){
+                    error_tips($("[valid-index='11']").parents(".item"),'请正确填入每课时时长,为大于0的整数和小数（小数默认两位）');
+                }
+            },
+            {
+                index:'15',
+                ValidError : function(){
+                    error_tips($("[valid-index='15']").parents(".item"),'请正确填入培训时间');
+                }
+            },
+            {
+                index:'16',
+                ValidError : function(){
+                    error_tips($("[valid-index='16']").parents(".item"),'请正确填入培训时间');
+                }
+            },
+            {
+                index:'18',
+                ValidError : function(){
+                    error_tips($("[valid-index='18']").parents(".item"),'请勾选招生范围');
+                }
+            }
+
+
+
+        ]));
+    }
+    else if(action=="can_choose")
+    {
+        valid.pushfunctions
+        (
+            common_data_check.concat([
+        ]));
+    }
+
+}
+
+
+
+require('common/ueditor/1.0.0/ueditor');
+// 初始化生成编辑器
+var ueditor = new Ueditor({
+    target:'#container'
+});
+
+
+//拍摄分类操作，三层交互
+$(".J_photo_type").on("click",function(){
+    var data_mark = $(this).attr("data-mark");
+    $(".J_child_photo_type_div").css("display","none");
+    $(".J_child_photo_type_div_label").css("display","none");
+    //特殊处理，匹配联动对应ID
+    //383-400，384-401,385-402
+    var label_data_mark = parseInt(data_mark)+17;//对应标签的data_mark
+
+    //循环清理其他选中项
+    var J_child_photo_type_len = $(".J_child_photo_type").length;
+    var J_child_photo_type = $(".J_child_photo_type");
+    for(var i=0;i<J_child_photo_type_len;i++)
+    {
+        if($(J_child_photo_type[i]).attr("data-parent")!=data_mark)
+        {
+            $(J_child_photo_type[i]).prop("checked",false);
+        }
+
+    }
+    //循环清理其他选中项的标签项
+    var J_child_photo_type_label_len = $(".J_child_photo_type_label").length;
+    var J_child_photo_type_label = $(".J_child_photo_type_label");
+    for(var i=0;i<J_child_photo_type_label_len;i++)
+    {
+        if($(J_child_photo_type_label[i]).attr("data-parent")!=data_mark)
+        {
+            $(J_child_photo_type_label[i]).prop("checked",false);
+        }
+
+    }
+    //标签主隐藏层的选中
+    var J_photo_type_label_len = $(".J_photo_type_label").length;
+    var J_photo_type_label = $(".J_photo_type_label");
+    for(var i=0;i<J_photo_type_label_len;i++)
+    {
+        if($(J_photo_type_label[i]).attr("data-mark")!=label_data_mark)
+        {
+            $(J_photo_type_label[i]).prop("checked",false);
+        }
+        else
+        {
+            $(J_photo_type_label[i]).prop("checked",true);
+        }
+
+    }
+
+
+
+    //处理结构显隐
+    if(data_mark=="383")
+    {
+        //特殊处理输入框位置
+        $("#J_else_input").css("top","80px");
+        $("#J_else_input").css("left","75px");
+        $("#J_else_input").css("display","block");
+        $("[valid-index='101']").val("");
+        $("[valid-index='101']").attr("disabled","disabled");
+
+    }
+    else if(data_mark=="384")
+    {
+        //特殊处理输入框位置
+        $("#J_else_input").css("top","40px");
+        $("#J_else_input").css("left","250px");
+        $("#J_else_input").css("display","block");
+        $("[valid-index='101']").val("");
+        $("[valid-index='101']").attr("disabled","disabled");
+
+    }
+    else
+    {
+        $("#J_else_input").css("display","none");
+    }
+
+
+    if($("#"+data_mark).length>0)
+    {
+        $("#"+data_mark).css("display","block");
+        $("#J_child_title").css("display","");
+    }
+    else
+    {
+        $("#J_child_title").css("display","none");
+    }
+
+    //处理标签结构显隐
+    if($("#"+label_data_mark).length>0)
+    {
+        $("#"+label_data_mark).css("display","block");
+        $("#J_child_title_label").css("display","");
+    }
+    else
+    {
+        $("#J_child_title_label").css("display","none");
+    }
+
+
+})
+
+
+
+/**********初始化并绑定子分类其他按钮************/
+init_other_label_input("J_photo_type","J_child_photo_type",101);
+function init_other_label_input(parent_obj_class,obj_class,valid_index)
+{
+    //根据初始化主分类控制“其他”这个按钮显示
+    var parent_tmp_len = $("."+parent_obj_class+":checked").length;
+    //console.log(parent_tmp_len);
+    if(parent_tmp_len>0)
+    {
+        for(var i=0;i<parent_tmp_len;i++)
+        {
+            var cur_parent_ipnut_value = $($("."+parent_obj_class+":checked")[i]).val();
+            //console.log(cur_parent_ipnut_value);
+            if(cur_parent_ipnut_value=="beed13602b9b0e6ecb5b568ff5058f07")
+            {
+
+                //特殊处理输入框位置
+                $("#J_else_input").css("top","80px");
+                $("#J_else_input").css("left","75px");
+                $("#J_else_input").css("display","block");
+
+
+
+            }
+            else if(cur_parent_ipnut_value=="0584ce565c824b7b7f50282d9a19945b")
+            {
+                //特殊处理输入框位置
+                $("#J_else_input").css("top","40px");
+                $("#J_else_input").css("left","250px");
+                $("#J_else_input").css("display","block");
+
+            }
+            else
+            {
+                $("#J_else_input").css("display","none");
+            }
+
+        }
+
+    }
+
+
+        var tmp_len =$("."+obj_class+":checked").length;
+        if(tmp_len>0)
+        {
+            for(var i=0;i<tmp_len;i++)
+            {
+                var cur_child_ipnut_value = $($("."+obj_class+":checked")[i]).val();
+                if(cur_child_ipnut_value!="f8c1f23d6a8d8d7904fc0ea8e066b3bb" && cur_child_ipnut_value!="fccb60fb512d13df5083790d64c4d5dd")
+                {
+                    $("[valid-index='"+valid_index+"']").val("");
+                    $("[valid-index='"+valid_index+"']").attr("disabled","disabled");
+
+                }
+
+
+            }
+        }
+        else
+        {
+            //默认子分类第一个选中
+            $($("."+obj_class)[0]).prop("checked","checked");
+
+            $("[valid-index='"+valid_index+"']").val("");
+            $("[valid-index='"+valid_index+"']").attr("disabled","disabled");
+        }
+
+
+
+
+
+
+    $("."+obj_class).on("change",function(){
+        var cur_value = $(this).val();
+        if(cur_value!="f8c1f23d6a8d8d7904fc0ea8e066b3bb" && cur_value!="fccb60fb512d13df5083790d64c4d5dd")
+        {
+            $("[valid-index='"+valid_index+"']").val("");
+            $("[valid-index='"+valid_index+"']").attr("disabled","disabled");
+
+        }
+        else
+        {
+            $("[valid-index='"+valid_index+"']").removeAttr("disabled");
+        }
+
+    })
+
+}
+
+
+
+//招生范围交互
+
+J_location_id_label_init();//初始化地区选中
+function J_location_id_label_init()
+{
+    if($($(".J_location_id_label")[0]).prop("checked"))
+    {
+        $(".J_location_id_label").each(function(){
+            $(this).prop("checked",false);
+            $(this).attr("disabled",true);
+
+        });
+
+        $($(".J_location_id_label")[0]).prop("checked","checked");
+        $($(".J_location_id_label")[0]).removeAttr("disabled");
+        $("#J_location_id").val("0");//选中全国，默认为0
+
+    }
+
+}
+
+$(".J_location_id_label").on("change",function(){
+    //特殊处理，选全国，其他地区不能勾选并且清理勾选情况
+    if($(this).val()==0 && $(this).prop("checked"))//选中全国
+    {
+         $(".J_location_id_label").each(function(){
+             $(this).prop("checked",false);
+             $(this).attr("disabled",true);
+
+         });
+
+         $(this).prop("checked",true);
+         $(this).removeAttr("disabled");
+
+
+
+    }
+    else if($(this).val()==0 && !$(this).prop("checked"))
+    {
+        $(".J_location_id_label").each(function(){
+            $(this).removeAttr("disabled");
+
+        });
+    }
+
+    //构造入库内容
+    var location_id_len = $(".J_location_id_label:checked").length;
+    var location_id_val = "";
+    var split_str = ",";
+    for(var i=0;i<location_id_len;i++)
+    {
+        if(i==(location_id_len-1))
+        {
+            split_str = "";
+        }
+        location_id_val += $($(".J_location_id_label:checked")[i]).val()+split_str;
+    }
+
+    $("#J_location_id").val(location_id_val);
+});
+
+//截止时间交互
+
+$("#J_join_end_hour").on("change",function(){
+    var ymd_val = $("#J_join_end_ymd").val();
+    if(!ymd_val)
+    {
+        return;
+    }
+    var hour_val =  $(this).val();
+    var new_ymd_hour = ymd_val+" "+hour_val;
+    $("#J_join_end_time").val(new_ymd_hour);
+});
+
+
+
+
+
+
+
+//课程切换
+//初始化
+var J_change_course_value = $("#J_change_course").val();
+var J_type_course_value = $("#J_type_course").val();
+if(J_change_course_value=="")
+{
+    //添加时候
+    J_change_course("not_can_choose","online");//默认选固定且线上授课
+}
+else
+{
+    //编辑时候
+    if(J_change_course_value=="432aca3a1e345e339f35a30c8f65edce")
+    {
+        if(J_type_course_value=="03afdbd66e7929b125f8597834fa83a4")
+        {
+            J_change_course("not_can_choose","online");//选固定,线上
+        }
+        else
+        {
+            J_change_course("not_can_choose","outline");//选固定,线下
+        }
+
+
+    }
+    else if(J_change_course_value=="8d3bba7425e7c98c50f52ca1b52d3735")
+    {
+        if(J_type_course_value=="03afdbd66e7929b125f8597834fa83a4")
+        {
+            J_change_course("can_choose","online");//非固定,线上
+        }
+        else
+        {
+            J_change_course("can_choose","outline");//非固定,线下
+        }
+
+    }
+
+}
+
+$(".J_change_course,.J_type_course").on("click",function(){
+
+    //获取固定课程选定情况
+    var cur_J_change_course_value = $(".J_change_course:checked").val();
+    //获取线上上线选定情况
+    var cur_J_type_course_value = $(".J_type_course:checked").val();
+
+    if(cur_J_change_course_value=="432aca3a1e345e339f35a30c8f65edce")
+    {
+        if(cur_J_type_course_value=="03afdbd66e7929b125f8597834fa83a4")
+        {
+            J_change_course("not_can_choose","online");//选固定,线上
+        }
+        else
+        {
+            J_change_course("not_can_choose","outline");//选固定,线下
+        }
+
+    }
+    else if(cur_J_change_course_value=="8d3bba7425e7c98c50f52ca1b52d3735")
+    {
+        if(cur_J_type_course_value=="03afdbd66e7929b125f8597834fa83a4")
+        {
+            J_change_course("can_choose","online");//非固定,线上
+        }
+        else
+        {
+            J_change_course("can_choose","outline");//非固定,线下
+        }
+
+    }
+
+})
+
+
+
+
+
+
+//action控制显示选填跟不选填
+function J_change_course(action,online_type)
+{
+    //console.log(action);
+    var J_select_choose_len = $(".J_select_choose").length;
+    var J_select_choose_data_role = "";
+    var J_can_empty_len = $(".J_can_empty").length;
+    var J_can_empty_data_role = "";
+    if(action=="can_choose")//允许选填
+    {
+        //显示处理
+        for(var i=0;i<J_select_choose_len;i++)
+        {
+            J_select_choose_data_role = $($(".J_select_choose")[i]).attr("data-role");
+            if(J_select_choose_data_role=="html_display")
+            {
+
+                $($(".J_select_choose")[i]).css("display","block");
+            }
+        }
+        //dom属性处理，清除校验
+        for(var j=0;j<J_can_empty_len;j++)
+        {
+            $($(".J_can_empty")[j]).removeAttr("valid-rule");
+
+        }
+
+        valid.freshNodes($('#form-warp'));
+        fresh_bind("can_choose");
+
+    }
+    else if(action=="not_can_choose")
+    {
+        //显示处理
+        //console.log(action);
+        //console.log(J_select_choose_len);
+
+        for(var i=0;i<J_select_choose_len;i++)
+        {
+            J_select_choose_data_role = $($(".J_select_choose")[i]).attr("data-role");
+            if(J_select_choose_data_role=="html_display")
+            {
+                //固定课程，线上也可以选填
+                if(online_type=="online")
+                {
+                    if($($(".J_select_choose")[i]).attr("data-type")=="address")//并且是地址的时候
+                    {
+                        $($(".J_select_choose")[i]).css("display","block");
+                    }
+                    else
+                    {
+                        $($(".J_select_choose")[i]).css("display","none");
+                    }
+                }
+                else
+                {
+                    $($(".J_select_choose")[i]).css("display","none");
+                }
+
+                //匹配回对应的属性值
+
+            }
+            else if(J_select_choose_data_role=="course_html_change")
+            {
+                $($(".J_select_choose")[i]).html("课程数量：");
+                $($(".J_select_choose")[i]).css("width","83px");
+            }
+            else if(J_select_choose_data_role=="class_html_change")
+            {
+                $($(".J_select_choose")[i]).html("每课时时长：");
+                $($(".J_select_choose")[i]).css("width","100px");
+            }
+        }
+        //dom属性处理，添加校验
+        for(var j=0;j<J_can_empty_len;j++)
+        {
+            J_can_empty_data_role = $($(".J_can_empty")[j]).attr("data-role");
+            if(J_can_empty_data_role=="ze")
+            {
+                $($(".J_can_empty")[j]).attr("valid-rule","ze1-20");
+            }
+            else if(J_can_empty_data_role=="all")
+            {
+                //固定课程，线上也可以选填
+                if(online_type=="online")
+                {
+                    if($($(".J_can_empty")[j]).attr("data-type")=="address")//并且是不是地址的时候
+                    {
+                        $($(".J_can_empty")[j]).removeAttr("valid-rule");
+                    }
+                    else
+                    {
+                        $($(".J_can_empty")[j]).attr("valid-rule","**1-10000");
+                    }
+                }
+                else
+                {
+                    $($(".J_can_empty")[j]).attr("valid-rule","**1-10000");
+                }
+
+            }
+            else if(J_can_empty_data_role=="ap")
+            {
+                $($(".J_can_empty")[j]).attr("valid-rule","ap1-20");
+            }
+
+
+
+        }
+
+        valid.freshNodes($('#form-warp'));
+        fresh_bind("not_can_choose");
+    }
+}
+
+
+
+
+//字符串变时间戳，javascript会比PHP多后三位
+function strtotime(strings){
+
+    var arr = strings.split(" ");
+
+    var arr1 = arr[0].split("-");
+
+    //var arr2 = arr[1].split(":");
+
+    var year = arr1[0];
+
+    var month = arr1[1]-1;
+
+    var day = arr1[2];
+
+    //var hour = arr2[0];
+
+    //var mon = arr2[1];
+
+    //var timestamp = new Date(year,month,day,hour,mon).getTime();
+
+    var timestamp = new Date(year,month,day).getTime();
+
+    return timestamp;
+
+}
+
+//提交form
+$(".J_form_submit").on("click",function(){
+    /*预览处理*/
+    var data_type = $(this).attr("data-type");
+    $("#J_action").val(data_type);
+    if(data_type=="preview")
+    {
+        var img_display = $("#qr").css("display");
+        if(img_display!="none")
+        {
+            __qr_code_preview_obj.set_qr_img('http://static.yueus.com/mall/seller/test/static/pc/images/qr_loading.jpg');
+            __qr_code_preview_obj.change_hide();
+            return;
+        }
+    }
+    /*预览处理*/
+
+    var resault = valid.checkValid();
+    //console.log(resault);
+    if(resault.isPass)
+    {
+
+        //判断封面图
+        if(!$(".J_upload-container_1 input").val())
+        {
+            error_tips($('.J_upload-container_1').parents(".item"), '请传入封面图');
+            return
+        }
+
+        //判断主类别
+        var ret = check_radio_checked("J_photo_type","J_photo_type_div","请选择课程分类");
+        if(!ret)
+        {
+            return;
+        }
+
+        //判断是否有勾选类别
+        var J_child_title_display = $("#J_child_title").css("display");
+        if(J_child_title_display!="none")
+        {
+            var ret = check_radio_checked("J_child_photo_type","J_child_title","请选择类别");
+            if(!ret)
+            {
+                return;
+            }
+
+        }
+
+        //判断是否勾选标签
+        var J_child_title_label_display = $("#J_child_title_label").css("display");
+        if(J_child_title_label_display!="none")
+        {
+            var ret = check_radio_checked("J_child_photo_type_label","J_child_title_label","请选择标签");
+            if(!ret)
+            {
+                return;
+            }
+
+        }
+
+
+        //勾选课程类别
+        var ret = check_radio_checked("J_course_type","J_course_type_div","请选择课程类别");
+        if(!ret)
+        {
+            return;
+        }
+
+
+        //判断勾选了其他后是否有填入内容
+        var J_child_photo_type_len = $(".J_child_photo_type:checked").length;
+        for(var i=0;i<J_child_photo_type_len;i++)
+        {
+            if($($(".J_child_photo_type:checked")[i]).val()=="f8c1f23d6a8d8d7904fc0ea8e066b3bb" || $($(".J_child_photo_type:checked")[i]).val()=="fccb60fb512d13df5083790d64c4d5dd")
+            {
+                if($("[valid-index='101']").val()=="")
+                {
+                    error_tips($("[valid-index='101']").parents(".item"), '请填入其他');
+                    return
+                }
+            }
+        }
+
+
+
+
+        //判断开课时间(选填)
+        //判断处于什么模式
+        var J_change_course_check_val = $(".J_change_course:checked").val();
+
+        if(J_change_course_check_val == "432aca3a1e345e339f35a30c8f65edce")//选中了固定才去判断截止时间跟开课时间
+        {
+            var open_class_time = strtotime($("[valid-index='3']").val());
+            var now_time_value = parseInt(new Date().getTime())-86400000;
+            if(open_class_time<=now_time_value)
+            {
+                error_tips($("[valid-index='3']").parents(".item"), '开课时间不能小于昨天');
+                return
+            }
+        }
+        else
+        {
+            if($("[valid-index='3']").val()!="")//不为空去校验
+            {
+                var open_class_time = strtotime($("[valid-index='3']").val());
+                var now_time_value = parseInt(new Date().getTime())-86400000;
+                if(open_class_time<=now_time_value)
+                {
+                    error_tips($("[valid-index='3']").parents(".item"), '开课时间不能小于昨天');
+                    return
+                }
+            }
+        }
+
+
+
+
+        //判断选择的培训时间前对对比(选填)
+        var left_time_val = $("[valid-index='15']").val();
+        var right_time_val = $("[valid-index='16']").val();
+
+        var new_left_time_val = parseInt(left_time_val.replace(/:/,""));
+        var new_right_time_val = parseInt(right_time_val.replace(/:/,""));
+        console.log(new_left_time_val);
+        console.log(new_right_time_val);
+
+        if(new_left_time_val>=new_right_time_val)
+        {
+            error_tips($("[valid-index='15']").parents(".item"),'请正确填入培训时间段');
+            return;
+        }
+
+        //构造报名截止时间特殊处理
+            var ymd_val = $("#J_join_end_ymd").val();
+            //console.log(ymd_val);
+            if(!ymd_val)
+            {
+                error_tips($("#J_join_end_ymd").parents(".item"),'请选择截止时间');
+                return;
+            }
+            var hour_val =  $("#J_join_end_hour").val();
+            //console.log(hour_val);
+            if(!hour_val)
+            {
+                error_tips($("#J_join_end_hour").parents(".item"),'请选择截止时间');
+                return;
+            }
+            var new_ymd_hour = ymd_val+" "+hour_val;
+            //构造截止时间
+            $("#J_join_end_time").val(new_ymd_hour);
+        //构造报名截止时间特殊处理
+
+        //判断报名截止时间小于开课时间
+        if($("[valid-index='3']").val()!="")
+        {
+            //判断报名截止时间小于开课日期，（如果有设定开课时间的时候）
+            var open_class_time = strtotime($("[valid-index='3']").val());//开课日期
+            var join_end_class_time = strtotime($("[valid-index='17']").val());//截止日期
+            if(open_class_time<=join_end_class_time)
+            {
+                error_tips($("[valid-index='17']").parents(".item"), '报名截止时间要先于开课时间');
+                return
+            }
+        }
+
+
+
+
+
+
+
+
+        var data_lock = $(this).attr("data-lock");
+        if(data_lock!="lock")
+        {
+            /*****2015-8-14只修改价格******/
+            //获取是否勾选了修改价钱
+            var j_action = $("#J_action").val();
+            if(j_action!="add")
+            {
+                var money_edit_res = $("#money_edit").prop("checked");
+                if(money_edit_res)
+                {
+                    $("#J_action").val("money_edit");
+                }
+                else
+                {
+                    $("#J_action").val(j_action);
+                }
+            }
+            /*****2015-8-14只修改价格******/
+
+            var content = ueditor.editor.getContent();
+            //判断图文是否为空（2015-7-6）
+            if(!content)
+            {
+                error_tips($('#J_content').parents(".item"), '请填入图文详情');
+                return
+            }
+
+            /*****2015-10-27计算服务详情里的数据*******/
+            var editor_str_len = utility_module.count_editor_str_num(content);
+            var editor_img_len = utility_module.count_editor_img_num(content);
+
+            if(editor_str_len>5000)
+            {
+                error_tips($('#J_content').parents(".item"), '填入图文详情文字不能超过5000字');
+                return
+            }
+            //图片张数前后端处理
+            if(editor_img_len>20)
+            {
+                error_tips($('#J_content').parents(".item"), '填入图文详情图片不能超过20张');
+                return
+            }
+            /*****2015-10-27计算服务详情里的数据*******/
+
+            $("#J_content").html(content);
+            /**预览处理**/
+            if(data_type=="preview")
+            {
+                layer.msg("生成二维码中...");
+            }/**预览处理**/
+            else
+            {
+                $(this).attr("data-lock","lock");//锁住
+                layer.msg("正在提交中...");
+            }
+            $("#publish_form").submit();
+
+        }
+        else
+        {
+            layer.msg("正在提交中...");
+            return false;
+        }
+    }
+
+})
+
+//判断主分类是否有选2015-7-22
+
+function check_radio_checked(J_class,J_locate,J_text)
+{
+    var J_type = $("."+J_class);
+    var J_type_len = J_type.length;
+    var J_type_has_checked = false;
+    for(var i=0;i<J_type_len;i++)
+    {
+        if($(J_type[i]).prop("checked"))
+        {
+            J_type_has_checked = true;
+            break;
+        }
+    }
+
+    if(!J_type_has_checked)
+    {
+        error_tips($('#'+J_locate).parents(".item"), J_text);
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+
+
+//添加作品集
+/*
+ *ele_container:容器
+ *part_id：模块标记值
+ */
+function add_collection(ele_container,part_id,$photo_num)
+{
+    $(function()
+    {
+
+
+        //todo 使用之前要确定userid是否传递进去
+        var user_id = $("#J_user_id").val();
+        var cover_img = $("#J_cover_img").val();
+        if(cover_img!="")
+        {
+            //处理js数组
+            var imgs_arr = cover_img.split(",");
+            //var imgs_arr = [cover_img];
+        }
+        else
+        {
+            var imgs_arr = [];
+        }
+        var yue_upload_obj = new yue_upload_class
+        ({
+            upload_total_limit : $photo_num,
+            upload_container : $('.'+ele_container),
+            user_id :  user_id,
+            multiple : true,
+            imgs : imgs_arr,
+            sortable : true,
+            fileSizeLimit: 3 * $photo_num * 1024 * 1024,    // 9 M 总文件大小
+            fileSingleSizeLimit: 3 * 1024 * 1024,    // 3 M 单文件大小
+            gid : part_id
+        });
+
+        $('#popup_'+part_id).on('click', function()
+        {
+            var upload_obj = {};
+            first_layer = layer.open
+            ({
+                type: 1,
+                area: ['800px', '450px'],
+                fix: false, //不固定
+                title:'上传图片',
+                maxmin: false,
+                content: yue_upload_obj.tpl,
+                success : function($el,index)
+                {
+                    var sec_layer = null;
+                    var index = index;
+
+
+                    setTimeout(function()
+                    {
+                        upload_obj = yue_upload_obj.init_upload($el);
+
+                        upload_obj.on('uploadProgress',function()
+                        {
+
+                        })
+                                .on('fileQueued',function(file)
+                                {
+
+                                })
+                                .on('fileDequeued',function(file)
+                                {
+
+                                })
+                                .on('uploadSuccess',function(file,response)
+                                {
+                                    // response 服务端返回数据
+                                    //console.log(response);
+                                })
+                                .on('uploadError',function()
+                                {
+
+                                })
+                                .on('uploadFinished',function()
+                                {
+                                    layer.close(index);
+                                })
+                    },500);
+                },
+                cancel : function()
+                {
+                    if(!confirm('注意！关闭弹窗会终止上传图片'))
+                    {
+                        return false;
+                    }
+
+                    upload_obj && upload_obj.stop(true);
+                }
+            });
+        });
+    });
+}
+
+
+$("#system_msg_close").on("click",function(){
+
+    /*var type_id = $("#type_id");
+     var cookie_name = "mall_pai_goods_edit_"+type_id;
+     cookie.set(cookie_name,"hide_system_msg",{
+     expires :1000,
+     domain : 'yueus.com',
+     path : '/'
+     });*/
+
+    $("#system_msg_div").css("display","none");
+
+
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: '',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        })
+    })
+    </script>
+
+<title></title>
+
+</head>
+<body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+
+<div class="mainbox">
+
+  <table class="search_table" width="100%">
+	<tbody>
+		
+        <tr> 
+			<td class="search">
+				
+              <form name="add_form" id="add_form" action="" method="get" >
+      日期：
+        
+        <input id="begin_time" type="text" size="14" name="begin_time" value="{begin_time}" class="ui_timepicker">
+       &nbsp;到 
+       <input id="end_time" type="text" size="14" name="end_time" value="{end_time}" class="ui_timepicker" />
+              &nbsp;
+               &nbsp;
+              专题筛选:
+              <label for="select"></label>
+              <select name="topic_id" id="topic_id">
+              <option value="">全部</option>
+              <!-- BEGIN topic_list -->
+                <option value="{id}" <!-- IF top.topic_id=id -->selected="selected"<!-- ENDIF -->>{title}</option>
+                <!-- END topic_list -->
+              </select>
+              &nbsp;&nbsp;
+              品类:
+              <select name="type_id">
+                <option value="">全部品类</option>
+                  <option value="31" <!-- IF type_id="31" -->selected="selected"<!-- ENDIF -->>模特服务</option>
+                  <option value="5" <!-- IF type_id="5" -->selected="selected"<!-- ENDIF -->>摄影培训</option>
+                  <option value="40" <!-- IF type_id="40" -->selected="selected"<!-- ENDIF -->>摄影服务</option>
+                  <option value="3" <!-- IF type_id="3" -->selected="selected"<!-- ENDIF -->>化妆服务</option>
+                  <option value="12" <!-- IF type_id="12" -->selected="selected"<!-- ENDIF -->>影棚租赁</option>
+                  <option value="41" <!-- IF type_id="41" -->selected="selected"<!-- ENDIF -->>约美食</option>
+                  <option value="42" <!-- IF type_id="42" -->selected="selected"<!-- ENDIF -->>约活动</option>
+                  <option value="43" <!-- IF type_id="43" -->selected="selected"<!-- ENDIF -->>约有趣</option>
+                </select>
+
+<input type="submit" id="button" value="查找" />
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href="promotion_enroll_list.php?begin_time={begin_time}&end_time={end_time}&topic_id={topic_id}&type_id={type_id}&output=1" target="_blank">导出</a>
+              </form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+ 
+    <div id="tabs">
+    <div class="tabbox">
+      <div class="table-list">
+        <table width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>专题名称</th>
+              <th>用户ID</th>
+              <th>商品ID</th>
+			  <th>规格ID</th>
+              <th>规格</th>
+              <th>数量</th>
+              <th>报名时间</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- BEGIN list -->
+            <tr>
+              <td align="center">{topic_name}</td>
+              <td align="center">{user_id}</td>
+              <td align="center">{goods_id}</td>
+			  <td align="center">{type_key}</td>
+              <td align="center">{type_text}</td>
+              <td align="center">{num}</td>
+              <td align="center">{add_time}</td>
+              <!-- END list --> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="pages" class="page"> {page} </div>
+  
+</div>
+</body>
+</html>

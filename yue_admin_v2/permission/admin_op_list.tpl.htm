@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <title>管理员管理</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="javascript:void(0);" class="on">操作列表</a>
+            <a href="admin_op_edit.php" target="main">操作添加</a>
+        </ul>
+    </div>
+    <!--top-->
+    <div class="table-list" id="table-list">
+        <iframe name="frame" id="frame" style="display:none"></iframe>
+        <form action="admin_op_edit.php?act=sort" method="post" target="frame">
+            <!--list-->
+            <table width="100%" cellspacing="0" style="min-width: 1024px;">
+                <thead>
+                <tr>
+                    <th width="50">操作ID</th>
+                    <th>操作名</th>
+                    <th width="100">操作代码</th>
+                    <th width="120">操作URL</th>
+                    <th width="60">级别</th>
+                    <th width="60">显示到菜单</th>
+                    <th width="60">排序</th>
+                    <th width="100">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {str}
+                </tbody>
+            </table>
+            <div class="btn">
+                <input type="submit" class="button" name="dosubmit" value="重新排序"/>
+            </div>
+        </form>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

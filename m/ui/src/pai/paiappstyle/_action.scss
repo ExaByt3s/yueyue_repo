@@ -1,0 +1,39 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 组织者
+// ------------------------------
+
+
+// 外拍活动
+@import "action/action-list";
+
+// // 活动信息
+@import "action/action-info";
+
+// // 活动介绍
+@import "action/action-intro";
+
+// //场次安排
+@import "action/action-pub";
+
+// //活动预览
+@import "action/action-preview";
+
+// //活动报名
+@import "action/action-apply";
+
+// //活动我的活动劵
+@import "action/action-security";
+
+// //活动报名网友
+@import "action/action-signin";
+
+// //活动报名网友 
+@import "action/event-info";
+
+@import "action/action-pay-success";
+
+
+
+
+

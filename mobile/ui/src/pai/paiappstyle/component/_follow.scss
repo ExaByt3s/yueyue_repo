@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+// ------------------------------
+// 
+// ------------------------------
+.ui-follow-mod-block{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.ui-follow-mod{
+    @include border-radius(2px);
+    @include flexbox((
+        display: box
+    ), $version: 1);
+    @include box-sizing(border-box);
+    color: $main-color ;
+    border: 1px solid $main-color ;
+    height: 25px;
+    display: inline-block;
+    padding: 1px 10px;
+
+    &:active{
+        border-color: #ffa4bb;
+        color: #ffa4bb;
+        .icon-ui-follow-m{
+            @include get-icon('ui-follow-add-m-active', true, block);
+        }
+    };
+  .icon{
+    margin-top: 5px;
+  }
+}
+
+
+.ui-hasfollow-mod{
+    border-color: #aaaaaa;
+    color: #aaaaaa;
+    &:active{
+        border-color: #cccccc;
+        color: #cccccc;
+        .icon-ui-hasfollow-m{
+            @include get-icon('ui-hasfollow-add-m-active', true, block);
+        }
+    };
+}
+
+.ui-eachotherfollow-mod{
+    border-color: #aaaaaa;
+    color: #aaaaaa;
+    &:active{
+        border-color: #cccccc;
+        color: #cccccc;
+        .icon-ui-eachotherfollow-m{
+            @include get-icon('ui-eachotherfollow-mod-active', true, block);
+        }
+    };
+}

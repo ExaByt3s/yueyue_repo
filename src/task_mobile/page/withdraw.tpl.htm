@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>提现</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/profile/profile.scss">
+    <script src="../lib/lib.js"></script>
+</head>
+<body style="background: #f2f2f2">
+<div class="withdraw_tips fn-hide" data-role="withdraw_tips" data-hide>
+    <div class="tips_container fn-hide" data-role="tips_container" data-hide>
+        <div class="contain">
+            <p data-role="show_account">支付宝账号:{account_name.third_account}</p>
+            <p data-role="show_name">开户人姓名:{account_name.real_name}</p>
+            <p data-role="show_glod"></p>
+        </div>
+        <div class="btn_contain">
+            <div data-role="cancal_withdraw_btn">取消</div>
+            <div data-role="withdraw_btn">确认提现</div>
+        </div>
+    </div>
+    <div class="tips_container fn-hide" data-role="tips_container_ok" data-hide>
+        <div class="contain">
+            <p>你已成功提现100.00元至{account_name.real_name}支付宝账户{account_name.third_account},我们工作人员会在24小时内进行处理</p>
+        </div>
+        <div class="btn_contain">
+            <div data-role="confirm">确认</div>
+        </div>
+    </div>
+</div>
+<main>
+    <div class="page-view " data-role="page-container">
+        <link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+        <!--select id="province">
+            <option value=""> -- </option>
+        </select>
+        <select id="city">
+            <option value=""> -- </option>
+        </select-->
+        <div class="profile_container" data-role="profile_container" style="margin-top: 15px">
+           <div class="withdraw_money">
+               <div>
+                   <p class="notice">钱包余额</p>
+                   <p class="red" >￥{info.available_balance}</p>
+               </div>
+               <div>
+                   <p class="notice">可提现</p>
+                   <p class="black" data-ava_bal="{info.available_balance}">￥{info.purse_available_balance}</p>
+               </div>
+           </div>
+            <div class="profile_list_container_common_style n_w" style="margin-top: 15px">
+                <div class="child pd">
+                    <div class="central">
+                        <div class="left_box">
+                            <p class="with_draw_notice">提现金额</p>
+                            <input placeholder="请输入金额" data-role="price">
+                        </div>
+                    </div>
+                </div>
+                <div class="child pd">
+                    <div class="central">
+                        <div class="left_box">
+                            <p class="with_draw_notice">支付宝账号</p>
+                            <input value="{status_resault.data}" data-role="account" readOnly="true"  style="color: #aeaeae">
+                        </div>
+                        <div class="right_box exp fn-hide">
+                            <p style="line-height: 22px">已绑定</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="child pd" style="position: relative">
+                    <div class="central">
+                        <div class="left_box">
+                            <p class="with_draw_notice">手机验证码</p>
+                            <input placeholder="输入验证码" data-role="code" data-self-phone="{info.cellphone}">
+                        </div>
+                        <div class="right_box exp_btn" style="margin-right: 0px">
+                            <p class="count_btn" data-role="count_btn">获取验证码</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="withdraw_btn" data-role="tips_show">提现</div>
+        </div>
+
+    </div>
+</main>
+</body>
+<script>
+
+$(function()
+{
+    $('[data-role="tips_show"]').on('click',function()
+    {
+        var price  = $('[data-role="price"]').val();
+
+        var account = $('[data-role="account"]').val();
+
+        var code = $('[data-role="code"]').val();
+
+        var email_reg = new RegExp(/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/);
+
+        var phone_reg = new RegExp(/^[0-9]{11}$/);
+
+        var ava_bal = $('[data-ava_bal]').attr('data-ava_bal');
+
+        if( ava_bal == 0)
+        {
+            alert('可提现金额为零');
+            return
+        }
+		
+		/**
+        if( price > ava_bal)
+        {
+            alert('输入金额大于可提现金额');
+            return
+        }**/
+
+        if( account.trim() == '' )
+        {
+            alert('请正确输入支付宝账号！');
+            return
+        }
+
+        if( price.trim() == "")
+        {
+            alert('请输入提现金额！');
+            return
+        }
+
+        if( code.trim() == "")
+        {
+            alert('请输入验证码！');
+            return
+        }
+
+
+        $('[data-role="show_glod"]').html("提款金额:" + price);
+
+        $('[data-role="withdraw_tips"]').removeClass('fn-hide');
+
+        $('[data-role="tips_container"]').removeClass('fn-hide');
+    })
+
+    $('[data-role="cancal_withdraw_btn"]').on('click',function()
+    {
+        $('[data-role="withdraw_tips"]').addClass('fn-hide');
+
+        $('[data-role="tips_container"]').addClass('fn-hide');
+    })
+
+    $('[data-role="confirm"]').on('click',function()
+    {
+        $('[data-hide]').addClass('fn-hide');
+    })
+
+    $('[data-role="withdraw_btn"]').on('click',function()
+    {
+        var price  = $('[data-role="price"]').val();
+
+        var account = $('[data-role="account"]').val();
+
+        var code = $('[data-role="code"]').val();
+
+        var email_reg = new RegExp(/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/);
+
+        var phone_reg = new RegExp(/^[0-9]{11}$/);
+
+        // || !(email_reg.test(account) || phone_reg.test(account))
+
+        if( account.trim() == '')
+        {
+            alert('请正确输入支付宝账号！');
+            return
+        }
+
+        if( price.trim() == "")
+        {
+            alert('请输入提现金额！');
+            return
+        }
+
+        if( code.trim() == "")
+        {
+            alert('请输入验证码！');
+            return
+        }
+
+
+        $.ajax
+        ({
+            url : '../ajax/withdraw.php',
+            data:{type:'money',sms_code:code,amount:price},
+            type: 'POST',
+            cache: false,
+            dataType : 'json',
+            beforeSend: function()
+            {
+
+            },
+            success: function(data)
+            {
+                console.log(data);
+                if(data.result_data.code != 1)
+                {
+                    alert(data.result_data.msg);					
+                }
+                else
+                {
+
+                    $('[data-role="tips_container"]').addClass('fn-hide');
+                    $('[data-role="tips_container_ok"]').removeClass('fn-hide');
+
+					window.location.href = './pocket.php';
+                }
+            },
+            error: function()
+            {
+                alert('请求超时，请重试')
+            },
+            complete: function()
+            {
+
+            }
+        });
+    })
+
+    var counting
+
+    var itv;
+
+    $('[data-role="count_btn"]').on('click',function()
+    {
+		var price  = $('[data-role="price"]').val();
+
+		if( price.trim() == "")
+        {
+            alert('请输入提现金额！');
+            return
+        }
+
+        if(counting){console.log('return');return}
+
+        var sec = 60;
+
+        var btn_obj = $('[data-role="count_btn"]');
+
+        btn_obj.html(sec);
+
+        btn_obj.addClass('un_click');
+
+        itv = setInterval(function()
+        {
+            counting = true;
+
+            var num = parseInt(btn_obj.html()) - 1;
+            btn_obj.html(num);
+
+            if(num == 0)
+            {
+                counting = false;
+
+                clearInterval(itv);
+
+                btn_obj.html('获取验证码');
+
+                btn_obj.removeClass('un_click');
+            }
+        },1000)
+
+        $.ajax
+        ({
+            url : '../ajax/withdraw.php',
+            data:{type:'sms'},
+            type: 'POST',
+            cache: false,
+            dataType : 'json',
+            beforeSend: function()
+            {
+
+            },
+            success: function(data)
+            {
+                console.log(data);
+
+                if(data.result_data.code == 1)
+                {
+                    alert('发送成功！')
+                }
+                else
+                {
+                    alert(data.result_data.msg)
+                }
+            },
+            error: function()
+            {
+                counting = false;
+
+                clearInterval(itv);
+
+                btn_obj.html('获取验证码');
+
+                btn_obj.removeClass('un_click');
+            },
+            complete: function()
+            {
+
+            }
+        });
+    })
+
+});
+</script>
+</html>

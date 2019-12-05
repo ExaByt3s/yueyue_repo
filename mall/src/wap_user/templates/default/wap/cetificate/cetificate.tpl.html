@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>认证</title>
+    <meta charset="gbk">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+
+
+
+    <!-- modjs 必须引用 -->
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/mod.js"></script>
+    <!--基础样式 START-->
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/base.css">
+    <!-- 颜色配置 -->
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/common/ui-colcor.css">
+    <!-- 按钮配置 -->
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/common/ui-button.css">
+    <!--基础样式 END-->
+
+    <!--App bridge-->
+    <script>
+        {app_bridge_script}
+    </script>
+
+    <script>
+
+        var wifi_link = /yp-wifi/.test(window.location.host)?'-wifi':'';
+
+        var test = /test/.test(window.location.href)?'test/':'';
+
+        window.$__domain = 'http://yp.yueus.com/mall/user/'+test + 'ajax/';
+
+        window.$__config =
+        {
+            ajax_url :
+            {
+                get_tt_pay_info : window.$__domain + 'get_tt_pay_info.php',
+                pay_tt_action : window.$__domain + 'pay_tt_action.php',
+                list_control : window.$__domain + 'order_list_control.php',
+                order_submit : window.$__domain + 'order_submit.php',
+                get_user_coupon_list_by_check : window.$__domain + 'get_user_coupon_list_by_check.php'
+
+            }
+
+        };
+    </script>
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+</head>
+<body>
+<div>认证尚未开通</div>
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+</script>
+</html>

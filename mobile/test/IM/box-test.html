@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>flex</title>
+    <link href="./css/box.css" rel="stylesheet">
+    <link href="./css/im.css" rel="stylesheet">
+    <script src='./lib/vue.js'></script>
+    <script src="./lib/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <div class="ds-box orient-h client_main">
+        <div class="ds-box orient-h head_list">
+            <div class="ds-box orient-v seller_list flex-1" data-role="seller_list" id="example">
+                <div class="seller_list_item ds-box orient-h align-center" v-repeat='todo:seller_list'>
+                    <div>{{ todo }}</div>
+                    <div>hao  </div>
+                </div>
+            </div>
+            <div class="ds-box orient-v buyer_list" data-role="buyer_list">
+                <div class="buyer_list_item ds-box orient-h align-center">
+                    <img src='./imgs/d9.jpg' style="width: 50px"/>
+                    <p>10039</p>
+                </div>
+                <div class="buyer_list_item ds-box orient-h align-center">
+                    <img src='./imgs/d9.jpg' style="width: 50px"/>
+                    <p>10039</p>
+                </div>
+                <div class="buyer_list_item ds-box orient-h align-center">
+                    <img src='./imgs/d9.jpg' style="width: 50px"/>
+                    <p>10039</p>
+                </div>
+                <div class="buyer_list_item ds-box orient-h align-center">
+                    <img src='./imgs/d9.jpg' style="width: 50px"/>
+                    <p>10039</p>
+                </div>
+                <div class="buyer_list_item ds-box orient-h align-center">
+                    <img src='./imgs/d9.jpg' style="width: 50px"/>
+                    <p>10039</p>
+                </div>
+                <div class="buyer_list_item ds-box orient-h align-center">
+                    <img src='./imgs/d9.jpg' style="width: 50px"/>
+                    <p>10039</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="ds-box orient-v flex-1">
+            <div class="ds-box orient-v">聊天窗体</div>
+            <div class="ds-box orient-v">聊天输入</div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    
+
+    var demo = new Vue({
+    el: '#example',
+    data: {
+        title: 'todo list',
+        seller_list: ['do work', 'read book', 'shopping']
+    }
+});
+
+    $('.seller_list_item').on('click',function()
+    {
+        $('[data-role="buyer_list"]').animate
+        ({
+            width:'0px'
+        },500,function()
+        {
+            $(this).animate({width:'200px'},500)
+        })
+    })
+
+
+</script>
+</html>

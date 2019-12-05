@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/laydate/laydate.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/table.css">
+<title>工作监控报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">销售概况</a> 
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform">
+					<table class="table-list-search" id="quick_search" width="400">
+					      <tbody>
+							       <tr>
+							       		<td>
+							       			选择年月:
+							       		   <input type="text" name="month" class="input-text" id="month" value="{month}" size="8"/>
+							       		</td>
+										<!--<td width="260">添加日期: <input type="text" class="input-text Wate" name="start_add_time" value="{start_add_time}" onFocus="WdatePicker()" style="width:80px;"/>~ <input type="text" class="input-text Wate" name="end_add_time" value="{end_add_time}" onFocus="WdatePicker()" style="width:80px;" />
+										</td>-->
+									   <td>
+									    <p><input type="button" class="button" value="查找" onclick="com_export('list')"/> <input type="button" class="button" value="导出" onclick="com_export('export')"></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+					<input type="hidden" name='act' id="act" value="list" />
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+	<div class="table-list" id="table-list">
+		<div class="btn">
+			总条数:{total_count}
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0" style="min-width: 1000px;">
+			<thead>
+			    <tr>
+				<th colspan="6">订单分析</th>
+				<th colspan="3">动销率分析</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <tr>
+				<td align="center">日期</td>
+				<td align="center">订单完成金额</td>
+				<td align="center">订单完成pv</td>
+				<td align="center">普通退款订单pv</td>
+				<td align="center">强制退款订单pv</td>
+				<td align="center">订单完成平均金额</td>
+				<td align="center">模特审核通过uv</td>
+				<td align="center">模特售出uv</td>
+				<td align="center">动销率</td>
+				</tr>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center">{add_time}</td>
+				<td align="center">{order_total}</td>
+				<td align="center">{order_num}</td>
+				<td align="center">{normal_refund}</td>
+				<td align="center">{force_refund}</td>
+				<td align="center">{order_avg}</td>
+				<td align="center">{examine_uv}</td>
+				<td align="center">{sold_uv}</td>
+				<td align="center">{sold_per}%</td>
+				</tr> 
+				<!-- END list --> 
+				<tr>
+				<td align="center">累计</td>
+				<td align="center">{order_total_up}</td>
+				<td align="center">{order_num_up}</td>
+				<td align="center">{normal_refund_up}</td>
+				<td align="center">{force_refund_up}</td>
+				<td align="center">{order_avg_up}</td>
+				<td align="center">{examine_uv_up}</td>
+				<td align="center">{sold_uv_up}</td>
+				<td align="center">{sold_per_up}%</td>
+				</tr>
+				<tr>
+				<td align="center">日均</td>
+				<td align="center">{order_total_day}</td>
+				<td align="center">{order_num_day}</td>
+				<td align="center">{normal_refund_day}</td>
+				<td align="center">{force_refund_day}</td>
+				<td align="center">{order_avg_day}</td>
+				<td align="center">{examine_uv_day}</td>
+				<td align="center">{sold_uv_day}</td>
+				<td align="center">{sold_per_day}%</td>
+				</tr>   	
+			</tbody>
+		</table>
+	</div>
+	<div id="pages" class="page">
+	{page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+  //导出和查询触动
+  function com_export($actval)
+  {
+  	$("#act").val($actval);
+	//$("#myform").attr("action", $url);
+	//return;
+	$("#myform").submit();
+ }
+ 
+ laydate({
+    elem: '#month',
+    istime: true,
+    format: 'YYYY-MM',
+});
+
+</script>
+</html>

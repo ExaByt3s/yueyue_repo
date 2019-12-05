@@ -1,0 +1,34 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/ui/template/mine
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+authentication.html
+authentication_inner.html
+bill.html
+bind-alipay-success.html
+bind-alipay.html
+cancel_reason.html
+change-password.html
+change-phone-verification.html
+change-phone.html
+checkins .html
+consider.html
+details.html
+level_verification.html
+mine-edit.html
+mine-model-car.html
+mine.html
+model-mine.html
+ph_zone.html
+receive.html
+recharge_guide .html
+refuse-v2.html
+refuse.html
+set-password.html
+setup.html
+status.html
+verification-mobile.html
+
+--EOF--

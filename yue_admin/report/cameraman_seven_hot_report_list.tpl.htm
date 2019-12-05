@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/table.css">
+<title>工作监控报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">摄影师<!-- IF order="date_order" -->成单次数<!-- ELSE -->消费金额<!-- ENDIF -->7天总榜</a> 
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform">
+					<table class="table-list-search" id="quick_search" width="430">
+					      <tbody>
+							       <tr>
+							       	   <td>
+							       		       选择日期:
+							       		   <input type="text" name="date" class="input-text" id="date" value="{date}" size="12" onfocus="WdatePicker()"/>
+							       		</td>
+							       		<td>
+							       		  选择地区:
+							       		     <select name="location_id" id="location_id">
+										  		<option value="101029001" <!-- IF location_id="101029001" -->selected="true" <!-- ENDIF -->>广州</option>
+										  		<option value="101019001" <!-- IF location_id="101019001" -->selected="true" <!-- ENDIF -->>武汉</option>
+										  		<option value="101001001" <!-- IF location_id="101001001" -->selected="true" <!-- ENDIF -->>北京</option>
+										  		<option value="101003001" <!-- IF location_id="101003001" -->selected="true" <!-- ENDIF -->>上海</option>
+										  		<option value="101022001" <!-- IF location_id="101022001" -->selected="true" <!-- ENDIF -->>成都</option>
+										  		<option value="101004001" <!-- IF location_id="101004001" -->selected="true" <!-- ENDIF -->>重庆</option>
+										  		<option value="101015001" <!-- IF location_id="101015001" -->selected="true" <!-- ENDIF -->>西安</option>
+										    </select>
+							       		</td>
+									   <td>
+									    <p><input type="submit" class="button" value="查找"/>&nbsp;&nbsp; 
+									    <a href="?act=export&date={date}&order={order}&location_id={location_id}" target="_blank">导出</a></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+					<input type="hidden" name='order' value="{order}"/>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+	<div class="table-list" id="table-list">
+		<!--<div class="btn">
+			总条数:{total_count}
+		</div>
+		 -->
+		<!--list-->
+		<table width="100%" cellspacing="0" style="min-width: 1000px;">
+			<thead>
+			    <tr>
+					<th>摄影师ID</th>
+					<th>摄影师昵称</th>
+					<th><!-- IF order="date_order" -->成单次数<!-- ELSE -->消费金额<!-- ENDIF --></th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+					<td align="center">{user_id}</td>
+					<td align="center">{nickname}</td>
+					<td align="center">{details}</td>
+				</tr> 
+				<!-- END list -->	
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>

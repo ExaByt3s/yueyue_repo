@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>valid document</title>
+    <style>
+    body{
+        margin: 0px;
+        padding: 50px;
+        font-family: '微软雅黑';
+    } 
+    div{
+        margin-top: 50px;
+        padding: 15px;
+    }
+    .code_block{
+        border: 1px solid #eeeeee;
+    }
+    .margin_l_20{
+        margin-left: 20px;
+    }
+    .margin_l_50{
+        margin-left: 50px;
+    }
+    .margin_l_100{
+        margin-left: 100px;
+    }
+    .red{
+        color: red;
+    }
+    .demo{
+
+    }
+    </style>
+
+
+</head>
+<body>
+<header><h1>表单验证ValueValid</h1><a class='demo' href='http://www.yueus.com/wappredev/valid_text.html'>demo</a></header>
+<p>by nolest</p>
+<section>
+    <h2>一、快速方法</h2>
+    <p>var VA = require('../modules/yue_ui/valid/index');</p>
+    <p>var simple = new VA();</p>
+    <p>simple.txs(15,'nb1-6')); //return 对象 || null<p>
+    <h2>二、完整方法</h2>
+    <h3> input标签 属性</h3>
+    <div>
+        <p>检查表达式 [ valid-rule ] 必须带有该属性</p>
+        <p><span>example:</span><span class="margin_l_20">valid-rule='en5-10'</span><span class="margin_l_20">英文5~10位</span></p>
+        <p><span>en</span><span class="margin_l_20">英文</span></p>
+        <p><span>zh</span><span class="margin_l_20">中文</span></p>
+        <p><span>nb</span><span class="margin_l_20">整数</span></p>
+        <p><span>!z</span><span class="margin_l_20">非零整数</span></p>
+        <p><span>**</span><span class="margin_l_20">任意</span></p>
+        <p><span>pw</span><span class="margin_l_20">密码</span></p>
+        <p><span>ph</span><span class="margin_l_20">电话</span></p>
+        <p><span>ma</span><span class="margin_l_20">邮箱</span></p>
+        <p><span>id</span><span class="margin_l_20">身份证号</span></p>
+        <p><span>fl</span><span class="margin_l_20">浮点数，小数点后两位</span></p>
+        <p><span>an</span><span class="margin_l_20">正整数和正小数</span></p>
+        <p><span>pn</span><span class="margin_l_20">整数和小数</span></p>
+        <p><span>!s</span><span class="margin_l_20">中文、数字、英文。（特殊字符除外 .~!@#$%^+*&/?|:{}()';="）</span></p>
+        <p><span>!t</span><span class="margin_l_20">中文、数字、英文。（部分特殊字符除外 $'"） </span></p>
+        <p><span>zp</span><span class="margin_l_20">大于等于0的整数和小数（小数默认两位）</span></p>
+        <p><span>ze</span><span class="margin_l_20">大于0的正整数</span></p>
+        <p><span>zi</span><span class="margin_l_20">大于等于0的正整数</span></p>
+        <p><span>ap</span><span class="margin_l_20">大于0的正整数和浮点数 或不填</span></p>
+
+
+
+    </div>
+    <div>
+        <p>输入为空时的弹窗提示 [ valid-emptyAlert ]</p>
+        <p>调用checkValid时，input的值为空时，弹窗提示该属性的值，该值为空时没有弹窗</p>
+    </div>
+    <div>
+        <p>不符合检验的弹窗提示 [ valid-errorAlert ]</p>
+        <p>调用checkValid时，input的值不符合检验时，弹窗提示该属性的值，该值为空时没有弹窗</p>
+    </div>
+    <h2>三、自定义绑定</h2>
+    <div>
+        <p>用于自定义事件的序号 [ valid-index ]</p>
+        <p>该序号与pushfunctions传入值的index对应，用于绑定事件。</p>
+        <p class='red'>input valid-index='5'</p></br>
+        pushfunctions([array])传入数组</br>
+        array = [{index:index,ValidEmpty:function(){}},{index:index,ValidEmpty:function(){}},{index:index,ValidEmpty:function(){}}]</br>
+        <div class='code_block'>
+            <span>te.pushfunctions</span></br>
+            <span>([</span></br>
+            <span>{</span></br>
+                <span>index:'1',</span></br>
+                <span>ValidEmpty : function(){},</span></br>
+                <span>ValidClick : function(){},</span></br>
+                <span>ValidBlur : function(){},</span></br>
+                <span>ValidError : function(){}</span></br>
+            <span>},</span></br>
+            <span>{</span></br>
+                <span class='red'>index:'5', //对应valid-index的值</span></br>
+                <span>ValidEmpty : function(){},//空值时调用(可选)</span></br>
+                <span>ValidClick : function(){},//点击时调用(可选)</span></br>
+                <span>ValidBlur : function(){},//失去焦点时调用(可选)</span></br>
+                <span>ValidError : function(){}//检验错误时调用(可选)</span></br>
+            <span>}</span></br>
+        <span>]);</span></br>
+        </div>
+    </div>
+
+    <div class='code_block'>
+        example：</br>
+        引用模块</br>
+        var VA = require('../modules/yue_ui/valid/index');</br>
+        传入父元素节点</br>
+        var te = new VA($('#node_here'));</br>
+        te.checkValid();</br>
+    </div>
+</section>
+
+<script>
+
+
+</script>
+</body>
+</html>

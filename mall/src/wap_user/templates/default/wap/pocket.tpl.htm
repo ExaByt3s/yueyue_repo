@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>约约首页</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../../../style/pocket/pocket.scss">
+    <link charset="utf-8" rel="stylesheet" href="../../../style/task-m.scss">
+    <script src="../../../lib/lib.js"></script>
+</head>
+<body class="">
+<main>
+    <div class="page-view page-name-pocket" data-role="page-container">
+        <!--link rel="import" href="./webcontrol/top_nav.tpl.html?__inline"-->
+        <div class="top-bar">
+            <div class="top-box return-icon"></div>
+            <div class="top-box-f">钱包</div>
+            <div class="top-box"></div>
+        </div>
+
+        <div class="content-user">
+            <div class="portrait">
+                <img src="../../../image/pai/portrait-46x46-icon.png" class="portrait-icon"/>
+                <span class="portrait-f">夏末至</span>
+            </div>
+            <div class="user-bal">
+                <div class="balance">账户余额</div>
+                <div class="amount">
+                    <div class="top-f">￥100.00</div>
+                    <span class="bottom-f">可提现￥80.00</span>
+                </div>
+            </div>
+            <div class="tips">温馨提示：用户支付的服务金要在用户评价后才可以提
+                现哦，申请特殊情况提现请拨打4000-82-9003</div>
+        </div>
+
+        <div class="operation">
+            <div class="operation-box ">
+                <div class="left account-icon">账单</div>
+                <div class="right"></div>
+            </div>
+            <div class="operation-box ">
+                <div class="left withdraw-icon">提现</div>
+                <div class="right"></div>
+            </div>
+            <div class="operation-box ">
+                <div class="left zhifubao-icon">绑定支付宝</div>
+                <div class="right">待审核</div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+<script>
+    //var utility = require('../modules/common/utilitys/index');
+    var $ = require('zepto');
+    $(function()
+    {
+        console.log("122313");
+    });
+</script>
+</html>

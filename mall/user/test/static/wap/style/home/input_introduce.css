@@ -1,0 +1,20 @@
+.textarea-con {
+  position: relative;
+  margin-top: 15px; }
+  .textarea-con .red {
+    color: red; }
+  .textarea-con .ui-textarea-info {
+    height: 165px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 15px;
+    background: #fff;
+    font-size: 14px;
+    box-sizing: border-box; }
+  .textarea-con .num-word {
+    background-color: #fff;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    font-size: 15px;
+    color: #aaa; }

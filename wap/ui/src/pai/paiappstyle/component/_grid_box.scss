@@ -1,0 +1,51 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 组件
+// --
+
+$top-border : 1px solid #fff;
+$bottom-border : 1px solid #fff;
+$left-border : 1px solid #fff;
+$right-border : 1px solid #fff;
+
+
+// 方图
+.grid-pic-content{
+  font-size:0;
+  text-align: justify;
+  position: relative;
+  .grid-pic
+  {
+    display: inline-block;
+    overflow: hidden;
+    &.mid{
+      border-right: $right-border; 
+      border-left: $left-border;
+      border-top: $top-border;
+    }    
+    &.right{
+      border-right: $right-border; 
+    } 
+    &.bottom{
+      border-bottom: $bottom-border;  
+    }
+    &.mid-l-r-b{
+      border-right: $right-border; 
+      border-left: $left-border;
+      border-bottom: $top-border;
+    }
+    .img{
+      background-size: cover;  
+    }
+  }
+}
+
+
+.grid-session{}
+.grid-title{
+  height: 45px;
+  line-height: 45px;
+  padding-left: 8px;
+  font-size:14px;
+  text-align: left;
+}

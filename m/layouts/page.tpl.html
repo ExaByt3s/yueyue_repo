@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh" manifest="cache_manifest.php">
+<head>
+	<script charset="utf-8" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    {head_mod_html}
+
+</head>
+
+<body>
+<main id="J-splashscreens" class="splashscreens-page" role="main">
+    <div class="splashscreens-container" data-role="container">
+        <hgroup>
+            <h1 class="icon icon-logo">约约</h1>
+            <h2 class="icon icon-introduction-text">最高效的摄影服务平台</h2>
+        </hgroup>
+        <div class="splashscreens-notice" style="width:100%;text-align:center;">
+            <div class="left" style="width:200px;">页面加载中<span id="J-splashscreens-right" style="display:inline-block;width:20px;text-align:left;"></span></div>
+
+        </div>
+        <div class="fn-hide">
+            <div class="progress-wrap">
+                <div id="J-splashscreens-progress-radial" class="progress-radial">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div style="width:100%;text-align:center;color:#fff;font-size:10px;">
+				{version.cache_ver}
+			</div>
+        </footer>
+    </div>
+</main>
+
+<script>
+    (function() {
+        var $dots = document.getElementById('J-splashscreens-right');
+
+        window._splashscreens_interval = setInterval(function()
+        {
+            if($dots.innerHTML.length >= 3)
+            {
+                $dots.innerHTML = ''
+            }
+            else{
+                $dots.innerHTML = $dots.innerHTML + '.'
+            }
+        },300)
+    })();
+</script>
+<div data-app-page-container id="page-container" style="height:100%;width:100%; position:relative;">
+
+</div>
+{script_mod_html}
+
+</body>
+</html>

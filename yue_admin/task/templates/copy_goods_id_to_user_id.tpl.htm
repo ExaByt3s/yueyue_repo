@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>复制商品id到用户id</title>
+</head>
+
+<body>
+{global_header_html}
+
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>复制商品id到用户id</legend>
+                <form method="post" id="the_from" action="" onSubmit="return check();">
+                    <table width="90%" align="center">
+                        <tr>
+                           <td width="26%" height="25">商品id</td>
+                           <td width="74%" height="25">
+                              <input type="text" name="goods_id"/>
+                           </td>
+                        </tr>
+                        <tr>
+                             <td width="26%" height="25">用户id</td>
+                             <td width="74%" height="25">
+                                <input type="text" name="user_id"/>
+                             </td>
+                        </tr>
+                        <tr>
+                             <td width="26%" height="25">&nbsp;</td>
+                             <td width="74%" height="25">
+                                <input type="submit" value="提交"/>
+                             </td>
+                        </tr>
+                   </table>
+                </form>
+            <script>
+                    function check()
+                    {
+                        if($("input[name='goods_id']").val()=='')
+                        {
+                            alert("商品id不能为空");
+                            return false;
+                        }
+                        if($("input[name='user_id']").val()=='')
+                        {
+                            alert("用户id不能为空");
+                            return false;
+                        }
+                        $("#the_from").submit();
+                    }
+            </script>
+           </fieldset>
+        </div>
+      </div>
+    </div>   
+</div>
+</div>
+</body>
+</html>

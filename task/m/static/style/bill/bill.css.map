@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "bill_333f476.css",
+    "sources": [
+        "/style/bill/bill.scss"
+    ],
+    "sourcesContent": [
+        ".bill_container{\r\n  display: -webkit-box;\r\n  -webkit-box-orient:vertical;\r\n  .child{\r\n    display: -webkit-box;\r\n    -webkit-box-pack:justify;\r\n    min-height: 30px;\r\n    padding: 10px 15px;\r\n    border-bottom: 1px solid #e6e6e6;\r\n    .left{\r\n      display: -webkit-box;\r\n      -webkit-box-orient:vertical;\r\n      max-width: 70%;\r\n      .name{\r\n        font-size: 12px;\r\n      }\r\n      .date{\r\n        font-size: 10px;\r\n        color: #aaaaaa;\r\n      }\r\n    }\r\n    .right{\r\n      display: -webkit-box;\r\n      -webkit-box-orient:vertical;\r\n      text-align: end;\r\n      max-width: 30%;\r\n      .red{\r\n        font-size: 12px;\r\n        color: #ff7b78;\r\n      }\r\n      .green{\r\n        font-size: 10px;\r\n        color: #63cb76;\r\n      }\r\n      .gray{\r\n        font-size: 10px;\r\n        color: #aaaaaa;\r\n      }\r\n    }\r\n  }\r\n}"
+    ],
+    "mappings": "AAAA,AACE,AAAS,AACT,AAAmB,AACrB,AAAgB,AACZ,AAAS,AACT,AAAiB,AACjB,AAAY,AACZ,AAAS,AACT,AAAe,AACnB,AAAgB,AAAO,AACjB,AAAS,AACT,AAAmB,AACnB,AAAW,AACjB,AAAgB,AAAO,AAAM,AACrB,AAAW,AAEnB,AAAgB,AAAO,AAAM,AACrB,AAAW,AACX,AAAO,AAGf,AAAgB,AAAO,AACjB,AAAS,AACT,AAAmB,AACnB,AAAY,AACZ,AAAW,AACjB,AAAgB,AAAO,AAAO,AACtB,AAAW,AACX,AAAO,AAEf,AAAgB,AAAO,AAAO,AACtB,AAAW,AACX,AAAO,AAEf,AAAgB,AAAO,AAAO,AACtB,AAAW,AACX,AAAO",
+    "names": []
+}

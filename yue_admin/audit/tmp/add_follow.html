@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/laydate/laydate.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+</head>
+<body>
+<div class="mainbox">
+	<div class="table-list">
+	   <div class="table">
+	   	 <table  cellspacing="0">
+		    	<tbody>
+			    <!--while data-->
+				<tr>
+				<td align="center">跟进日期:<input type="text" class="input-text" name="follow_time" value="" id="J-xl"/></td>
+				<td>跟进人:<input type="text" class="input-text" name="follow_name" value="" id="follow_name"/></td>
+				</tr>
+				<tr>
+				<td align="center">问题分类:<input type="text" class="input-text" name="problem_type" value="" id="problem_type"/></td>
+				<td>问题结果:
+					<select name="result" id="result_id" class="input-text" style="height:30px;">
+						 <option value="0">已解决</option>
+						 <option value="1">未解决</option>
+						 <option value="2">跟进中</option>
+					</select>
+				</td>
+				</tr>
+				<tr>
+				<td width="200" align="left" colspan="2">问题内容</td>
+				</tr>
+				<tr>
+				<td width="400" align="left" colspan="2">
+					<textarea style="width:400px;height:100px" name="problem_content" id="problem_content"></textarea>
+				</td>
+				</tr>
+				<tr>
+				<td align="center">
+					<a href="javascript:void(0);" id="close_layer">返回</a>
+				</td>
+				<td align="center">
+					<a href="javascript:void(0);" id="send_layer">提交</a>
+				</td>
+				</tr>
+				<!--while data-->    	
+			    </tbody>
+		    </table>
+	   </div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+	//window.alert(parent.uid);
+	var uid = parent.uid;
+	$('#close_layer').on('click', function(){
+      parent.layer.close(index); //执行关闭
+     });
+	//提交获取数据
+   $('#send_layer').on('click', function(){
+   	var follow_time = $('#d21').val();
+   	var follow_name = $("#follow_name").val();
+   	var problem_type = $("#problem_type").val();
+   	var result  = $("#result_id").val();
+   	var result_text  = $("#result_id").find("option:selected").text();
+   	var problem_content = $("#problem_content").val();
+   	//var str = "<tr><td align='center'>"+follow_time+"</td><td align='center'>"+follow_name+"</td><td align='center'>"+result_text+"</td><td align='center'>"+problem_type+"</td><td align='center'>"+problem_content+"</td></tr>";
+   	$.ajax({
+   		contentType:"application/x-www-form-urlencoded;charset=GB2312",
+   		type:"POST",
+		url:"model_add_follow.php",
+		dataType: "json",
+		data : {'act': 'add_follow', 'uid': uid, 'follow_time': follow_time, 'follow_name': follow_name, 'problem_type': problem_type, 'result': result, 'problem_content': problem_content},
+		success:function(data)
+		{
+			var str = '';
+			if (data.ret) 
+			{
+				$ret = data.ret;
+				str += "<tr><td align='center'>"+$ret['follow_time']+"</td><td align='center'>"+$ret['follow_name']+"</td><td align='center'>"+$ret['result']+"</td><td align='center'>"+$ret['problem_type']+"</td><td align='center'>"+$ret['problem_content']+"</td></tr>";
+			}
+			parent.$('#stand_follow_data').append(str);
+            parent.layer.close(index);
+		},
+		error:function(data)
+		{
+			parent.layer.close(index);
+		}
+   	})
+   	
+   	
+});
+
+//时间选择
+laydate({
+            elem: '#J-xl',
+            format: 'YYYY-MM-DD hh:mm:ss',
+            istime: true,
+            istoday: false
+        });
+</script>
+</html>

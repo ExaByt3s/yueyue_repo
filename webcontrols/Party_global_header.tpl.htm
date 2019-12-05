@@ -1,0 +1,35 @@
+<!--global_code-->
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<script>
+(function()
+{
+    if(!window.console){
+        console = (function(){
+            var instance = null;
+            function Constructor(){
+                
+            }
+            Constructor.prototype = {
+                log : function(str){
+
+                }
+            }
+            function getInstance(){
+                if(instance == null){
+                    instance =  new Constructor();
+                }
+                return instance;
+            }
+            return getInstance();
+        })()
+    }
+
+    String.prototype.trim = function() {
+        return this.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+})();
+</script>
+<!--<script src="http://cb-c.poco.cn/seajs/??2.3.0/sea.js,plugins/seajs-text/1.0.2/seajs-text.js,plugins/seajs-style/1.0.2/seajs-style.js,plugins/seajs-combo/1.0.1/seajs-combo.js"></script>-->
+<script src="http://www.yueus.com/mobile/js/libs/sea-package.js"></script>
+<!--global_code-->

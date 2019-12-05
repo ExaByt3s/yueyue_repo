@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{title}</title>
+    {wap_global_top}
+    <!-- libjs 必须引用 -->
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/act/sign.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/menu/index.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/menu/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/act/sign.js"></script>
+</head>
+<body>
+<input type="hidden" id="event_id" value="{event_id}" />
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view action-signin" data-role="page-container">
+        <div data-role="container" class="content-body">
+            <div class="action-signin-content">
+                <h1 data-role="event_title">{title}</h1>
+                <section class="action-signin-list fn-hide">
+                    <ul data-role="action-signin-list">
+                    </ul>
+                </section>
+                <section class="action-signin-new">
+                    <ul data-role="action-signin-list">
+
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <!-- IF show_join_btn -->
+        <footer class="ui-button-submit-area v2">
+            <div class="clearfix">
+                <button data-role="join-btn" class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555">
+                    <span class="ui-button-content">马上报名</span>
+                </button>
+
+            </div>
+        </footer>
+        <!-- ELSEIF show_scan_btn -->
+        <footer class="ui-button-submit-area v2">
+            <div class="clearfix">
+                <button data-role="scan-btn" class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555">
+                    <span class="ui-button-content">扫码签到</span>
+                </button>
+
+            </div>
+        </footer>
+        <!-- ENDIF -->
+	</div>
+    {wap_global_footer}
+</main>
+</body>
+
+<script>
+
+    var PAGE_DATA = {sign_data};
+
+    var sign_module = require('act/sign');
+
+    window.__can_use_chat = '{chat}';
+
+    window.__chat_json = {chat_json};
+
+    sign_module.init(PAGE_DATA);
+
+    /*2015.8.8 hudw 临时解决*/
+    $(function()
+    {
+        $('[data-role="call-phone"]').on('click',function(ev)
+        {
+            var $cur_btn = $(ev.currentTarget);
+
+            var phone = $cur_btn.attr('data-phone');
+
+            PocoWebViewJavascriptBridge.callHandler('poco.yuepai.function.callphone',{'number':phone},function(data)
+            {
+
+            });
+        });
+    });
+
+
+</script>
+</html>

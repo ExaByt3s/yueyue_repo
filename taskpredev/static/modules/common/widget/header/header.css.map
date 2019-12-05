@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "header.css",
+    "sources": [
+        "/modules/common/widget/header/header.scss"
+    ],
+    "sourcesContent": [
+        ".header{width: 100%;border-bottom: 1px solid #e6e6e6;height: 65px;}\r\n.header a:hover{color: #4092f1;}\r\n.header .list{padding-left: 10px;}\r\n.header .list li{float:left;display:inline; font-size: 14px;width: 130px;text-align: center; padding: 22px 0 0 0;}\r\n.header .list li.cur{font-weight: bold;}\r\n.header .list li.cur a{color: #4092f1;}\r\n.header .rbox{padding: 16px 0 0 0;position: relative;}\r\n.header .rbox img{border-radius: 50% ; max-width: 32px; max-height: 32px;}\r\n.header .rbox .name{padding: 10px 0 0 10px;}\r\n.header .rbox .allow{background: url(../../../../image/task/allow-9x5.png?__sprite);width: 9px;height: 5px;display: inline-block;margin: 17px 0 0 10px}\r\n.header .rbox a:hover .allow{background-image: url(../../../../image/task/allow-9x5-hover.png?__sprite);}\r\n.header .rbox .icon-v{width: 16px;height: 16px;background: url(../../../../image/task/v-16x16.png?__sprite);position: absolute;top: 10px;left: 20px;}\r\n.header .login-out{padding: 25px 0 0 15px}\r\n.header .header-ajax-text{padding:22px 0 0 0}"
+    ],
+    "mappings": "AAAA,AAAQ,AAAO,AAAK,AAAe,AAAkB,AAAQ,AAC7D,AAAQ,AAAC,AAAO,AAAO,AACvB,AAAQ,AAAM,AAAc,AAC5B,AAAQ,AAAM,AAAG,AAAM,AAAM,AAAQ,AAAS,AAAW,AAAK,AAAO,AAAM,AAAY,AAAS,AAAS,AACzG,AAAQ,AAAM,AAAE,AAAK,AAAa,AAClC,AAAQ,AAAM,AAAE,AAAK,AAAE,AAAO,AAC9B,AAAQ,AAAM,AAAS,AAAW,AAAU,AAC5C,AAAQ,AAAM,AAAI,AAAe,AAAM,AAAW,AAAM,AAAY,AACpE,AAAQ,AAAM,AAAM,AAAS,AAC7B,AAAQ,AAAM,AAAO,AAAY,AAAmD,AAAO,AAAI,AAAQ,AAAI,AAAS,AAAc,AAAQ,AAC1I,AAAQ,AAAM,AAAC,AAAO,AAAO,AAAkB,AAC/C,AAAQ,AAAM,AAAQ,AAAO,AAAK,AAAQ,AAAK,AAAY,AAAiD,AAAU,AAAU,AAAK,AAAK,AAAM,AAChJ,AAAQ,AAAW,AAAS,AAC5B,AAAQ,AAAkB,AAAQ",
+    "names": []
+}

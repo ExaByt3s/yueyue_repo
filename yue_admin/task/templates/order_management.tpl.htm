@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<title>管理场次订单</title>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+</head>
+<body>
+<script>
+    function close_order(goods_id,type_id) {
+	
+	$.get("goods_search.php", { action: "order_management", activity_id: goods_id, stage_id: type_id },
+	  function(data){
+		  var obj = $.parseJSON(data);		
+		if (obj.result == 1) {
+			location.reload();
+		}
+		else {
+			alert("更新失败")
+		}
+	  });   
+		 
+	}
+</script> 
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">
+          <fieldset>
+            <legend>管理场次订单</legend>
+              <table width="90%" align="center" id="order_management">
+              <!-- BEGIN goods_data -->
+                <tr>
+                  <td width="10%" >服务名称：</td>
+                  <td width="30%" colspan="3" >{titles}</td>
+                </tr>
+                
+                <tr>
+                  <td width="10%">活动代码：</td>
+                  <td width="30%" colspan="3">{goods_id}</td>
+                </tr>
+              <!-- END goods_data -->
+                <tr>
+                  <td width="10%">服务地址：</td>
+                  <td width="30%" colspan="3">{goods_att}</td>
+                </tr>
+
+                <tr>
+                  <td width="10%">活动内容：</td>
+                  <td style="color: #FF0004" width="40%"></td>
+                  <td width="25%"></td>
+                  <td width="25%"></td>
+                </tr>
+            <!-- BEGIN prices_data_list -->
+                <tr>
+                  <td width="10%"></td>
+                  <td style="color: #FF0004" width="40%">{name} {dateformat:time_s,'Y-m-d H:i:s'} 至 {dateformat:time_e,'Y-m-d H:i:s'}</td>
+                  <td width="25%">待付款 <span style="color:#FF0004">{order_status.wait_pay}</span> 单, 待签到 <span style="color:#FF0004">{order_status.wait_sign}</span> 单</td>
+                  <td width="25%">
+                   <!-- IF order_is_show="1" -->
+                  		<a class="btn btn-default" onclick="javascript:if(confirm('确实关闭场次订单吗?')) close_order({goods_id},{type_id})" href="javascript:void(0)" role="button">关闭场次订单</a>
+                  <!-- ENDIF -->
+                    </td>
+                </tr>			
+            <!-- END prices_list_data -->                     
+
+              </table>           
+            <legend style="color:#FF0004; border:none; background:none; padding-left:100px"><br>温馨提示：关闭场次订单，只会关闭待付款与待签到的订单。如需禁止报名，可在活动详情里限制名额。</legend>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

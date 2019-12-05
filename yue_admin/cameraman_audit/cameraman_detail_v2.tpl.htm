@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/cameraman.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/detail.css">
+<title>约约APP后台</title>
+<style type="text/css">
+.table-list
+{
+	clear: both;
+}
+.table-list .input-text
+{
+	width: 100px;
+} 
+.table-list .table
+{
+	float: left;
+	margin-top: 20px;
+	+margin-left:5px;
+}
+.table-list .btn
+{
+	clear: both;
+}
+/*去掉边框*/
+.table-list tbody td, .table-list .btn 
+{
+	  border-bottom: none;
+}
+
+/*设置文字占用多大位置*/
+.text-word
+{
+	display:inline-block;
+	width:80px;
+}
+
+/**个人信息对齐*/
+#person_mes tbody td
+{
+	line-height:37px;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<form name="list_form" id="list_form" action="cameraman_add_v2.php" method="post" target="frame">
+<input type="hidden" name="user_id" value="{user_id}" id="user_id" />
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+	    <li>
+		<input type="button" class="button" onclick="javascript:history.back();" value="返回" />
+		<input type="submit" class="button" value="保存"/>
+		</li>
+	</ul>
+</div>
+<!--top-->
+	<div class="table-list" style="min-width:1200px;">
+		<div class="table" style="width:30%;" id="pic_table">
+	       <fieldset>
+	       <legend>图片信息</legend>
+		    <table  cellspacing="0" width="100%">
+		    	<tbody>
+				<tr>
+				<td width="400" align="center">UID:{user_id}</td>
+				</tr>
+				<tr>
+				<td align="center">
+				<img src="{icon_user}"/>
+				</td>
+				</tr>
+				<tr>
+				  <td align="center"><a href="cameraman_pic_show.php?user_id={user_id}" target="_blank">查看作品</a></td>
+				</tr> 	
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	   <!-- 个人信息 -->
+	   <div class="table" style="width:68%;">
+	       <fieldset>
+	       <legend>个人信息</legend>
+		    <!--list-->
+		    <table  cellspacing="0" width="100%" id="person_mes">
+		    	<tbody>
+			    <!--while data-->
+				<tr>
+				   <td><span class='text-word'>姓    名:</span> <input type="text" class="input-text" name="name" value="{name}"/></td>
+				   <td><span class='text-word'>性    别:</span>
+				      <select name="sex">
+				       <option>不限</option>
+				      	<option <!-- IF sex="男" -->selected='true'<!-- ENDIF -->>男</option>
+				      	<option <!-- IF sex="女" -->selected='true'<!-- ENDIF -->>女</option>
+				      </select>
+				   </td>
+				</tr>
+				<tr>
+					<td><span class='text-word'>APP昵称:</span> {nickname}</td>
+					<td><span class='text-word'>职业状态:</span>
+					   <select name='p_status'>
+				      	 <option <!-- IF p_status="业余/爱好" -->selected='true'<!-- ENDIF -->>业余/爱好</option>
+				      	 <option <!-- IF p_status="专业/兼职" -->selected='true'<!-- ENDIF -->>专业/兼职</option>
+				      	 <option <!-- IF p_status="职业/全职" -->selected='true'<!-- ENDIF -->>职业/全职</option>
+				       </select>
+					</td>
+				</tr>
+				<tr>
+					<td><span class='text-word'>手机号:</span>{cellphone}</td>
+					<td><span class='text-word'>入行年月:</span>
+						<input type="text" class="input-text Wate" name="join_time" value="{join_time}" onfocus="WdatePicker({ dateFmt:'yyyy-MM' })" readonly="readonly"/>
+					</td>
+				</tr>
+				<tr>
+					<td><span class='text-word'>微     信:</span>
+						<input type="text" class="input-text" name="weixin_name" value="{weixin_name}"/></td>
+					<td><span class='text-word'>出远景:</span>
+						<select name="is_fview">
+							<option value="1">看情况</option>
+							<option value="2" <!-- IF is_fview="2" -->selected='true'<!-- ENDIF -->>愿意</option>
+							<option value="3" <!-- IF is_fview="3" -->selected='true'<!-- ENDIF -->>不愿意</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><span class='text-word'>poco_id:</span>
+						<input type="text" class="input-text" name="poco_id" value="{poco_id}"/></td>
+					<td><span class='text-word'>车     型:</span>
+						<input type="text" class="input-text" name="vehicle_type" value="{vehicle_type}"/></td>
+				</tr>
+				<tr>
+					<td><span class='text-word'>个人主页:</span>
+						<input type="text" class="input-text" name="homepage" value="{homepage}" style="width:250px;"/></td>
+					<td><span class='text-word'>资历荣誉 :</span>
+						<input type="text" class="input-text" name="honor" value="{honor}"/></td>
+				</tr>
+				<!--while data-->    	
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	   <!-- 个人信息 // -->
+	</div>
+	<!--基本信息2 start-->
+	<div class="table-list" style="min-width:1200px;">
+	   <!-- 备注 -->
+	   <div class="table" style="width:30%;">
+	       <fieldset>
+	          <legend>备注信息</legend>
+		      <textarea style="width:352px;height:192px;" name="remark">{remark}</textarea>
+		   </fieldset>
+	   </div>
+	   <!-- 备注//-->
+	   
+	   <!-- 详细 信息-->
+	   <div class="table" style="width:68%;" id="occu">
+	       <fieldset>
+	          <legend>详细 信息</legend>
+		         <table  cellspacing="0" width="100%">
+		    	   <tbody>
+						<tr>
+							<td><span class="text-word">偏好风格:</span>
+								{goods_style}
+							</td>
+							<td><span class="text-word">平均消费金额:</span>
+								{avg_month_price}
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-word">消费水平:</span>
+								{consumption_name}
+							</td>
+							<td><span class="text-word">消费总次数:</span>
+								{total_sum}
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-word">活跃度:</span>
+								{login_name}
+							</td>
+							<td><span class="text-word">上月消费金额:</span>
+								{prev_month_price} 元
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-word">拍摄时间:</span>
+								{photo_time}
+							</td>
+							<td><span class="text-word">上月交易次数:</span>
+								{prev_month_num} 次
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-word">最后登录时间:</span>
+								{last_login_time}
+							</td>
+							<td>
+                                <span class="text-word">消费总金额:</span>
+                                {total_price}
+							</td>
+						</tr>
+						<tr>
+							<td>
+							  <span class="text-word">标签:</span>
+							  <span id="label_info">{label_name}</span>
+							  <input type="hidden" name="label_name" value="{label_name}" id="label_name"/>
+							  <input type="hidden" name="label_id" value="{label_id}" id="label_id"/>
+							  <span id="label_add" onclick="add_label('cameraman_label_manage.php?user_id={user_id}')" style='cursor: pointer;'>+</span>
+							</td>
+							<td>
+							 <!-- IF super -->
+							 <a href="cameraman_label_left.php" class="button" target="_blank">管理标签</a>
+							 <!-- ENDIF -->
+							</td>
+						</tr>
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	   <!-- 详细信息// -->
+	   
+	</div>
+	<!--基本信息2 end-->
+	<!--跟进信息-->
+	<div class="table-list" style="min-width:1200px;">
+	   <div class="table" style="width:98%;">
+	       <fieldset>
+	       <legend>跟进信息</legend>
+		    <p style="text-align:right;"><a href="javascript:void(0);" onclick="add_cameraman_follow({user_id});">添加信息</a></p>
+		    <table  cellspacing="0" width="100%">
+		    	
+		    	<thead>
+		    	    <tr>
+			    		<th>跟进日期</th>
+			    		<th>跟进人</th>
+			    		<th>跟进结果</th>
+			    		<th>问题分类</th>
+			    		<th>跟进内容</th>
+			    		<th>操作</th>
+		    		</tr>
+		    	</thead>
+		    	<tbody id="stand_follow_data">
+				<!-- BEGIN follow_ret -->
+				<tr>
+					<td align="center">{follow_time}</td>
+		    		<td align="center">{follow_name}</td>
+		    		<td align="center"><!-- IF result="0" -->已解决<!-- ELSEIF result="1" -->未解决<!-- ELSEIF result="2" -->跟进中<!-- ENDIF --></td>
+		    		<td align="center">{problem_type}</td>
+		    		<td align="center">{problem_content}</td>
+		    		<td align="center"><a href="cameraman_follow_manage.php?id={id}&act=del" target="frame">删除</a></td>
+				</tr>
+				<!-- END follow_ret -->    	
+			    </tbody>
+		    </table>
+		    <p style="text-align:right;" id="follow_more"><a href="javascript:void(0);" onclick="list_cameraman_follow_data('cameraman_follow_manage.php?user_id={user_id}&act=more');">更多</a></p>
+		    <p style="text-align:right;display:none;" id="follow_less"><a href="javascript:void(0);" onclick="list_cameraman_follow_less('cameraman_follow_manage.php?user_id={user_id}&act=less');">缩小</a></p>
+		    </fieldset>
+	   </div>
+	</div>
+	<!--跟进信息 END-->
+	
+	
+	
+	<div class="table-list" style="min-width:1200px;">
+	   <!-- 其他信息 -->
+	   <div class="table" style="width:49%;">
+	       <fieldset>
+		       <legend>其他信息</legend>
+			    <!--list-->
+			    <table  cellspacing="0" width="100%">
+			    	<tbody>
+						<tr>
+							<td><span class="text-word">来 源:</span>
+								<input type="text" class="input-text" name="source" value="{source}"/>
+							</td>
+							<td>
+								<span class="text-word">常驻城市:</span>
+								{location_name}
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-word">官方活动:</span>
+								<input type="text" class="input-text" name="og_activity" value="{og_activity}"/>
+							</td>
+							<td>
+								<span class="text-word">录入者:</span>
+								{inputer_name}
+							</td>
+						</tr>
+				    </tbody>
+			    </table>
+		    </fieldset>
+	   </div>
+	   <!-- 其他信息// -->
+	   
+	   <!-- 账户信息 -->
+	   <div class="table" style="width:49%;">
+	       <fieldset>
+	          <legend>账户信息</legend>
+			    <table  cellspacing="0" width="100%">
+			    	<tbody>
+						<tr>
+							<td>账户余额: {available_balance}</td>
+							<td>用户等级: V{level}</td>
+						</tr>
+						<tr>
+							<td><span class="text-word">约yue积分:</span></td>
+						</tr>	
+				    </tbody>
+			    </table>
+		    </fieldset>
+	   </div>
+	</div>
+	
+	
+	
+	<!--统计信息 start-->
+	<div class="table-list" style="min-width:1200px;">
+	   <div class="table" style="width:60%;">
+	       <fieldset>
+	       <legend>约拍信息</legend>
+		    <!--list-->
+		    <table  cellspacing="0" width="100%">
+		        <thead>
+		           <tr>
+		               <th>约拍时间</th>
+		               <th>约拍对象</th>
+		               <th>风格</th>
+		               <th>约拍分数</th>
+		               <th>交易金额</th>
+		           </tr>
+		        </thead>
+		    	<tbody id="list_all_yue">
+			    <!-- BEGIN date_ret -->
+				<tr>
+			         <td align='center'>{date_time}</td>
+		             <td align='center'>{nickname}</td>
+		             <td align='center'>{date_style}</td>
+		             <td align='center'><!-- IF overall_score -->{overall_score}<!-- ELSE -->暂无评分<!-- ENDIF --></td>
+		             <td align='center'>{budget}</td>
+				</tr>
+				<!-- END date_ret -->    	
+			    </tbody>
+		    </table>
+		    <p style="text-align:right;" id="yue_more"><a href="javascript:void(0);" onclick="list_yues_by_user_id('cameraman_yue_list.php?user_id={user_id}&act=more');">更多</a></p>
+		    <p style="text-align:right;display:none;" id="yue_less"><a href="javascript:void(0);" onclick="list_yues_by_user_id_less('cameraman_yue_list.php?user_id={user_id}&act=less');">缩小</a></p>
+		    </fieldset>
+	   </div>
+	   <div class="table" style="width:38%;">
+	       <fieldset>
+	       <legend>数据统计</legend>
+		    <table  cellspacing="0" width="100%">
+		    	 <thead>
+		           <tr>
+		               <th>约拍成功数</th>
+		               <th>约拍失败数</th>
+		               <th>约拍成功率</th>
+		           </tr>
+		          </thead>
+		        <tbody id="data_show">
+		              <tr>
+				       <td align="center">{detail_success_count}</td>
+		               <td align="center">{detail_fail_count}</td>
+		               <td align="center">{success_pr}%</td>
+		               </tr>    	
+			    </tbody>
+		    </table>
+		    </fieldset>
+	   </div>
+	    <div class="btn">
+	            
+		    	<input type="submit" class="button" value="保存"/>
+		    </div>
+	</div>
+	<!--统计信息 end-->
+</form>
+</div>
+<script type="text/javascript">
+
+$(function() {
+		 //获取城市数据
+		 $(".prov").change(function(){
+			var $prov_val = $(this).val();
+			$.ajax({
+			   type:"POST",
+			   url:"get_city.php",
+			   dataType: 'json',
+			   data : {'prov_id': $prov_val, 'act' : 'city_list'},
+			   success:function(data)
+			  {
+			  	if (data.ret) 
+			  	{
+			  		var $ret = data.ret;
+			  		var $str = "<option>请选择</option>";
+			  		for (var i = 0; i < $ret.length; i++) 
+			  		{
+			  			$str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";		
+			  		}
+			  		$(".city").html($str);
+
+			  	}
+
+			  },
+			  error:function(data)
+			 {
+
+			 }
+			});
+		});
+
+});
+ 
+//修改
+function add_label($url)
+{
+     var $url = $url+"&ids="+$("#label_id").val();
+     $.layer({
+              type: 2,
+              title: '选择标签',
+              shade: [0.3,'#000'],
+              maxmin: false,
+              shadeClose: false, 
+              area : ['400' , '400'],
+              offset : ['100px', ''],
+              iframe: { src: $url }
+          }); 
+  }
+</script>
+</body>
+</html>

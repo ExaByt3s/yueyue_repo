@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>提交报价</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/submit/index.scss">
+<body>
+<main role="main" >
+    <div class="page-view submit-container" data-role="page-container">
+        <link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+        <div class="submit_title layout_box_v">
+            <p>提交报价</p>
+        </div>
+        <div class="submit_back" data-role="submit_back">查看请求</div>
+        <div class="submit_notice" data-role="submit_notice">点击查看需求，你在消息处填写的信息也将保存。</div>
+        <div class="common_first_tips fn-hide" data-role="common_first_tips" storage-value="submit_1" style="background: #fff;padding-top: 0px;">
+            <div class="con">
+                <div class="delta bot"></div>
+                <div class="txt">3条报价来自认证商家，5条来自普通商家（按报价时间排序，先报先推，满5条即不可再报价）</div>
+                <div class="del" data-role="common_first_close"><div class="inn"></div></div>
+            </div>
+        </div>
+        <div class="submit_container layout_box_v">
+            <p>报价</p>
+            <div class="submit_price layout_box">
+                <div class="submit_price_coin">￥</div>
+                <div class="submit_price_input layout_box_v">
+                    <input type="text" data-role="price"/>
+                </div>
+            </div>
+            <p>告诉{lead_info.from_nickname}选择你的原因</p>
+            <p class="exp">用最精简的语言为自己代言吧</p>
+            <div class="submit_reason layout_box">
+                <textarea class="layout_box layout_box" data-role="content"></textarea>
+            </div>
+        </div>
+        <div class="submit_btn" data-role="submit_btn">继续</div>
+        <div class="submit_help_tip">需要帮助可以联系我们</div>
+        <div class="submit_help_phone"><a href="tel:4000-82-9003" class="common_on_tel">4000-82-9003</a></div>
+    </div>
+</main>
+
+</body>
+<script>
+    window.onload = function()
+    {
+        var details = JSON.parse(window.localStorage.getItem("$__storage_first_tips"));
+
+        if(details && (details.submit_1 == 1))
+        {
+            $('[data-role="common_first_tips"]').removeClass('fn-hide');
+
+            $('[data-role="submit_notice"]').addClass('fn-hide');
+        }
+
+        $('[data-role="common_first_close"]').on('click',function()
+        {
+            $(this).parents('[data-role="common_first_tips"]').addClass('fn-hide');
+
+            details.submit_1 = 0;
+
+            window.localStorage.setItem("$__storage_first_tips",JSON.stringify(details));
+        })
+
+        var lead_id = '{lead_info.lead_id}';
+
+        var request_id = '{lead_info.request_id}';
+        var yue_ui = require('../modules/yue_ui/frozen');
+
+        $('[data-role="submit_btn"]').on('click',function()
+        {
+            var price = $('[data-role="price"]').val();
+            var content = $('[data-role="content"]').val();
+
+            console.log(parseInt(price) > 1);
+            console.log(parseInt(price) < 999999);
+            console.log(price.indexOf("."));
+            console.log(price.indexOf(".") != -1);
+
+            if(price.trim() == "" || !(parseInt(price) >= 1) || !(parseInt(price) <= 999999) || (price.indexOf(".") != -1)){
+                alert("请正确填写价格");
+                return;
+            }
+            if(content.trim() == ""){
+                alert("请填写原因");
+                return;
+            }
+
+            var data =
+            {
+                request_id:request_id,
+                price : price,
+                content : content
+            };
+
+            if(window.confirm('确认提交报价?'))
+            {
+                $.ajax
+                ({
+                    url : window.$__config.ajax_url+'/quote_act.php',
+                    data:data,
+                    type: 'POST',
+                    dataType : 'json',
+                    cache: false,
+                    beforeSend: function()
+                    {
+                        $.loading
+                        ({
+                            content:'请求中...'
+                        })
+                    },
+                    success: function(data)
+                    {
+                        alert(data.result_data.message);
+                        if(data.result_data.code == 2)
+                        {
+                            window.location.href = './pay.php?quotes_id='+ data.result_data.quotes_id;
+                        }
+                        else if(data.result_data.code == 1)
+                        {
+                            window.location.href = './success.php';
+
+                        }
+                        console.log(data);
+                    },
+                    error: function()
+                    {
+                        $.loading.loading("hide");
+
+                        $.tips
+                        ({
+                            content : '网络异常',
+                            stayTime:3000,
+                            type:"success"
+                        });
+                    }
+                });
+            }
+
+
+        });
+
+        $('[data-role="submit_back"]').on('click',function()
+        {
+            window.history.back();
+        });
+    }
+</script>
+</html>

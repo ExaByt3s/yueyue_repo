@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/admin.js?x"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>欢迎使用hai企业建站系统 Powered by hai - Powered by hai</title>
+</head>
+<body style="background:#E2E9EA">
+<!--header-->
+<div id="header" class="header">
+	<div class="logo">
+		<a href="http://www.youRphp.cn" target="_blank"><img src="./images/admin_logo.gif" width="180"></a>
+	</div>
+	<div class="nav f_r" style="display:none"> 
+		<a href="javascript:void(0)">更新缓存</a> <i>|</i>
+		<a href="http://www.hai.cn" target="_blank">官方网站</a> <i>|</i>&nbsp;&nbsp;
+	</div>
+	<div class="nav">&nbsp;&nbsp;&nbsp;&nbsp;欢迎你！admin	<i>|</i> [超级管理员] </div>
+	<div class="topmenu" id="top_tag">
+		<ul>
+			<li><span id="top_menu_1" class="current"><a href="#this">top_menu_1</a></span></li>
+			<li><span id="top_menu_2"><a href="#this">top_menu_2</a></span></li>	
+		</ul>
+	</div>
+	<div class="header_footer"></div>
+</div>
+<script>
+switch_tab('top_tag','top_menu_','nav_','current',2);
+</script>
+<!--header-->
+<!--main-->
+<div id="Main_content">
+	<div id="MainBox">
+	    <div class="main_box">
+			<iframe name="main" id="Main" src="main.htm" frameborder="false" scrolling="auto" width="100%" allowtransparency="true" height="700"></iframe>
+		</div>
+    </div>
+	<div id="leftMenuBox">
+    	<div id="leftMenu" style="height: 231px; display: block;">
+			<div style="padding-left:12px;_padding-left:10px;">				
+				<dl id="nav_1" style="display: block;">
+					<dt>top_menu_1</dt>
+					<dd class="on">
+						<span><a href="list.htm" target="main">nav1</a></span>
+					</dd>			
+				</dl>
+				<dl id="nav_2" style="display:none">
+					<dt>top_menu_2</dt>
+					<dd class="on">
+						<span><a href="add.htm" target="main">nav2</a></span>
+					</dd>			
+				</dl>
+			</div>
+		</div>
+		<div id="Main_drop">
+			<a href="javascript:toggle_leftbar(1);" class="on" style="display: inline;"><img src="./images/admin_barclose.gif" width="11" height="60" border="0"></a>   
+			<a href="javascript:toggle_leftbar(0);" class="off" style="display: none;"><img src="./images/admin_baropen.gif" width="11" height="60" border="0"></a>  
+		</div>
+    </div>
+</div>
+<!--main-->
+</body>
+</html>

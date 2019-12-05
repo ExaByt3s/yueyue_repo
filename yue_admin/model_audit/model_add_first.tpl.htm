@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/model.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+	    <li>
+		  <a href="javascript:void(0);" class="on">模特录入</a>
+		</li>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form action="model_add_end.php" method="post" onsubmit="return subphone()">
+					<input id="phone" type="text" size="14" class="input-text" name="phone" value="请输入手机号码" onfocus="if(this.value=='请输入手机号码'){this.value='';}" onblur="if(this.value==''){this.value='请输入手机号码';}" />
+					<input type="submit" value="下一步" class="button"/>
+					<input type="reset" value="重置" class="button"/>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+</div>
+</body>
+</html>

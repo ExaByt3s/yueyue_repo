@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/examine.js"></script> 
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoom.js"></script> 
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoomHTML.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+.table-list ul li 
+{
+   margin-left: 20px;
+   float: left;
+   width: 20%;
+   overflow: hidden;
+   text-align: center;
+   min-height: 293px;
+}
+.table-list ul li .pic
+{
+	height: 189px;
+}
+.table-list ul li img
+{
+	max-width: 165px;
+	max-height: 165px;
+	text-align: center;
+}
+.table-list .btn{
+	clear: both;
+}
+</style>
+</head>
+<body onload="setupZoom();">
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="#" class="on">{title}</a>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form action="pic_pass_examine_list.php" method="get">
+					审核年月<input type="text" size="14" class="input-text" name="year" value="{year}" style="width:50px;">年<input type="text" size="14" class="input-text" name="month" value="{month}" style="width:30px;">月
+					审核时间:
+					<input type="text" size="14" class="input-text Wdate" id="d434" onFocus="WdatePicker()" name="start_date" value="{start_date}" readonly="readonly">至 <input type="text" size="14" class="input-text Wdate" id="d21" onFocus="WdatePicker()" name="end_date" value="{end_date}" readonly="readonly">
+					<br/>
+					UID:<input type="text" size="12" class="input-text" name="user_id" value="{user_id}">
+					手机号码<input type="text" size="12" class="input-text" name="cellphone" value="{cellphone}">
+					审核ID:<input type="text" size="12" class="input-text" name="audit_id" value="{audit_id}">
+					<input type="submit" value="查询" class="button">
+					<input type="reset" value="重置" class="button">
+					<input type="hidden" value="{act}" name='act'>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+<form name="list_form" id="list_form" action="" method="post">
+	<div class="table-list">
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th width="120">
+					<input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');">全选/全不选
+				</th>
+				<th width="200">
+					<input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="passDel({year},{month})"/>
+				</th>
+				<th>&nbsp;</th>
+				</tr>
+		</table>
+		<!--list-->
+			<ul>
+				<!-- BEGIN list -->
+				<li>
+					<p><input class="inputcheckbox " name="ids[]" value="{id}" type="checkbox"></p>
+					<p class="pic"><a href="{img_url}"><img src="{thumb_url}"></a></p>
+					<p>用户名:<a href="?user_id={user_id}&act={act}">{nickname}</a></p>
+					<p>UID:<a href="?user_id={user_id}&act={act}">{user_id}</a></p>
+					<p>角色:{role_name}</p>
+					<p>上传时间:[<font color="green">{add_time}</font>]</p>
+					<p>审核人 :<a href="?audit_id={audit_id}&act={act}">{audit_name}</a></p>
+					<p>审核时间:[<font color="green">{audit_time}</font>]</p>
+				</li>
+				<!-- END list -->
+			</ul>
+		<!--list end-->
+		<div class="btn">
+			<input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="passDel({year},{month})"> 
+		</div>
+	</div>
+</form>
+<div id="pages" class="page">
+	<!-- <a href="#this">1</a>
+	<a href="#this" class="cur">2</a> -->
+	{page}
+</div>
+</div>
+</body>
+</html>

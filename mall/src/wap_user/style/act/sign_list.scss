@@ -1,0 +1,65 @@
+.sign-name-list-page{
+	.item-wrap{
+		padding: 0px 15px 15px 15px;
+		.item-title{
+			h3.title{
+				font-size: 18px;
+
+			}
+			.number-txt{
+				.color-fe9920{
+					color:#fe9920;
+				}
+			}
+
+		}
+		.item-list{
+			background: #fff;
+			border: 1px solid #dddddd;
+			border-radius: 5px;
+			.list{
+				li{
+					width: 33.3%;
+					float: left;
+					text-align: center;
+					i.img{
+						width:60px;
+						height: 60px;
+						display: inline-block;
+						margin: 15px 0px 9px 0px;
+						border-radius: 50%;
+						background-size: cover;
+					}
+					.name-text{
+						height:22px;
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow:ellipsis;
+						padding: 0px 10px;
+					}
+				}
+			}
+			.more-btn{
+				padding:15px 0px;
+				margin-bottom: 15px;
+				text-align: center;
+				.arrow-txt{
+					width:12px;
+					height:13px;
+					margin-left: 3px;
+					display:inline-block;
+					background-image:url(../../image/ui/arrow-img-21x25.png) ;
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: center center;
+
+				}
+			}
+			#comment_ele{
+				.stream-abnormal{
+					padding-bottom: 150px;
+				}
+			}
+		}
+	}
+}

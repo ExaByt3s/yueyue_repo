@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/model_audit.css">
+<title>管理员权限后台</title>
+<style type="text/css">
+.table-list
+{
+	min-width: 990px;
+	margin-bottom: 20px;
+}
+.table-list tbody td
+{
+
+	/* border: #eee 1px solid; */
+	border-left: #eee 1px solid;
+}
+.album img
+{
+	margin:2px;
+}
+.button
+{
+	background: url('resources/images/uploadify.png');
+	height: 28px;
+	width: 75px;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	text-shadow:none;
+	box-shadow:none;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list">
+       <h1><b><a href="template_list.php" style="cursor:pointer">返回</a></b></h1>
+       <form method="post" action="?" id="myform">
+	   <div class="table" style="width:98%;" id="occu">
+		    <!--list-->
+		    <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+		    	<tbody>
+				<tr>
+				<td>模板名称:</td>
+				<td>
+				 <input type="text" name="tpl_name" value="" class="input-text" id="tpl_name" />
+				</td>
+				</tr>
+				<tr>
+				<td>排序:</td>
+				<td>
+				<input type="text" name="sort_order" value="100" class="input-text" id="sort_order"/>
+				</td>
+				</tr>
+				<tr>
+				 <td>内容:</td>
+				 <td>
+				    <textarea name="tpl_detail" style="width:400px;height:200px;" id="tpl_detail"></textarea>
+				 </td>	
+				</tr>
+				<tr>
+				<td>操作:</td>
+				<td>
+			       <input type="button" value="提交" class="button" id="t_submit" />
+                   <input type="reset"  value="重置" class="button"/>
+				</td>
+				</tr>  	
+			    </tbody>
+		    </table>
+	   </div>
+	   <input type="hidden" value="insert" name="act" />
+	   </form>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		//表单提交
+		$("#t_submit").click(function(){
+			//window.alert("nnns");
+			var $tpl_name   = $("#tpl_name").val();
+			var $sort_order = $("#sort_order").val();
+			var $tpl_detail = $("#tpl_detail").val();
+			if ($tpl_name == '') 
+			{
+				window.alert('模板名称不能为空');
+				return;
+			}
+			if ($sort_order == '' || isNaN($sort_order)) 
+			{
+				window.alert('排序不能为空或者排序格式有误');
+				return;
+			}
+			if ($tpl_detail == '') 
+			{
+				window.alert('模板内容不能为空');
+				return;
+			}
+			$("#myform").submit();
+			//window.alert("kkk");
+		});
+	});
+</script>
+</html>

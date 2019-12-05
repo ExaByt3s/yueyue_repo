@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>约约首页</title>
+
+    {wap_global_top}
+	<link charset="utf-8" rel="stylesheet" href='../../../style/index/index.scss'>
+	<link charset="utf-8" rel="stylesheet" href='../../../style/task-m.scss'>
+    <link charset="utf-8" rel="stylesheet" href="../../../style/swiper3.07.min.scss">
+	<script src="../../../lib/lib.js"></script>
+
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+</head>
+<body style="background: #f2f2f2">
+<main>
+	<div class="page-view page-name-index" data-role="page-container">
+        <div class="pics_container">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <i class="slide-items-bg" style="background-image: url('{img_url}');background-size: cover;"><div class="notice"><p class="category_top">{title}1</p></div></i>
+                    </div>
+                    <div class="swiper-slide">
+                        <i class="slide-items-bg" style="background-image: url('{img_url}');background-size: cover;"><div class="notice"><p class="category_top">{title}2</p></div></i>
+                    </div>
+                    <div class="swiper-slide">
+                        <i class="slide-items-bg" style="background-image: url('{img_url}');background-size: cover;"><div class="notice"><p class="category_top">{title}3</p></div></i>
+                    </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="type_list">
+            <div class="inner" data-role="inner">
+                <i class="tap"></i>
+                <i class="tap"></i>
+                <i class="tap"></i>
+                <i class="tap"></i>
+                <i class="tap"></i>
+            </div>
+        </div>
+        <div class="pics_list">
+            <div class="child">
+                <div class="title_con">
+                    <p class="title">约约封面</p>
+                    <p class="notice">梨子：清纯与魔鬼的完美结合</p>
+                </div>
+            </div>
+            <div class="child">
+                <div class="title_con">
+                    <p class="title">约约封面</p>
+                    <p class="notice">梨子：清纯与魔鬼的完美结合</p>
+                </div>
+            </div>
+            <div class="child">
+                <div class="title_con">
+                    <p class="title">约约封面</p>
+                    <p class="notice">梨子：清纯与魔鬼的完美结合</p>
+                </div>
+            </div>
+            <div class="child">
+                <div class="title_con">
+                    <p class="title">约约封面</p>
+                    <p class="notice">梨子：清纯与魔鬼的完美结合</p>
+                </div>
+            </div>
+            <div class="child">
+                <div class="title_con">
+                    <p class="title">约约封面</p>
+                    <p class="notice">梨子：清纯与魔鬼的完美结合</p>
+                </div>
+            </div>
+        </div>
+	</div>
+</main>
+</body>
+<script>
+    var utility = require('../../../modules/common/utility/index');
+    var $ = require('components/zepto/zepto.js');
+    $(function()
+    {
+        $('[data-role="inner"]').css('width',document.body.clientWidth*1.1 + "px");
+        /*
+         var s = require('../modules/common/widget/swiper/1.0.0/swiper');
+         var mySwiper = new Swiper('.swiper-container',{
+         //freeMode : true,
+         //spaceBetween : 2,
+         //slidesPerView : 'auto'
+         pagination: '.swiper-pagination',
+         paginationClickable: true
+         });
+         */
+        var s = require('../../../modules/common/widget/swiper/1.0.0/swiper3.07.min');
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: false,
+
+            // 如果需要分页器
+            pagination: '.swiper-pagination'
+        })
+
+        console.log(utility.get_view_port_height())
+        //$('[data-role="page-begin"]').height(utility.get_view_port_height("nav"));
+
+    });
+</script>
+</html>

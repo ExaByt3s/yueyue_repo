@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>通用按钮</title>
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<meta name="wap-font-scale" content="no">
+
+<script type="text/javascript">
+    (function(){
+        var is_mobile = '{is_mobile}';
+        if( is_mobile == 1 && window.location.host == 'www.yueus.com')
+        {
+            window.location.host = 'yp.yueus.com';
+        }
+    })();
+</script>
+
+<!-- 性能 log start -->
+{xn_log}
+<!-- 性能 log end -->
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/mod_327a0b0.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_79cae42.css">
+<!-- 通用 -->
+<!-- 颜色配置 -->
+<!-- 按钮配置 -->
+<!--基础样式 END-->
+
+<!--App bridge-->
+<script>
+{app_bridge_script}
+</script>  
+
+<script>
+
+    window.__wifi_link = /yp-wifi/.test(window.location.host)?'-wifi':'';
+
+    window.__test__str = /test/.test(window.location.href)?'test/':'';
+
+	window.$__ajax_domain = 'http://yp'+__wifi_link+'.yueus.com/mall/user/'+__test__str + 'ajax/';
+    window.$__ajax_common_url = 'http://yp'+__wifi_link+'.yueus.com/mall/user/'+__test__str + 'ajax_url_transit.php';
+
+	window.$__config = 
+	{				
+		ajax_url :
+		{
+            get_tt_pay_info : window.$__ajax_domain + 'get_tt_pay_info.php',
+            pay_tt_action : window.$__ajax_domain + 'pay_tt_action.php',
+			list_control : window.$__ajax_domain + 'order_list_control.php',
+            order_submit : window.$__ajax_domain + 'order_submit.php',
+            get_user_coupon_list_by_check : window.$__ajax_domain + 'get_user_coupon_list_by_check.php',
+            get_topic_info : window.$__ajax_domain + 'get_topic_info.php',
+            get_topic_list : window.$__ajax_domain + 'get_topic_list.php',
+            list_pay_judge : window.$__ajax_domain + 'order_list_pay_judge.php',
+            submit_comment : window.$__ajax_domain + 'submit_comment.php'
+
+		}
+
+	};
+
+    // 配置全局首页路径
+    window.__index_url_link = '{index_url_link}';
+    document.addEventListener('touchstart',function(){},false);
+</script>
+
+<!-- 判断微信 -->
+<!-- IF is_weixin -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<!--配置微信全局变量-->
+<script>
+    (function()
+    {
+        var __wx_common_share = {};
+        var __wx_common_timeline = {};
+        var loc = window.location;
+
+        __wx_common_share =
+        {
+            title: "约约，最高效的时间电商平台", // 分享标题
+            desc: "找模特？找活动？找场地？找化妆？找培训？上约约吧! ", // 分享描述
+            link: window.location.href,
+            imgUrl:'http://img16.poco.cn/yueyue/customer_icon.png?' + new Date().getTime(), // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                //alert("分分分成功")
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        };
+
+        __wx_common_timeline =
+        {
+            title: "约约，最高效的时间电商平台", // 分享标题
+            desc: "找模特？找活动？找场地？找化妆？找培训？上约约吧! ", // 分享描述
+            link: window.location.href, // 分享链接
+            imgUrl:'http://img16.poco.cn/yueyue/customer_icon.png?' + new Date().getTime(), // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        };
+
+        window.__wx_common_share = __wx_common_share;
+        window.__wx_common_timeline = __wx_common_timeline
+
+        var wx_json = {wx_json};
+        var debug = '{debug}' == 1 ? true:false;
+
+        wx.config
+        ({
+            debug: debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: wx_json.appId, // 必填，公众号的唯一标识
+            timestamp: wx_json.timestamp, // 必填，生成签名的时间戳
+            nonceStr: wx_json.nonceStr, // 必填，生成签名的随机串
+            signature: wx_json.signature,// 必填，签名，见附录1
+            jsApiList: ['checkJsApi',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo',
+                'hideMenuItems',
+                'showMenuItems',
+                'hideAllNonBaseMenuItem',
+                'showAllNonBaseMenuItem',
+                'getNetworkType',
+                'openLocation',
+                'getLocation',
+                'hideOptionMenu',
+                'showOptionMenu',
+                'closeWindow',
+                'scanQRCode',
+                'chooseWXPay',
+                'downloadImage',
+                'openProductSpecificView'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        wx.ready(function()
+        {
+            wx.onMenuShareAppMessage(window.__wx_common_share);
+
+            wx.onMenuShareTimeline(window.__wx_common_timeline);
+
+            wx.onMenuShareQQ(window.__wx_common_share);
+
+
+        });
+    })();
+</script>
+<!-- ENDIF -->
+
+<!-- 异常捕获 start -->
+
+<!-- 异常捕获 end -->
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/order/detail_9ef1105.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+</head>
+<body>
+
+<style type="text/css">
+
+.des{
+    margin: 3px 0;
+}
+
+</style>
+
+
+
+<div style="display:"  class="pb20">
+
+/********大小*******/
+<p class="des">ui-button-block 为block元素</p>
+<p class="des">ui-button-inline-block 为inline-block元素</p>
+
+<p class="des">ui-button-100per 为100%</p>
+
+<p class="des">ui-button-size-x 为高度 30px 按钮 </p>
+<p class="des">ui-button-size-m 为高度 35px 按钮 </p>
+<p class="des">ui-button-size-l 为高度 40px 按钮 </p>
+<p class="des">ui-button-size-xl 为高度 45px 按钮 </p>
+
+
+/********配色*******/
+<p class="des">ui-button-bg-ff6  具体查看实例</p>
+
+
+
+
+</div>
+
+
+<div id="page-container">
+
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-x ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+
+    <br />
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-m ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+
+    <br />
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+    <br />
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-xl ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+
+    <br />
+
+
+    <button class="ui-button  ui-button-inline-block  ui-button-size-x ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+
+    <button class="ui-button  ui-button-inline-block  ui-button-size-x ui-button-bg-ff6">
+        <span class="ui-button-content">已经选择</span>
+    </button>
+
+    <br />  <br />
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-x ui-button-bg-fff">
+        <span class="ui-button-content">还未选择</span>
+    </button>
+
+    <br />
+
+    <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bg-555">
+        <span class="ui-button-content">获取验证码</span>
+    </button>
+
+    <br />
+
+
+
+    <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-555">
+        <span class="ui-button-content">关闭</span>
+    </button>
+
+    <br />
+
+    <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa">
+        <span class="ui-button-content">关闭</span>
+    </button>
+
+    <br />
+
+
+    <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6">
+        <span class="ui-button-content">支付</span>
+    </button>
+
+    <br />
+
+
+    <button class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555">
+        <span class="ui-button-content">咨询</span>
+    </button>
+
+    <br />
+
+    <button class="ui-button-submit">
+        <span class="ui-button-content">提交订单</span>
+    </button>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="ui-button-box-tap">
+        <div class="ui-button-tap ui-border-r" data-role="category">
+            <span data-role="col-name">所有品类</span>
+            <i class="tag" data-role="tag"></i>
+        </div>
+        <div class="ui-button-tap" data-role="sort-btn">
+            <span data-role="sort-name">默认排序</span>
+            <i class="tag" data-role="sort-tag"></i>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="ui-button-submit-area">
+        <div class="wbox clearfix">
+            <div class="lbox fldi">
+                <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-555 ui-button-100per">
+                    <span class="ui-button-content">返回修改</span>
+                </button>
+            </div>
+            <div class="rbox fldi">
+                <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-555 ui-button-100per">
+                    <span class="ui-button-content">下一步</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+<script>
+    var $ = require('components/zepto/zepto.js');
+</script>
+</html>

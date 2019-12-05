@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>登录页</title>
+<!-- 头部公共 -->
+{pc_global_top}
+</head>
+
+<body>
+
+<!-- 顶栏 -->
+{header_html}
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+<form action="./module/yue_login_register_op.php" method="post" name="yue_login_form" id="yue_login_form" target="form_iframe">
+<div class="login-page">
+    <div class="w1000">
+        <div class="login-page-content font_wryh">
+            <div class="wbox clearfix">
+                <div class="lbox fldi">
+                    <div class="item-wrap">
+                        <div class="item"><input type="text" name="yue_phone" id="yue_phone" class="input-text font_wryh" placeholder="手机号码" /></div>
+                        <div class="item"><input type="password" name="yue_password" id="yue_password" class="input-text font_wryh" placeholder="密码" /></div>
+                    </div>
+
+                    <div class="btn" id="yue_submit_btn">登录</div>
+
+                    <div class="txt">忘记密码，请通过约yueApp端找回。</div>
+                    <div class="txt" style="color:red;display:none" id="yue_error_tips"></div>
+                </div>
+                <div class="rbox fldi">
+                    <div class="box1"><img src="images/ty-img-11.jpg" /></div>
+                    <div class="box2"><a href="/model/register.php">还没有约yue账号？</a></div>
+                    <div class="box3"><a href="/model/register.php">免费注册</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" value="login" name="yue_action_type"></input>
+</form>
+
+<div class="footer boder-top-none">
+    <div class="w1000">
+        <a href="javascript:void(0);">关于约约</a> <span class="pr5 pl5">|</span> Copyright 2003-2015 YUEUS.COM 
+    </div>
+</div>
+
+
+
+
+
+</body>
+<script>
+
+/**
+* hudw 2015.1.23
+* @param  {[type]} window    [description]
+* @param  {[type]} seajs     [description]
+* @param  {[type]} undefined [description]
+* @return {[type]}           [description]
+*/
+;(function(window, seajs, undefined)
+{
+
+
+    // 配置模块
+    seajs.config
+    ({
+
+        paths:
+        {
+            utility: 'http://cb.poco.cn/utility',
+            matcha: 'http://cb.poco.cn/matcha',
+            yueyue_global : 'http://www.yueus.com/js/global'            
+        },
+        alias:
+        {
+            handlebars: 'utility/handlebars/1.0.0/handlebars',
+            jquery: 'utility/jquery/1.11.0/jquery',                        
+            cookie: 'matcha/cookie/1.0.0/cookie',
+            topbar : 'yueyue_global/topbar/topbar'        
+        },
+        comboMaxLength: 5000,
+        charset: 'utf-8'
+    });
+
+    seajs.use(['jquery','topbar'],function($,topbar)
+    {
+        var $user_state = $('#user_state');        
+
+        topbar.init
+        ({
+            container : $user_state
+        });
+    });
+
+    seajs.use(['jquery','cookie','handlebars'], function($,cookie)
+    {
+        var self = this;
+        
+        //检查电话号码
+        function checkPhone(phone)
+        {
+            var re= /^1[0-9][0-9]\d{8,8}$/;
+            var tips = '';
+          
+            if(!re.test(phone))
+            {
+                tips = false;
+            }
+            else
+            {
+                tips = true;
+            }
+          
+          return tips;
+        }
+        
+        
+        //表单提交
+        $("#yue_submit_btn").bind("click",function(){
+            submit_function();
+        });
+        
+        
+        //提交前检索
+        function submit_function()
+        {
+            var yue_phone = $("#yue_phone").val();
+            var yue_password = $("#yue_password").val();
+            var ret = '';
+            //检索处理
+            ret = checkPhone(yue_phone)
+            if(ret)
+            {
+                if($.trim(yue_password)=="")
+                {
+                    $("#yue_error_tips").css("display","block");
+                    $("#yue_error_tips").html("请输入密码，密码不能为空格");
+                    return false;
+                }
+                else
+                {
+                    $("#yue_login_form").submit();
+                    //过渡处理
+                    $("#yue_submit_btn").html("登录中，请稍后...");
+                    //清理相关信息
+                    $("#yue_error_tips").css("display","none");
+                    $("#yue_error_tips").html("");
+                    
+                }
+            }
+            else
+            {
+                $("#yue_error_tips").css("display","block");
+                if($.trim(yue_phone)=="")
+                {
+                    $("#yue_error_tips").html("请输入手机号");
+                }
+                else
+                {
+                    $("#yue_error_tips").html("手机号格式有误");
+                }
+                
+                return false;
+                
+            }
+        }
+        
+        //enter键盘处理
+        $(document).keypress(function(e)  
+        {
+            if(e.keyCode==13)
+            {
+                submit_function();
+            }
+        });
+        
+    });
+
+    
+   
+})(window, seajs);
+
+</script>
+</html>

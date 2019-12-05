@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/jquery.form.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script> 
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+</head>
+<body>
+<div class="mainbox">
+<form name="list_form" id="list_form" action="?uid={user_id}" method="post">
+	<div class="table-list">
+	   <!--list-->
+		<table width="100%" cellspacing="0">
+			<!-- <thead>
+				<tr>
+				<th width="30"><input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');"></th>
+				<th width="40">风格</th>
+				</tr>
+			</thead> -->
+			<tbody>
+				<tr>
+				<td width="30" align="center"><input class="inputcheckbox " name="ids[]" value="0" type="checkbox" {style_s}></td>
+				<td align="center">欧美</td>
+				<td width="30" align="center"><input class="inputcheckbox " name="ids[]" value="1" type="checkbox" {style_1}></td>
+				<td align="center">情绪</td>
+				</tr>
+				<tr>
+				<td width="30" align="center"><input class="inputcheckbox " name="ids[]" value="2" type="checkbox" {style_2}></td>
+				<td align="center">清新</td>
+				<td width="30" align="center"><input class="inputcheckbox " name="ids[]" value="3" type="checkbox" {style_3} ></td>
+				<td align="center">复古</td>
+				</tr>
+
+				<tr>
+				<td width="30" align="center"><input class="inputcheckbox " name="ids[]" value="4" type="checkbox" {style_4} ></td>
+				<td align="center">韩系</td>
+				<td width="30" align="center"><input class="inputcheckbox " name="ids[]" value="5" type="checkbox" {style_5} ></td>
+				<td align="center">日系</td>
+				</tr>
+
+				<tr>
+				<td width="30" align="center"><input class="inputcheckbox " name="ids[]" value="6" type="checkbox" {style_6}></td>
+				<td align="center">性感</td>
+				<td width="30" align="center"><input class="inputcheckbox " name="ids[]" value="7" type="checkbox" {style_7}></td>
+				<td align="center">街拍</td>
+				</tr>
+				
+				<tr>
+				<td width="30" align="center"><input class="inputcheckbox " name="ids[]" value="8" type="checkbox" {style_8} ></td>
+				<td align="center">胶片</td>
+				<td width="30" align="center"><input class="inputcheckbox " name="ids[]" value="9" type="checkbox" {style_9}></td>
+				<td align="center">商业</td>
+				</tr>     	
+			</tbody>
+		</table>
+		<!--list end-->
+		<div class="btn">
+			<input type="button" class="button" name="dosubmit" value="取消" id="close_layer"/>
+			&nbsp;&nbsp;
+			<input type="button" class="button" name="dosubmit" value="提交" id="send_layer"/> 
+		</div>
+	</div>
+	</form>
+</div>
+</body>
+<script type="text/javascript">
+	var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+	//window.alert(parent.uid);
+	var $uid = {user_id};
+	$('#close_layer').on('click', function(){
+      parent.layer.close(index); //执行关闭
+     });
+	//提交获取数据
+   $('#send_layer').on('click', function(){
+   	/*var $str = '';
+   	$("[name='ids[]'][checked]").each(function(i){
+   		 if ($(this).val() == 0) 
+   		 {};
+   		 $str += $(this).val()+',';
+   	});
+   	window.alert($str);*/
+   	$("#list_form").ajaxSubmit({
+   		dataType : "json",
+        data:{'act': 'update'},
+		success:function(data)
+		{
+			//window.alert(data.str);
+			parent.$('#list_style').html(data.str);
+			/*parent.$('#stand_follow_data').append(str);*/
+            parent.layer.close(index);
+		},
+		error:function(data)
+		{
+			//parent.layer.close(index);
+		}
+   	})
+   	
+   	
+});
+</script>
+</html>

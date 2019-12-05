@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>搜索</title>
+    {wap_global_top}
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/search/search.scss">
+    <script src="/lib/lib.js"></script>
+</head>
+<body class="bg-cfff">
+<main role="main">
+    <div class="page-view " data-role="page-container">
+        <div class="search">
+            <!-- IF type_id="99" -->
+            <!--用于外拍的搜索-->
+            <style type="text/css">
+                .search{
+                    padding:0;
+                }
+                .search .clear-btn{
+                    height: 45px;                  
+                    line-height: 45px;
+                    text-align: center;
+                }
+            </style>
+            <header class="global-header">                
+                <div class="wbox clearfix">
+                        <a href="javascript:void(0);">
+                            <div class="back" data-role="page-back">
+                                <i class="icon-back"></i>
+                            </div>
+                        </a>
+                        <div class="search-head title ">
+                            <div class="search-box">
+                                <input type="text" placeholder="输入外拍标题 组织者昵称" value="" class="search-text" style="width:100%" name="keyword_query" data-role="search-text">
+
+                            </div>
+                        </div>
+                        <div class="side-txt" data-role="right-btn">
+                            搜索
+                        </div>
+                </div>
+            </header>
+            <div class="fn-hide" data-role="act-history-list">
+                <ul class="ui-list ui-list-text" >
+                    
+                </ul>
+                <div class="clear-btn" data-role="clear-btn">
+                    清除历史记录
+                </div>
+            </div>
+            <!-- ELSE -->
+            <header class="global-header">
+                <div class="wbox clearfix">
+                    <a href="javascript:void(0);">
+                        <div class="back" data-role="page-back">
+                            <i class="icon-back"></i>
+                        </div>
+                    </a>
+                    <div class="search-head title ">
+                        <div class="search-box">
+                            <div class="search-type" data-role="search-type">
+                                <input value="服务" readonly="readonly" class="search-type-btn">
+                                <input value="" type="text" id="search-type-init" style="display: none;">
+                                <i class="r-icon"></i>
+                            </div>
+                            <input type="text" style="color: #000;" placeholder="请输入关键词" value="" class="search-text" data-role="search-text">
+                        </div>
+                    </div>
+                    <div class="side-txt" style="" data-role="right-btn">
+                        搜索
+                    </div>
+                </div>
+                <div class="type-select fn-hide" id="type-select">
+                    <i class="type-select-i"></i>
+                    <span class="t-span type-select-span" data-role="type-btn" data-type="seller">商家名称</span>
+                    <span class="b-span type-select-span" data-role="type-btn" data-type="goods">服务名称</span>
+                </div>
+            </header>
+            <div class="seach-content">
+                <div class="hot seach-title fn-hide" data-role="hot">
+                    <p class="hot-title ">热门</p>
+                    <div data-role="hot-service-content">
+
+                    </div>
+                    <div data-role="hot-seller-content" class="fn-hide">
+
+                    </div>
+                </div>
+                <!--搜索历史-->
+                <div class="history seach-title fn-hide" data-role="history" >
+                    <p class="hot-title">历史搜索</p>
+                    <div data-role="history-service-content">
+
+                    </div>
+                    <div data-role="history-seller-content" class="fn-hide">
+
+                    </div>
+                </div>
+                <!--清空历史-->
+                <button class="ui-button ui-button-size-x ui-button-bg-fff empty fn-hide" data-role="empty" >
+                    <span class="ui-button-content">清空搜索历史</span>
+                </button>
+
+            </div>
+            <!-- ENDIF -->
+            
+        </div>
+    </div>
+</main>
+</body>
+<script>
+    var $ = require('zepto');
+    var utility = require('../../../../modules/common/utility/index');
+
+    <!-- IF type_id="99" -->
+    // 用于活动的搜索处理
+    (function()
+    {
+        var $search_btn = $('[data-role="right-btn"]');
+        var $search_txt = $('[data-role="search-text"]');
+        var $history_container = $('[data-role="act-history-list"]');
+        var $history_list = $history_container.find('ul');
+        var $clear_btn = $('[data-role="clear-btn"]');
+
+        // 初始化历史记录
+        show_act_history_search();
+
+        //返回按钮
+        $('[data-role="page-back"]').on('click',function()
+        {
+            if(document.referrer)
+            {
+                window.history.back();
+            }
+            else
+            {
+                window.location.href = "../index.php" ;
+            }
+        });
+
+        $search_btn.on('click',function()
+        {
+            if(!$.trim($search_txt.val()))
+            {
+                alert('请输入搜索内容');
+
+                return;
+            }
+
+            goto_search($search_txt.val());
+            $search_txt.val("");
+
+        });
+
+        $search_txt.on('input',function()
+        {
+            show_act_history_search();
+        });
+
+        $search_txt.on('focus',function()
+        {
+            show_act_history_search();
+        });
+
+        $clear_btn.on('click',function()
+        {
+            $history_container.addClass('fn-hide');
+
+            utility.storage.remove('act-history-list')
+        });
+
+        $history_container.find('[data-role="items"]').on('click',function(ev)
+        {
+            var $cur_btn = $(ev.currentTarget);
+
+            var key = $cur_btn.html();
+
+            goto_search(key);
+
+        });
+
+        $history_container.find('[data-role="delete"]').on('click',function(ev)
+        {
+            var $cur_btn = $(ev.currentTarget);
+
+            var key = $cur_btn.attr('data-key');
+
+            var btn_list = utility.storage.get('act-history-list') || [];
+
+            var index = btn_list.indexOf(key);
+
+            btn_list.splice(index,1);
+
+            utility.storage.set('act-history-list',btn_list);
+
+            $cur_btn.parent('li').remove();
+
+            if(btn_list.length == 0)
+            {
+                $history_container.addClass('fn-hide');
+            }
+
+        });
+
+
+        function goto_search(key)
+        {
+
+            var btn_list = utility.storage.get('act-history-list') || [];
+
+            if($.inArray(key,btn_list) == -1)
+            {
+                btn_list.unshift(key);
+            }
+
+            if(btn_list.length>5)
+            {
+                btn_list.pop();
+            }
+
+            utility.storage.set('act-history-list',btn_list);
+
+            window.location.href = '../act/list.php?keyword_query='+encodeURIComponent(key);
+        }
+
+        function show_act_history_search()
+        {
+
+            var btn_list = utility.storage.get('act-history-list') || [];
+
+            var temp_arr = [];
+
+            for(var i = 0;i<btn_list.length;i++)
+            {
+                var str = '<li class="ui-border-b" style="margin-left:0;padding-left:12px;">'+
+                        '<div data-role="items" style="width:90%;">'+btn_list[i]+'</div>'+
+                        '<div class="ui-badge" data-role="delete" data-key="'+btn_list[i]+'">x</div>'+
+                    '</li>';
+
+                temp_arr.push(str);
+            }
+
+            var btn_str = temp_arr.join('');
+
+            $history_list.html(btn_str);
+
+            if(btn_list.length>0)
+            {
+                $history_container.removeClass('fn-hide');
+            }
+
+        }
+    })();
+
+    <!-- ELSE -->
+    // 用于其他类型的搜索处理
+    window.__service_tags = {service_tags}.result_data;
+    window.__seller_tags = {seller_tags}.result_data;
+    window.__type_id = {type_id};
+    
+    
+    var edit = require('../../../../modules/search/search.js');
+    <!-- ENDIF -->
+
+    
+
+</script>
+</html>

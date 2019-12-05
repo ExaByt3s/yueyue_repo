@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/examine.js"></script> 
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoom.js"></script> 
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoomHTML.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约拍APP后台</title>
+<style type="text/css">
+.table-list li
+{
+	margin-left: 20px;
+	border-bottom: 1px solid #d5dfe8;
+}
+.table-list li p span
+{
+	width: 16%;
+	display: inline-block;
+}
+.table-list .btn{
+	clear: both;
+}
+</style>
+</head>
+<body onLoad="setupZoom();">
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="#" class="on">已审核文字</a>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%" style="min-width:1000px;">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form action="text_pass_examine_list.php" method="get">
+			        <p>
+					审核年月:<input type="text" size="14" class="input-text" name="year" value="{year}" style="width:40px;">年<input type="text" size="14" class="input-text" name="month" value="{month}" style="width:30px;">月
+					&nbsp;&nbsp;审核时间:
+					<input type="text" size="14" class="input-text Wdate" id="d434" onFocus="WdatePicker()" name="start_date" value="{start_date}" readonly="readonly" style="width:80px;">至 <input type="text" size="14" class="input-text Wdate" id="d21" onFocus="WdatePicker()" name="end_date" value="{end_date}" readonly="readonly" style="width:80px;">
+					UID:<input type="text" size="12" class="input-text" name="user_id" value="{user_id}" style="width:60px;">
+					</p>
+					<p>
+					手机号码:<input type="text" size="12" class="input-text" name="cellphone" value="{cellphone}">
+					&nbsp;&nbsp;审核人ID:<input type="text" size="12" class="input-text" name="audit_id" value="{audit_id}" style="width:60px;">
+					类型:
+					<select name="type">
+						<option value="">全部</option>
+						<option value="nickname_text" <!-- IF type="nickname_text" -->selected<!-- ENDIF -->>昵称</option>
+						<option value="model_card_remark" <!-- IF type="model_card_remark" -->selected<!-- ENDIF --> >模特备注</option>
+						<option value="cameraman_card_remark" <!-- IF type="cameraman_card_remark" -->selected<!-- ENDIF --> >摄影师备注</option>
+					</select>
+					<input type="submit" value="查询" class="button">
+					<input type="reset" value="重置" class="button">
+					</p>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+<form name="list_form" id="list_form" action="" method="post">
+	<div class="table-list">
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th width="120">
+					<input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');">全选/全不选
+				</th>
+				<th width="200">
+					<input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="textPassDel({year},{month})"/>
+				</th>
+				<th>&nbsp;</th>
+				</tr>
+		</table>
+		<!--list-->
+			<ul>
+				<!-- BEGIN list -->
+				<li>
+					<p><input class="inputcheckbox " name="ids[]" value="{id}" type="checkbox">&nbsp;&nbsp;[<font color="red"><!-- IF type="model_card_remark" -->备注<!-- ELSEIF type="nickname_text" -->昵称<!-- ELSEIF type="cameraman_card_remark" -->备注<!-- ENDIF --></font>]</p>
+					<p>{after_edit}</p>
+					<p><span>用户名:<a href="?user_id={user_id}">{nickname}</a></span> <span>角色:<!-- IF role="model" -->模特<!-- ELSEIF role="cameraman" -->摄影师<!-- ENDIF --></span> <span>UID: <a href="?user_id={user_id}">{user_id}</a> </span> <span>上传时间:[<font color="green">{add_time}</font>]</span><span>审核人:<a href="?audit_id={audit_id}">{audit_name}</a></span><span>审核时间:{audit_time}</span></p>
+				</li>
+				<!-- END list -->								
+			</ul>
+		<!--list end-->
+		<div class="btn"> 
+			<input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="textPassDel({year},{month})"> 
+		</div>
+	</div>
+</form>
+<div id="pages" class="page">
+	<!-- <a href="#this">1</a>
+	<a href="#this" class="cur">2</a> -->
+	{page}
+</div>
+</div>
+</body>
+</html>

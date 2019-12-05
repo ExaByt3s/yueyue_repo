@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>无标题文档</title>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/lib/mod_327a0b0.js"></script>
+<script type="text/javascript">
+    (function(){
+        var is_pc = '{is_pc}';
+        if( is_pc == 1 && /yp.yueus.com|yp-wifi.yueus.com/.test(window.location.host))
+        {
+            window.location.host = 'www.yueus.com';
+        }
+    })();
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<!-- modjs 必须引用 -->
+<!--RESOURCE_lib/mod.js_PLACEHOLDER--><script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/lib/lib_936bad6.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/style/libs/common_4a8b540.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/style/widget/down-app-area_c5ba0b3.css">
+<!--基础样式 END-->
+
+
+<script>
+(function()
+{
+    if(!window.console){
+        console = (function(){
+            var instance = null;
+            function Constructor(){
+                
+            }
+            Constructor.prototype = {
+                log : function(str){
+
+                }
+            }
+            function getInstance(){
+                if(instance == null){
+                    instance =  new Constructor();
+                }
+                return instance;
+            }
+            return getInstance();
+        })()
+    }
+
+    String.prototype.trim = function() {
+        return this.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+})();
+</script>
+
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/components/jquery/jquery_27c977b.js"></script>
+<!--配置全局变量-->
+<script>
+	window.$__domain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : './ajax/'
+	};
+
+    window.__test__str = /test/.test(window.location.href)?'test/':'';
+
+    window.$__ajax_domain = 'http://www.yueus.com/mall/user/'+__test__str + 'ajax/';
+    window.$__project_domain = '{project_root}';    
+
+    var $ = require('components/jquery/jquery.js');
+    window.jQuery = $ ;
+
+    (function()
+    {
+        var cur_pathname = window.location.pathname;
+
+        if(/test/.test(cur_pathname))
+        {
+            document.title = '测试-'+document.title;
+        }
+    })();
+</script>  
+
+<!-- 当前页css -->
+<!-- <link type="text/css" rel="stylesheet" href="../../../style/login-page.scss">  -->
+
+
+</head>
+
+<body>
+
+
+<div class="login-page">
+    测试
+</div>
+
+
+</body>
+
+</html>

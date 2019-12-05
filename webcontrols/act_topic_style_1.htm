@@ -1,0 +1,31 @@
+<div class="act_topic_style_1 native_scroll">
+               <!-- IF content -->
+               <div class="p1th" style="display:; ">
+                    {content}
+               </div>
+               <!-- ENDIF --> 
+              <!-- IF list -->
+               <div class="p2th">
+                   <ul class="new-list">
+                      <!-- BEGIN list -->
+                       <li>
+                           <div class="avatar-size-mod" >
+								<!-- IF role="model" -->
+                                <i class="avatar-size-img" style="background-image: url( {img_url} ); background-size:cover" data-url-style="inside" data-url="model_card/{user_id}" data-role="nav-page"></i>
+								<!-- ELSE -->
+								<i class="avatar-size-img" style="background-image: url( {img_url} ); background-size:cover" data-url-style="inside" data-url="zone/{user_id}/cameraman" data-role="nav-page"></i>
+								<!-- ENDIF -->
+                           </div>
+                           <div class="avatar-info">
+                                <h3>{user_name}</h3>
+                                <div class="wbox ">
+                                    <!-- IF price --><div class="lbox ">гд{price}</div><!-- ENDIF -->
+                                    <!-- IF alter_price --><div class="rbox ">гд{alter_price}</div><!-- ENDIF -->
+                                </div>
+                           </div>
+                       </li>
+                       <!-- END list -->
+                   </ul> 
+               </div>
+              <!-- ENDIF -->
+</div>

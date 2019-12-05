@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>提现</title>
+
+    <meta charset="gbk">
+    {head_html}
+    <!-- libjs 必须引用 -->
+    <script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/lib/lib_880856d.js"></script>
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/style/withdrawals/withdrawals_17a8205.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/style/libs/common_b54bda3.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/modules/common/scroll/scroll_64a9043.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/modules/common/widget/abnormal/main_ed133ff.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/modules/menu/index_26590a7.css">
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/components/zepto/zepto_9261738.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/js/common/common_3c4ec94.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/components/fastclick/fastclick_8c3e8ee.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/modules/menu/index_91dc45a.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/modules/withdrawals/withdrawals_40635c3.js"></script>
+</head>
+<body>
+<main role="main">
+    <div class="page-view withdrawals" data-role="page-container">
+        <!-- IF output_arr.code="1" -->
+        <div class="secondary">
+            <div class="withdrawals-wrap">
+                <ul class="list">
+                    <li>
+                        <div class="bd">
+                            <p class="P1">钱包总余额（元）</p>
+                            <p class="P2" data-role="fee-all">{output_arr.data.available_balance}</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="bd">
+                            <p class="P1">可提现金额（元）</p>
+                            <p class="P2" data-role="fee-ava">{output_arr.data.purse_available_balance}</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="part2">
+                    <ul class="list2 clearfix">
+                        <li >
+                            <div class="txt">提现金额</div>
+                            <div class="rbox">
+                                <input type="tel" data-role="w-money" class="input-text2">
+                            </div>
+                        </li>
+                        <li >
+                            <div class="txt">支付宝账号</div>
+                            <div class="rbox">
+                                <input value="{output_arr.data.third_account}" type="text"  data-role="third-account" class="input-text2" disabled="true">
+
+                            </div>
+                        </li>
+                        <li >
+                            <div class="txt">手机验证码</div>
+                            <div class="rbox">
+                                <div class="btn swt" data-role="btn-get">获取验证码</div>
+                                <input type="tel" data-role="sms-code"  class="input-text2">
+                                <div class="txt-phone fn-hide" data-role="change-phone"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="footer-withdrawals">
+            <div class="btn-wrap">
+                <button data-role="btn-tx" class="ui-button ui-button-primary ui-button-size-middle ui-button-block">
+                    <span class="ui-button-content">提现</span>
+                </button>
+            </div>
+        </div>
+        <!-- ELSEIF output_arr.code="0" -->
+        <!-- ELSE -->
+        <!-- ENDIF -->
+
+    </div>
+</main>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    require('withdrawals');
+</script>

@@ -1,0 +1,24 @@
+<div class="wrapper-out">
+    <div class="wrapper-left">
+        <div class="ui-input-title-mod ui-input-title-size-large item">
+            <div class="left">价格</div>
+            <div class="vertical-line">|</div>
+            <div class="middle"><input type="text" value="{{price}}"></div>
+            <div class="right" data-role="set-hour" data-target="set-hour">元/{{hour}}小时<i class="icon icon-triangle-grey"></i></div>
+        </div>
+        <div class="ui-input-title-mod ui-input-title-size-large item">
+            <div class="left">续拍</div>
+            <div class="vertical-line">|</div>
+            <div class="middle"><input type="text" value="{{continue_price}}"></div>
+            <div class="right">元/小时</div>
+        </div>
+        <div class="ui-input-title-mod ui-input-title-size-large item" data-role="to-select-style"
+                data_id="{{group_id}}" data-style="{{style}}">
+            <div class="left">风格</div>
+            <div class="vertical-line">|</div>
+            <div class="middle">{{style}}</div>
+            <div class="right"><i class="icon icon-r-grey-m"></i></div>
+        </div>
+    </div>
+    <div class="wrapper-right" data-role="minus-other-style"><i class="icon icon-circle-minus"></i></div>
+</div>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="gb2312">
+<title>POCO约拍</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link href="./css/test.css" type="text/css" rel="stylesheet">
+
+</head>
+
+<body >
+
+
+<style type="text/css">
+    *{padding: 0;margin: 0}
+   body{background-color: #eeeeee}
+</style>
+
+
+<div style="height:100%;width:100%; position:relative;overflow: auto;" id="page-container">
+    <header id="header" class="nav-header mine-nav-header">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title">登录@</h3>
+
+        <div class="right-button-wrap">
+            <a><i class="icon icon-cog"></i></a>
+        </div>
+    </header>
+
+
+    <div class="content-body account-login-page" data-role="container" style="height: 100%;" >
+        <div class="account-container" data-role="container" style="height: 100%;" >
+            <ul class="ui-form" style="margin-top: 200px;">
+                <li><div class="input-label"><input type="text" placeholder="手机号" data-role="account-name"></div></li>
+                <li><div class="input-label"><input type="password" placeholder="密码" data-role="account-pwd"></div></li>
+            </ul>
+            <div class="submit-btn-container">
+                <button id="button" data-role="submit-btn" class="ui-button ui-button-primary ui-button-size-large ui-button-block">
+                    <span class="ui-button-content">登录</span>
+                </button>
+            </div>
+
+            <div class="other-login  fn-hide">
+                <!-- <button class="ui-button ui-button-primary ui-button-size-large ui-button-block sinaweibo-login-button" data-role="sso-login" data-platform="sina">
+                    <span class="ui-button-content icon-sinaweibo-logo"><i class="icon icon-sina-c"></i> 新浪微博</span>
+                </button> -->
+
+                <button class="ui-button ui-button-primary ui-button-size-large ui-button-block ui-button-color2 fn-hide" data-role="phone" style="margin-left:0;color:#fff;">
+                    <span class="ui-button-content  icon-phone-logo">手机号登录</span>
+                </button>
+
+                <button class="ui-button ui-button-size-large qzone-login-button fn-hide" data-role="qzone">
+                    <span class="ui-button-content icon icon-qzone-logo"></span>
+                </button>
+            </div>
+
+
+            <div class="go-style">
+                <div class="lbox" data-role="forget-pwd">
+                    <button class="ui-button  ui-button-size-middle  ui-button-block ui-button-nocolor">
+                        <span class="ui-button-content">忘记密码？</span>
+                    </button>
+                </div>
+                <div class="rbox" data-role="reg">
+                    <button class="ui-button  ui-button-size-middle  ui-button-block ui-button-nocolor">
+                        <span class="ui-button-content">新用户注册</span>
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+        <div data-role="nav-to-agreement-login" style="position: absolute;bottom:10px;width: 100%;text-align: center;color:#aeaeae;font-size:10px;">
+            轻触上面的“登录”按钮，即表示你同意<a href="tel:+15920150746">《用户许可协议》</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+
+            var activeElement = document.activeElement;
+            var activeElementNodeName = activeElement.nodeName;
+
+            document.getElementById("header").onclick = function()
+            {
+                window.location.reload()
+
+            }
+
+            document.getElementById("button").onclick = function()
+            {
+                //window.location.href = 'http://m.poco.cn/photo/appdev2#pub';
+
+                window.location.href = 'http://yp.yueus.com/mobile/webdev#hot'
+
+            }
+
+
+
+            /*var content = document.querySelector('meta[name="viewport"]').content;
+
+            document.getElementById("button").onclick = function()
+            {
+                document.querySelector('meta[name="viewport"]').content = 'width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui'
+
+            }*/
+        </script>
+
+

@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="gbk">
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>用户权限添加与编辑模板</title>
+</head>
+<body>
+<style>
+    .J_add_btn,.J_add_cover_img{
+        overflow: hidden;
+    }
+    .model-img-list li{
+        float:left; width:85px; height:100px; text-align:center; margin-right:10px
+    }
+</style>
+{global_header_html}
+
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>用户权限增加/编辑</legend>
+			<form id="form1" name="form1" method="post" action="" onSubmit="return check();">
+			  <table width="90%" align="center">
+				  <tr>
+					  <td width="26%" height="25">user_id</td>
+					  <td width="74%" height="25">
+                         <input name="user_id" type="text" id="user_id" value="{user_info.user_id}" />
+                      </td>
+                  </tr>
+				  <tr>
+					  <td width="26%" height="25">状态</td>
+					  <td width="74%" height="25">
+                          <select name="status">
+                              <option value=''>全部</option>
+                              <option <!-- IF user_info.status="0" --> selected <!-- ENDIF --> value='0'>无效</option>
+                              <option <!-- IF user_info.status="1" --> selected <!-- ENDIF --> value='1'>有效</option>
+                          </select>
+                      </td>
+				  </tr>
+                  <tr>
+					  <td width="26%" height="25">权限</td>
+					  <td width="74%" height="25">
+                          <ul>
+                              <!-- BEGIN acl_list -->
+                              <li id_class="{id}" parent_id_class="{parent_id}" <!-- IF parent_id="0" --> 
+<!-- ELSE --> 
+style="display:none;"
+<!-- ENDIF parent_id --> >{shuo_jing} <img src="images/menu_plus.gif" id="icon_{level}_{id}" width="9" height="9" border="0" onclick="show(this)"/> <input type='checkbox' name="acl[]" <!-- IF is_selected="1" --> checked <!-- ENDIF --> value="{id}" /><label onClick="show(this)" style="cursor:pointer;">{name}</label></li>
+                              <!-- END acl_list -->
+                          </ul>
+                      </td>
+				  </tr>
+                  
+                    <tr>
+                      <td colspan="2" align="center">
+                          <input type="button" name="button" id="button_return" value="返回" onclick="jump();" />&nbsp;&nbsp;<input type="submit" id="button" value="提交" />
+                      </td>
+                    </tr>
+			  </table>
+              <input type='hidden' name='id' value="{user_info.id}"/>
+			</form>
+          </fieldset>
+        </div>
+      </div>
+    </div>   
+    </div>
+     </div>
+<script>
+    function jump()
+    {
+        window.location.href="admin_acl_user.php";
+    }
+    function check()
+    {
+        if($("#user_id").val()=='')
+        {
+            alert("user_id不能为空");
+            return false;
+        }
+        if($("select[name='status']").val()==='')
+        {
+            alert("状态不能为空");
+            return false;
+        }
+        if( $("input:checked").length==0 )
+        {
+            alert("权限不能为空");
+            return false;
+        }
+        
+        $("#form1").submit();
+    }
+    
+    function show(obj)
+    {
+        var id = $(obj).parent().attr("id_class");
+    
+        var parent_id = $(obj).parent().attr("parent_id_class");
+        
+        if($(obj).prev().prev("img").attr("src") == "images/menu_minus.gif")
+        {
+            $(obj).prev().prev("img").attr("src","images/menu_plus.gif");
+        }else
+        {
+            $(obj).prev().prev("img").attr("src","images/menu_minus.gif");
+        }
+
+        if($(obj).attr("src")=='images/menu_minus.gif')
+        {
+            $(obj).attr("src","images/menu_plus.gif"); 
+        }else
+        {
+            $(obj).attr("src","images/menu_minus.gif"); 
+        }
+
+        if($('li[parent_id_class='+id+']').css("display") != 'none')
+        {
+            $('li[parent_id_class='+id+']').css("display","none");
+        }else
+        {
+            $('li[parent_id_class='+id+']').css("display","");
+        }
+    }
+    
+    $(function(){
+        $("input:checkbox").click(function(){
+            
+           var checked = this.checked;
+           var id_class = $(this).parent().attr("id_class"); 
+           var parent_id_class = $(this).parent().attr("parent_id_class");
+           
+           var son_num = $("li[parent_id_class='"+id_class+"']").length;
+           if(parent_id_class == 0)
+           {
+               var son_son_parent_id_num= $("li[parent_id_class='"+id_class+"']").length;
+               for(var j = 0;j<=son_son_parent_id_num;j++)
+               {
+                    var son_son_parent_id = $("li[parent_id_class='"+id_class+"']").eq(j).attr("id_class");
+                    var son_son_num = $("li[parent_id_class='"+son_son_parent_id+"']").length;
+                    if(checked)
+                    {
+                        for(var i = 0;i<son_son_num;i++)
+                        {
+                            $("li[parent_id_class='"+son_son_parent_id+"']").eq(i).children(":checkbox").attr("checked",true);
+                        } 
+                    }else
+                    {
+                        for(var i = 0;i<son_son_num;i++)
+                        {
+                            $("li[parent_id_class='"+son_son_parent_id+"']").eq(i).children(":checkbox").attr("checked",false);
+                        }
+                   } 
+               } 
+                  
+           } 
+           if(checked)
+           {
+               for(var i = 0;i<son_num;i++)
+               {
+                   $("li[parent_id_class='"+id_class+"']").eq(i).children(":checkbox").attr("checked",true);
+               } 
+               
+           }else
+           {
+               for(var i = 0;i<son_num;i++)
+               {
+                   $("li[parent_id_class='"+id_class+"']").eq(i).children(":checkbox").attr("checked",false);
+               }
+               
+           }
+           
+           //所有的子没了，父级也为false
+           var parent_false = true;
+           var parent_num = $("li[parent_id_class='"+parent_id_class+"']").length;
+           for(var i = 0; i<parent_num;i++)
+           {
+               var son_checked = $("li[parent_id_class='"+parent_id_class+"']").eq(i).children(":checkbox").attr("checked");
+               if(son_checked=='checked')
+               {
+                   $("li[id_class='"+parent_id_class+"']").children(":checkbox").attr("checked",true);
+                   parent_false = false;
+               } 
+           }
+           if(parent_false)
+           {
+               $("li[id_class='"+parent_id_class+"']").children(":checkbox").attr("checked",false);
+           } 
+           
+           
+           
+        });
+    });
+    
+</script>
+</body>
+</html>

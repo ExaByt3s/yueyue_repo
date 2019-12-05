@@ -1,0 +1,111 @@
+.confirm-page .confirm-page-wrap {
+  background-color: #f2f2f2;
+  padding-bottom: 100px;
+  position: relative; }
+  .confirm-page .confirm-page-wrap .item-wrap .item .title-item {
+    padding: 20px 15px 10px; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .title-item h3.title {
+      color: #666; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .title-item .count-words {
+      color: #ff6a6e; }
+  .confirm-page .confirm-page-wrap .item-wrap .item .good-info {
+    display: -webkit-box;
+    display: box;
+    -webkit-box-pack: start;
+    box-pack: start; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .good-info img {
+      width: 60px;
+      height: 60px; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .good-info p {
+      font-size: 12px;
+      color: #333;
+      padding: 0 0 0 12px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-box-flex: 1;
+      display: -webkit-box;
+      display: box;
+      -webkit-box-align: center;
+      box-align: center; }
+  .confirm-page .confirm-page-wrap .item-wrap .item .txt-item {
+    padding: 15px;
+    background: #fff; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .color-fe9220 {
+      color: #fe9220; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con.promotion-info .pt25 {
+      padding-top: 25px; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con.promotion-info ul li {
+      line-height: 15px; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con h4.title {
+      color: #333;
+      font-size: 14px;
+      padding-bottom: 10px; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con .sec-area .ui-button {
+      margin: 10px 10px 0 0;
+      position: relative; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con .stage-btn {
+      display: block;
+      text-align: left;
+      padding: 12px 5px 12px 5px;
+      line-height: 14px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con .ui-button-bg-ff6 {
+      background: #ff6a6e;
+      color: #fff;
+      border: 1px solid #ff6a6e; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con .stage-list-size {
+      height: 150px;
+      overflow: hidden; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con .txt .ui-btn-w157 {
+      margin: 0px 15px 10px 0px;
+      font-size: 12px; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con .txt .service-input-text {
+      width: 95%; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con .txt .service-place-textarea {
+      width: 100%;
+      height: 75px; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con .txt .sj-liuyan-textarea {
+      width: 100%;
+      height: 50px; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con .more-text {
+      text-align: center; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con .area-text {
+      width: 100%;
+      background: url(http://static.yueus.com/mall/user/test/static/wap/image/arrow-icon-12x20.png) center right no-repeat;
+      background-size: 6px 10px; }
+    .confirm-page .confirm-page-wrap .item-wrap .item .txt-item .txt-con .service-time-txt {
+      width: 100%;
+      background: url(http://static.yueus.com/mall/user/test/static/wap/image/arrow-icon-12x20.png) center right no-repeat;
+      background-size: 6px 10px; }
+  .confirm-page .confirm-page-wrap .btn-item {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    left: 0;
+    bottom: 0; }
+    .confirm-page .confirm-page-wrap .btn-item .order-submit-btn {
+      display: block;
+      background: #555;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      line-height: 50px; }
+      .confirm-page .confirm-page-wrap .btn-item .order-submit-btn:active {
+        background: #aaa; }
+  .confirm-page .confirm-page-wrap .ui-button-submit-area .footer-btn-item {
+    padding: 0 25px; }
+  .confirm-page .confirm-page-wrap .ui-button-submit-area.v2 button {
+    margin: 5px auto;
+    width: 100%; }
+    .confirm-page .confirm-page-wrap .ui-button-submit-area.v2 button:active {
+      background: #aaa; }
+.confirm-page .icon-cu-36x36-m {width: 18px;
+  height: 18px;
+  
+  position: absolute;
+  z-index: 0;
+  right: -5px;
+  top: -5px;background-repeat: no-repeat;}
+.confirm-page .icon-cu-36x36-m{background-position:0px 0px}.confirm-page .icon-cu-36x36-m{background-size: 18px 18px;background-image: url(http://static.yueus.com/mall/user/test/static/wap/style/order/confirm-page_0.5_z.png)}

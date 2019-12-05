@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+@import "./mini-common";
+
+@import "./include/partials/reset";
+@import "./include/partials/typography";
+
+
+// ------------------
+// 功能
+// ------------------
+.fn-clear {
+    @include pie-clearfix;
+    //@include legacy-pie-clearfix;
+}
+.fn-left {
+    @include float-left;
+}
+.fn-right {
+    @include float-right;
+}
+.fn-hide {
+    display: none!important;
+    visibility: hidden !important;
+}
+.fn-invisible {
+    visibility: hidden;
+}

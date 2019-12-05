@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<!-- jQuery Datepicker Plugin -->
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/table.css">
+<title>工作监控报表后台</title>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">约拍报表</a> 
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform">
+					<table class="table-list-search" id="quick_search">
+					      <tbody>
+							       <tr>
+							       		<td>
+							       			查询：约拍状态
+							       			    <select name="date_status">
+							       			     <option value="all" <!-- IF date_status="all" -->selected="selected"<!-- ENDIF -->>全部</option>
+							       			      <option value="confirm" <!-- IF date_status="confirm" -->selected="selected"<!-- ENDIF -->>已接受</option>
+							       			      <option value="wait" <!-- IF date_status="wait" -->selected="selected"<!-- ENDIF -->>等待接受</option>
+							       			      <option value="cancel" <!-- IF date_status="cancel" -->selected="selected"<!-- ENDIF -->>拒绝</option>
+							       			      <option value="cancel_date" <!-- IF date_status="cancel_date" -->selected="selected"<!-- ENDIF -->>已取消</option>
+							       			      <option value="refund" <!-- IF date_status="refund" -->selected="selected"<!-- ENDIF -->>接受前退款</option>
+							       			    </select>
+							       		</td>
+										<td width="260">
+										  	<input type="text" name="begin_time" id="begin_time" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd' })" value="{begin_time}" readonly="true" class="input-text" size="12">
+										  	至
+										  	<input type="text" name="end_time" id="end_time" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd' })" value="{end_time}" readonly="true" class="input-text" size="12">
+										</td>
+									   <td>
+									    <p> <input type="submit" name="button" id="button" value="提交" class="button" /> 
+									    <a href='output_date.php?date_status={date_status}&begin_time={begin_time}&end_time={end_time}' target="_blank">导出数据</a></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+					<input type="hidden" name="from_date_id" value="{from_date_id}" />
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+	<div class="table-list" id="table-list">
+		<div class="btn">
+			总条数:{total_count}
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0" style="min-width: 1000px;">
+			<thead>
+			    <tr>
+				 <th>订单ID</th>
+                 <th>报名ID</th>
+				 <th>活动ID</th>
+				 <th>地区</th>
+				 <th>约拍状态</th>
+				 <th>摄影师ID</th>
+				 <th>摄影师昵称</th>
+				 <th>模特ID</th>
+				 <th>模特昵称</th>
+				 <th>拍摄风格</th>
+				 <th>时长</th>
+				 <th>总价</th>
+				 <th>优惠</th>
+				 <th>付款状态</th>
+				 <th>付款时间</th>
+				 <th>签到状态</th>
+				 <th>活动状态</th>
+				 <th>来源</th>
+				 <th>机构</th>
+				 <th>是否入库</th>
+                 <th>模特的状态</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN date_list -->
+				<tr>
+				<td align="center">{date_id}</td>
+				<td align="center">{enroll_id}</td>
+				<td align="center">{event_id}</td>
+				<td align="center">{location_name}</td>
+				<td align="center"><!-- IF date_status="wait" -->等待接受<!-- ELSEIF date_status="confirm" -->已接受<!-- ELSEIF date_status="cancel" -->已拒绝<!-- ELSEIF date_status="cancel_date" -->已取消<!-- ELSEIF date_status="refund" -->接受前退款<!-- ENDIF --></td>
+				<td align="center">{from_date_id}</td>
+				<td align="center" style="max-width: 90px;">{cameraman_nickname}</td>
+				<td align="center">{to_date_id}</td>
+				<td align="center" style="max-width: 90px;">{model_nickname}</td>
+				<td align="center" style="max-width: 90px;">{date_style}</td>
+				<td align="center">{hour}小时</td>
+				<td align="center">{date_price}</td>
+				<td align="center"><!-- IF discount_price="0.00" -->--<!-- ELSE -->{discount_price}<!-- ENDIF --></td>
+				<td align="center"><!-- IF pay_status="1" -->已付款<!-- ELSE -->未付款<!-- ENDIF --></td>
+				<td align="center">{pay_time}</td>
+				<td align="center">{is_checked}</td>
+				<td align="center">{event_status}</td>
+				<td align="center">{source}</td>
+				<td align="center" style="max-width: 90px;"><!-- IF org_name --><span style='color:red;'>{org_name}</span><!-- ELSE -->无<!-- ENDIF --></td>
+				<td align="center"><!-- IF is_set --><span style='color:red;'>{is_set}</span><!-- ELSE -->否<!-- ENDIF --></td>
+				<td align="center"><!-- IF is_approval="1" -->通过<!-- ELSEIF is_approval="2" -->未通过<!-- ELSEIF is_approval="3" -->特殊<!-- ELSE -->待审核<!-- ENDIF --></td>
+                </tr>
+				<!-- END date_list -->
+			</tbody>
+		</table>
+	</div>
+	<div id="pages" class="page">
+	{page}
+    </div>
+</div>
+</body>
+</html>

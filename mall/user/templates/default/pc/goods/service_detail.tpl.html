@@ -1,0 +1,719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>约约--{resa.data.title}</title>
+    <meta name="keywords" content="{keywords_key}">
+    <meta name="description" content="{description_key}">
+    <!-- 公共css，js引入 -->
+    {pc_global_top}
+
+<!-- <link rel="import" href="../webcontrol/head.tpl.htm?__inline"> -->
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/lib/mod_327a0b0.js"></script>
+<!-- 当前页css -->
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/style/goods/service-detail-page_c7daf14.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/modules/common/go_top/go_top_c746f30.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/components/jquery/jquery_27c977b.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0_d064b6f.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/js/common/common_b122f6d.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/common/page_control/index_7caaf59.js"></script>
+</head>
+
+<body>
+
+
+<!-- bar -->
+{global_top_bar}
+<!-- bar end -->
+
+<div class="w1000">
+    <div class="mod-nav"><a href="{index_url}">首页</a> > <span><a href="../category/index.php?type_id={type_id}">{type_id_title}</a></span> > <span class="cur">服务详情</span></div>
+</div>
+
+<div class="service-detail-page">
+
+
+
+	<div class="w1000 font_wryh">
+
+
+
+		<div class="detail-page-warp">
+
+				<div class="intro-item clearfix">
+					<div class="scroll-imgList">
+
+							 <div class="scrollBox"  id="img_cen">
+									<ul class="img_list clearfix" id="foo1">
+                                        <!-- BEGIN resa.data.preview -->
+										<li><img  data-lazyload-url="{thumb}"  ></li>
+
+                                        <!-- END resa.data.preview -->
+									</ul>
+
+									<div class="page-wrap clearfix">
+										<a href="#" class="pre" id="prev1"></a>
+										<div class="page-box" id="pager1"><a href="#"></a><a href="#"></a><a href="#"></a></div>
+										<a href="#" class="next" id="next1"></a>
+									</div>
+							</div>               
+					</div>
+					<div class="item-info">
+						<dl class="title-item">
+							<dt class="title">{resa.data.title}</dt>
+							<dd class="ad-mes clearfix">
+								<div class="assess-item">
+									<span class="title">{resa.data.business.merit.title}：</span>
+									<div class="mod-star-item" data-role="service_stars" data-stars="{resa.data.business.merit.value}">
+                                        <div class="icon none-star" data-role="stars">
+                                            <div class="yellow none"></div>
+                                        </div>
+                                        <div class="icon none-star" data-role="stars">
+                                            <div class="yellow none"></div>
+                                        </div>
+                                        <div class="icon none-star" data-role="stars">
+                                            <div class="yellow none"></div>
+                                        </div>
+                                        <div class="icon none-star" data-role="stars">
+                                            <div class="yellow none"></div>
+                                        </div>
+                                        <div class="icon none-star" data-role="stars">
+                                            <div class="yellow none"></div>
+                                        </div>
+									</div>
+								</div>
+								<div class="deal-times"><span class="title">{resa.data.business.totaltrade.title}：</span><em>{resa.data.business.totaltrade.value}</em></div>
+							</dd>
+						</dl>
+						<div class="price-item">
+							<span class="now-price"><b></b><em data-role="change-price">{resa.data.prices}</em></span>
+							<span class="original-price"><b></b><em>{resa.data.original_prices}</em></span>
+						</div>
+						<div class="choose-item">
+							<h3 class="title">请选择规格</h3>
+							<div class="item">
+								<!-- <h4 class="title">类型：</h4> -->
+								<div class="list">
+									<ul data-role="ewm-submit">
+                                        <!-- IF resa.data.standard -->
+                                        <!-- BEGIN resa.data.standard -->
+                                        <li data-carry-id="{id}" data-carry-name="{name}" data-carry-value="{value}"><p data-role="choosen-tap">{name}</p></li>
+                                        <!-- END resa.data.standard -->
+                                        <!-- ELSE -->
+                                        <li class="cur" data-carry-id="none" data-carry-name="标准规格" data-carry-value="{value}"><p data-role="choosen-tap">标准规格</p></li>
+                                        <!-- ENDIF -->
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="btn-item">
+							<a class="ui-btn-gray" id="buy-btn">立即下单</a>
+							<div class="pop-code-item"  id="code-pop">
+								<div class="pop-con">
+									<div class="code-img"><img src="" data-role="ewm-scan"/></div>
+									<p class="tc">扫一扫，一键下单</p>
+								</div>
+								<b class="ui-triangle ui-triangle-bottom-max-black">
+									<b class="ui-triangle ui-triangle-bottom-max-white"></b>
+								</b>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="personal-info-item clearfix">
+					<div class="personal-item">
+						<div class="img-item">
+							<span><img src="{resa.data.user.avatar}" /></span>
+						</div>
+						<dl class="info">
+							<dt>{resa.data.user.name}</dt>
+							<dd>ID:{resa.data.user.user_id}</dd>
+						</dl>
+						<div class="link-item"><a href="{resa.data.user.homepage.request}">{resa.data.user.homepage.title}</a></div>
+					</div>
+					<div class="info-item">
+						<!-- 模特服务 -->
+                        <!-- BEGIN seller_info.data.type_31 -->
+
+                            <div class="item item-model fn-hide" data-role="type_31">
+                                <!-- BEGIN bwh -->
+                                <div class="item-info">
+                                    <h4 class="title">{title}</h4>
+                                    <div class="item-con">
+                                        <div class="model-mes-list clearfix">
+                                            <ul>
+                                                <li  class="li-cm">
+                                                    <i class="icon icon-cm"></i>
+                                                    <p class="txt">{value.m_height}</p>
+                                                </li>
+                                                <li  class="li-kg">
+                                                    <i class="icon icon-kg"></i>
+                                                    <p class="txt">{value.m_weight}</p>
+                                                </li>
+                                                <li class="li-size">
+                                                    <i class="icon icon-size"></i>
+                                                    <p class="txt">{value.m_cups}</p>
+                                                </li>
+                                                <li class="li-figure">
+                                                    <i class="icon icon-figure"></i>
+                                                    <p class="txt">{value.m_bwh}</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END bwh -->
+                                <!-- BEGIN description -->
+                                <div class="item-info">
+                                    <h4 class="title">{title}</h4>
+                                    <div class="item-con">
+                                        <p>{value}</p>
+                                    </div>
+                                </div>
+                                <!-- END description -->
+                            </div>
+
+                        <!-- END seller_info.data.type_31 -->
+
+                        <!-- 摄影服务 -->
+                        <!-- BEGIN seller_info.data.type_40 -->
+                        <div class="item item-photograph fn-hide" data-role="type_40">
+                            <!-- BEGIN description -->
+                            <div class="item-info">
+                                <h4 class="title">{title}</h4>
+                                <div class="item-con">
+                                    <p>{value}</p>
+                                </div>
+                            </div>
+                            <!-- END description -->
+                        </div>
+                        <!-- END seller_info.data.type_40 -->
+
+                        <!-- 摄影培训 -->
+                        <!-- BEGIN seller_info.data.type_5 -->
+                        <div class="item item-photograph fn-hide" data-role="type_5">
+                            <!-- BEGIN description -->
+                            <div class="item-info">
+                                <h4 class="title">{title}</h4>
+                                <div class="item-con">
+                                    <p>{value}</p>
+                                </div>
+                            </div>
+                            <!-- END description -->
+                        </div>
+                        <!-- END seller_info.data.type_5 -->
+
+                        <!-- 影棚租赁 -->
+                        <!-- BEGIN seller_info.data.type_12 -->
+                        <div class="item item-photograph fn-hide" data-role="type_12">
+                            <!-- BEGIN description -->
+                            <div class="item-info">
+                                <h4 class="title">{title}</h4>
+                                <div class="item-con">
+                                    <p>{value}</p>
+                                </div>
+                            </div>
+                            <!-- END description -->
+                        </div>
+                        <!-- END seller_info.data.type_12 -->
+
+                        <!-- 化妆服务 -->
+                        <!-- BEGIN seller_info.data.type_3 -->
+                        <div class="item item-photograph fn-hide" data-role="type_3">
+                            <!-- BEGIN description -->
+                            <div class="item-info">
+                                <h4 class="title">{title}</h4>
+                                <div class="item-con">
+                                    <p>{value}</p>
+                                </div>
+                            </div>
+                            <!-- END description -->
+                        </div>
+                        <!-- END seller_info.data.type_3 -->
+
+						<!-- 评分 -->
+                        <!-- BEGIN seller_info.data.business -->
+						<div class="item item-assess fn-hide" data-role="business">
+							<div class="item-info">
+								<h4 class="title">{merit.title}</h4>
+								<div class="item-con">
+                                    <div class="mod-star-item" data-role="seller_stars" data-stars="{merit.value}">
+                                        <div class="icon none-star" data-role="stars">
+                                            <div class="yellow none"></div>
+                                        </div>
+                                        <div class="icon none-star" data-role="stars">
+                                            <div class="yellow none"></div>
+                                        </div>
+                                        <div class="icon none-star" data-role="stars">
+                                            <div class="yellow none"></div>
+                                        </div>
+                                        <div class="icon none-star" data-role="stars">
+                                            <div class="yellow none"></div>
+                                        </div>
+                                        <div class="icon none-star" data-role="stars">
+                                            <div class="yellow none"></div>
+                                        </div>
+                                    </div>
+								</div>
+								<div class="deal-times">
+									<span class="times">{totaltrade.title}：{totaltrade.value}</span>
+								</div>
+							</div>
+						</div>
+                        <!-- END seller_info.data.business -->
+					</div>
+				</div>
+
+				<div class="service-item">
+					<h3 class="title">{resa.data.promise_title}</h3>
+					<div class="list clearfix">
+                        <!-- BEGIN resa.data.promise_show -->
+                        <div class="item">
+                            <p>{nl2br:title}{nl2br:value}</p>
+                        </div>
+                        <!-- END resa.data.promise_show -->
+                        <!-- IF resa.data.promise_hide -->
+                        <!-- BEGIN resa.data.promise_hide -->
+                        <div class="item fn-hide" data-show="hide">
+                            <p>{nl2br:title}{nl2br:value}</p>
+                        </div>
+                        <!-- END resa.data.promise_hide -->
+                        <!-- ENDIF -->
+					</div>
+                    <!-- IF resa.data.promise_hide -->
+					<div class="btm-item">
+						<span class="op-btn more-btn" data-role="show_more" ><em>更多</em><i class="icon"></i></span>
+						<span class="op-btn packup-btn" data-role="hide_more" style="display: none"><em>收起</em><i class="icon"></i></span>
+					</div>
+                    <!-- ENDIF -->
+				</div>
+
+                <!-- IF resa.data.recommend -->
+                <div class="service-item">
+                    <h3 class="title">{nl2br:resa.data.recommend.title}</h3>
+                    <div class="list clearfix">
+                        <div class="item">
+                            <p>{nl2br:resa.data.recommend.value}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ENDIF -->
+
+                <!-- IF resa.data.menu -->
+                <div class="service-item">
+                    <h3 class="title">{nl2br:resa.data.menu.title}</h3>
+                    <div class="list clearfix">
+                        <div class="item">
+                            <p>{nl2br:resa.data.menu.value}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ENDIF -->
+
+
+
+				<div class="detail-item">
+                    {resa.data.detail.value}
+				</div>
+
+                <!-- IF resa.data.guide -->
+                <div class="service-item">
+                    <h3 class="title">{nl2br:resa.data.guide.title}</h3>
+                    <div class="list clearfix">
+                        <!-- BEGIN resa.data.guide.list -->
+                        <div class="item">
+                            <p>{nl2br:title}{nl2br:value}</p>
+                        </div>
+                        <!-- END resa.data.guide.list -->
+
+                        <!-- BEGIN resa.data.guide.img -->
+                        <div class="item">
+                            <img src="{original}" style="width: 100%"/>
+                        </div>
+                        <!-- END resa.data.guide.img -->
+                    </div>
+                </div>
+                <!-- ENDIF -->
+
+				<div class="appraise-item" data-role="appraise-item">
+					<h3 class="title">服务评价</h3>
+					<div class="mod-appraise-item">
+						<div class="list" data-role="lists">
+
+						</div>
+						<div class="page" data-role="page-index">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+        {down_app_area}
+
+</div>
+
+{footer}
+
+</body>
+
+<script type="text/javascript">
+		var $ = require('components/jquery/jquery.js');
+		var carouFredSel = require('common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0');
+
+
+        // 引入图片居中处理组件
+        var lazyload = require('common/lazyload/lazyload');
+
+        $('#foo1').carouFredSel({
+            prev: '#prev1',
+            next: '#next1',
+            pagination: "#pager1",
+            auto: true
+        });
+        // 图片后加载处理
+        var lazyload_obj = new lazyload({
+            contain: $('#img_cen'), // 后加载的父容器
+            size: '320', // 可传可不传，压位
+            img_center: {
+                is_open : true,  //是否开启图片居中功能
+                width : '544',   //图片居中盒子的宽
+                height : '468'  //图片居中盒子的高
+            },
+            pre_load_165 : true //立刻加载165的图
+        });
+
+        // 引入返回顶部组件
+        var go_top = require('common/go_top/go_top');
+        var go_top_obj = new go_top({
+            render_ele: $('body') // 后加载的父容器
+        });
+
+        $("html,body").animate({scrollTop:0},1000);
+
+
+        var page_control = require('common/page_control/index');
+
+        page_control.reg_hash
+        ([
+            {
+                hash : '#date',
+                func : function()
+                {
+                    console.log("date");
+                }
+            },
+            {
+                hash : '#ini',
+                func : function()
+                {
+                    console.log("ini");
+                }
+            }
+        ])
+
+        //var service_stars = parseFloat('{resa.data.business.merit.value}');
+        var ewm_link = '{order_link}';
+        //console.log(ewm_link);
+
+        var list_arr = {commit_json};
+
+        var pages = require('common/widget/page_control/page-control');
+
+
+
+
+        //星星处理函数
+        function trans_stars(obj,num)
+        {
+            var container = obj;
+
+            var stars = num || parseFloat(obj.attr('data-stars'));
+
+            //console.log(stars);
+
+            if(stars % 1 == 0)
+            {
+                $.each(obj.find('[data-role="stars"] > .yellow'),function(i,obj)
+                {
+                    if(i < stars){
+                        $(obj).removeClass('none').addClass('full');
+                    }
+                })
+            }
+            else{
+                $.each(obj.find('[data-role="stars"] > .yellow'),function(i,obj)
+                {
+                    if(i < Math.floor(stars)){
+                        $(obj).removeClass('none').addClass('full');
+                    }
+                    if(i == Math.floor(stars)){
+                        $(obj).removeClass('none').addClass('half');
+                    }
+                })
+            }
+        }
+
+		$(document).ready(function() {
+
+            //console.log(list_arr.result_data)
+
+
+
+
+            $('[data-role="show_more"]').on('click',function()
+            {
+                $('[data-show="hide"]').removeClass('fn-hide');
+
+                $(this).css('display','none');
+
+                $('[data-role="hide_more"]').css('display','');
+            })
+
+            $('[data-role="hide_more"]').on('click',function()
+            {
+                $('[data-show="hide"]').addClass('fn-hide');
+
+                $(this).css('display','none');
+
+                $('[data-role="show_more"]').css('display','');
+            })
+
+
+			$("#buy-btn").click(function(event){
+				if($("#code-pop").hasClass("pop-open")){
+                    event.stopImmediatePropagation();
+					$("#code-pop").removeClass("pop-open");
+				}else{
+                    event.stopImmediatePropagation();
+                    var num = $('[data-role="ewm-submit"]').find('.cur').attr('data-carry-id');
+
+
+                    if(num)
+                    {
+                        var ewm_url;
+
+                        if(num == 'none')
+                        {
+                            ewm_url = 'yp.yueus.com' + location.pathname + '?goods_id={resa.data.goods_id}&from_pc=1';
+                        }
+                        else
+                        {
+                            ewm_url = 'yp.yueus.com' + location.pathname + '?goods_id={resa.data.goods_id}&from_pc=1&price_type_id=' + num;
+                        }
+
+                        ewm_url = 'http://' + ewm_url.replace('goods/service_detail.php','order/confirm.php');
+
+                        //console.log(ewm_url);
+
+                        $("#code-pop").addClass("pop-open");
+
+                        $.ajax
+                        ({
+                            url: '.'+window.$__config.ajax_url + 'url_to_ewm.php',
+                            data : {url:ewm_url},
+                            dataType: 'json',
+                            type: 'POST',
+                            cache: false,
+                            beforeSend: function()
+                            {
+                                $('[data-role="ewm-scan"]').attr('src',"")
+                            },
+                            success: function(data)
+                            {
+                                $('[data-role="ewm-scan"]').attr('src',data.result_data)
+
+                            },
+                            error: function(data)
+                            {
+                                alert('请求失败，请重试');
+                                $("#code-pop").removeClass("pop-open");
+                            },
+                            complete: function()
+                            {
+
+                            }
+                        });
+                    }
+                    else
+                    {
+                        alert("请选择规格")
+                    }
+                }
+            });
+
+            var show_type = '{seller_info.data.show}';
+            $('[data-role="' + show_type + '"]').removeClass('fn-hide');
+
+            trans_stars($('[data-role="service_stars"]'));
+            trans_stars($('[data-role="seller_stars"]'));
+            $.each($('[data-role="commit_stars"]'),function(i,obj)
+            {
+                trans_stars($(obj));
+            })
+
+            $('[data-role="choosen-tap"]').on('click',function()
+            {
+                var con = $(this);
+
+                con.parent().addClass('cur').siblings().removeClass('cur');
+
+                if(con.parent().attr('data-carry-value'))
+                {
+                    $('[data-role="change-price"]').html('￥' + con.parent().attr('data-carry-value'))
+                }
+
+
+                $("#code-pop").removeClass("pop-open");
+
+            })
+
+            var first_render = true; //首次加载不触发滚动事件
+            var ss = new pages
+            ({
+                //btn_index_max:3,//出现多少个按钮
+                container:$('[data-role="lists"]'),//列表插入父元素
+                data:list_arr.result_data, //列表数据数组 list=[{},{},{}]
+                default_index : 0, //默认索引 从0开始 超过最大值默认第一页
+                index_btn_container : $('[data-role="page-index"]'),//索引插入父元素
+                index_btn_trigger_show_lr_btn:3,//多少页时触发 上一页 下一页按钮
+                index_btn_temp:Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, self=this, functionType="function", escapeExpression=this.escapeExpression;
+
+function program1(depth0,data) {
+  
+  
+  return "\n    <a title=\"上一页\" data-index=\"pre\">&lt;</a>\n";
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\n    <a ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.cur), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " data-index=\"";
+  if (helper = helpers.dex) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.dex); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\">";
+  if (helper = helpers.num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</a>\n";
+  return buffer;
+  }
+function program4(depth0,data) {
+  
+  
+  return "class=\"click\"";
+  }
+
+function program6(depth0,data) {
+  
+  
+  return "\n    <a title=\"下一页\" data-index=\"next\">&gt;</a>\n";
+  }
+
+  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.has_pre), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  stack1 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.list), {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.has_next), {hash:{},inverse:self.noop,fn:self.program(6, program6, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  return buffer;
+  }),//索引模板
+                list_temp:Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\n<div class=\"item clearfix\">\n    <div class=\"user-img\">\n        <div class=\"img\"><a href=\"#\"><img src=\"";
+  if (helper = helpers.avatar) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.avatar); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\" /></a></div>\n        <p class=\"id-num\">ID:";
+  if (helper = helpers.from_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.from_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</p>\n    </div>\n    <div class=\"item-main\">\n        <div class=\"mod-star-item\" data-role=\"commit_stars\" data-stars=\"";
+  if (helper = helpers.rating) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.rating); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\">\n            <div class=\"icon none-star\" data-role=\"stars\">\n                <div class=\"yellow none\"></div>\n            </div>\n            <div class=\"icon none-star\" data-role=\"stars\">\n                <div class=\"yellow none\"></div>\n            </div>\n            <div class=\"icon none-star\" data-role=\"stars\">\n                <div class=\"yellow none\"></div>\n            </div>\n            <div class=\"icon none-star\" data-role=\"stars\">\n                <div class=\"yellow none\"></div>\n            </div>\n            <div class=\"icon none-star\" data-role=\"stars\">\n                <div class=\"yellow none\"></div>\n            </div>\n        </div>\n        <div class=\"text-item\">\n            <p>";
+  if (helper = helpers.comment) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.comment); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</p>\n        </div>\n        <div class=\"info-item\"><span class=\"name\">";
+  if (helper = helpers.customer) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.customer); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</span><span class=\"date\">";
+  if (helper = helpers.add_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.add_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</span> </div>\n    </div>\n</div>\n";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
+  }),//列表模板
+                per_page_amount:5,//每页列表显示的数据数量
+                after_render : function(whiches)
+                {
+                    //渲染完毕后调用该函数 whiches为self对象
+                    //console.log(whiches);
+                    $.each(whiches.view.find('[data-role="commit_stars"]'),function(i,obj)
+                    {
+                        trans_stars($(obj));
+                    })
+
+                    if(list_arr.result_data.length == 0)
+                    {
+                        $('[data-role="appraise-item"]').addClass('fn-hide');
+                    }
+
+                    if(whiches.per_page_amount >= list_arr.result_data.length)
+                    {
+                        $('[data-role="page-index"]').addClass('fn-hide');
+                    }
+
+                    if(first_render)
+                    {
+                        first_render = false;
+                    }
+                    else
+                    {
+                        $("html,body").animate({scrollTop: $('[data-role="appraise-item"]')[0].offsetTop}, 300);
+                    }
+                },
+                after_pre_act : function(whiches)
+                {
+                    //前一页按钮调用后
+                },
+                after_next_act : function(whiches)
+                {
+                    //后一页按钮调用后
+                }
+
+            })
+
+            $(document).on("click",function(){
+                $("#code-pop").removeClass("pop-open");
+            })
+		});
+
+</script>
+
+</html>

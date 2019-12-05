@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO摄影app - dialog
+// ------------------------------
+
+.ui-dialog {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $maxZIndex - 1;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: table;
+
+}
+.ui-dialog-container-out{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.ui-dialog-container {
+    position: relative;
+    top: 30%;
+    margin: 0 auto;
+    max-width: 85%;
+    background: #fff;
+    @include border-radius(5px);
+}
+
+// .input-list {
+//     & > div {
+//         padding-top: 20px;
+//         label{
+//             color: #aaaaaa;
+//         }
+//         input{
+//             border-bottom: 1px solid #e6e6e6;
+//             width: 30%;
+//             text-align: center;
+//         }
+//         p{
+//             display: inline-block;
+//         }
+//         &:first-child{
+//             padding-top: 0;
+//         }
+//     } 
+// }
+
+.ui-dialog-content {
+    padding: 25px 0;
+    line-height: 24px;
+}
+
+.ui-dialog-footer {
+    @include flexbox((
+        display: box,
+        box-pack: center
+    ), $version: 1);
+    border-top: 1px solid #e6e6e6;
+    min-width: 0;
+    @include border-bottom-left-radius(5px);
+    @include border-bottom-right-radius(5px);
+    overflow: hidden;
+}
+
+.ui-dialog-button {
+    display: block;
+    @include flexbox((
+        //display: box,
+        //box-pack: center,
+        box-flex: 1
+    ), $version: 1);
+
+    position: relative;
+    line-height: 45px;
+    color: #ff0052;
+    background: transparent;
+    @include justify-content(center);
+
+    &:active {
+        background: #f2f2f2;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        border-left: 1px solid #e6e6e6;
+    }
+    &:first-child {
+        &:before {
+            border-left: none;
+        }
+    }
+}
+
+//二维码样式
+.qr{
+    margin: 0 auto;
+    .number{
+        em{
+            color:#ff5000;
+        }
+    }
+    .picture{
+        margin: 0 auto;
+        img{
+            width: 90%;
+        }
+    }
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>无标题文档</title>
+
+<link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+
+
+<!-- 当前页css -->
+<!-- <link type="text/css" rel="stylesheet" href="../style/login-page.scss">  -->
+
+</head>
+<body>
+
+    <div class="global-top-bar-seller" id="global-top-bar-seller">
+
+        <div class="top-bar clearfix w1000 font_wryh">
+
+            <div class="logo fldi">
+                <a href="#"></a>
+            </div>
+
+            <div class="nav clearfix">
+                <div class="item"><a href="#">服务管理</a></div>
+                <div class="item "   menu-item-trigger>    <!-- 触发样式 dropdown-menu-hover -->
+
+                    <a href="#"><span class="txt">账户管理</span><b class="ui-triangle ui-triangle-bottom-min-white"></b></a>
+                    <div class="dropdown-menu">
+                        <ul class="list clearfix">
+                            <li><a href="#">账户余额：￥5000.00</a></li>
+                            <li><a href="#">提现</a></li>
+                        </ul>        
+                    </div>
+                </div>
+            </div> 
+
+            <div class="nav clearfix seller-info">
+                <div class="item "  menu-item-trigger>    <!-- 触发样式 dropdown-menu-hover -->
+                
+                    <a href="#"><span class="txt">商家用户名</span><b class="ui-triangle ui-triangle-bottom-min-white"></b></a>
+                    <div class="dropdown-menu">
+                        <ul class="list clearfix">
+                            <li><a href="#">个人中心</a></li>
+                            <li><a href="#">认证中心</a></li>
+                            <li><a href="#">约约首页</a></li>
+                            <li><a href="#">退出</a></li>
+                        </ul>        
+                    </div>
+                </div>
+            </div>  
+
+      
+        </div>
+
+              
+
+    </div>
+
+
+
+    <div class="content">
+    <div class="choose-type-page  w1000 font_wryh">
+    <div class="mod-choose-step-zone">
+       <ul>
+           <li class="cur">
+                <i class="icon-radius ">1</i>
+               <a href="#" class="step-1">选择类型</a>
+           </li>
+           <li >
+                <i class="icon-radius ">2</i>
+               <a href="#" class="step-2">入驻资料</a>
+           </li>
+           <li>
+                <i class="icon-radius ">3</i>
+               <a href="#" class="step-3">开通</a>
+           </li>
+       </ul>
+    </div>
+        <div class="seller-page mod-attest-page content-bg">
+            <div class="mod-listItem">
+                <span>个人认证</span>
+            </div>
+            <div class="form-warp">
+                <div class="item">
+                    <div class="mod-form-title">
+                        <span>真实姓名</span>
+                    </div>
+                    <div class="item-con">
+                        <div class="mod-input-item">
+                            <input type="text" class="input-txt input-txt-1 font_wryh" placeholder="默认提示的文案" />
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="mod-form-title">
+                        <span>昵称</span>
+                    </div>
+                    <div class="item-con">
+                        <div class="mod-input-item">
+                            <input type="text" class="input-txt input-txt-1 font_wryh" placeholder="2-10个字，请勿使用特殊符号或低俗的名字" />
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="mod-form-title">
+                        <span>头像</span>
+                    </div>
+                    <div class="item-con">
+                        <div class="upload-item clearfix">
+                            <div class="up-load-btn">
+                                <img src="../../../images/test/test-upload.png" alt=""></div>
+                            <div class="tips">
+                                <p>要求清晰、健康、能代表品牌形象的照片</p>
+                                <p>请勿使用二维码，最大5M，200*200像素</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item item-2row clearfix">
+                <div class="item-list">
+                    <div class="item-term">
+                        <div class="mod-form-title font_wryh">
+                            <span>所在地</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-select-item">
+                                <select name="" class="font_wryh">
+                                    <option value="默认提示的文案">默认提示的文案</option>
+                                    <option value="广东">广东</option>
+                                    <option value="山东">山东</option>
+                                    <option value="湖南">湖南</option>
+                                    <option value="湖北">湖北</option>
+                                    <option value="河南">河南</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-term">
+                        <div class="mod-form-title font_wryh">
+                            <span>区域</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-select-item">
+                                <select name="" class="font_wryh">
+                                    <option value="默认提示的文案">默认提示的文案</option>
+                                    <option value="广东">广东</option>
+                                    <option value="山东">山东</option>
+                                    <option value="湖南">湖南</option>
+                                    <option value="湖北">湖北</option>
+                                    <option value="河南">河南</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="mod-form-title">
+                        <span>身份证号码</span>
+                    </div>
+                    <div class="item-con">
+                        <div class="mod-input-item">
+                            <input type="text" class="input-txt font_wryh" placeholder="默认提示文案" />
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="mod-form-title">
+                        <span>上传身份证扫描件</span>
+                    </div>
+                    <div class="item-con">
+                        <div class="IDcard-item clearfix">
+                            <div class="card-list">
+                                <ul>
+                                    <li class="cur">
+                                        <div class="facade-item">
+                                            <a href="#">
+                                                <img src="../../../images/test/idcard-200x120.jpg" />
+                                            </a> <i class="close-icon"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="obverse-item">
+                                            <a href="#"></a> <i class="close-icon"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tips">
+                                <p>须是清晰彩色原件</p>
+                                <p>可以是扫描或数码照片</p>
+                                <p>上传文件大小不超过2M</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-item">
+                    <a href="javascript:void(0)" class="ui-btn ui-btn-blue" id="personSub">提交审核</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer font_wryh">
+        <a href="#" class="mr10">关于约约</a>
+        |
+        <span class="ml10">Copyright &copy; 2003-2015 YUEUS.COM</span>
+    </div>
+
+<script type="text/javascript">
+    // 头部
+    require('../../../modules/common/global-top-bar/global-top-bar');
+    var $ = require('components/jquery/jquery.js');
+    $(function(){
+        $("#personSub").click(function(){
+            // 错误提示函数
+            var congfig = true ;
+            function error_tips(ele,str)
+            {
+                alert(str) ;
+                $("html,body").animate({scrollTop:ele.offset().top},300);
+                congfig = false ;
+                return false;
+            }
+            if($(".person_true_name").val())
+            {
+                error_tips($(".person_true_name"),'真实姓名');
+            }
+
+        });
+    });
+
+</script>
+    
+</body>
+</html>

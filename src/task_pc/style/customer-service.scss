@@ -1,0 +1,59 @@
+@charset "utf-8";
+/*  
+Theme Name:poco ued theme
+Author URI:poco.cn
+Description: poco
+*/
+
+.customer-service-page-wrap{
+    
+    .top-bar{
+        font-size: 28px;
+        padding: 30px 0;
+    }
+
+    margin-bottom: 100px;
+
+    .customer-service-page{
+
+        border:1px #dddddd solid; border-radius:4px; background:#f8f8f8;
+
+        .leftbar{width:240px; background:#f8f8f8;}
+        .leftbar ul li{height:60px; background:url(../image/task/icon-allow-7x11.png) no-repeat 220px center #f8f8f8; line-height:60px; font-size:16px; padding-left:20px; border-bottom:1px solid #dddddd; border-right:1px solid #dddddd;}
+        .leftbar ul li a{display:block; text-decoration:none; color:#333333;}
+        .leftbar ul li:hover{background:url(../image/task/icon-allow-7x11-hover.jpg) no-repeat 220px center #fff; border-right:none;}
+        .leftbar ul li:hover a{color:#4092f1;}
+        .leftbar ul li.cur{background:url(../image/task/icon-allow-7x11-hover.jpg) no-repeat 220px center #fff; border-right:none;}
+        .leftbar ul li.cur a{color:#4092f1;}
+        .leftbar .phone{margin-top:80px;width: 238px;height: 96px; background:url(../image/task/phone-img-238x95.png) no-repeat} 
+        .rbox{width:638px; padding:0 40px 40px; background:#fff; min-height:1000px;}
+        .rbox .title{height:90px; line-height:90px; font-size:20px; color:#000;}
+        .rbox .sub-title{border-bottom:1px solid #f4f4f4; border-top:1px solid #f4f4f4; padding:30px 0px;}
+        .rbox .sub-title ul li{  font-size:14px; color:#4092f1;cursor: pointer;margin-top: 8px;}
+        .rbox .txt-con .item h3{font-size:14px; margin-top:30px;}
+        .rbox .txt-con .item p{font-size:14px; line-height:24px; color:#666;}
+        .rbox .txt-con .item ol{padding-left:20px;}
+        .rbox .txt-con .item ol li{list-style-type:decimal; font-size:14px; color:#666; line-height:24px;}
+        .rbox .txt-con .item ol li.li-else{color:#4092f1; list-style-type:none;}
+        
+    }
+
+    .time{
+        text-align: center;
+        font-size: 14px;
+        color: #333333;
+        padding: 50px 0 20px 0;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+

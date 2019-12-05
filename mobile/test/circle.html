@@ -1,0 +1,214 @@
+<html>
+<head>
+    <meta charset="gb2312">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <script charset="utf-8"  src="./js/jquery.js"></script>
+    <title></title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            background: #fff;
+        }
+        .btn{
+            position: absolute;
+            margin-left: 550px;
+            margin-top: 460px;
+            color: #fff;
+            width: 100px;
+            height: 100px;
+            background: #000;
+            top: 0px;
+            z-index: 2000;
+
+        }
+        .squa{
+            -webkit-transform-origin : 0 50%;
+            -webkit-transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            width: 600px;
+        }
+        .body_container{
+            position: relative;
+            margin-top: 350px;
+            margin-left: 500px;
+            width: 100px;
+            height: 100px;
+            padding: 100px;
+        }
+        .outer
+        {
+            display:-webkit-box;
+            -webkit-transform-origin : 0 50%;
+        }
+        .outer_contain{
+            display:-webkit-box;
+            -webkit-box-orient: vertical;
+        }
+        .inner
+        {
+
+        }
+        .outer_title{
+            word-wrap: break-word;
+            width: 100px;
+            min-width: 100px;
+        }
+        .tags0{}
+        .tags1{background:#d90348;}
+        .tags2{background:#C09853;}
+        .tags3{background:#ffff00;}
+        .tags4{background:#00755e;}
+        .tags5{background:#0066bb;}
+        .tags6{background:#0099FF;}
+        .tags7{background:#18cea7;}
+        .tags8{background:#222222;}
+        .tags9{background:#1abc9c;}
+        .tags10{background:#ffcaca;}
+        .tags11{background:#ff4978;}
+        .tags12{background: #afafaf;}
+
+    </style>
+</head>
+<body class="body">
+<div class="btn">按钮</div>
+<div class="body_container" data-role="body_container" data-role-father="0">
+
+</div>
+<script>
+    window.onload = function()
+    {
+
+        var draw_data =
+        {
+            data :
+            {
+                MsgTcrhciRequest :
+                {
+                    P:{PatientId:'None',ReLayer:'None',CourseId:'None'},
+                    C:{CourseId:'None'},
+                    RL:{ReLayer:'None'},
+                    SETUPPC:{SetupPositionCorrection:'None'},
+                    TRMPC:{TreatmentPositionCorrection:'None'},
+                    PPSP:{PPSPosition:'None'},
+                    PSL:{PatientSelection:'None'},
+                    TCRU:{tcrUserName:'None'},
+                    PIF:{PatientInfo:'None'},
+                    F:{FieldId:'None'},
+                    PF:{PrescribedField:'None'},
+                    PS:{PrescribedSegment:'None'},
+                    PTP:{PrescribedTreatmentPosition:'None'},
+                    RF:{RequiredField:'None'},
+                    RS:{RequiredSegment:'None'},
+                    TDIRR:{TuningDuringIrradiation:'None'}
+                }
+            },
+            b_data :
+            {
+                MsgTcrhciRequest :
+                {
+                    P:
+                    {
+                        a :
+                    {
+                        PatientId:'None',ReLayer:'None',CourseId:'None'}
+                    },
+                    C:{CourseId:'None'},
+                    RL:{ReLayer:'None'},
+                    SETUPPC:{SetupPositionCorrection:'None'},
+                    TRMPC:{TreatmentPositionCorrection:'None'},
+                    PPSP:{PPSPosition:'None'},
+                    PSL:{PatientSelection:'None'},
+                    TCRU:{tcrUserName:'None'},
+                    PIF:{PatientInfo:'None'},
+                    F:{FieldId:'None'},
+                    PF:{PrescribedField:'None'},
+                    PS:{PrescribedSegment:'None'},
+                    PTP:{PrescribedTreatmentPosition:'None'},
+                    RF:{RequiredField:'None'},
+                    RS:{RequiredSegment:'None'},
+                    TDIRR:{TuningDuringIrradiation:'None'}
+                }
+            }
+        }
+
+        var arr = [];
+
+        var child_count = 0;
+
+        var father_count = 0;
+
+        var self_father_count;
+
+        function draw (draw_data,append_count)
+        {
+            for (var key in draw_data)
+            {
+                if(typeof draw_data[key] == 'object')
+                {
+                    var self_father_count = father_count + 1;
+
+                    var outer_obj = $('<div class="outer" data-role="rotate"><div class="outer_title" data-role="color">'+ key + '</div><div class="outer_contain" data-role-father="' + self_father_count + '"></div></div>');
+
+                    $('[data-role-father="'+ append_count + '"]').append(outer_obj);
+
+                    father_count++;
+
+                    draw(draw_data[key],self_father_count)
+                }
+                else
+                {
+                    var inner_obj = $('<div class="inner" data-role="rotate" data-role="color" data-role-child="' + child_count + '">'+ key + ':' + draw_data[key] + '</div>');
+
+                    $('[data-role-father="'+ father_count + '"]').append(inner_obj);
+
+                    child_count++;
+                }
+            }
+        }
+
+        function render_finish ()
+        {
+                var tags_a = $('[data-role="color"]');
+                tags_a.each(function(){
+                    var x = 12;
+                    var y = 0;
+                    var rand = parseInt(Math.random() * (x - y + 1) + y);
+                    // Math.random() 令系统随机选取0-1之间的14位的随机数
+                    // parseInt() 函数可解析一个字符串，并返回一个整数
+                    $(this).addClass("tags"+rand);
+                });
+
+            var tags_b = $('.inner');
+            tags_b.each(function(){
+                var x = 12;
+                var y = 0;
+                var rand = parseInt(Math.random() * (x - y + 1) + y);
+                // Math.random() 令系统随机选取0-1之间的14位的随机数
+                // parseInt() 函数可解析一个字符串，并返回一个整数
+                $(this).addClass("tags"+rand);
+            });
+
+            console.log($($('[data-role-father="0"]')[0]))
+            $('[data-role-father="0"]').children().each(function(i,obj)
+            {
+                console.log(obj);
+
+                $(obj).css({position:'absolute',top:"0px"});
+            })
+
+        }
+        draw(draw_data,0);
+
+        render_finish();
+
+
+    };
+
+</script>
+</body>
+</html>

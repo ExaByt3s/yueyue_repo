@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>修改成功</title>
+    {m_global_top}
+    <link charset="utf-8" rel="stylesheet" href="./css/change_finish.css">
+<body>
+{m_task_top}
+<div class="change_finish_logo layout_box_v">
+    <img src="./img/ok-100x100.png"/>
+    <div class="change_finish_title">密码修改成功</div>
+</div>
+<div class="change_finish_btn" data-role="change_finish_btn">确定</div>
+
+
+<div class="change_finish_contact layout_box"><div class="exp">合作请电：</div><div><a href="tel:4000-82-9003" class="common_on_tel">4000-82-9003</a></div></div>
+</body>
+{m_global_bot}
+<script>
+    window.onload = function()
+    {
+        $('[data-role="change_finish_btn"]').on('click',function()
+        {
+            location.href = './login.php';
+        })
+    }
+</script>
+</html>

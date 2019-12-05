@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>管理员后台</title>
+<style type="text/css">
+.table-list
+{
+	clear:both;
+}
+.table-ul 
+{
+  margin-top:10px;
+  min-height:40px;
+}
+.table-ul li
+{
+   list-style:none;
+   float: left;
+   width: 25%;
+   text-align: center;
+   height: 30px;
+   line-height: 30px;
+}
+.table-ul li a
+{
+  display: inline-block;
+  width: 80%;
+  height: 24px;
+  line-height: 24px;
+  border: 1px solid #ccc;
+  color: black;
+  text-decoration: none;
+}
+.table-ul li .cur
+{
+  background: #ccc;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+  <!-- BEGIN label_cat_ret -->
+	  <div class="table-list">
+	    <p>{cat_name}:</p>
+	    <ul class="table-ul">
+	       <!-- BEGIN label_ret -->
+	       	<li><a href="javascript:void(0);" data="{id}" {label_selected}>{label}</a></li>
+	       <!-- END label_ret -->
+	    </ul>
+	  </div>
+  <!-- END label_cat_ret -->
+   <div class="btn" style="clear:both;">
+	      <input type="button" class="button" value="取消" id="close_layer" />
+	      <input type="button" class="button" value="确定" id="send_layer"/>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+var index = parent.layer.getFrameIndex(window.name);
+$(function(){
+    //单个选择
+    $(".table-ul").find('li a').click(function(){
+    	/*
+        var $val = $(this).html();
+        if ($(this).attr("data") == '') 
+        {
+           $(this).attr( { 'data': $val } );
+           $(this).addClass('cur');
+        }
+        else
+        {
+           $(this).attr( { 'data': '' } );
+           $(this).removeClass('cur');
+        }*/
+        if($(this).attr("class")=='cur')
+        {
+        	$(this).removeClass('cur');
+        }
+        else
+        {
+        	 $(this).addClass('cur');
+        }
+    })
+
+    //关闭layer
+    $("#close_layer").click(function(){
+         parent.layer.close(index);
+    });
+    //保存
+    $("#send_layer").click(function(){
+      var $str = "";
+      var $str_show = "";
+      $(".table-ul .cur").each(function(i){
+        var $label_id  = $(this).attr("data");
+        var $label_val = $(this).html();
+        //$str += "<input type='hidden' value='"+$style_val+"' name='style[]'/>";
+        if(i!=0)
+        {
+           $str_show += ",";
+           $str      += ",";
+        }
+        $str_show += $label_val;
+        $str      += $label_id;
+      });
+      
+      parent.$('#label_info').html($str_show);
+      parent.$('#label_name').val($str_show);
+      parent.$('#label_id').val($str);
+      parent.layer.close(index);
+    });
+});
+</script>
+</html>

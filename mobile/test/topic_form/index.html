@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>无标题文档</title>
+    <script type="text/javascript" src="http://static-c.yueus.com/yue_ui/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://static-c.yueus.com/yue_ui/handlebars/3.0.3/handlebars-v3.0.3.js"></script>
+    <link href="css/pcsp.css" type="text/css" rel="stylesheet">
+    <style>
+        .topic{
+            max-width: 940px;
+            margin: 50px auto 0;
+        }
+        table tr{
+            line-height: 50px;
+        }
+        .entry-select{
+            margin:0;
+        }
+        .entry-btn{
+            background: #FFF;
+            border: 1px solid #CCC;
+            padding: 10px 25px 10px 25px;
+            color: #333;
+            border-radius: 4px;
+            margin-top: 4px;
+        }
+        .entry-btn:active{
+            color: #333;
+            background-color: #EBEBEB;
+            border-color: #ADADAD;
+        }
+        .child-item-content{
+            white-space: nowrap;
+            position: relative;
+            z-index: 2;
+            font-weight: bold;
+        }
+
+        input, button, textarea, select, optgroup, option {
+            border: 1px solid #CCC;
+            padding: 10px 25px 10px 25px;
+            color: #333;
+            border-radius: 4px;
+            margin: 0 8px;
+        }
+        .btn-bgff5e52{
+            background: #ff5e52;
+            color: #fff;
+        }
+        .btn-bg169fe6{
+            background-color: #169fe6;
+            color: #fff;
+        }
+        .from-type{
+            margin: 25px auto;
+            background: #FFF;
+            padding: 15px 15px;
+            font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #888;
+            border: 1px solid #DDD;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        .from-page{
+            width: 30px;
+            position: absolute;
+            right: 12px;
+            top: 6px;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+        }
+        .from-num{
+            width: 20px;
+            position: absolute;
+            right: -8px;
+            top: 0px;
+            z-index: 1;
+            text-align: center;
+            padding: 5px 0px 5px 22px;
+            background-color: #000;
+            color: #fff;
+        }
+        .entry{
+            margin:30px 0;
+        }
+        .pd10{
+            padding: 10px;
+        }
+    </style>
+</head>
+
+
+<body >
+<form >
+    <div class="topic"></div>
+    <input type="submit" value="click" />
+</form>
+</body>
+<script>
+
+$(function()
+{
+    var num = 0;
+var form_tpl_class = function($el,options)
+{
+    var self = this;
+
+    options = options || {};
+
+    self.$el = $el;
+
+    self.options = options;
+
+    self.init();
+
+};
+
+form_tpl_class.prototype =
+{
+    /**
+     *初始化
+     */
+    init : function()
+    {
+        var self = this;
+        var id = self.create_view_id();
+        var type = self.options.child_type || '';
+        var data = self.options.child_data || '';
+
+        self.options.normal_tpl_data = self.options.normal_tpl_data || {};
+        self.options.normal_tpl_data.id = id;
+        self.options.normal_tpl_data.tpl_type = type;
+
+        // 生成大模板
+        self.normal_tpl = self.render_normal_tpl();
+        self.$el.append(self.normal_tpl);
+
+        // 生成子模板
+        self.child_tpl = self.render_child_item_tpl(type,data);
+
+        // 大模板元素
+        self.$normal_el = self.$el.find('[data-view-id="'+id+'"]');
+
+        // 插入子模板到大模板
+        self.setup_child(self.child_tpl);
+
+        // 安装大模板需要事件
+        self.setup_normal_tpl_event();
+
+
+
+    },
+    /**
+     *附加id
+     */
+    create_view_id : function()
+    {
+        if(!window.c_view_id)
+        {
+            window.c_view_id = 0;
+        }
+
+        return window.c_view_id++;
+    },
+    /**
+     *大模板
+     */
+    render_normal_tpl : function()
+    {
+        var self = this;
+
+        var select_arr = 
+        [
+            
+            {value:'img_tpl',text:'图片模版'},
+            {value:'text_tpl',text:'文案模版'},
+            {value:'goods_tpl1',text:'商品模版一'},
+            {value:'goods_tpl2',text:'商品模版二'},
+            {value:'goods_tpl3',text:'商品模版三'},
+            {value:'list_tpl1',text:'列表模版一'},
+            {value:'list_tpl2',text:'列表模版二'},
+            {value:'attr_goods_tpl',text:'商品属性模版'}
+        ];
+
+        for(var i=0;i<select_arr.length;i++)
+        {
+            var tpl_type = self.options.normal_tpl_data.tpl_type;
+            if(tpl_type == '#'+select_arr[i].value)
+            {
+                select_arr[i].selected = true;                
+            }
+        }        
+
+        var source   = $("#normal-form-template").html();
+        var template = Handlebars.compile(source);
+        var context = self.options.normal_tpl_data || {};
+
+        context.select_arr = select_arr;
+
+        console.log(context)
+
+        var html    = template(context);
+
+        return html;
+    },
+    /**
+     *子模板
+     */
+    render_child_item_tpl : function(type,data)
+    {
+        var self = this;
+
+        self.type = type;
+
+        // 生成子模板
+        var source   = $(type).html();
+        var template = Handlebars.compile(source);
+        var context = data || {};
+        var html    = template(context);
+
+        return html;
+    },
+    /**
+     *特殊处理，商品模板1子项
+     */
+    render_goods1_items_tpl : function(data)
+    {
+        var self = this;
+
+        // 生成子模板
+        var source   = $('#goods1-child-template').html();
+        var template = Handlebars.compile(source);
+        var context = data || {};
+        
+        var html    = template(context);
+
+        return html;
+    },
+    setup_child : function(html)
+    {
+        var self = this;
+
+        self.$child_container = self.$normal_el.find('[data-role="child-item-tpl-container"]');
+        self.$child_container.html(html);
+
+        if(self.type == '#goods_tpl1')
+            {
+                self.time = new Date().getTime();
+
+                var g1c_items_arr = self.options.child_data.list || [{id : self.time,name:1},{id :self.time,name:2},{id :self.time,name:3}];
+                
+                self.$child_container.find('[data-role="sort"]').attr('name','goods_tpl1_sort['+self.time+']')
+
+                for(var i =0;i<g1c_items_arr.length;i++)
+                {
+                    var g1c_items_select_options = [{value:"新品"},{value:"热销"},{value:"折扣"},{value:"签约"}];
+                    for(var j =0; j<g1c_items_select_options.length;j++)
+                    {
+                        
+                        if(g1c_items_arr[i].goods_tag == g1c_items_select_options[j].value)
+                        {
+                            g1c_items_select_options[j].selected = true;
+
+                            break;
+                        }
+                    }
+
+                    if(!g1c_items_arr[i].id)
+                    {
+                        g1c_items_arr[i].id = self.time;
+                    }
+                    
+                    g1c_items_arr[i].select_options = g1c_items_select_options;
+                }
+
+
+
+                var g1c_tpl = self.render_goods1_items_tpl
+                ({
+                    tr_list: g1c_items_arr
+                });
+
+                self.$child_container.find('[data-role="tb"]').append(g1c_tpl);
+                //商品表单添加项目
+                self.$child_container.find('[data-role="add-goods-child"]').on('click',function()
+                {
+                    var g1c_items_select_options = [{value:"新品"},{value:"热销"},{value:"折扣"},{value:"签约"}];
+                    var $last_obj = self.$child_container.find('[data-role="tb"]').find('[data-row-id]').last();
+                    var id = parseInt($last_obj.index());
+                    var g1c_tpl = self.render_goods1_items_tpl
+                    ({
+                        tr_list: [{id : self.time ,name : id+1,select_options:g1c_items_select_options}]
+                    });
+                    self.$child_container.find('[data-role="tb"]').append(g1c_tpl);
+
+
+                });
+                //商品表单删除项目
+                self.$child_container.on('click','[data-role="del-items"]',function(ev)
+                {
+
+                    var del_num = $(this).attr('data-num');   
+                    
+                    if(self.$child_container.find('[data-row-id='+del_num+']').length == 1)
+                    {
+                        return false;
+                    }
+                    
+
+                    $(ev.currentTarget).parents('[data-name="goods"]').remove();
+
+                    self.$child_container.find('[data-row-id='+del_num+']').each(function(i,obj)
+                    {
+                        $(obj).find('[data-role="goods_sort"]').html("商家"+(i+1)+"：");                       
+                    });
+                    
+                });
+            }
+
+    },
+    /**
+     *下拉select事件
+     */
+    setup_normal_tpl_event : function()
+    {
+        var self = this;
+
+        self.$normal_el.find('[data-role="normal-select"]').on('change',function()
+        {
+            var sort = self.$normal_el.find('[data-role="form-num"]').val();
+            var type = $(this).val();
+
+            var html_str = self.render_child_item_tpl('#'+type,{sort : sort});
+
+            // 插入子模板到大模板
+            self.setup_child(html_str);
+        });
+
+        self.setup_add(true);
+        self.setup_del(true);
+    },
+    /**
+         *添加
+         */
+        setup_add : function(tag)
+        {
+            var self = this;
+            var sort = 1;
+
+
+            self.$normal_el.find('[data-role="add"]').on('click',function()
+            {
+                var sort = $('[data-role="form-num"]').last().val()*1 + 1;
+
+                var form_obj = new form_tpl_class(self.$el,
+                {
+                    child_type : '#img_tpl',
+                    child_data :
+                    {
+                        img_url : '',
+                        sort : sort
+                    }
+                });
+            });
+            self.setup_sort_add();
+        },
+        setup_del : function(tag)
+        {
+            var self = this;
+            self.$normal_el.find('[data-role="remove"]').on('click',function()
+            {
+                if($('[data-role="remove"]').length>1)
+                {
+                    //$(this).parent().parent().remove();
+
+                    var del_num = $(this).attr('data-normal-num');
+                    $('[data-view-id='+del_num+']').remove();
+                    self.setup_sort_minus();
+                };
+
+            });
+        },
+        setup_sort_add : function()
+        {
+            var self = this;
+            //num++;
+            //self.$normal_el.find('[data-role="form-num"]').val(num);
+        },
+        setup_sort_minus : function()
+        {
+            var self = this;
+            //num--;
+            //self.$normal_el.find('[data-role="form-num"]').val(num);
+        }
+};
+
+ 
+
+    $.ajax
+    ({
+        url : './js/tpl.handlebars',
+        data : {},
+        type : 'GET',
+        dataType : 'html',
+        success : function(data)
+        {
+            $('body').before(data);                
+
+
+            var json_arr = [
+{
+"id": "76",
+"topic_id": "649",
+"tpl_type": "img_tpl",
+"sort": "1",
+"custom_data": {
+"img_url": "http://image16-d.poco.cn/yueyue/cms/20150922/76742015092210235192637288.png"
+}
+},
+{
+"id": "77",
+"topic_id": "649",
+"tpl_type": "text_tpl",
+"sort": "1",
+"custom_data": {
+"text": "文案内容"
+}
+},
+{
+"id": "78",
+"topic_id": "649",
+"tpl_type": "goods_tpl1",
+"sort": "1",
+"custom_data": {
+"list": [
+{
+"goods_id": "2122156",
+"goods_text": "促销文案",
+"goods_tag": "新品",
+"img_url": "http://image19-d.yueus.com/yueyue/20150922/20150922095345_512266_157877_11023_320.jpg?720x405_120",
+"price": "100.00"
+},
+{
+"goods_id": "2122144",
+"goods_text": "促销文案",
+"goods_tag": "新品",
+"img_url": "http://image19-d.yueus.com/yueyue/20150921/20150921223506_310325_156323_10675_320.png?640x533_130",
+"price": "500.00"
+},
+{
+"goods_id": "2122139",
+"goods_text": "促销文案",
+"goods_tag": "新品",
+"img_url": "http://image19-d.yueus.com/yueyue/20150921/20150921220847_89686_156323_10623_320.jpg?960x640_120",
+"price": "500.00"
+}
+]
+}
+},
+{
+"id": "79",
+"topic_id": "649",
+"tpl_type": "goods_tpl2",
+"sort": "1",
+"custom_data": {
+"img_url": "http://image19-d.yueus.com/yueyue/20150921/20150921220847_89686_156323_10623_260.jpg?960x640_120",
+"price": "500.00",
+"goods_id": "2122139",
+"goods_text": "促销文案"
+}
+}
+];
+
+
+            if(json_arr.length>0)
+            {
+                for(var i=0;i<json_arr.length;i++)
+                {
+                    var obj = json_arr[i];
+
+                    // 重新整合排序字段
+                    obj.custom_data.sort = obj.sort;
+
+                    var text_form_obj = new form_tpl_class($('.topic'),
+                    {
+                        child_type : '#'+obj.tpl_type,
+                        child_data : obj.custom_data
+                    });
+                }
+            }
+            else
+            {
+                var text_form_obj = new form_tpl_class($('.topic'),
+                {
+                    child_type : '#img_tpl',
+                    child_data : {sort:1}
+                });
+            }
+
+            
+        }
+    });
+});
+
+
+    
+
+
+</script>
+</html>

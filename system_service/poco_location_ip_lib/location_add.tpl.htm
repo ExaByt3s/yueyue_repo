@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title><!-- IF action="add" -->添加地区<!-- ELSEIF action="edit" -->修改地区<!-- ENDIF action --></title>
+<link href="./css/style.css{no_cache}" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript">
+function _$(sid) { return document.getElementById(sid); }
+
+function check_form()
+{
+	_$('form_submit').disabled = true;
+	_$('form_submit').value = '正在提交..';
+	if (_$('action').value!='{action}')
+	{  
+		alert('填写信息不完整！');
+		_$('form_submit').disabled = false;
+		_$('form_submit').value = '提交';
+		return false;
+	}
+	if (_$('lct_id').options[_$('lct_id').selectedIndex].value=='')
+	{  
+		alert('地区的父类不能为空！');
+		_$('form_submit').disabled = false;
+		_$('form_submit').value = '提交';
+		return false;
+	}
+	if (_$('lct_icon').value=='')
+	{  
+		alert('地区的标识不能为空！');
+		_$('form_submit').disabled = false;
+		_$('form_submit').value = '提交';
+		return false;
+	}
+	if (_$('lct_name').value=='')
+	{  
+		alert('地区的名称不能为空！');
+		_$('form_submit').disabled = false;
+		_$('form_submit').value = '提交';
+		return false;
+	}
+	return true;
+}
+</script>
+<body>
+<iframe id="act_frame" name="act_frame" height="0" style="display:none" ></iframe>
+<form method="POST" name="location_form" id="location_form" action="" onsubmit="return check_form();" target="act_frame">
+<h3 align="center" style="font-weight: bold;">
+<!-- IF action="add" -->添加地区<!-- ELSEIF action="edit" -->修改地区<!-- ENDIF action -->
+</h3>
+<input type="hidden" name="action" id="action" value="{action}"/>
+<table align="center" border="1" width="70%">
+	<tr>
+		<td align="center" width="20%">地区的父类</td>
+		<td width="80%">
+			<select name="lct_id" id="lct_id">
+			{options:lct_id_option,lct_id}
+			</select>		</td>
+	</tr>
+	<tr>
+		<td align="center">地区的标识</td>
+		<td><input type="text" name="lct_icon" id="lct_icon" value="{lct_icon}" /></td>
+	</tr>
+	<tr>
+		<td align="center">地区的名称</td>
+		<td><input type="text" name="lct_name" id="lct_name" value="{lct_name}" /></td>
+	</tr>
+	<tr>
+		<td align="right"><input type="submit" name="form_submit" id="form_submit" value="提交"/></td>
+		<td align="left"><input type="reset" value="取消"/></td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

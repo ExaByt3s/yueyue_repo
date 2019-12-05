@@ -1,0 +1,24 @@
+{{#each search_list}}
+    <li data-user-id="{{user_id}}" data-role="to-model">
+        <div class="img_container">
+            <!--<img class="inner_img" src="{{icon}}" data-lazyload=""/>-->
+            <i class="img image-img avatar-size-img inner_img" style="background-size: cover;height: 140px;" data-lazyload="{{icon}}"></i>
+        </div>
+        <div class="details">
+            <div class="name">{{nickname}}</div>
+            <div class="price">{{price}}</div>
+            <div class="starts">
+                {{#each stars_list}}
+                    {{#if is_red}}
+                        <i class="icon icon-stat-s-y"></i>
+                    {{^}}
+                        <i class="icon icon-stat-s-g"></i>
+                    {{/if}}
+                {{/each}}
+
+                <div>{{date_num}}</div>
+            </div>
+        </div>
+
+    </li>
+{{/each}}

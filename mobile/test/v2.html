@@ -1,0 +1,150 @@
+<html>
+<head>
+    <meta charset="gb2312">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            flex-wrap: wrap;
+            background: #333;
+            font-size: 0px;
+
+        }
+        .squa{
+            -webkit-transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            width: 600px;
+        }
+        .top{
+            position: relative;
+            top: 35px;
+            z-index: 1;
+            margin-left: 145px;
+            width: 231px;
+            height: 200px;
+            background: #d90348;
+            -webkit-transform: rotateX(54deg) rotateY(199deg) rotateZ(24deg);
+        }
+        .left{
+            display: inline-block;
+            width: 199px;
+            height: 285px;
+            background: #0066bb;
+            -webkit-transform: rotateX(-45deg) rotateY(-67deg) rotateZ(0deg);
+            position: relative;
+            top: -107px;
+            left: 59px;
+            z-index: 1;
+        }
+        .back{
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            background: #ffff00;
+            -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            position: relative;
+            top: -84px;
+            left: 0px;
+            z-index: 1;
+        }
+        #btn
+        {
+            display: inline-block;
+            background: #fff;
+            font-size: 14px;
+            line-height: 30px;
+            text-align: center;
+            width: 100px;
+            height: 30px;
+
+        }
+        #btn:hover
+        {
+            background: #0066bb;
+            color: #fff;
+        }
+        input,#btn{
+            position: relative;
+            top: 0px;
+            z-index: 2;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="body">
+<div class="squa" id="squa">
+<div class="top"></div>
+<div class="left"></div>
+<div class="back"></div>
+</div>
+<input id="range_x" type="range" name="X" min="0" max="360" value="0">
+<input id="range_y" type="range" name="Y" min="0" max="360" value="0">
+<input id="range_z" type="range" name="Z" min="0" max="360" value="0">
+<div id="btn">start/stop</div>
+
+<script>
+    var x_obj = document.getElementById("range_x");
+    var y_obj = document.getElementById("range_y");
+    var z_obj = document.getElementById("range_z");
+    var squa_obj = document.getElementById("squa");
+    var btn = document.getElementById("btn");
+    var interval;
+
+    x_obj.oninput = function()
+    {
+        squa_obj.style.webkitTransform = 'rotateX('+ x_obj.value + 'deg) rotateY(' + y_obj.value + 'deg) rotateZ(' + z_obj.value + 'deg)';
+    }
+    y_obj.oninput = function()
+    {
+        squa_obj.style.webkitTransform = 'rotateX('+ x_obj.value + 'deg) rotateY(' + y_obj.value + 'deg) rotateZ(' + z_obj.value + 'deg)';
+    }
+    z_obj.oninput = function()
+    {
+        squa_obj.style.webkitTransform = 'rotateX('+ x_obj.value + 'deg) rotateY(' + y_obj.value + 'deg) rotateZ(' + z_obj.value + 'deg)';
+    }
+
+    btn.onclick = function()
+    {
+        console.log("点击");
+
+        if(interval)
+        {
+            console.log("停止")
+            clearInterval(interval);
+
+            interval = null;
+        }
+        else
+        {
+            console.log("旋转")
+            interval = setInterval(function()
+            {
+                if(x_obj.value == 360)x_obj.value = 0;
+                if(y_obj.value == 360)y_obj.value = 0;
+                if(z_obj.value == 360)z_obj.value = 0;
+
+                x_obj.value++;
+                y_obj.value++;
+                z_obj.value++;
+
+                squa_obj.style.webkitTransform = 'rotateX('+ x_obj.value + 'deg) rotateY(' + y_obj.value + 'deg) rotateZ(' + z_obj.value + 'deg)';
+
+                squa_obj.style.webkitTransform = 'rotateX('+ x_obj.value + 'deg) rotateY(' + y_obj.value + 'deg) rotateZ(' + z_obj.value + 'deg)';
+
+                squa_obj.style.webkitTransform = 'rotateX('+ x_obj.value + 'deg) rotateY(' + y_obj.value + 'deg) rotateZ(' + z_obj.value + 'deg)';
+
+            },50);
+        }
+
+    }
+
+</script>
+</body>
+</html>

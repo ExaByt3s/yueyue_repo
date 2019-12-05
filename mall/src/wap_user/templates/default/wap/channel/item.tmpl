@@ -1,0 +1,15 @@
+
+{{#each list}}
+    <div class="item">
+        <div class="img-con">
+            <a href="{{url}}">
+                <i  data-lazyload-url="{{img}}" class="img image-img min-height"  style="background-size: cover;"></i>
+            </a>
+        </div>
+        <div class="txt-con">
+            <h3 class="title">{{title}}</h3>
+            <p class="txt">{{desc}}</p>
+        </div>
+    </div>
+
+{{/each}}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>≤‚ ‘“≥</title>
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/mpredev/static/lib/lib.js"></script>
+</head>
+<body>
+<input id="someFileInputElement" type="file" accept="image/*">
+</body>
+<script>
+
+    window.onload = function()
+    {
+        var e = document.getElementById("someFileInputElement");
+        e.onchange = function()
+        {
+            console.log(this.value);
+        }
+        console.log(e);
+    }
+
+
+</script>
+</html>

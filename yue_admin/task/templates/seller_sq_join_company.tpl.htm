@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>审核并加入公司</title>
+</head>
+<body>
+<style>
+    .J_add_btn,.J_add_cover_img{
+        overflow: hidden;
+    }
+    .model-img-list li{
+        float:left; width:85px; height:100px; text-align:center; margin-right:10px
+    }
+</style>
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>审核并加入公司</legend>
+			<form id="form1" name="form1" method="post" action="" target="_self" onsubmit="return check();">
+			  <table width="90%" align="center">
+                    
+				    <tr>
+                         <td width="26%" height="25">用户id</td>
+                         <td width="74%" height="25">
+                             {user_id}
+                         </td>
+					</tr>
+                    <tr>
+                         <td width="26%" height="25">商家名称</td>
+                         <td width="74%" height="25">
+                             {name}
+                         </td>
+					</tr>
+                    <tr>
+                         <td width="26%" height="25">公司数量</td>
+                         <td width="74%" height="25">
+                             <input type='text' name='company_num' id="company_num" disabled="disabled" value="1"/>
+                         </td>
+					</tr>
+                    <tr>
+                         <td width="26%" height="25">商家介绍</td>
+                         <td width="74%" height="25">
+                            <textarea name="introduce" cols="50" rows="5" id="introduce"></textarea>
+                         </td>
+					</tr>
+                    
+				<tr>
+				  <td colspan="2" align="center">
+                  <input name="user_id" type="hidden" id="user_id" value="{user_id}"/>
+                  <input name="name" type="hidden" id="name" value="{name}"/>    
+                  <input name="basic_id" type="hidden" id="basic_id" value="{basic_id}" />
+                  <input name="basic_type" type="hidden" id="basic_type" value="{basic_type}" />
+                  <input name="status" type="hidden" id="status" value="{status}"/>
+                  <input type="submit" id="button" value="提交" />
+                  </td>
+				</tr>
+			  </table>
+			</form>
+            <script>
+                function check()
+                {
+                    if($("#company_num").val()=='')
+                    {
+                        alert('公司数量不能为空');
+                        return false;
+                    }
+                    if($("#introduce").val()=='')
+                    {
+                        alert('介绍不能为空');
+                        return false;
+                    }
+                    
+                    $("#form1").submit();
+                }
+            </script>
+          </fieldset>
+        </div>
+      </div>
+    </div>   
+    </div>
+     </div>
+</body>
+</html>

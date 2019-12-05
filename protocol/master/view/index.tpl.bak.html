@@ -1,0 +1,35 @@
+<h1><a href="#约约通信协议-1-0-beta" name="约约通信协议-1-0-beta" id="约约通信协议-1-0-beta" class="anchor"></a>约约通信协议 1.0 Beta</h1>
+<hr/>
+<h2><a href="#协议说明" name="协议说明" id="协议说明" class="anchor"></a>协议说明</h2>
+<pre><code>该协议用于约约客户端与服务器端之间的通信。
+协议负责将对数据进行签名校验，HTML注入过滤，字符编码转译等处理。
+</code></pre>
+<h2><a href="#构成模块" name="构成模块" id="构成模块" class="anchor"></a>构成模块</h2>
+<ul>
+  <li>数据接收：处理客户端的数据请求，数据校验，签名校验等；</li>
+  <li>用户授权：处理用户access_token注册，授权验证，刷新验证等；</li>
+  <li>请求响应：负责服务端数据组装，编码处理（加密处理），抛出数据等；</li>
+</ul>
+<h2><a href="#引用路径" name="引用路径" id="引用路径" class="anchor"></a>引用路径</h2>
+<pre><code>/protocol/yue_protocol.inc.php
+</code></pre>
+<h2><a href="#方法实现-类实例化-" name="方法实现-类实例化-" id="方法实现-类实例化-" class="anchor"></a>方法实现 (类实例化)</h2>
+<pre><code>new yue_protocol_system();
+</code></pre>
+<h2><a href="#常用方法" name="常用方法" id="常用方法" class="anchor"></a>常用方法</h2>
+<blockquote>
+  <p>$cp = new yue_protocol_system();</p>
+</blockquote>
+<ul>
+  <li>获取客户端数据(http)：<code>$cp-&gt;get_input(array $options)</code>;</li>
+  <li>获取输入数据(include)：<code>$cp-&gt;get_input_process($input, $token_check, $b_response)</code>;</li>
+  <li>抛出(或返回)服务端数据：<code>$cp-&gt;output($options, $is_conv)</code>;</li>
+  <li>获取TOKEN数据：<code>$cp-&gt;get_access_info($user_id, $app_name, $b_auto_create, $b_use_cache)</code>;</li>
+  <li>刷新TOKEN数据：<code>$cp-&gt;refresh_access_info($user_id, $app_name, $refresh_token, $access_info)</code>;</li>
+  <li>验证TOKEN数据：<code>$cp-&gt;is_access_expire($user_id, $app_name, $access_token, $access_info)</code>;</li>
+  <li>获取app name：<code>$cp-&gt;get_app_name()</code>;</li>
+</ul>
+<h2><a href="#附加功能" name="附加功能" id="附加功能" class="anchor"></a>附加功能</h2>
+<pre><code>/protocol/master/index.php
+协议管理后台
+</code></pre>

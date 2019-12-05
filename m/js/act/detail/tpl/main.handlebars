@@ -1,0 +1,74 @@
+<main role="main" class="action-preview secondary">
+    <header class="nav-header">
+        <div class="left-button-wrap">
+            <a data-role="page-back"><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title">{{title}}</h3>
+
+        <div class="right-button-wrap">
+            <a  data-role="share"><i class="circle-min"></i><i class="circle-min"></i><i class="circle-min"></i></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="measure-choosen">
+            <ul class="measure-choosen-in" data-role="choosen-container">
+                <i class="measure-choosen-child" data-role="act-intro" data-title="intro">活动介绍</i>
+                <i class="measure-choosen-child" data-role="act-info" data-title="info">活动信息</i>
+                <i class="measure-choosen-child" data-role="act-arrange" data-title="arrange">场次安排</i>
+            </ul>
+        </div>
+        <div class="success_notice fn-hide" data-role="success_notice">
+            <div class="notice">
+                <p>活动发布成功，请等待工作人员审核。</p>
+                <p>审核通过后，即可转发活动链接及二维码，邀请朋友参加。</p>
+            </div>
+            <div class="delete" data-role="succeed-notice-delete"><i class="icon icon-close-20x20-w"></i></div>
+
+        </div>
+        <div class="action-preview-content" data-role="pub-preview-content">
+            <div class="wrap-box">
+                <div class="main-con">
+                    <div class="select-con" data-role="select-con">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{#if is_preview}}
+            <div class="btns fn-hide" data-role="bottom-btn-container">
+                <div class="btn_back" data-role="page-back">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-color2">
+                        <span class="ui-button-content">返回修改</span>
+                    </button>
+                </div>
+                <div class="btn_next" data-role="btn-next">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ">
+                        <span class="ui-button-content">发布</span>
+                    </button>
+                </div>
+            </div>
+        {{^}}
+            <footer class="pop-model-car-confirm" data-role="apply-footer">
+                <ul class="list clearfix">
+                    <li data-role="join-in">
+                        <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width">
+                            <span class="ui-button-content"><i class="icon icon-siliao-m"></i>马上报名</span>
+                        </button>
+                    </li>
+                </ul>
+            </footer>
+
+
+        {{/if}}
+            <div class="btns_success fn-hide" data-role="btn_success">
+                <div class="btn" data-role="next">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ui-button-block ui-button-color2">
+                        <span class="ui-button-content">返回首页</span>
+                    </button>
+                </div>
+            </div>
+
+
+    </div>
+</main>

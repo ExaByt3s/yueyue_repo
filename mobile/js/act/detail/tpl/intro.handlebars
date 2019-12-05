@@ -1,0 +1,27 @@
+<div class="action-con-intro h-100" data-role="act-detail-container" style="position: relative;">
+    <div data-role="scroll-wrapper">
+        <div class="main-title">{{title}}</div>
+        <div class="theme" style="overflow: hidden;">
+            <div class="title-con">
+                <div class="title">活动主题</div>
+            </div>
+            <p class="theme-art">
+                {{{content}}}
+            </p>
+        </div>
+        <div class="address-module" >
+            <div class="title-con">
+                <div class="title">场地/模特</div>
+            </div>
+            {{#each other_info_detail}}
+                <div class="con" style="overflow:hidden;">
+                    <p class="module">{{{text}}}</p>
+                    {{#each img}}
+                        <i class="img image-img module-pic" data-size="{{../../ori_width}}" data-lazyload="{{this.img_s}}" data-url="{{this.img_l}}" data-role="img-tap"></i>
+                    {{/each}}
+                </div>
+            {{/each}}
+
+        </div>
+    </div>
+</div>

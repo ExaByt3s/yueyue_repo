@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="gb2312">
+<title></title>
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link charset="utf-8" rel="stylesheet" href="../../../css/pai/paiappstyle.css">
+    <style>
+        @-webkit-keyframes move_div {
+            0% {
+                margin-top:60%;
+            }
+            100% {
+                margin-top:0;
+            }
+        }
+        .empty
+        {
+            background: #eeeeee;
+            -webkit-box-flex: 1;
+        }
+        .color_board
+        {
+            margin: 0 auto;
+            width: 224px;
+            height: 100%;
+            -webkit-animation: move_div 3s ease-in-out forwards alternate;
+        }
+        .red
+        {
+            background: #ff4978;
+            height: 33%;
+            width: 100%;
+        }
+        .white
+        {
+            background: #fff;
+            height: 33%;
+            width: 100%;
+        }
+        .pngs{
+            background: none;
+        }
+        .screen
+        {
+            width: 100%;
+            height: 100%;
+        }
+        .screen_container{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-box-pack:center;
+            -webkit-box-flex:1;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            z-index: 4;
+            font-size: 0px;
+        }
+
+    </style>
+</head>
+
+<body style="background: #eeeeee">
+
+
+<!--  加载页面 -->
+
+<main class="screen" >
+	<div class="screen_container">
+        <div class="empty"></div>
+        <img class="pngs" src="./normal.png"/>
+        <div class="empty"></div>
+	</div>
+    <div id="color_board" class="color_board">
+        <div class="white"></div>
+        <div class="red"></div>
+        <div class="white"></div>
+    </div>
+
+</main>
+<script>
+    var color_board = document.getElementById("color_board");
+
+    //暂停
+    function paused_animation()
+    {
+        color_board.style.webkitAnimationPlayState = "paused";
+    }
+
+    //继续
+    function running_animation()
+    {
+        color_board.style.webkitAnimationPlayState = "running";
+    }
+
+    //设置时间 '3s'
+    function set_duration(time)
+    {
+        color_board.style.webkitAnimationDuration = time;
+    }
+
+
+</script>
+<!--  加载页面 -->
+
+
+</body>
+</html>

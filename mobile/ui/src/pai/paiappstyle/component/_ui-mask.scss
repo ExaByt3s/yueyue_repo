@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO摄影app - mask
+// ------------------------------
+
+
+.ui-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #000;
+    opacity: .5;
+
+    &.fadeIn {
+        @include animation(mask-fade-in 50ms linear 0 1);
+    }
+    &.fadeOut {
+        @include animation(mask-fade-out 50ms linear 0 1);
+    }
+}
+
+@include keyframes('mask-fade-in') {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: .5;
+    }
+}
+
+@include keyframes('mask-fade-out') {
+    0% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 0;
+    }
+}

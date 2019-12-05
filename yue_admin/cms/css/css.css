@@ -1,0 +1,180 @@
+body {
+	font-size:12px;
+	margin:0;
+	padding:10px;	
+}
+
+p {
+	text-align : left;
+}
+
+input,textarea {
+	border:1px solid #000;
+	font-size:12px;
+}
+
+table,div,p,span,li{
+	word-wrap: break-word;
+	word-break: break-all; 
+	border-collapse:collapse;
+}
+
+ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;	
+}
+
+li{
+	vertical-align:middle;
+	text-indent:5px;
+	margin:2px;
+	padding:0;
+	line-height:20px;
+}
+
+#left_menu li {
+	margin:8px 2px;
+}
+
+#left_menu li {
+	margin:2px 2px;
+}
+
+#issue_info_div {
+	font-size:14px;
+	font-weight : bold ;
+	padding:6px 0px;
+}
+
+#import_info_div {
+	font-size:14px;
+	font-weight : bold ;
+}
+
+#record_info_div {
+	display:none;
+	margin:10px 0px;
+}
+
+#record_tbl {
+	border:1px solid #000;
+	padding:0;
+	margin:6px 0px;
+	width:98%;
+	border-collapse:collapse;
+}
+
+#record_tbl th {
+	border:1px solid #000;
+	text-align : center ;
+	font-size:14px;
+	padding:2px 4px;
+	word-break:keep-all;
+}
+
+#record_tbl td {
+	border:1px solid #000;
+	text-align : center ;
+	padding:2px;
+}
+
+.data_info_div {
+	display:none;
+	position:absolute;
+	z-index:2;
+	border:1px solid #000;
+	background-color:#fff;
+	padding:10px;
+	font-size:14px;
+	font-weight : bold ;
+}
+
+.data_info_div input {
+	font-size:14px;
+}
+
+#user_tbl {
+	border:1px solid #000;
+	padding:4px;
+	margin:6px 0px;
+	width:98%;
+	border-collapse:collapse;
+	font-size:14px;
+}
+
+#user_tbl th {
+	border:1px solid #000;
+	text-align : center ;
+	padding:2px;
+	word-break:keep-all;
+}
+
+#user_tbl td {
+	border:1px solid #000;
+	text-align : center ;
+	padding:4px;
+}
+
+
+.record_list_btn {
+	margin:0px 4px;
+}
+
+.a_box {
+	display:block;	
+	padding:4px;
+	margin:4px;
+	background-color:#cdcdcd;
+	line-height:22px;
+	border:1px solid #000;
+	text-align : center ;
+	font-size:14px;
+	font-weight : bold ;
+	cursor:pointer;
+}
+
+.reload_box {
+	display:block;	
+	height:18px;
+	padding:1px;
+	margin:1px;
+	background-color:#cdcdcd;
+	line-height:18px;
+	border:1px solid #000;
+	text-align : center ;
+	width:30px;
+	font-weight : normal;
+}
+
+.border_red {
+	border:1px solid red;
+}
+
+.float_right {
+	float:right;
+}
+
+.float_left {
+	float:left;
+}
+
+.font_14 {
+	font-size:14px;
+}
+
+.tips_font {
+	color:blue;
+	font-size:14px;
+	font-weight : normal;
+}
+
+#user_info_img_div {
+	position:absolute;
+	left:410px;
+	padding:2px;
+	border:1px solid #000;
+	display:none;
+	background-color:#fff;
+	font-size:12px;
+}

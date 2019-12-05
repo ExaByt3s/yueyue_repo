@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="gbk">
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>商品类型添加与编辑模板</title>
+</head>
+<body>
+<style>
+    .J_add_btn,.J_add_cover_img{
+        overflow: hidden;
+    }
+    .model-img-list li{
+        float:left; width:85px; height:100px; text-align:center; margin-right:10px
+    }
+</style>
+{global_header_html}
+
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>类型属性增加/编辑</legend>
+			<form id="form1" name="form1" method="post" action="">
+			  <table width="90%" align="center">
+				  <tr>
+					  <td width="26%" height="25">属性名称</td>
+					  <td width="74%" height="25">
+						 <input name="name" type="text" id="name" value="{property_one.name}" />
+                      </td>
+                  </tr>
+				  <tr>
+					  <td width="26%" height="25">属性类型</td>
+					  <td width="74%" height="25">
+                          <select name='input_type_id' id="status">
+                             <option value="">请选择</option>
+                            <!-- BEGIN type_name -->
+                                <option value="{key}" 
+                                        <!-- IF select_one --> selected <!-- ENDIF --> 
+                                        <!-- IF disable --> disabled <!-- ENDIF --> 
+                                >
+                                        {val}
+                                </option>
+                            <!-- END type_name -->
+                          </select>
+					  </td>
+				  </tr>
+                  <tr>
+					  <td width="26%" height="25">排序(越小越排前 例如:0比1前)</td>
+					  <td width="74%" height="25">
+                          <input type='text' name='step' id="step" value="<!-- IF property_one --> {property_one.step} <!-- ELSE --> 0 <!-- ENDIF property_one -->"/>
+					  </td>
+				  </tr>
+                  
+                    
+                    <tr>
+                      <td colspan="2" align="center">
+                          <input type="button" onclick="window.history.go(-1);" value="返回"/>&nbsp;&nbsp;<input type="button" name="button" id="button" value="提交" onclick="check();" /></td>
+                    </tr>
+			  </table>
+              <input type='hidden' name='id' value="{id}"/>
+              <input type='hidden' name='parents_id' value='{parents_id}'/>
+              <input type='hidden' name='goods_type_id' value='{goods_type_id}'/>
+			</form>
+          </fieldset>
+        </div>
+      </div>
+    </div>   
+    </div>
+     </div>
+<!--要增加的falsh数值，页面有一个，则数值为二，同时也作为id标示-->
+<script>
+    function check()
+    {
+        if($("#name").val()=='')
+        {
+            alert("名子不能为空");
+            return false;
+        }
+        if($("#status").val()==''){
+            alert("状态不能为空");
+            return false;
+        }
+        if($("#step").val()=='')
+        {
+            alert("排序不能为空");
+            return false;
+        }
+        
+        $("#form1").submit();
+        
+        
+    }
+</script>
+</body>
+</html>

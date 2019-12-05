@@ -1,0 +1,29 @@
+ <table width="100%" border="0">
+      <tbody>
+        <tr>
+          <td width="24%">修改类型:</td>
+          <td width="76%"><select name="alter_type" id="alter_type">
+          <option value="" <!-- IF log_info.alter_type="" -->selected="selected"<!-- ENDIF -->>请选择</option>
+            <option value="alter_price" <!-- IF log_info.alter_type="alter_price" -->selected="selected"<!-- ENDIF -->>改价</option>
+            <option value="discount_price" <!-- IF log_info.alter_type="discount_price" -->selected="selected"<!-- ENDIF -->>打折</option>
+            <option value="reduce_price" <!-- IF log_info.alter_type="reduce_price" -->selected="selected"<!-- ENDIF -->>减价</option>
+          </select></td>
+        </tr>
+        <tr>
+          <td>修改值:</td>
+          <td><input type="text" name="type_value" id="type_value" value="{log_info.type_value}" />
+            &nbsp;(单位：折或元)</td>
+        </tr>
+
+        <tr>
+          <td colspan="2" align="center"><br />
+            <input name="" type="submit" value="提交" />
+            <br /></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <input type="hidden" name="alter_topic_id" value="{alter_topic_id}"  />
+	<input type="hidden" name="style" value="{style}"  />
+	<input type="hidden" name="user_id" value="{user_id}"  />
+	<input type="hidden" name="log_id" value="{log_info.log_id}"  />

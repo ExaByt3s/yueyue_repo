@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="../resources/js/admin.js"></script>
+<script type="text/javascript" src="../js/preview/preview.js"></script>
+<script type="text/javascript" src="../js/preview/preview_load.js"></script>
+<link rel="stylesheet" type="text/css" href="../js/preview/css/preview.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+<title>机构管理系统</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+	   <a href="javascript:void(0);" class="on">已结算交易(不含活动)({mall_count})</a>
+	   <a href="close_billing_detail_v2.php?act=yuepai&settle_id={settle_id}" target="main">已结算私拍({yuepai_count})</a>
+	   <a href="close_billing_detail_v2.php?act=waipai&settle_id={settle_id}" target="main">已结算活动({waipai_count})</a>
+	   <input type="button" class="button" name="dosubmit" value="返回" onclick="location.href='close_billing_list.php'">
+	</ul>
+</div>
+<!--top-->
+<form name="list_form" id="myform" action="" method="post">
+	<div class="table-list">
+		<div class="btn">
+			{subject} <font color="red" style="font-size:14px;margin-left:20px;">已结算交易(不含活动):{price}</font>
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th width="50">订单编号</th>
+				<th width="80">卖家昵称</th>
+				<th width="80">买家昵称</th>
+				<th width="80">商品品类</th>
+				<th width="100">商品名</th>
+				<th width="80">交易额</th>
+				<th width="120">服务时间</th>
+				<th width="200">服务地点</th>
+				<th width="80">订单状态</th>
+				<th>评价内容</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+                <td align="center">
+				{order_sn}
+				</td>
+				<td align="center">
+					{seller_nickname}
+				</td>
+				<td align="center">
+					{buyer_nickname}
+				</td>
+				<td align="center">
+					{type_name}
+				</td>
+                <td align="center">
+                    {goods_name}
+                </td>
+				<td align="center">
+					{total_org_amount}
+				</td>
+				<td align="center">
+                    {dateformat:service_time,'Y-m-d H:i:s'}
+				</td>
+				<td align="center">
+					{service_address}
+				</td>
+				<td align="center">
+				   {status_str}
+				</td>
+				<td align="center">
+                    卖家评价买家:<!-- IF seller_comment -->{seller_comment}<!-- ELSE -->暂无评论<!-- ENDIF seller_comment --><br/>
+                    买家评价卖家:<!-- IF buyer_comment -->{buyer_comment}<!-- ELSE -->暂无评论<!-- ENDIF buyer_comment -->
+				</td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+		<!--list end-->
+	</div>
+</form>
+<div id="pages" class="page">
+	{page}
+</div>
+</div>
+</body>
+</html>

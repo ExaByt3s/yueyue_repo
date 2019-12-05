@@ -1,0 +1,7 @@
+{
+    "author" : "zky",
+    "dev_domain" : "http://localhost/yue_new/pcdev",
+    "predev_domain" : "http://static.yueus.com/pcpredev",
+    "pub_test_domain" : "http://localhost/yue_new/pc",
+    "pub_domain" : "http://static.yueus.com/pc"
+}

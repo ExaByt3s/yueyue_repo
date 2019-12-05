@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>订单详情</title>
+    {pc_global_top}
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/order/detail_72fdb38.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/swiper3.07.min_b12c96f.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_79cae42.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/qrcode/qrcode_eedf059.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/common/scroll/scroll_aff3642.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/qrcode/qrcode_f493657.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view order-detail-page">
+
+        <div class="p-wrap">
+            <div class="p1th">
+                <div class="box-a ui-border-b f14 ">
+                    <div class="p1  clearfix">
+                        <span class="fl fb color-333">{ret_order_full_info.status_str} </span>
+                        <span class="fr fb">￥{ret_order_full_info.total_amount}</span>
+                    </div>
+
+
+                    <div class="p2 clearfix color-333">
+                        <span class="fl expire "> {ret_order_full_info.expire_str} </span>  
+
+           
+                    <!-- 如果有促销价 显示促销价  -->
+
+                    <!-- IF ret_order_full_info.goods_promotion_info -->               
+                        <span class="yj fr">
+                            （{ret_order_full_info.original_amount_str}）
+                        </span>
+                    <!-- ELSE -->
+                        <span class="yj fr">
+                            <!-- IF ret_order_full_info.change_price_reason -->
+                            （原价￥{ret_order_full_info.original_amount}）
+                            <!-- ENDIF -->
+                        </span>
+                    <!-- ENDIF -->
+
+
+
+                    </div>
+
+
+                    <!-- IF ret_order_full_info.change_price_reason -->               
+                        <p class="reason color-aaa pt10">改价原因：{ret_order_full_info.change_price_reason}</p>
+                    <!-- ENDIF -->
+                    
+                </div>
+
+
+
+                <!-- IF ret_order_full_info.goods_promotion_info -->               
+                
+                    <div class="promotion ui-border-b">
+                        <div class="wbox clearfix color-fe9">
+                            <div class="lbox fldi"><i class="icon-promotion"></i>{ret_order_full_info.goods_promotion_info.type_name}</div>
+                            
+                        </div>
+                        <p class="p1">
+                            {ret_order_full_info.goods_promotion_info.start_time} -- <span class="mr10">{ret_order_full_info.goods_promotion_info.end_time}</span>
+                            <span class="mr10">{ret_order_full_info.goods_promotion_info.promotion_desc}</span>
+           <!--                  <span class="mr10">满80减30</span> -->
+                        </p>
+                    </div>
+
+                <!-- ENDIF -->
+                
+
+
+
+                <div class="box-des">
+                    <!-- IF ret_order_full_info.detail_list.0.prices_spec -->               
+                        <p>规格：{ret_order_full_info.detail_list.0.prices_spec}</p>
+                    <!-- ENDIF -->
+                    
+                    <!-- IF ret_order_full_info.detail_list.0.quantity -->      
+                        <p>数量：{ret_order_full_info.detail_list.0.quantity}</p>
+                    <!-- ENDIF -->
+
+                    <!-- IF ret_order_full_info.detail_list.0.service_time -->      
+                        <p>服务时间：{dateformat:ret_order_full_info.detail_list.0.service_time,'Y-m-d H:i:s'}</p>
+                    <!-- ENDIF -->
+
+                    <!-- IF ret_order_full_info.detail_list.0.service_address -->      
+                        <p>服务地点：{ret_order_full_info.detail_list.0.service_address} </p>
+                    <!-- ENDIF -->
+
+                </div>
+                
+                <div class="box-b  ">
+                    <div class="mark f14 fb">备注：</div>
+                    <!-- IF ret_order_full_info.description -->  <p  class="p1 color-aaa">{ret_order_full_info.description}</p>
+                    <!-- ENDIF -->
+                </div>  
+
+            </div>
+
+           
+
+            <div class="p3th mt20">
+            
+                <div class="box-a ui-border-b">
+                    <!-- BEGIN ret_order_full_info.detail_list -->
+
+                
+                    <div class="wbox clearfix" data-role="nav-to-goods" data-goods-id="{goods_id}">
+                        <div class="lbox fl"><img src="{goods_images}" /></div>
+                        <div class="cbox fl">
+                            <div class="name fb">{goods_name}</div> 
+                            <div class="guige color-aaa pt5">规格:{prices_spec}</div>
+                        </div>
+                        <div class="rbox">￥{prime_prices}</div>
+                    </div>
+
+                    <!-- END ret_order_full_info.detail_list -->
+                </div>
+
+            </div>
+
+            <div class="p4th ">
+                <ul class="list clearfix">
+                    <li class="clearfix"><span class="fl">订单金额：</span> <span class="fr">￥{ret_order_full_info.total_amount}</span></li>
+                    <li class="clearfix"><span class="fl">优惠券</span>   <span class="fr">- ￥{ret_order_full_info.discount_amount}</span></li>
+                    <li class="clearfix">
+                        <div class="">
+                            <span class="fl">实付款</span> <span class="fr color-fe9">￥{ret_order_full_info.pending_amount}</span>
+                        </div>
+                    </li>
+                </ul>        
+            </div>
+
+
+            <div class="order-detail-list-item">
+                <div class="item-wrap">
+
+                    <!-- BEGIN ret_order_full_info.process_list -->
+                        <div class="item">
+                                <div class="point-con">
+                                    <i class="point-icon"></i>
+                                </div>     
+                               <div class="item-con clearfix ui-border-b">
+                                   <div class="img-con fl">
+                                        <img src="{process_icon}">
+                                    </div>
+                                   <div class="txt-con fl">
+                                        <p class="info">{process_content}</p>
+                                       
+                                        <p class="ui-start-mod">
+                                            <!-- BEGIN overall_score_arr.stars_list -->
+                                                <!-- IF is_red -->               
+                                                    <span class="icon-s-mod icon-start-yellow"></span>
+                                                <!-- ELSE -->
+                                                    <span class="icon-s-mod icon-start-grey"></span>
+                                                <!-- ENDIF -->
+                                            <!-- END overall_score_arr.stars_list -->
+                                        </p>
+                                    
+                                       <!-- IF process_remark --><p>{process_remark}</p><!-- ENDIF -->
+                                       <p class="time-txt">{process_time_str}</p>
+                                   </div>
+                               </div>
+                        </div>
+                    <!-- END ret_order_full_info.process_list -->
+                   
+                </div>
+            </div>
+
+            <div class="p5th ">
+                <div id="go-seller-url" class="box-a ui-border-b clearfix" seller_id = {ret_order_full_info.seller_user_id}>
+                    <div class="user-img fl" data-role="nav-to-seller-home"><img src="{ret_order_full_info.seller_icon}" alt=""></div>
+                    <div class="user-name fl color-333 f14" data-role="nav-to-seller-home">{ret_order_full_info.seller_name}</div>
+                    <div class="allow fl" data-role="nav-to-seller-home"><i class="icon-allow-grey"></i></div>
+                </div>
+
+                <div class="box-b  tc ui-border-b" id="seller-chat">
+                    <button data-role="consult" class="ui-button  ui-button-block  ui-button-size-m ui-button-bd-555">
+                        <span class="ui-button-content"><i></i>联系卖家</span>
+                    </button>
+                    
+                </div>
+
+            </div>
+
+       
+
+
+            <div class="p7th color-aaa">
+                 <div class="box1">订单号：{ret_order_full_info.order_sn}</div>
+                 <div class="box2 pt5">支付时间： {ret_order_full_info.pay_time_str}</div>
+            </div>
+
+        </div>
+
+        <!-- IF ret_order_full_info.btn_action -->
+        <div class="p8th mt20 <!-- IF ret_order_full_info.is_buyer_del -->fn-hide<!-- ENDIF --> " >
+            <!-- BEGIN ret_order_full_info.btn_action -->
+            <button data-btn = {request} class="{request} ui-button  ui-button-inline-block  ui-button-size-x 
+        
+            <!-- IF request = "pay" -->              
+                ui-button-bd-ff6
+            <!-- ELSEIF request = "sign" -->
+                ui-button-bd-ff6
+            <!-- ELSEIF request = "appraise" -->
+                ui-button-bd-ff6
+            <!-- ELSE -->
+                ui-button-bd-aaa
+            <!-- ENDIF -->
+            ">{title}</button>
+            <!-- END ret_order_full_info.btn_action -->
+        </div>
+        <!-- ENDIF -->
+
+
+    </div>
+
+
+
+    <div class="render_qrcode" id="render_qrcode"></div>
+
+    {wap_global_footer}
+    
+</main>
+<input type="hidden" value="{ret_order_full_info.seller_user_id}" id="seller_id">
+<input type="hidden" value="{ret_order_full_info.is_special}" id="is_special">
+<!-- BEGIN ret_order_full_info.code_list -->
+<div data-role-code="contain" style="display: none">
+    <input type="hidden" data-code-url="{qr_code_url}">
+    <input type="hidden" data-code-number="{code_sn}">
+    <input type="hidden" data-code-name="{name}">
+
+    <input type="hidden" data-code-img="{qr_code_url_img}">
+</div>
+<!-- END ret_order_full_info.code_list -->
+
+
+</body>
+
+
+<script>
+    var $ = require('components/zepto/zepto.js');
+    var utility = require('common/utility/index');
+    var APP = require('common/I_APP/I_APP');
+    var yue_ui = require('yue_ui/frozen');
+
+    $(document).ready(function() {
+
+
+        var header = require('common/widget/header/main');
+        $(document).ready(function() {
+
+           
+
+            // 渲染头部
+            header.init({
+                ele : $("#global-header"), //头部渲染的节点
+                title:"订单详情",
+                header_show : true , //是否显示头部
+                right_icon_show : false, //是否显示右边的按钮
+                share_icon : 
+                {
+                    show :false,  //是否显示分享按钮icon
+                    content:""
+                },
+                omit_icon :
+                {
+                    show :false,  //是否显示三个圆点icon
+                    content:""
+                },
+                show_txt :
+                {
+                    show :true,  //是否显示文字
+                    content:"编辑"  //显示文字内容
+                }
+            })
+
+        });
+        
+
+        // 隐藏卖家聊天
+        if(!APP.isPaiApp)
+        {
+            $('#seller-chat').addClass('fn-hide');
+            // 跳到卖家主页
+            $('#go-seller-url').on('click', function(event) {
+                var sell_id = $(this).attr('seller_id');
+                window.location.href = '../seller/index.php?seller_user_id='+ sell_id ;
+            });
+
+        }
+       
+
+        // 卖家聊天
+        var chat_json = JSON.parse(decodeURIComponent('{chat_json}'));
+        $('[data-role="consult"]').on('click',function(){
+            if(APP.isPaiApp)
+            {
+                APP.chat(chat_json.result_data);
+            }else
+            {
+                //其他浏览版本的咨询按钮跳转分支
+                //todo;
+            }
+        });
+
+        // 商家主页跳转
+        $('[data-role="nav-to-seller-home"]').on('click',function()
+        {
+            if(APP.isPaiApp)
+            {
+                APP.nav_to_app_page
+                ({
+                    page_type : 'seller_user',
+                    seller_user_id : $('#seller_id').val()
+                });
+            }else
+            {
+                //其他浏览版本的咨询按钮跳转分支
+                //todo;
+            }
+        });
+
+        // 跳转到服务详情
+        $('[data-role="nav-to-goods"]').on('click',function(ev)
+        {
+            var $cur_btn = $(ev.currentTarget);
+            var goods_id = $cur_btn.attr('data-goods-id');
+            var is_special = $('#is_special').val();
+
+            if(is_special == 1)
+            {
+                return;
+            }
+
+            if(APP.isPaiApp)
+            {
+                APP.nav_to_app_page
+                ({
+                    page_type : 'goods',
+                    goods_id : goods_id
+                });
+            }else
+            {
+                //其他浏览版本的咨询按钮跳转分支
+                //todo;
+                window.location.href = '../goods/service_detail.php?goods_id='+ goods_id ;
+            }
+        });
+
+        $('[data-btn]').on('click', function(event) {
+
+
+            var data_type = $(this).attr('data-btn');
+            switch (data_type)
+            {
+                case 'close': 
+
+                    var tips_txt = $(this).html();
+                    var dialog = utility.dialog({
+                        "title" : "" ,
+                        "content" : "是否" + tips_txt + "?"
+                    });
+                    dialog.on('confirm',function(event,args)
+                    {
+                        console.log('关闭');
+                        var data = {order_sn:'{order_sn}',type:data_type} ;
+                        ajax_control(data);
+                       
+                    });
+
+                    dialog.on('cancel',function(event,args)
+                    {
+
+                    });
+
+                break;
+
+                case 'pay': 
+
+                    var tips_txt = $(this).html();
+                    var dialog = utility.dialog({
+                        "title" : "" ,
+                        "content" : "是否" + tips_txt + "?"
+                    });
+
+                    dialog.on('confirm',function(event,args)
+                    {
+                        console.log('支付');
+                        var data = {order_sn:'{order_sn}',type:data_type};
+                        $.ajax
+                        ({
+                            url: window.$__config.ajax_url.list_pay_judge,
+                            data : data,
+                            dataType: 'json',
+                            type: 'POST',
+                            cache: false,
+                            beforeSend: function()
+                            {
+                                window.$loading = $.loading
+                                ({
+                                    content:'请求支付中...'
+                                });
+                            },
+                            success: function(data)
+                            {
+
+                                $loading.loading("hide");
+
+                                if(data.result_data.data.result == 1){
+                                    //成功 后刷页
+                                    if(data.result_data.data.message != '')
+                                    {
+                                        alert(data.result_data.data.message);
+                                    }
+
+                                    // window.location.href = "{pay_url}" ;
+                                    window.location.href = "{pay_url}" ;
+                                }
+                                else{
+                                    //
+                                    alert(data.result_data.data.message)
+                                }
+
+
+                            },
+                            error: function(data)
+                            {
+                                $loading.loading("hide");
+
+                                alert('请求失败，请重试');
+                            },
+                            complete: function()
+                            {
+
+                            }
+                        });                                      
+                       
+                    });
+
+                    dialog.on('cancel',function(event,args)
+                    {
+
+                    });
+
+
+                break;
+
+                case 'cancel':
+
+                    var tips_txt = $(this).html();
+                    var dialog = utility.dialog({
+                        "title" : "" ,
+                        "content" : "是否" + tips_txt + "?"
+                    });
+                    dialog.on('confirm',function(event,args)
+                    {
+                        console.log('取消');
+                        var data = {order_sn:'{order_sn}',type:data_type} ;
+                        ajax_control(data);
+
+                       
+                    });
+
+                    dialog.on('cancel',function(event,args)
+                    {
+
+                    });
+
+                break;
+
+                case 'refund': 
+
+
+                    var tips_txt = $(this).html();
+                    var dialog = utility.dialog({
+                        "title" : "" ,
+                        "content" : "是否" + tips_txt + "?"
+                    });
+                    dialog.on('confirm',function(event,args)
+                    {
+                        console.log('申请退款');
+                        var data = {order_sn:'{order_sn}',type:data_type} ;
+                        ajax_control(data);
+                      
+                    });
+
+                    dialog.on('cancel',function(event,args)
+                    {
+
+                    });
+
+                break;
+
+                case 'sign': 
+
+                    var qrcodes = [];
+
+                    $.each($('[data-role-code="contain"]'),function(i,obj)
+                    {
+                        var inner_obj =
+                        {
+                            url : $(this).find('[data-code-url]').attr('data-code-url'),
+                            number : $(this).find('[data-code-number]').attr('data-code-number'),
+                            name : $(this).find('[data-code-name]').attr('data-code-name'),
+                            url_img : $(this).find('[data-code-img]').attr('data-code-img')
+                        }
+
+                        qrcodes.push(inner_obj);
+                    })
+
+
+                    if(APP.isPaiApp){
+                        APP.qrcodeshow(qrcodes,0,function(){});
+                    }
+                    else
+                    {
+      
+
+                        // 处理二维码
+                        var qrcode = require('qrcode');
+                        var qrcode_obj = new qrcode({
+                            ele : $('#render_qrcode'), //渲染的节点
+                            play : "0" , //播放第几张，不传默认第一张
+                            data : 
+                            {
+                                name: '{ret_order_full_info.buyer_name}',
+                                user_icon : '{ret_order_full_info.buyer_icon}',
+                                user_id : '{ret_order_full_info.buyer_user_id}',
+                                data_arr : qrcodes
+                            }
+                            
+                        })
+                        // 处理二维码 end
+
+                    }
+
+
+                    
+
+                    
+                break;
+
+                case 'delete': 
+                    var tips_txt = $(this).html();
+                    var dialog = utility.dialog({
+                        "title" : "" ,
+                        "content" : "是否" + tips_txt + "?"
+                    });
+                    dialog.on('confirm',function(event,args)
+                    {
+
+                        console.log('删除订单');
+                        var data = {order_sn:'{order_sn}',type:data_type} ;
+                        ajax_control(data);
+                       
+                    });
+
+                    dialog.on('cancel',function(event,args)
+                    {
+
+                    });
+
+                break;
+
+                case 'appraise': 
+
+                    var order_sn = '{order_sn}';
+
+                    window.location.href = '../comment/index.php?order_sn='+order_sn;
+
+                    console.log('评价');
+
+
+                break;
+
+            }  
+
+            //ajax请求
+            function ajax_control(data,success,error,complete)
+            {
+                // 操作类型
+                var data_type = data.type ;
+
+                utility.ajax_request({
+                    url: window.$__config.ajax_url.list_control,
+                    data : data,
+                    dataType: 'json',
+                    type: 'POST',
+                    cache: false,
+                    beforeSend: function()
+                    {
+                        window.$loading = $.loading
+                        ({
+                            content:'发送中...'
+                        });
+                    },
+                    success: function(data)
+                    {
+                        console.log(data);
+                        $loading.loading("hide");
+
+                        if(data.result_data.data.result == 1)
+                        {
+                            //成功 后刷页
+                            alert( data.result_data.data.message ) ;
+
+                            // var dialog = utility.dialog_show({
+                            //     'title' : '',
+                            //     'content': data.result_data.data.message
+                            // })
+                            // 处理跳转
+
+                            switch (data_type)
+                            {
+                                case "delete": 
+                                    // window.history.back();
+                                    window.location.href = 'list.php' ;
+                                break;
+                                default :
+                                location.reload();
+                            }
+                            // location.reload();
+                        }
+                        else
+                        {
+                            alert(data.result_data.data.message) ;
+                        }
+
+                    },
+
+                    error: function(data)
+                    {
+                        $loading.loading("hide");
+                        alert('请求失败，请重试');
+                    },
+
+                    complete: function()
+                    {
+
+                    }
+                });
+
+             
+            }
+
+        });
+    });
+
+</script>
+</html>

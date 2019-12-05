@@ -1,0 +1,245 @@
+@charset "UTF-8";
+
+@import "../widget/ui-base";
+@import "../widget/ui-list";
+@import "../widget/ui-btn";
+@import "../widget/ui-form";
+
+.recharge-list{
+  background-color: #eee;
+  .ui-list-text > li
+  {
+    height: 55px;
+    line-height: 55px;
+    font-size: 14px;
+    padding: 0 15px 0 0;
+
+  }
+  .ui-list-active > li:active, .ui-list-link > li:active, li.ui-list-item-link:active
+  {
+    padding-left: 15px;
+  }
+  .ui-list-info > p
+  {
+    font-size: 14px;
+    color:#000;
+  }
+  .p-text p{
+    font-size: 12px;
+    color: #666;
+    padding-left: 15px;
+  }
+}
+
+.recharge-card{
+  background-color: #eee;
+  .ui-btn-wrap{
+    padding: 10px 0;
+  }
+  button{
+    font-size: 16px;
+  }
+
+
+}
+
+.recharge-online{
+  background-color: #eee;
+
+  .bottom-container{
+    height: 44px;
+    width: 100%;
+    line-height: 44px;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    text-align: center;
+    margin: 7px 0px 0px;
+    border-top: 1px solid #e6e6e6;
+    background: #f5f5f5;
+    position: fixed;
+    bottom: 0px;
+
+
+    button{
+      height: 35px;
+      line-height: 35px;
+      padding: 0 15px;
+      font-size: 14px;
+      -webkit-border-radius: 90px;
+      border-radius: 90px;
+      background: #555;
+      color: white;
+      width: 140px;
+    }
+    button:active{
+      background-color: #aaa;
+    }
+  }
+
+  .h-title{
+    font-size: 12px;
+    color: #999;
+  }
+  .ui-list-text > li
+  {
+    line-height: 20px;
+    padding: 10px 15px 10px 0;
+    font-size: 14px;
+  }
+  .ui-list-info > p
+  {
+    font-size: 14px;
+    color:#000;
+  }
+  .ui-avatar{
+    margin:0 10px 0 0 ;
+  }
+  .ui-list li .ui-edge-right{
+    margin-top: -10px;
+
+  }
+  .count-money-color{
+    color:#ff6763;
+    font-size: 14px;
+    margin-right: 15px;
+  }
+
+  .pay-type{
+    display: -webkit-box;
+    height: 30px;
+    h4{
+      line-height: 14px
+    }
+    p{
+      margin-top: 5px;
+      line-height: 10px;
+    }
+  }
+  .pay-type .ui-list-info{
+    padding: 0;
+  }
+  .pay-type .ui-list-info >h4{
+    font-size: 14px;
+  }
+  .pay-type .ui-list-info >p{
+    font-size: 10px;
+    color:#999;
+  }
+
+  .last-container{    
+    
+  }
+
+  .last-sec-container{
+    margin-bottom: 55px;
+
+  }
+
+
+
+  // 支付选择对号
+  .icon-select-active:before{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background-image: url('../../image/pai/red-select-40x40.png?__sprite');
+  }
+  .icon-select-no:before{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background-image: url('../../image/pai/select-before-40x40.png?__sprite');
+  }
+
+  // 支付宝icon
+  .icon-zhifubao:before{
+    width: 46px;
+    height: 17px;
+    margin-top: 8px;
+    margin-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background-image: url('../../image/pai/zhifubao-92x34.png?__sprite');
+  }
+  // 支付宝icon
+  .icon-wx-pay:before{
+    width: 50px;
+    height: 30px;
+    margin-top: 0px;
+    margin-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background-image: url('../../image/pai/wx-100x60.png?__sprite');
+  }
+}
+
+.recharge-success{
+  // 支付成功
+  .pay-tt-success{
+    text-align: center;
+    padding-top: 170px;
+    text-align: center;
+  }
+
+  .pay-tt-success .ex-text{
+    color:#666;
+    display: block;
+  }
+  .pay-tt-success .ex-text.f18{
+    font-size: 18px;
+  }
+  .pay-tt-success .ex-text.f12{
+    font-size: 12px;
+  }
+
+  // 底部按钮
+  .bottom-container {
+    height: 44px;
+    width: 100%;
+    line-height: 44px;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    text-align: center;
+    margin: 7px 0px 0px;
+    border-top: 1px solid #e6e6e6;
+    background: #f5f5f5;
+    position: fixed;
+    bottom: 0px;
+
+    button {
+      height: 35px;
+      line-height: 35px;
+      padding: 0 15px;
+      font-size: 14px;
+      -webkit-border-radius: 90px;
+      border-radius: 90px;
+      background: #ff4978;
+      color: white;
+      width: 140px;
+    }
+    button:active {
+      background-color: #ffa4bb;
+    }
+  }
+
+  &.pay-tt-success-wrap{
+    background-color: #fff;
+  }
+  .icon-select-big:before{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background-image: url('../../image/pai/recharge-success-100x100.png?__sprite');
+    margin-bottom: 20px;
+  }
+}

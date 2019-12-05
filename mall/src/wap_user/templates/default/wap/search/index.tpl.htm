@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head >
+    <title>搜索列表</title>
+    
+    {wap_global_top}    
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/search/index.scss">
+
+    <script src="/lib/lib.js"></script>
+</head>
+<body  class="<!-- IF search_type ="goods" -->cor-bg-fff<!-- ENDIF --> ">
+
+<div class="fade fn-hide anim_fade" style="z-index:10;" data-role="fade"></div>
+
+<!--搜索表单-->
+<main role="main" data-role="search-form-container" class="fn-hide">
+    <div class="page-view " data-role="page-container">
+        <div class="search">
+            <header class="global-header">
+                <div class="wbox clearfix">
+                    <a href="javascript:void(0);">
+                        <div class="back" data-role="page-back">
+                            <i class="icon-back"></i>
+                        </div>
+                    </a>
+                    <div class="search-head title ">
+                        <div class="search-box">
+                            <div class="search-type" data-role="search-type">
+                                <input value="服务" readonly="readonly" class="search-type-btn">
+                                <input value="" type="text" id="search-type-init" style="display: none;">
+                                <i class="r-icon"></i>
+                            </div>
+                            <input type="text" style="color: #000;" placeholder="请输入关键词" value="" class="search-text" data-role="search-text">
+                        </div>
+                    </div>
+
+                    <div class="side-txt" style="" data-role="right-btn">
+                        搜索
+                    </div>
+                </div>
+                <div class="type-select fn-hide" id="type-select">
+                    <i class="type-select-i"></i>
+                    <span class="t-span type-select-span" data-role="type-btn" data-type="seller">商家名称</span>
+                    <span class="b-span type-select-span" data-role="type-btn" data-type="goods">服务名称</span>
+                </div>
+            </header>
+            <div class="seach-content">
+                <div class="hot seach-title fn-hide" data-role="hot">
+                    <p class="hot-title ">热门</p>
+                    <div data-role="hot-service-content">
+
+                    </div>
+                    <div data-role="hot-seller-content" class="fn-hide">
+
+                    </div>
+                </div>
+                <!--搜索历史-->
+                <div class="history seach-title fn-hide" data-role="history" >
+                    <p class="hot-title">历史搜索</p>
+                    <div data-role="history-service-content">
+
+                    </div>
+                    <div data-role="history-seller-content" class="fn-hide">
+
+                    </div>
+                </div>
+                <!--清空历史-->
+                <button class="ui-button ui-button-size-x ui-button-bg-fff empty fn-hide" data-role="empty" >
+                    <span class="ui-button-content">清空搜索历史</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<!--搜索结果列表-->
+<main role="main" data-role="search-list-container" class="search-list-container" style="padding-top: 0">
+    <header class="global-header">
+        <div class="wbox clearfix">
+            <a href="javascript:void(0);">
+                <div class="back" data-role="page-back">
+                    <i class="icon-back"></i>
+                </div>
+            </a>
+            <form method="GET" action="./">
+                <div class="search-head title ">
+                    <div class="search-box">
+                        <i class="icon-search"></i>
+                        <input type="search" style="color: #000;" placeholder="请输入关键词" name="keywords" value="{keywords}" class="search-text" data-role="search-text" id="rel-input">
+                        <input type="hidden" name="search_type" value="{search_type}" />
+                        <input type="hidden" name="type_id" value="{type_id}" />
+                    </div>
+                </div>
+                <div class="side-txt" style="" data-role="right-btn">
+                    
+                </div>
+            </form>
+        </div>
+        
+    </header>
+    <div class="page-view" data-role="page-container">
+        <div>
+            <!-- IF search_type ="goods" -->
+            <div class="search-list-tab ui-border-b">
+                <div class="ui-border-r tab filter_tab" data-role="filter">
+                    <span>筛选</span>
+                </div>
+                <div class="tab sort_tab" data-role="sort">
+                    <span>排序</span>
+                </div>
+            </div>
+            <!-- ENDIF -->
+            <div class="search-list-page {search_type}" >   
+                <div class="service_list" data-role="service_list">
+
+                    <div id="render_ele"></div>
+
+                </div>
+
+                <div data-role="list_container"></div>
+            </div>    
+  
+            <div class="order_list_container" data-role="list_container"></div>
+
+        </div>
+    </div>
+</main>
+
+
+</body>
+<script>
+
+var $ = require('zepto');
+var utility = require('../../../../modules/common/utility/index');
+var header = require('../../../../modules/common/widget/header/main');
+var frozen = require('../../../../modules/yue_ui/frozen');
+var WeiXinSDK =  require('../../../../modules/common/I_WX_SDK/I_WX_SDK.js');
+var search_popup = require('../../../../modules/search/search_popup');
+var header = require('../../../../modules/common/widget/header/main');
+var fastclick = require('fastclick');
+
+window.addEventListener('load',function()
+{
+    fastclick.attach(document.body);
+});
+window.onload = function()
+{
+    var page_data = {page_data}.result_data;
+    var page_params = {page_params}.result_data;
+    console.log(page_params)
+    // 转码
+    //page_params.keywords = decodeURIComponent(page_params.keywords);
+    console.log(page_params.keywords)
+    console.log(page_data);
+
+    <!-- IF search_type="goods" -->
+        
+        <!-- IF order_type="detail" -->
+        var template  = __inline('./goods_item.tmpl');
+        <!-- ELSEIF order_type="activity" -->
+        var template  = __inline('./act_item.tmpl');
+        <!-- ENDIF -->
+    <!-- ELSEIF search_type="seller" -->
+    var template  = __inline('./seller_item.tmpl');
+    <!-- ENDIF -->
+
+
+    // 渲染列表
+    var SELLER_AJAX_URL = window.$__ajax_domain+'get_search_ret.php';
+    var search_list_class = require('../../../../modules/list/list.js');
+    var search_list_obj = new search_list_class(
+            {
+                ele : $('#render_ele'),
+                url : SELLER_AJAX_URL,
+                params : page_params,
+                template : template,
+                ajax_type : 'POST',
+                is_open_lz_opts : false
+            })
+
+    /**
+     * 搜索类，包含调用列表刷新、筛选和排序功能
+     * @param  {[type]} options [description]
+     * @return {[type]}         [description]
+     */
+    var search_class = function(options)
+    {
+        var self = this;
+
+        self.init(options);
+    };
+
+    search_class.prototype =
+    {
+        /**
+         * 初始化
+         * @param  {[type]} options [description]
+         * @return {[type]}         [description]
+         */
+        init : function(options)
+        {
+            var self = this;
+
+            self.options = options = options || {};
+
+            self.$el = self.options.$el || {};
+
+            self.search_filter_popup_obj = search_popup.init
+            ({
+                data:page_data,
+                page_params : page_params,
+                popup_type : 'filter'
+            });
+
+            self.search_sort_popup_obj = search_popup.init
+            ({
+                data:page_data,
+                page_params : page_params,
+                popup_type : 'sort'
+            });
+
+            // 安装事件
+            self.setup_event();
+        },
+        render : function()
+        {
+            var self = this;
+        },
+        setup_event : function()
+        {
+            var self = this;
+
+            //筛选按钮弹出框
+            self.$btn_filter = self.$el.find('[data-role="filter"]');
+            self.$btn_filter.on('click',function()
+            {
+                self.search_filter_popup_obj.toggle();
+            });
+
+            //排序按钮弹出框
+            self.$btn_sort = self.$el.find('[data-role="sort"]');
+            self.$btn_sort.on('click',function()
+            {
+                self.search_sort_popup_obj.toggle();
+            });
+
+            //返回按钮
+            $('[data-role="page-back"]').on('click',function()
+            {
+                if(document.referrer)
+                {
+                    window.history.back();
+                }
+                else
+                {
+                    window.location.href = "../index.php" ;
+                }
+            });
+
+
+
+        }
+
+    };
+
+    var search_obj = new search_class
+    ({
+        $el : $('[data-role="search-list-container"]'),
+        data : page_data
+    });
+
+    $(window).scroll(function()
+    {
+        /*var h = $(this).scrollTop();
+
+        console.log(h)
+
+        if(h>300)
+        {
+            $('.global-header').removeClass('fixed-header');
+            $('.search-list-tab').removeClass('fixed-tab');
+        }
+        else
+        {
+            $('.global-header').addClass('fixed-header');
+            $('.search-list-tab').addClass('fixed-tab');
+        }*/
+    });
+}
+
+
+
+</script>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{page_title}</title>
+
+    <!--<link rel="import" href="./webcontrol/head.tpl.htm?__inline">-->
+
+    <!-- 公共css，js引入 -->
+    {pc_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/style/normal_certificate_basic_v2_9382a29.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/components/jquery/jquery_27c977b.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/js/common/common_26d9479.js"></script>
+</head>
+
+<body>
+{global_top_bar}
+
+
+<div class="content">
+
+    <div class="w1000">
+
+
+        <div class="msg_info mt10 font_wryh f14" id="system_msg_div" style="<!-- IF hide_system_msg == "1" -->display:none;<!-- ENDIF hide_system_msg -->">
+            <ul class="list clearfix">
+
+                <li>
+                    <a href="javascript:;" class="close" id="system_msg_close"></a>
+                    {system_msg}
+                    <!--<a href="#">去看看</a>-->
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="normal_certificate_basic_v2 font_wryh clearfix mt10">
+
+            <div class="main_content fldi" >
+                <div class="p1th clearfix">
+                    <div class="lbox fldi ">
+                        <h3 class="title f24 ">实名认证</h3>
+                        <p class="p1 cor-aaa mt15 f14">个人或者企业用户，完成实名认证后才能进行提现哦~</p>
+                    </div>
+                    <div class="rbox frdi">
+
+                        <!-- 按钮的各种状态  -->
+                        <!-- IF basic_certificate == "no_record" -->
+                        <a href="./normal_certificate_detail.php?type=person" class="tdn">
+                            <div class="ui-button ui-button-primary ui-button-size-s-large mr15 ">
+                                <span class="ui-button-content font_wryh">个人认证</span>
+                            </div>
+                        </a>
+                        <a href="./normal_certificate_detail.php?type=company" class="tdn">
+                            <div class="ui-button ui-button-primary ui-button-size-s-large  ">
+                                <span class="ui-button-content font_wryh">企业认证</span>
+                            </div>
+                        </a>
+                        <!-- ELSEIF basic_certificate == "pass" -->
+                        <a href="javascript:;" class="tdn" onclick="return false">
+                            <div class="ui-button  ui-button-size-s-large mr15  ui-button-color3">
+                                <span class="ui-button-content font_wryh">已认证</span>
+                            </div>
+                        </a>
+                        <!-- ELSEIF basic_certificate == "checking" -->
+                        <a href="javascript:;" class="tdn" onclick="return false">
+                            <div class="ui-button  ui-button-size-s-large mr15  ui-button-color4">
+                                <span class="ui-button-content font_wryh">审核中</span>
+                            </div>
+                        </a>
+                        <!-- ELSEIF basic_certificate == "recheck_person" -->
+                        <a href="./normal_certificate_detail.php?type=person" class="tdn">
+                            <div class="ui-button  ui-button-size-s-large mr15  ui-button-color5">
+                                <span class="ui-button-content font_wryh">重新认证</span>
+                            </div>
+                        </a>
+                        <a href="./normal_certificate_detail.php?type=company" class="tdn">
+                            <div class="ui-button ui-button-primary ui-button-size-s-large  ">
+                                <span class="ui-button-content font_wryh">企业认证</span>
+                            </div>
+                        </a>
+                        <!-- ELSEIF basic_certificate == "recheck_company" -->
+                        <a href="./normal_certificate_detail.php?type=person" class="tdn">
+                            <div class="ui-button ui-button-primary ui-button-size-s-large mr15 ">
+                                <span class="ui-button-content font_wryh">个人认证</span>
+                            </div>
+                        </a>
+                        <a href="./normal_certificate_detail.php?type=company" class="tdn">
+                            <div class="ui-button  ui-button-size-s-large mr15  ui-button-color5">
+                                <span class="ui-button-content font_wryh">重新认证</span>
+                            </div>
+                        </a>
+                        <!-- ENDIF basic_certificate -->
+                        <a href="#" class="tdn" style="display:none;">
+                            <div class="ui-button  ui-button-size-s-large mr15  ui-button-dark">
+                                <span class="ui-button-content font_wryh">个人认证</span>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <div class="p1th clearfix">
+                    <div class="lbox fldi ">
+                        <h3 class="title f24 ">服务认证</h3>
+                        <p class="p1 cor-aaa mt15 f14">完成服务认证，可以发布服务和活动哦</p>
+                    </div>
+                    <div class="rbox frdi">
+                        <!-- IF service_end_status == "no_record" -->
+                        <a href="./normal_certificate_list.php" class="tdn">
+                            <div class="ui-button ui-button-primary ui-button-size-s-large  ">
+                                <span class="ui-button-content font_wryh">立刻认证</span>
+                            </div>
+                        </a>
+                        <!-- ELSEIF service_end_status == "pass" -->
+                        <a href="./normal_certificate_list.php" class="tdn">
+                            <div class="ui-button  ui-button-size-s-large mr15  ui-button-color3">
+                                <span class="ui-button-content font_wryh">已认证</span>
+                            </div>
+                        </a>
+                        <a href="./normal_certificate_list.php" class="tdn">
+                            <div class="ui-button ui-button-primary ui-button-size-s-large  ">
+                                <span class="ui-button-content font_wryh">认证更多服务</span>
+                            </div>
+                        </a>
+                        <!-- ELSEIF service_end_status == "checking" -->
+                        <a href="./normal_certificate_list.php" class="tdn" >
+                            <div class="ui-button  ui-button-size-s-large mr15  ui-button-color4">
+                                <span class="ui-button-content font_wryh">审核中</span>
+                            </div>
+                        </a>
+                        <a href="./normal_certificate_list.php" class="tdn">
+                            <div class="ui-button ui-button-primary ui-button-size-s-large  ">
+                                <span class="ui-button-content font_wryh">认证更多服务</span>
+                            </div>
+                        </a>
+                        <!-- ELSEIF service_end_status == "recheck" -->
+                        <a href="./normal_certificate_list.php" class="tdn">
+                            <div class="ui-button  ui-button-size-s-large mr15  ui-button-color5">
+                                <span class="ui-button-content font_wryh">重新认证</span>
+                            </div>
+                        </a>
+                        <!-- ELSEIF service_end_status == "no_power" -->
+                        <a href="javascript:;" class="tdn" onclick="return false">
+                            <div class="ui-button  ui-button-size-s-large mr15  ui-button-color5">
+                                <span class="ui-button-content font_wryh">商家失效</span>
+                            </div>
+                        </a>
+                        <!-- ENDIF service_end_status -->
+
+
+                    </div>
+                </div>
+
+
+                <div class="p3th">
+                    <div class="list-wrap">
+                        <ul class="list clearfix" id="list-item">
+                            <!-- IF can_publish_service -->
+                            <a href="./goods_edit_choose.php"><li>发布服务</li></a>
+                            <!-- ELSE -->
+                            <a href="javascript:;" onclick="return false"><li class="can_not_p">发布服务</li></a>
+                            <!-- ENDIF can_publish_service -->
+                            <a href="./goods_list.php"><li>服务管理</li></a>
+                            <!-- IF end_basic_certificate == "1" --><a href="./personal_center_edit.php"><li>商家资料管理</li></a><!-- ENDIF end_basic_certificate -->
+                            <a href="./app_guide.php?type=order"><li>订单管理</li></a>
+                            <a href="./app_guide.php?type=money"><li>收入管理</li></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-bar frdi">
+                <h3 class="f18">下载约约商家版</h3>
+                <div class="img"><img src="http://static-c.yueus.com/mall/seller/static/pc/images/erweima-160x160_13cba19.jpg" /></div>
+                <p class="cor-666 pb15">实时管理你的服务交易平台</p>
+            </div>
+
+
+            <div class="fade_v2" id="fade_div" style="<!-- IF hide_gudie == "1" -->display:none;<!-- ENDIF hide_gudie -->"></div>
+            <div class="pop-normal_certificate_basic_v2" id="fade_gudie_div" style="<!-- IF hide_gudie == "1" -->display:none;<!-- ENDIF hide_gudie -->">
+                <div class="box1"><img src="http://static-c.yueus.com/mall/seller/static/pc/images/pop/pop-tips-730x522_01_0b3ed1e.png" /></div>
+                <div class="box2"><img src="http://static-c.yueus.com/mall/seller/static/pc/images/pop/pop-tips-730x522_02_25aaf6f.png" /></div>
+                <div class="box3"><img src="http://static-c.yueus.com/mall/seller/static/pc/images/pop/pop-tips-730x522_03_8e1d73c.png" id="finish_btn"/></div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+{footer}
+
+<script type="text/javascript">
+    // 头部
+    require('common/global-top-bar/global-top-bar');
+
+    //处理引导
+    var cookie = require('common/cookie/index');
+
+
+    //清除引导cookie
+    $("#finish_btn").on("click",function(){
+
+        cookie.set('normal_certificate_basic_guide',"hide_guide",{
+            expires :1000,
+            domain : 'yueus.com',
+            path : '/'
+        });
+
+        $("#fade_div").css("display","none");
+        $("#fade_gudie_div").css("display","none");
+
+    });
+
+    $("#system_msg_close").on("click",function(){
+
+        /*cookie.set('normal_certificate_basic_system_msg',"hide_system_msg",{
+            expires :1000,
+            domain : 'yueus.com',
+            path : '/'
+        });*/
+
+        $("#system_msg_div").css("display","none");
+
+
+    });
+
+
+    $(document).ready(function() {
+        $('#list-item li').not('.click').hover(function() {
+            $(this).addClass('cur')
+        }, function() {
+            $(this).removeClass('cur')
+        });
+
+
+
+    });
+
+
+
+
+
+</script>
+
+</body>
+</html>

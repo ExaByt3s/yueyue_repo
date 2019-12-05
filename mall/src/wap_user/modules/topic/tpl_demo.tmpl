@@ -1,0 +1,152 @@
+{{#each demo}}
+
+    {{#compare tpl_type "==" "img_tpl"}}
+        <!--0-->
+        <div class="tpl-goods-items">
+            <img src="{{custom_data.img_url}}" data-ori-src="{{custom_data.img_url}}" class="items-img">
+        </div>
+    {{/compare}}
+
+    {{#compare tpl_type "==" "text_tpl"}}
+        <!--1-->
+        <div class="category_notice">
+            <p class="title">{{custom_data.title}}</p>
+            <p class="notice">{{custom_data.text}}</p>
+        </div>
+    {{/compare}}
+
+    {{#compare tpl_type "==" "goods_tpl1"}}
+            <!--2-->
+            <div>
+            {{#each custom_data.list}}
+                <div class="tpl-goods-demo1-child">
+                    <div class="top">
+                        <img src="{{change_img_size img_url "260"}}" class="goods-child-img"> 
+                        {{#if goods_tag}}
+                        <p style="background: #FF3366" class="tag">{{goods_tag}}</p>
+                        {{/if}}
+                        <p class="title"></p>
+                    </div>   
+                    <div class="sideBar">
+                        <p class="msg-title row2-hidden f16">{{goods_text}}</p>
+                        <!-- <p class="msg topic-tpl-nowrep f12">{{goods_text}}</p> -->
+<!--                         <p class="msg f12">动即享美食盛宴手指动</p> -->
+                        <div class="mt10">
+<!--                             {{#if noprice}} 
+                            <span class="f10 money-tag">优惠价</span>
+                            <span class="f16">/</span>
+                            {{/if}} -->
+                            <span class="money">{{price}}</span> 
+                            <!-- <span class="text-del f12">{{noprice}}</span>   -->
+                        </div>
+                        <a  href="{{#if goods_url}}{{goods_url}}{{else}}javascript:;{{/if}}" >
+                            <button class="ui-button ui-button-block ui-button-100per ui-button-size-x ui-button-bg-ff6 tpl-btn"><span class="ui-button-content">点击购买</span></button>
+                        </a>
+                    </div>                   
+                </div>
+
+            {{/each}}
+            </div>
+    {{/compare}}
+
+    {{#compare  tpl_type "==" "goods_tpl2"}}
+        <!--3-->
+        <div class="tpl-goods-demo1-child" style="width:100%;">
+            <div class="top">
+                <img src="{{custom_data.img_url}}" class="goods-child-img"> 
+                {{#if custom_data.goods_tag}}
+                <p style="background: #FF3366" class="tag">{{custom_data.goods_tag}}</p>
+                {{/if}}
+                <p class="title"></p>
+            </div>
+            <div class="sideBar">
+                <p class="msg-title row2-hidden f16">{{custom_data.goods_text}}</p>
+                <!-- <p class="msg topic-tpl-nowrep f12">{{custom_data.goods_text}}</p> -->
+<!--                 <p class="msg f12">动即享美食盛宴手指动</p>
+ -->                <div class="mt10"> 
+<!--                     {{#if custom_data.noprice}}
+                    <span class="f10 money-tag">优惠价</span>
+                    <span class="f16">/</span>
+                    {{/if}} -->
+                    <span class="money">{{custom_data.price}}</span> 
+<!--                     <span class="text-del f12">{{custom_data.noprice}}</span> -->
+                </div>
+                <a href="{{#if custom_data.goods_url}}{{custom_data.goods_url}}{{else}}javascript:;{{/if}}" >
+                    <button class="ui-button ui-button-block ui-button-100per ui-button-size-x ui-button-bg-ff6 tpl-btn"><span class="ui-button-content">点击购买</span></button>
+                </a>
+            </div>                   
+        </div>
+    {{/compare}}
+
+    {{#compare tpl_type "==" "goods_tpl3"}}
+        <!--4-->
+      <div class="tpl-goods-demo3-child">
+            <div class="sideBar">
+                <p class="msg-title row2-hidden f16">{{custom_data.goods_text}}</p>
+                <!-- <p class="msg topic-tpl-nowrep f12">{{custom_data.goods_text}}</p> -->
+<!--                 <p class="msg f12">动即享美食盛宴手指动</p>
+ -->                <div class="mt10">
+<!--                     {{#if custom_data.noprice}}
+                    <span class="f10 money-tag">优惠价</span>
+                    <span class="f16">/</span>
+                    {{/if}} -->
+                    <span class="money">{{custom_data.price}}</span> 
+<!--                     <span class="text-del f12">{{custom_data.noprice}}</span> -->
+                </div>
+                <a href="{{#if custom_data.goods_url}}{{custom_data.goods_url}}{{else}}javascript:;{{/if}}" >
+                    <button class="ui-button ui-button-block ui-button-100per ui-button-size-x ui-button-bg-ff6 tpl-btn"><span class="ui-button-content">点击购买</span></button>
+                </a>
+            </div>  
+            <div class="top">
+                <img src="{{change_img_size custom_data.img_url "260"}}" class="goods-child-img">
+                {{#if goods_tag}}
+                <p style="background: #FF3366" class="tag"></p>
+                {{/if}}
+                <p class="title"></p>
+            </div>
+        </div>
+        
+    {{/compare}}
+
+    {{#compare tpl_type "==" "list_tpl1"}}
+        <!--5-->
+    <div class="tpl-demo-header">
+        <a  class="db" href="{{#if custom_data.goods_url}}{{custom_data.goods_url}}{{else}}javascript:;{{/if}}">
+            <div class="header-img" style="background-image: url({{custom_data.img_url}})">
+                <div class="title-con">
+                    <div class="text-description">
+                        <p class="header-title topic-tpl-nowrep">{{custom_data.title}}</p>
+                        <p class="header-notice">{{custom_data.subtitle}}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    {{/compare}}
+
+    {{#compare tpl_type "==" "list_tpl2"}}
+        <!--6-->
+        <div class="tpl-demo-header">
+                <div class="header-img" style="background-image: url({{custom_data.img_url}})">
+                    <div class="title-con">
+                        <div class="text-description">
+                            <p class="header-title">{{custom_data.title}}</p>
+                            <p class="header-notice">{{custom_data.subtitle}}</p>
+                        </div>
+                    </div>
+                </div>
+            <div class="category-notice">
+                <p class="category-title">{{custom_data.title}}</p>
+                <a href="{{custom_data.button}}">
+                    <button class="ui-button ui-button-block ui-button-100per ui-button-size-x ui-button-bg-ff6" style="width:200px;margin:0 auto;margin-top: 1em;border: solid 1px;"><span class="ui-button-content">进入</span></button>
+                </a>
+            </div>
+        </div>
+    {{/compare}}
+
+    {{#compare tpl_type "==" "attr_goods_tpl"}}
+        <!--7-->
+        <div>attr_goods_tpl商品属性模版</div>
+    {{/compare}}
+
+{{/each}}

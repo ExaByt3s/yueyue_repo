@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{page_title}</title>
+
+    <!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+    -->
+    <!-- 公共css，js引入 -->{pc_global_top}</head>
+
+<body>
+{global_top_bar}
+
+
+
+    <div class="content" style="min-height:750px;">
+        <div class="productrun-page w1000 font_wryh">
+            <div class="mod-nav-item">
+                <a href="./">约约商家主页</a>
+                &gt;
+                <span>服务管理</span>
+            </div>
+            <div class="productrun-warp content-bg">
+                <div class="tab-nav clearfix">
+                    <ul class="sub-nav">
+                        <li <!-- IF show == "1" -->class="cur"<!-- ENDIF show -->>
+                            <a href="./goods_list.php?show=1">在售服务</a>
+                        </li>
+                        <li <!-- IF show == "2" -->class="cur"<!-- ENDIF show -->>
+                            <a href="./goods_list.php?show=2">已下架服务</a>
+                        </li>
+                        <li <!-- IF show == "0" -->class="cur"<!-- ENDIF show -->>
+                        <a href="./goods_list.php?show=0">审核中</a>
+                        </li>
+                    </ul>
+                    <a href="./goods_edit_choose.php" class="ui-btn ui-btn-blue fr mt15 mr20">添加新服务</a>
+                </div>
+                <div class="tab-con">
+                    <div class="listItem clearfix">
+                        <div class="top-title title-1">服务名称</div>
+                        <div class="top-title title-2">创建时间</div>
+                        <div class="top-title title-3">操作</div>
+                    </div>
+                    <div class="product-list">
+                        <!-- IF goods_list -->
+                        <!-- BEGIN goods_list -->
+                        <div class="item clearfix">
+                            <div class="product-info-item">
+                                <label class="choose-item">
+                                    <input type="checkbox" name="goods_id[]" value="{goods_id}" class="J_checkbox"/>
+                                </label>
+                                <div class="img-item">
+                                    <a href="./goods_edit.php?goods_id={goods_id}">
+                                    <img src="{images}" style="width:100px;"/>
+                                    </a>
+                                </div>
+                                <div class="text-item">
+                                    <dl>
+                                        <dt><a href="./goods_edit.php?goods_id={goods_id}">[{type_name}]{titles}</a></dt>
+                                        <dd>{prices_list_de}</dd>
+                                        <dd>(服务ID：{goods_id})&nbsp;有{bill_not_pay_num}个未付款订单&nbsp;&nbsp;已有{bill_pay_num}人购买</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="date-item">{dateformat:add_time, "Y-m-d H:i:s"}</div>
+                            <div class="operate-item">
+                                <ul>
+                                    <!-- IF status == "1" -->
+                                    <li class="J_show_hidden_li" data-value="{goods_id}">
+                                        <!-- IF is_show=="1" -->
+                                        <a href="javascript:;" data-value="{goods_id}" class="J_hidden_btn">下架</a>
+                                        <!-- ELSE -->
+                                        <a href="javascript:;" data-value="{goods_id}" class="J_show_btn">上架</a>
+                                        <!-- ENDIF is_show -->
+                                    </li>
+                                    <!-- ELSEIF status == "0" -->
+                                    <li>
+                                        <span style="color:red">审核中</span>
+                                    </li>
+                                    <!-- ELSE -->
+                                    <li>
+                                        <span style="color:red">未通过审核</span>
+                                    </li>
+                                    <!-- ENDIF status -->
+                                    <li>
+                                        <a href="./goods_edit.php?goods_id={goods_id}">编辑</a>
+                                    </li>
+                                    <!-- IF status == "2" -->
+                                    <li>
+                                        <a href="javascript:;" class="J_reason" data-value="{reason}">原因</a>
+                                    </li>
+                                    <!-- ENDIF status -->
+
+                                    <!--<li class="share-li">
+                                        <a href="#">分享</a>
+                                        <div class="share-pop" style="display:none"> <i class="top-icon"><b></b></i> 
+                                            <div class="share-con clearfix">
+                                                <div class="share-item">
+                                                    <a href="#"> <i class="icon wx-icon"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="share-item">
+                                                    <a href="#">
+                                                        <i class="icon wb-icon"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="share-item">
+                                                    <a href="#">
+                                                        <i class="icon Qzone-icon"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="share-item">
+                                                    <a href="#">
+                                                        <i class="icon qq-icon"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>-->
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- END goods_list -->
+                        <!-- ELSE -->
+                        <div class="mt20 mb20 f18">暂无数据</div>
+                        <!-- ENDIF goods_list -->
+
+
+                        <div class="item-total clearfix">
+                            <!-- IF goods_list -->
+                            <label class="total-choose-item">
+                                <input type="checkbox" name="" value="全选" id="J_choose_all"  data-value="all"/>
+                                全选
+                            </label>
+                            <!-- IF show == "1" -->
+                            <input type="button" class="total-btn" name="" value="批量下架" id="J_action_btn">
+                            <input type="hidden" name="action" value="hidden" id="J_action">
+                            <!-- ELSEIF show == "2" -->
+                            <input type="button" class="total-btn" name="" value="批量上架" id="J_action_btn">
+                            <input type="hidden" name="action" value="show" id="J_action">
+                            <!-- ENDIF show -->
+                            <input type="button" class="total-btn" name="" value="删除" id="J_action_del_btn" data-action="del">
+                            <!-- ELSE -->
+                            <!-- ENDIF goods_list -->
+                        </div>
+                    </div>
+
+                    <div class="pager">
+                        {page_select}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{footer}
+
+
+
+      <script type="text/javascript">
+        // 头部
+        require('../../../modules/common/global-top-bar/global-top-bar');
+
+
+        // 弹窗口
+        require('common/layer/layer');
+
+
+        //全选
+        $("#J_choose_all").on("click",function(){
+            var data_value = $(this).attr("data-value");
+            if(data_value=="all")
+            {
+                $(".J_checkbox").prop("checked",true);
+                $(this).attr("data-value","none");
+            }
+            else if(data_value=="none")
+            {
+                $(".J_checkbox").removeAttr("checked");
+                $(this).attr("data-value","all");
+            }
+
+
+        })
+
+        //不通过原因
+        $(".J_reason").on("click",function(){
+            var data_value = $(this).attr("data-value");
+            layer.alert(data_value);
+
+        })
+
+
+
+
+
+
+        //批量处理上下架操作
+        $("#J_action_btn").on("click",function(){
+            var goods_id_str = "";
+            var J_checkbox_lenght = $(".J_checkbox:checked").length;
+            //console.log(J_checkbox_lenght);
+
+            var split_str=",";
+            for(var i=0;i<J_checkbox_lenght;i++)
+            {
+                if(i==(J_checkbox_lenght-1))
+                {
+                    split_str = ""
+                }
+                goods_id_str = goods_id_str+($($(".J_checkbox:checked")[i]).val())+split_str;
+            }
+            var action = $("#J_action").val();
+            //alert(goods_id_str);
+            action = action+"_all";
+            show_hidden_del_action(goods_id_str,action)
+
+
+        })
+
+        //删除
+        $("#J_action_del_btn").on("click",function(){
+            var goods_id_str = "";
+            var J_checkbox_lenght = $(".J_checkbox:checked").length;
+            //console.log(J_checkbox_lenght);
+
+            var split_str=",";
+            for(var i=0;i<J_checkbox_lenght;i++)
+            {
+                if(i==(J_checkbox_lenght-1))
+                {
+                    split_str = ""
+                }
+                goods_id_str = goods_id_str+($($(".J_checkbox:checked")[i]).val())+split_str;
+            }
+            var action = $(this).attr("data-action");
+            //alert(goods_id_str);
+            show_hidden_del_action(goods_id_str,action)
+
+
+        })
+
+        //单个上下架
+        $(".J_show_btn").on("click",function(){
+            var goods_id_str = $(this).attr("data-value");
+            show_hidden_del_action(goods_id_str,"show")
+
+        })
+
+        $(".J_hidden_btn").on("click",function(){
+            var goods_id_str = $(this).attr("data-value");
+            show_hidden_del_action(goods_id_str,"hidden")
+
+        })
+
+
+        //上下架,删除操作
+        function show_hidden_del_action(goods_id_str,action)
+        {
+            if(goods_id_str=="")
+            {
+                //console.log(goods_id_str);
+                layer.alert('请勾选要操作的商品');
+                return false;
+            }
+
+
+            if(action=="del")
+            {
+                layer.confirm('删除该服务项目后，该项的交易记录将会永久丢失，但不会影响商家的订单记录与评价，确认删除？',{
+                    title:"信息",
+                    closeBtn: false,
+                    btn: ['删除','取消'] //按钮
+                },function(index){
+                    //do something
+                    ajax_action(goods_id_str,action);
+                });
+
+
+
+                /*if(!confirm("删除该服务项目后，该项的交易记录将会永久丢失，但不会影响商家的订单记录与评价，确认删除？"))
+                {
+                    return false;
+                }*/
+            }
+            else
+            {
+                ajax_action(goods_id_str,action);
+            }
+
+
+
+
+        }
+
+
+        function ajax_action(goods_id_str,action)
+        {
+            //异步操作，上下架
+            $.ajax
+            ({
+
+                type:'post',
+                dataType:'json',
+                timeout:5000,
+                url:'./module/pai_mall_goods_show_hidden_op.php',
+                data:{
+                    goods_id_str:goods_id_str,
+                    action:action
+                },
+                error:function(XMLHttpRequest,status)
+                {
+                    layer.tips('请求失败，请重新再试');
+                },
+                success:function(json_data)
+                {
+                    if(json_data.ajax_status==1)
+                    {
+
+                        if(action=="show" || action=="hidden")
+                        {
+                            //alert("操作中");
+                            //对应处理该条信息的状态
+                            $(".J_checkbox[value="+goods_id_str+"]").css("display","none");
+                            if(action=="show")
+                            {
+                                var span_html = "<span>已上架</span>";
+                                $(".J_show_hidden_li[data-value="+goods_id_str+"]").html(span_html);
+
+                            }
+                            else
+                            {
+
+                                var span_html = "<span>已下架</span>";
+                                $(".J_show_hidden_li[data-value="+goods_id_str+"]").html(span_html);
+                            }
+
+                        }
+                        else
+                        {
+                            if(action=="show_all")
+                            {
+                                var tips = "上架成功";
+                            }
+                            else if(action=="hidden_all")
+                            {
+                                var tips = "下架成功";
+                            }
+                            else if(action=="del")
+                            {
+                                var tips = "删除服务成功";
+                            }
+
+
+                            layer.alert(tips,function(index){
+
+                                window.location.href=window.location.href;
+                            });
+
+                            //设置隐藏,用split处理
+                        }
+
+                    }
+                    else
+                    {
+
+                        layer.alert("处理错误："+json_data.res);
+
+
+
+
+                    }
+
+
+                }
+
+            });
+        }
+
+    </script>
+        
+</body>
+</html>

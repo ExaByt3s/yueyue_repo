@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>绑定支付宝</title>
+
+    <meta charset="gbk">
+    {head_html}
+    <!-- libjs 必须引用 -->
+    <script src="/lib/lib.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../../../style/bind_alipay/bind_alipay.scss">
+
+</head>
+<body>
+<main role="main">
+    <div class="page-view bind-alipay-container" data-role="page-container">
+        <!-- IF output_arr.show_form="1" -->
+        <div data-role="bind-alipay" class="bind-alipay">
+            <div class="ui-form-table">
+                <div class="ui-input-mod ">
+                    <div class="item">
+                        <input  type="text" class="ui-input  ui-input-size-large ui-input-block ui-input-border-bottom-none ui-input-top-left ui-input-top-right" placeholder="姓名" data-role="account-name">
+                        <!--type="text"-->
+                    </div>
+                    <div class="item">
+                        <input  type="text" class="ui-input  ui-input-size-large ui-input-block ui-input-bottom-left ui-input-bottom-right" placeholder="支付宝绑定" data-role="account-alipay">
+                    </div>
+                </div>
+            </div>
+            <div class="mid-block mt20 mb10" >
+                <div data-role="upload-img-container" ></div>
+                <label data-role="text" class="ml10">请上传身份证照片（正面）</label>
+                <div class="clearfix"></div>
+            </div>
+            <div >
+                <a class="ui-btn-lg ui-btn-confirm" data-role="confrim" style="font-size: 14px;">
+                    提交绑定
+                </a>
+            </div>
+            <div class="des">
+                <p>注意： </p>
+                <p>1、此账户为约约平台与您进行现金结算的通道。</p>
+                <p>2、请确认支付宝及姓名为本人使用账户。</p>
+                <p>3、为确保您的资金安全，如需解绑账户，请联系人工客服认证。客服电话：<span class="num"><a  class="num"  href="javascript:void(0)">400-082-9003</a></span></p>
+            </div>
+        </div>
+        <!-- ELSE -->
+        <div class="bind-alipay-success">
+
+            <div class="p1">{output_arr.msg}</div>
+            <div class="p2" data-role="alipay-account">{output_arr.data.third_account}</div>
+            <div class="p3">如需解绑，请联系客服</div>
+            <div class="p4"><span class="num"><a  class="num" href="javascript:void(0)">400-082-9003</a></span></div>
+
+        </div>
+        <!-- ENDIF -->
+
+        <div data-role="photo-container" class="bind-alipay fn-hide">
+            <div >
+                <h1 class="pt20">请确保身份证四角完整，文字清晰可辨认</h1>
+                <i data-role="ID-pic"  class="img image-img child-img loaded mt20 id-img" style="background-image: url('http://yp.yueus.com/mobile/images/pai/id_demo.png');height: 240px;border-radius: 2px;">
+
+                </i>
+                <div class="photo-btn-view mt20" style="position:relative;">
+					<!-- IF is_App -->
+					 <a class="ui-btn-lg ui-btn-confirm mr10" data-role="upload-confirm" style="font-size: 14px;">
+						
+                        拍摄
+                    </a>
+					<!-- ELSE -->
+					<a class="ui-btn-lg ui-btn-confirm mr10" data-role="upload-confirm" style="font-size: 14px;position:relative;">
+						拍摄												                       
+					</a>
+					<input id="uploadBtn" type="file" accept="image/*" style="opacity: 0;position:absolute;top:0;left:0;width: 100%;height: 100%;">					
+					<!-- ENDIF -->
+                   
+                    <a class="ui-btn-lg ui-btn-confirm disabled" data-role="photo-confirm" style="font-size: 14px;">
+                        确定
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    require('bind_alipay');
+</script>

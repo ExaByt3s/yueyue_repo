@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>微信支付页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0">
+    <link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/wap/style/libs/common_9529c71.css">
+    <style>
+        .weixin-pay{text-align: center;}
+        .weixin-pay .pay-title{padding-top: 75px;font-size: 20px;}
+        .weixin-pay .pay-tips{  padding-top: 12px;color: #aaa;}
+        .weixin-pay .pay-code{  padding: 20px 0 40px;}
+        .weixin-pay .code{  display: inline-block;width: 150px;height: 150px;border: solid;margin: 0 auto;vertical-align: middle;}
+        .weixin-pay .code-tips{  padding-top: 20px;color: #666;font-size: 14px;}
+        .weixin-pay .pay-pb45{  padding-bottom: 45px;}
+        .weixin-pay .pay-btn{width:150px;margin:0 auto;}
+
+    </style>
+</head>
+<body>
+<main role="main" data-role="weixin-pay" >
+    <header class="global-header">
+        <div class="wbox clearfix">
+            <a href="javascript:void(0);">
+                <div id="back" class="back" data-role="page-back">
+                    <i class="icon-back"></i>
+                </div>
+            </a>
+            <h3 class="title">微信支付页</h3>
+        </div>
+    </header>
+    <div class="weixin-pay " data-role="page-container">
+        <p class="pay-title">微信扫码支付</p>
+        <p class="pay-tips">遇到不允许跨号支付？</p>
+        <div class="pay-code">
+            <i class="code"></i>
+            <h4 class="code-tips">长按图片 [ 识别二维码 ] 支付</h4>
+        </div>
+        <div class="pay-pb45">
+            <button class="ui-button  ui-button-block ui-button-size-l ui-button-bg-btn-555 pay-btn">
+                <span class="ui-button-content">我已经支付完成</span>
+            </button>
+        </div>
+    </div>
+</main>
+</body>
+<script>
+
+    var back = document.getElementById('back');
+    back.onclick = function()
+    {
+        if(document.referrer)
+        {
+            window.history.back();
+
+        }
+        else
+        {
+            window.location.href = "http://yp.yueus.com/mall/user/test/index.php" ;
+        }
+    };
+    document.body.addEventListener('touchstart',function(){});
+
+</script>
+</html>

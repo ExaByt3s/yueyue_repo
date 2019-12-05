@@ -1,0 +1,124 @@
+ @charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 组件
+// --
+
+
+// 下拉刷新
+.pull-down-container
+{
+  display: -webkit-box;
+  -webkit-box-pack:center;
+	text-align: center;
+	width: 100%;
+	height:45px;
+	line-height: 45px;
+	position: absolute;
+	left: 0;
+	font-size: 14px;
+	.text
+	{ 
+		
+	}
+  .icon-container{
+    padding-top: 3px;
+    margin-right: 5px;
+  }
+	&.release
+	{
+		i
+		{
+			@include transform(rotateZ(180deg));
+		}
+	}
+	&.loading
+	{
+      i
+      {
+        @include get-icon('loading-40x40',true,block);
+      }
+	}
+	&.loaded
+	{
+		i
+		{
+			@include transform(rotateZ(0deg)); 
+		}
+	}
+
+}
+
+.dropload-box{
+		position: relative;
+		height: 0;
+		overflow: hidden;		
+		//@include transform(translate3d(0,0,0));
+		
+		span{
+			margin-left: 5px;
+		}
+	}
+	.dropload-refresh,.dropload-update,.dropload-load{
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		height: 50px;
+		line-height: 50px;
+		color: #000;
+		display: table;
+		width: 100px;
+		text-align: center;
+		margin-left: -50px;
+		//@include transform(translate(-50%,0));
+	}
+	
+	.dropload-refresh_down,.dropload-update_down,.dropload-load_down{
+		position: absolute;
+		left: 50%;
+		top: 0;
+		height: 40px;
+		line-height: 40px;
+		color: #000;	
+		display: table;	
+		width: 100px;
+		text-align: center;
+		margin-left: -50px;
+		//@include transform(translate(-50%,0));			
+		
+	}
+	.dropload-load{
+		i
+	    {
+	    	// display: table-cell;
+			vertical-align: middle;		
+			height: 20px;
+			height: 20px;
+	        @include get-icon('loading-40x40',true,block);
+	    }
+	}
+	.dropload-update,.dropload-update_down{
+		i
+		{
+			display: table-cell;
+			vertical-align: middle;			
+			@include transform(rotateZ(180deg));			
+		}
+	}
+	.dropload-load_down,.dropload-load_down{
+		i
+		{
+			display: table-cell;
+			vertical-align: middle;			
+			@include transform(rotateZ(0deg)); 
+
+		}
+	}
+	.dropload-refresh{
+		i
+		{
+			display: table-cell;
+			vertical-align: middle;			
+			@include transform(rotateZ(0deg)); 
+
+		}
+	}

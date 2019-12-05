@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <title>Demo</title>
+    <link rel="stylesheet" href="./css/idangerous.swiper.css">
+
+    <link rel="stylesheet" href="./css/paiappstyle.css">
+    <style>
+        /* Demo Syles */
+
+        * {
+            padding: 0;
+            margin: 0
+        }
+
+       
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .device {
+            width: 320px;
+            height: 300px;
+            padding: 30px 40px;
+            border-radius: 20px;
+            background: #111;
+            border: 3px solid white;
+            margin: 5px auto;
+            position: relative;
+            box-shadow: 0px 0px 5px #000;
+        }
+
+        .device .arrow-left {
+            background: url(img/arrows.png) no-repeat left top;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            margin-top: -15px;
+            width: 17px;
+            height: 30px;
+        }
+
+        .device .arrow-right {
+            background: url(img/arrows.png) no-repeat left bottom;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            margin-top: -15px;
+            width: 17px;
+            height: 30px;
+        }
+
+        .swiper-container {
+            height: 300px;
+            width: 640px;
+        }
+
+        .content-slide {
+            padding: 20px;
+            color: #fff;
+        }
+
+        .title {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .pagination {
+            position: absolute;
+            left: 0;
+            text-align: center;
+            bottom: 5px;
+            width: 100%;
+        }
+
+        .swiper-pagination-switch {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            background: #999;
+            box-shadow: 0px 1px 2px #555 inset;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+
+        .swiper-active-switch {
+            background: #fff;
+        }
+
+        .new-index-hot .item-wrap .part-b .list li h3 {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-font-smoothing: subpixel-antialiased;
+            font-smoothing: subpixel-antialiased;
+
+        }
+    </style>
+</head>
+<body>
+<div class="device fn-hide">
+    <a class="arrow-left" href="#"></a>
+    <a class="arrow-right" href="#"></a>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/slider1-1.png"></div>
+            <div class="swiper-slide"><img src="img/slider1-2.png"></div>
+            <div class="swiper-slide">
+                <div class="content-slide">
+                    <p class="title">Slide with HTML</p>
+
+                    <p>You can put any HTML inside of slide with any layout, not only images, even another Swiper!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pagination"></div>
+</div>
+<script src="./js/jquery-1.10.1.min.js"></script>
+<script src="./js/idangerous.swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        pagination: '.pagination',
+        loop: true,
+        grabCursor: true,
+        paginationClickable: true
+    })
+    $('.arrow-left').on('click', function (e) {
+        e.preventDefault()
+        mySwiper.swipePrev()
+    })
+    $('.arrow-right').on('click', function (e) {
+        e.preventDefault()
+        mySwiper.swipeNext()
+    })
+
+	$('body').css('position','relative');
+</script>
+
+
+<div data-app-page-container="" id="page-container" style="height:100%;width:100%; position:relative;" class="">
+<div class="apps_page" data-page-url="model_card/100000" data-cid="view3" data-page-index="0" style="visibility: visible; top: 0px; z-index: 10000; -webkit-animation: slideinfromright 0ms ease;"><div class="tran_cover fn-hide"></div>
+<main role="main" class="model-card ">
+    <header class="nav-header mine-model-car-header-opacity" data-role="slide-header">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title" data-role="moteka-title">eric</h3>
+
+       <div class="right-button-wrap" data-role="menu">
+           <a><i class="circle-min"></i><i class="circle-min"></i><i class="circle-min"></i></a>
+        </div> 
+    </header>
+    <div class="fade-header fn-hide">
+        <div class="left-button-wrap" data-role="page-back">
+            <a><i class="icon icon-moder-ka-back"></i></a>
+        </div>
+
+
+       <div class="right-button-wrap" data-role="menu">
+            <a><i class="circle-min"></i><i class="circle-min"></i><i class="circle-min"></i></a>
+        </div>
+    
+    </div>
+    <div data-role="container" class="content-body" style="position:relative;">
+        <div data-role="items-container" style="height: 518px;position:absolute;top:0;left:0;" class="native_scroll">
+		<div class="model-car-v2 ">
+
+
+    <div data-role="container-img-list" class="grid-pic-content" style="cursor: -webkit-grab;-webkit-transform: translate3d(0,0,0);">
+
+    <div class="scroll-area swiper-wrapper" data-role="ad-pic" style="height: 393px; width: 1176px;" data-prevent-scroll="slider">
+        
+            <div class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 588px; height: 393px;"> <div data-alumn-img="http://image16-d.poco.cn/yueyue/20141127/20141127202703_39.jpg?260x260_120" data-user-role="" class="grid-pic right" data-user-id="" data-role="grid-pic-container" style="width:391px;height:393px;"> <i class="img image-img  loaded" data-is-lazyload="" style="background-image: url(http://image16-d.poco.cn/yueyue/20141127/20141127202703_39_260.jpg?260x260_120);"></i></div><!----><div data-alumn-img="http://image16-d.poco.cn/yueyue/20141127/20141127202703_40.jpg?260x260_120" data-user-role="" class="grid-pic bottom" data-user-id="" data-role="grid-pic-container" style="width:196px;height:196px;"> <i class="img image-img  loaded" data-is-lazyload="" style="background-image: url(http://image16-d.poco.cn/yueyue/20141127/20141127202703_40_260.jpg?260x260_120);"></i></div><!----><div data-alumn-img="http://image16-d.poco.cn/yueyue/20141127/20141127202703_41.jpg?260x260_120" data-user-role="" class="grid-pic " data-user-id="" data-role="grid-pic-container" style="width:196px;height:196px;"> <i class="img image-img  loaded" data-is-lazyload="" style="background-image: url(http://image16-d.poco.cn/yueyue/20141127/20141127202703_41_260.jpg?260x260_120);"></i></div><!----></div>
+        
+            <div class="swiper-slide" style="width: 588px; height: 393px;"> <div data-alumn-img="http://image16-d.poco.cn/yueyue/20141127/20141127202703_42.jpg?260x260_120" data-user-role="" class="grid-pic bottom" data-user-id="" data-role="grid-pic-container" style="width:196px;height:196px;"> <i class="img image-img  loaded" data-is-lazyload="" style="background-image: url(http://image16-d.poco.cn/yueyue/20141127/20141127202703_42_260.jpg?260x260_120);"></i></div><!----><div data-alumn-img="http://image16-d.poco.cn/yueyue/20141127/20141127202703_43.jpg?260x260_120" data-user-role="" class="grid-pic mid" data-user-id="" data-role="grid-pic-container" style="width:194px;height:196px;"> <i class="img image-img  loaded" data-is-lazyload="" style="background-image: url(http://image16-d.poco.cn/yueyue/20141127/20141127202703_43_260.jpg?260x260_120);"></i></div><!----><div data-alumn-img="http://image16-d.poco.cn/yueyue/20141127/20141127202703_44.jpg?260x260_120" data-user-role="" class="grid-pic bottom" data-user-id="" data-role="grid-pic-container" style="width:196px;height:196px;"> <i class="img image-img  loaded" data-is-lazyload="" style="background-image: url(http://image16-d.poco.cn/yueyue/20141127/20141127202703_44_260.jpg?260x260_120);"></i></div><!----><div data-alumn-img="http://image16-d.poco.cn/yueyue/20141127/20141127202703_45.jpg?260x260_120" data-user-role="" class="grid-pic bottom" data-user-id="" data-role="grid-pic-container" style="width:196px;height:196px;"> <i class="img image-img  loaded" data-is-lazyload="" style="background-image: url(http://image16-d.poco.cn/yueyue/20141127/20141127202703_45_260.jpg?260x260_120);"></i></div><!----><div data-alumn-img="http://image16-d.poco.cn/yueyue/20141127/20141127202703_46.jpg?260x260_120" data-user-role="" class="grid-pic mid" data-user-id="" data-role="grid-pic-container" style="width:194px;height:196px;"> <i class="img image-img  loaded" data-is-lazyload="" style="background-image: url(http://image16-d.poco.cn/yueyue/20141127/20141127202703_46_260.jpg?260x260_120);"></i></div><!----><div data-alumn-img="http://image16-d.poco.cn/yueyue/20141202/20141202171329_179628_18.jpg?2448x3264_120" data-user-role="" class="grid-pic bottom" data-user-id="" data-role="grid-pic-container" style="width:196px;height:196px;"> <i class="img image-img  loaded" data-is-lazyload="" style="background-image: url(http://image16-d.poco.cn/yueyue/20141202/20141202171329_179628_18_260.jpg?2448x3264_120);"></i></div><!----></div>
+        
+</div>
+
+<div class="ad-pic-point-out " data-prevent-scroll="slider"><span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span><span class="swiper-pagination-switch"></span></div></div>
+    <div class="part-two">
+        <div class="item bdtp_none">
+            <ul class="model-size">
+                <li class="icon" data-role="model_data_height">170cm</li>
+                <li class="icon" data-role="model_data_weight">55kg</li>
+                <li class="icon" data-role="model_data_bust">87E+</li>
+                <li class="icon" data-role="model_data_BWH">87-56-55</li>
+            </ul>
+        </div>
+
+        <div class="item mgbt_none bdbt_none">
+            <ul class="info" style="position:static">
+                <li>
+                    <div class="lbox ">擅长风格</div>
+                    
+                        <div class="rbox fldi"><span class=""><label data-role="cameraman-require">欧美 情绪 清新 </label></span></div>
+                    
+
+                </li>
+                <li>
+
+                    <div class="lbox ">价格</div>
+                    
+                        <div class="rbox fldi"><span class="cor-y">10元（2小时）</span></div>
+                    
+
+                </li>
+                <!--li>
+                    <div class="lbox ">拍摄类型</div>
+                    <div class="rbox fldi" data-role="model_data_style"></div>
+                </li-->
+            </ul>
+        </div>
+        <div class="item to_more_style" data-role="to_more_style">
+            <div class="more">查看全部风格和价格</div>
+        </div>
+
+
+        <div class="item master mgbt_none bdbt_none">
+            <div class="title">这些大师约拍过</div>
+            <div class="ph_contain" >
+                
+                    <div class="cam_icon_contain" data-role="cam_icon" data-cam_id="100008">
+                        <div class="cam_icon" style="background-image: url(http://yue-icon.yueus.com/10/100008_86.jpg?20150103); width: 50px; height: 50px;"></div>
+                        
+                            <div class="icon icon-v1-cam" ></div>
+                        
+                        
+                        
+
+                    </div>
+                
+                    <div class="cam_icon_contain" data-role="cam_icon" data-cam_id="100028">
+                        <div class="cam_icon" style="background-image: url(http://yue-icon.yueus.com/10/100028_86.jpg?20150103); width: 50px; height: 50px;"></div>
+                        
+                        
+                        
+                            <div class="icon icon-v3-cam"></div>
+                        
+
+                    </div>
+                
+                    <div class="cam_icon_contain" data-role="cam_icon" data-cam_id="100004">
+                        <div class="cam_icon" style="background-image: url(http://yue-icon.yueus.com/10/100004_86.jpg?20150103); width: 50px; height: 50px;"></div>
+                        
+                            <div class="icon icon-v1-cam"></div>
+                        
+                        
+                        
+
+                    </div>
+                
+                    <div class="cam_icon_contain" data-role="cam_icon" data-cam_id="100007">
+                        <div class="cam_icon" style="background-image: url(http://yue-icon.yueus.com/10/100007_86.jpg?20150103); width: 50px; height: 50px;"></div>
+                        
+                            <div class="icon icon-v1-cam"></div>
+                        
+                        
+                        
+
+                    </div>
+                
+                    <div class="cam_icon_contain" data-role="cam_icon" data-cam_id="100001">
+                        <div class="cam_icon" style="background-image: url(http://yue-icon.yueus.com/10/100001_86.jpg?20150103162136); width: 50px; height: 50px;"></div>
+                        
+                            <div class="icon icon-v1-cam"></div>
+                        
+                        
+                        
+
+                    </div>
+                
+            </div>
+
+        </div>
+
+
+
+        <div class="item mgbt_none bdbt_none pdbt_exp" data-role="nav-to-comment">
+            <ul class="info">
+                <i class="icon icon-r-16x26-cur"></i>
+                <li>
+                    <div class="lbox ">综合评价</div>
+                    <div class="rbox fldi">
+                        <span data-role="starts">
+    
+        <i class="icon icon-stat-s-y"></i>
+    
+
+    
+        <i class="icon icon-stat-s-y"></i>
+    
+
+    
+        <i class="icon icon-stat-s-y"></i>
+    
+
+    
+        <i class="icon icon-stat-s-y"></i>
+    
+
+    
+        <i class="icon icon-stat-s-y"></i>
+    
+</span>
+                        <span class="cor-5" data-role="model_data_score" style="color:#ff9c00">9分</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="lbox ">拍片次数</div>
+                    <div class="rbox fldi" data-role="model_data_take_photo_times">32</div>
+                </li>
+            </ul>
+        </div>
+        <div class="item spe-box">
+            <div class="notice">
+                <div class="l">信用要求</div>
+                <div class="l">拍摄人数</div>
+            </div>
+            <div class="details">
+                <div class="r">
+                    <span class="">
+                        <label data-role="cameraman-require">
+                            
+                            
+                            
+                                <i class="icon icon-v3-cam-r"></i>
+                            
+
+                        </label>
+                    </span>
+                </div>
+                <div class="r">不超过<span class="">1</span>人</div>
+            </div>
+            <ul class="info fn-hide">
+                <li>
+                    <div class="lbox ">信用要求</div>
+                    <div class="rbox fldi"><span class=""><label data-role="cameraman-require">V3达人认证才能约拍</label></span></div>
+                </li>
+                <li>
+                    <div class="lbox ">拍摄人数</div>
+                    <div class="rbox fldi">不超过<span class="">1</span>人</div>
+                </li>
+                <!--li>
+                    <div class="lbox ">拍摄类型</div>
+                    <div class="rbox fldi" data-role="model_data_style"></div>
+                </li-->
+            </ul>
+        </div>
+
+        <header class="partc">
+            <div class="avatar">
+                <a data-role="profile">
+                    <i class="img avatar-img" data-role="user-img" style="background-image:url('http://yue-icon.yueus.com/10/100000_165.jpg?20150103')"></i>
+                </a>
+            </div>
+            <div class="meta-info">
+                <div class="model_nickname_sexy_line">
+                    <div class="nickname" data-role="model-info-name">eric</div>
+                    <div class="sexy fn-hide">男女</div>
+                </div>
+                <div class="model_id_city_line">
+                    <div class="model_id">ID ：<label data-role="model-id">100000</label></div>
+                    <div class="model_city">广州市</div>
+                </div>
+                <div>
+                    
+                        
+                            
+                                <div class="ui-follow-mod ui-eachotherfollow-mod fn-hide" data-role="focus" data-focus-type="each">
+                                    <i class="icon icon-ui-eachotherfollow-m"></i> <span class="txt">相互关注</span>
+                                </div>
+                                <div class="ui-follow-mod ui-hasfollow-mod" data-role="focus" data-focus-type="focused">
+                                    <i class="icon icon-ui-hasfollow-m"></i> <span class="txt">已关注</span>
+                                </div>
+                                <div class="ui-follow-mod fn-hide" data-role="focus" data-focus-type="to_focuse">
+                                    <i class="icon icon-ui-follow-m"></i> <span class="txt">关注</span>
+                                </div>
+                                
+                        
+
+
+                        <!--div class="focus-contain fn-hide" data-role="focus-contain">
+                            <div class="add-inside fn-hide" data-role="follow">
+                                <i class="icon icon-focus-yes"></i>
+                            </div>
+                            <div class="des-inside fn-hide" data-role="unfollow">
+                                <i class="icon icon-focus-yes-no"></i>
+                            </div>
+                        </div-->
+                    
+                </div>
+                <p class="user-data fn-hide">
+                    <span class="area" data-role="model-info-city_name" style="color:#786a63">广州市</span>
+                </p>
+                <p class="action fn-hide">
+
+                </p>
+            </div>
+
+        </header>
+
+        <section class="score-info">
+            <a data-role="go_fans"><em data-role="be_follow_count">1</em>粉丝</a>
+            <a><em data-role="level">Lv4</em>级别</a>
+            <a><em data-role="jifen">2703</em>魅力值</a>
+        </section>
+    </div>
+</div>
+</div>
+        <footer class="pop-model-car-confirm">
+            <ul class="list clearfix">
+                <li data-role="yuepai">
+                    <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width" data-role="yuepai">
+                        
+                        <span class="ui-button-content" data-role="yuepai"><i class="icon icon-yuepai-m"></i> 约拍</span>
+                        
+                    </button>
+                </li>
+                <li data-role="msg" class="">
+                    <button class="ui-button ui-button-size-middle ui-button-block ui-button-primary ui-button-size-radius-large auto_width">
+                        
+                        <span class="ui-button-content"><i class="icon icon-siliao-m"></i> 私聊</span>
+                        
+                    </button>
+                </li>
+            </ul>
+        </footer>
+
+        
+
+
+    </div>
+
+
+
+</main></div>
+		
+</div>
+
+</body>
+</html>

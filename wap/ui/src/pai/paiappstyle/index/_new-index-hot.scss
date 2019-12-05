@@ -1,0 +1,201 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 首页 最新
+// ----------------------
+
+    .hot-find-nav-header{
+        z-index:996;
+        position: relative;
+    }
+    .content-body{
+        //@include backface-visibility(hidden);
+    }
+
+.new-index-hot{
+    // background-color: #eeeeee;
+    //padding-top: 45px;
+    .item-wrap{
+        padding-bottom: 71px;
+        .item{
+
+            // @include txt-resolve-float();
+            
+            background: #fff;
+            margin-top: 10px;
+            //border-top: 1px solid #dddddd;
+            //border-bottom: 1px solid #dddddd;
+
+            @include image-border-m(top);
+            @include image-border-m(bottom);
+
+        }
+        .part-a{
+            padding: 10px 0px 10px 0px;
+            color: #666666;
+            //border-bottom: 1px solid #dddddd;
+            @include image-border-m(bottom);
+            margin-right: 15px;
+            margin-left: 15px;
+            position: relative;
+            @include clearfix;
+            .lbox{
+                // @include txt-resolve-float();
+                @include float-left;
+                font-size: 16px;
+            }
+            .rbox{
+                // @include txt-resolve-float();
+                @include float-right;
+                color: $main-color;
+                .icon-allow-22x12{
+                    -webkit-transform:rotate(270deg);
+                    vertical-align:2px;
+
+                }
+            }
+            .more{
+                &:before{
+                    content:'';
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                };
+            }
+        }
+        .part-b{
+            .list{
+                @include clearfix;
+                padding: 15px 0 0 0;
+                //height: 143px;
+                li{
+                    @include float-left;
+                    width: 33.3%;
+                    text-align: center;
+                    padding-bottom: 15px;
+
+
+                    
+                    h3{
+                        
+
+                        padding-top: 8px;
+                        height: 20px;
+                        white-space:nowrap;
+                        color: #666666;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        // @include txt-resolve-float()
+
+                    }
+                    p{
+                        // display:none;
+                        // @include txt-resolve-float();
+                        .num,
+                        .txt,
+                        .x-css
+                        {
+                            // @include txt-resolve-float()
+                        }
+                        
+                    }
+                    .num{
+                        color: $main-color;
+                        font-size: 16px;
+                    }
+                    .sec-num{
+                        color: #ff9c00;
+                    }
+                    .avatar-size-mod-80{
+                        margin: 0 auto;
+
+
+                        .avatar-size-area:before{
+                            background: none;
+                        }
+                        .avatar-size-img{
+                            @include border-radius(80px);
+                        }
+                        
+
+                    }
+
+                    .txt{
+                        color: #aaaaaa;
+                        font-size: 10px;
+                    }
+
+                    .x-css
+                    {
+                        color: $main-color;
+                        font-size: 10px;
+                    }
+
+                }
+            }
+            .show-all{
+                height: auto;
+            }
+     
+
+            .list-2{
+                padding: 15px 0 0 0;
+                @include clearfix;
+                li{
+                        @include float-left;
+                        width: 33.3%;
+                        text-align: center;
+                        padding-bottom: 15px;
+                }
+                .size-img{
+                        display: inline-block;
+                        width: 78px;
+                        height: 78px;
+                        text-align: center;
+                        border: 1px solid #dddddd;
+                    }
+            }
+                
+           
+        }
+        .btn-option{
+            width: 100%;
+            background: #fff;
+            //border-bottom: 1px solid #dddddd;
+            @include image-border-m(bottom);
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            .icon-r-16x26-cur{
+                -webkit-transform:rotate(90deg);
+            }
+            
+            &:active{
+                background: #fafafa;
+                .icon-r-16x26-cur{
+                     @include get-icon('r-16x26', true, block);
+                }
+            };
+        }
+
+        .btn-option-more{
+                .icon-r-16x26-cur{
+                    -webkit-transform:rotate(270deg);
+                }
+
+                &:active{
+                    background: #fafafa;
+                    .icon-r-16x26-cur{
+                         @include get-icon('r-16x26', true, block);
+                         -webkit-transform:rotate(270deg);
+                    }
+            };
+        }
+    }
+
+
+    // .avatar-size-area{
+    //     display:none
+    // }
+}

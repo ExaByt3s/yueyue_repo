@@ -1,0 +1,102 @@
+.notice-item {
+    &:hover {
+        .delete-button {
+            visibility: visible;
+        }
+    }
+} 
+.user-avatar{
+    .sys-msg-avatar{
+        width: 30px;
+    }
+    .sys-msg-avatar-open{
+        width: 30px;
+    }
+    .icon-sys-unread {
+        @include inline-block;
+        width: 30px;
+        height: 20px;
+        overflow: hidden;
+        @include get-icon('notice-sys-unread');
+    }
+    .icon-sys-read {
+        @include inline-block;
+        width: 30px;
+        height: 29px;
+        overflow: hidden;
+        @include get-icon('notice-sys-read');
+    }
+}
+
+.delete-button{
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    color: $color-999;
+    visibility: hidden;
+    _visibility: visible;
+}
+.detail{
+    .title{
+        line-height: 1.5;
+        @include inline-block;
+        vertical-align: top;
+        margin-bottom: 6px;
+        _margin-bottom: 5px;
+        a{
+            vertical-align: top;
+        }
+    }
+    .msg-ad{
+        margin-top: 10px;
+        width: 909px;
+        line-height: 1.5;
+    }
+    .follow_info{
+        display: block;
+        line-height: 1.5;
+        color: $color-999;
+    }
+    .line_height1_5{
+        line-height: 1.5
+    }
+
+}
+
+.cover {
+    a {
+        @include float-left;
+        width: 100px;
+        height: 100px;
+        line-height: 1;
+        margin: 8px 15px 0 0;
+    }
+    img {
+        max-width: 100px;
+        max-height: 100px;
+        _width: 100px;
+        _height: 100px;
+    }
+}
+
+.medal {
+    img {
+        margin: 5px 0;
+    }
+}
+
+a.msg-switch{
+font-size: 12px;
+}
+a.msg-switch-by-title{
+    color: #333333;
+}
+textarea.msg-html
+{
+    display: none; 
+}
+p.sys-msg-summary{
+    font-size: 12px;
+    color: $color-999;
+    margin: 11px 0;
+}

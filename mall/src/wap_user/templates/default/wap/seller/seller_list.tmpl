@@ -1,0 +1,26 @@
+{{#each list}}
+    <div class="child" data-goods-id="2115510">
+        <div class="pics_con" data-url="">
+            <a href="{{link}}" class="db">
+                <i data-lazyload-url="{{cover}}" class="img image-img min-height" style="height: 212px;"></i>
+            </a>
+        </div> 
+        <div class="notice">
+            <div class="price">
+                <p class="p1">{{name}}</p>
+                <p class="p2">{{trade_num}}</p>
+            </div>
+            <div class="rbox">
+                <div class="stars-all-mod">
+                    <div class="ui-stars-grey">
+                    </div>
+                    <div class="ui-stars-yellow" style="width:{{percent score "5"}}">
+                    </div>
+                </div>
+                <p class="p1">{{goods_num}}</p>
+            </div>
+
+        </div>
+    </div>
+
+{{/each}}

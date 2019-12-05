@@ -1,0 +1,220 @@
+{YUE_ADMIN_V2_ADMIN_TEST_HEADER}
+<div id="page-wrapper">
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row breadcrumb">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <button type="button" class="btn btn-primary">订单列表</button>
+                </h1>
+                    <form action="" method="get" class="navbar-form navbar-left">
+                        <div class="input-group">
+                        <span class="input-group-btn">
+                            <input type="text" name="start_date" class="form-control form_date span11" placeholder="开始日期" value="{start_date}" size="10">
+                        </span>
+                        <span class="input-group-btn">
+                            <input type="text" name="end_date" class="form-control form_date" placeholder="结束日期" value="{end_date}" size="10">
+                        </span>
+                        <span class="input-group-btn">
+                         <select class="form-control" name="type_id">
+                             <option value="">全部品类</option>
+                             <!-- BEGIN type_list -->
+                             <option value="{id}" <!-- IF selected -->selected="selected"<!-- ENDIF -->>{name}</option>
+                             <!-- END type_list -->
+                         </select>
+                        </span>
+                        <span class="input-group-btn">
+                           <button class="btn btn-success" type="submit" onclick="this.form.target='_self';$('#action').attr('value','');this.form.submit();">查找</button>
+                           <button class="btn btn-success" type="button" onclick="this.form.target='_blank';$('#action').attr('value','export');this.form.submit();">导出</button>
+                        </span>
+                        </div>
+                        <input type="hidden" name="act" value="" id="action">
+                    </form>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>分类</th>
+                            <th>
+                                <p>开始日期</p>
+                                <p>时间段</p>
+                            </th>
+                            <th>
+                                <p>周销售总额</p>
+                                <p>环比</p>
+                                <p>同比</p>
+                            </th>
+                            <th>
+                                <p>订单数</p>
+                                <p>环比</p>
+                                <p>同比</p>
+                            </th>
+                            <th>
+                                <p>平均客单价</p>
+                                <p>环比</p>
+                                <p>同比</p>
+                            </th>
+                            <th>
+                                <p>消费人数</p>
+                                <p>环比</p>
+                                <p>同比</p>
+                            </th>
+                            <th>
+                                <p>复购率</p>
+                                <p>环比</p>
+                                <p>同比</p>
+                            </th>
+                            <th>
+                                <p>消费留存率</p>
+                                <p>环比</p>
+                                <p>同比</p>
+                            </th>
+                            <th>
+                                <p>消费新客率</p>
+                                <p>环比</p>
+                                <p>同比</p>
+                            </th>
+                            <th>
+                                <p>收入商家数</p>
+                                <p>环比</p>
+                                <p>同比</p>
+                            </th>
+                            <th>
+                                <p>商家平均收入</p>
+                                <p>环比</p>
+                                <p>同比</p>
+                            </th>
+                            <th>
+                                <p>动销率</p>
+                                <p>环比</p>
+                                <p>同比</p>
+                            </th>
+                            <th>
+                                <p>新增有收入商家</p>
+                                <p>环比</p>
+                                <p>同比</p>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- BEGIN list -->
+                        <tr>
+                            <td>{type_name}</td>
+                            <td>
+                                <p>{date_time}</p>
+                                <p>{date_key}</p>
+                            </td>
+                            <td>
+                                <p>{total_price}</p>
+                                <p>{total_price_hb_scala}</p>
+                                <p>{total_price_tb_scala}</p>
+                            </td>
+                            <td>
+                                <p>{order_num}</p>
+                                <p>{order_num_hb_scala}</p>
+                                <p>{order_num_tb_scala}</p>
+                            </td>
+                            <td>
+                                <p>{avg_buyer_price}</p>
+                                <p>{avg_buyer_price_hb_scala}</p>
+                                <p>{avg_buyer_price_tb_scala}</p>
+                            </td>
+                            <td>
+                                <p>{buyer_user_count}</p>
+                                <p>{buyer_user_count_hb_scala}</p>
+                                <p>{buyer_user_count_tb_scala}</p>
+                            </td>
+                            <td>
+                                <p>{buyer_reply_buy_scala}%</p>
+                                <p>{buyer_reply_buy_scala_hb_scala}</p>
+                                <p>{buyer_reply_buy_scala_tb_scala}</p>
+                            </td>
+                            <td>
+                                <p>{keep_buy_user_scala}%</p>
+                                <p>{keep_buy_user_scala_hb_scala}</p>
+                                <p>{keep_buy_user_scala_tb_scala}</p>
+                            </td>
+                            <td>
+                                <p>{new_buy_user_scala}%</p>
+                                <p>{new_buy_user_scala_hb_scala}</p>
+                                <p>{new_buy_user_scala_tb_scala}</p>
+                            </td>
+                            <td>
+                                <p>{seller_user_count}</p>
+                                <p>{seller_user_count_hb_scala}</p>
+                                <p>{seller_user_count_tb_scala}</p>
+                            </td>
+                            <td>
+                                <p>{avg_seller_price}</p>
+                                <p>{avg_seller_price_hb_scala}</p>
+                                <p>{avg_seller_price_tb_scala}</p>
+                            </td>
+                            <td>
+                                <p>{user_pin_scala}%</p>
+                                <p>{user_pin_scala_hb_scala}</p>
+                                <p>{user_pin_scala_tb_scala}</p>
+                            </td>
+                            <td>
+                                <p>{new_gain_seller_num}</p>
+                                <p>{new_gain_seller_num_hb_scala}</p>
+                                <p>{new_gain_seller_num_tb_scala}</p>
+                            </td>
+                        </tr>
+                        <!-- END list -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="dataTables_paginate paging_simple_numbers" id="pages">
+                    {page}
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="../resources/bootstrap/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="../resources/bootstrap/js/plugins/metisMenu/metisMenu.min.js"></script>
+<script src="../resources/bootstrap/js/plugins/metisMenu/sb-admin-2.js"></script>
+<script src="../resources/bootstrap/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="../resources/bootstrap/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript">
+    $('.form_date').datetimepicker({
+        language:  'zh-CN',
+        format: 'yyyy-mm-dd',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+
+</script>
+
+</body>
+
+</html>

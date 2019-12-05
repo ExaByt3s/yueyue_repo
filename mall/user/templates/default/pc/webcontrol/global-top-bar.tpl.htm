@@ -1,0 +1,142 @@
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/js/common/common_b122f6d.js"></script>
+<div class="global-top-bar  font_wryh <!-- IF opacity -->global-top-bar-opacity<!-- ENDIF --> " >
+    <div class="top-bar clearfix w1000">
+        <div class="lbox fldi">
+            <a href="{index_url}"><i class="logo-icon fldi"></i></a>
+
+            <!-- IF opacity -->               
+                <div class="header-pop-mod fldi" id="palce-trigger">
+                        <div class="header-location-item cp">
+                            <em class="address f14"  id="cur_city">{city}</em> 
+                            <b class="ui-triangle-top ui-triangle ui-triangle-bottom-min-black"></b>
+                        </div>
+                        
+                        <div class="header-select-item-wrap fn-hide"  sec-city-tigger>
+                            <div class="header-select-item  "  >
+                                <b class="ui-triangle ui-triangle-top-max-white"></b>
+                                <div class="item-wrap" id="locaition-operation">
+                                    <div class="item">
+                                        <p class="title">{gps_cur}</p>
+                                        <ul class="list list-1">
+                                            <li class="cp" location_id={location_id}>{city}</li>
+                                        </ul>
+                                    </div>
+
+
+                                    <div class="item has_open">
+                                        <p class="title">已开通服务城市</p>
+                                        <ul class="list ">
+
+                                        <!-- BEGIN data -->
+                                            <li><a href="javascript:;" location_id={location_id}>{name}</a></li>
+                                        <!-- END data -->
+
+                                        </ul>
+                                    </div>
+
+
+                                    <div class="item other_open">
+                                        <!-- <p class="title">其他城市</p> -->
+                                        <!-- BEGIN other_open_city -->
+                                            <div class="title">{title}</div>
+                                            <ul class="list ">
+                                                <!-- BEGIN items -->
+                                                    <li><a href="javascript:;" location_id={location_id}>{name}</a></li>
+                                                <!-- END items -->
+                                            </ul>
+                                        <!-- END other_open_city -->
+                                    </div>
+                                    
+                                </div>                  
+                            </div>
+                        </div>
+                </div>
+            <!-- ELSE -->
+                <!-- <div class="index-url fldi font_wryh f14"><a href="{index_url_link}">首页</a></div> -->
+            <!-- ENDIF -->
+
+
+
+        </div>
+        <div class="rbox frdi">
+            <ul class="role clearfix fldi">
+            </ul>   
+            <div class="login fldi">
+                <div class="info-area fldi" >
+                    <a href="http://www.yueus.com/download.php"  target="_blank">APP下载</a>
+                    <a href="http://s.yueus.com/"  target="_blank">商家版</a>
+                </div>
+                <!-- IF is_login -->               
+                    <div class="is_login fldi">
+                        <div class="item" menu-item-trigger="">    <!-- 触发样式 dropdown-menu-hover -->
+                        <a href="javascript:;"><span class="txt long-txt-cut">{user_name}</span><b class="ui-triangle ui-triangle-bottom-min-white"></b></a>
+                        <div class="dropdown-menu" style="display: none;">
+                            <ul class="list clearfix">
+                                <a href="{index_url}"><li>约约首页</li></a>
+                                <a href="http://www.yueus.com/pc/logout.php"><li>退出</li></a>
+                            </ul>        
+                        </div>
+                    </div>
+                    </div>
+                <!-- ELSE -->
+                    <div class="no_login fldi">
+                        <a href="http://www.yueus.com/pc/login.php?r_url={r_url}">登录{is_login}</a>
+                        <span class="line">|</span>
+                        <a href="http://www.yueus.com/pc/register.php?r_url={r_url}">注册</a>
+                    </div>
+                <!-- ENDIF -->
+                
+
+
+
+            </div>     
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+
+        var cookie = require('common/cookie/index');
+
+        $('#palce-trigger').hover(function() {
+            $(this).find('.header-select-item-wrap').removeClass('fn-hide');
+        }, function() {
+            $(this).find('.header-select-item-wrap').addClass('fn-hide');
+        });
+
+        $('[menu-item-trigger]').hover(function() {
+                $(this).addClass('dropdown-menu-hover'); 
+                $(this).stop().find(".dropdown-menu").slideDown(100);
+            }, function() {
+                $(this).removeClass('dropdown-menu-hover');
+                $(this).stop().find(".dropdown-menu").slideUp(100);
+        });
+
+
+        // 地区刷新
+        $('#locaition-operation').find('[location_id]').on('click', function(event) {
+            event.preventDefault();
+            var location_id = $(this).attr('location_id');
+            var city = $(this).html();
+            console.log(location_id);
+            cookie.set('yue_location_id',location_id,{
+                expires : 7,
+                domain : 'yueus.com',
+                path : '/'
+            })
+
+            $('#cur_city').html(city);
+            $('[sec-city-tigger]').addClass('fn-hide');
+            window.location.reload();
+
+
+        });
+
+       
+        
+
+    });
+
+
+</script>

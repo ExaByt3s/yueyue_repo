@@ -1,0 +1,56 @@
+<main role="main" class="secondary">
+    <header class="nav-header search-header">
+        <div class="left-button-wrap">
+            <a data-role="page-back"><i class="icon icon-back"></i></a>
+        </div>
+
+        <h3 class="title">{{tag}}</h3>
+
+        <div class="right-button-wrap">
+            <a><i class="icon icon-cog"></i></a>
+        </div>
+    </header>
+    <div class="search-result-choosen">
+        <div class="choosen_inside" data-choosen="price"><span data-role="selected-text">价格不限</span><i class="icon icon-search_result-arr-g" data-role="arrow-g"></i><i class="icon icon-search_result-arr-r" data-role="arrow-r"></i></div>
+        <div class="pixel_line"></div>
+        <div class="choosen_inside" data-choosen="hour"><span data-role="selected-text">时间不限</span><i class="icon icon-search_result-arr-g" data-role="arrow-g"></i><i class="icon icon-search_result-arr-r" data-role="arrow-r"></i></div>
+        <div class="pixel_line"></div>
+        <div class="choosen_inside" data-choosen="order"><span data-role="selected-text">默认排序</span><i class="icon icon-search_result-arr-g" data-role="arrow-g"></i><i class="icon icon-search_result-arr-r" data-role="arrow-r"></i></div>
+    </div>
+    <div class="search-result-choosen-open fn-hide" data-role="choosen-open">
+        <div class="condition fn-hide" data-role="condition-price" data-all>
+            <div class="child cur" data-role="child-tap" data-mix=""><span>价格不限</span><i class="icon icon-search_result-ok"></i></div>
+            <div class="child" data-role="child-tap" data-mix="10-300"><span>10-300元</span><i class="icon icon-search_result-ok"></i></div>
+            <div class="child" data-role="child-tap" data-mix="301-500"><span>301-500元</span><i class="icon icon-search_result-ok"></i></div>
+            <div class="child" data-role="child-tap" data-mix="501-800"><span>501-800元</span><i class="icon icon-search_result-ok"></i></div>
+            <div class="child" data-role="child-tap" data-mix="801-100000"><span>800元以上</span><i class="icon icon-search_result-ok"></i></div>
+        </div>
+        <div class="condition fn-hide" data-role="condition-hour" data-all>
+            <div class="child cur" data-role="child-tap" data-mix=""><span>时间不限</span><i class="icon icon-search_result-ok"></i></div>
+            <div class="child" data-role="child-tap" data-mix="2"><span>2小时</span><i class="icon icon-search_result-ok"></i></div>
+            <div class="child" data-role="child-tap" data-mix="4"><span>4小时</span><i class="icon icon-search_result-ok"></i></div>
+        </div>
+        <div class="condition fn-hide" data-role="condition-order" data-all>
+            <div class="child cur" data-role="child-tap" data-mix=""><span>默认排序</span><i class="icon icon-search_result-ok"></i></div>
+            <div class="child" data-role="child-tap" data-mix="comment"><span>评价最好</span><i class="icon icon-search_result-ok"></i></div>
+            <div class="child" data-role="child-tap" data-mix="number"><span>拍摄最多</span><i class="icon icon-search_result-ok"></i></div>
+        </div>
+        <div class="fade" data-role="mask"></div>
+    </div>
+    <div style="height:100%" data-role="container">
+
+
+        <div class="search-result" data-role="search-result">
+
+            <!--div class="name-show" data-id="{{id}}">当前搜索：{{tag}}</div-->
+
+            <ul class="list clearfix" data-role="search-result-list">
+
+            </ul>
+
+            <div class="btn fn-hide" data-role="load-more">上拉加载更多</div>
+
+        </div>
+
+    </div>
+</main>

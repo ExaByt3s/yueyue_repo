@@ -1,0 +1,47 @@
+{header_html}
+<body>
+<img src='{record.share_img}' style='display:none' />
+<div class="content">
+  <div class="discount-page">
+    <div class="txt-item">
+        <div class="btn-con">
+            <a href="#this" id="share" class="ui-btn-black-h44">
+                立即分享获取优惠券
+            </a>
+        </div>
+        <div class="txt-con">
+            <p>分享成为约约合作摄影师的喜悦！约约赠送你30元通用优惠券，快来体验最高效的摄影服务吧！</p>
+        </div>
+    </div>
+    <div class="down-item">
+        <div class="down-con clearfix">
+            <h1 class="logo fldi"></h1>
+            <div class="btn-con frdi">
+                <a href="http://app.yueus.com/" class="down-btn">
+                    <img src="images/down-btn-200x68.jpg">
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- 分享弹出层 -->
+<div class="fade" id="fade" style="display:none"></div>
+<div class="wx-share-pop" id="share_pop" style="display:none">
+	<a href="#this" class="close-btn"></a>
+</div>
+<!-- 分享弹出层 end-->
+
+<script>
+$("#share").click(function(){
+  $("#fade").show();
+  $("#share_pop").show();
+});
+
+$(".close-btn").click(function(){
+  $("#fade").hide();
+  $("#share_pop").hide();
+});
+</script>
+{footer_html}

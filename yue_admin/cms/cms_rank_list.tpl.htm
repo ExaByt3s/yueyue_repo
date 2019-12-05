@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>榜单管理</title>
+<link href="http://www1.poco.cn/css/main.css" rel="stylesheet" type="text/css">
+<link href="./css/css.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="./js/common.js"></script>
+<script language="javascript">
+function addRank(obj)
+{
+	$('form').act.value='rank_add';
+	$('form').reset();
+	$('rank_info_div').style.top = getTop(obj)+'px'
+	//$('rank_info_div').style.left = (getLeft(obj)+obj.offsetWidth+20)+'px';
+	$('rank_info_div').style.display='block';
+}
+/* 编辑榜单 */
+function editRank(rank_id, obj)
+{
+	if(rank_id < 1) return;
+	
+	$('form').act.value='rank_update';
+	
+	$('rank_id').value = $('rank_id_'+rank_id).innerHTML;
+	$('sort_order').value = $('sort_order'+rank_id).value;
+	$('channel_id').value = $('channel_id_'+rank_id).channel_id;
+	$('rank_name').value = $('rank_name_'+rank_id).innerHTML;
+	$('rank_url').value = $('rank_url_'+rank_id).innerHTML;
+	$('remark').value = $('remark_'+rank_id).innerHTML;
+	$('img_size').value = $('img_size_'+rank_id).innerHTML;
+	
+	$('rank_info_div').style.top = getTop(obj)+'px';
+	//$('rank_info_div').style.right = (document.body.clientWidth-getLeft(obj)+20)+'px';	
+	$('rank_info_div').style.display='block';
+}
+/* 删除榜单 */
+function delRank(rank_id)
+{
+	if(rank_id < 1) return;
+	var channel_id = $('ch_id').value;
+	window.location.href='cms_act.php?act=rank_del&channel_id='+channel_id+'&rank_id='+rank_id;
+
+}
+</script>
+</head>
+<body>
+<iframe name="act_frame" id="act_frame" width="0" height="0" frameborder="0" src="" style="display:none;"></iframe>
+<h3>::榜单管理</h3>
+<input type="button" value=" 添加榜单 " onclick="addRank(this);" class="font_14">
+<div id="rank_info_div" class="data_info_div">
+	<form action="cms_act.php" id="form" method="POST" target="act_frame">
+	<input name="act" value="rank_add" id="act" type="hidden">
+	<input name="rank_id" value="0" id="rank_id" type="hidden">
+	<ul>
+	<li>所属频道：<select id="channel_id" name="channel_id">
+				{options:option_channel,ch_id}
+				</select>
+	<li>榜单名称：<input type="text" value="" name="rank_name" id="rank_name" size="30"></li>
+	<li>榜单网址：<input type="text" value="http://" name="rank_url" id="rank_url" size="50"></li>
+	<li>图片大小：<input type="text" value="640" id="img_size" name="img_size" size="6"></li>
+	<li>&nbsp;&nbsp;&nbsp; 排序：<input type="text" value="" name="sort_order" id="sort_order" size="6"></li>
+	<li>榜单备注：<textarea style="vertical-align:top;" name="remark" id="remark" cols="50" rows="10"></textarea><br></li>
+	</ul>
+	<input type="submit" value=" 提 交 ">
+	<input type="button" value=" 取  消 " onclick="document.getElementById('rank_info_div').style.display='none';">
+	</form>
+</div>
+<form action="cms_act.php?act=rank_edit_passel_sort_order" id="form2" method="POST" name="form2">
+
+<table id="record_tbl" cellpadding="0" cellspacing="0">
+  <tbody>
+	<tr>
+		<th>操作</th>
+		<th>ID</th>
+		<th>所属频道</th>
+		<th>榜单名称</th>
+		<th style="display:none">榜单网址</th>
+		<th>最新期数</th>
+		<th>备注</th>
+		<th>图片大小</th>
+		<th>排序</th>
+	</tr>
+	<!-- BEGIN rank_info -->
+	<tr>
+		<td>
+			<input type="button" value="修改" class="record_list_btn" onclick="editRank({rank_id},this);">
+			<input type="button" value="删除" class="record_list_btn" onclick="if (confirm('确定要删除榜单吗？') == true) delRank({rank_id});">
+		</td>
+		<td nowrap><span id="rank_id_{rank_id}">{rank_id}</span></td>
+		<td nowrap><span id="channel_id_{rank_id}" channel_id={channel_id}>{channel_name}</span></td>
+		<td nowrap><a id="rank_name_{rank_id}" href="cms_issue_list.php?rank_id={rank_id}">{rank_name}</a></td>
+		<td nowrap style="display:none"><a id="rank_url_{rank_id}" href="{rank_url}" target="_blank">{rank_url}</a></td>
+		<td nowrap>{last_issue}</td>
+		<td><p id="remark_{rank_id}">{remark}</p></td>
+		<td><span id="img_size_{rank_id}">{img_size}</span>px</td>
+		<td><input value="{sort_order}" name="sort_order_arr[]" size="3" id="sort_order{rank_id}"></td>
+		<input type="hidden" name="rank_id_arr[]" value="{rank_id}">
+	</tr>
+	<!-- END rank_info -->
+  </tbody>
+</table>
+<input type="hidden" name="channel_id" value="{ch_id}" id="ch_id">
+<input type="submit" value=" 批量修改排序 ">
+</form>
+</body>
+</html>

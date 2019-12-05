@@ -1,0 +1,113 @@
+@charset "UTF-8";
+@import "../../sass/compass";
+.confirm-page
+{
+    .p1th{
+        margin-top: 15px;
+        background: #fff;
+        padding: 15px;
+        .lbox{
+            width: 50px;
+            height: 50px;
+            .bar-img{
+                width: 100%;
+                height: 100%;
+                display: block;
+                background-size: cover;
+                border-radius: 50%;
+            }
+        }
+        .rbox{
+            padding: 3px 0 0 15px;
+        }
+    }
+
+    .p2th{
+        padding: 15px;
+        margin-top: 15px;
+        background: #fff;
+        .lbox{
+            width: 60px;
+        }
+        .cbox{
+            margin: 2px 20px 0 20px;
+            height: 15px;
+            width: 1px;
+        }
+        .input-text{
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+
+
+
+    .p3th{
+        padding:15px 15px 0px 15px;
+        margin-top: 15px;
+        background: #fff;
+        .wbox{
+
+            // display: -webkit-flex;
+
+            @include flexbox((
+                display: box // 盒子模型 子元素默认水平左对齐
+          
+            ));
+
+        }
+        
+        .lbox{
+            width: 60px;
+
+        }
+        .cbox{
+            margin: 2px 20px 0 20px;
+            height: 15px;
+            width: 1px;
+
+        }
+        .rbox{
+            // -webkit-flex:1;
+            @include flexbox((
+                display: box,  // 盒子模型 子元素默认水平左对齐
+            
+                box-flex: 1 //占有空间比例
+            ));
+
+        }
+
+        .textarea-class{
+            width: 100%;
+            min-height: 20px;
+            margin-bottom: 5px;
+            @include flexbox((
+                display: box,  // 盒子模型 子元素默认水平左对齐
+            
+                box-flex: 1 //占有空间比例
+            ));
+        }
+    }
+
+    .p4th{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 0px 20px 0 20px;
+    }
+
+
+    .ui-button-bg-btn-555{
+        background: #aaaaaa;
+        &:active{
+            background: #aaaaaa;
+        }
+    }
+
+    .can-btn{
+            background: #555555;
+            &:active{
+                background: #aaaaaa;
+            }
+    }
+    
+}

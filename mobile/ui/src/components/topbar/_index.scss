@@ -1,0 +1,54 @@
+
+// --------------------------------------------------
+// 公共 - 顶栏 - 主体
+// --------------------------------------------------
+
+.global-topbar {
+    height: 41px;
+    @include box-shadow(0 0 0 1px rgba(#000, 0.3));
+    //border-bottom: 1px solid #ccc;
+    background: #282828;
+
+    .icon {
+        background: sprite-url($topbar-icons) no-repeat -999px -999px;
+        _background-image: sprite-url($topbar-icons-ie);
+    }
+
+    .new-point {
+        position: absolute;
+        top: 9px;
+        right: 7px;
+        @include inline-block;
+        width: 8px;
+        height: 8px;
+        overflow: hidden;
+        @include get-icon('point');
+    }
+
+    .global-topbar-body {
+        width: 994px;
+        margin: 0 auto;
+        position: relative;
+        *z-index: $topbar-max-zIndex;
+
+        // 解决webkit 闪烁bug
+        -webkit-backface-visibility: hidden;
+        //-webkit-transform-style: preserve-3d;
+
+        a {
+            &, &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+
+    input::-ms-clear {
+        display: none;
+    }
+    input::-ms-reveal {
+        display: none;
+    }
+    i, em {
+        font-style: normal;
+    }
+} // end div.global-topbar

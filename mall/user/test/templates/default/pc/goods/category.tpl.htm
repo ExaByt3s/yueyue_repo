@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{key_current.title_key}</title>
+    <meta name="keywords" content="{key_current.keywords_key}">
+    <meta name="description" content="{key_current.description_key}">
+<!-- 公共css，js引入 -->
+{pc_global_top}
+
+<!-- <link rel="import" href="../page/webcontrol/head.tpl.htm?__inline"> -->
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/lib/mod.js"></script>
+<!-- 当前页css -->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/style/goods/category-page.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/modules/common/search/search.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/modules/yue_ui/selectbox/ui-selectbox.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/modules/common/go_top/go_top.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/placeholder/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/yue_ui/selectbox/popup.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/yue_ui/selectbox/selectbox.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/search/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/go_top/go_top.js"></script>
+</head>
+
+<body>
+
+<!-- bar -->
+{global_top_bar}
+<!-- bar end -->
+
+<div class="w1000">
+    <div class="mod-nav" style="position: relative">
+        <a href="{index_url}">首页</a> > <span class="cur">{key_current.key_nav}</span>
+        <div class="" style="width: 500px;height: 40px;position: absolute;top: 16px;right: -15px;">
+            <div class="font_wryh search_input category-page-search" data-role="search_input"></div>
+        </div>
+    </div>
+</div>
+<!-- 首页 -->
+<div class="category-page">
+
+    <div class="p1th w1000">
+       
+        <div class="scrollBox">
+           <ul class="img_list clearfix font_wryh" id="foo2">
+                <!-- BEGIN banner_list -->
+                    
+                        <li>
+                        <a href="{url}">
+                            <div class="fade-box">
+                                <div class="txt">{str}</div>
+                            </div>
+                            <div class="img"><img src="{img}"></div>
+                            <!-- <div class="fade-box-html5"></div> -->
+                        </a>
+                        </li>
+                    
+                <!-- END banner_list -->
+           </ul>
+           
+           <div class="page-wrap clearfix">
+                <a href="#" class="pre fl" id="prev2"></a>
+<!--                     <div class="page-box fl" id="pager2"><a href="#"></a><a href="#"></a><a href="#"></a></div> -->
+                <a href="#" class="next fl" id="next2"></a>
+           </div>
+       </div>
+
+    </div>
+
+    <div class="p2th w1000">
+        <h3 class="mod-title  font_wryh">{category_title}</h3>
+        <div class="des font_wryh">
+            {category_content}
+        </div>
+        
+        <div class="ul-wrap">
+            <ul class="list clearfix font_wryh">
+            
+            <!-- BEGIN category_list -->
+            <a href="{url}">
+                <li>
+                    
+                    <div class="txt">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="495" height="220" align="center" valign="middle">{str}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="img"><img src="{img}" /></div>
+                    <div class="fade-box"></div>
+                </li>
+            </a>
+            <!-- END category_list -->
+              
+
+                
+            </ul> 
+        </div>       
+    </div>
+
+    <div class="p3th fn-hide" >
+        <h3 class="mod-title  font_wryh">搜罗时下最热门的培训</h3>
+        <div class="wrap-box">
+        <div class="item-wrap clearfix">
+            <ul class="list">
+            <!-- BEGIN get_small_category_3_goods -->
+                <li>
+                    <div class="img-con">
+                        <div class="img"><img src="{pc_img}" /></div>
+                        <div class="txt">
+                            <p class="p1">{title}</p>
+                        </div>
+                        <!-- <div class="btm">免预约</div> -->
+                    </div>
+                    <div class="txt-con">
+                        <p class="sj-id">商家ID：{user_id}</p>
+                        <div class="star clearfix">
+                            <div class="fl">
+                            评价：
+                            <!-- BEGIN new_star -->
+                            
+                                <!-- IF yellow_star --> 
+                                    <i class="icon-start-yellow-m"></i> 
+                                <!-- ELSE -->
+                                    <i class="icon-start-gray-m"></i> 
+                                <!-- ENDIF -->
+
+                            <!-- END new_star -->
+                            </div>
+
+                            <span>{auth}</span>
+                        </div>
+                    </div>
+                </li>
+             
+            <!-- END get_small_category_3_goods -->
+
+
+            </ul>
+        </div>
+        
+        <div class="btn">
+            <a href="#" class="tdn">
+                    <button class="ui-button ui-button-primary ui-button-size-middle ">
+                        <span class="ui-button-content">查看更多</span>
+                    </button>
+            </a>
+        </div>
+
+        </div>
+    </div>
+
+    <div class="p4th w1000  fn-hide">
+        <h3 class="mod-title font_wryh">让我们聆听用户的声音</h3>
+        <!-- 聆听用户声音  -->
+        <div class="lt-user-mod">
+            <div class="lt-user-area">
+
+
+                <div class="item">
+                    <div class="img-area">
+                        <div class="img">
+                            <img src="http://static.yueus.com/mall/user/test/static/pc/images/test/lt-user-1.png" />
+                        </div>
+                        <div class="txt">
+                            <p class="p1 long-txt-cut">这里应该是要有商品的名称，可能漏…</p>
+                        </div>
+                    </div>
+                    <div class="des-area">
+                        <div class="icon-txt"></div>
+                        <p class="des ">总体来说，非常不错。价格合理，服务质量很高。建议想要学摄影的同学，可以尝试联系这个服务商，获取优质服务。</p>
+                        <div class="user-area clearfix">
+
+                            <div class="lbox fldi">
+                                <img src="http://static.yueus.com/mall/user/test/static/pc/images/test/lt-user-name-1.png" />
+                            </div>
+                            <div class="rbox fldi">
+                                <h4 class="cor-666">董小姐</h4>
+                                <div class="start">
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-gray-m"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="item">
+                    <div class="img-area">
+                        <div class="img">
+                            <img src="http://static.yueus.com/mall/user/test/static/pc/images/test/lt-user-2.png" />
+                        </div>
+                        <div class="txt">
+                            <p class="p1 long-txt-cut">这里应该是要有商品的名称，可能漏…</p>
+                        </div>
+                    </div>
+                    <div class="des-area">
+                        <div class="icon-txt"></div>
+                        <p class="des ">总体来说，非常不错。价格合理，服务质量很高。建议想要学摄影的同学，可以尝试联系这个服务商，获取优质服务。</p>
+                        <div class="user-area clearfix">
+
+                            <div class="lbox fldi">
+                                <img src="http://static.yueus.com/mall/user/test/static/pc/images/test/lt-user-name-2.png" />
+                            </div>
+                            <div class="rbox fldi">
+                                <h4 class="cor-666">董小姐</h4>
+                                <div class="start">
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-gray-m"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            
+                <div class="item">
+                    <div class="img-area">
+                        <div class="img">
+                            <img src="http://static.yueus.com/mall/user/test/static/pc/images/test/lt-user-3.png" />
+                        </div>
+                        <div class="txt">
+                            <p class="p1 long-txt-cut">这里应该是要有商品的名称，可能漏…</p>
+                        </div>
+                    </div>
+                    <div class="des-area">
+                        <div class="icon-txt"></div>
+                        <p class="des ">总体来说，非常不错。价格合理，服务质量很高。建议想要学摄影的同学，可以尝试联系这个服务商，获取优质服务。</p>
+                        <div class="user-area clearfix">
+
+                            <div class="lbox fldi">
+                                <img src="http://static.yueus.com/mall/user/test/static/pc/images/test/lt-user-name-3.png" />
+                            </div>
+                            <div class="rbox fldi">
+                                <h4 class="cor-666">董小姐</h4>
+                                <div class="start">
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-yellow-m"></i>
+                                    <i class="icon-start-gray-m"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+              
+
+            </div>
+        </div>
+        <!-- 聆听用户声音  end -->
+    </div>
+
+
+    {down_app_area}
+
+
+</div>
+
+{footer}
+
+
+<script type="text/javascript">
+
+var $ = require('components/jquery/jquery.js');
+var carouFredSel = require('common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0');
+var search = require('common/search/index');
+
+// 引入返回顶部组件
+var go_top = require('common/go_top/go_top');
+var go_top_obj = new go_top({
+    render_ele: $('body') // 后加载的父容器
+});
+
+$(function() 
+{
+    $('#foo2').carouFredSel({
+        prev: '#prev2',
+        next: '#next2',
+        pagination: "#pager2",
+        auto: true
+    });
+
+    search.init
+    ({
+        search_node : $('[data-role="search_input"]'),
+        search_data :
+        {
+            'text':'搜索',
+            'default' : '请输入关键字',
+            'drop':['服务','商家'],
+            'img':'../static/pc/images/search-20x20.png'
+        },
+        search_btn_click : function(node,type)
+        {
+            console.log(node,type);
+
+            location.href = './search.php?keywords=' + node + '&search_type=' + type;
+        }
+    });
+
+});
+
+
+
+</script>
+
+</body>
+
+</html>
+
+		

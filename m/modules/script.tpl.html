@@ -1,0 +1,239 @@
+
+<script type="text/javascript">
+    <!-- IF page.scene="app" -->
+        <!-- IF page.mode="dev" -->
+         window._page_mode = 'appdev';
+		 window._action_mode = 'action';			
+        <!-- ELSEIF page.mode="beta" -->
+         window._page_mode = 'appbeta'; 
+		 window._action_mode = 'action_beta';	
+        <!-- ELSE -->
+		 window._page_mode = 'app';    
+		 window._action_mode = 'action';	
+    <!-- ENDIF page.mode -->
+<!-- ELSE -->
+    <!-- IF page.mode="dev" -->
+         window._page_mode = 'webdev';
+		 window._action_mode = 'action_beta';	
+    <!-- ELSEIF page.mode="beta" -->
+         window._page_mode = 'webbeta';
+		 window._action_mode = 'action_beta';
+	<!-- ELSEIF page.mode="test" -->
+         window._page_mode = 'webtest';
+		 window._action_mode = 'action_beta';
+	<!-- ELSEIF page.mode="wx" -->
+         window._page_mode = 'wx';
+		 window._action_mode = 'action';
+    <!-- ELSE -->
+         window._page_mode = 'index.html';
+		 window._action_mode = 'action';	
+    <!-- ENDIF page.mode -->
+<!-- ENDIF page.scene -->
+
+window._PAGE_MODE = '{page.mode}';
+	
+</script>
+<!-- IF page.scene="app" -->
+    <!-- IF page.mode="dev" -->
+	<script charset="utf-8" src="/m/js/libs/sea-package.js"></script>
+	<script charset="utf-8" src="/m/js/libs/utility-package.js"></script>
+    <!-- ELSEIF page.mode="beta" -->
+	<!--<script src='http://172.18.2.210:8080//target/target-script-min.js#pai'></script>-->
+	<script charset="utf-8" src="/m/js/libs/sea-package.js"></script>
+	<script charset="utf-8" src="/m/js/libs/utility-package.js"></script>
+
+    <!-- ELSE -->
+	<script charset="utf-8" src="/m/js/libs/sea-package.js"></script>
+	<script charset="utf-8" src="/m/js/libs/utility-package.js"></script>
+    <!-- ENDIF page.mode -->
+<!-- ELSE -->
+    <!-- IF page.mode="dev" -->
+	<script charset="utf-8" src="/m/js/libs/cb-seajs-package.js"></script>
+	
+	<!-- ELSEIF page.mode="test" -->
+	<script charset="utf-8" src="/m/js/libs/sea-package.js"></script>
+	<script charset="utf-8" src="/m/js/libs/utility-package.js"></script>
+	<!-- ELSEIF page.mode="beta" -->
+
+	<script charset="utf-8" src="/m/js/libs/sea-package.js"></script>
+	<script charset="utf-8" src="/m/js/libs/utility-package.js"></script>
+    <!-- ELSE -->
+	<script charset="utf-8" src="/m/js/libs/sea-package.js"></script>
+	<script charset="utf-8" src="/m/js/libs/utility-package.js"></script>
+	
+    <!-- ENDIF page.mode -->
+<!-- ENDIF page.scene -->
+
+
+<script>
+
+(function(window, seajs) {
+
+
+    seajs.config({
+        paths: {
+<!-- IF page.scene="app" -->
+    <!-- IF page.mode="dev" -->
+            utility: '/mobile/js/libs/utility',
+            matcha: '/mobile/js/libs/matcha'
+			pai : '/m/dist' 
+	<!-- ELSEIF page.mode="beta" -->
+			utility: 'http://cb.poco.cn/utility',
+            matcha: 'http://cb.poco.cn/matcha',
+			pai : '/m/dist'
+    <!-- ELSE -->
+			pai : '/m/dist'
+    <!-- ENDIF page.mode -->
+<!-- ELSE -->
+	<!-- IF page.mode="wx" -->	
+			pai : '/m/dist'
+	<!-- ELSE -->
+            utility: '/m/js/libs/utility',
+            matcha: '/m/js/libs/matcha',
+            pai : '/m/dist' 
+	<!-- ENDIF page.mode -->
+<!-- ENDIF page.scene -->
+        },
+
+        alias: {
+<!-- IF page.mode="dev" -->
+            '$': 'utility/zepto/1.1.4/zepto-debug',
+            '$-debug': 'utility/zepto/1.1.4/zepto-debug',
+            'data': 'utility/zepto/modules/data/1.1.4/data-debug',
+            'data-debug': 'utility/zepto/modules/data/1.1.4/data-debug',
+
+            'seajs-debug': 'http://cb-c.poco.cn/seajs/plugins/seajs-debug/1.1.1/seajs-debug',
+            'seajs-log': 'http://cb-c.poco.cn/seajs/plugins/seajs-log/1.0.1/seajs-log',
+
+            'backbone': 'utility/backbone/1.1.2/backbone-debug',
+            'backbone-debug': 'utility/backbone/1.1.2/backbone-debug',
+            'underscore': 'utility/underscore/1.6.0/underscore',
+            'handlebars': 'utility/handlebars/1.3.0/handlebars',
+
+            'hammer': 'utility/hammer/1.1.3/hammer',
+            'hammer-debug': 'utility/hammer/1.1.3/hammer-debug',
+            'jquery.hammer': 'utility/hammer/plugins/jquery.hammer/1.1.3/jquery.hammer',
+            'jquery.hammer-debug': 'utility/hammer/plugins/jquery.hammer/1.1.3/jquery.hammer-debug',
+
+            'iscroll': 'utility/iscroll/4.2.5/iscroll-debug',
+            'iscroll-debug': 'utility/iscroll/4.2.5/iscroll-debug',
+
+            'megapix-image': 'utility/megapix-image/megapix-image',
+            'megapix-image-debug': 'utility/megapix-image/megapix-image-debug',
+
+            'cookie': 'matcha/cookie/1.0.0/cookie',
+            'cookie-debug': 'matcha/cookie/1.0.0/cookie-debug'
+<!-- ELSE -->
+            '$': 'utility/zepto/1.1.4/zepto',
+            '$-debug': 'utility/zepto/1.1.4/zepto-debug'
+<!-- ENDIF page.mode -->
+        },
+
+<!-- IF page.mode="dev" -->
+        base : '/m/js/',
+<!-- ELSE -->
+       comboMaxLength: 5000,
+<!-- ENDIF page.mode -->
+
+        charset: 'utf-8'
+    });
+
+<!-- IF page.mode="dev" -->
+    var TIME_STAMP = new Date().getTime();
+
+    var _debug = JSON.stringify(window.localStorage.getItem('seajs-debug-config')).indexOf('debug:true');
+
+    if(_debug != 2)
+    {
+       // cb�����Ӳ���Ҫ�������
+        seajs.on('fetch', function(data) 
+        {
+
+
+            if(data.uri && !(/t=\d+/.test(data.uri)) && !/cb(?:-c|).poco.cn/.test(data.uri) && !/fastclick/.test(data.uri))
+            {
+                // use data.requestUri not data.uri to avoid combo & timestamp conflict
+                // avoid too long url
+                var uri = data.requestUri || data.uri
+                data.requestUri = (uri + (uri.indexOf('?') === -1 ? '?t=' : '&t=') + TIME_STAMP).slice(0, 2000)
+            }
+        });
+
+        seajs.on('define', function(data) 
+        {
+            if (data.uri) {
+                // remove like ?t=12312 or ?
+                data.uri = data.uri.replace(/[\?&]t*=*\d*$/g, '')
+            }
+        });     
+    }
+
+	
+
+<!-- ENDIF page.mode -->
+
+<!-- IF page.scene="app" -->
+    <!-- IF page.mode="dev" -->
+        seajs.use(['app']);
+    <!-- ELSEIF page.mode="beta" -->
+		
+        seajs.use(['pai/{version.script}/app-debug']);
+    <!-- ELSE -->
+        seajs.use(['pai/{version.script}/app']);
+    <!-- ENDIF page.mode -->
+<!-- ELSE -->
+    <!-- IF page.mode="dev" -->
+        seajs.use(['app']);
+    <!-- ELSEIF page.mode="beta" -->
+        
+        var TIME_STAMP = new Date().getTime();
+
+        seajs.on('fetch', function(data) 
+        {
+
+            if(/dist/.test(data.uri))    
+            {
+                console.log(data.uri);
+
+                var uri = data.requestUri || data.uri;
+                data.requestUri = (uri + (uri.indexOf('?') === -1 ? '?t=' : '&t=') + TIME_STAMP).slice(0, 2000);
+            }
+
+            
+        });
+
+		console.log('{version}');
+
+        seajs.use(['pai/{version.script}/app-debug']);
+	<!-- ELSEIF page.mode="test" -->
+		seajs.use(['pai/0.0.1-beta/app-debug']);
+	<!-- ELSEIF page.mode="beta" -->
+		seajs.use(['pai/{version.script}/app-debug']);
+    <!-- ELSE -->
+		
+		seajs.on('fetch', function(data) 
+        {
+
+            if(/app.js/.test(data.uri))    
+            {
+                console.log(data.uri);
+
+                var uri = data.requestUri || data.uri;
+                data.requestUri = uri+"?{version.cache_time}";
+            }
+
+            
+        });
+		
+        seajs.use(['pai/{version.script}/app']);
+		
+		console.log('{version}');
+
+    <!-- ENDIF page.mode -->
+<!-- ENDIF page.scene -->
+})(window, seajs);
+
+
+</script>
+
+

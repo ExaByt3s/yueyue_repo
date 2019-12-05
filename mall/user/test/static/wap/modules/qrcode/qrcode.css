@@ -1,0 +1,43 @@
+.qrcode_mod {
+  position: relative;
+  width: 90%;
+  background: #fff;
+  border-radius: 5px; }
+  .qrcode_mod .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: #534A4A; }
+  .qrcode_mod .swiper-pagination-bullet-active {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: #555555; }
+  .qrcode_mod .swiper-pagination {
+    bottom: 24px; }
+  .qrcode_mod .close {width: 30px;
+    height: 30px;
+    
+    
+    position: absolute;
+    right: -10px;
+    top: -10px;background-repeat: no-repeat;}
+    .qrcode_mod .close:active {background-repeat: no-repeat;}
+  .qrcode_mod .img-area {
+    padding: 30px 30px 10px 30px; }
+    .qrcode_mod .img-area img {
+      width: 100%; }
+    .qrcode_mod .img-area .p2 {
+      padding-top: 10px; }
+    .qrcode_mod .img-area .p1 {
+      width: 100%;
+      text-align: center; }
+  .qrcode_mod .user-info-item {
+    background: #f5f5f5;
+    padding-left: 30px;
+    border-radius: 5px; }
+  .qrcode_mod .item {
+    border-radius: 5px; }
+  .qrcode_mod .ui-user-info-mod {
+    border-radius: 5px; }
+.qrcode_mod .close{background-position:0px 0px}.qrcode_mod .close:active{background-position:0px -35px}.qrcode_mod .close,.qrcode_mod .close:active{background-size: 30px 65px;background-image: url(http://static.yueus.com/mall/user/test/static/wap/modules/qrcode/qrcode_0.5_z.png)}

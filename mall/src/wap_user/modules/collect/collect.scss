@@ -1,0 +1,18 @@
+.collect-mod{
+
+    font-size: 14px;
+    .ui-button{
+        border-radius: 20px;
+    }
+    .ui-button-content{
+        padding-right: 35px;
+        padding-left: 35px;
+        width: 46px;
+        display: inline-block;
+    }
+    .has-collect{
+        background: #ff6a6e;
+        border-color: #ff6a6e;
+        color: #fff
+    }
+}

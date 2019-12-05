@@ -1,0 +1,65 @@
+// --------------------------------------------------
+// 公共 - 顶栏 - 状态控制
+// --------------------------------------------------
+
+
+.global-topbar-item-hover {
+    %item-hover-bg {
+        @include background-image(linear-gradient(#dcdcdc, #ffffff 30%));
+        @include filter-gradient(#DCDCDC, #FFFFFF, vertical);
+    }
+
+    .item-trigger {
+        @extend %item-hover-bg;
+    }
+    .item-content {
+        @extend %item-hover-bg;
+    }
+
+    .text {
+        color: #333;
+
+        strong {
+            color: #333;
+        }
+    }
+
+    .icon-publish {
+        @include get-icon('publish-hover');
+    }
+    .icon-notice {
+        @include get-icon('notice-hover');
+    }
+    .icon-search {
+        @include get-icon('search-hover');
+    }
+
+    .icon-angle {
+        border-color: #646464 transparent transparent transparent;
+        _border-color: #646464 white white white;
+
+        @include transform(rotate(180deg));
+        @include filter(progid:DXImageTransform.Microsoft.BasicImage(rotation=2));
+     }
+
+    .icon-mobile {
+        @include get-icon('mobile-hover');
+    }
+    .icon-mobile-l {
+        @include get-icon('mobile-l-hover');
+    }
+
+    .global-dropdown-menu {
+        display: block;
+    }
+}
+
+.global-topbar-search-active {
+    .item-trigger {
+        display: none;
+    }
+
+    .global-topbar-search {
+        display: block;
+    }
+}

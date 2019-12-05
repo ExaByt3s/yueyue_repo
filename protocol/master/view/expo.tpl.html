@@ -1,0 +1,73 @@
+<div class="rows-title">
+    <h1>协议[日]数据分析&nbsp;<small><small>@willike</small></small></h1>
+</div>
+<div class="rows-contents">
+	<div class="col-md-12">
+		<!-- 栏目导航 -->
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a href="#time_" data-toggle="tab">
+					<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;时间分布
+				</a>
+			</li>
+			<li>
+				<a href="#system_" data-toggle="tab">
+					<span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;版本/系统分布
+				</a>
+			</li>
+			<li>
+				<a href="#min_" data-toggle="tab">
+					<span class="glyphicon glyphicon-magnet"></span>&nbsp;&nbsp;分钟分布
+				</a>
+			</li>
+			<li>
+				<a href="#url_" data-toggle="tab">
+					<span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;链接分布
+				</a>
+			</li>
+			<li>
+				<a href="#user_" data-toggle="tab">
+					<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户分布
+				</a>
+			</li>
+			<li>
+				<a href="#slowq_" data-toggle="tab">
+					<span class="glyphicon glyphicon-random"></span>&nbsp;&nbsp;慢查询记录
+				</a>
+			</li>
+		</ul>
+		<!-- TAB 内容 -->
+		<div class="tab-content">
+			<div class="tab-pane fade in active" id="time_">
+				<div id="time_graphic" style="height:450px"></div>
+			</div>
+			<div class="tab-pane fade in" id="system_">
+				<div id="system_graphic" style="height:450px"></div>
+			</div>
+			<div class="tab-pane fade in" id="min_">
+				<div id="min_graphic" style="height:450px"></div>
+			</div>
+			<div class="tab-pane fade in" id="url_">
+				<div id="uri_graphic" style="height:450px"></div>
+			</div>
+			<div class="tab-pane fade in" id="user_">
+				<div id="user_graphic" style="height:450px"></div>
+			</div>
+			<div class="tab-pane fade in" id="slowq_">
+				<div id="slowq_graphic" style="height:450px"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script type="application/javascript">
+	var width = $("#time_graphic").width(); // DIV长度
+	$(".tab-pane").each(function(){
+		$(this).children("div").width(width);
+	});
+	var date_ = "<?php echo $date_;?>", 
+		time_stat_ = <?php echo $time_stat;?>,
+		system_stat_ = <?php echo $system_stat;?>,
+		min_stat_ = <?php echo $min_stat;?>,
+		uri_stat_ = <?php echo $uri_stat;?>;
+</script>

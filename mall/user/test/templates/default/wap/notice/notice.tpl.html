@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>提示</title>
+    {pc_global_top}
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+</head>
+<body class="">
+<main role="main">
+
+    <section id="global-header"></section>
+    <div class="page-view notice-page" data-role="page-container">
+       <div data-role="abnormal-container"></div>
+       <div class="btn-wrapper" style="padding: 0 15px;">
+           <button class="ui-button  ui-button-block ui-button-100per ui-button-size-l ui-button-bg-btn-555" data-role="btn-back">
+               <span class="ui-button-content">返回首页</span>
+           </button>
+       </div>
+    </div>
+    {wap_global_footer}
+    
+</main>
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+    $(function()
+    {
+        document.body.addEventListener('touchstart', function () {});
+
+
+        var App = require('common/I_APP/I_APP');
+        var header = require('common/widget/header/main');
+        var abnormal = require('common/widget/abnormal/index');
+
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"提示",
+            header_show : true , //是否显示头部
+            right_icon_show : false, //是否显示右边的按钮
+
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        });
+
+        var message = '{message}';
+
+        abnormal.render($('[data-role="abnormal-container"]')[0],{message:message});
+
+        $('[data-role="btn-back"]').on('click',function()
+        {
+            if(App.isPaiApp)
+            {
+                App.switchtopage({page:'hot'});
+            }
+            else
+            {
+                var return_url = '{return_url}';
+                window.location.href = return_url;
+            }
+        });
+
+    });
+
+</script>
+</html>

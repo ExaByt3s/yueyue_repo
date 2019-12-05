@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{key_current.title_key}</title>
+<!-- 公共css，js引入 -->
+{pc_global_top} 
+
+<!-- <link rel="import" href="../webcontrol/head.tpl.htm?__inline"> -->
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/lib/mod_327a0b0.js"></script>
+<!-- 当前页css -->
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/style/category/index_972a17a.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/modules/common/go_top/go_top_c746f30.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/modules/common/search/search_8de992d.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/modules/yue_ui/selectbox/ui-selectbox_1707db4.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/components/jquery/jquery_27c977b.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/js/common/common_b122f6d.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0_d064b6f.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/yue_ui/selectbox/popup_0d12cf1.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/yue_ui/selectbox/selectbox_541b5d1.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/common/search/index_2034c21.js"></script>
+</head>
+
+<body class="category-page-body">
+
+<!-- bar -->
+{global_top_bar} 
+<!-- bar end -->
+
+<div class="w1000">
+
+
+    <div class="clearfix">
+        <div class="mod-nav fldi"><a href="{index_url}">首页</a> > <span class="cur">{key_current.key_nav}</span></div>
+
+        <div class="frdi ">
+            <div class="search-ele" data-role="search-input" id="search-ele">
+                
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="category-page w1000 font_wryh">
+
+    <div class="p1th">
+        
+        <div class="scrollBox-wrap " id="img_cen">
+            <div class="scrollBox "  id="scrollBox" >
+                <ul class="img_list clearfix" id="foo3">
+
+
+                <!-- BEGIN ret.banner_list -->
+                    <li style="background-image:url({img})">
+                    
+                        <!-- IF url -->               
+                            <a href="{url}"></a>
+                        <!-- ELSE -->
+                            <a href="javascript:;"></a>
+                        <!-- ENDIF -->
+
+                    </li>
+                <!-- END ret.banner_list -->   
+                
+
+
+                </ul>
+
+                <div class="page-wrap clearfix">
+                    <div class="page-box fl" id="pager3">
+                        <a href="javascript:;" class="selected"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                    </div>
+                    <a href="javascript:;" class="pre" id="prev3"></a>
+
+                    <a href="javascript:;" class="next" id="next3"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p2th clearfix">
+        <ul class="list ">
+
+        <!-- BEGIN ret.category_list -->
+            <li>
+                <a href="{url}">
+                    <div class="img" style="background-image:url({img})"></div>
+                    <h3 class="h3">{title}</h3>
+                </a>
+            </li>
+        <!-- END ret.category_list -->   
+           
+        </ul>    
+
+        <div class="search">
+            <a href="{ret.search_url}">
+                <div class="img">
+     
+                </div>
+                <h3 class="h3">分类查找</h3>
+            </a>
+        </div>    
+    </div>
+
+
+    <div class="p3th">
+
+
+    
+        <div class="item-wrap">
+        <!-- BEGIN ret.module_list -->   
+            <div class="col">
+                <div class="title-top  ui-border-b clearfix  color-333">
+                    <div class="fl   f20  title">{title}</div>
+                    <!-- IF more -->               
+                    <div class="more fr f14"><a href="{more}">更多> </a></div>
+                    <!-- ENDIF -->
+                    
+                </div>
+
+                <div class="img-wrap clearfix">
+
+                    <div class="item-area">
+                      
+
+                    <!-- BEGIN exhibit -->   
+                    <a href="{url}">
+                        <div class="item">
+                            <div class="img-box">
+                                <img src="{yueus_img_resize:img,'640'}" />
+                            </div>
+                            <div class="fade-h5"></div>
+                            <div class="txt-area">
+                                <p class="des">{title}</p>
+                            </div>
+                        </div>
+                    </a> 
+
+                    <!-- END exhibit -->   
+
+
+                    </div>
+                </div>
+
+            </div> 
+        <!-- END ret.module_list -->   
+ 
+            
+        </div>
+    </div>
+
+
+    <div class="p4th">
+        
+        <div class="scrollBox-wrap " >
+            <div class="scrollBox "  id="scrollBox_4" >
+                <ul class="img_list clearfix" id="foo4">
+
+
+                <!-- BEGIN ret.review_list -->   
+
+                    <!-- BEGIN exhibit -->   
+                        <li style="background-image:url({img})">
+                            <a href="{url}"></a>
+                        </li>
+                    <!-- END exhibit -->   
+
+                <!-- END ret.review_list -->     
+
+
+                </ul>
+
+                <div class="page-wrap clearfix">
+                    <a href="javascript:;" class="pre" id="prev4"></a>
+
+                    <a href="javascript:;" class="next" id="next4"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div> 
+
+{down_app_area}
+
+{footer}
+
+
+<script type="text/javascript">
+
+var $ = require('components/jquery/jquery.js');
+
+// 引入图片居中处理组件
+var lazyload = require('common/lazyload/lazyload');
+
+// 图片后加载处理
+// var lazyload_obj = new lazyload({
+//     contain: $('#img_cen'), // 后加载的父容器
+//     size: '320', // 可传可不传，压位
+//     img_center: {
+//         is_open : true,  //是否开启图片居中功能
+//         width : '320',   //图片居中盒子的宽
+//         height : '220'  //图片居中盒子的高
+//     } 
+// });
+
+
+// 引入返回顶部组件
+var go_top = require('common/go_top/go_top');
+var go_top_obj = new go_top({
+    render_ele: $('body') // 后加载的父容器
+});
+
+// 创造一种故事 滚动
+var carouFredSel = require('common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0');
+
+$('#foo3').carouFredSel({
+     prev: '#prev3',
+     next: '#next3',
+     pagination: "#pager3",
+     auto: true
+ });
+// 头部banner左右箭头处理
+$('#scrollBox').hover(function() {
+    $(this).addClass('slide-pic-hover') ;
+}, function() {
+    $(this).removeClass('slide-pic-hover');
+});
+
+
+
+// 下面的滚动
+$('#foo4').carouFredSel({
+     prev: '#prev4',
+     next: '#next4',
+     pagination: "#pager4",
+     auto: true
+ });
+// 头部banner左右箭头处理
+$('#scrollBox_4').hover(function() {
+    $(this).addClass('slide-pic-hover') ;
+}, function() {
+    $(this).removeClass('slide-pic-hover');
+});
+
+
+
+
+/*************************** JS 部分 ********************************/
+
+// 引用搜索模块
+var search = require('common/search/index');
+// 初始化模块
+var page_data = {page_data}.result_data;
+
+var search_obj = search.init
+({
+    total_data : page_data,// 页面数据
+    icon_search : 'http://static-c.yueus.com/mall/user/static/pc/images/search-20x20_0c0a660.png',// 搜索icon        
+    input_container : $('[data-role="search-input"]') // 需要插入输入框的容器       
+});
+
+/*************************** JS 部分 ********************************/
+
+
+
+
+</script>
+
+</body>
+
+</html>
+
+		

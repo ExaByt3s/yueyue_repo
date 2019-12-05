@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "about.css",
+    "sources": [
+        "/style/about.scss"
+    ],
+    "sourcesContent": [
+        "body{background:#f90;}"
+    ],
+    "mappings": "AAAA,AAAK,AAAW",
+    "names": []
+}

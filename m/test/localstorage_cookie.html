@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="gb2312">
+    <meta name="viewport" content="width=device-width,height=device-height initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <script charset="utf-8" src="http://cb.poco.cn/seajs/??2.1.1/sea.js"></script>
+    <title></title>
+
+</head>
+<body>
+<div id="ua" class="ua"></div>
+
+<div data-role="localstorage"></div>
+<div data-role="cookie"></div>
+
+</body>
+<script>
+    document.getElementById("ua").innerHTML = '当前userAgent:<br/>' + navigator.userAgent
+</script>
+<script>
+    (function(window, seajs) {
+
+        seajs.config({
+            paths: {
+                utility: '../js/libs/utility',
+                matcha: '../js/libs/matcha',
+                pai : '../dist',
+            },
+
+            alias: {
+                '$': 'utility/zepto/1.1.4/zepto-debug',
+                '$-debug': 'utility/zepto/1.1.4/zepto-debug',
+                'data': 'utility/zepto/modules/data/1.1.4/data-debug',
+                'data-debug': 'utility/zepto/modules/data/1.1.4/data-debug',
+
+                'seajs-debug': 'http://cb-c.poco.cn/seajs/plugins/seajs-debug/1.1.1/seajs-debug',
+                'seajs-log': 'http://cb-c.poco.cn/seajs/plugins/seajs-log/1.0.1/seajs-log',
+
+                'backbone': 'utility/backbone/1.1.2/backbone-debug',
+                'backbone-debug': 'utility/backbone/1.1.2/backbone-debug',
+                'underscore': 'utility/underscore/1.6.0/underscore',
+                'handlebars': 'utility/handlebars/1.3.0/handlebars',
+
+                'hammer': 'utility/hammer/1.1.3/hammer',
+                'hammer-debug': 'utility/hammer/1.1.3/hammer-debug',
+                'jquery.hammer': 'utility/hammer/plugins/jquery.hammer/1.1.3/jquery.hammer',
+                'jquery.hammer-debug': 'utility/hammer/plugins/jquery.hammer/1.1.3/jquery.hammer-debug',
+
+                'iscroll': 'utility/iscroll/4.2.5/iscroll-debug',
+                'iscroll-debug': 'utility/iscroll/4.2.5/iscroll-debug',
+
+                'megapix-image': 'utility/megapix-image/megapix-image',
+                'megapix-image-debug': 'utility/megapix-image/megapix-image-debug',
+
+                'cookie': 'matcha/cookie/1.0.0/cookie',
+                'cookie-debug': 'matcha/cookie/1.0.0/cookie-debug'
+            },
+
+            charset: 'utf-8'
+        });
+
+        seajs.use(['$', 'cookie'], function($, cookie) {
+
+            var $win = $(window);
+            var storage = window.localStorage;
+
+            var utility ={
+                get_view_port_width : function()
+                {
+                    return $win.width();
+                },
+                /**
+                 * 本地存储器
+                 */
+                storage :
+                {
+                    /**
+                     * 前缀
+                     */
+                    prefix: 'poco-yuepai-app-',
+                    /**
+                     * 设置
+                     * @param key
+                     * @param val
+                     * @returns {*}
+                     */
+                    set: function(key, val)
+                    {
+                        if (typeof val == 'undefined')
+                        {
+                            return utility.storage.remove(key);
+                        }
+
+                        storage.setItem(utility.storage.prefix + key, JSON.stringify(val));
+
+                        return val;
+                    },
+                    /**
+                     * 获取
+                     * @param key
+                     * @returns {*}
+                     */
+                    get: function(key)
+                    {
+                        var item = storage.getItem(utility.storage.prefix + key);
+
+                        if(!item)
+                        {
+                            return item;
+                        }
+                        else
+                        {
+                            return JSON.parse(item);
+                        }
+
+                    },
+                    /**
+                     * 删除
+                     * @param key
+                     * @returns {*}
+                     */
+                    remove: function(key)
+                    {
+                        return storage.removeItem(utility.storage.prefix + key);
+                    }
+                }
+            }
+
+            var $localstorage = $('[data-role="localstorage"]');
+
+            utility.storage.set('wwwwwx',2222);
+
+            $localstorage.html(utility.storage.get('wwwwwx'));
+
+
+
+
+        });
+    })(window, seajs);
+</script>
+</html>
+
+

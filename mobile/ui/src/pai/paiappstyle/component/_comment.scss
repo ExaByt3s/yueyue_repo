@@ -1,0 +1,148 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 我的
+// ------------------------------
+
+.comment-page{
+    padding: 15px 15px 15px 15px;
+    font-size: 14px;
+    background: #eeeeee;
+    .item-wrap{
+        background: #fff;
+        @include border-radius($border-radius);
+    }
+    .part2{
+        margin-top: 20px;
+    }
+    .item{
+        width: 100%;
+        height: 50px;
+        font-size: 14px;
+        .wrap-c{
+            padding: 10px 0px 0 15px;
+            @include clearfix;
+            .lbox{
+                width: 95px;
+                @include float-left;
+                padding-top: 5px;
+            }
+            .rbox{
+                @include float-left;
+                .icon{
+                    vertical-align: middle;
+                }
+                .up-wrap{
+                    @include clearfix;
+                    li{
+                        @include float-left;
+                        width: 76px;
+                        height: 30px;
+                        border: 1px solid #cccccc;
+                        @include border-radius($border-radius);
+                        
+                        &:nth-child(1){
+                            margin-right: 10px;
+                            .icon-up-cancel-m{
+                                @include get-icon('up-40x40-m', true, block);
+                            }
+                        };
+
+                        &.current{
+                            background:image-url( $domain-name+'images/sec-24x24.png') right bottom no-repeat;
+                            background-size: 12px 12px;
+                            border-color:$main-color;
+                            .icon-up-cancel-m{
+                                @include get-icon('up-curent-38x38', true, block);
+                            }
+                        }
+
+                        &:nth-child(2).current{        
+                            .icon-up-cancel-m{
+                                @include get-icon('up-40x40-m-active', true, block);
+                            }
+                        };
+
+                    }
+                    .icon-wrap{
+                        display: inline-block;
+                        padding: 4px 0 0 0px;
+                        text-align: center;
+                        width: 100%;
+                    }
+                    
+                }
+            }
+        }
+
+    }
+    .input-area{
+        padding: 20px 15px 0 15px;
+        .textarea-class{
+            width: 96%;
+            border: 1px solid #dddddd;
+            @include border-radius($border-radius);
+            padding: 2%;
+            height: 100px;
+
+        }
+    }
+    .no-name{
+        padding: 15px 15px 15px 0;
+        color: #999999;
+        @include clearfix;
+            .switch-container{
+                @include float-right;
+            }
+            .txt{
+                @include float-right;
+                padding-top: 5px;
+                margin-right: 10px;
+            }
+    }
+    .btn{
+        margin-top: 15px;
+    }
+}
+
+
+.comment-list-page{
+    padding: 5px 15px 15px 15px;
+    .item{
+        padding: 12px 0;
+        //border-bottom: 1px solid #dddddd;
+        @include image-border-m(bottom);
+
+        .box1{
+            @include clearfix;
+            .lbox{
+                @include float-left;
+                font-size: 14px;
+                color: #333333;
+                font-weight: bold;
+            }
+            .rbox{
+                @include float-right;
+            }
+        }
+        .box2{
+            padding-top: 5px;
+            font-size: 12px;
+            color: #333333;
+        }
+        .time{
+            color: #aaaaaa;
+            padding-top: 3px;
+            font-size: 12px;
+        }
+    }
+    .ui-btn-refresh{
+
+        padding: 15px 0 15px 0;
+        text-align: center;
+        .icon-spinner{
+            @include get-icon('loading-40x40', true, block);
+            vertical-align: middle;
+        }
+    }
+    
+}

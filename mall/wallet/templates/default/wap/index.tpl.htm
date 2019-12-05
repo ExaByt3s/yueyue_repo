@@ -1,0 +1,205 @@
+  <!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>我的钱包</title>
+    {wap_global_top}
+    <!-- <link rel="import" href="./webcontrol/head.tpl.html?__inline"> -->
+    <link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/wallet/static/wap/style/home/index_490def0.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/wallet/static/wap/style/swiper3.07.min_b12c96f.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/wallet/static/wap/style/swiper_fix_bdef114.css">
+<!-- <meta name="wap-font-scale" content="no"> -->
+    <script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/wallet/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/wallet/static/wap/style/libs/common_d6d32a9.css">
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+   
+    <div class="page-view" data-role="page-container">
+        
+        <div class="personal-center">
+            <div class="ui-line-item-mod c999">
+                <div class="item height-80 b-b">
+                    <div class="left">
+                        <div class="ui-avatar-icon ui-avatar-icon-m">
+                            <span class="bar-img" style="background-image:url('{icon}')"></span>
+                        </div>
+                        <div class="icon-f">
+                            <p class="icon-f-t">{nickname}</p>
+                            <p>
+                                <span>{city}</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                    <div class="item c333" data-role="order">
+                        <div class="border-b justify">
+                            <div class="d-box">
+                                <p class="txt">账户余额</p>
+                            </div>
+                            <div class="d-box v-c">
+                                <span class="cff6a6e">￥{available_balance}</span>
+                            </div>
+                        </div>
+                    </div>
+            </div>  
+
+            <div class="ui-line-item-mod">
+                <a class="db" href="http://yp.yueus.com/mall/user/test/coupon/list.php">
+                    <div class="item c333" data-role="order-list">
+                        <div class="d-box justify">
+                            <div class="d-box">
+                                <i class="icon icon-coupons icon-ui"></i>
+                                <p class="txt">优惠券</p>
+                            </div>
+                            <div class="d-box v-c">
+                                <span class="item-r-txt">{coupon_num}</span>
+                                <i class="icon-allow-grey"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="ui-line-item-mod">
+                <a class="db" href="http://yp.yueus.com/mobile/m2/mine/bill/">
+                    <div class="item c333" data-role="sign">
+                        <div class="ui-border-b justify">
+                            <div class="d-box">
+                                <i class="icon account-icon icon-ui"></i>
+                                <p class="txt">账单</p>
+                            </div>
+                            <div class="d-box  v-c">
+                                <span class="item-r-txt"></span>
+                                <i class="icon-allow-grey"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- IF is_not_weixin -->
+                <a class="db" href="http://yp.yueus.com/mobile/m2/mine/withdrawals/">
+                    <div class="item c333" data-role="sign">
+                        <div class="ui-border-b justify">
+                            <div class="d-box">
+                                <i class="icon withdraw-icon icon-ui"></i>
+                                <p class="txt">提现</p>
+                            </div>
+                            <div class="d-box  v-c">
+                                <span class="item-r-txt"></span>
+                                <i class="icon-allow-grey"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- ENDIF -->
+                <a class="db" href="http://yp.yueus.com/mobile/m2/recharge/">
+                    <div class="item c333" data-role="sign">
+                        <div class="justify">
+                            <div class="d-box">
+                                <i class="icon order-icon icon-ui"></i>
+                                <p class="txt">充值</p>
+                            </div>
+                            <div class="d-box  v-c">
+                                <span class="item-r-txt"></span>
+                                <i class="icon-allow-grey"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- IF is_not_weixin -->
+            <div class="ui-line-item-mod">
+                <a class="db" href="http://yp.yueus.com/mobile/m2/mine/bind_alipay/">
+                    <div class="item c333" data-role="order-list">
+                        <div class="d-box justify">
+                            <div class="d-box">
+                                <i class="icon zhifubao-icon icon-ui"></i>
+                                <p class="txt">绑定支付宝</p>
+                            </div>
+                            <div class="d-box v-c">
+                                <span class="item-r-txt weixin-r-txt">{output_arr.msg}{output_arr.data.third_account}</span> 
+                                <i class="icon-allow-grey"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a> 
+            </div>
+
+            <div class="p15">
+                <span class="caaa">绑定支付宝账号后，即可提现。如充值或提现遇到特殊情况，请联系客服，或拨打4000-82-9003帮助。</span>
+            </div>
+            <!-- ENDIF -->
+            <div class="pt20 mt15 mb20" style="visibility: hidden;">隐藏</div>
+        </div>
+
+        <!-- 首页  -->
+
+        <!-- 首页 end  -->
+
+        <!-- 底部 -->
+        <div id="footer"></div>
+
+    </div>
+
+    {wap_global_footer}
+    
+</main>
+</body>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/wallet/static/wap/js/common/common_c6b381b.js"></script>
+<script>
+
+    var $ = require('components/zepto/zepto.js');
+    var utility = require('common/utility/index');
+    var cookie = require('common/cookie/index');
+    var header = require('common/widget/header/main');
+    var WeiXinSDK = require('common/I_WX_SDK/I_WX_SDK');
+    var yue_ui = require('yue_ui/frozen');
+    var LZ = require('common/lazyload/lazyload');
+
+    $(document).ready(function() {
+        header.init
+            ({
+                ele        : $("#global-header"), //头部渲染的节点
+                title      : "我的钱包",
+                header_show: true, //是否显示头部
+                right_icon_show: true, //是否显示右边的按钮
+                share_icon : {
+                    show   : false,  //是否显示分享按钮icon
+                    content: ""
+                },
+                omit_icon  : {
+                    show   : false,  //是否显示三个圆点icon
+                    content: ""
+                },
+                show_txt   : {
+                    show   : true,  //是否显示文字
+                    content: ""  //显示文字内容
+                }
+            });
+    });
+
+
+</script>
+
+<!-- 底部统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d3f6d15244a0b41207c934710304445d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+</script>
+<!-- 底部统计 end -->
+<!-- poco log start -->
+<script type="text/javascript">__poco_site_stat_request_filename = 'yueus.css';</script>
+<script type="text/javascript" src="//www.yueus.com/js/site_stat_code.js"></script>
+<!-- poco log end; -->
+
+<!-- 2015 App下载位 start -->
+{wap_global_tips}
+<!-- 2015 App下载位 end -->
+
+</html>

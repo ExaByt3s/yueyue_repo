@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="../resources/js/admin.js"></script>
+<script type="text/javascript" src="../resources/js/login.js"></script>
+<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/model_audit.css">
+<title>机构管理后台</title>
+<style type="text/css">
+.table-list
+{
+	min-width: 990px;
+	margin-bottom: 20px;
+}
+.table-list tbody td
+{
+
+	/* border: #eee 1px solid; */
+	border-left: #eee 1px solid;
+}
+.album img
+{
+	margin:2px;
+}
+.button
+{
+	background: url('../resources/images/uploadify.png');
+	height: 28px;
+	width: 75px;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	text-shadow:none;
+	box-shadow:none;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list">
+       <h1><b>密码修改</b></h1>
+       <form method="post" action="?" onsubmit="return sub()">
+	   <div class="table" style="width:98%;" id="occu">
+		    <!--list-->
+		    <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+		    	<tbody>
+				<tr>
+				<td>旧密码:</td>
+				<td>
+				  <input type="password" name="pwd_hash" value="" class="input-text" id="pwd_hash"  />
+				</td>
+				</tr>
+				<tr>
+				<td>新密码:</td>
+				<td>
+				  <input type="password" name="new_pwd" value="" class="input-text" id="new_pwd" />
+				</td>
+				</tr>
+				<tr>
+				<td>确认密码:</td>
+				<td>
+				  <input type="password" name="cofirm_pwd" value="" class="input-text" id="cofirm_pwd" />
+				</td>
+				</tr>
+				<tr>
+				<td>操作:</td>
+				<td>
+			       <input type="submit" value="提交" class="button"/>
+                   <input type="reset"  value="重置" class="button"/>
+				</td>
+				</tr>  	
+			    </tbody>
+		    </table>
+	   </div>
+	   <input type="hidden" value="update" name="act" />
+	   <input type="hidden" value="{user_id}" name="user_id" />
+	   </form>
+	</div>
+</div>
+</body>
+</html>

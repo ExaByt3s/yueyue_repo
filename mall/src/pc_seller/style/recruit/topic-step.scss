@@ -1,0 +1,464 @@
+/*  
+Theme Name:poco ued theme
+Author URI:poco.cn
+Description: poco
+*/
+
+/** 清除内外边距 **/
+
+/* ====================== 重置结束 ===================== */
+.font_Simhei{
+	font-family:'Simhei';
+}
+.w1000{
+	width:1000px;
+	margin:0 auto;
+}
+
+.topic-step-page{
+	.banner{
+		height:650px;
+		position:relative;
+		ul{
+			li{
+				height:650px;
+				background:url(../../images/recruit/topic-step/banner-bg-1.jpg) no-repeat top center;
+  				overflow:hidden;
+				h3.title{
+					width:733px;
+					height:201px;
+					margin:132px auto;
+				}
+			}
+		}
+		.more-item{
+			.more-icon{
+				    width: 24px;
+				    height: 56px;
+				    position: absolute;
+				    left: 50%;
+				    margin-left: -12px;
+				    bottom: 15px;
+				    display: block;
+				    background: url(http://static.yueus.com/mall/seller/test/static/pc/images/ui/more-btn-24x56.png) no-repeat;
+				    -webkit-animation-name: arrow;
+				    animation-name: arrow;
+				    -webkit-animation-duration: 2s;
+				    animation-duration: 2s;
+				    -webkit-animation-iteration-count: infinite;
+				    animation-iteration-count: infinite;
+			}
+		}
+	}
+	.topic-step-page-wrap{
+	background:url(../../images/recruit/topic-step/bg-1920x700.jpg) #fff no-repeat center top;
+	h4.title{
+		text-align: center;
+		font-size: 24px;
+		color:#000;
+	}
+	.path1{
+		
+		padding-top: 130px ;
+		.item-wrap{
+			width:780px; 
+			margin:0 auto;
+			padding:48px 110px 100px 110px;   
+			
+			position:relative;
+			background:url(../../images/recruit/topic-step/banner-bg-1000x640.png) no-repeat center center;
+			ul{
+				li{
+					float: left;
+					width:780px;
+					height:487px;       
+					.item{
+						
+						.phone-item{
+							background:url(../../images/recruit/topic-step/phone-bg-226x480.png) no-repeat;
+							width:210px;
+							margin:0px  76px 0px 85px;
+							padding: 55px 0px 80px 14px;
+							img{
+								border:1px #acacac solid;
+								border-radius: 3px;
+							}
+
+						}
+						.txt-item{
+							width:300px;
+							.step{
+								width:300px;
+								height:217px;
+								margin-top: 20px;
+								background: url(../../images/recruit/topic-step/shadow-img-300x215.png) no-repeat center top;
+								border-radius:2px;
+								position:relative;
+								span{
+									width:95px;
+									height:34px;
+									display: inline-block;
+									background:url(../../images/recruit/topic-step/step-bg.png) no-repeat;
+									position: absolute;
+									top:-5px;
+									left:-5px;
+									line-height: 34px;
+									font-size: 20px;
+									color:#fff;
+									padding-left: 11px;
+								}
+								dl{
+									padding:40px;
+									color:#fff;
+									dt{
+										font-size: 20px;
+										padding-bottom: 8px;
+
+									}
+									dd{
+										font-size: 16px;
+										line-height: 24px;
+									}
+								}
+							}
+							.title{
+								font-size: 24px;
+								color: #c365bb;
+								padding: 35px 0px 15px;
+							}
+							.check-btn{
+								height:52px;
+								line-height: 52px;
+								border:1px #c365bb solid;
+								padding:0px 16px;
+								font-size: 20px;
+								color:#c365bb;
+								border-radius: 5px;
+								display:inline-block;
+								margin-top: 40px;
+								text-decoration: none;
+							}
+						}
+					}	
+				}
+			}
+			.page-wrap{
+				.page-box{
+					position:absolute;
+					bottom:90px;
+					left:50%;
+					margin-left: -40px;
+					a{
+						display:inline;
+						float:left;
+						background:#fff;
+						width:10px;
+						height:10px;
+						overflow:hidden;
+						margin-right:10px;
+						text-indent:-9999px; 
+						border-radius: 50%;
+					}
+					.selected{
+						background:#a13998;
+					}
+				} 
+				.pre{
+					width:54px;
+					height:90px;
+					display:inline-block;
+					background:url(../../images/recruit/topic-step/left-arrow.png) no-repeat;
+					position:absolute;
+					left:4px;
+					top:50%;
+					margin-top: -55px;
+					z-index: 99;
+				}
+				.next{
+					width:54px;
+					height:90px;
+					display:inline-block;
+					background:url(../../images/recruit/topic-step/right-arrow.png) no-repeat;
+					position:absolute;
+					right:4px;
+					top:50%;
+					margin-top: -55px;
+					z-index: 99;
+				}
+			}
+		}
+	}
+	.path2{
+		padding: 45px 0px 70px;
+		.listitem{
+			width:149px;
+			margin: 0 auto;
+			padding-bottom: 47px;
+		}
+		.item-wrap{
+			padding: 0px 20px;
+			.item{
+				margin-top: 15px;
+				ul{
+					li{
+						width:230px;
+						min-height:173px;
+						padding: 0px 40px;
+						float:left;
+						background:url(../../images/recruit/topic-step/line-1x117.jpg) no-repeat right bottom;
+						&:last-child{
+							background:none;
+						}
+						span{
+							font-size: 24px;
+							color:#a13998;
+							display:block; 
+							text-align: center;
+
+						}
+						.txt{
+							margin-top: 15px;
+							font-size: 16px;
+							color:#656565;
+							
+						}
+					}
+				}
+			}
+		}
+	}
+	.path3{
+		padding-bottom: 76px;
+		.item-wrap{
+			.item{
+				margin-top: 9px;
+			}
+			.sign-btn{
+				width:192px;
+				height:58px;
+				line-height: 58px;
+				text-align: center;
+				color:#fff;
+				font-size: 23px;
+				background:#a13998;
+				display:block;
+				margin: 0 auto;
+				border-radius: 7px;
+				margin-top: 64px;
+				text-decoration: none;
+			}
+		}
+	}
+	.path4{
+		.item-wrap{
+			.item{
+				margin-top:25px;
+				p{
+					text-align: center;
+					font-size: 20px;
+					color:#4f4f4f;
+					line-height: 45px;
+				}
+			}
+		}
+	}
+	.path5{
+		padding:60px 0px 73px;
+		.item-wrap{
+			.item{
+				margin-top:25px;
+				p{
+					text-align: center;
+					font-size: 24px;
+					color:#5e5e5e;
+					line-height: 45px;
+				}
+				p.tip{
+					font-size: 22px;
+					color:#b9b9b9;
+				}
+			}
+		}
+	}
+	}	
+}
+.sign-name-pop{ 
+	background:#fff; 
+	width:360px;
+	height:225px;
+	padding:50px 70px; 
+	z-index:10000; 
+	position:fixed; 
+	_position: absolute; 
+	top:50%;
+	left:50%; 
+	margin-left:-250px;
+	margin-top: -162px;
+	border-radius: 7px;
+	.close{
+		position:absolute;
+		right:-24px;
+		top:-24px;
+		z-index: 9999;
+		.close-icon{
+			width:48px;
+			height:48px;
+			display:inline-block;
+			
+			background:url(../../images/recruit/topic-step/close-48x48.png) no-repeat center center;
+		}
+	}
+	.txt{
+		p{
+			color:#a13998;
+			line-height: 36px;
+			font-size: 20px;	
+		}
+		.rn-btn{
+			height:54px;
+			padding:0px 90px;
+			line-height: 54px;
+			text-align: center;
+			display:block;
+			background:#a13998;
+			color:#fff;
+			font-size: 30px;
+			text-decoration: none;
+			border-radius: 5px;
+			margin-top: 65px;
+		}
+	}
+}
+
+
+.case-pop2{
+	width:1000px;
+	border-radius: 5px;
+	position:fixed;
+	z-index: 10000;
+	height:598px;
+	left:50%;
+	top:50%;
+	margin-left: -500px;
+	margin-top: -299px;
+	background:url(../../images/recruit/topic-step/case-pop-bg.png) no-repeat top center;
+	.close{
+		background:url(../../images/recruit/topic-step/close-38x38.png) no-repeat;
+		width:38px;
+		height:38px;
+		position: absolute;
+		right: -10px;
+		top: -10px;
+		z-index: 99;
+		cursor: pointer;
+	}
+	.case-pop-item{
+		.item-wrap{
+			width:780px;
+			margin: 56px 112px 90px 112px;
+
+			ul{
+				li{
+					width:780px;
+					height:450px;
+					float:left;
+					overflow:hidden;
+					display:inline;
+					height: 449px;
+					.img-item{
+						width:429px;
+						margin-right: 80px;
+
+					}
+					.txt-item{
+						width:265px;
+						h3.title{
+							font-size: 24px;
+							color:#a13998;
+							margin-bottom: 28px;
+							background:url(../../images/recruit/topic-step/line-75x1.jpg) no-repeat left bottom;
+							padding-bottom: 10px;
+						}
+						.txt{
+							font-size: 18px;
+							line-height: 36px;
+							color:#fff;
+						}
+					}
+				}
+			}
+			.page-wrap{
+				.page-box{
+					position:absolute;
+					bottom:25px;
+					left:50%;
+					margin-left: -40px;
+					a{
+						display:inline;
+						float:left;
+						background:#fff;
+						width:10px;
+						height:10px;
+						overflow:hidden;
+						margin-right:10px;
+						text-indent:-9999px; 
+						border-radius: 50%;
+					}
+					.selected{
+						background:#a13998;
+					}
+				} 
+				.pre{
+					width:54px;
+					height:90px;
+					display:inline-block;
+					background:url(../../images/recruit/topic-step/left-arrow.png) no-repeat;
+					position:absolute;
+					left:4px;
+					top:50%;
+					margin-top: -45px;
+					z-index: 99;
+				}
+				.next{
+					width:54px;
+					height:90px;
+					display:inline-block;
+					background:url(../../images/recruit/topic-step/right-arrow.png) no-repeat;
+					position:absolute;
+					right:4px;
+					top:50%;
+					margin-top: -45px;
+					z-index: 99;
+				}
+			}
+		}
+	}
+}
+
+@-webkit-keyframes arrow{
+0%{opacity:0;
+-webkit-transform:translateY(-20px)}
+100%{opacity:1;
+-webkit-transform:translateY(0)}
+}
+@-moz-keyframes arrow{
+0%{opacity:0;
+-moz-transform:translateY(-20px)}
+100%{opacity:1;
+-moz-transform:translateY(0)}
+}
+
+// @-webkit-keyframes arrow { 
+//  0% { -webkit-transform: translate3d(0, 0, 10px) rotateX(30deg); opacity: 0; }
+
+//   50% { -webkit-transform: translate3d(0, 5px, 10px) rotateX(0deg); opacity: 1; }
+
+//   100% { -webkit-transform: translate3d(0, 10px, 10px) rotateX(30deg); opacity: 0; } 
+// }
+// @keyframes arrow { 
+//   0% { transform: translate3d(0, 0, 10px) rotateY(30deg); opacity: 0; }
+
+//   50% { transform: translate3d(0, 5px, 10px) rotateY(0deg); opacity: 1; }
+
+//   100% { transform: translate3d(0, 20px, 10px) rotateY(-30deg); opacity: 0; } 
+// }

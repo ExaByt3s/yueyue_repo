@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>品类列表</title>
+
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/goods/category_fa7c93e.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/swiper3.07.min_b12c96f.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/swiper_fix_bdef114.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<style>
+
+    </style>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_fcf77dd.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+</head>
+<body style="background: #f2f2f2">
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view page-name-category" data-role="page-container">
+        <div class="pics_container">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- BEGIN resa.data.banner_list -->
+                    <div class="swiper-slide" data-url="{url}">
+                        <i class="slide-items-bg" style="background-image: url('{img}');background-size: cover;"><div class="notice"><p class="category_top">{str}</p></div></i>
+                    </div>
+                    <!-- END resa.data.banner_list -->
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="category_notice">
+            <div class="title">{resa.data.category_title}</div>
+            <div class="notice">{resa.data.category_content}</div>
+        </div>
+        <div class="pics_list">
+            <!-- BEGIN resa.data.category_list -->
+            <div class="child" style="background: url('{img}');background-size:cover;" data-url="{url}">
+                <div class="title_con">
+                    <p class="title">{str}</p>
+                    <p class="notice fn-hide">梨子：清纯与魔鬼的完美结合</p>
+                </div>
+            </div>
+            <!-- END resa.data.category_list -->
+        </div>
+    </div>
+    {wap_global_footer}
+    
+</main>
+</body>
+<script>
+    var utility = require('common/utility/index');
+    var $ = require('components/zepto/zepto.js');
+    var header = require('common/widget/header/main');
+    $(function()
+    {
+        $('[data-role="inner"]').css('width',document.body.clientWidth*1.1 + "px");
+        /*
+         var s = require('../modules/common/widget/swiper/1.0.0/swiper');
+         var mySwiper = new Swiper('.swiper-container',{
+         //freeMode : true,
+         //spaceBetween : 2,
+         //slidesPerView : 'auto'
+         pagination: '.swiper-pagination',
+         paginationClickable: true
+         });
+         */
+        var s = require('common/widget/swiper/1.0.0/swiper3.07.min');
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: false,
+
+            // 如果需要分页器
+            pagination: '.swiper-pagination'
+        })
+
+        var header_obj = header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"{resa.data.title}",
+            header_show : true , //是否显示头部
+            right_icon_show : true, //是否显示右边的按钮
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:""  //显示文字内容
+            },
+            search_icon : 
+            {
+                show :true,  //是否搜索icon
+                content:""  //显示文字内容
+            }
+        });
+
+        // 头部搜索按钮点击事件
+        header_obj.$el.on('click:right_btn',function()
+        {
+            window.location.href = '../search/search.php?type_id={type_id}';
+        });
+
+        $('[data-url]').on('click',function()
+        {
+            var url = $(this).attr('data-url');
+
+            if(!url)    
+            {
+                return;
+            }
+
+            // 特殊处理，用于外拍    
+            if(/keyword_query/.test(url))
+            {
+                location.href = url;        
+            }
+            else
+            {
+                location.href = url;
+            }
+
+            
+        })
+
+    });
+</script>
+</html>

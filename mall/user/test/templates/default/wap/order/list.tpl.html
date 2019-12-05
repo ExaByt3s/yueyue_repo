@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{title}</title>
+    <!--link rel="import" href="../webcontrol/head.tpl.html?__inline"-->
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/order/order-list.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/swiper3.07.min.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/qrcode/qrcode.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/scroll.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/list/list.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+</head>
+<body >
+<main role="main">
+    <header class="global-header">
+        <div class="wbox clearfix">
+            <a href="javascript:void(0);">
+                <div id="back" class="back" data-role="page-back">
+                    <i class="icon-back"></i>
+                </div>
+            </a>
+            <h3 class="select-mod">
+                <div class="list-type">
+                    <a href="{normal_link}">
+                        <div class="header-btn <!-- IF type_id="42" -->bgcfff<!-- ELSE -->bgc333<!-- ENDIF --->">服务</div>
+                    </a>
+                    <a href="{activity_link}">
+                        <div class="header-btn <!-- IF type_id="42" -->bgc333<!-- ELSE -->bgcfff<!-- ENDIF --->" >活动</div>
+                    </a>
+                </div>
+            </h3>
+        </div>
+    </header>
+
+    <div class="page-view page-name-order-list" data-role="page-container">
+        <div class="taps_container">
+            <div class="inner_tap cur" data-role="tap" data-status="0" data-list-type="daifukuan" >
+                <!-- IF red_dot.wait_pay !="0" --><div class="red_dot"></div><!-- ENDIF -->
+                <p>待付款</p>
+
+            </div>
+            <!-- IF goods_type="normal" -->
+            <div class="inner_tap" data-role="tap" data-status="1" data-list-type="daiqueren">
+                <!-- IF red_dot.wait_confirm !="0" --><div class="red_dot"></div><!-- ENDIF -->
+                <p>待确认</p>
+            </div>
+            <!-- ENDIF -->
+            <div class="inner_tap " data-role="tap" data-status="2" data-list-type="daiqiandao">
+                <!-- IF red_dot.wait_sign !="0" --><div class="red_dot"></div><!-- ENDIF -->
+                <p>待签到</p>
+            </div>
+            <div class="inner_tap" data-role="tap" data-status="8" data-list-type="yiwancheng">
+                <p>已完成</p>
+            </div>
+            <div class="inner_tap" data-role="tap" data-status="7" data-list-type="yiguanbi">
+                <p>已关闭</p>
+            </div>
+        </div>
+        <div class="order-list-wrapper"  >
+            <div  data-role="order-list-wrapper"></div>
+        </div>
+        
+       
+    </div>
+    <div class="render_qrcode" id="render_qrcode">
+    </div>
+
+{wap_global_footer}
+    
+</main>
+
+
+ 
+</body>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/dragloader.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/swiper/1.0.0/swiper3.07.min.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/qrcode/qrcode.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/list/list.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/order/list.js"></script>
+<script>
+    var order_list = require('order/list');
+    var order_list_obj = order_list.init
+    ({
+        type_id : '{type_id}',
+        status : '{current_status}',
+        name : '{nick_name}',
+        user_icon : '{user_icon}',
+        user_id : '{user_id}',
+        pay_url : '{pay_url}'
+    });
+</script>
+</html>

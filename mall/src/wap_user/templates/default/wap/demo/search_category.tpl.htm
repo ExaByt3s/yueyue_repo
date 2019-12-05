@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title id="specc">{title}</title>
+
+    {wap_global_top}
+    <link charset="utf-8" rel="stylesheet" href='../../../../style/demo/search_category.scss'>
+    <script src="../../../../lib/lib.js"></script>
+</head>
+<body style="background: #f2f2f2">
+<main role="main">
+    <div class="page-view search-category" data-role="search-category">
+        <div class="categroy" data-role="category">
+                        <div class="categroy-bg"></div>
+            <div class="title ui-border-b">选择搜索品类</div>
+            <div class="categroy-content">
+                <ul class="box">
+                    <li class="menu"><a href="#"><div class="clearfix"><div class="img fldi"><i class="icon y-mt"></i></div><span class="fldi f18 msg">约模特</span></div></a></li>
+
+                    <li class="menu"><a href="#"><div class="clearfix"><div class="img fldi"><i class="icon y-px"></i></div><span class="fldi f18 msg">约培训</span></div></a></li>
+
+                    <li class="menu"><a href="#"><div class="clearfix"><div class="img fldi"><i class="icon y-hz"></i></div><span class="fldi f18 msg">约化妆</span></div></a></li>
+
+                    <li class="menu"><a href="#"><div class="clearfix"><div class="img fldi"><i class="icon y-dz"></i></div><span class="fldi f18 msg">商业定制</span></div></a></li>
+
+                    <li class="menu"><a href="#"><div class="clearfix"><div class="img fldi"><i class="icon y-hd"></i></div><span class="fldi f18 msg">约活动</span></div></a></li>
+
+                    <li class="menu"><a href="#"><div class="clearfix"><div class="img fldi"><i class="icon y-sy"></i></div><span class="fldi f18 msg">约摄影</span></div></a></li>
+
+                    <li class="menu"><a href="#"><div class="clearfix"><div class="img fldi"><i class="icon y-ms"></i></div><span class="fldi f18 msg">约美食</span></div></a></li>
+
+                    <li class="menu"><a href="#"><div class="clearfix"><div class="img fldi"><i class="icon y-yx"></i></div><span class="fldi f18 msg">约有趣</span></div></a></li>
+                </ul>
+            </div>
+            <div class="icon close-icon"></div>
+        </div>
+    </div>
+    {wap_global_footer} 
+    
+</main>
+</body>
+<script>
+    var $ = require('zepto');
+    var yue_ui = require('../../../../modules/yue_ui/frozen');
+    $(function()
+    {
+        document.body.addEventListener('touchstart',function(){});
+
+        $.tips
+        ({
+            content:'网络异常网络异常网络异常网络异常网络异常网络异常网络异常网络异常网络异常网络异常网络异常网络异常网络异常网络异常',
+            stayTime:3000000,
+            type:'warn'
+        });
+        
+    });
+</script>
+</html>

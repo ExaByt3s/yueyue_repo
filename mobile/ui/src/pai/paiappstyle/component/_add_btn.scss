@@ -1,0 +1,28 @@
+.component-add-btn
+{
+  display: block;
+  padding: 0px 15px 0px 15px;
+  background: #ffffff;
+
+  .component-add-btn-con{
+    display: -webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align: center;
+    background: #e6e6e6;
+    width: 100%;
+    height: 36px;
+
+    @include border-radius($border-radius);
+    i{
+      position: relative;
+      top:2px;
+      left:4px;
+      margin-top: 5px;
+    }
+    p{
+      display: inline-block;
+      line-height: 36px;
+      margin-left: 5px;
+    }
+  }
+}

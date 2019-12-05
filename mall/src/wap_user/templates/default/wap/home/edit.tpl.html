@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>编辑</title>
+    {wap_global_top}
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/home/edit.scss">
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/frozen/frozen.scss">
+    <script src="/lib/lib.js"></script>
+    <!--script src="/lib/debuggap.js"></script-->
+
+</head>
+<body>
+<main role="main" data-role="edit" >
+    <div data-role="global-header"></div>
+    <div class="page-view " data-role="page-container">
+        <div class="edit-center" id="seller-list-page">
+            <!---------------**点击上传图片**------------------->
+            <div class="uoload-portrait">
+                <span class="icon-portrait">
+                    <div id="head-icon" style="position: relative;">
+                        <img src="{avatar}"  class="avatar"/>
+                        <input type="text" class="fn-hide" value="{avatar}" data-role="avatar">
+                    </div>
+                </span>
+                <!--<p class="tips-portrait">点击上传本人头像</p>-->
+            </div>
+
+            <div class="ui-edit-user-info-mod mb15">
+                <div class="item ui-border-b" data-role="nickname">
+                    <div class="user-info-item clearfix">
+                        <div class="lbox fl" >
+                            <p class="tips">昵称</p>
+                        </div>
+                        <div class="rbox fr">
+                            <input type="text" class="tips-value text-r" id="name" disabled="disabled" placeholder="请输入昵称" value="{nickname}" style="  background-color: rgba(255, 255, 255, 1);"/>
+                            <i class="icon-allow-grey"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="item ui-border-b" data-role="city">
+                    <div class="user-info-item clearfix">
+                        <div class="lbox fl">
+                            <p class="tips">城市</p>
+                        </div>
+                        <div class="rbox fr">
+                            <input class="tips-value text-r" id="location_id" disabled="disabled" placeholder="请选择城市" value="{location}" style="  background-color: rgba(255, 255, 255, 1);"/>
+                            <input type="hidden" id="city_id" value="">
+                            <i class="icon-allow-grey"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="user-info-item clearfix" data-role="introduce">
+                        <div class="lbox fl">
+                            <p class="tips">个人简介</p>
+                        </div>
+                        <div class="rbox fr">
+                            <input class="tips-value text-r" id="intro" disabled="disabled" placeholder="请输入" value="{intro}" style="  background-color: rgba(255, 255, 255, 1);">
+                            <i class="icon-allow-grey"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui-form-item-switch mb15">
+                <div class="item">
+                    <span>是否显示消费记录</span>
+                    <label for="#" class="ui-switch-bar">
+                        <input id="expense-calendar" type="checkbox" <!-- IF is_display_record = "1" -->checked<!-- ENDIF -->>
+                    </label>
+                </div>
+            </div>
+
+            <div class="upload-picture bg-fff mb15 fn-hide">
+                <div class="upload-picture-tips">
+                    <p class="lbox-tips">上传我的个人图集（<label data-role="cur-img-count">0</label>/<label data-role="total-num">0</label>）</p>
+                    <span class="rbox-tips" >新上传展示在前</span>
+                </div>
+                <div class="ui-upload-pic" data-role="upload-img-container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+<main role="main" class="fn-hide" data-role="input-text">
+
+</main>
+
+<main role="main" class="fn-hide" data-role="input-textarea">
+
+</main>
+
+<main role="main" class="fn-hide" data-role="input-location">
+    <div data-role="global-header"></div>
+    <div id="location"></div>
+</main>
+</body>
+<script>
+    var showcase_data = {showcase};
+    var __icon_hash = '{icon_hash}';
+    var edit = require('../../../../modules/home/edit.js');
+</script>
+<!--webuploader 特殊使用的脚本-->
+<script type="text/javascript" src="http://static-c.yueus.com/yue_ui/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://static-c.yueus.com/yue_ui/upload/1.0.0/webuploader.js"></script>
+<!--webuploader 特殊使用的脚本-->
+</html>

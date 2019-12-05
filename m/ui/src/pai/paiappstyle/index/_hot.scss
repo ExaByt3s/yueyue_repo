@@ -1,0 +1,37 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 首页 最新
+// ------------------------------
+
+.index-hot
+{
+	.content-body
+	{
+      // background-color: #eeeeee;   
+		.pull-down-container
+		{
+			width: 100%;
+			height: 45px;
+			
+		}		
+	}
+	.grid-list
+	{
+		font-size: 0;
+        text-align: justify;  
+        position: relative;
+        &:after
+		{
+			content: " ";
+			display: block;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
+        .grid-pic
+        {
+        	float: left;
+        }
+
+	} 
+}

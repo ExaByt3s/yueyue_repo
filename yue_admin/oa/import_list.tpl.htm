@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: '',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        })
+    })
+    </script>
+
+<title>OA</title>
+<style type="text/css">
+.input-text {
+	width:500px;
+}
+.table-list {
+	clear: both;
+}
+.table-list .input-text {
+	width: 100px;
+}
+.table-list .table {
+	float: left;
+	margin-top: 20px;
+ +margin-left:5px;
+}
+.box {
+	position:absolute;
+	width:600px;
+	left:50%;
+	height:auto;
+	z-index:100;
+	background-color:#fff;
+	border:1px #8FA4F5 solid;
+	padding:1px;
+}
+.box h2 {
+	height:25px;
+	font-size:14px;
+	background-color:#3366cc;
+	position:relative;
+	padding-left:10px;
+	line-height:25px;
+	color:#fff;
+}
+.box h2 a {
+	position:absolute;
+	right:5px;
+	font-size:12px;
+	color:#fff;
+}
+.box .mainlist {
+	padding:10px;
+}
+.box .mainlist li {
+	height:24px;
+	line-height:24px;
+	list-style:none
+}
+.box .mainlist li span {
+	margin:0 5px 0 0;
+	font-family:"宋体";
+	font-size:12px;
+	font-weight:400;
+	color:#ddd;
+}
+#TB_overlayBG {
+	background-color:#666;
+	position:absolute;
+	z-index:99;
+	left:0;
+	top:0;
+	display:none;
+	width:100%;
+	height:100%;
+	opacity:0.5;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+}
+.ajax_load {
+	height:100px;
+}
+.ajax_load img {
+	margin:30px 0 0 180px;
+}
+</style>
+</head>
+<body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+
+<div class="mainbox">
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+
+					<input type="button" value="获取已结单数据" onclick="this.disabled=true;location.href='import_list.php?import_close=1'" >
+			 &nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" value="导入系统" onclick="this.disabled=true;location.href='import_list.php?import_order=1'" >
+		  </td>
+		</tr>
+   
+	</tbody>
+</table>
+  <form name="add_form" id="add_form" action="" method="post" target="frame">
+    <div id="tabs">
+    <div class="tabbox">
+      <div class="table-list">
+        <table width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>OA订单ID</th>
+              <th>订单ID</th>
+              <th>商家昵称</th>
+              <th>商家手机</th>
+              <th>消费者昵称</th>
+              <th>消费者手机</th>
+              <th>价格</th>
+              <th>导入时间</th>
+			  <th>导入状态</th>
+			  <th>提现类型</th>
+              <th>LOG</th>
+             <th>更改提现类型</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- BEGIN list -->
+            <tr>
+              <td align="center">{oa_order_id}</td>
+              <td align="center">{mall_order_id}</td>
+              <td align="center">{model_nickname}</td>
+              <td align="center">{model_phone}</td>
+              <td align="center">{cameraman_nickname}</td>
+              <td align="center">{cameraman_phone}</td>
+              <td align="center">{price}</td>
+              <td align="center">{import_time}</td>
+			   <td align="center"><!-- IF status="0" -->等待导入<!-- ELSEIF status="1" -->导入成功<!-- ELSEIF status="2" -->导入失败<!-- ENDIF --></td>
+			   <td align="center"><!-- IF withdraw="1" -->线下提现<!-- ELSEIF withdraw="0" -->APP提现<!-- ENDIF --></td>
+              <td align="center"><textarea name="textarea" id="textarea" cols="20" rows="5">{log}</textarea></td>
+               <td align="center"><!-- IF import_time!="1970-01-01 07:00" -->已导入系统<br />不能再更改<!-- ELSE --><input name="" type="button" value="线下支付" onclick="location.href='import_list.php?withdraw_type=offline&id={id}'"/>&nbsp;&nbsp;<input name="" type="button" value="app支付" onclick="location.href='import_list.php?withdraw_type=app&id={id}'" /><!-- ENDIF -->
+</td>
+            </tr>
+            <!-- END list -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="pages" class="page"> {page} </div>
+  </form>
+</div>
+<script type="text/javascript">
+new SelectLocal('#province', '#city');
+
+
+$("#add_model").click(function(){
+	$("#TB_overlayBG").css({
+		display:"block",height:$(document).height()
+	});
+	$("#box").css({
+		left:($("body").width()-$("#box").width())/2-20+"px",
+		top:($(window).height()-$("#box").height())/10+$(window).scrollTop()+"px",
+		display:"block"
+	});
+});
+
+$(".close").click(function(){
+	$("#TB_overlayBG").css("display","none");
+	$("#box ").css("display","none");
+});
+
+function submit_recommend(){
+	var order_id = $("#order_id").val();
+	var user_id = $("#user_id").val();
+	var price = $("#price").val();
+	var date_time = $("#date_time").val();
+	var remark = $("#remark").val();
+
+	if(order_id==''){
+		alert('订单ID不能为空');
+		return false;	
+	}
+	if(user_id==''){
+		alert('模特用户ID不能为空');
+		return false;	
+	}
+	if(price==''){
+		alert('价格不能为空');
+		return false;	
+	}
+	if(date_time==''){
+		alert('拍摄时间不能为空');
+		return false;	
+	}
+	
+	$.ajax({
+			url: './module/submit_recommend.php',
+			type: 'POST',
+			data:{ order_id:order_id,user_id:user_id,price:price,date_time:date_time,remark:remark},
+			timeout: 30000,
+			error: function() { alert('Error loading data!'); },
+			success: function(msg) {
+				if(msg==1){			
+					$("#TB_overlayBG").css("display","none");
+					$("#box ").css("display","none");
+					$("#user_id").val("");
+					$("#price").val("");
+					$("#date_time").val("");
+					$("#remark").val("");						
+				}else{
+					alert('添加失败，请联系管理员');	
+				}    
+			}
+	});	
+}
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+{{#each data}}
+    <li class="game-part">
+        <div class="item" data-role="dropdown">
+            <div class="title">{{table_name}}</div>
+            <div class="title-text">
+                <div class="text">{{event_total_join}}</div>
+                <i class="icon icon-allow-grey icon-allow-grey-bottom"></i>
+            </div>
+        </div>
+        <div class="item-details fn-hide">
+            {{#if enroll_arr.first}}
+                <div class="first list">
+                    <div class="first-title title open" data-role="item-dropdown">
+                        <div class="title-left">正选已支付</div>
+                        <div class="title-right">
+                            {{enroll_arr.first.enroll_num}}
+                            <i class="icon-allow-grey icon-allow-grey-top"></i>
+                        </div>
+                    </div>
+                    <div class="first-details details">
+                        {{#each enroll_arr.first.enroll_list}}
+                            <div class="child" >
+                                <img class="img-container" data-nickname="{{nick_name}}" src="{{user_icon_165}}" data-role="navigate" data-target="zone" data-uid="{{user_id}}" data-user-role="{{role}}"/>
+                                <div class="info-container">
+                                    <div class="top">
+                                        <div class="nickname">{{nick_name}}</div>
+                                        {{#if_equal enroll_num "1"}}
+                                        {{^}}
+                                            <div class="num">(共{{enroll_num}}人)</div>
+                                        {{/if_equal}}
+                                        {{#if mark_text}}
+                                            <div class="sign-tip">{{mark_text}}</div>
+                                        {{/if}}
+
+                                    </div>
+                                    <div class="btm">
+                                        <div class="identity">ID:{{user_id}}</div>
+                                        {{#if cellphone}}
+                                            <div>手机：</div>
+                                        {{/if}}
+                                        {{#if cellphone}}
+                                            <div class="phone" data-role="call-phone" data-phone="{{cellphone}}">{{cellphone}}</div>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/if}}
+            {{#if enroll_arr.backup}}
+                <div class="backup list">
+                    <div class="backup-title title open" data-role="item-dropdown">
+                        <div class="title-left">候补已支付</div>
+                        <div class="title-right">
+                            {{enroll_arr.backup.enroll_num}}
+                            <i class="icon-allow-grey icon-allow-grey-top"></i>
+                        </div>
+                    </div>
+                    <div class="backup-details details">
+                        {{#each enroll_arr.backup.enroll_list}}
+                            <div class="child">
+                                <img class="img-container" data-nickname="{{nick_name}}" src="{{user_icon_165}}" data-role="navigate" data-target="zone" data-uid="{{user_id}}" data-user-role="{{role}}"/>
+                                <div class="info-container">
+                                    <div class="top">
+                                        <div class="nickname">{{nick_name}}</div>
+                                        {{#if_equal enroll_num "1"}}
+                                        {{^}}
+                                            <div class="num">(共{{enroll_num}}人)</div>
+                                        {{/if_equal}}
+                                        {{#if mark_text}}
+                                            <div class="sign-tip">{{mark_text}}</div>
+                                        {{/if}}
+                                    </div>
+                                    <div class="btm">
+                                        <div class="identity">ID:{{user_id}}</div>
+                                        {{#if cellphone}}
+                                            <div>手机：</div>
+                                        {{/if}}
+                                        {{#if cellphone}}
+                                            <div class="phone" data-role="call-phone" data-phone="{{cellphone}}">{{cellphone}}</div>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/if}}
+            {{#if enroll_arr.onlook}}
+                <div class="onlook list">
+                    <div class="onlook-title title open" data-role="item-dropdown">
+                        <div class="title-left">报名未支付</div>
+                        <div class="title-right">
+                            {{enroll_arr.onlook.enroll_num}}
+                            <i class="icon-allow-grey icon-allow-grey-top"></i>
+                        </div>
+                    </div>
+                    <div class="onlook-details details">
+                        {{#each enroll_arr.onlook.enroll_list}}
+                            <div class="child">
+                                <img class="img-container" data-nickname="{{nick_name}}" src="{{user_icon_165}}" data-role="navigate" data-target="zone" data-uid="{{user_id}}" data-user-role="{{role}}"/>
+                                <div class="info-container">
+                                    <div class="top">
+                                        <div class="nickname">{{nick_name}}</div>
+                                        {{#if_equal enroll_num "1"}}
+                                        {{^}}
+                                            <div class="num">(共{{enroll_num}}人)</div>
+                                        {{/if_equal}}
+                                        {{#if mark_text}}
+                                            <div class="sign-tip">{{mark_text}}</div>
+                                        {{/if}}
+                                    </div>
+                                    <div class="btm">
+                                        <div class="identity">ID:{{user_id}}</div>
+                                        {{#if cellphone}}
+                                            <div>手机：</div>
+                                        {{/if}}
+                                        {{#if cellphone}}
+                                            <div class="phone" data-role="call-phone" data-phone="{{cellphone}}">{{cellphone}}</div>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </li>
+{{/each}}

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>问卷</title>
+<link rel="import" href="./webcontrol/head.tpl.html?__inline">
+
+<!-- 公共css，js引入 -->
+{pc_task_top}
+
+<!-- 当前页面css-->
+<link type="text/css" rel="stylesheet" href="../style/cancel-order.scss">
+
+<!-- js 库-->
+<script type="text/javascript" src="../lib/lib.js"></script>
+
+
+
+
+</head>
+<body>
+
+
+{pc_global_nav}
+
+
+<div class="cancel-order-page">
+
+    <div class="mini-bar">
+        <div class="w960">
+            <div class="title-top">我的需求列表</div>
+        </div>
+    </div>
+
+  <div class="w960">
+    <div class="title font_wryh">为什么要取消订单？</div>
+    <div class="why-item">
+      <table>
+        <tr>
+          <td><label><input type="radio" name="res"/> 我在约约上找到了（服务职位）</label></td>
+        </tr>
+        <tr>
+          <td><label><input type="radio" name="res" /> 我从其他地方找到了（服务职位）</label></td>
+        </tr>
+        <tr>
+          <td><label><input type="radio" name="res"/> 我已经自己想办法解决了这个问题</label></td>
+        </tr>
+        <tr>
+          <td><label><input type="radio" name="res" /> 时间推迟了</label></td>
+        </tr>
+        <tr>
+          <td><label><input type="radio" name="res" /> 没有收到我喜欢的报价</label></td>
+        </tr>
+        <tr class="other-tr">
+          <td>
+                <label><input type="radio" name="res" checked="checked" /> 其他</label>
+                <div><textarea  class="text-500x150" ></textarea></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="tips-item">注意：你的更新状态会推送给发给你报价的人</div>
+    <div class="btn-item"><a class="btn-icon font-14" href="#">取消订单</a><a class="more-icon font-14" href="#">查看我的需求</a></div>
+  </div>
+</div>
+
+
+{footer_html}
+
+<script type="text/javascript">
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

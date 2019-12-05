@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>报名备注信息</title>
+	{wap_global_top}
+	<!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+	<link charset="utf-8" rel="stylesheet" href="../../../../style/trade/input.scss">
+	<script src="/lib/lib.js"></script>
+</head>
+<body class="">
+<main role="main">
+	<section id="global-header"></section>
+
+	<div class="page-view input-information" data-role="page-container">
+		<div class="textarea-con">
+            <!--剩余字数提示
+            <h6>你可以输入<span>140</span>个字，现在剩余<span id="word">140</span>个</h6>
+            -->
+            <textarea id="introduce" class="ui-textarea-info input-content" placeholder="请填写内容" data-role="text">{input_content}</textarea>
+            <div class="num-word">
+                <span id="setNums">还可以输入{limit_num}字</span>
+            </div>
+            <span class="red tips" style="display: none">请填写内容</span>
+        </div>		
+		<div class="ui-button-submit-m ">
+		   	<div class="rbox">
+					<button class="ui-button-submit had-joined ui-button  ui-button-block ui-button-100per  ui-button-size-xl ui-button-bg-555" id="submit">
+						<span class="ui-button-content">提交</span>
+					</button>
+			</div>
+		</div>
+	</div>
+
+	{wap_global_footer}
+	
+</main>
+<script>
+   	var $ = require('zepto');
+	var header = require('../../../../modules/common/widget/header/main');
+	var utility = require('../../../../modules/common/utility/index');
+	var $btn = $('#submit');
+	var limit = '{limit_num}';
+	var _self = {};
+	$(function()
+	{
+		// 渲染头部
+		header.init({
+			ele : $("#global-header"), //头部渲染的节点
+			title:"报名备注信息",
+			header_show : true , //是否显示头部
+			right_icon_show : false, //是否显示右边的按钮
+
+			share_icon :
+			{
+				show :false,  //是否显示分享按钮icon
+				content:""
+			},
+			omit_icon :
+			{
+				show :false,  //是否显示三个圆点icon
+				content:""
+			},
+			show_txt :
+			{
+				show :false,  //是否显示文字
+				content:"编辑"  //显示文字内容
+			}
+		});
+
+		String.prototype.len = function()
+		{
+			return this.replace(/[^\x00-\xff]/g, "xx").length;
+		};
+
+		function numWord(num){
+			var nowLength = Math.ceil($(num).val().len()/ 2);
+			//字数超出限制后变红
+			$('#setNums').html('还可以输入'+(140-nowLength)+'字');
+			
+			_self.over_count = (nowLength >140);
+		}
+	   
+		$('[data-role="text"]').on('focus',function(){
+			numWord(this);
+		});
+		$('[data-role="text"]').on('input',function(){
+			numWord(this);
+		});
+
+
+		
+		$btn.on('click', function() 
+		{
+			
+			if(!$('[data-role="text"]').val())
+			{				
+				$.tips({
+					content : '备注不能为空',
+					stayTime : 3000,
+					type : 'warn'
+				});
+				return;
+			}
+
+			if(_self.over_count)
+			{
+				$.tips({
+					content : '填写备注不能超过140字哦',
+					stayTime : 3000,
+					type : 'warn'
+				});
+				return;
+			}
+			
+			var data  =  
+			{
+				topic_id : '{topic_id}',
+				remark : $('[data-role="text"]').val()
+			}
+			utility.ajax_request({
+				url : window.$__ajax_domain + 'add_task_enroll_trade.php',
+				data : data,
+				type : 'POST',
+				cache : false,
+				beforeSend : function() 
+				{
+					_self.$loading = $.loading({
+						content : '发送中.....'
+					});
+				},
+				success : function(data) 
+				{
+					_self.$loading.loading("hide");
+
+					if(data.result_data.result == 1) 
+					{
+					 	var dialog = utility.dialog
+		                ({
+		                    "title" : '' ,
+		                    "content" :  data.result_data.message,
+		                    "buttons" : ["确定"]
+		                });		                 
+		                dialog.on('confirm',function(event,args)
+		                {
+							window.location.href = './list.php';
+		                });
+					}
+					else
+					{
+					 	var dialog = utility.dialog
+		                ({
+		                    "title" : '' ,
+		                    "content" :  data.result_data.message,
+		                    "buttons" : ["确定"]
+		                });		                 
+		                dialog.on('confirm',function(event,args)
+		                {
+							//
+		                });
+					}
+				},    
+				error : function() 
+				{
+					_self.$loading.loading("hide");
+					$.tips({
+						content : '网络异常',
+						stayTime : 3000,
+						type : 'warn'
+					});
+				}
+				
+			});
+			
+		});
+
+
+	});
+</script>
+</body>
+</html>

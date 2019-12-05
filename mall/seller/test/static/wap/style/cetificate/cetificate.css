@@ -1,0 +1,12 @@
+.cetificate {
+  text-align: center;
+  padding-top: 100px; }
+  .cetificate .cetificate-text {
+    font-size: 18px;
+    line-height: 20px;
+    color: #333; }
+  .cetificate .tips {
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 20px;
+    color: #666; }

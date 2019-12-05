@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+$ui-prefix: 'po-' !default;
+
+// Font weights
+$light: 100 !default;
+$regular: 400 !default;
+$bold: 700 !default;
+
+
+// Base Font
+$default-base-font-family: tahoma, arial, 'Hiragino Sans GB', \5b8b\4f53, sans-serif !default;
+$default-base-font-weight: $regular !default;
+$default-base-font-size: 12px !default;
+$default-base-line-height: 1.5 !default;
+
+
+$default-base-body-bg: #fff !default;
+
+$default-base-text-color: #000 !default; // 文字颜色
+$default-base-link-color: #000 !default; // 超链接颜色
+$default-base-link-hover-color: darken($default-base-link-color, 15%) !default; // 超链接触发颜色
+
+
+$default-base-input-color-placeholder: #999 !default;
+
+
+// --------------------------------------------------
+// 按钮配置
+// --------------------------------------------------
+$default-base-button-namespace: '.#{$ui-prefix}ui-button' !default; // prefix for all classes
+$default-base-button-font-weight: $regular !default; // 按钮字体 粗度
+$default-base-button-height: 24px !default; // 按钮默认高度
+$default-base-button-padding: 0 9px !default; // 按钮内边距
+$default-base-button-border-radius: 3px !default; // 按钮圆角角度
+
+// 按钮尺寸
+$default-base-button-size: (
+    'size': 'small',
+    'height': 20px, 'padding': 0 9px,
+    'font-size': 12px, 'border-radius': 3px
+) (
+    'size': 'large',
+    'height': 30px, 'padding': 0 20px,
+    'font-size': 12px, 'border-radius': 3px
+) (
+    'size': 'xlarge',
+    'height': 34px, 'padding': 0 20px,
+    'font-size': 12px, 'border-radius': 3px
+) (
+    'size': 'xxlarge',
+    'height': 38px, 'padding': 0 20px,
+    'font-size': 16px, 'border-radius': 3px
+) !default;
+
+$default-base-button-variant: (
+    'name': 'default',
+    'normal': ('txt': #666, 'border': #e1e1e1, 'background': #f7f7f7 #fafafa #f5f5f5),
+    'hover': ('txt': #666, 'border': #e1e1e1, 'background': #f7f7f7 #f5f5f5 #fafafa)
+) (
+    'name': 'primary',
+    'normal': ('txt': #fff, 'border': #2daa00, 'background': #31ba00 #33c200 #2fb300),
+    'hover': ('txt': #fff, 'border': #258b00, 'background': #2ba300 #2dac00 #299b00)
+) !default;
+
+
+// --------------------------------------------------
+// 翻页配置
+// --------------------------------------------------
+$default-base-pagination-namespace: '.#{$ui-prefix}ui-pagination' !default;
+$default-base-pagination-font-size: 12px !default; // 选项 字体大小
+$default-base-pagination-item-height: 28px !default; // 选项 高度
+$default-base-pagination-item-border-color: #dcdcdc !default; // 选项 边框颜色
+$default-base-pagination-item-margin: 0 5px !default; // 选项 外边距
+$default-base-pagination-item-padding: 0 10px !default; // 选项 内边距
+$default-base-pagination-item-background: #fff !default; // 选项 字体颜色
+$default-base-pagination-item-color: #666 !default; // 选项 字体颜色
+
+$default-base-pagination-item-hover-border-color: #3fa900 !default; // 选项触发状态 边框颜色
+$default-base-pagination-item-hover-background: #3fa900 !default; // 选项触发状态 背景颜色
+$default-base-pagination-item-hover-color: #fff !default; // 选项触发状态 字体颜色
+
+$default-base-pagination-item-disable-border-color: #dcdcdc !default; // 选项禁用状态 边框颜色
+$default-base-pagination-item-disable-background: #fff !default; // 选项禁用状态 背景颜色
+$default-base-pagination-item-disable-color: #666 !default; // 选项禁用状态 字体颜色
+
+
+// --------------------------------------------------
+// 弹框配置
+// --------------------------------------------------
+$default-base-dialog-namespace: '.#{$ui-prefix}ui-dialog' !default;
+$default-base-dialog-outbox-padding: 5px !default; // 主体容器内间距
+$default-base-dialog-outbox-background: rgba(#525252, 0.7) !default; // 主体容器背景色
+$default-base-dialog-close-color: #999 !default; // 关闭按钮颜色
+$default-base-dialog-container-background: #fff !default; // 内容容器背景色
+
+$default-base-dialog-title-height: 42px !default; // 标题块高度
+$default-base-dialog-title-background: #f5f5f5 !default; // 标题块背景颜色
+$default-base-dialog-title-font-size: 16px !default; // 标题字体size
+$default-base-dialog-title-font-family: 'Microsoft Yahei', \9ED1\4F53, Arial !default; // 标题字体
+$default-base-dialog-title-text-indent: 20px !default; // 标题首行文本的缩进
+
+$default-base-dialog-content-padding: 20px !default; // 内容内间距
+
+
+
+// --------------------------------------------------
+// import all mixin
+// --------------------------------------------------
+@import "../helpers/all";

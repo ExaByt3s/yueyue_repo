@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://css-tricks.com/examples/LazyLoading/ -->
+<html lang="en">
+<head>
+    <title>Lazy Loading</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <script src="../lib/lib.js"></script>
+    <link charset="utf-8" rel="stylesheet" href="../style/lazyload/index.css">
+    <style>
+        .lazy {
+            margin: 400px 0;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<h1>Lazy Loading Image</h1>
+<div class="zone">
+        <div><img width="100%" height="" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/69662015060516560045182192.png" src="" class="lazy"></div>
+        <img width="100%" height="" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/13132015060516593641687084.png" src="" class="lazy">
+        <div style="width:100%;height:150px;background-size: cover;" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/51062015060516583459286619.png" src="" class="lazy"></div>
+        <div style="width:100%;height:150px;background-size: cover;" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/921720150605165855436022.png" src="" class="lazy"></div>
+</div>
+
+
+<script>
+    var $ = require('zepto');
+
+    $(function()
+    {   //引用模块
+        var LZ = require('../modules/common/lazyload/index');
+        //new 对象 新建内置对象
+        var lazyloading = new LZ();
+        //传入侦听对象
+        lazyloading.init($('body')); 
+
+        //lazyloading.freshELE(con) con传入要刷新的容器
+    }) 
+
+</script>
+</body>
+</html>

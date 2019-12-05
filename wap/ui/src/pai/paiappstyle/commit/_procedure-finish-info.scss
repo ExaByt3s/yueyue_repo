@@ -1,0 +1,51 @@
+@charset "UTF-8";
+//接受邀请 nolest 2014-8-15
+$precedure-pay-notice:#3fc585;
+.procedure-finish-info{
+  .content-body {
+    width: 100%;
+    padding-top: 45px;
+    color: $header_font;
+    .info-first{
+      display: inline-block;
+      height: auto;
+      width: 100%;
+      margin-top: 10px;
+      p{
+        float: left;
+        margin-bottom: 10px;
+        &:nth-child(2n+1){
+          text-align: right;
+          width: 22%;
+        }
+        &:nth-child(2n){
+          width: 70%;
+          margin-left: 3%;
+          color:#ff5000;
+        }
+      }
+      i{
+        float: right;
+        margin: 5px 0px 0px 0px;
+      }
+    }
+    .info-second{
+      display: inline-block;
+      height: auto;
+      width: 100%;
+      margin-top: 10px;
+      p{
+        float: left;
+        margin-bottom: 10px;
+        &:nth-child(2n+1){
+          text-align: right;
+          width: 22%;
+        }
+        &:nth-child(2n){
+          width: 70%;
+          margin-left: 3%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{{#each data}}
+    <div class="ds-box orient-h inner_service_item" data-role="part_service_item" data_goods_id="{{goods_id}}">
+        <div class="ds-box info-main flex-1">
+            <div class="ds-box img_con align-center">
+                <img src="{{images}}" style="width: 40px;height: 40px;border-radius: 2px;"/>
+            </div>
+            <div class="ds-box orient-v info-con flex-1 pack-center">
+                <div class="title">{{titles}}</div>
+                <div class="ds-box orient-v p-g-con">
+                    <div class="prices">￥{{prices}}</div>
+                    <div class="goods_id">商品ID:{{goods_id}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="ds-box service_btn orient-v pack-center">
+            <div class="ds-box align-center ways pack-center ways" data-role="service_send">发送</div>
+            <div class="ds-box align-center ways pack-center ways fn-hide" data-role="service_goto">查看</div>
+        </div>
+    </div>
+{{/each}}

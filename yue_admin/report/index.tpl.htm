@@ -1,0 +1,187 @@
+{YUE_ADMIN_TOP}
+<style type="text/css">
+#leftMenu dd i
+{
+	width: 155px;
+    height: 29px;
+    padding-left: 35px;
+   line-height: 29px;
+   text-align: left;
+}
+</style>
+<!--main-->
+<div id="Main_content">
+	<div id="MainBox">
+	    <div class="main_box">
+			<iframe name="main" id="Main" src="main.htm" frameborder="false" scrolling="hidden" width="100%" allowtransparency="true" height="700"></iframe>
+		</div>
+    </div>
+	<div id="leftMenuBox">
+    	<div id="leftMenu" style="height: 231px; display: block;">
+			<div style="padding-left:12px;_padding-left:10px;">				
+				<dl id="nav_1" style="display: block;" class="navClass">
+					<dt>工作监控报表</dt>
+					<dd class="off">
+						<span><a href="sales_report.php" target="main">销售概况</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="cameraman_report.php" target="main">摄影师拓展</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="model_report.php" target="main">模特拓展</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="app_template.php?act=add" target="main">二次运营</a></span>
+					</dd>
+				</dl>
+				<dl id="nav_2" style="display: none;" class="navClass">
+					<dt>信息报表</dt>
+					<dd class="off">
+						<span><a href="response_reply.php" target="main">回复响应率</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="response_open.php" target="main">信息打开率</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="rank_reply.php" target="main">回复响应榜</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="rank_open.php" target="main">信息打开榜</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="loginlog_report.php" target="main">用户登录榜</a></span>
+					</dd>
+				</dl>
+				<dl id="nav_3" style="display: none;" class="navClass">
+					<dt>约约报表</dt>
+					<dd class="off">
+						<span><a href="date_list.php" target="main">约拍报表</a></span>
+					</dd>
+				</dl>
+				<dl id="nav_4" style="display: none;" class="navClass">
+					<dt>工作人监控报表</dt>
+					<dd class="off">
+						<span><a href="model_inputer_report_v2.php" target="main">管理者模特报表</a></span>
+					</dd>
+				</dl>
+				<dl id="nav_5" style="display: none;" class="navClass">
+					<dt>实时报表</dt>
+					<dd class="off">
+						<span><a href="model_realtime_report_list.php" target="main">模特实时报表</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="cameraman_realtime_report_list.php" target="main">摄影师访问实时报表</a></span>
+					</dd>
+				</dl>
+				<dl id="nav_6" style="display: none;" class="navClass">
+					<dt>摄影师排行榜</dt>
+					<dd class="off">
+						<span><a href="cameraman_total_hot_report_list.php" target="main">消费总排行榜</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="cameraman_seven_hot_report_list.php" target="main">消费周排行榜</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="cameraman_seven_hot_report_list.php?order=date_order" target="main">成单次数周排行榜</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="cameraman_month_hot_report_list.php" target="main">好评月排行榜</a></span>
+					</dd>
+				</dl>
+				<dl id="nav_7" style="display: none;" class="navClass">
+					<dt>模特排行榜</dt>
+					<dd class="off">
+						<span><a href="model_three_visit_report_list.php" target="main">模特3天模特卡点击排行榜</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="model_total_hot_report_list.php" target="main">模特收入总排行榜</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="model_seven_hot_report_list.php" target="main">模特收入周排行榜</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="model_seven_hot_report_list.php?order=date_order" target="main">模特成单次数周排行榜</a></span>
+					</dd>
+				</dl>
+                <dl id="nav_8" style="display: none;" class="navClass">
+                    <dt>订单报表</dt>
+                    <dd class="off">
+                        <span><a href="event_detail.php" target="main">完成订单列表</a></span>
+                    </dd>
+                    <dd class="off">
+                        <span><a href="event_sale_order.php" target="main">销售日报</a></span>
+                    </dd>
+                    <dd class="off">
+                        <span><a href="event_date_chat.php" target="main">销售走势图(日)</a></span>
+                    </dd>
+                    <dd class="off">
+                        <span><a href="event_chart.php" target="main">销售走势图(月)</a></span>
+                    </dd>
+                </dl>
+			</div>
+		</div>
+		<div id="Main_drop">
+			<a href="javascript:toggle_leftbar(1);" class="on" style="display: inline;"><img src="resources/images/admin_barclose.gif" width="11" height="60" border="0"></a>   
+			<a href="javascript:toggle_leftbar(0);" class="off" style="display: none;"><img src="resources/images/admin_baropen.gif" width="11" height="60" border="0"></a>  
+		</div>
+    </div>
+</div>
+<!--main-->
+
+<script type="text/javascript">
+$(function(){
+	//选择那一个
+	$(".navClass").find("a").click(function(){
+		$(".navClass dd").addClass('off').removeClass('on');
+		$(this).parent("span").parent("dd").removeClass('off').addClass('on');
+	});
+});
+if(!Array.prototype.map){
+	Array.prototype.map = function(fn,scope) {
+	  var result = [],ri = 0;
+	  for (var i = 0,n = this.length; i < n; i++){
+		if(i in this){
+		  result[ri++]  = fn.call(scope ,this[i],i,this);
+		}
+	  }
+		return result;
+	};
+}
+var getWindowWH = function(){
+	  return ["Height","Width"].map(function(name){
+	  return window["inner"+name] ||
+		document.compatMode === "CSS1Compat" && document.documentElement[ "client" + name ] || document.body[ "client" + name ]
+	});
+}
+
+window.onload = function (){
+	if(!+"\v1" && !document.querySelector) { 
+		//IE6 IE7
+		document.body.onresize = resize;
+		
+	} 
+	else {
+	
+	  window.onresize = resize;
+	  
+	}
+	function resize() {
+	
+		wSize();
+		return false;
+		
+	}
+}
+function wSize(){
+	var str=getWindowWH();
+	var strs= new Array();
+	strs=str.toString().split(","); //字符串分割
+	var h = strs[0] - 95-30;
+	$('#leftMenu').height(h);
+	$('#Main').height(h); 
+}
+wSize();
+
+</script>
+</body>
+</html>

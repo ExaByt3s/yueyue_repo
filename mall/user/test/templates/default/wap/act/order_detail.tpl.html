@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>外拍订单详情</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/act/order_detail.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/swiper3.07.min.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/scroll.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/qrcode/qrcode.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/dragloader.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/scroll/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/swiper/1.0.0/swiper3.07.min.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/qrcode/qrcode.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/act/order_detail.js"></script>
+</head>
+<body>
+<main role="main" class="event-info-page-main">
+    <section id="global-header"></section>
+    <div class="page-view event-info-page-container " data-role="page-container">
+        <div class="event-info-page" data-role="insert-container">
+
+        </div>
+
+
+
+            <!-- IF ret.event_finish_button -->
+            <div class="ui-button-submit-area">
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6" style="margin: 10px auto;width: 150px;" data-role="act-status" data-act-status="event_finish_button">
+                <span class="ui-button-content">完成活动</span>
+            </button>
+            </div>
+            <!-- ELSEIF ret.event_cancel_button -->
+            <div class="ui-button-submit-area">
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6" style="margin: 10px auto;width: 150px;" data-role="act-status" data-act-status="event_cancel_button">
+                <span class="ui-button-content">取消活动</span>
+            </button>
+            </div>
+            <!-- ELSEIF ret.enroll_cancel_button -->
+            <div class="ui-button-submit-area">
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6" style="margin: 10px auto;width: 150px;" data-role="act-status" data-act-status="enroll_cancel_button">
+                <span class="ui-button-content">删除订单</span>
+            </button>
+            </div>
+            <!-- ENDIF -->
+
+
+    </div>
+
+    <div id="render_qrcode"></div>
+    
+    <input type="hidden" data_user_id="{user_id}">
+    <input type="hidden" data_nick_name="{nick_name}">
+    <input type="hidden" data_user_icon="{user_icon}">
+    
+    {wap_global_footer}
+</main>
+
+</body>
+<script>
+    var order_detail = require('act/order_detail');
+
+    var _page_params = {page_params};
+    var _page_data = {page_data};
+
+    order_detail.init();
+</script>
+</html>

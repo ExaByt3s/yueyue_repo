@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>刷单商家详情</title>
+<script type="text/javascript">
+$(function () {
+    $("#user_id").blur(
+        function()
+        {
+            get_seller_name();
+        }
+        );
+});
+function get_seller_name()
+{
+    user_id=$("#user_id").val();
+    if (user_id.length>0) {
+        $("#seller_name").load("seller_scalping.php?action=get_seller_name&user_id="+user_id);
+    }
+    return false;
+}
+</script>
+</head>
+<body>
+<style>
+.J_add_btn,.J_add_cover_img{
+    overflow: hidden;
+}
+.model-img-list li{
+    float:left; width:85px; height:100px; text-align:center; margin-right:10px
+}
+</style>
+<div class="mainbox">
+    <div id="tabs" style="margin-top:10px;">
+        <div class="tabbox">
+            <div class="table-list">
+                <div class="table" style="width:100%;">
+                    <fieldset>
+                        <legend>刷单白名单商家</legend>
+                        <form id="form1" name="form1" method="post" action="?" target="">
+                            <table width="90%" align="center">
+                                <tr>
+                                    <td width="26%" height="25">商家ID</td>
+                                    <td width="74%" height="25">
+                                        <input name="user_id" type="text" id="user_id" value="{seller.user_id}" <!-- IF seller.user_id -->readonly="readonly"<!-- ENDIF --> size="50" maxlength="50" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="26%" height="25">商家名称</td>
+                                    <td width="74%" height="25">
+                                        <span id="seller_name" name="seller_name">
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="26%" height="25">刷单详情</td>
+                                    <td width="74%" height="25">
+                                        <span>
+                                        </span>
+                                        <textarea name="remark" cols="120" rows="5" id="remark"></textarea><br />
+                                        <font color='red'>*必填，请详细填写！</font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <input name="action" type="hidden" id="action" value="add_white_list">
+                                        <input type="submit" name="button" id="button" value="提交" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

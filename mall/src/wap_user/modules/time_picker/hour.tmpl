@@ -1,0 +1,3 @@
+{{#each data}}
+    <div class="time-picker-hour {{#unless enable}}disable{{/unless}}" {{#if enable}}data-time-carry="{{val}}" data-time-tap="hour"{{/if}} >{{val}}</div>
+{{/each}}

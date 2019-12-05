@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+
+
+<title>已推荐供应商</title>
+</head>
+<body>
+<div class="mainbox">
+
+ 
+    <div id="tabs">
+    <div class="tabbox">
+      <div class="table-list">
+     
+        <table width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th width="10%">供应商ID</th>
+                <th>供应商名称</th>
+                <th width="10%">手机号</th>
+                <th width="10%">服务类型</th>
+                <th width="15%">服务模式</th>
+                <th width="8%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- BEGIN list -->
+              <tr>
+                <td width="10%" align="center">{user_id}</td>
+                <td align="center">{seller_nickname}</td>
+                <td width="10%" align="center">{cellphone}</td>
+                <td width="10%" align="center">{title}</td>
+                <td width="15%" align="center"><!-- IF service_id="6" -->线上<!-- ELSE -->线下<!-- ENDIF --></td>
+                <td width="8%" align="center"><a href="http://www.yueus.com/task/person_center.php?user_id={user_id}" target="_blank">查看</a></td>                  
+              </tr>
+              <!-- END list -->
+            </tbody>
+        </table>
+     
+      </div>
+    </div>
+    <div id="pages" class="page"> {page} </div>  
+</div>
+</body>
+</html>

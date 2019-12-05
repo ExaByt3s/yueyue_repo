@@ -1,0 +1,44 @@
+<div class="action-con-arrange fn-hide" data-role="act-detail-container">
+    <div class="h-100">
+        <div class="main-title">{{title}}</div>
+        <div class="notice-con">
+            <div class="title-con">
+                <div class="title">场次安排</div>
+            </div>
+            {{#each table_info}}
+                <div class="con">
+                    <div class="per">
+                        <p class="notice">第{{session}}场：</p>
+                        <p class="cont">{{text}}</p>
+                    </div>
+                    <div class="per">
+                        <p class="notice">名额：</p>
+                        <p class="cont">{{num}}人</p>
+                    </div>
+                </div>
+            {{/each}}
+            <div class="awl-con">
+                <p class="notice">备注：</p><p class="cont">{{{remark}}}</p>
+            </div>
+        </div>
+        <div class="notice-con">
+            <div class="title-con">
+                <div class="title">活动领队</div>
+            </div>
+            {{#each leader_info_detail}}
+                <div class="con">
+                    <div class="per-child">
+                        <div class="per-child-con">
+                            <p class="notice">联系人：</p>
+                            <p class="cont">{{name}}</p>
+                        </div>
+                        <div class="per-child-con">
+                            <p class="notice">手机：</p>
+                            <p class="cont">{{mobile}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

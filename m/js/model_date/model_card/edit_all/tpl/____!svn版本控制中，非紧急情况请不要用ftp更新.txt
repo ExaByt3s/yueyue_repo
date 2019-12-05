@@ -1,0 +1,13 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/js/model_date/model_card/edit_all/tpl
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+main.handlebars
+main_all.handlebars
+number_btn_item.handlebars
+popup_item.handlebars
+style_price_item.handlebars
+
+--EOF--

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="The protocol management system.">
+		<meta name="author" content="chenwb@yueus.com">
+		<title>JS/CSS探测器 - 协议管理后台</title>
+		<style type="text/css">
+			body{font-family:"Helvetica Neue",Helvetica,"Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;background-color:#fafafa;font-size:16px}.container{margin:50px auto;width:80%;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.container .title{text-align:center;font-size:24px;color:#c7c7c7}.container .title small{font-size:14px;padding:1px 2px;color:#d2d2d2}.container .content{border:1px dotted #afa5a5;margin:20px auto;border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px}.container .content h2{margin:10px 10px 5px 20px;padding:0 0 5px 0;color:#de379a;border-bottom:1px solid #CCC;font-size:24px}.container .content ul{list-style:none;margin:15px 0 15px 25px;padding:5px}.container .content ul li{margin:3px 0;padding:2px 0;color:#888383;word-break:break-all;word-wrap:break-word}.container .content ul li a{color:#9b3ff1;margin:0 3px;text-decoration:none}.container .content ul li label{margin-left:10px;color:red;font-weight:600}label.success{color:#0df50d!important}.container .footer{text-align:center;font-size:15px;color:#e0dada;margin:30px 0 5px 0}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="title">协议页面错误检测程序<small>@willike</small></div>
+			<div class="content">
+				<?php foreach($url_list as $k => $urls):?>
+				<h2><?php echo $k;?></h2>
+				<ul id="<?php echo $k;?>">
+					<?php foreach($urls as $url):?>
+					<li>检测<a href="<?php echo $url?>" target="_blank"><span><?php echo $url?></span></a><label>?</label></li>
+					<?php endforeach;?>
+				</ul>
+				<?php endforeach;?>
+			</div>
+			<div class="footer">
+				&copy;YUEUS.com 2015 WILLIKE
+			</div>
+		</div>
+		<script type="application/javascript">
+			var _ul=document.getElementsByTagName("ul"),_d_ul=[_ul[0],_ul[1]],_TO,_d_fail=[];for(var i in _d_ul){_d_nodes=_d_ul[i].childNodes;for(var j in _d_nodes){var dno=_d_nodes[j];if(dno.nodeName!=="LI"){continue}var url=dno.getElementsByTagName("span")[0].innerHTML;var _l_nd=dno.getElementsByTagName("label")[0],_l_h=_l_nd.innerHTML;if(_l_h!=="?"){continue}dynamicLoad(url,_l_nd)}}var _IO=setInterval(function(){var g=1;for(var a in _d_ul){_d_nodes=_d_ul[a].childNodes;for(var c in _d_nodes){var d=_d_nodes[c];if(d.nodeName!=="LI"){continue}var b=d.getElementsByTagName("span")[0].innerHTML;var f=d.getElementsByTagName("label")[0],e=f.innerHTML;if(e!=="?"){continue}g=0;if(isNaN(_d_fail[b])){_d_fail[b]=1}else{_d_fail[b]+=1}if(_d_fail[b]>=3){f.innerHTML="NO";continue}dynamicLoad(b,f)}}if(g===1){clearInterval(_IO)}},5000);function dynamicLoad(c,h){if(c===""||c===null||c===undefined||!h){return}var b=document.getElementsByTagName("head")[0];var a=document.createElement("script");a.setAttribute("type","text/javascript");a.setAttribute("src",c);b.appendChild(a);var e=b.childNodes;for(var d in e){var g=e[d];if(typeof(g)!=="object"){continue}var f=g.src;if(f===undefined||f===""){continue}if(f.indexOf(c)>=0){b.removeChild(g)}}a.onload=a.onreadystatechange=function(){if(!this.readyState||this.readyState=="loaded"||this.readyState=="complete"){h.innerHTML="YES";h.style.color="#0DF50D"}else{h.innerHTML="NO"}a.onload=a.onreadystatechange=null;return};if(_TO!==undefined){clearTimeout(_TO)}_TO=setTimeout(function(){a.onload=a.onreadystatechange=null;h.innerHTML="NO"},5000)};
+		</script>
+	</body>
+</html>

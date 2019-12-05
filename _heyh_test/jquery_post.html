@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://127.0.0.1/class_library/js/jquery-2.1.4/jquery.min.js";></script>
+    <title>Title</title>
+
+</head>
+<body>
+            <script>
+                $.get('http://a-m-s.poco.cn/test/uni.php?type=get&uni_id=c101_214125123142&is_bingo=1', function(data,status){alert("Data: " + data + "\nStatus: " + status);})
+
+                /**
+                $.ajax({
+                    type: 'GET',
+                    cache: false,
+                    dataType: 'json',
+                    url:'http://a-m-s.poco.cn/test/uni.php',
+                    data : {
+                        type : "get",
+                        uni_id : "c101_214125123142",
+                        is_bingo : "1"
+                    },
+
+
+
+                    beforeSend: function()
+                    {
+                        //layer.close(index);
+                    },
+                    success: function(data)
+                    {
+                        console.log(data);
+                        var ajax_status = data.status;
+                        if (ajax_status == 1)
+                        {
+
+                            //layer.alert("获取成功");
+                            console.log(data);
+                        }
+                        else
+                        {
+
+                            //layer.alert("获取失败");
+                        }
+                    },
+                    error: function(data)
+                    {
+                        console.log(data);
+                        //layer.alert("网络异常");
+                    },
+                    complete: function()
+                    {
+
+                    }
+                });
+                **/
+
+            </script>
+</body>
+</html>

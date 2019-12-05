@@ -1,0 +1,112 @@
+{{#each data}}
+    {{#compare send_user_role "==" "yuebuyer"}}
+        {{#compare media_type "==" "text"}}
+            <div class="ds-box inner_msg orient-v receive">
+                <div class="ds-box msg_head">
+                    <div class="font">{{send_user_id}}</div>
+                    <div class="font">{{send_time}}</div>
+                    <div class="font">{{send_hour}}</div>
+                </div>
+                <div class="ds-box msg_body">{{content}}</div>
+            </div>
+        {{/compare}}
+        {{#compare media_type "==" "photo"}}
+            <div class="ds-box inner_msg orient-v receive">
+                <div class="ds-box msg_head">
+                    <div class="font">{{send_user_id}}</div>
+                    <div class="font">{{send_time}}</div>
+                    <div class="font">{{send_hour}}</div>
+                </div>
+                <div class="ds-box msg_body">
+                    <img src="{{file_url}}" style="height: 50px;" data-role="options_show_img"/>
+                </div>
+            </div>
+        {{/compare}}
+        {{#compare media_type "==" "sound"}}
+            <div class="ds-box inner_msg orient-v receive">
+                <div class="ds-box msg_head">
+                    <div class="font">{{send_user_id}}</div>
+                    <div class="font">{{send_time}}</div>
+                    <div class="font">{{send_hour}}</div>
+                </div>
+                <div class="ds-box msg_body">
+                    <div data-role="record_play_sound" data-record-sound-url="{{file_url}}">
+                        <div class="sound_click" data-role="record_sound_click">语音</div>
+                        <audio class="fn-hide" controls="controls" type="audio/mp3" src="" data-role="record_sound_line"></audio>
+                    </div>
+                </div>
+            </div>
+        {{/compare}}
+        {{#compare media_type "==" "merchandise"}}
+            <div class="ds-box inner_msg orient-v receive">
+                <div class="ds-box msg_head">
+                    <div class="font">{{send_user_id}}</div>
+                    <div class="font">{{send_time}}</div>
+                    <div class="font">{{send_hour}}</div>
+                </div>
+                <div class="ds-box msg_body">
+                    <div class="ds-box orient-v merc">
+                        <div class="info_title">{{card_text1}}</div>
+                        <div class="info_price">{{card_text2}}</div>
+                    </div>
+                </div>
+            </div>
+        {{/compare}}
+        {{#compare media_type "==" "card"}}
+            <div class="ds-box inner_msg orient-v receive">
+                <div class="ds-box msg_head">
+                    <div class="font">{{send_user_id}}</div>
+                    <div class="font">{{send_time}}</div>
+                    <div class="font">{{send_hour}}</div>
+                </div>
+                <div class="ds-box msg_body">
+                    <div class="ds-box orient-v card">
+                        <!--div class="info_title">{{card_title}}</div-->
+                        <div class="info_title">{{card_text1}}</div>
+                        <div class="info_price">{{card_text2}}</div>
+                    </div>
+                </div>
+            </div>
+        {{/compare}}
+    {{/compare}}
+    {{#compare send_user_role "==" "yueseller"}}
+        {{#compare media_type "==" "text"}}
+            <div class="ds-box inner_msg orient-v send">
+                <div class="ds-box msg_head">
+                    <div class="font">{{send_user_id}}</div>
+                    <div class="font">{{send_time}}</div>
+                    <div class="font">{{send_hour}}</div>
+                </div>
+                <div class="ds-box msg_body">{{content}}</div>
+            </div>
+        {{/compare}}
+        {{#compare media_type "==" "photo"}}
+            <div class="ds-box inner_msg orient-v send">
+                <div class="ds-box msg_head">
+                    <div class="font">{{send_user_id}}</div>
+                    <div class="font">{{send_time}}</div>
+                    <div class="font">{{send_hour}}</div>
+                </div>
+                <div class="ds-box msg_body">
+                    <img src="{{file_url}}" style="height: 50px;" data-role="options_show_img"/>
+                </div>
+            </div>
+        {{/compare}}
+        {{#compare media_type "==" "merchandise"}}
+            <div class="ds-box inner_msg orient-v send">
+                <div class="ds-box msg_head">
+                    <div class="font">{{send_user_id}}</div>
+                    <div class="font">{{send_time}}</div>
+                    <div class="font">{{send_hour}}</div>
+                </div>
+                <div class="ds-box msg_body">
+                    <div class="ds-box orient-v merc">
+                        <div class="info_title">{{card_text1}}</div>
+                        <div class="info_price">{{card_text2}}</div>
+                    </div>
+                </div>
+            </div>
+        {{/compare}}
+    {{/compare}}
+
+{{/each}}

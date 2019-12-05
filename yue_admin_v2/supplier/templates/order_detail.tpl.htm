@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>审核</title>
+</head>
+<body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<div id="TB_overlayBG"></div>
+
+<div class="mainbox">
+    <div id="tabs" style="margin-top:10px;">
+        <div class="tabbox">
+            <div class="table-list">
+                <form class="table" style="width:100%;" action="order.php" method="post" >
+                    <fieldset>
+                        <legend>查询订单信息</legend>
+                        <table cellspacing="10" width="100%">
+                            <tbody>
+                            <tr>
+                                <td width="440">
+                                    签到码:<input type="text" name="code_sn" value="{code_sn}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="440">
+                                    <input type="hidden" name="action" value="detail"/>
+                                    <input type="submit" value='查询订单' class="button"/>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                </form>
+
+                <!-- IF order_info -->
+                <form class="table" style="width:100%;" action="order.php" method="post" >
+                    <fieldset>
+                        <legend>订单信息</legend>
+                        <table cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th width="8%">订单编号</th>
+                                <th width="5%">状态</th>
+                                <th width="5%">是否已支付</th>
+                                <th width="5%">是否已签到</th>
+                                <th width="8%">交易品类</th>
+                                <th width="8%">买家用户id</th>
+                                <th width="8%">卖家用户id</th>
+                                <th width="5%">总金额</th>
+                                <th width="5%">优惠金额</th>
+                                <th width="5%">实际支付</th>
+                                <th width="5%">用优惠卷</th>
+                                <th width="5%">优惠码</th>
+                                <th width="10%">入库时间</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- BEGIN order_info -->
+                            <tr>
+                                <td width="8%" align="center">{order_sn}</td>
+                                <td width="5%" align="center">{status_str}</td>
+                                <td width="5%" align="center">{is_pay}</td>
+                                <td width="5%" align="center">{is_check_str}</td>
+                                <td width="8%" align="center">{type_name}</td>
+                                <td width="8%" align="center">{buyer_user_id}<br/>{buyer_name}</td>
+                                <td width="8%" align="center">{seller_user_id}<br/>{seller_name}</td>
+                                <td width="5%" align="center">{total_amount}</td>
+                                <td width="5%" align="center">{discount_amount}</td>
+                                <td width="5%" align="center">{pending_amount}</td>
+                                <td width="5%" align="center">{is_use_coupon}</td>
+                                <td width="5%" align="center">{coupon_sn}</td>
+                                <td width="10%" align="center">{add_time}</td>
+                                <td width="10%" align="center">
+                                    <!-- IF is_check = "0" -->
+                                    <!-- IF status = "2" -->
+                                    <input type="text" name="branch_office" value="" placeholder="请输入分店名" />
+                                    <input type="hidden" name="code_sn" value="{code_sn}"/>
+                                    <input type="hidden" name="action" value="detail"/>
+                                    <input type="hidden" name="is_sign" value="1"/>
+                                    <input type="submit" value='签到' class="button"/>
+                                    <!-- ENDIF -->
+                                    <!-- ENDIF -->
+                                </td>
+                            </tr>
+                            <!-- END list -->
+                            </tbody>
+                        </table>
+                    </fieldset>
+                </form>
+                <!-- ENDIF -->
+            </div>
+        </div>
+
+
+    </div>
+    <input type="button" value="返回列表" class="button" onclick="history.go(-1);">
+</div>
+<script type="text/javascript">
+    $("#pass").click(function () {
+        $("#TB_overlayBG").css({
+            display: "block", height: $(document).height()
+        });
+        $("#box").css({
+            left: ($("body").width() - $("#box").width()) / 2 - 20 + "px",
+            top: ($(window).height() - $("#box").height()) / 10 + $(window).scrollTop() + "px",
+            display: "block"
+        });
+    });
+
+    $("#not_pass").click(function () {
+        $("#TB_overlayBG").css({
+            display: "block", height: $(document).height()
+        });
+        $("#not_pass_box").css({
+            left: ($("body").width() - $("#not_pass_box").width()) / 2 - 20 + "px",
+            top: ($(window).height() - $("#not_pass_box").height()) / 10 + $(window).scrollTop() + "px",
+            display: "block"
+        });
+    });
+
+    $(".close").click(function () {
+        $("#TB_overlayBG").css("display", "none");
+        $("#box ").css("display", "none");
+        $("#not_pass_box").css("display", "none");
+    });
+</script>
+</body>
+</html>

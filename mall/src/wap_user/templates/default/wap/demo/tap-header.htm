@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title id="specc">{title}</title>
+
+    {wap_global_top}
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/search/search.scss">
+    <script src="/lib/lib.js"></script>
+</head>
+<body class="bg-cfff">
+<main role="main">
+    <div class="page-view " data-role="page-container">
+        <header class="global-header">
+            <div class="wbox clearfix">
+                <a href="javascript:void(0);">
+                    <div id="back" class="back" data-role="page-back">
+                        <i class="icon-back"></i>
+                    </div>
+                </a>
+                <h3 class="select-mod">
+                    <div class="list-type">
+                        <a href="#">
+                            <div class="header-btn cur" data-role="seller-btn">商家</div>
+                        </a>
+                        <a href="#">
+                            <div class="header-btn bgcfff" data-role="service-btn">服务</div>
+                        </a>
+                    </div>
+                </h3>
+            </div>
+        </header>
+        <div data-role="render-search-page">
+            <!--品类选项按钮-->
+            <div class="ui-button-box-tap">
+                <div class="ui-button-tap ui-border-r" data-role="category">
+                    <span data-role="col-name">所有品类</span>
+                    <i class="tag" data-role="tag"></i>
+                </div>
+                <div class="ui-button-tap" data-role="sort-btn">
+                    <span data-role="sort-name">默认排序</span>
+                    <i class="tag" data-role="sort-tag"></i>
+                </div>
+            </div>
+            <div data-role="tap-popup-render"></div>
+        </div>
+
+</main>
+</body>
+<script>
+    var $ = require('zepto');
+    var yue_ui = require('../../../../modules/yue_ui/frozen');
+    var header = require('../../../../modules/common/widget/header/main');
+    $(function()
+    {
+        document.body.addEventListener('touchstart',function(){});
+
+        var data = {page_filter_page_params};
+        var tap_header_ui = require('../../../../modules/home/tap-header.js');
+        var tap_header_obj = tap_header_ui.init
+        ({
+            ele : $('[data-role="tap-popup-render"]'),
+            data : data
+        })
+
+    });
+</script>
+</html>

@@ -1,0 +1,1 @@
+define("pay_tt/pay_tt_success",function(n){"use strict";var c=n("common/widget/back_btn/main"),o=n("components/zepto/zepto.js"),t=n("common/I_APP/I_APP");!function(n){var o=n("#nav-header"),e=n("#confirm-btn"),a=c.render();o.prepend(a),e.on("click",function(){}),n('[data-role="page-back"]').on("click",function(){t.isPaiApp&&t.app_back()})}(o,window)});

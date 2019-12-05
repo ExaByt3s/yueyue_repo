@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>Simpla Admin </title>
+<!--                       CSS                       -->
+<!-- Reset Stylesheet -->
+<link rel="stylesheet" href="resources/css/reset.css" type="text/css" media="screen" />
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen" />
+<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+<link rel="stylesheet" href="resources/css/invalid.css" type="text/css" media="screen" />
+<!--                       Javascripts                       -->
+<!-- jQuery -->
+<script type="text/javascript" src="resources/scripts/jquery-1.3.2.min.js"></script>
+<!-- jQuery Configuration -->
+<script type="text/javascript" src="resources/scripts/simpla.jquery.configuration.js"></script>
+<!-- Facebox jQuery Plugin -->
+<script type="text/javascript" src="resources/scripts/facebox.js"></script>
+<!-- jQuery WYSIWYG Plugin -->
+<script type="text/javascript" src="resources/scripts/jquery.wysiwyg.js"></script>
+<script type="text/javascript">
+    function send_code(phone)
+    {
+        var phone = document.getElementById('phone').value;
+        if(phone)
+        {
+            //alert('手机号码' + phone);
+            //document.frames('_iframe').location = 'send_sms.php?phone=' + phone;
+            document.getElementById("_iframe").src='send_sms.php?phone=' + phone;
+            alert('等待手机验证码！');
+        }else{
+            alert('请输入手机号码！');
+        }
+    }
+</script>
+</head>
+<body id="login">
+<div id="login-wrapper" class="png_bg">
+  <div id="login-top">
+    <h1></h1>
+    <!-- Logo (221px width) -->
+    <a href="#"><img id="logo" src="resources/images/logo.png" alt="Simpla Admin logo" /></a> </div>
+  <!-- End #logn-top -->
+  <div id="login-content">
+      <form action="regedit.php" method="post" >
+          <input type="hidden" name="act" value="regedit" />
+      
+      <div class="notification information png_bg">
+       
+      </div>
+      <p>
+        <label>手机号码：</label>
+        <input id="phone" name='phone' class="text-input" type="text" />
+      </p>
+      <div class="clear"></div>
+      <p>
+        <label>密码：</label>
+        <input id='pwd' name="pwd" class="text-input" type="password" />
+      </p>
+      <div class="clear"></div>
+       <p>
+        <label>验证码：</label>
+        <input id='code' name="code" class="text-input" type="text" />
+      </p>
+      <div class="clear"></div>
+      <!-- IF is_agent == "1" -->
+        <p>
+        <label>代理人：</label>
+        <input id='agent' name="agent" class="text-input" type="text" value="{agent_name}"  readonly="true"/>
+        </p>
+      <div class="clear"></div>
+      <!-- ENDIF -->
+      <p><input class="button" type="button" value="获取验证码" onclick="javascript:send_code();" /></p>  
+      <div class="clear"></div>
+      <p>
+        <input class="button" type="submit" value="注册登陆" />       
+      </p>
+    </form>
+  </div>
+  <!-- End #login-content -->
+</div>
+<!-- End #login-wrapper -->
+<iframe id="_iframe" name='_iframe' >
+</body>
+</html>

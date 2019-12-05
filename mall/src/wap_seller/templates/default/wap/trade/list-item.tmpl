@@ -1,0 +1,30 @@
+<div class="item-wrap">
+    {{#each list}}
+    {{#if is_enroll}}
+    <a href="./detail.php?topic_id={{id}}&state=is_enter">
+    {{else}}
+    <a href="./detail.php?topic_id={{id}}&state=no_enter">
+    {{/if}}
+        <div class="item ui-border-b" >
+            <div class="img-item">
+                <i class="img" style="background-image: url({{img}});">
+                    
+                </i>
+            </div>
+            <div class="text-item">
+                <div class="txt-con-1">
+                    <h3 class="title f14">{{title}}</h3>
+                    <p class="txt f10 color-999">所属品类：{{type}}</p>
+            
+                </div>
+                <div class="txt-con-2">
+                    <span class="color-333 join-in ">
+                        {{ enroll_text }} 
+                    </span>
+            
+                </div>
+            </div>
+        </div>
+    </a>
+    {{/each}}
+</div>

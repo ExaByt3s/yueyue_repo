@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+// --------------------------------------------------
+// iconfont 参数
+//  - selector 选择器
+//  - font-name 字体名称
+//  - font-file-name 字体文件名
+// --------------------------------------------------
+@include iconfont('.mp-iconfont', 'mp-iconfont', 'iconfont');

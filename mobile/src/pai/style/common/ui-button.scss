@@ -1,0 +1,302 @@
+@import "../../sass/compass";
+// ui 按钮配置
+// 汤圆
+// 2015-7-9
+
+.ui-button
+{
+    @include box-sizing(border-box);
+    border-radius: 5px;
+    font-size: 12px;
+    color: #fff;
+}
+
+
+
+.ui-button-block {
+  display: block;
+}  
+
+.ui-button-inline-block {
+  display: inline-block;
+}  
+
+
+.ui-button-100per{
+    width: 100%;
+}
+
+
+// 大小
+.ui-button-size-x{
+    height: 30px;
+    line-height: 30px;
+    .ui-button-content{
+        padding: 0px 15px;
+    }
+}
+
+
+.ui-button-size-m{
+    height: 35px;
+    line-height: 35px;
+    .ui-button-content{
+        padding: 0px 15px;
+    }
+}
+
+.ui-button-size-l{
+    height: 40px;
+    line-height: 40px;
+    .ui-button-content{
+        padding: 0px 15px;
+    }
+}
+
+
+.ui-button-size-xl{
+    height: 45px;
+    line-height: 45px;
+    .ui-button-content{
+        padding: 0px 15px;
+    }
+}
+
+
+
+// 配色
+.ui-button-bg-ff6{
+    background: #ff6a6e;
+    color:#fff
+}
+.ui-button-bg-555{
+    background: #555555;
+    color:#fff;
+    &:active{
+        background: #aaaaaa;
+    }
+}
+
+
+
+
+.ui-button-bg-fff{
+    background: #fff;
+    color:#666666;
+    border: 1px solid #cccccc;
+}
+
+.ui-button-bg-btn-555{
+    background: #555555;
+    color:#fff;
+    font-size: 16px;
+    &:active{
+        background: #aaaaaa;
+    }
+}
+
+.ui-button-bd-555{
+    // background: #f2f2f2;
+    color:#333;
+    border: 1px solid #555555;
+    .ui-button-content{
+        padding: 0px 25px;
+    }
+    &:active{
+        background: #f2f2f2;
+        border: 1px solid #aaaaaa;
+        color:#aaa
+    }
+}
+
+
+.ui-button-bd-aaa{
+    // background: #f2f2f2;
+    color:#aaa;
+    border: 1px solid #aaaaaa;
+    .ui-button-content{
+        padding: 0px 25px;
+    }
+    &:active{
+        background: #f2f2f2;
+        border: 1px solid #dddddd;
+        color:#ddd
+    }
+}
+
+.ui-button-bd-ff6{
+    // background: #f2f2f2;
+    color:#ff6a6e;
+    border: 1px solid #ff6a6e;
+    .ui-button-content{
+        padding: 0px 25px;
+    }
+    &:active{
+        background: #f2f2f2;
+        border: 1px solid #ffb4b6;
+        color:#ffb4b6
+    }
+}
+
+.ui-button-submit{
+    width: 100%;
+    @include box-sizing(border-box);
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color:#fff;
+    background: #555555;
+    font-size: 16px;
+    &:active{
+        background: #aaaaaa;
+    }
+}
+
+
+.ui-button-submit-area{
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #cecece;
+    background: #fff;
+    
+    @include box-sizing(border-box);
+    .wbox{
+        padding-top: 3%;
+        padding-left: 1%;
+    }
+    .lbox{
+        width:44%;
+        padding: 0  1% 0 3%;
+        
+    }
+    .rbox{
+        width:44%;
+        padding: 0 3%;
+    }
+}
+
+// ------------------------------
+// 按钮开关
+// ------------------------------
+
+.ui-ckb-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 32px;
+  line-height: 32px;
+
+  text-align: left;
+  font-size: 12px;
+  color: #555;
+  overflow: visible;
+
+  @include box-sizing(border-box);
+  @include background-clip(content-box);
+
+  &.ui-ckb-switch-on {
+    .ui-ckb-switch-container {
+      border-color: currentcolor;
+    }
+    .ui-ckb-switch-handle {
+      @include transform(translateX(22px));
+      @include box-shadow(0 3px 8px rgba(#000, .1), 0 0 0 1px currentcolor);
+    }
+  }
+
+  &.ui-ckb-switch-off {
+    .ui-ckb-switch-background {
+      margin-left: -40px;
+    }
+    .ui-ckb-switch-container {
+      border-color: #e5e5e5;
+    }
+    .ui-ckb-switch-handle {
+      @include transform(translateX(0px));
+      @include box-shadow(0 3px 8px rgba(#000, 0.1), 0 0 0 1px #fff);
+    }
+  }
+}
+
+.ui-ckb-switch-checkbox {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.ui-ckb-switch-wrapper {
+  display: block;
+  border: 1px solid #e5e5e5;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  background-color: #bababa;
+  @include box-sizing(border-box);
+  @include background-clip(content-box);
+  @extend %extend-ui-ckb-switch-border-radius;
+}
+.ui-ckb-switch-background {
+  display: block;
+  margin: 0 1px 1px -16px;
+  height: 100%;
+  width: 200%;
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+  background-color: currentcolor;
+  background-repeat: no-repeat;
+  background-position: 52px 0px;
+  @include background-clip(content-box);
+
+  @include transition(margin-left 200ms ease-out);
+
+  @include backface-visibility(visible);
+
+  @extend %extend-ui-ckb-switch-border-radius;
+}
+
+.ui-ckb-switch-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+
+  border-width: 1px;
+  border-style: solid;
+
+  @include box-sizing(border-box);
+  @include background-clip(content-box);
+
+  @extend %extend-ui-ckb-switch-border-radius;
+}
+
+.ui-ckb-switch-handle {
+  display: inline-block;
+  width: 28px;
+  height: 100%;
+  margin: 0 3px 0 0;
+  background: #fff;
+
+  @include box-sizing(border-box);
+  @include background-clip(border-box);
+  @include transition(transform 200ms ease-out);
+
+  @extend %extend-ui-ckb-switch-border-radius;
+}
+
+%extend-ui-ckb-switch-border-radius {
+  @include border-radius(28px);
+}

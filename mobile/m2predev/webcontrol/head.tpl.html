@@ -1,0 +1,46 @@
+<meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/lib/mod.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2predev/static/style/base.css">
+<!--基础样式 END-->
+
+<!--App bridge-->
+<script>
+{app_bridge_script}
+</script>  
+
+<script>
+
+    var wifi_link = /yp-wifi/.test(window.location.host)?'-wifi':''
+
+	window.$__domain = 'http://yp'+wifi_link+'.yueus.com/mobile/';
+	window.$__app_version = '2.2.0';
+	window.$__action_version = 'action'+window.$__app_version;
+	window.$__config = 
+	{				
+		ajax_url : 
+		{
+			get_tt_pay_info : window.$__domain + window.$__action_version+'/get_tt_pay_info.php',
+			pay_tt_action : window.$__domain + window.$__action_version+'/pay_tt_action.php',
+			topic : window.$__domain + window.$__action_version+'/get_topic_info.php',
+            get_user_coupon_list_by_tab : window.$__domain + window.$__action_version+'/get_user_coupon_list_by_tab.php',
+            get_user_coupon_list_by_check : window.$__domain + window.$__action_version+'/get_user_coupon_list_by_check.php',
+            recharge_card : window.$__domain + window.$__action_version+'/recharge_card.php',
+            recharge : window.$__domain + window.$__action_version+'/recharge.php',
+            auth_get_user_info : window.$__domain + window.$__action_version+'/auth_get_user_info.php',
+            reg : window.$__domain + window.$__action_version+'/reg.php',
+            bill : window.$__domain + window.$__action_version+'/bill_act.php',
+            withdraw : window.$__domain + window.$__action_version+'/withdraw.php',
+            bind_alipay : window.$__domain + window.$__action_version+'/bind_alipay.php'
+
+		} 
+	};
+</script>  

@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "ui-loading.css",
+    "sources": [
+        "/style/widget/ui-loading.scss"
+    ],
+    "sourcesContent": [
+        ".ui-loading-wrap{\r\n\tdisplay: -webkit-box;\r\n\t-webkit-box-pack: center;\r\n\t-webkit-box-align: center;\r\n\ttext-align: center;\r\n\theight: 40px;\r\n}\r\n.ui-loading{\r\n\twidth: 20px;\r\n\theight: 20px;\r\n\tdisplay: block;\r\n\tbackground: url(../../image/ui/loading_sprite.png?_bid=306);\r\n\t-webkit-background-size: auto 20px;\r\n\t\r\n}\r\n.ui-loading-bright{\r\n    width: 37px;\r\n    height: 37px;\r\n    display: block;\r\n    background-image: url(../../image/ui/loading_sprite_white.png?_bid=306);\r\n    -webkit-background-size: auto 37px;\r\n   \r\n}\r\n.ui-loading-wrap .ui-loading{margin: 10px;}\r\n"
+    ],
+    "mappings": "AAAA,AACC,AAAS,AACT,AAAkB,AAClB,AAAmB,AACnB,AAAY,AACZ,AAAQ,AAET,AACC,AAAO,AACP,AAAQ,AACR,AAAS,AACT,AAAY,AACZ,AAAyB,AAG1B,AACI,AAAO,AACP,AAAQ,AACR,AAAS,AACT,AAAkB,AAClB,AAAyB,AAG7B,AAAiB,AAAY,AAAQ",
+    "names": []
+}

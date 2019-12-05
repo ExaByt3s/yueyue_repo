@@ -1,0 +1,70 @@
+            <div class="mine-model-car">
+                    <ul>
+                        <li data-role="grid-container" class="grid-pic-content" >
+
+                        </li>
+                    </ul>
+       
+                <ul class="bar  "  data-role="bar-swt"  style="clear:both">  <!-- bar-hover -->
+                    <li  data-role="yuepai">
+                        <i class="icon icon-r-16x26-white"></i>我的约拍条件
+                    </li>
+
+                </ul>
+
+                <!-- 弹窗口  -->
+                <div class="pop-info fn-hide" data-role="style">
+                    <div class="wrap-box">
+                        <div class="box1">摄影师信用金要求：￥{{cameraman_require}}</div>
+                        <div class="box2">请选择拍摄风格</div>
+                        <div class="list-des clearfix">
+                            {{#each model_style}}
+                                <div class="item">
+                                    <div class="lbox">{{text}}</div>
+                                    <div class="rbox"><span class="cor">￥{{price}}</span> <span class="font">/小时</span></div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+
+                <div data-role="bottom-info">
+                    <div class="wrap-box">
+                        <div class="com">评价 :
+                            {{#each stars}}
+                                {{#if is_red}}
+                                    <i class="icon icon-red"></i>
+                                {{else}}
+                                    <i class="icon icon-grey"></i>
+                                {{/if}}
+                            {{/each}}
+                            <span class="red">{{score}}分</span></div>
+                        <div class="num">拍片次数  {{take_photo_times}} <!-- <i class="icon icon-r"></i> --></div>
+                    </div>
+
+                    <div class="img-area" >
+
+                        <div class="avatar-size-mod avatar-size-mod-50">
+                            <span class="icon avatar-size-area"></span>
+                            <i class="avatar-size-img" style="background-image: url('{{user_icon}}'); background-size:cover;background-repeat: no-repeat;background-position: 50%;"></i>
+                        </div>
+
+                        <!-- <i class="user-img img circle-img head-icon"  style="background:url('{{user_icon}}') no-repeat;background-size:cover;background-repeat: no-repeat;background-position: 50%;"></i> -->
+
+                    </div>
+
+                    <div class="model-info">
+                        <p class="p1"><i class="icon icon-person"></i> {{nickname}} <i class="icon icon-place"></i> {{city_name}}</p>
+                        <p class="p2">{{model_type_list}}</p>
+                    </div>
+
+                    <ul class="model-size">
+                        <li class="icon">{{height}}cm</li>
+                        <li class="icon">{{weight}}kg</li>
+                        <li class="icon">{{cup}}</li>
+                        <li class="icon">{{chest}}-{{waist}}-{{hip}}</li>
+                    </ul>
+                </div>
+                
+                
+            </div>

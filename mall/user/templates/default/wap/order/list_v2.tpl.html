@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>服务订单</title>
+    <!--link rel="import" href="../webcontrol/head.tpl.html?__inline"-->
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/order/order_bfa15bb.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/swiper3.07.min_b12c96f.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_79cae42.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/qrcode/qrcode_eedf059.css">
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/common/scroll/scroll_aff3642.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/modules/qrcode/qrcode_f493657.js"></script>
+</head>
+<body style="background: #f2f2f2;">
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view page-name-order-list" data-role="page-container">
+        <div class="taps_container">
+            <div class="inner_tap" data-role="tap" data-status="0" >
+                <!-- IF red_dot.wait_pay !="0" --><div class="red_dot"></div><!-- ENDIF -->
+                <p>待付款</p>
+
+            </div>
+                <div class="inner_tap" data-role="tap" data-status="1">
+                    <!-- IF red_dot.wait_confirm !="0" --><div class="red_dot"></div><!-- ENDIF -->
+                    <p>待确认</p>
+                </div>
+                <div class="inner_tap" data-role="tap" data-status="2">
+                    <p>待签到</p>
+                </div>
+                <div class="inner_tap" data-role="tap" data-status="8">
+                    <p>已完成</p>
+                </div>
+                <div class="inner_tap" data-role="tap" data-status="7">
+                    <p>已关闭</p>
+                </div>
+            </div>
+                <div class="order_list_container" data-role="list_container">
+
+                </div>
+                <div class="next_page_btn fn-hide" data-role="next_page_btn">
+                    <p>加载下一页</p>
+                </div>
+            </div>
+            <div class="render_qrcode" id="render_qrcode"></div>
+
+{wap_global_footer}
+    
+</main>
+
+<input id="type_id" type="hidden" data="{type_id}"/>
+<input id="status" type="hidden" data="{current_status}"/>
+
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+
+    var APP = require('common/I_APP/I_APP');
+
+    var utility = require('common/utility/index');
+
+    var abnormal = require('common/widget/abnormal/index');
+
+    var fastclick = require('components/fastclick/fastclick.js');
+
+    var list_tmp = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n<div class=\"child\" order_id=\"";
+  if (helper = helpers.order_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.order_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" order_sn=\"";
+  if (helper = helpers.order_sn) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.order_sn); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" goods_id=\"";
+  if (helper = helpers.detail_list) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.detail_list); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" >\r\n    ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.code_list), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.detail_list), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    <div class=\"item_info\" data-role=\"item_info\">\r\n        <div class=\"pics\">\r\n            <img src=\"";
+  if (helper = helpers.goods_images) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.goods_images); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"/>\r\n        </div>\r\n        <div class=\"notice_contain\">\r\n            <div class=\"notice\">";
+  if (helper = helpers.goods_name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.goods_name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n            <div class=\"o_price\">￥";
+  if (helper = helpers.total_amount) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.total_amount); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n        </div>\r\n    </div>\r\n    <div class=\"r_pay ui-border-t\">\r\n        <div class=\"info\">\r\n            <p class=\"tex\">实付：</p>\r\n            <p class=\"re_price\">￥";
+  if (helper = helpers.pending_amount) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.pending_amount); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n        </div>\r\n    </div>\r\n    <div class=\"btns ui-border-t\">\r\n        ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.btn_action), {hash:{},inverse:self.noop,fn:self.program(6, program6, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    </div>\r\n</div>\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n    <div data-role-code=\"contain\" style=\"display: none\" >\r\n        <input type=\"hidden\" data-code-url=\"";
+  if (helper = helpers.qr_code_url) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.qr_code_url); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n        <input type=\"hidden\" data-code-number=\"";
+  if (helper = helpers.code_sn) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.code_sn); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n        <input type=\"hidden\" data-code-name=\"";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n        <input type=\"hidden\" data-code-img-url=\"";
+  if (helper = helpers.qr_code_url_img) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.qr_code_url_img); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n    </div>\r\n    ";
+  return buffer;
+  }
+
+function program4(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n    <input type=\"hidden\" data-goods-id=\"";
+  if (helper = helpers.goods_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.goods_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n    ";
+  return buffer;
+  }
+
+function program6(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n            ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.request), "==", "close", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.request), "==", "close", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n            ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(9, program9, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.request), "==", "pay", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.request), "==", "pay", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n\r\n            ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(11, program11, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.request), "==", "cancel", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.request), "==", "cancel", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n\r\n            ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(13, program13, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.request), "==", "refund", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.request), "==", "refund", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n            ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(15, program15, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.request), "==", "sign", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.request), "==", "sign", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n            ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(17, program17, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.request), "==", "delete", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.request), "==", "delete", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n            ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(19, program19, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.request), "==", "appraise", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.request), "==", "appraise", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  return buffer;
+  }
+function program7(depth0,data) {
+  
+  
+  return "\r\n            <button class=\"ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad\" data-action-type=\"close\" data-role=\"2\">\r\n                <span class=\"\">关闭</span>\r\n            </button>\r\n            ";
+  }
+
+function program9(depth0,data) {
+  
+  
+  return "\r\n            <button class=\"ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good\" data-action-type=\"pay\" data-role=\"3\">\r\n                <span class=\"\">支付</span>\r\n            </button>\r\n            ";
+  }
+
+function program11(depth0,data) {
+  
+  
+  return "\r\n            <button class=\"ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad\" data-action-type=\"cancel\" data-role=\"1\">\r\n                <span class=\"\">取消订单</span>\r\n            </button>\r\n            ";
+  }
+
+function program13(depth0,data) {
+  
+  
+  return "\r\n            <button class=\"ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad\" data-action-type=\"refund\" data-role=\"4\">\r\n                <span class=\"\">申请退款</span>\r\n            </button>\r\n            ";
+  }
+
+function program15(depth0,data) {
+  
+  
+  return "\r\n            <button class=\"ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good\" data-action-type=\"ewm\" data-role=\"5\" >\r\n                <span class=\"\">出示二维码</span>\r\n            </button>\r\n            ";
+  }
+
+function program17(depth0,data) {
+  
+  
+  return "\r\n            <button class=\"ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad\" data-action-type=\"delete\" data-role=\"7\">\r\n                <span class=\"\">删除订单</span>\r\n            </button>\r\n            ";
+  }
+
+function program19(depth0,data) {
+  
+  
+  return "\r\n            <button class=\"ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good\" data-action-type=\"comment\" data-role=\"6\">\r\n                <span class=\"\">评价</span>\r\n            </button>\r\n            ";
+  }
+
+  stack1 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.data), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n";
+  return buffer;
+  });
+
+    var qrcode_widget = require('qrcode');
+
+
+    if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+            fastclick.attach(document.body);
+        }, false);
+    }
+
+    //picker._init_frame();
+    //
+    // 渲染头部
+    var header = require('common/widget/header/main');
+    header.init({
+        ele : $("#global-header"), //头部渲染的节点
+        title:"服务订单",
+        header_show : true , //是否显示头部
+        right_icon_show : false, //是否显示右边的按钮
+
+        share_icon : 
+        {
+            show :false,  //是否显示分享按钮icon
+            content:""
+        },
+        omit_icon :
+        {
+            show :false,  //是否显示三个圆点icon
+            content:""
+        },
+        show_txt :
+        {
+            show :true,  //是否显示文字
+            content:"编辑"  //显示文字内容
+        }
+    })
+
+
+
+    $(function()
+    {
+        var current_page = 1;
+
+        var current_status = $('#status').attr('data');
+
+        var type_id = $('#type_id').attr('data');
+
+        $('[data-status="'+ current_status + '"]').addClass('cur');
+
+
+        function bind_event()
+        {
+            var ajax_control_type;//请求类型
+
+            $('[data-role="1"]').on('click',function(){
+                ajax_control_type = 'cancel';
+
+                var $con = $(this);
+
+                var dialog = utility.dialog({
+                    title : '',
+                    content : '确认取消？'
+                });
+
+                dialog.on('confirm',function(event,args)
+                {
+                    var data = {order_sn: $con.parents('.child').attr('order_sn'),type:ajax_control_type}
+                    ajax_control(data);
+                });
+            });
+
+            $('[data-role="2"]').on('click',function(){
+                ajax_control_type = 'close';
+
+                var $con = $(this);
+
+                var dialog = utility.dialog({
+                    title : '',
+                    content : '确认关闭？'
+                });
+
+                dialog.on('confirm',function(event,args)
+                {
+                    var data = {order_sn: $con.parents('.child').attr('order_sn'),type:ajax_control_type}
+                    ajax_control(data);
+                });
+            });
+
+            $('[data-role="3"]').on('click',function(){
+
+                var $con = $(this);
+
+                var dialog = utility.dialog({
+                    title : '',
+                    content : '去支付？'
+                });
+
+                dialog.on('confirm',function(event,args)
+                {
+                    $.ajax
+                    ({
+                        url: window.$__config.ajax_url.list_pay_judge,
+                        data : {order_sn: $con.parents('.child').attr('order_sn')},
+                        dataType: 'json',
+                        type: 'POST',
+                        cache: false,
+                        beforeSend: function()
+                        {
+                            window.$loading = $.loading
+                            ({
+                                content:'请求支付中...'
+                            });
+                        },
+                        success: function(data)
+                        {
+                            $loading.loading("hide");
+
+                            if(data.result_data.data.result == 1){
+                                //成功 后刷页
+                                if(data.result_data.data.message != '')
+                                {
+                                    alert(data.result_data.data.message);
+                                }
+
+                                window.location.href = "{pay_url}" + $con.parents('.child').attr('order_sn');
+                            }
+                            else{
+                                //
+                                alert(data.result_data.data.message)
+                            }
+                        },
+                        error: function(data)
+                        {
+                            $loading.loading("hide");
+
+                            alert('请求失败，请重试');
+                        },
+                        complete: function()
+                        {
+
+                        }
+                    });
+                });
+            });
+
+            $('[data-role="4"]').on('click',function(){
+                ajax_control_type = 'refund';
+
+                var $con = $(this);
+
+                var dialog = utility.dialog({
+                    title : '',
+                    content : '确认申请退款？'
+                });
+
+                dialog.on('confirm',function(event,args)
+                {
+                    var data = {order_sn:$con.parents('.child').attr('order_sn'),type:ajax_control_type}
+                    ajax_control(data);
+                });
+
+            });
+
+            // 出示二维码    
+            $('[data-role="5"]').on('click',function()
+            {
+                var this_parent = $(this).parents('.child');
+                var qrcodes = [];
+                $.each(this_parent.find('[data-role-code="contain"]'),function(i,obj)
+                {
+                    var inner_obj =
+                    {
+                        url : $(obj).find('[data-code-url]').attr('data-code-url'),
+                        number : $(obj).find('[data-code-number]').attr('data-code-number'),
+                        name : $(obj).find('[data-code-name]').attr('data-code-name'),
+                        url_img : $(obj).find('[data-code-img-url]').attr('data-code-img-url')
+                    }
+
+                    qrcodes.push(inner_obj);
+                })
+
+                console.log(qrcodes);
+
+                if(APP.isPaiApp)
+                {
+                    APP.qrcodeshow(qrcodes,0,function(){});
+                }
+                else
+                {
+                    // 处理二维码
+                        
+                    var qrcode_obj = new qrcode_widget
+                    ({
+                        ele : $('#render_qrcode'), //渲染的节点
+                        data : 
+                        {
+                            name : '{nick_name}',
+                            user_icon : '{user_icon}',
+                            user_id : '{user_id}',
+                            data_arr : qrcodes
+                        }
+                        
+                    })
+                    // 处理二维码 end
+                }
+            });
+
+            $('[data-role="6"]').on('click',function(){
+                console.log('评价');
+
+                var $con = $(this);
+                var id = $con.parents('.child').find('[data-goods-id]').attr('data-goods-id');
+                var sn = $con.parents('.child').attr('order_sn');
+                console.log(id,sn);
+
+                window.location.href = '../comment/index.php?order_sn='+sn;
+            });
+
+            $('[data-role="7"]').on('click',function(){
+                ajax_control_type = 'delete';
+
+                var $con = $(this);
+
+                var dialog = utility.dialog({
+                    title : '',
+                    content : '确认删除？'
+                });
+
+                dialog.on('confirm',function(event,args)
+                {
+                    var data = {order_sn:$con.parents('.child').attr('order_sn'),type:ajax_control_type}
+
+                    ajax_control(data);
+
+                });
+
+            });
+
+            $('[data-role="item_info"]').on('click',function(){
+
+                location.href = './detail.php?order_sn=' + $(this).parents('.child').attr('order_sn');
+            })
+        }
+
+        var data =
+        {
+            page: 1,
+            type_id : type_id,
+            status : current_status
+        }
+
+        fresh(data);
+
+        //栏目切换
+        $('[data-role="tap"]').on('click',function(){
+
+            $(this).addClass('cur').siblings().removeClass('cur');
+
+            current_status = $(this).attr('data-status');
+
+
+            var data =
+            {
+                page: 1,
+                type_id : type_id,
+                status : current_status
+
+            }
+
+
+            fresh(data);
+        });
+        //ajax请求
+        function ajax_control(data,success,error,complete){
+            utility.ajax_request
+            ({
+                url: window.$__config.ajax_url.list_control,
+                data : data,
+                cache: false,
+                beforeSend: function()
+                {
+
+                    window.$loading = $.loading
+                    ({
+                        content:'发送中...'
+                    });
+                },
+                success: function(data)
+                {
+                    $loading.loading("hide");
+
+                    if(data.result_data.data.result == 1){
+                        //成功 后刷页
+                        alert(data.result_data.data.message)
+
+                        var sub_data =
+                        {
+                            page: current_page,
+                            type_id : type_id,
+                            status : current_status
+
+                        }
+                        fresh(sub_data);
+                    }
+                    else{
+                        //
+
+                        alert(data.result_data.data.message)
+                    }
+                },
+                error: function(data)
+                {
+                    $loading.loading("hide");
+
+                    alert('请求失败，请重试');
+                },
+                complete: function()
+                {
+
+                }
+            });
+        }
+
+
+
+        //加载更多
+        $('[data-role="next_page_btn"]').on('click',function(){
+
+            current_page++;
+
+            var data =
+            {
+                page: current_page,
+                type_id : type_id,
+                status : current_status
+
+            }
+            fresh(data);
+        })
+        //页面刷新函数
+        function fresh(data){
+
+            window.$page_loading = $.loading
+            ({
+                content:'加载中...'
+            });
+
+            utility.ajax_request
+            ({
+                url: window.$__ajax_domain + "order_list_v2.php",
+                data : data,
+                cache: false,
+                beforeSend: function()
+                {
+                    $('[data-role="next_page_btn"]').addClass('fn-hide');
+                },
+                success: function(res)
+                {
+                    $page_loading.loading("hide");
+
+                    var str = list_tmp({data:res.result_data});
+
+                    if(data.page == 1)
+                    {
+                        $('[data-role="list_container"]').html(str);
+
+                        window.scrollTo(0,0);
+                    }
+                    else
+                    {
+                        $('[data-role="list_container"]').append(str);
+                    }
+
+                    var data_length = res.result_data.data.length;
+
+                    if(data.page == 1 && data_length == '0')
+                    {
+                        abnormal.render($('[data-role="list_container"]')[0],{});
+                    }
+
+                    if(res.result_data.has_next_page)
+                    {
+                        $('[data-role="next_page_btn"]').removeClass('fn-hide');
+                    }
+
+
+                    bind_event();
+                },
+                error: function(data)
+                {
+                    $page_loading.loading("hide");
+
+                    alert('加载失败，请重试');
+                },
+                complete: function()
+                {
+
+                }
+            });
+        }
+        /*
+        var pick = new Picker
+        ({
+            CAN_NOT_CHOOSE_A_DAY_BEFORE:'2015-03-20',
+            CHOOSE_PAST_DAYS : true,
+            DEFAULT_DAY : '2015-07-24',
+            MONTH_RANGE : ['2015-03','2015-10'],
+            RETURN_SEPARATOR : '-',
+            SKIP_DAYS : ['2015-08-15~2015-09-15','2015-09-20']
+        })
+
+        pick.get_obj().on('finish',function(event,str)
+        {
+            console.log(str);
+        })
+
+
+        $('[data-role-date-test="test"]').on('click',function()
+        {
+
+
+            pick.slide_show();
+        })
+
+
+        pick.get_obj().on('click',function()
+        {
+            pick.slide_hide()
+        })
+        */
+
+    });
+</script>
+</html>

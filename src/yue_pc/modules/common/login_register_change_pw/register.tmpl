@@ -1,0 +1,59 @@
+<!-- 注册  -->
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+
+
+<form action="../action/general_register_op.php" method="post" name="register_form" id="register_form" target="form_iframe">
+    <div class="register-page">
+    
+        <div class="err-tips fn-hide "  id="error_tips" err_tips><i class="icon-error"></i> <i err_tips_txt  id="err_tips_txt"></i></div>
+        <div class="item-wrap">
+
+            <div class="item mb20">
+                <input type="tel" phone_number name="phone" id="phone" class="ui-input ui-input-block ui-input-primary ui-input-size-middle f14 " placeholder="手机号码">
+                <p class="cor-aaa mt5   ">请输入中国大陆手机号，用于登录和密码找回</p>
+            </div>
+
+            <div class="item">
+                <input pass_word type="password" name="password" id="password" class="ui-input ui-input-block ui-input-primary ui-input-size-middle f14 " placeholder="密码">
+                <p class="cor-aaa mt5   ">密码由6-32个数字、字符或半角标点符号组成越复杂越安全，但不能使用中文</p>
+
+            </div>
+
+            <div class="item mt20 mb10 clearfix">
+                <div class="fl lbox"><input yzm_number  type="tel" name="active_word" id="active_word" class="ui-input ui-input-block ui-input-primary ui-input-size-middle f14 yzm " placeholder="验证码"></div>
+                <div class="fr rbox">
+                    <div class="btn-tel"  msg_num_geetest>获取短信验证码</div>
+                </div>
+            
+            </div>
+        </div>
+
+            <!--校验-->
+            <div id="div_geetest_lib" style="margin-bottom:10px;"><div class="box" style="margin:0 auto;width:320px;text-align:center;" id="div_id_embed"></div></div>
+            <!--校验-->
+
+
+        <p class="xy"><label><input type="checkbox"  checked="checked" name="agreement" id="regist_agreement" class="input-checkbox" /> <span class="cor-aaa">我已阅读并同意</span> <a href="./agree.php" target="_blank" class="cor-409">《用户协议》</a></label></p>
+
+
+        <div class="btn mt10">
+            <a href="javascript:void(0)"  class="tdn">
+                <div  btn_submit  class="ui-button ui-button-primary ui-button-block ui-button-100per  ui-button-size-s-large">
+                    <span class="ui-button-content"> <em id='submit_btn'>立即注册</em></span>
+                </div>
+            </a>
+        </div>
+
+        <div class="des clearfix mt20 tc">
+            <span class=""><a href="login.php?r_url={{r_url}}" class="cor-409">已有账号?请直接登录</a></span>
+        </div>
+
+
+        <input type="hidden" value="{{r_url}}" name="r_url"></input>  <!--  来源地址配置 -->
+        <input type="hidden" value="form" name="action_mode"></input> 
+        <input type="hidden" value="" name="role"></input> 
+
+    </div>
+
+</form>
+

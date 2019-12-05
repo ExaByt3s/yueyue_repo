@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{input_title}</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/home/input_25e8979.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_79cae42.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view input-page" data-role="page-container">
+        <div class="input-information">
+
+        <!--**个人简介**-->
+        <!-- IF type = "textarea" -->
+        <div class="textarea-con">
+            <!--剩余字数提示
+            <h6>你可以输入<span>140</span>个字，现在剩余<span id="word">140</span>个</h6>
+            -->
+            <textarea id="introduce" class="ui-textarea-info input-content" placeholder="{input_title}" data-role="text">{input_content}</textarea>
+            <div class="num-word">
+                <span id="setNums">0</span>
+                <span>/&nbsp;{limit_num}</span>
+            </div>
+            <span class="red tips" style="display: none">请填写内容</span>
+        </div>
+
+        <!--**城市**-->
+        <!-- ELSEIF type = "city" -->
+        <div id="location"></div>
+
+        <!--**输入昵称**-->
+        <!-- ELSEIF type = "text" -->
+        <div class="ui-input-info-mod mb10 mt15 border-radius0">
+            <div class="item">
+                <input id="nickname" value="{input_content}" type="text" maxlength="16" class="ui-input-info input-content" placeholder="{input_title}" data-role="text">
+                <i class="icon-delete" style="display: none"></i>
+            </div>
+            <span class="red tips" style="display: none">请填写内容</span>
+        </div>
+        <!-- ENDIF -->
+
+        </div>
+    </div>
+</main>
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+    var limit = '{limit_num}';
+    var utility = require('common/utility/index');
+    var header = require('common/widget/header/main');
+
+    //头部插件
+    $(document).ready(function() {
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"{input_title}",
+            header_show : true , //是否显示头部
+            mt_0_ele : $("#seller-list-page"), //如果头部隐藏，要把当前页节点margin-top改为0
+            right_icon_show : true, //是否显示右边的按钮
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :true,  //是否显示文字
+                content:"保存"  //显示文字内容
+            }
+        });
+
+    });
+
+    String.prototype.len = function()
+    {
+        return this.replace(/[^\x00-\xff]/g, "xx").length;
+    };
+
+    function numWord(num){
+        var nowLength = Math.ceil($(num).val().len()/ 2);
+        //字数超出限制后变红
+        if(nowLength>limit){
+            $('#setNums').addClass('red');
+        }
+        else{
+            $('#setNums').removeClass('red');
+        }
+        $('#setNums').html(nowLength);
+
+        //空文提示
+        var nickname = $('#nickname').val();
+        var introduce = $('#introduce').val();
+        if(introduce==""||nickname==""){
+            $('.tips').show();
+            $('.icon-delete').hide();
+            return false;
+        }else{
+            $('.tips').hide();
+            $('.icon-delete').show();
+            return true;
+        }
+    }
+    //昵称输入框，内容清空符合
+    $('.icon-delete').on('click',function(){
+        $('#nickname').val("").focus();
+    });
+    $('[data-role="text"]').on('focus',function(){
+        numWord(this);
+    });
+    $('[data-role="text"]').on('input',function(){
+        numWord(this);
+    });
+
+
+//地区组件
+    $(document).ready(function(){
+
+        // 载入组件
+        var location_class = require('common/widget/location/location_main');
+
+        // 实例化
+        var location_obj = new location_class({
+            ele : $('#location'), //渲染地区总节点
+            // 热门城市配置
+            hot_city : {
+                is_show : true , // 是否显示热门城市 true显示
+                data :
+                        [
+                            {
+                                city : "茂名",
+                                location_id : 101029010
+                            }
+                        ]
+            },
+            callback : function(res)
+            {
+                // 点击选中城市回调
+                console.log(res);
+
+            },
+            city_history_num: "3",  //控制浏览历史记录个数，默认12个
+            is_search : false  // 是否开启搜索城市功能 默认不开启
+
+        });
+
+
+        // $('body').on('click', function(event) {
+        //     event.preventDefault();
+        //     location_obj.clear_storage_city()
+        // });
+
+    });
+
+</script>
+</html>

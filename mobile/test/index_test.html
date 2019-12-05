@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="gb2312">
+<title>约拍Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no, email=no">
+
+<link href="./css/paiappstyle.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+        document.addEventListener('touchstart',function(){},false);
+    </script>
+</head>
+
+<body>
+<style>
+
+
+
+
+
+    .nav-list{margin:8px 8px 0 2px;overflow:hidden;}
+    .nav-list li{position:relative;float:left;width:33.333333%;border-left:6px solid #fff;margin-bottom:6px;-webkit-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;}
+    .nav-list li:before{content:"\0020";position:absolute;z-index:10;left:50%;-webkit-transform:translate(-50%,0);-ms-transform:translate(-50%,0);transform:translate(-50%,0);}
+    .nav-list li div{width:100%;height:100%;line-height:32px;border-radius:3px;color:#fff;font-size:22px;text-align:center;}
+    .nav-list li div a{color:#FFF;display: inline-block;height: 100%;width: 100%;}
+    .nav-list li:nth-child(1),
+    .nav-list li:nth-child(2),
+    .nav-list li:nth-child(3),
+    .nav-list li:nth-child(10),
+    .nav-list li:nth-child(11){height:120px;}
+
+    .nav-list li:nth-child(4),
+    .nav-list li:nth-child(5),
+    .nav-list li:nth-child(6),
+    .nav-list li:nth-child(7),
+    .nav-list li:nth-child(8),
+    .nav-list li:nth-child(9){height:65px;}
+
+    .nav-list li:nth-child(12),
+    .nav-list li:nth-child(13){height:57px;}
+
+    .nav-list li:nth-child(1):before{top:50px;width:60px;height:41px;background-position:0 -215px;}
+    .nav-list li:nth-child(2):before{top:60px;width:58px;height:33px;background-position:0 -45px;}
+    .nav-list li:nth-child(3):before{top:66px;width:56px;height:24px;background-position:0 -80px;}
+    .nav-list li:nth-child(4):before{top:35px;width:20px;height:20px;background-position:-60px -20px;}
+    .nav-list li:nth-child(5):before{top:37px;width:43px;height:18px;background-position:-47px -130px;}
+    .nav-list li:nth-child(6):before{top:37px;width:35px;height:16px;background-position:-55px 0;}
+    .nav-list li:nth-child(7):before{top:34px;width:19px;height:22px;background-position:-60px -40px;}
+    .nav-list li:nth-child(8):before{top:34px;width:40px;height:22px;background-position:0 -105px;}
+    .nav-list li:nth-child(9):before{top:34px;width:23px;height:22px;background-position:-60px -65px;}
+    .nav-list li:nth-child(10):before{top:52px;width:45px;height:36px;background-position:0 -130px;}
+    .nav-list li:nth-child(11):before{top:51px;width:41px;height:35px;background-position:0 -170px;}
+    .nav-list li:nth-child(12):before{top:34px;width:23px;height:17px;background-position:-60px -90px;}
+    .nav-list li:nth-child(13):before{top:33px;width:18px;height:18px;background-position:-60px -110px;}
+    .nav-list li.tourism-festival:before{top:30px;width:98px;height:90px;background:url(http://webresource.c-ctrip.com/ResCRMOnline/R5/html5/images/btn_homepage_travel@2x.png) 0 0 no-repeat;-webkit-background-size:98px auto;
+        background-size:98px auto;}
+    .nav-list li:nth-child(1) div{background-color:#ff6073;}
+    .nav-list li:nth-child(2) div{background-color:#3d98ff;}
+    .nav-list li:nth-child(3) div{background-color:#8a95ff;}
+    .nav-list li:nth-child(4) div{background-color:#ff7081;}
+    .nav-list li:nth-child(5) div{background-color:#3db4ff;}
+    .nav-list li:nth-child(6) div{background-color:#82a8ff;}
+    .nav-list li:nth-child(7) div{background-color:#62c500;}
+    .nav-list li:nth-child(8) div{background-color:#84d018;}
+    .nav-list li:nth-child(9) div{background-color:#ff8a44;}
+    .nav-list li:nth-child(10) div{background-color:#22ac38;}
+    .nav-list li:nth-child(11) div{background-color:#5ebe00;}
+    .nav-list li:nth-child(12) div{background-color:#ff9f08;}
+    .nav-list li:nth-child(13) div{background-color:#ffb517;}
+
+    .nav-list li .point{margin:0 2px;font-size:14px;}
+    .nav-list li .icon-new{position: absolute;width:18px;height:9px;display: inline-block;right:0;top:0;background-position:-72px -215px ;}
+</style>
+
+
+<div class="common_list_bottom">
+
+</div>
+
+<nav id="nav">
+    <ul class="nav-list">
+        <li >
+            <div><a onclick="goto('yueyue://goto?type=inner_app&url=http%3A%2F%2Fyp.yueus.com%2Fmobile%2Ftest%2Fpub.php&wifi_url=http%3A%2F%2Fyp.yueus.com%2Fmobile%2Ftest%2Fpub.php')">topbar</a></div>
+        </li>
+        <li >
+            <div><a onclick="goto('yueyue://goto?type=inner_app&wifi_url=http%3A%2F%2Fyp.yueus.com%2Fmobile%2Fm2predev%2Ftopic%2F%3Ftopic_id%3D152&url=http%3A%2F%2Fyp.yueus.com%2Fmobile%2Fm2predev%2Ftopic%2F%3Ftopic_id%3D152&showtitle=1')" >问卷调查</a></div>
+        </li>
+        <li >
+            <div><a href="yueyue://goto?type=outer_web&url=http%3A%2F%2Fwww.poco.cn%2F">外链协议</a></div>
+        </li>
+        <li >
+            <div><a href="http://yp.yueus.com/mobile/appdev#mine/consider">测试二维码接口</a></div>
+        </li>
+
+        <li >
+            <div id="jump"  onclick="testApp('yueyue://goto?type=inner_app&pid=1220025&user_id=103528')"><a  >App跳转测试</a></div>
+        </li>
+        <li >
+            <div><a href="http://yp.yueus.com/mobile/appdev#demand">问卷测试</a></div>
+        </li>
+        <li >
+            <div><a href="http://yp.yueus.com/mobile/app?from_app=1#camera_demand/list">摄影师需求列表</a></div>
+        </li>
+
+        <li >
+            <div><a href="http://yp.yueus.com/mobile/appdev#model_style/100261">约拍登录测试</a></div>
+        </li>
+
+        <li >
+            <div><a href="http://yp.yueus.com/mobile/appdev#mine/consider">约拍订单列表</a></div>
+        </li>
+        <li >
+            <div><a href="http://yp.yueus.com/mobile/appdev#mine/level_3/ready">认证测试</a></div>
+        </li>
+
+		<li>
+			<div><a href ="http://yp.yueus.com/mobile/m2predev/pay_tt/pay.php?quotes_id=13">tt支付.</a></div>
+		</li>
+		<li>
+			<div><a href ="http://yp.yueus.com/mobile/m2/pay_tt/pay_success.php">tt支付成功</a></div>
+		</li>
+        <li>
+            <div><a href ="http://yp.yueus.com/mobile/appdev#mine/consider">我的约拍订单</a></div>
+        </li>
+
+
+    </ul>
+
+        <div style="width:40px;height:40px;color: #ff0000;background: #1abc9c"><a href ="./lazyloading_text.html">lazyload</a></div>
+
+</nav>
+
+
+
+</body>
+</html>
+<script>
+
+    /*if(!/t=123/.test(location.search))
+    {
+        window.location.href = location.href + '?t=123';
+    }*/
+
+    //alert(JSON.stringify(window.__YUE_APP_USER_INFO__));
+
+    function goto(url)
+    {
+        window.location.href = url;
+    }
+
+    function testApp(url) {
+        var timeout, t = 1000, hasApp = true;
+        setTimeout(function () {
+            if (hasApp) {
+                alert('安装了约约app');
+            } else {
+                alert('未安装约yueapp');
+                clearTimeout(timeout);
+            }
+            document.body.removeChild(ifr);
+        }, 2000)
+
+        var t1 = Date.now();
+        var ifr = document.createElement("iframe");
+        ifr.setAttribute('src', url);
+        ifr.setAttribute('style', 'display:none');
+        document.body.appendChild(ifr);
+        timeout = setTimeout(function () {
+            var t2 = Date.now();
+            if (!t1 || t2 - t1 < t + 100) {
+                hasApp = false;
+            }
+        }, t);
+    }
+
+
+</script>
+
+

@@ -1,0 +1,20 @@
+.input-information .red {
+  color: red; }
+.input-information .textarea-con {
+  position: relative;
+  margin-top: 15px; }
+  .input-information .textarea-con .ui-textarea-info {
+    height: 165px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 15px 15px 30px 15px;
+    background: #fff;
+    font-size: 14px;
+    box-sizing: border-box; }
+  .input-information .textarea-con .num-word {
+    background-color: #fff;
+    position: absolute;
+    right: 15px;
+    top: 135px;
+    font-size: 15px;
+    color: #aaa; }

@@ -1,0 +1,236 @@
+/*
+ * 获取需求列表
+ * @param int $user_id
+ * @param bool $b_select_count
+ * @param string $limit
+ * @param string $where_str
+ * @param string $order_by
+ * @param string $fields
+ * @return array|int
+ */
+ $task_lead_obj = POCO::singleton('pai_task_lead_class');
+ $lead_list = $task_lead_obj->get_lead_list_by_user_id($yue_login_id,false, '', '0,10');
+
+/*
+ * 查看一条需求
+ * @param int $lead_id
+ * @return array
+ */
+$task_lead_obj = POCO::singleton('pai_task_lead_class');
+$lead_info = $task_lead_obj->get_lead_by_lead_id($lead_id);
+
+
+/*
+ * 更改需求查看状态
+ * @param int $lead_id
+ * @param int $user_id
+ * @return int
+ */
+ $task_lead_obj = POCO::singleton('pai_task_lead_class');
+ $task_lead_obj->update_is_read($lead_id,$user_id);
+
+
+/*
+ * 删除一条需求
+ * @param int $lead_id
+ * @return int
+ */
+$task_lead_obj = POCO::singleton('pai_task_lead_class');
+$task_lead_obj->delete_user_lead($lead_id,$user_id);
+
+
+/*
+ * 获取需求问卷问答
+ * @param int $request_id
+ * @return array
+ */
+$obj = POCO::singleton('pai_task_questionnaire_class');
+$arr = $obj->show_questionnaire_data($request_id);
+
+
+/*
+ * 当前需求已有多少条报价
+ * @param int $request_id
+ * @param bool $b_select_count
+ * @return int
+ */
+$task_quotes_obj = POCO::singleton('pai_task_quotes_class');
+$task_quotes_obj->get_quotes_list_for_valid($request_id, $b_select_count=true);
+
+/*
+ * 获取待处理订单列表
+ * @param int $user_id
+ * @param bool $b_select_count
+ * @param string $where_str
+ * @param string $order_by
+ * @param string $limit
+ * @return array
+ */
+$task_quotes_obj = POCO::singleton('pai_task_quotes_class');
+$task_quotes_obj->get_pending_quotes_list($user_id, $b_select_count=false, $limit='0,20',$where_str='', $order_by='');
+
+/*
+ * 获取进行中订单列表
+ * @param int $user_id
+ * @param bool $b_select_count
+ * @param string $where_str
+ * @param string $order_by
+ * @param string $limit
+ * @return array
+ */
+ $task_quotes_obj = POCO::singleton('pai_task_quotes_class');
+$task_quotes_obj->get_process_quotes_list($user_id, $b_select_count=false, $limit='0,20',$where_str='', $order_by='');
+
+/*
+ * 获取收藏列表
+ * @param int $user_id
+ * @param bool $b_select_count
+ * @param string $where_str
+ * @param string $order_by
+ * @param string $limit
+ * @return array
+ */
+ $task_quotes_obj = POCO::singleton('pai_task_quotes_class');
+$task_quotes_obj->get_archive_quotes_list($user_id, $b_select_count=false, $limit='0,20',$where_str='', $order_by='');
+
+/*
+ * 收藏一条订单
+ * @param int $quote_id
+ * @return int
+ */
+$task_quotes_obj = POCO::singleton('pai_task_quotes_class');
+$task_quotes_obj->update_quotes_archive($quotes_id, array("is_archive"=>1));
+
+
+/**
+ * 提交报价
+ * @param int $request_id
+ * @param int $user_id
+ * @param double $price
+ * @param string $content
+ * @param array $more_info
+ * @return array
+ */
+$task_quotes_obj = POCO::singleton('pai_task_quotes_class');
+$task_quotes_obj->submit_quotes($request_id, $user_id, $price, $content, $more_info);
+
+
+/*
+ * 支付约币
+ */
+$task_quotes_obj = POCO::singleton('pai_task_quotes_class');
+$task_quotes_obj->pay_quotes_coins($quotes_id);
+
+
+/*
+ * 获取当前商家评价星星
+ * @param int $user_id
+ * @param int $service_id
+ * @return array
+ */
+$task_profile_obj = POCO::singleton('pai_task_profile_class');
+$profile_info = $task_profile_obj->get_profile_info($user_id,$service_id);
+$rank = floor($profile_info['rank']); 
+
+
+/*
+ * 获取当前商家评论数
+ * @param bool $b_select_count
+ * @param int $user_id
+ * 
+ * return array|int
+ */
+$task_review_obj = POCO::singleton('pai_task_review_class');
+$task_review_obj->get_user_review_list(true,$user_id);
+
+
+/*
+ * 获取用户约币数
+ * @param int $user_id
+ * @return array
+ */
+ $task_coin_obj = POCO::singleton('pai_task_coin_class');
+$coin_info = $task_coin_obj->get_coin_info($user_id);
+$balance = $coin_info['balance'];
+
+
+/*
+ * 获取当前服务需要的约币数
+ * @param int $service_id
+ * @return array
+ */
+$task_service_obj = POCO::singleton('pai_task_service_class');
+$service_info = $task_service_obj->get_service_info($service_id);
+$pay_coins = service_info['pay_coins'];
+
+
+/**
+ * 提交留言
+ * @param int $from_user_id
+ * @param int $quotes_id
+ * @param string $message_type 留言类型，message留言，quotes报价，read_quotes查看报价，read_profile查看资料，hired雇佣，declined谢绝
+ * @param string $message_content
+ * @param array $more_info
+ * @return array
+ */
+
+ $task_message_obj = POCO::singleton('pai_task_message_class');
+$task_message_obj->submit_message($from_user_id, $quotes_id, $message_type, $message_content='', $more_info=array());
+
+
+/**
+ * 获取留言列表，根据用户ID
+ * @param int $user_id
+ * @param int $quotes_id
+ * @param string $b_select_count
+ * @param string $where_str
+ * @param string $order_by
+ * @param string $limit
+ * @return array|int
+ */
+ $task_message_obj = POCO::singleton('pai_task_message_class');
+$task_message_obj->get_message_list_by_user_id($user_id, $quotes_id, $b_select_count=false, $order_by='message_id ASC', $limit='0,20');
+
+
+/*
+ * 获取商家FAQ
+ * @param int $profile_id 商家ID
+ * @param string $limit 
+ * return array
+ */
+$task_profile_obj = POCO::singleton('pai_task_profile_class');
+$task_profile_obj->get_profile_faq_list($profile_id,$limit='0,1000')
+
+
+
+/*
+ * 获取用户评价列表
+ * @param bool $b_select_count
+ * @param int $user_id
+ * @param string $limit 
+ * 
+ * return array
+ */
+$task_review_obj = POCO::singleton('pai_task_review_class');
+$task_review_obj->get_user_review_list($b_select_count = false,$user_id='',$limit='0,10')
+
+
+/*
+ * 获取商家图片
+ * @param int $profile_id
+ * @param string $limit
+ * 
+ * return array
+ */
+$task_profile_img_obj = POCO::singleton('pai_task_profile_img_class');
+$pic_arr = $task_profile_img_obj->get_profile_pic($profile_info['profile_id']);
+
+
+/*
+ * 获取具体报价信息
+ * @param int $quote_id
+ * 
+ * return array
+ */
+$task_quotes_obj = POCO::singleton('pai_task_quotes_class');
+$quote_info = $task_quotes_obj->get_quotes_detail_info_by_id($quote_id);

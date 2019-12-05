@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/layer/layer.min.js"></script>
+<script type="text/javascript" src="../js/layer/extend/layer.ext.js"></script>
+<script type="text/javascript" src="./js/audit.js"></script>
+<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/model_audit.css">
+<title>举报详情</title>
+<style type="text/css">
+.table-list
+{
+	min-width: 990px;
+	margin-bottom: 20px;
+}
+.table-list tbody td
+{
+
+	/* border: #eee 1px solid; */
+	border-left: #eee 1px solid;
+}
+.album img
+{
+	margin:2px;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list">
+	   <div class="table" style="width:98%;" id="occu">
+		    <!--list-->
+		    <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+		       <thead>
+		       	 <th width="80" align="left"><b><a href="inform_list.php" style="cursor:pointer">返回</a></b></th>
+		       	 <th width="200" align="left">举报者:<font color="red">[{by_informer_name}]</font></th>
+		       	 <th align="left">被举报者:<font color="red">[{to_informer_name}]</font></th>
+		       </thead>
+		      <tbody>
+		    	<tr>
+				      <td>ID:</td>
+				      <td>{by_informer}</td>
+				      <td>{to_informer}</td>
+				</tr>
+				<tr>
+				      <td>昵称:</td>
+				      <td>{by_informer_name}</td>
+				      <td>{to_informer_name}</td>
+				</tr>
+				<tr>
+				      <td>电话:</td>
+				      <td>{by_cellphone}</td>
+				      <td>{to_cellphone}</td>
+				</tr>
+				<tr>
+				   <td>举报次数:</td>
+				  <td>{by_to_count}</td>
+				  <td>{by_to_count_v2}</td>
+				</tr>
+				<tr>
+				   <td>被举报次数:</td>
+				   <td>{to_be_count}</td>
+				   <td>{to_be_count_v2}</td>
+				</tr> 
+				<tr>
+					<td>举报类型:</td>
+				    <td colspan="2">{cause_str}</td>
+				</tr>
+				<tr>
+				   <td>详细内容:</td>
+				   <td colspan="2">{data_str}</td>
+				</tr> 
+				<tr>
+				<td>操作:</td>
+			    <td colspan="2"><!-- IF status="1" --><font color='red'>被举报人已被拉黑</font><!-- ELSE --><input type="button" name="submit" value="拉黑被举报者聊天" class="button"  onclick="subcheck('?act=shield&user_id={to_informer}&id={id}')" /><!-- ENDIF -->
+				</td>
+				</tr>  	
+			    </tbody>
+		    </table>
+	   </div>
+	</div>
+</div>
+</body>
+</html>

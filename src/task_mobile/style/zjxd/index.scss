@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+@import "../widget/ui-base";
+@import "../widget/ui-list";
+@import "../widget/ui-btn";
+@import "../widget/ui-form";
+
+.zjxd{
+  background-color: #eee;
+
+  .ui-form-item{
+    background-color: #fff;
+    input:not([type="checkbox"]), .ui-form-item textarea{
+      padding-left: 0;
+      font-size: 14px;  
+    }
+  }
+  .bottom-container{
+    height: 44px;
+    width: 100%;
+    line-height: 44px;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    text-align: center;
+    margin: 7px 0px 0px;    
+    background: #5daaeb;
+    position: fixed;
+    bottom: 0px;
+
+
+    button{
+      height: 35px;
+      line-height: 35px;
+      padding: 0 15px;
+      font-size: 14px;            
+      color: white;
+      width: 140px;
+    }
+    &:active{
+      
+    }
+  }
+
+  .h-title{
+    font-size: 12px;
+    color: #999;
+  }
+  .ui-list-text > li
+  {
+    line-height: 20px;
+    padding: 15px 15px 15px 0;
+    font-size: 14px;
+  }
+  .ui-list-info > p
+  {
+    font-size: 14px;
+    color:#000;
+  }
+  .ui-avatar{
+    margin:0 10px 0 0 ;
+  }
+  .ui-list li .ui-edge-right{
+    margin-top: -10px;
+
+  }
+  .count-money-color{
+    color:#ff6763;
+    font-size: 14px;
+    margin-right: 15px;
+  }
+
+  .pay-type{
+    display: -webkit-box;
+    height: 30px;
+    h4{
+      line-height: 14px
+    }
+    p{
+      margin-top: 5px;
+      line-height: 10px;
+    }
+  }
+  .pay-type .ui-list-info{
+    padding: 0;
+  }
+  .pay-type .ui-list-info >h4{
+    font-size: 14px;
+  }
+  .pay-type .ui-list-info >p{
+    font-size: 10px;
+    color:#999;
+  }
+
+  .last-container{
+    margin-bottom: 75px;
+    padding-bottom: 75px;
+  }
+
+  .last-sec-container{
+    margin-bottom: 55px;
+
+  }
+
+  // 支付选择对号
+  .icon-select-active:before{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background-image: url('../../image/task/blue-select-40x40.png?__sprite');
+  }
+  .icon-select-no:before{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background-image: url('../../image/task/select-before-40x40.png?__sprite');
+  }
+
+  
+}

@@ -1,0 +1,8 @@
+{{#each authentication_list}}
+    <div class="ui-input-title-mod ui-input-title-size-large item" data-role="nav" data-target="{{level}}">
+        <div class="left">{{level}}</div>
+        <div class="vertical-line">|</div>
+        <div class="middle">{{name}}</div>
+        <div class="right {{#if status}}ok{{/if}}">{{status}}<i class="icon {{#if status}}icon-r-red-m{{else}}icon-r-grey-m{{/if}}"></i></div>
+    </div>
+{{/each}}

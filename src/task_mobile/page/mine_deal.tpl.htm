@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>成单</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/mine/mine.scss">
+<body>
+<main role="main" >
+    <div class="page-view order-list" data-role="page-container">
+        <link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+        <div class="mine_inner_request layout_box_v">
+            <div class="mine_inner_request_title layout_box">
+                <!-- BEGIN profile_info -->
+                <p>{reviews}次成单</p>
+                <!-- END profile_info -->
+            </div>
+            <!-- BEGIN msg_list -->
+            <div class="mine_deal_list layout_box_v">
+                <div class="mine_deal_list_head layout_box">
+                    <div class="mine_deal_list_head_con layout_box">
+                        <div class="inner_icon"><img src="{from_user_icon}" style="width: 35px"/></div>
+                        <div class="inner_name layout_box_v"><p>{from_nickname}</p><p class="exp">{add_time}</p></div>
+                    </div>
+                    <div class="inner_starts">
+                        <!-- BEGIN starts_list -->
+                        <!-- IF yes_start -->
+                        <img src="../image/task/start_yes-24x24.png" style="width: 12px;"/>
+                        <!-- ELSE -->
+                        <img src="../image/task/start_no-24x24.png" style="width: 12px;"/>
+                        <!-- ENDIF -->
+                        <!-- END starts_list -->
+                    </div>
+                </div>
+                <div class="mine_deal_list_content">
+                    {nl2br:content}
+                </div>
+            </div>
+            <!-- END msg_list -->
+
+
+        </div>
+    </div>
+</main>
+
+</body>
+
+</html>

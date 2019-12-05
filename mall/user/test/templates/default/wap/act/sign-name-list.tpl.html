@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>报名名单</title>
+	{pc_global_top}
+	<link rel="import" href="../webcontrol/head.tpl.html?__inline"> 
+	<link charset="utf-8" rel="stylesheet" href="../../../../style/act/sign-name-list.scss">
+	<script src="../../../../lib/lib.js"></script>
+</head>
+<body>
+
+<main role="main">
+	<section id="global-header"></section>
+	<div class="sign-name-list-page">
+		<div class="item-wrap">
+			
+			 <div class="item">
+				<div class="item-title">
+					<h3 class="title color-333" id="title">
+						
+					</h3>
+					<p class="space-txt f14 pt5" id="space-txt">
+						
+					</p>
+					<p class="time-txt f14" id="period">
+						
+					</p>
+					<p class="number-txt f14 pt5">
+						<span id="attend_str"></span><span class="color-fe9920" id="attend_num"> </span> <span class="fn-hide" id="dot">/</span> <span id="total_num"></span>
+					</p>
+				</div>
+				<div class="item-list mt20">
+					
+						<div id="comment_ele" data-role="comment_ele" >
+							
+
+							<div class="" data-role="abnormal" style="padding-bottom:150px;">
+							        
+							</div>
+						</div>
+					
+					<!-- <div  class="more-btn">
+						<span class="f14 color-555 more-txt">查看更多</span>
+						<span class="arrow-txt"></span>
+					</div> -->
+					
+
+				</div>
+				
+			</div> 
+		</div>
+	</div>	
+</main>
+
+</body>
+
+
+<script>
+var $ = require('zepto');
+var header = require('../../../../modules/common/widget/header/main');
+var _page_params = {page_params}.result_data;
+$(document).ready(function() {
+	// 渲染头部
+	header.init({
+		ele : $("#global-header"), //头部渲染的节点
+		title:"报名名单",
+		header_show : true , //是否显示头部
+		right_icon_show : false, //是否显示右边的按钮
+		share_icon : 
+		{
+			show :false,  //是否显示分享按钮icon
+			content:""
+		},
+		omit_icon :
+		{
+			show :false,  //是否显示三个圆点icon
+			content:""
+		},
+		show_txt :
+		{
+			show :true,  //是否显示文字
+			content:"编辑"  //显示文字内容
+		}
+	})
+  
+
+
+	
+	var SELLER_AJAX_URL = window.$__ajax_domain+'sign_name_list.php';
+	var items_tpl = __inline('./sign-name-list-items.tmpl');
+	var list_item_class = require('../../../../modules/list/list.js'); 
+	var list_obj = new list_item_class(
+	    {
+	        //渲染目标
+	        ele : $('#comment_ele'),
+	        //请求地址
+	        url : SELLER_AJAX_URL,
+	        //传递参数
+	        params : _page_params,
+	        //模板
+	        template : items_tpl,
+	        //lz是否开启参数
+	        is_open_lz_opts : false 
+	    });
+
+
+	list_obj.$el.on('list_render:after',function(event,a,data){
+		// console.log(data.result_data);
+		var  ret = data.result_data;
+		$("#title").html(ret.title);
+		$("#attend_str").html(ret.attend_str);
+		$("#attend_num").html(ret.attend_num);
+		$("#total_num").html(ret.total_num);
+		$("#period").html(ret.period);
+
+		if (ret.list.length!=0)   
+		{
+		    $('#dot').removeClass('fn-hide');
+		}
+		
+
+	});
+
+});
+
+</script>
+</html>

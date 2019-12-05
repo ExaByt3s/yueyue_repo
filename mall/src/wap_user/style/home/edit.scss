@@ -1,0 +1,128 @@
+@charset "utf-8";
+.position-a{
+  position: absolute;
+}
+.fn-hide{
+  position: absolute;
+  visibility: hidden !important;
+}
+.scroll{
+  overflow: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+.edit-center{
+  .ui-form-item-switch{
+    height:55px;
+  }
+  .item-border-bottom-05{
+    border-bottom: 0.5px solid #eee;
+  }
+  .clearfix{
+    clear: both;
+  }
+  .bg-fff{
+    background: #FFFFFF;
+  }
+  .text-r{
+    text-align: right;
+    text-overflow: ellipsis;
+  }
+  .uoload-portrait{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: center;
+    padding: 20px;
+    .icon-portrait{
+      background: url("../../image/pai/icon-unload.png") no-repeat;
+      width: 80px;
+      height: 80px;
+      display: block;
+      background-size: cover;
+      margin-bottom: 15px;
+      .avatar{
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+      }
+    }
+    .tips-portrait{
+
+    }
+  }
+  .upload-picture{
+    padding: 15px 15px 20px 15px;
+    .upload-picture-tips{
+      display: -webkit-box;
+      -webkit-box-pack: justify;
+      margin-bottom: 15px;
+      .lbox-tips{
+        font-size: 14px;
+        color: #333;
+      }
+      .rbox-tips{
+        color: #aaaaaa;
+      }
+    }
+    .ui-upload-pic{
+      overflow: hidden;
+      font-size: 0;
+      *letter-spacing:normal;
+      *word-spacing:-1px;
+      padding-top: 5px;
+      .ui-btn-add{
+        background: url(../../image/pai/add.png) no-repeat;
+        background-size: cover;
+        display: block;
+        height: 90px;
+        width: 90px;
+        float: left;
+        margin: 0 15px 15px 0;
+      }
+    }
+  }
+}
+
+.input-information{
+  .red{
+    color:red;
+  }
+
+  //输入昵称
+  .border-radius0{
+    border-radius: 0;
+  }
+  .icon-delete{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("../../image/ui/ui-close-32x32.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 15px;
+    top: 14px;
+  }
+
+  //个人简介
+  .textarea-con{
+    position: relative;
+
+    .ui-textarea-info{
+      height:165px;
+      width: 100%;
+      padding: 15px 15px 30px 15px;
+      background: #fff;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    .num-word{
+      background-color: #fff;
+      position: absolute;
+      right: 15px;
+      top: 135px;
+      font-size: 15px;
+      color: #aaa;
+    }
+  }
+
+
+}

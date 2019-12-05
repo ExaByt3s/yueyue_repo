@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="gbk">
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<title>约YUE 关于我们</title>		
+
+	<!-- modjs 必须引用 -->
+	<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/lib/mod_327a0b0.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/lib/lib_880856d.js"></script>
+<!--基础样式 START-->
+	<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/style/libs/common_b54bda3.css">
+<!--基础样式 END-->
+	
+	<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/style/about_456732d.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/modules/menu/index_26590a7.css">
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/components/zepto/zepto_9261738.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/js/common/common_3c4ec94.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/components/fastclick/fastclick_8c3e8ee.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/modules/menu/index_91dc45a.js"></script>
+</head>
+
+
+	<body style="position: relative">
+    <div class="divs" data-role="divs"></div>
+
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+
+
+	</body>
+
+	<script>
+        var $ = require('components/zepto/zepto.js');
+
+        var menu = require('menu/index');
+
+        $(function()
+        {
+            /*
+            传入对象
+            {index:索引值,根据索引值从小到大排列选项顺序}
+            {content:文本内容}
+            {click_event:点击事件}
+            */
+            var menu_data =
+            [
+                {index:5,content:'个人中心',click_event:function(){console.log(5)}},
+                {index:15,content:'分享15',click_event:function(){console.log(15)}},
+                {index:7,content:'分享7'},
+                {index:10,content:'分享10',click_event:function(){console.log(10)}}
+            ]
+
+            /*
+            render() 方法传入(父容器，对象)
+            show()   下拉菜单
+            hide()   上拉菜单
+            */
+            menu.render($('[data-role="divs"]'),menu_data);
+            /**
+             * 定义App 触发 js事件
+             * @param key 函数名
+             * @param params 参数 {}
+             * @private
+             */
+            window.$_AppCallJSObj  = $({});
+            window.__showTopBarMenuCount = 0;
+
+            window._AppCallJSFunc = function(key,params)
+            {
+                var self = this;
+
+                $_AppCallJSObj.trigger(key,params);
+            };
+
+            $_AppCallJSObj.on('__showTopBarMenu',function(event,data)
+            {
+
+                window.__showTopBarMenuCount++;
+
+                if(window.__showTopBarMenuCount%2!=0)
+                {
+                    menu.show()
+                }
+                else
+                {
+                    menu.hide()
+                }
+            });
+
+
+        });
+	</script>
+</html> 

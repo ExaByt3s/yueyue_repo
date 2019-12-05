@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>评价</title>
+    {pc_global_top}
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/seller/index.scss">
+    <script src="../../../../lib/lib.js"></script>
+</head>
+<body class="cor-bg-fff">
+
+<main role="main">
+    <section id="global-header"></section>
+
+
+    <div class="seller-comment-page " id="seller-comment-page" >
+
+        <div class="comment-wrap" data-role="wrapper">
+            <div id="comment_ele" data-role="comment_ele" class="comment-box"></div>
+        </div>
+        
+        <div class="order_list_container" data-role="no-data"></div>
+
+    </div>
+    {wap_global_footer}
+</main>
+
+</body>
+
+
+<script>
+var $ = require('zepto');
+var yue_ui = require('../../../../modules/yue_ui/frozen');
+var header = require('../../../../modules/common/widget/header/main');
+var utility = require('../../../../modules/common/utility/index');
+var App = require('../../../../modules/common/I_APP/I_APP');
+
+$(document).ready(function() {
+
+    App.isPaiApp && App.showtopmenu(false);
+
+    // 渲染头部
+    header.init({
+        ele : $("#global-header"), //头部渲染的节点
+        title:"评价",
+        header_show : true , //是否显示头部
+        right_icon_show : false, //是否显示右边的按钮
+        share_icon : 
+        {
+            show :false,  //是否显示分享按钮icon
+            content:""
+        },
+        omit_icon :
+        {
+            show :false,  //是否显示三个圆点icon
+            content:""
+        },
+        show_txt :
+        {
+            show :true,  //是否显示文字
+            content:"编辑"  //显示文字内容
+        }
+    })
+
+    var _page_data = {page_params}.result_data;
+    // var comment = require('../../../../modules/comment_list_act/comment_list_act');
+    // var conment_obj = new comment(_page_data);
+    var SELLER_AJAX_URL = window.$__ajax_domain+'get_comment_list.php';
+    var items_tpl = __inline('./comment-items.tmpl');
+
+    var list_item_class = require('../../../../modules/list/list.js'); 
+    var list_obj = new list_item_class(
+        {
+            //渲染目标
+            ele : $('#comment_ele'),
+            //请求地址
+            url : SELLER_AJAX_URL,
+            //传递参数
+            params : _page_data,
+            //模板
+            template : items_tpl,
+            //lz是否开启参数
+            is_open_lz_opts : false
+        });
+
+
+});
+
+</script>
+</html>

@@ -1,0 +1,26 @@
+{{#each datas}}
+    {{#if list}}
+        <div class="item">
+            <div class="part-a">
+                <div class="lbox ">{{title}}</div>
+                <div class="rbox more {{#unless more}}fn-hide{{/unless}}" data-to-rank data-role="to_{{key}}">更多 <i class="icon icon-allow-22x12"></i></div>
+            </div>
+            <div class="part-b">
+                <ul class="list" data-role="{{key}}">
+                    {{#each list}}
+                        <li data-user-id="{{user_id}}" data-role="model">
+                            <div class="avatar-size-mod avatar-size-mod-80" style="position: static;">
+                                <i class="img image-img avatar-size-img" data-lazyload="{{user_icon}}"></i>
+                            </div>
+                            <h3>{{nickname}}</h3>
+                            <p><span class="num {{#if_equal ../key "comment_score_top"}}sec-num{{/if_equal}}">{{num}}</span><span class="txt">{{unit}}</span></p>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        {{#if has_next_page}}
+            <div class="btn-option" data-role="more" data-add="{{key}}"><i class="icon icon-r-16x26-cur"></i></div>
+        {{/if}}
+    {{/if}}
+{{/each}}

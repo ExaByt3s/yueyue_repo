@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>账单</title>
+
+    <meta charset="gbk">
+    {head_html}
+    <!-- libjs 必须引用 -->
+    <script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/lib/lib_880856d.js"></script>
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/style/bill/bill_feddc48.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/style/libs/common_b54bda3.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/modules/common/scroll/scroll_64a9043.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/modules/common/widget/abnormal/main_ed133ff.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2/static/modules/menu/index_26590a7.css">
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/components/zepto/zepto_9261738.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/js/common/common_3c4ec94.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/components/fastclick/fastclick_8c3e8ee.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/modules/menu/index_91dc45a.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2/static/modules/bill/bill_69c9957.js"></script>
+</head>
+<body>
+<main role="main">
+    <div class="page-view bill-list" data-role="page-container">
+        <ul class="ui-tab-nav ui-border-b nav-list" data-role="nav">
+            <!-- IF type="trade" --><li class="current"><!-- ELSE --><li><!-- ENDIF --><a href="./?type=trade">交易记录</a></li>
+            <!-- IF type="recharge" --><li class="current"><!-- ELSE --><li><!-- ENDIF --><a href="./?type=recharge">充值记录</a></li>
+            <!-- IF type="withdraw" --><li class="current"><!-- ELSE --><li><!-- ENDIF --><a href="./?type=withdraw">提现记录</a></li>
+
+        </ul>
+        <div data-role="wrapper">
+            <div class="ui-tab " >
+
+                <div data-role="no-data" class="fn-hide" ></div>
+                <div data-role="has-data">
+                    <ul class="ui-tab-content " style="width: 300%;" >
+                        <li data-role="trade"></li>
+                        <li data-role="recharge"></li>
+                        <li data-role="withdraw"></li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </div>
+		<!-- IF type="withdraw" -->
+		<div class="ui-button-submit-area">
+			<button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6" style="margin: 10px auto;width: 150px;" data-role="nav-to-withdraw">
+				<span class="ui-button-content">提现</span>
+			</button>
+		</div>
+		<!-- ENDIF -->
+    </div>
+</main>
+
+</body>
+<input type="hidden" value="{type}" id="type" />
+</html>
+<script type="text/javascript">
+    require('bill');
+</script>

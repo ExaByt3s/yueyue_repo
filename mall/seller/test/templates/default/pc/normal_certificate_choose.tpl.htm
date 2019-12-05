@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>认证类型选择</title>
+
+<!--<link rel="import" href="./webcontrol/head.tpl.htm?__inline">-->
+
+    <!-- 公共css，js引入 -->{pc_global_top}
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/seller/test/static/pc/modules/common/global-top-bar/global-top-bar.js"></script>
+</head>
+
+<!-- 当前页css -->
+<!--<link type="text/css" rel="stylesheet" href="../style/login-page.scss">-->
+
+</head>
+
+<body>
+
+{global_top_bar}
+
+    <div class="content">
+      <div class="choose-type-page  w1000 font_wryh">
+          <div class="mod-choose-step-zone">
+             <ul class="clearfix">
+                 <li class="cur">
+                    <i class="icon-radius ">1</i>
+                     <a href="javascript:;" class="step-1" onclick="return false">选择类型</a>
+                 </li>
+                 <li >
+                    <i class="icon-radius ">2</i>
+                     <a href="javascript:;" class="step-2" onclick="return false">入驻资料</a>
+                 </li>
+                 <li>
+                     <i class="icon-radius ">3</i>
+                     <a href="javascript:;" class="step-3" onclick="return false">开通</a>
+                 </li>
+             </ul>
+          </div>
+          <div class="choose-type-wrap content-bg">
+              <div class="item-wrap">
+                  <div class="item clearfix">
+                      <div class="img-con grrz fl"><img src="http://static.yueus.com/mall/seller/test/static/pc/images/ui/icon-person-100x100.png"></div>
+                      <div class="text-con fl">
+                          <dl>
+                              <dt>个人认证</dt>
+                              <dd>填写真实身份证、银行卡等信息，确认信息真实性</dd>
+                          </dl>
+                      </div>
+                      <div class="btn-con fl"><!-- IF status="0" --><a href="javascript:;" class="ui-btn ui-btn-blue ui-w100 ">认证中</a><!-- ELSEIF status="1" -->
+                      <!-- <a href="javascript:;" class="ui-btn ui-btn-blue ui-w100 ">已认证</a> -->
+                        <div class="icon-has-pass"></div>
+                      <!-- ELSE --><a href="./normal_certificate_detail.php?type=person" class="ui-btn ui-btn-blue ui-w100 ">个人商家认证</a><!-- ENDIF --></div>
+
+                  </div>
+                  <div class="item clearfix">
+                              <div class="img-con grrz fl"><img src="http://static.yueus.com/mall/seller/test/static/pc/images/ui/icon-qiye-100x100.png"></div>
+                                    <div class="text-con fl">
+                                        <dl>
+                                            <dt>企业认证</dt>
+                                            <dd>公司营业执照，对公账户，法定代表人认证</dd>
+                                        </dl>
+                                    </div>
+                               <div class="btn-con fl"><!-- IF status="0" --><a href="javascript:;" class="ui-btn ui-btn-blue ui-w100 ">认证中</a><!-- ELSEIF status="1" -->
+
+                            <!--    <a href="javascript:;" class="ui-btn ui-btn-blue ui-w100 ">已认证</a> -->
+                                <div class="icon-has-pass"></div>
+                               <!-- ELSE --><a href="./normal_certificate_detail.php?type=company" class="ui-btn ui-btn-blue ui-w100 ">企业商家认证</a><!-- ENDIF --></div>
+                   </div>
+                  
+              </div>
+          </div>
+      </div>
+    </div>
+   {footer}
+<script type="text/javascript">
+    // 头部
+    require('common/global-top-bar/global-top-bar');
+
+
+</script>
+
+
+</body>
+
+</html>

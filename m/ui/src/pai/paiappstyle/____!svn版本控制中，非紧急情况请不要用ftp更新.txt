@@ -1,0 +1,31 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/ui/src/pai/paiappstyle
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+account/
+action/
+commit/
+component/
+include/
+index/
+mine/
+model-car/
+rank/
+search/
+topic/
+_account.scss
+_action.scss
+_commit.scss
+_component.scss
+_icons.scss
+_include.scss
+_index.scss
+_mine.scss
+_model-car.scss
+_rank.scss
+_search.scss
+_topic.scss
+
+--EOF--

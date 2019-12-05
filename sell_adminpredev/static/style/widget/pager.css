@@ -1,0 +1,70 @@
+/*pager ui*/
+.ui-pager {
+  font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+  width: 100%; }
+
+.ui-pager .content {
+  padding: 10px 10px 20px;
+  text-align: center;
+  line-height: 28px;
+  background: #eee; }
+
+.ui-pager .nav-bar {
+  display: -webkit-box;
+  display: box;
+  text-align: center;
+  -webkit-box-pack: justify;
+  box-pack: justify; }
+
+.ui-pager .nav-bar .btn-disable {
+  background-color: #fdfdfd;
+  color: #b4b1b1; }
+
+.ui-pager .first, .ui-pager .end {
+  width: 42px; }
+
+.ui-pager .nav-bar > div {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  line-height: 29px;
+  white-space: nowrap;
+  border-radius: 2px;
+  cursor: pointer; }
+
+.ui-pager .nav-bar > div:active {
+  background-color: #ccc; }
+
+.ui-pager .nav-page-cur {
+  -webkit-box-flex: 1;
+  flex: 1;
+  position: relative;
+  box-shadow: 0 3px 3px #d7d7d7 inset;
+  background: #fff; }
+
+.ui-pager .nav-page-cur i {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-left: 2px solid #9d9d9d;
+  border-bottom: 2px solid #9d9d9d;
+  -webkit-transform: rotate(-45deg);
+  margin-left: 2px;
+  margin-bottom: 2px; }
+
+.ui-pager .nav-bar .pre, .ui-pager .nav-bar .next {
+  width: 59px;
+  margin: 0 5px; }
+
+.ui-pager .nav-bar .sel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer; }

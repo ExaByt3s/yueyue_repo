@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>约约-我是约女神{model_card_info.nickname}，想来场说走就走的约拍？来约约吧！</title>
+<meta name="keywords" content="约约,yueyue,约,约拍,模特,约女神,私拍,外拍,美女,模特卡" />
+<meta name="description" content="约约是最美的O2O产品，在这里，每个美女都利用自己的零碎时间，用美丽来变现。信用机制让交易更安心，私聊机制确保摄影师与模特真实沟通，多维度搜索帮摄影师到自己想拍的模特，支持一人约多人拍从此创作不再孤单。" />
+{pc_global_top}
+</head>
+<body>
+    <div class="top-bar">
+        <div class="w1000">
+            <div class="wbox clearfix">
+                <div class="lbox fldi"><img src="images/logo-200x48.png"></div>
+                <div id="user_state" class="rbox frdi font_wryh f14">客服电话：4000-82-9003</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="banner-994 "><a href="http://www.yueus.com/topic/new_year/index.php" ><img src="images/banner-994x90.jpg" /></a></div> -->
+
+    <div class="share-page">
+        <div class="main-content">
+            <div class="wbox-m clearfix">
+                <div class="lbox-m fldi">
+                     <div class="scrollBox">
+
+                        <ul class="img_list clearfix" id="foo2">
+                        
+                        <!-- BEGIN model_card_info.new_max_model_pic -->
+                        <li>
+                              <table border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                      <td width="530" height="530" align="center" valign="middle"><img src="{img}"></td>
+                                  </tr>
+                              </table>
+                        </li>
+                        <!-- END model_card_info.new_max_model_pic -->
+
+                        </ul>
+
+                        <div class="page-wrap clearfix">
+                          <a href="#this" class="pre fl" id="prev2"></a>
+
+                          <a href="#this" class="next fl" id="next2"></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="rbox-m fldi">
+                    <div class="rbox fldi">
+
+                        <div class="user-info">
+                            <div class="user-img"><img src="{model_card_info.user_icon}" /></div>
+                            <div class="name font_wryh">
+                                <p class="p1">{model_card_info.nickname}</p>
+                                <p class="p2">ID：<span class="cor000">{model_card_info.user_id}</span>  |  {model_card_info.city_name}</p>
+                            </div>
+                            <div class="btn-2 font_wryh" id="btn-ljyt">立即约她</div>
+                            <div class="dtable">
+                                <ul class="list clearfix cor000">
+                                    <li>{model_card_info.height}CM</li>
+                                    <li>{model_card_info.weight}KG</li>
+                                    <li>{model_card_info.cup_v2}</li>
+                                    <li style="margin-right:0">{model_card_info.BWH}</li>
+                                </ul>        
+                            </div>
+
+                            <div class="des font_wryh">
+                                <table border="0" cellspacing="0" cellpadding="0">
+
+                                    <tr>
+                                        <td width="90"><span class="cor">综合评价:</span></td>
+                                        <td width="200">
+
+                                            <!-- BEGIN model_card_info.comment_stars_list -->
+                                                <!-- IF is_red ="1" -->
+                                                    <span class="start start-y"></span>
+                                                <!-- ELSE -->
+                                                    <span class="start start-g"></span>
+                                                <!-- ENDIF --> 
+                                            <!-- END model_card_info.comment_stars_list -->
+                                        
+                                            <span class="num">{model_card_info.score}分</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width=""><span class="cor">拍片次数:</span></td>
+                                        <td width="" class="cor000">{model_card_info.take_photo_times}</td>
+                                    </tr>
+
+                                    <tr class="pt-td">
+                                        <td width=""><span class="cor">擅长风格:</span></td>
+                                        <td width="" class="cor000">{model_card_info.model_style_combo.main.0.style}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="cor">价&nbsp;&nbsp;格:</span></td>
+                                        <td class="cor000">{model_card_info.model_style_v2.0.combo_text}</td>
+                                    </tr>
+
+                                    <tr class="pt-td">
+                                        <td class="tr"><span class="cor">信用要求:</span></td>
+                                        <td class="cor000">{model_card_info.level_require_text}</td>
+                                    </tr>
+
+                                    <tr >
+                                        <td class="tr"><span class="cor">拍摄人数:</span></td>
+                                        <td class="cor000">不超过{model_card_info.limit_num}人</td>
+                                    </tr>
+
+
+<!--                                     <tr>
+                                        <td class="tr"><span class="cor">备&nbsp;&nbsp;注:</span></td>
+                                        <td class=""><div class="bzbox cor000">{model_card_info.intro}</div></td>
+                                    </tr> -->
+
+                                    
+                                    <tr <!-- IF model_card_info.intro = "暂无" -->class="dn"<!-- ENDIF --> >
+                                        <td class="tr"><span class="cor">备&nbsp;&nbsp;注:</span></td>
+                                        <td class=""><div class="bzbox cor000">{model_card_info.intro}</div></td>
+                                    </tr>
+                                
+
+
+
+                                </table>
+                            </div>
+
+                            
+
+                        </div>
+
+                        <div class="share-footer">
+                            <div class="w" id="ele-share">
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer bdn f14 font_wryh">
+        <div class="w1000">
+            <a href="http://www.yueus.com/about.php">关于约约</a> <span class="pr5 pl5">|</span> Copyright 2003-2015 YUEUS.COM 
+        </div>
+    </div>
+
+
+<!--  约他弹窗口 -->
+<div class="fade"  style="display:none" id="fade"></div>
+<div class="pop-yue-ta" style="display:none" id="pop-yue-ta">
+    <div class="close" id="close-pop-yue-ta"></div>
+    <div class="p1th">
+        <div class="box1"><img src="http://qr.liantu.com/api.php?text={erweima}"/></div>
+        <div class="box2 font_wryh">
+            用约yue App或微信扫一扫，马上约她
+        </div>
+    </div>
+
+    <div class="p2th">
+        <div class="wbox clearfix">
+            <div class="lbox fldi"><img src="images/yue-269x73.png" /></div>
+            <div class="rbox fldi">
+                <div class="btn-3 font_wryh"><a href="http://www.yueus.com/">立即下载</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+
+
+<script type="text/javascript">
+
+(function(window, seajs, undefined)
+{
+    
+    var map = [], debug = 0, cacheTime = /sea-cache=(\d+)/.exec(window.location.href);
+
+    // debug mode
+    if (cacheTime && cacheTime[1]) {
+        debug = true;
+		if (!(/cb.poco.cn/.test(window.location.href))){
+			map = [
+				[/([^\/]*\.js)$/i, '$1?t=' + cacheTime[1]]
+			];
+		}
+    }
+
+    seajs.config({
+        
+        paths: {
+            utility: 'http://cb.poco.cn/utility',
+            poco: 'http://cb.poco.cn/poco',
+            wo: 'http://cb.poco.cn/wo',
+            woBumbleBee: 'http://cb.poco.cn/wo/BumbleBee/dist',
+            matcha: 'http://cb.poco.cn/matcha',
+		    yue_utility : 'http://www.yueus.com/mobile/js/libs/utility',
+            yueyue_global : 'http://www.yueus.com/js/global'      
+        },
+        alias:{
+            handlebars: 'utility/handlebars/1.0.0/handlebars',
+            jquery: 'utility/jquery/1.11.0/jquery',
+            json:'utility/json/1.0.3/json',
+            swfupload: 'yue_utility/swfupload/2.2.0/swfupload',
+            $: 'utility/jquery/1.11.0/jquery',
+            cookie: 'matcha/cookie/1.0.0/cookie',
+            topbar : 'yueyue_global/topbar/topbar',
+			carouFredSel : 'yueyue_global/carouFredSel/jquery.carouFredSel-5.5.0',
+            share : 'yueyue_global/share/share'
+        },
+        preload: [
+            this.JSON ? '' : 'json'
+        ],
+        charset: 'utf-8',
+        debug: debug,
+        map: map
+    });
+
+    seajs.use(['jquery','topbar'],function($,topbar)
+    {
+   //      var $user_state = $('#user_state');        
+   //      topbar.init
+   //      ({
+   //          container : $user_state,
+			// custom_html : '<a>测试</a>'
+   //      });
+
+        //立即约她
+        $('#btn-ljyt').click(function() {
+                $('#fade').show();
+                $('#pop-yue-ta').show()
+        });
+
+        $('#close-pop-yue-ta').click(function() {
+                $('#fade').hide();
+                $('#pop-yue-ta').hide()
+        });
+
+    });
+
+	seajs.use(['jquery','carouFredSel'],function($,carouFredSel)
+    {
+        //滚动插件
+        $('#foo2').carouFredSel({
+            prev: '#prev2',
+            next: '#next2',
+            auto: false
+        });
+    });
+
+
+    //开发模式 加随机数，上线删除。
+    seajs.on('fetch', function(data) 
+	{
+		//if(/share/.test(data.uri))
+		//{
+			//var TIME_STAMP = new Date().getTime();
+			// use data.requestUri not data.uri to avoid combo & timestamp conflict
+			// avoid too long url
+			//var uri = data.requestUri || data.uri
+			//data.requestUri = (uri + (uri.indexOf('?') === -1 ? '?t=' : '&t=') + TIME_STAMP).slice(0, 2000)
+		//}
+    });
+
+    seajs.use(['jquery','share'],function($,share)
+     {
+		 console.log(share);
+
+         //分享组件
+         var $ele_share = $('#ele-share');   
+         share.init({
+             container : $ele_share,
+             erweima : '{erweima}' ,
+             user_id : '{model_card_info.user_id}'
+         })
+
+     });
+
+
+})(window, seajs);
+
+
+
+
+
+                
+</script>
+
+</html>

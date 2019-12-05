@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+@import "../widget/ui-base";
+@import "../widget/ui-list";
+@import "../widget/ui-btn";
+@import "../widget/ui-form";
+@import "../widget/ui-dialog";
+@import "../widget/ui-searchbar";
+@import "../widget/ui-icon";
+@import "../widget/ui-btn-group";
+
+body{
+  background: #f2f2f2;
+}
+
+
+.ui-dialog .ui-dialog-bd{
+  padding: 20px 25px 0 25px;
+  .list-dialog{
+    text-align: center;
+    input{
+      border-radius: 6px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      height: 40px;
+      text-indent: 10px;
+      font-size: 12px;
+      width: 100%;
+    }
+    .time-exp{
+      color: #aaa;
+    }
+  }
+}
+.ui-btn-group button{
+  color: #000;
+}
+
+
+.seller-page{
+  .ui-searchbar{
+    background: #f2f2f2;
+    .ui-icon-search{
+      position: relative;
+    }
+    .ui-icon-search .tap-btn{
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: -14px;
+      left: -8px;
+    }
+  }
+
+  .no-search-data{
+    margin-top: 125px;
+    color: #666;
+    text-align: center;
+  }
+  .item-bg{
+    background: #fff;
+  }
+  .list .ui-list-text > li{
+    padding: 0 0 0 15px;
+    margin-left: 0;
+    font-size: 14px;
+  }
+  .list .ui-list-info{
+    padding: 0;
+  }
+  .text{
+    margin-top: 30px;
+    p{
+      color: #666;
+      font-size: 14px;
+    }
+  }
+  .right-size{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: box;
+    -webkit-box-orient: horizontal;
+    padding: 0;
+    width: 160px;
+    .tap{
+      height: 55px;
+      line-height: 55px;
+      box-flex: 1;
+      -webkit-box-flex: 1;
+      text-align: center;
+      color: #000;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      position: relative;
+      width: 80px;
+      color: #666;
+
+      .v-line{
+        position: absolute;
+        top: 21px;
+        right: 0;
+        width: 1px;
+        height: 14px;
+        background: #e6e6e6;
+        display: inline-block;
+      }
+
+      /*激活*/
+      &.active{
+        color: #007aff;
+      }
+      &.active:active{
+        background: #bde2ff;
+      }
+      /*已激活*/
+      &.has-active{
+        color: #ff6c6c;
+      }
+      &.has-active:active{
+
+      }
+      /*作废*/
+      &.disable{
+
+      }
+      &.disable:active{
+        background: #ecbf7f;
+      }
+      /*已作废*/
+      &.has-disable{
+        color: #aaa;
+      }
+      &.has-disable:active{
+
+      }
+
+
+    }
+  }
+ }

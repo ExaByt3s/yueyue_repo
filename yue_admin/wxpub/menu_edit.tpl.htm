@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<!-- BEGIN JS_FILES -->
+<script type="text/javascript" src="{js_link}?{top._dev}"></script>
+<!-- END JS_FILES -->
+<!-- BEGIN STYLE_FILES -->
+<link rel="stylesheet" type="text/css" href="{css_link}?{top._dev}">
+<!-- END STYLE_FILES -->
+<script src="../js/DatePicker/WdatePicker.js"></script>
+<style type="text/css">
+.news_input{
+	
+	width: 310px;
+	
+}
+.news_textrea{
+	
+	height: 67px;
+	width: 367px;
+	
+}
+</style>
+<title>菜单编辑 Powered by hai - Powered by hai</title>
+</head>
+<body>
+<div class="mainbox">
+<!-- IF act=="add_act" -->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="./menu.php?act=list">菜单列表</a>|
+		<a href="./menu.php?act=add" class="on">添加菜单</a>|
+	</ul>
+</div>
+<!-- ELSEIF act=="modify_act" -->
+<div id="nav" class="mainnav_title"><a href="./menu.php?act=list">返回列表</a></div>
+<!-- ENDIF -->
+<div id="infobox">
+1.当"回复类型"为图文时 回复内容框应为图文的id
+<br/>2.只有常规的菜单才可以设置为父菜单
+<br/>3.“唯一标识”要与“菜单名”一致，这样点击菜单才有对应效果
+</div>
+<iframe id="mcfrm" name="mcfrm" frameborder="0" width="0" height="0" src="" style="display:none;"></iframe>
+<form action="menu.php" method="POST" target="mcfrm" onsubmit="return check_form()">
+<div id="tabs" style="margin-top:10px;">
+	<div class="tabbox">
+		<table cellpadding="0" cellspacing="0" class="table_form" width="100%">
+			<tbody>
+				<tr>
+					<td width="20%">菜单名</td>
+					<td width="80%"><input name="menu_name" id="menu_name" type="text" value="{menu_name}" class="news_input"></td>
+				</tr>
+				<tr>
+					<td width="20%">所属类别</td>
+					<td width="80%">
+					<select name="parent_id">
+							<option value="0">顶级分类</option>
+							<!-- BEGIN top_menu_list -->
+							<option value="{menu_id}" <!-- IF menu_id==top.parent_id -->selected<!-- ENDIF -->{attr_disable}>{menu_name}</option>
+							<!-- END top_menu_list -->
+					</select>	
+					</td>
+				</tr>				
+				<tr>
+					<td width="20%">菜单类型</td>
+					<td width="80%">
+					<select name="menu_type" onchange="menu_type_change(this.value)">
+							<!-- BEGIN menu_type_list_arr -->
+							<option value="{menu_type}" <!-- IF menu_type==top.menu_type -->selected<!-- ENDIF -->>{menu_type_title}</option>
+							<!-- END menu_type_list_arr -->
+					</select>
+					</td>
+				</tr>
+			</tbody>
+			<tbody id="menu_view_box" style="display:none">
+				<tr>
+					<td width="20%">链接地址</td>
+					<td width="80%"><input type="text" name="menu_url" id="menu_url" value="{menu_url}" class="news_input"></td>
+				</tr>
+			</tbody>
+			<tbody id="menu_type_click_box" style="display:none">
+				<tr>
+					<td width="20%">唯一标识</td>
+					<td width="80%"><input name="menu_key" id="menu_key" type="text" value="{menu_key}" class="news_input"></td>
+				</tr>
+				<tr>
+					<td width="20%">回复类型</td>
+					<td width="80%">
+						<select id="exec_type" name="exec_type" onchange="exec_type_change(this.value)">
+							<!-- BEGIN exec_type_list_arr -->
+							<option value="{exec_type}" <!-- IF exec_type==top.exec_type -->selected<!-- ENDIF -->>{exec_type_title}</option>
+							<!-- END exec_type_list_arr -->
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td width="20%"><span id="exec_val_title">回复内容</span></td>
+					<td width="80%"><textarea type="text" name="exec_val" id="exec_val" class="news_textrea">{exec_val}</textarea></td>
+				</tr>
+			</tbody>				
+		</table>
+	</div>
+	<div class="btn">
+		<input type="hidden" name="menu_id" id="menu_id" value="{menu_id}">
+		<input type="hidden" name="act" id="act" value="{act}">
+		<input type="submit" value="提交" class="button">
+		<input type="reset" value="取消" class="button">
+	</div>
+</div>
+</form>
+</div>
+</body>
+<script>
+function menu_type_change(menu_type){
+
+	switch(menu_type)
+	{
+		case 'normal':
+			$("#menu_view_box").hide();
+			$("#menu_type_click_box").hide();
+		  break;
+		case 'view':
+			$("#menu_view_box").show();
+			$("#menu_type_click_box").hide();			
+		  break;
+		case 'click':
+			$("#menu_view_box").hide();
+			$("#menu_type_click_box").show();
+		  break;		  
+		default:
+
+	}
+
+}
+function exec_type_change(exec_type){
+	
+	if( exec_type=="news" ){
+	
+		$('#exec_val_title').html('图文id [多个以逗号分隔]');
+	
+	}
+	else{
+	
+		$('#exec_val_title').html('回复内容');
+	
+	}
+
+}
+function check_form(){
+
+	if($('#menu_name').val() == '' ){
+	
+		alert('菜单名称不能为空');
+		return false;
+	
+	}
+
+} 
+<!-- IF menu_type -->
+menu_type_change('{menu_type}');
+<!-- ENDIF -->
+<!-- IF exec_type -->
+exec_type_change('{exec_type}');
+<!-- ENDIF -->
+</script>
+</html>

@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "color_adc64e9.css",
+    "sources": [
+        "/style/common/color.scss"
+    ],
+    "sourcesContent": [
+        "// 字体颜色\n.cor-409{color: #4092f1;}\n.cor-fe9{color: #fe9920;}\n.cor-000{color: #000;}\n.cor-666{color: #666;}\n.cor-333{color: #333;}\n.cor-aaa{color: #aaaaaa;}\n\n\n// 背景颜色\n.bg-color-f2f{background-color: #f2f2f2}\n.bg-color-fff{background-color: #fff}\n.bg-color-000{background-color: #000}\n\n// 边框颜色\n\n"
+    ],
+    "mappings": "AACA;EAAS,AAAO;;AAChB;EAAS,AAAO;;AAChB;EAAS,AAAO;;AAChB;EAAS,AAAO;;AAChB;EAAS,AAAO;;AAChB;EAAS,AAAO;;AAIhB;EAAc,AAAkB;;AAChC;EAAc,AAAkB;;AAChC;EAAc,AAAkB",
+    "names": []
+}

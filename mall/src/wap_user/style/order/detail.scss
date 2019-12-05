@@ -1,0 +1,279 @@
+@import "../../sass/compass";
+.order-detail-page{
+    .p-wrap{
+        padding-bottom: 65px;
+    }
+    .p1th{
+        background: #fff;
+        padding: 8px 15px 15px 15px;
+
+        .box-a{
+            color: #333333;
+            padding-bottom: 15px;
+            .p1{
+                padding-top: 10px;
+            }
+            .p2{
+                padding-top: 10px;
+            }
+            .yj{
+                text-decoration:line-through
+            }
+            .expire{
+                width: 150px;
+            }
+        }
+        .box-b{
+            padding-top: 7px;
+            .mark{
+                color: #333333;
+            }
+        
+            .p1{
+                padding-top: 6px;
+            }
+        }
+
+
+        .box-des{
+            padding-top: 6px;
+            p{
+                padding-top: 10px;
+                color: #333333;
+            }
+        }
+
+        .promotion{
+            padding-top: 15px;
+            padding-bottom: 15px;
+            .icon-promotion{
+                width: 18px;
+                height:18px;
+                background-image: url(../../image/promotion-36x36.png) ;
+                background-size: 18px 18px;
+                display: inline-block;
+                margin-right: 5px;
+                vertical-align: -5px;
+            }
+            .p1{
+                padding-top: 8px;
+            }
+        }
+    }
+
+    .p3th{
+        background: #fff;
+        padding: 8px 15px 15px 15px;
+        .box-a{
+            padding-bottom: 15px;
+            .wbox{
+                .lbox{
+                    width:60px;
+                    height:60px;
+                    float: left;
+                    overflow: hidden;
+                    img{
+                        max-height:60px; 
+                        max-height:60px;
+              
+                    }
+                }
+                .cbox{
+                    .name{
+                        color: #333333;
+                        width: 150px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                    .guige{
+
+                    }
+                    float: left;
+                    padding: 10px 0 0 15px;
+                }
+                .rbox{
+                    float:right;
+                    padding-top: 10px;
+                    color: #333;
+                }
+            }    
+        }
+        
+    }
+
+    .p4th{
+        background: #fff;
+        padding: 0 15px 0px 15px;
+        .list{
+            li{
+                padding-bottom: 12px;
+                color: #666;
+            }
+        }
+    }
+
+    .order-detail-list-item{
+        background: #fff;
+        // padding: 15px 15px 15px 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        background-color: #fff;
+        .item-wrap{
+            margin:0px 15px;        
+            .item{
+                width:100%;
+                background: url(../../image/ui/line-2x2.jpg) repeat-y;
+                background-size: 1px 1px;
+                background-position: 9px 0px; 
+                color:#999;
+                position:relative;
+                .point-con{
+                    width:12px;
+                    height:12px;
+                    position:absolute;
+                    left: 3px;
+                    top:24px;
+                    .point-icon{
+                        width:12px;
+                        height:12px;
+                        display: inline-block;
+                        background:#ddd;
+                        border-radius: 6px;
+
+                    }
+                }
+                &:nth-child(1){
+                    color:#333;
+                    background: url(../../image/ui/line-2x100.jpg) no-repeat;
+                    background-size: 1px 80%;
+                   background-position: 9px bottom;
+                  .point-icon{
+                       background: #555;
+                   }
+                   .point-con{
+                        top: 18px;
+                   }
+                } 
+                &:nth-last-child(1){
+                    .ui-border-b{
+                        background: none;
+                    }
+                }
+                
+
+                .item-con{
+                    margin-left: 35px;
+                    // border-bottom: 1px solid #eee;
+                    padding: 15px 0 12px 0; 
+                    .img-con{
+                        width:32px;
+                        height:32px;
+                        img{
+                            width:100%;
+                            border-radius: 16px;
+                        }
+                    }
+
+
+
+                    .txt-con{
+                        width:70%;
+                        padding:0px 0px 0px 10px;
+                        .time-txt{
+                            font-size: 10px;
+                            padding-top: 0px;
+                        }
+                        p{
+                            margin-bottom: 2px;
+                        }
+
+                        .ui-start-mod{  
+                            margin-bottom: 0px;
+                            padding-top: 3px;
+                            .icon-s-mod{
+                                width: 12px;
+                                height: 12px;
+                            }
+                           
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .p5th{
+        .box-a{
+            padding-bottom: 10px;
+            .user-img{
+                width:20px;
+                img{
+                    max-width: 20px;
+                    max-height: 20px;
+                }
+            }
+        }
+        .box-b{
+            padding-top: 15px;
+            padding-bottom: 15px;
+            i{
+                background:url(../../image/icon-contact-24x24.png)  no-repeat ;
+                background-size: 12px 12px;
+                width:12px;
+                height:12px;
+                display: inline-block;
+                margin-right: 5px;
+                vertical-align: -2px;
+
+            }
+        }
+        background: #fff;
+        padding: 15px 15px 15px 15px;
+        .user-name{
+            padding: 0px 10px 0 12px;
+        }
+        .allow{
+            padding-top: 3px;
+        }
+    }
+
+    .p7th{
+        background: #fff;
+        padding: 0px 15px 12px 15px;
+
+        .box2{
+            padding-top: 7px;
+        }
+    }
+
+    .p8th{
+        background: #fff;
+        border-top: 1px solid #dddddd;
+        height: 50px;
+        text-align:  right;
+        padding-right: 5px;
+        position: fixed;
+        left: 0px;
+        bottom:0px;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        button{
+            margin-top: 11px;
+            padding: 0px 25px;
+            // color: #aaaaaa;
+            margin-right: 10px;
+        }
+        .pay{
+            // padding: 0px 60px;
+            color:#ff6a6e;
+            width: 150px;
+        }
+        .sign{
+            // padding: 0px 50px;
+            color:#ff6a6e;
+            width: 150px;
+        }
+    }
+}

@@ -1,0 +1,186 @@
+
+// --------------------------------------------------
+// 公共 - 用户名片 - 主体
+// --------------------------------------------------
+
+.ui-usercard-container {
+    position: relative;
+    
+    background-color: $usercard-container-bg-color;
+    border: 1px solid $usercard-container-border-color;
+    @include border-radius(3px);
+    padding: 17px 0 20px;
+
+    @include box-shadow(0 1px 10px rgba(#000, .35));
+}
+
+.ui-usercard-content {
+    width: 420px;
+    font-size: 12px;
+    color: #666;
+
+
+    .loading {
+        text-align: center;
+        .txt {
+            @include inline-block(false);
+            height: 16px;
+            line-height: 16px;
+            padding-left: 26px;
+            background: image-url('icon-loading-16x16.gif') no-repeat;
+        }
+    }
+
+    .person-info {
+        padding: 0 20px 20px;
+    }
+
+    .user-info {
+        $avatar-width: 32px;
+
+        .avatar {
+            @include float-left;
+            margin-top: 3px;
+            _margin-right: -3px;
+
+            a {
+                display: block;
+                width: $avatar-width;
+                height: $avatar-width;
+                overflow: hidden;
+                text-align: center;
+            }
+        }
+
+        .intro {
+            width: 195px;
+            margin-left: $avatar-width + 10;
+            _margin-left: $avatar-width + 7;
+
+            a {
+                @include link-colors(#3fa900, #3fa900);
+                @include hover-link;
+            }
+        }
+
+        .user-title {
+            width: 195px;
+            height: 18px;
+            margin-bottom: 5px;
+            line-height: 18px;
+            overflow: hidden;
+        }
+        .gender {
+            @include inline-block(false);
+            *vertical-align: middle;
+            width: 12px;
+            height: 12px;
+            margin: 0 3px;
+            overflow: hidden;
+            background: image-url('components/usercard/uc-gender.png') no-repeat;
+        }
+        .icon-gender-male {
+            background-position: 0 0;
+        }
+        .icon-gender-female {
+            background-position: 0 -12px;
+        }
+
+        .user-data {
+            line-height: 1;
+            li {
+                @include float-left;
+                padding: 0 10px;
+                border-left: 1px solid #e6e6e6;
+            }
+            a {
+                padding-left: 5px;
+            }
+            .first {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+    }
+
+    .relation-buttons {
+        @include float-right;
+        _zoom: 1;
+        margin-top: 6px;
+    }
+
+    .expand {
+        border-top: 1px solid #f0f0f0;
+        padding: 11px 15px 0;
+        text-align: center;
+
+        .empty-txt {
+            margin: 49px 0 50px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .new-works-title {
+            color: #999;
+            padding-left: 5px;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .works-list {
+            li {
+                @include float-left;
+                margin: 0 5px;
+
+                a {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    overflow: hidden;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .cover {
+                width: 120px;
+                height: 120px;
+                overflow: hidden;
+
+                a {
+                    position: relative;
+                }
+                img {
+                    max-width: 120px;
+                    _width: 120px;
+                }
+            }
+            .txt {
+                border: 1px solid #f0f0f0;
+                padding: 10px;
+                width: 98px;
+                height: 98px;
+                overflow: hidden;
+
+                background: #f5f5f5;
+
+                a {
+                    color: #666666;
+                    text-decoration: none;
+                    text-align: left;
+                }
+            }
+            .act-title {
+                width: 98px;
+                margin-bottom: 5px;
+                font-weight: 700;
+                @include force-wrap;
+            }
+            .act-desc {
+                @include force-wrap;
+            }
+        }
+    }
+}

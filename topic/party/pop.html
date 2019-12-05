@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>约约</title>
+<link href="css/outdoor.css?1" type="text/css" rel="stylesheet" />
+<link href="css/waipai.css?1" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+<style>
+  /*  
+  不需要的css
+  */
+
+  /** 清除内外边距 **/
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr,
+  p,
+  blockquote, /* structural elements 结构元素 */
+  dl,
+  dt,
+  dd,
+  ul,
+  ol,
+  li, /* list elements 列表元素 */
+  pre, /* text formatting elements 文本格式元素 */
+  form,
+  fieldset,
+  legend,
+  button,
+  input,
+  textarea, /* form elements 表单元素 */
+  th,
+  td, /* table elements 表格元素 */
+  img/* img elements 图片元素 */ { border:medium none; margin: 0; padding: 0; }
+  /** 设置默认字体 **/
+  body,
+  button,
+  input,
+  select,
+  textarea { font:12px/1.5  "SimSun", Tahoma, Arial, sans-serif}
+  input,
+  select,
+  form img,
+  button { vertical-align:middle; }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 { font-size: 100%; }
+  em { font-style:normal; }
+  /** 重置列表元素 **/
+  ul,
+  ol { list-style: none; }
+  /** 重置超链接元素 **/
+  a { text-decoration: none; color:#333; }
+  a:hover { text-decoration: underline;}
+  /** 重置图片元素 **/
+  img { border:none; }
+  /** 重置表格元素 **/
+  table { border-collapse: collapse; border-spacing: 0; }
+  /** 清楚浮动 **/
+  .clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+  * html .clearfix { zoom: 1; } /* IE6 */
+  *:first-child+html .clearfix { zoom: 1; } /* IE7 */
+  textarea, input{resize:none}
+  a, textarea, input, button{outline:none}
+  .clear { clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
+  .coz{ clear:both; overflow:hidden; zoom:1}
+  /*** font ***/
+  .word_break { white-space:normal; word-wrap:break-word; word-break:break-all; }
+  .f14 { font-size:14px; }
+  .fb { font-weight:bold; }
+  .db{ display:block}
+  .dn {display:none}
+  .di{ display:inline}
+  .tc{ text-align:center;}
+  .vam{vertical-align:middle;}
+  .lh18 { line-height:18px; }
+  .lh20 { line-height:20px; }
+  .lh22 { line-height:22px; }
+  .lh24 { line-height:24px; }
+  .lh26 { line-height:26px; }
+  .lh28 { line-height:28px; }
+  .lh30 { line-height:30px; }
+  .font_wryh{font-family:'微软雅黑','黑体','宋体';}
+</style>
+
+
+
+
+<!--弹出层-->
+<div class="fade"></div>
+<!--支付弹出层-->
+<div class="pop-pay font_wryh" style="display:none"> 
+  <a href="#" class="close"></a>
+  <div class="pop-con">
+   <div class="listItem"> 
+       <i class="icon succeed-icon"></i>
+      <h4 class="title">恭喜您，支付成功</h4>
+      <p class="l-txt">若届时不能参加活动，请提前两天申请退款。<br />
+      详情请拨打 4000-82-9003</p>
+    </div>
+    <div class="pop-mod-btn clearfix">
+    <i class="pop-logo"><a href="#"></a></i>
+    <div class="btn-item"><a href="#" class="ui-btn ui-btn-rose-h35 circle-3px">立即下载</a></div>
+    </div>
+  </div>
+</div>
+<!--支付弹出层 end-->
+<!--领取优惠卷弹出层-->
+<!--输入手机号码-->
+<div class="pop-receive pop-r-phone font_wryh" style="display:none"> 
+  <a href="#" class="close"></a>
+  <div class="pop-con">
+  <div class="txt-item">
+   <div class="listItem">恭喜您获得10元优惠券</div>
+   <div class="input-item clearfix">
+   <input type="text" class="input-txt circle-3px font_wryh" placeholder="请输入手机号马上获取" />
+   <a href="#" class="ui-btn ui-btn-rose-h45 circle-3px">立即分享获取优惠券</a>
+   </div>
+   <div class="l-txt">好友通过该分享链接成功报名，本人更可获得现金返现</div> 
+    </div>
+    <div class="pop-mod-btn clearfix">
+    <i class="pop-logo"><a href="#"></a></i>
+    <div class="btn-item"><a href="#" class="ui-btn ui-btn-rose-h35 circle-3px">立即下载</a></div>
+    </div>
+  </div>
+</div>
+<!--输入手机号码 end-->
+<!--优惠券放入账户-->
+<div class="pop-receive pop-r-coupon font_wryh" style="display:"> 
+  <a href="#" class="close"></a>
+  <div class="pop-con">
+  <div class="txt-item">
+   <div class="listItem">恭喜您获得10元优惠券</div>
+   <h4 class="title">优惠券已放入账号：<span class="num">18666006716</span></h4>
+   <p class="tips">APP上注册或登录后即可使用</p>
+   <div class="l-txt">复制链接，邀请好友成功报名获得现金返现：<br />
+<a href="#">http://www.poco.cn/?_t_=1425196643990</a></div> 
+    </div>
+    <div class="pop-mod-btn clearfix">
+    <i class="pop-logo"><a href="#"></a></i>
+    <div class="btn-item"><a href="#" class="ui-btn ui-btn-rose-h35 circle-3px">立即下载</a></div>
+    </div>
+  </div>
+</div>
+<!--优惠券放入账户 end-->
+<!--领取优惠卷弹出层 end-->
+<!--支付弹出层-->
+<div class="pop-code font_wryh" style="display:none"> 
+  <a href="#" class="close"></a>
+  <div class="pop-con">
+   <div class="listItem">扫码参加该活动</div>
+    <div class="code-list clearfix">
+    <div class="item item-1">
+    <div class="code-img"><img src="images/outdoor/code-img-150x150.jpg" /></div>
+    <h4 class="title">没有安装约yue APP </h4>
+    <p>扫码下载APP，参加活动</p>
+    </div>
+    <div class="item item-2">
+    <div class="code-img"><img src="images/outdoor/code-img-150x150.jpg" /></div>
+    <h4 class="title">已经安装约yue APP </h4>
+    <p>打开约yue 或 微信扫码工具<br />
+    扫一扫参加该活动</p>
+    </div>
+    </div>
+  </div>
+</div>
+<!--支付弹出层 end-->
+</body>
+</html>

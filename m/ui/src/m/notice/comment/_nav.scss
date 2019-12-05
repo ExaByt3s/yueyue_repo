@@ -1,0 +1,28 @@
+.subnav {
+    //border-bottom: 1px dashed $color-efe;
+    margin-bottom: 10px;
+    padding-bottom: 7px;
+
+    li {
+        @include float-left;
+        border-left: 1px solid $color-e6e;
+        margin-left: 10px;
+        padding-left: 10px;
+        line-height: 1;
+
+        &.first {
+            border-left: 0;
+            margin-left: 0;
+            padding-left: 0;
+        }
+    }
+
+    a {
+        line-height: 1;
+        color: $color-666;
+    }
+    .current {
+        color: $color-3fa;
+        font-weight: 700;
+    }
+}

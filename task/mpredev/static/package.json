@@ -1,0 +1,7 @@
+{
+	"author" : "hudw",
+	"dev_domain" : "http://localhost/yueyue/task/mdev",
+	"predev_domain" : "http://static.yueus.com/task/mpredev",
+	"pub_test_domain" : "http://localhost/yueyue/task/mpt",
+	"pub_domain" : "http://static.yueus.com/task/m"
+}

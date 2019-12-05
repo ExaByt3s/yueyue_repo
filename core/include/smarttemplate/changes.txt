@@ -1,0 +1,21 @@
+2005-05-11 add cache_ignore_str to ignore save cache when such error str. Tony
+
+2005-05-10 fix cache dir bug by Tony
+
+04.2005
+/*
+class.smarttemplate.php ÐÞÕýÁËglobal bug (CSDN EXPERTS)
+*/
+
+
+02.04.2003:  Release 1.0.2  Philipp von Criegern  <philipp@smartphp.net>
+
+    Fixed:   Filename of compiled template replaces ':' and '\' to '_' to allow absoulte paths in 
+             windows ('C:\apache\htdocs\tmeplates\hello_world.html') in class.smarttemplate.php (256)
+
+    Fixed:   Global Content Array $_top is deleted after usage in order to allow multiple use of 
+             SmartTemplate class in one script in class.smarttemplate.php (281)
+
+    Added:   Trailing '/' added to $this->temp_dir  in class.smarttemplate.php (240)
+
+

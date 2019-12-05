@@ -1,0 +1,137 @@
+<script language="javascript">
+//复选框
+function fSel(t)
+{
+	var str;
+	var s = t.value+"_-";
+	var s1,s2;
+	var iIndex;
+
+	if(t.checked)
+	{
+		document.form1.Senduser.value += s;
+	}
+	else
+	{
+		str = document.form1.Senduser.value;
+		iIndex = str.indexOf(s);
+		if(iIndex == -1) return;
+		s1 = str.substring(0,iIndex);
+		iIndex += s.length;
+		s2 = str.substring(iIndex,str.length);
+		document.form1.Senduser.value = s1+s2;
+	}
+}
+//form
+function reSel(){
+	var str;
+	var iIndex=-1;
+	str = document.form1.Senduser.value;
+	strs=str.split("-");
+	for(var i=0;i<strs.length;i++){
+		if(strs[i]==null || strs[i]=="") break;
+		s="document.all.form1."+strs[i];
+		e=eval(s);
+		e.checked=true;
+	}
+}
+
+function checkAll(e, itemName)
+{
+	var aa = document.getElementsByName(itemName);
+	for (var i=0; i<aa.length; i++)
+	{
+		//alert(aa[i].value);
+		document.form1.Senduser.value += aa[i].value;
+		aa[i].checked = e.checked;
+	}
+}
+function checkItem(e, allName)
+{
+	var all = document.getElementsByName(allName)[0];
+	if(!e.checked)
+	{
+		all.checked = false;
+	}
+	else
+	{
+		var aa = document.getElementsByName(e.name);
+		for (var i=0; i<aa.length; i++)
+		{
+			if(!aa[i].checked) 
+			{
+				return;
+			}
+			all.checked = true;
+		}
+	}
+}
+/**
+ * 全选反选
+ * @param int  id   对像id
+ * @param bool unSelect 正选反选
+ */
+function selectActionEx(id,unSelect)
+{
+	var f=document.getElementsByName(id);
+	if (f.length>0)
+	{
+		for(var i=0;i<f.length;i++){
+			f[i].checked=unSelect;
+		}
+	}else{
+		f.checked=unSelect;
+	}
+}
+</script>
+<link href="js/web.css" rel="stylesheet" type="text/css">
+<table width="100%" cellpadding="0" cellspacing="1" border="0">
+	<form action="main.php?action=gongancheck&dotype=delallmsg{GOTYPEACTION}" method="post" name="myForm" style="margin:0px;padding:0px;">
+	<tr>
+		<td width="100%" align="left" valign="top" bgcolor="#F5F5FF">查到相关信息：{TOTAL_SUM}条共{PAGE}页，{TOP_BAR}&nbsp;{UP_BAR}&nbsp;{NUM_BAR}&nbsp;{NEXT_BAR}&nbsp;{END_BAR}&nbsp;<a href="javascript:selectActionEx('url_arr[]',true)">全选本页</a>/<a href="javascript:selectActionEx('url_arr[]',false)">取消选择</a>&nbsp;<input type="hidden" name="Senduser" id="Senduser" value="delallmsg">&nbsp;<input type="submit" name="Submit" value="全部删除">&nbsp;<input type="button" name="Submit" onclick="javascript:myForm.Senduser.value='upallmsg';myForm.submit();" value="全部已阅">&nbsp;&nbsp;&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="100%" valign="top" bgcolor="#F5F5FF">
+			<table width="100%" align="center" cellspacing="0" cellpadding="0" bgcolor="#6A71A3">
+				<tr>
+					<td >
+					<table width=100% cellspacing=1 cellpadding=3>
+						<!-- DEFINE BLOCK MSG_LIST -->
+						<tr align="center">
+							<td width="15%" valign="middle" bgcolor="#F5F5FF">
+							<table width="100%" border="1" cellspacing="1" cellpadding="3">
+								<tr align="left">
+									<td width="5%" valign="middle" bgcolor="#F5F5FF">序号</td>
+									<td width="95%" valign="middle" bgcolor="#F5F5FF">{IDS}&nbsp;&nbsp;&nbsp;<input type="checkbox" id="url_arr[]" name="url_arr[]" value="{DELID}"><!--<input type="checkbox" id="" name="mm" value="{URL_LINK}" onclick="checkItem(this, 'mmAll')">-->&nbsp;&nbsp;&nbsp;操作：&nbsp;&nbsp;<a href="main.php?action=gongancheck&dotype=del&delid={DELID}" target="_bank"><font color="red">删除</font></a>&nbsp;&nbsp;&nbsp;<a href="main.php?action=gongancheck&dotype=up&delid={DELID}" target="_bank"><font color="blue">已阅</font></a></td>
+								</tr>
+								<tr align="left">
+									<td width="5%" valign="middle" bgcolor="#F5F5FF">来源</td>
+									<td width="95%" valign="middle" bgcolor="#F5F5FF">{SOURCE}&nbsp;&nbsp;&nbsp;{GOTOURL}&nbsp;&nbsp;&nbsp;关键字：{BLACK_WOEDS}</td>
+								</tr>
+								<tr align="left">
+									<td width="5%" valign="middle" bgcolor="#F5F5FF">连接</td>
+									<td width="95%" valign="middle" bgcolor="#F5F5FF"><a href="{CHA_URL}" target="_bank">{CHA_URL}&nbsp;</a></td>
+								</tr>	
+								<tr align="left">
+									<td width="5%" valign="middle" bgcolor="#F5F5FF">标题</td>
+									<td width="95%" valign="middle" bgcolor="#F5F5FF">{TITLENAME}&nbsp;</td>
+								</tr>
+								<tr align="left">
+									<td width="5%" valign="middle" bgcolor="#F5F5FF">内容</td>
+									<td width="95%" valign="middle" bgcolor="#F5F5FF">{ITEM_SUMMARY}&nbsp;</td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+						<!-- ENDDEF BLOCK MSG_LIST -->
+					</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	</form>
+	<tr>
+		<td width="100%" align="left" valign="top" bgcolor="#F5F5FF">{TOP_BAR}&nbsp;{UP_BAR}&nbsp;{NUM_BAR}&nbsp;{NEXT_BAR}&nbsp;{END_BAR}&nbsp;&nbsp;&nbsp;</td>
+	</tr>
+</table>

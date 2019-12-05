@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>向指定供应商发需求</title>
+
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/zjxd/index.scss">
+
+</head>
+<body>
+<main role="main" style="background: #f2f2f2">
+    <div class="page-view zjxd" data-role="page-container">
+        <div class="container mt20 pt20">
+			
+			<div class="h-title ml15 mb10">
+                请输入商家ID
+            </div>
+			<div class="ui-form-item ui-form-item-l ui-border-b">				
+				<input type="tel" data-role="seller_id" placeholder="请输入商家ID">
+			</div>
+
+            <div class="h-title mt20 ml15 mb10">
+                请选择服务类型
+            </div>
+            <ul class="ui-list ui-list-text mt20 ">
+				<!-- BEGIN service_list -->
+				<li data-role="select-service-type" data-service-id="{service_id}" class="ui-border-t">
+                    <div class="ui-txt-default ">{service_name}</div>
+                    <div class="ui-edge-right">
+                        <i class="icon icon-select-no" data-role="yes-tag"></i>
+                    </div>
+                </li>
+				<!-- END -->
+                
+            </ul>
+
+			<div class="h-title mt20 ml15 mb10">
+                请输入预算金额
+            </div>
+			<div class="ui-form-item ui-form-item-l ui-border-b">				
+				<input type="tel" data-role="prices" placeholder="请输入预算金额">
+			</div>
+            
+
+        </div>
+        <div class="bottom-container" data-role="confirm_btn">
+            <button class="btn" >提交</button>
+        </div>
+    </div>
+</main>
+
+</body>
+
+<script>
+	var $ = require('zepto');
+    var yue_ui = require('../modules/yue_ui/frozen');
+    $(function()
+    {
+		var $confirm_btn = $('[data-role="confirm_btn"]');		
+		var $selectd_service_type = $('[data-role="select-service-type"]');
+
+		var service_id = 0;
+
+		$selectd_service_type.each(function(i,obj)
+		{
+			if($(obj).find('[data-role="yes-tag"]').hasClass('icon-select-active'))
+			{
+				service_id = $(obj).attr('data-service-id');
+				return false;
+			}
+		});
+				
+		$selectd_service_type.on('click',function(ev)
+		{
+			var $cur_btn = $(ev.currentTarget);
+			var $yes_tag = $cur_btn.find('[data-role="yes-tag"]');
+
+			var tag = $yes_tag.hasClass('icon-select-active');
+
+			// 清空所有选中的，用于以后扩展
+			$selectd_service_type.find('[data-role="yes-tag"]').removeClass('icon-select-active').addClass('icon-select-no');
+
+			$yes_tag.addClass('icon-select-active').removeClass('icon-select-no');
+
+			service_id = $cur_btn.attr('data-service-id');
+		});
+
+		$confirm_btn.on('click',function()
+		{
+			var seller_id = $('[data-role="seller_id"]').val();
+			
+			var prices = $('[data-role="prices"]').val();
+
+			if(!seller_id)
+			{
+				$.tips 
+				({
+					content:'请输入商家ID',
+					stayTime:3000,
+					type:'warn'
+				});
+
+				return;
+			}			
+			if(!service_id)
+			{
+				$.tips
+				({
+					content:'请选择服务类型',
+					stayTime:3000,
+					type:'warn'
+				});
+
+				return;
+			}
+			if(!prices)
+			{
+				$.tips
+				({
+					content:'请输入预算金额',
+					stayTime:3000,
+					type:'warn'
+				});
+
+				return;
+			}
+
+			if(!confirm('确认提交?'))
+			{
+				return;
+			}
+
+			if(window.__sending)
+			{
+				return;
+			}
+
+			var $loading= {};
+			
+			$.ajax
+			({
+				url : 'zjxd.php',
+				type : 'POST',
+				dataType : 'json',
+				data : 
+				{
+					add : 1,
+					seller_id : seller_id,
+					prices : prices,
+					services_id : service_id
+				},
+				beforeSend : function()
+				{
+					$loading = $.loading
+					({
+						content:'发送中...'
+					});
+				},
+				success : function(res)
+				{
+					window.__sending = false;
+					
+					$loading.loading("hide");
+
+					if(res.result_data.result>0)
+					{
+						var type = 'success';
+					}
+					else
+					{
+						var type = 'warn';
+					}
+
+					$.tips
+					({
+						content:res.result_data.message,
+						stayTime:3000,
+						type:type
+					});
+				},
+				error : function()
+				{
+					window.__sending = false;
+
+					$loading.loading("hide");
+
+					$.tips
+					({
+						content:'网络异常',
+						stayTime:3000,
+						type:'warn'
+					});
+				}
+			});
+			
+		});
+
+    });
+</script>
+
+</html>

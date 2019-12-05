@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh" style="height: 100%">
+<head>
+    <title>Œ“µƒ’’∆¨</title>
+    {m_global_top}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes, minimal-ui">
+    <link charset="utf-8" rel="stylesheet" href="./css/mine.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <style>
+        .swiper-slide {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-box-pack: center;
+            height: 100%;
+            color: #fff;
+            font-size: 36px;
+            text-align: center;
+        }
+        .swiper-pagination {
+            position: absolute;
+            z-index: 20;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+        .swiper-pagination-bullet {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            background: #555;
+            margin: 0 5px;
+            opacity: 0.8;
+            border: 1px solid #fff;
+            cursor: pointer;
+        }
+        .swiper-pagination-bullet-active {
+            background: #fff;
+        }
+    </style>
+<body class="layout_box_v" style="height: 100%;-webkit-box-pack:center; background: #000">
+<div class="mine_inner_about layout_box_v" style="background: #000">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- BEGIN pic_arr -->
+            <div class="swiper-slide" data-role="img_tap"><img src="{img}" style="width: 100%;"/></div>
+            <!-- END profile_info -->
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+</body>
+<script>
+    $('.swiper-slide').css('height',document.body.clientHeight);
+</script>
+<script src="./js/swiper.min.js"></script>
+<script>
+
+
+    window.onload = function()
+    {
+
+
+        var mySwiper = new Swiper('.swiper-container',{
+            slidesPerView : 1,
+            pagination : '.swiper-pagination',
+            watchSlidesProgress : true,
+            watchSlidesVisibility : true
+        });
+
+        $('[data-role="img_tap"]').on('click',function()
+        {
+            window.history.back();
+        })
+
+
+    }
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9fa08589aee02a0d763d50fe4dca33cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</html>

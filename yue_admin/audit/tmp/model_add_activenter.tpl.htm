@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery.form.js"></script> 
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+</head>
+<body>
+<div class="mainbox">
+<form name="list_form" id="list_form" action="?uid={uid}" method="post">
+	<div class="table-list">
+	   <div class="table">
+	   	 <table  cellspacing="0">
+		    	<tbody class="tbody">
+		    	<!-- BEGIN list -->
+				<tr>
+				<td align="center">活动入围:<input type="text" class="input-text" name="activity_enter[]" value="{activity_enter}"/></td>
+				<td><!-- IF ROWCNT == 0 --><a href="javascript:void(0);" onclick="add_enter()">+</a><!-- ELSEIF ROWCNT --><a href='javascript:void(0);' class='del_enter'>-</a><!-- ENDIF ROWCNT --></td>
+				</tr>
+				<!-- END list -->
+				<!-- IF default_enter -->
+				<tr>
+				<td align="center">活动入围:<input type="text" class="input-text" name="activity_enter[]" value="{activity_enter}"/></td>
+				<td><a href="javascript:void(0);" onclick="add_enter()">+</a></td>
+				</tr>
+				<!-- ENDIF default_enter -->
+			    </tbody>
+		    </table>
+	   </div>
+	   <div class="btn">
+			<input type="button" class="button" name="dosubmit" value="取消" id="close_layer"/>
+			&nbsp;&nbsp;
+			<input type="button" class="button" name="dosubmit" value="提交" id="send_layer"/> 
+		</div>
+	</div>
+</form>
+</div>
+</body>
+<script type="text/javascript">
+	var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+	//window.alert(parent.uid);
+	$('#close_layer').on('click', function(){
+      parent.layer.close(index); //执行关闭
+     });
+	//提交获取数据
+   $('#send_layer').on('click', function(){
+   	$("#list_form").ajaxSubmit({
+   		dataType : "json",
+        data:{'act': 'insert'},
+		success:function(data)
+		{
+			//window.alert(data.str);
+			//parent.$('#list_style').html(data.str);
+			/*parent.$('#stand_follow_data').append(str);*/
+			if (data.ret != '' && data.ret != 'undefined')
+			{
+				var $ret = data.ret;
+				parent.$('#list_enter').html($ret['activity_enter']);
+			}
+            parent.layer.close(index);
+		},
+		error:function(data)
+		{
+			//parent.layer.close(index);
+		}
+   	})	
+});
+$(function(){
+	$.del_enter();
+});
+//添加输入框
+function add_enter()
+{
+	var $str = "";
+	$str += "<tr><td align='center'>活动入围:<input type='text' class='input-text' name='activity_enter[]' value=''/></td><td><a href='javascript:void(0);' class='del_enter'>-</a></td></tr>";
+	$(".tbody").append($str);
+	$.del_enter();
+}
+
+$.extend({
+	//删除输入框
+	del_enter:function()
+	{
+		$(".del_enter").click(function(){
+			$(this).parent().parent().remove();
+		});
+	}
+})
+</script>
+</html>

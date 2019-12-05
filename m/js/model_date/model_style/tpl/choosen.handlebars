@@ -1,0 +1,12 @@
+<div class="choosen-style-child" data-role="choosen-style-tap" data-style="{{text}}" data-price="{{price}}" data-params="{{params}}" data-id="{{id}}">
+    <p class="choosen-style-child-title" data-role="choosen-style">{{text}}</p>
+    <div class="choosen-style-child-price-container">
+        {{#if is_discount}}
+            <p class="choosen-style-child-price" data-role="choosen-price" >{{discount}}</p>
+            {{else}}
+            <p class="choosen-style-child-price" data-role="choosen-price" >{{combo_text}}</p>
+        {{/if}}
+{{#unless is_preview}}<i class="icon icon-r-16x26"></i>{{/unless}}
+    </div>
+</div>
+

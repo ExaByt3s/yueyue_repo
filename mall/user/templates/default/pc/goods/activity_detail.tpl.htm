@@ -1,0 +1,1176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>约约--{resa.data.title}</title>
+    <meta name="keywords" content="{keywords_key}">
+    <meta name="description" content="{description_key}">
+    <!-- 公共css，js引入 -->
+    {pc_global_top}
+
+    <!-- <link rel="import" href="../webcontrol/head.tpl.htm?__inline"> -->
+
+    <!-- modjs 必须引用 -->
+    <script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/lib/mod_327a0b0.js"></script>
+<!-- 当前页css -->
+    <link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/style/goods/service-detail-page_c7daf14.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/modules/yue_ui/layer/skin/layer_3b81e1f.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/modules/common/go_top/go_top_c746f30.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/modules/yue_ui/selectbox/ui-selectbox_1707db4.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/components/jquery/jquery_27c977b.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0_d064b6f.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/js/common/common_b122f6d.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/yue_ui/layer/layer_67882d9.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/common/page_control/index_7caaf59.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/yue_ui/selectbox/popup_0d12cf1.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/yue_ui/selectbox/selectbox_541b5d1.js"></script>
+</head>
+<style>
+
+    /*价钱场次切换样式*/
+    .pink-color{
+        color:#ff6a6e;
+    }
+
+    #J_section_select .section_name{
+        text-align:left;
+    }
+
+    .J_price_text{
+        color: #aaa;
+        padding-left: 20px;
+        font-size: 14px;
+    }
+
+    /*重写结构样式*/
+    .ui-selectbox-dropdown{
+        font-size:14px;
+
+    }
+
+    #J_stock_detail{
+        padding: 10px;
+        font-size: 14px;
+    }
+    #J_price_de_list{
+        min-height:165px;
+    }
+
+    /*切换栏样式*/
+    .tag-check{
+        float: left;
+        background: #fbfbfb;
+        width: 100px;
+        height: 25px;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
+        border-right: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        cursor:pointer;
+    }
+    .tag-check-div{
+        height: 46px;
+        border-bottom: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+
+    .tag-check-div .tag-check-cur{
+        border-top: 3px solid black;
+        background: white;
+        height:25px;;
+
+    }
+
+    /*获取地图按钮样式*/
+    #J_check_map
+    {
+        border: 1px solid #cecece;
+        text-align: center;
+        width: 110px;
+        height: 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #f5f5f5;
+        margin-left:20px;
+        background-image: url(../static/pc/images/icon-location-16x16.png);
+        background-repeat: no-repeat;
+        background-position: 5px;
+        display: inline;
+        padding: 3px 23px;
+        font-size: 12px;
+        color: black;
+        padding-left: 30px;
+    }
+
+    /*人头样式*/
+    #join_div{
+        position:relative;
+    }
+    #join_div .icon-img-div{
+        float: left;
+        width: 64px;
+        margin-right: 40px;
+    }
+    #join_div .icon-img{
+        width: 64px;
+        border-radius: 130px;
+        vertical-align: middle;
+        overflow:hidden;
+    }
+    #join_div img{
+        max-height: 64px;
+        max-width: 64px;
+        border-radius: 130px;
+        vertical-align: middle;
+        margin-bottom:0px;
+    }
+    #join_div .icon-img-text{
+        text-align: center;
+        height: 55px;
+        overflow: hidden;
+        line-height: 18px;
+    }
+    #join_div .icon-img-head{
+        font-size:18px;
+    }
+    #join_div .icon-more{
+        position:absolute;
+        top:150px;
+        right:5px;
+    }
+    #join_div .icon-more a{
+        color:#4092f1;
+    }
+
+
+    .J_content_empty_tips{
+        width: 24px;
+        height: 22px;
+        display: inline-block;
+        vertical-align: middle;
+        top: -2px;
+        position: relative;
+
+    }
+
+    .J_content_empty_p{
+        color: #333333;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
+
+    #map_container {
+        width:500px; height: 300px;
+        border:1px solid #ddd;
+    }
+
+    #J_close_map{
+        position: absolute;
+        z-index: 1000;
+        left: 504px;
+        cursor: pointer;
+        width:16px;
+        height:15px;
+        background-image: url(../static/pc/images/btn-close-16x16-hover.jpg);
+    }
+
+    #J_close_map:hover{
+        background-image: url(../static/pc/images/btn-close-16x16_03.jpg);
+    }
+
+
+
+</style>
+<body>
+
+
+<!-- bar -->
+{global_top_bar}
+<!-- bar end -->
+
+<div class="w1000">
+    <div class="mod-nav"><a href="{index_url}">首页</a> > <span><a href="../goods/category.php?type_id={type_id}">{type_id_title}</a></span> > <span class="cur">服务详情</span></div>
+</div>
+
+<div class="service-detail-page">
+
+
+
+<div class="w1000 font_wryh">
+
+
+
+<div class="detail-page-warp">
+
+<div class="intro-item clearfix">
+    <div class="scroll-imgList">
+
+        <div class="scrollBox"  id="img_cen">
+            <ul class="img_list clearfix" id="foo1">
+                <!-- BEGIN resa.data.preview -->
+                <li><img  data-lazyload-url="{thumb}"  ></li>
+
+                <!-- END resa.data.preview -->
+            </ul>
+
+            <div class="page-wrap clearfix">
+                <a href="#" class="pre" id="prev1"></a>
+                <div class="page-box" id="pager1"><a href="#"></a><a href="#"></a><a href="#"></a></div>
+                <a href="#" class="next" id="next1"></a>
+            </div>
+        </div>
+    </div>
+    <div class="item-info">
+        <dl class="title-item">
+            <dt class="title">{resa.data.title}</dt>
+            <dd class="ad-mes clearfix">
+                <div class="assess-item">
+                    <span class="title">{resa.data.business.merit.title}：</span>
+                    <div class="mod-star-item" data-role="service_stars" data-stars="{resa.data.business.merit.value}">
+                        <div class="icon none-star" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="icon none-star" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="icon none-star" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="icon none-star" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="icon none-star" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deal-times"><span class="title">{resa.data.business.totaltrade.title}：</span><em>{resa.data.business.totaltrade.value}</em></div>
+            </dd>
+        </dl>
+        <div class="price-item">
+            <span class="now-price"><b></b><em data-role="change-price" id="J_price"></em><!-- IF resa.data.showing.exhibit --><span class="J_price_text">/人起</span><!-- ENDIF resa.data.showing.exhibit --></span>
+            <!--<span class="original-price"><b></b><em>{resa.data.original_prices}</em></span>-->
+        </div>
+
+        <!--场次选择模块-->
+        <div class="list">
+            <select id="J_section_select" style="width:420px;">
+                <!-- IF resa.data.showing.exhibit -->
+                <!-- BEGIN resa.data.showing.exhibit -->
+                <option data-total-num="{total_num}" data-attend-num="{attend_num}" data-stage-id="{stage_id}" data-name="{name}">{name}&nbsp;&nbsp;&nbsp;&nbsp;{period}</option>
+                <!-- END resa.data.showing.exhibit -->
+                <!-- ELSE -->
+                <option>所有场次已经结束</option>
+                <!-- ENDIF resa.data.showing.exhibit -->
+            </select>
+            <!-- IF resa.data.showing.exhibit -->
+            <div id="J_stock_detail">
+                活动名额
+                <span class="pink-color" id="J_stock_show_1">{first_total_num}</span>
+                人，已报名
+                <span class="pink-color" id="J_stock_show_2">{first_attend_num}</span>
+                人
+            </div>
+            <!-- ENDIF resa.data.showing.exhibit -->
+        </div>
+        <div class="choose-item" id="J_price_de_list">
+            <div class="item">
+                <div class="list">
+                    <ul data-role="ewm-submit" id="J_price_de_ul">
+                        <li data-carry-id="{id}" data-carry-name="{name}" data-carry-value="{value}"><p data-role="choosen-tap" style="display:none;">{name}</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="{first_stage_id}" id="first_stage_id"/>
+        <!--场次选择模块-->
+
+        <!--<div class="choose-item">
+            <h3 class="title">价格</h3>
+            <div class="item">
+                <div class="list">
+                    <ul data-role="ewm-submit">
+                        <li data-carry-id="{id}" data-carry-name="{name}" data-carry-value="{value}"><p data-role="choosen-tap">{name}</p></li>
+                        <li class="cur" data-carry-id="none" data-carry-name="标准规格" data-carry-value="{value}"><p data-role="choosen-tap">标准规格</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>-->
+
+        <div class="btn-item">
+            <a class="ui-btn-gray" id="buy-btn">立即下单</a>
+            <div class="pop-code-item"  id="code-pop">
+                <div class="pop-con">
+                    <div class="code-img"><img src="" data-role="ewm-scan"/></div>
+                    <p class="tc">扫一扫，一键下单</p>
+                </div>
+                <b class="ui-triangle ui-triangle-bottom-max-black">
+                    <b class="ui-triangle ui-triangle-bottom-max-white"></b>
+                </b>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="personal-info-item clearfix">
+    <div class="personal-item">
+        <div class="img-item">
+            <span><img src="{resa.data.user.avatar}" /></span>
+        </div>
+        <dl class="info">
+            <dt>{resa.data.user.name}</dt>
+            <dd>ID:{resa.data.user.user_id}</dd>
+        </dl>
+        <div class="link-item"><a href="{resa.data.user.homepage.request}">{resa.data.user.homepage.title}</a></div>
+    </div>
+    <div class="info-item">
+        <!-- 模特服务 -->
+        <!-- BEGIN seller_info.data.type_31 -->
+
+        <div class="item item-model fn-hide" data-role="type_31">
+            <!-- BEGIN bwh -->
+            <div class="item-info">
+                <h4 class="title">{title}</h4>
+                <div class="item-con">
+                    <div class="model-mes-list clearfix">
+                        <ul>
+                            <li  class="li-cm">
+                                <i class="icon icon-cm"></i>
+                                <p class="txt">{value.m_height}</p>
+                            </li>
+                            <li  class="li-kg">
+                                <i class="icon icon-kg"></i>
+                                <p class="txt">{value.m_weight}</p>
+                            </li>
+                            <li class="li-size">
+                                <i class="icon icon-size"></i>
+                                <p class="txt">{value.m_cups}</p>
+                            </li>
+                            <li class="li-figure">
+                                <i class="icon icon-figure"></i>
+                                <p class="txt">{value.m_bwh}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- END bwh -->
+            <!-- BEGIN description -->
+            <div class="item-info">
+                <h4 class="title">{title}</h4>
+                <div class="item-con">
+                    <p>{value}</p>
+                </div>
+            </div>
+            <!-- END description -->
+        </div>
+
+        <!-- END seller_info.data.type_31 -->
+
+        <!-- 摄影服务 -->
+        <!-- BEGIN seller_info.data.type_40 -->
+        <div class="item item-photograph fn-hide" data-role="type_40">
+            <!-- BEGIN description -->
+            <div class="item-info">
+                <h4 class="title">{title}</h4>
+                <div class="item-con">
+                    <p>{value}</p>
+                </div>
+            </div>
+            <!-- END description -->
+        </div>
+        <!-- END seller_info.data.type_40 -->
+
+        <!-- 摄影培训 -->
+        <!-- BEGIN seller_info.data.type_5 -->
+        <div class="item item-photograph fn-hide" data-role="type_5">
+            <!-- BEGIN description -->
+            <div class="item-info">
+                <h4 class="title">{title}</h4>
+                <div class="item-con">
+                    <p>{value}</p>
+                </div>
+            </div>
+            <!-- END description -->
+        </div>
+        <!-- END seller_info.data.type_5 -->
+
+        <!-- 影棚租赁 -->
+        <!-- BEGIN seller_info.data.type_12 -->
+        <div class="item item-photograph fn-hide" data-role="type_12">
+            <!-- BEGIN description -->
+            <div class="item-info">
+                <h4 class="title">{title}</h4>
+                <div class="item-con">
+                    <p>{value}</p>
+                </div>
+            </div>
+            <!-- END description -->
+        </div>
+        <!-- END seller_info.data.type_12 -->
+
+        <!-- 化妆服务 -->
+        <!-- BEGIN seller_info.data.type_3 -->
+        <div class="item item-photograph fn-hide" data-role="type_3">
+            <!-- BEGIN description -->
+            <div class="item-info">
+                <h4 class="title">{title}</h4>
+                <div class="item-con">
+                    <p>{value}</p>
+                </div>
+            </div>
+            <!-- END description -->
+        </div>
+        <!-- END seller_info.data.type_3 -->
+
+        <!-- 评分 -->
+        <!-- BEGIN seller_info.data.business -->
+        <div class="item item-assess fn-hide" data-role="business">
+            <div class="item-info">
+                <h4 class="title">{merit.title}</h4>
+                <div class="item-con">
+                    <div class="mod-star-item" data-role="seller_stars" data-stars="{merit.value}">
+                        <div class="icon none-star" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="icon none-star" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="icon none-star" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="icon none-star" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                        <div class="icon none-star" data-role="stars">
+                            <div class="yellow none"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deal-times">
+                    <span class="times">{totaltrade.title}：{totaltrade.value}</span>
+                </div>
+            </div>
+        </div>
+        <!-- END seller_info.data.business -->
+    </div>
+</div>
+
+<div class="service-item">
+    <h3 class="title">{resa.data.promise_title}</h3>
+    <div class="list clearfix">
+        <!-- BEGIN resa.data.promise_show -->
+        <div class="item">
+            <p <!-- IF ROWCNT == "1" -->style="display:inline;"<!-- ENDIF ROWCNT -->>{nl2br:title}{nl2br:value}</p>
+            <!-- IF ROWCNT == "1" -->
+            <span id="J_check_map">查看地图</span>
+            <!-- ENDIF ROWCNT -->
+        </div>
+        <!-- END resa.data.promise_show -->
+        <!-- IF resa.data.promise_hide -->
+        <!-- BEGIN resa.data.promise_hide -->
+        <div class="item fn-hide" data-show="hide">
+            <p>{nl2br:title}{nl2br:value}</p>
+        </div>
+        <!-- END resa.data.promise_hide -->
+        <!-- ENDIF -->
+
+    </div>
+    <!-- IF resa.data.promise_hide -->
+    <div class="btm-item">
+        <span class="op-btn more-btn" data-role="show_more" ><em>更多</em><i class="icon"></i></span>
+        <span class="op-btn packup-btn" data-role="hide_more" style="display: none"><em>收起</em><i class="icon"></i></span>
+    </div>
+    <!-- ENDIF -->
+</div>
+
+<!-- IF resa.data.recommend -->
+<div class="service-item">
+    <h3 class="title">{nl2br:resa.data.recommend.title}</h3>
+    <div class="list clearfix">
+        <div class="item">
+            <p>{nl2br:resa.data.recommend.value}</p>
+        </div>
+    </div>
+</div>
+<!-- ENDIF -->
+
+<!-- IF resa.data.menu -->
+<div class="service-item">
+    <h3 class="title">{nl2br:resa.data.menu.title}</h3>
+    <div class="list clearfix">
+        <div class="item">
+            <p>{nl2br:resa.data.menu.value}</p>
+        </div>
+    </div>
+</div>
+<!-- ENDIF -->
+
+<div class="mb20" id="J_map" style="display:none;position:relative;">
+    <span id="J_close_map"></span>
+    <div class="test_amap" id="map_container" >
+
+    </div>
+</div>
+<div class="tag-check-div">
+    <span class="tag-check J_tag_change tag-check-cur" data-value="detail_div">活动详情</span>
+    <span class="tag-check J_tag_change" data-value="join_div">报名名单</span>
+    <span class="tag-check J_tag_change" data-value="review_div">活动回顾</span>
+</div>
+
+
+<div class="detail-item" id="detail_div">
+    {resa.data.detail.value}
+</div>
+
+<div class="detail-item" id="join_div" style="display:none;">
+        <!-- IF join_list -->
+        <!-- BEGIN join_list -->
+        <div class="pb10 mt20 clearfix">
+        <div class="icon-img-head clearfix">{section_name}&nbsp;&nbsp;报名名单</div>
+            <!-- IF section_join_list -->
+                <!-- BEGIN section_join_list -->
+                <div class="icon-img-div">
+                    <div class="icon-img"><img src="{user_icon}" /></div>
+                    <div class="icon-img-text clearfix">{buyer_user_name}</div>
+                </div>
+                <!-- END section_join_list -->
+            <!-- ELSE -->
+            <div class="icon-img-div">暂无名单</div>
+            <!-- ENDIF section_join_list -->
+        </div>
+        <!-- END join_list -->
+        <span class="icon-more"><a href="javascript:;">更多 ></a></span>
+        <!-- ELSE -->
+        <p class="J_content_empty_p">
+            <i class="J_content_empty_tips mr10" style="background-image:url('http://static.yueus.com/mall/user/test/static/pc/images/search-empty-24x22.png');"></i>暂时没有报名名单
+        </p>
+        <!-- ENDIF join_list -->
+</div>
+<div class="detail-item" id="review_div" style="display:none;">
+    <!-- IF resa.data.review.value -->
+    {resa.data.review.value}
+    <!-- ELSE -->
+    <p class="J_content_empty_p">
+        <i class="J_content_empty_tips mr10" style="background-image:url('http://static.yueus.com/mall/user/test/static/pc/images/search-empty-24x22.png');"></i>组织者还未上传活动回顾
+    </p>
+    <!-- ENDIF resa.data.review.value -->
+
+</div>
+
+<!-- IF resa.data.guide -->
+<div class="service-item">
+    <h3 class="title">{nl2br:resa.data.guide.title}</h3>
+    <div class="list clearfix">
+        <!-- BEGIN resa.data.guide.list -->
+        <div class="item">
+            <p>{nl2br:title}{nl2br:value}</p>
+        </div>
+        <!-- END resa.data.guide.list -->
+
+        <!-- BEGIN resa.data.guide.img -->
+        <div class="item">
+            <img src="{original}" style="width: 100%"/>
+        </div>
+        <!-- END resa.data.guide.img -->
+    </div>
+</div>
+<!-- ENDIF -->
+
+<div class="appraise-item" data-role="appraise-item">
+    <h3 class="title">服务评价</h3>
+    <div class="mod-appraise-item">
+        <div class="list" data-role="lists">
+
+        </div>
+        <div class="page" data-role="page-index">
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+{down_app_area}
+
+</div>
+<input type="hidden" value="{resa.data.grid.lng}" id="J_lng"/>
+<input type="hidden" value="{resa.data.grid.lat}" id="J_lat"/>
+{footer}
+
+</body>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=067ba7256b710505b32bc5c3bf39ac4b"></script><!--地图-->
+<script type="text/javascript">
+var $ = require('components/jquery/jquery.js');
+var carouFredSel = require('common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0');
+
+
+// 引入图片居中处理组件
+var lazyload = require('common/lazyload/lazyload');
+require('yue_ui/layer/layer');
+//layer.alert(123456);
+
+$('#foo1').carouFredSel({
+    prev: '#prev1',
+    next: '#next1',
+    pagination: "#pager1",
+    auto: true
+});
+// 图片后加载处理
+var lazyload_obj = new lazyload({
+    contain: $('#img_cen'), // 后加载的父容器
+    size: '320', // 可传可不传，压位
+    img_center: {
+        is_open : true,  //是否开启图片居中功能
+        width : '544',   //图片居中盒子的宽
+        height : '468'  //图片居中盒子的高
+    },
+    pre_load_165 : true //立刻加载165的图
+});
+
+// 引入返回顶部组件
+var go_top = require('common/go_top/go_top');
+var go_top_obj = new go_top({
+    render_ele: $('body') // 后加载的父容器
+});
+
+$("html,body").animate({scrollTop:0},1000);
+
+
+var page_control = require('common/page_control/index');
+
+page_control.reg_hash
+        ([
+            {
+                hash : '#date',
+                func : function()
+                {
+                    console.log("date");
+                }
+            },
+            {
+                hash : '#ini',
+                func : function()
+                {
+                    console.log("ini");
+                }
+            }
+        ])
+
+//var service_stars = parseFloat('{resa.data.business.merit.value}');
+var ewm_link = '{order_link}';
+//console.log(ewm_link);
+
+var list_arr = {commit_json};
+
+var pages = require('common/widget/page_control/page-control');
+// 引入模拟下拉组件
+var selectbox = require('yue_ui/selectbox/selectbox');
+
+
+
+
+
+
+
+//星星处理函数
+function trans_stars(obj,num)
+{
+    var container = obj;
+
+    var stars = num || parseFloat(obj.attr('data-stars'));
+
+    //console.log(stars);
+
+    if(stars % 1 == 0)
+    {
+        $.each(obj.find('[data-role="stars"] > .yellow'),function(i,obj)
+        {
+            if(i < stars){
+                $(obj).removeClass('none').addClass('full');
+            }
+        })
+    }
+    else{
+        $.each(obj.find('[data-role="stars"] > .yellow'),function(i,obj)
+        {
+            if(i < Math.floor(stars)){
+                $(obj).removeClass('none').addClass('full');
+            }
+            if(i == Math.floor(stars)){
+                $(obj).removeClass('none').addClass('half');
+            }
+        })
+    }
+}
+
+$(document).ready(function() {
+
+    //console.log(list_arr.result_data)
+
+    //下滑组件
+    selectbox($('#J_section_select')[0]); // 初始化
+
+
+
+    $("#J_section_select").change(function(){
+
+        //alert( $("#demo-basic").val() ) //为Select添加事件
+        var data_total_num = $("#J_section_select").find("option:selected").attr("data-total-num");
+        var data_attend_num = $("#J_section_select").find("option:selected").attr("data-attend-num");
+        var data_stage_id = $("#J_section_select").find("option:selected").attr("data-stage-id");
+        $("#J_stock_show_1").html(data_total_num);
+        $("#J_stock_show_2").html(data_attend_num);
+        get_price_de_list(data_stage_id);
+
+    });
+
+
+    $('[data-role="show_more"]').on('click',function()
+    {
+        $('[data-show="hide"]').removeClass('fn-hide');
+
+        $(this).css('display','none');
+
+        $('[data-role="hide_more"]').css('display','');
+    })
+
+    $('[data-role="hide_more"]').on('click',function()
+    {
+        $('[data-show="hide"]').addClass('fn-hide');
+
+        $(this).css('display','none');
+
+        $('[data-role="show_more"]').css('display','');
+    })
+
+
+    $("#buy-btn").click(function(event){
+        if($("#code-pop").hasClass("pop-open")){
+            event.stopImmediatePropagation();
+            $("#code-pop").removeClass("pop-open");
+        }else{
+            event.stopImmediatePropagation();
+            var stage_id = $('[data-role="ewm-submit"]').find('.cur').attr('data-carry-id');
+            var price_type_id = $('[data-role="ewm-submit"]').find('.cur').attr('data-price-id');
+
+
+
+            if(stage_id && price_type_id)
+            {
+                var ewm_url;
+
+
+                ewm_url = 'yp.yueus.com' + location.pathname + '?goods_id={resa.data.goods_id}&from_pc=1&stage_id='+ stage_id +'&price_type_id=' + price_type_id;
+
+                console.log(ewm_url);
+
+                ewm_url = 'http://' + ewm_url.replace('goods/service_detail.php','order/confirm.php');
+
+                //console.log(ewm_url);
+
+                $("#code-pop").addClass("pop-open");
+
+                $.ajax
+                ({
+                    url: '.'+window.$__config.ajax_url + 'url_to_ewm.php',
+                    data : {url:ewm_url},
+                    dataType: 'json',
+                    type: 'POST',
+                    cache: false,
+                    beforeSend: function()
+                    {
+                        $('[data-role="ewm-scan"]').attr('src',"")
+                    },
+                    success: function(data)
+                    {
+                        $('[data-role="ewm-scan"]').attr('src',data.result_data)
+
+                    },
+                    error: function(data)
+                    {
+                        alert('请求失败，请重试');
+                        $("#code-pop").removeClass("pop-open");
+                    },
+                    complete: function()
+                    {
+
+                    }
+                });
+            }
+            else
+            {
+                alert("请选择规格")
+            }
+        }
+    });
+
+    var show_type = '{seller_info.data.show}';
+    $('[data-role="' + show_type + '"]').removeClass('fn-hide');
+
+    trans_stars($('[data-role="service_stars"]'));
+    trans_stars($('[data-role="seller_stars"]'));
+    $.each($('[data-role="commit_stars"]'),function(i,obj)
+    {
+        trans_stars($(obj));
+    })
+
+    $('[data-role="choosen-tap"]').on('click',function()
+    {
+        var con = $(this);
+
+        con.parent().addClass('cur').siblings().removeClass('cur');
+
+        if(con.parent().attr('data-carry-value'))
+        {
+            $('[data-role="change-price"]').html('￥' + con.parent().attr('data-carry-value'))
+        }
+
+
+        $("#code-pop").removeClass("pop-open");
+
+    })
+
+    var first_render = true; //首次加载不触发滚动事件
+    var ss = new pages
+    ({
+        //btn_index_max:3,//出现多少个按钮
+        container:$('[data-role="lists"]'),//列表插入父元素
+        data:list_arr.result_data, //列表数据数组 list=[{},{},{}]
+        default_index : 0, //默认索引 从0开始 超过最大值默认第一页
+        index_btn_container : $('[data-role="page-index"]'),//索引插入父元素
+        index_btn_trigger_show_lr_btn:3,//多少页时触发 上一页 下一页按钮
+        index_btn_temp:Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, self=this, functionType="function", escapeExpression=this.escapeExpression;
+
+function program1(depth0,data) {
+  
+  
+  return "\n    <a title=\"上一页\" data-index=\"pre\">&lt;</a>\n";
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\n    <a ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.cur), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " data-index=\"";
+  if (helper = helpers.dex) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.dex); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\">";
+  if (helper = helpers.num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</a>\n";
+  return buffer;
+  }
+function program4(depth0,data) {
+  
+  
+  return "class=\"click\"";
+  }
+
+function program6(depth0,data) {
+  
+  
+  return "\n    <a title=\"下一页\" data-index=\"next\">&gt;</a>\n";
+  }
+
+  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.has_pre), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  stack1 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.list), {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.has_next), {hash:{},inverse:self.noop,fn:self.program(6, program6, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  return buffer;
+  }),//索引模板
+        list_temp:Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\n<div class=\"item clearfix\">\n    <div class=\"user-img\">\n        <div class=\"img\"><a href=\"#\"><img src=\"";
+  if (helper = helpers.avatar) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.avatar); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\" /></a></div>\n        <p class=\"id-num\">ID:";
+  if (helper = helpers.from_user_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.from_user_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</p>\n    </div>\n    <div class=\"item-main\">\n        <div class=\"mod-star-item\" data-role=\"commit_stars\" data-stars=\"";
+  if (helper = helpers.rating) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.rating); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\">\n            <div class=\"icon none-star\" data-role=\"stars\">\n                <div class=\"yellow none\"></div>\n            </div>\n            <div class=\"icon none-star\" data-role=\"stars\">\n                <div class=\"yellow none\"></div>\n            </div>\n            <div class=\"icon none-star\" data-role=\"stars\">\n                <div class=\"yellow none\"></div>\n            </div>\n            <div class=\"icon none-star\" data-role=\"stars\">\n                <div class=\"yellow none\"></div>\n            </div>\n            <div class=\"icon none-star\" data-role=\"stars\">\n                <div class=\"yellow none\"></div>\n            </div>\n        </div>\n        <div class=\"text-item\">\n            <p>";
+  if (helper = helpers.comment) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.comment); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</p>\n        </div>\n        <div class=\"info-item\"><span class=\"name\">";
+  if (helper = helpers.customer) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.customer); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</span><span class=\"date\">";
+  if (helper = helpers.add_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.add_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</span> </div>\n    </div>\n</div>\n";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
+  }),//列表模板
+        per_page_amount:5,//每页列表显示的数据数量
+        after_render : function(whiches)
+        {
+            //渲染完毕后调用该函数 whiches为self对象
+            //console.log(whiches);
+            $.each(whiches.view.find('[data-role="commit_stars"]'),function(i,obj)
+            {
+                trans_stars($(obj));
+            })
+
+            if(list_arr.result_data.length == 0)
+            {
+                $('[data-role="appraise-item"]').addClass('fn-hide');
+            }
+
+            if(whiches.per_page_amount >= list_arr.result_data.length)
+            {
+                $('[data-role="page-index"]').addClass('fn-hide');
+            }
+
+            if(first_render)
+            {
+                first_render = false;
+            }
+            else
+            {
+                $("html,body").animate({scrollTop: $('[data-role="appraise-item"]')[0].offsetTop}, 300);
+            }
+        },
+        after_pre_act : function(whiches)
+        {
+            //前一页按钮调用后
+        },
+        after_next_act : function(whiches)
+        {
+            //后一页按钮调用后
+        }
+
+    })
+
+    $(document).on("click",function(){
+        $("#code-pop").removeClass("pop-open");
+    })
+
+
+
+    //场次切换JS处理
+        //场次对象
+        var section_obj = {
+
+        };
+        <!-- BEGIN new_standard_list -->
+        var cur_stage_id = "{stage_id}";
+        var cur_stage_arr_len = "{stage_array_len}";
+        section_obj["stage_id_"+cur_stage_id] = {
+            arr_len:cur_stage_arr_len
+        };
+        <!-- BEGIN stage_array -->
+        var rowcnt = "{ROWCNT}";
+        section_obj["stage_id_"+cur_stage_id]["stage_arr_"+rowcnt] = {
+
+        };
+        section_obj["stage_id_"+cur_stage_id]["stage_arr_"+rowcnt]["name"] = "{name}";
+        section_obj["stage_id_"+cur_stage_id]["stage_arr_"+rowcnt]["stage_id"] = "{stage_id}";
+        section_obj["stage_id_"+cur_stage_id]["stage_arr_"+rowcnt]["value"] = "{value}";
+        section_obj["stage_id_"+cur_stage_id]["stage_arr_"+rowcnt]["id"] = "{id}";
+        <!-- END stage_array -->
+        <!-- END new_standard_list -->
+
+
+
+
+        console.log(section_obj);
+
+
+        var first_stage_id = $("#first_stage_id").val();
+        console.log("开始场次ID："+first_stage_id);
+        get_price_de_list(first_stage_id);//页面加载时候选中
+
+
+
+        /*$("#J_section_select").on("change",function(){
+            var data_total_num = $("#J_section_select").find("option:selected").attr("data-total-num");
+            var data_attend_num = $("#J_section_select").find("option:selected").attr("data-attend-num");
+            var data_stage_id = $("#J_section_select").find("option:selected").attr("data-stage-id");
+            $("#J_stock_show_1").html(data_total_num);
+            $("#J_stock_show_2").html(data_attend_num);
+            get_price_de_list(data_stage_id);
+
+        });*/
+
+
+        //构造分类块跟价钱
+        function get_price_de_list(stage_id)
+        {
+            if(stage_id=="")
+            {
+                return;
+            }
+
+            console.log(stage_id);
+
+
+
+            var price_list = section_obj["stage_id_"+stage_id];
+            var price_list_len = section_obj["stage_id_"+stage_id].arr_len;
+            var cur_class = "";
+            var first_price = "";
+
+            //console.log(price_list);
+            //console.log(price_list_len);
+            var price_list_html = "";
+
+            for(var i=0;i<price_list_len;i++)
+            {
+                if(i==0)
+                {
+                    cur_class = 'class="cur"';
+                    first_price = price_list["stage_arr_"+i].value;
+                }
+                else
+                {
+                    cur_class = '';
+                }
+
+                price_list_html += '<li '+cur_class+' data-price-id="'+price_list["stage_arr_"+i].id+'" data-carry-id="'+price_list["stage_arr_"+i].stage_id+'" data-carry-name="'+price_list["stage_arr_"+i].name+'" data-carry-value="'+price_list["stage_arr_"+i].value+'">'+'<p data-role="choosen-tap" data-class="price_li" data-price="'+price_list["stage_arr_"+i].value+'" data-name="'+price_list["stage_arr_"+i].name+'">'+price_list["stage_arr_"+i].name+'</p></li>';
+            }
+
+
+
+
+            $("#J_price_de_ul").html("");
+            $("#J_price_de_ul").html(price_list_html);
+            $("#J_price").html('￥' + first_price);
+
+
+        }
+
+        //点击规格切换
+        $("#J_price_de_ul").on("click",function(e){
+            var target = e.target;
+            var data_class=  $(target).attr("data-class");
+            var data_price = $(target).attr("data-price");
+            if(data_class=="price_li")
+            {
+
+                $(target).parent().addClass('cur').siblings().removeClass('cur');
+
+                $("#J_price").html('￥' + data_price);
+
+            }
+
+
+
+        });
+
+
+    //场次切换JS处理
+
+    //栏目切换
+    $(".J_tag_change").on("click",function(e){
+        var target = e.target;
+        var data_value=  $(target).attr("data-value");
+        $(target).addClass('tag-check-cur').siblings().removeClass('tag-check-cur');
+        switch(data_value)
+        {
+            case "detail_div":
+                $("#detail_div").show();
+                $("#join_div").hide();
+                $("#review_div").hide();
+                break;
+            case "join_div":
+                $("#detail_div").hide();
+                $("#join_div").show();
+                $("#review_div").hide();
+                break;
+            case "review_div":
+                $("#detail_div").hide();
+                $("#join_div").hide();
+                $("#review_div").show();
+                break;
+
+        }
+    })
+
+    //获取地图
+        var map,geocoder,marker;
+
+        //初始地图对象
+        map = new AMap.Map('map_container',{
+            zooms:[3,25]
+        });
+
+        marker = new AMap.Marker({
+            icon: "../static/pc/images/amap_marker_sprite-34x32.png"
+
+        });
+
+        $("#J_check_map").on("click",function(e){
+
+            if($("#J_map").css("display")!="none")
+            {
+                $("#J_map").css("display","none");
+            }
+            else
+            {
+                //获取经纬度
+                var lng_lat_arr = "";
+                var cur_lng = $("#J_lng").val();
+                var cur_lat = $("#J_lat").val();
+                //通过经纬度获取地图
+                if(cur_lng!="" && cur_lat!="")
+                {
+                    //展示地图
+                    lng_lat_arr = [cur_lng,cur_lat];
+                    map.setZoom(18);
+                    map.setCenter(lng_lat_arr);
+                    //添加标记号
+                    marker.setPosition(lng_lat_arr);
+                    marker.setMap(map);
+                    $("#J_map").css("display","block");
+
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+        });
+
+
+        //关闭地图
+        $("#J_close_map").on("click",function(){
+            $("#J_map").css("display","none");
+
+        })
+
+});
+
+</script>
+
+</html>

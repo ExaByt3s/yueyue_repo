@@ -1,0 +1,128 @@
+// --------------------------------------------------
+// 公共 - 顶栏 - 搜索
+// --------------------------------------------------
+
+
+.global-topbar-search {
+    display: none;
+
+    width: 216px;
+    height: 34px;
+    padding: 7px 10px 0;
+    border-left: 1px solid #323232;
+    border-right: 1px solid #0a0a0a;
+    line-height: normal;
+    background-color: #282828;
+
+    .search-container {
+        height: 26px;
+        background: #fff;
+        @include border-radius(3px);
+    }
+
+    // 搜索类型
+    // -----------------------------------------
+    .search-tab-container {
+        @include float-left;
+        position: relative;
+        _zoom: 1;
+        width: 64px;
+        height: 26px;
+    }
+    .search-tab-hover {
+        .search-switchable-dropdown {
+            display: block;
+        }
+    }
+    // 触发器
+    .search-tab-trigger {
+        display: block;
+        height: 100%;
+        line-height: 26px;
+        padding-left: 10px;
+        @include link-colors(#999, #999);
+
+        .icon-angle {
+            position: static;
+            @include float-left;
+            margin: 12px 0 0 3px;
+        }
+    }
+    // 文字
+    .search-tab-text {
+        @include float-left;
+    }
+    // 类型选项下拉菜单
+    .search-switchable-dropdown {
+        display: none;
+        position: absolute;
+        z-index: $topbar-max-zIndex - 2;
+        top: 23px;
+        left: 0;
+        width: 64px;
+        padding-top: 3px;
+        background: #fff;
+
+        @include box-shadow(0px 1px 2px rgba(#000, 0.1)); // #00
+        @include border-radius(0 0 2px 2px);
+
+        a:hover {
+            background-color: #f0f0f0;
+        }
+    }
+    .switchable-nav {
+        border-width: 0 1px 1px;
+        border-style: solid;
+        border-color: #d7d7d7;
+
+        a {
+            display: block;
+            height: 26px;
+            line-height: 26px;
+            padding: 0 0 0 10px;
+            @include link-colors(#999, #999);
+        }
+    }
+
+    // 搜索文本框
+    // -----------------------------------------
+    .search-input-container {
+        @include float-left;
+        height: 26px;
+        padding-right: 22px;
+        position: relative;
+        _zoom: 1;
+        overflow: hidden;
+    }
+    .text-input-label {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 7px;
+        line-height: 1;
+        color: #999;
+        cursor: text;
+    }
+    .search-input-text {
+        width: 130px;
+        height: 16px;
+        line-height: 16px;
+        padding: 5px 0;
+
+        font-size: 12px;
+
+        outline: 0;
+    }
+    // 搜索按钮
+    .search-button {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        margin-top: -8px;
+        .icon-search {
+            margin: 0;
+            @include get-icon('search-hover');
+        }
+    }
+}

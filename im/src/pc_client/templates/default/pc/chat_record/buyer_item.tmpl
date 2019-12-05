@@ -1,0 +1,14 @@
+{{#each data}}
+<div class="buyer_list_item ds-box orient-h align-center pack-justify" data-role="buyer_list_item" send_user_id="{{send_user_id}}" to_user_id="{{to_user_id}}" custom_id="{{custom_id}}" manage_id="{{manage_id}}">
+    <div class="ds-box left">
+        <img class="ds-block" src='{{custom_icon}}' style="width: 40px;height: 40px;border-radius: 2px"/>
+        <div class="ds-box orient-v info">
+            <div>{{custom_name}}</div>
+            <div>ID:{{custom_id}}</div>
+        </div>
+    </div>
+    <div class="ds-box right">
+        <div>{{last_connect_time}}</div>
+    </div>
+</div>
+{{/each}}

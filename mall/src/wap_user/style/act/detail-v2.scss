@@ -1,0 +1,309 @@
+@charset "UTF-8";
+@import "../../sass/compass";
+
+.act-detail-page-v2 {
+    .p1th {
+        // margin: 15px 0;
+        .swiper-container {
+            height: 107px;
+        }
+        .slide-items-bg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background-color: #fafafa;
+            -webkit-background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            box-sizing: border-box;
+        }
+        .swiper-pagination-bullet {
+            border: 1px solid #fff;
+            width: 5px;
+            height: 5px;
+            background: none;
+            border-radius: 50%;
+            margin: 0 1px;
+            opacity: .7
+        }
+        .swiper-pagination-bullet-active {
+            background: #f2f2f2;
+        }
+    }
+
+    .p2th{
+        background: #fff;
+        .p-a{
+            padding: 10px;
+            .lbox{
+                width: 220px;
+                .title{
+                    font-size: 18px;
+                }
+            }
+            .rbox{
+                height : 50px;
+                border-left: 1px solid #dddddd;
+                width: 60px;
+                text-align: center;
+                position: relative;
+
+            }
+
+            .price{
+
+            }
+
+            .collect-mod{
+                position: absolute;
+                width: 60px;
+                height: 50px;
+                top: 0;
+                left: 0;
+
+                .ui-button-content{
+                    position: absolute;
+                    top:22px;
+                    text-align: center;
+                    width: 100%;
+                    padding: 0px;
+                    color :#ff6a6e;
+                    left: 4px;
+                }
+
+
+            }
+            .collect-mod .ui-button{
+                background: url(../../image/collect-30x30.png); 
+                width:15px;
+                height: 15px;
+                background-size: 15px 15px;
+                display: block;
+                border: none;
+                margin: 10px 0 0 25px;
+
+            }
+
+            .collect-mod .has-collect{
+                background-image: url(../../image/collect-30x30-has.png); 
+            }
+
+
+
+        }
+
+        .p-b{
+            padding: 15px 15px ;
+            .lbox{
+                // width: 150px;
+            }
+        }
+    }
+
+    .p3th{
+        background: #fff;
+        margin-top: 15px;
+        padding: 15px;
+
+        .list{
+            padding-top: 5px;
+            li{
+                text-align: center;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                color:#ff6a6e;
+                border: 1px solid #ff6a6e;
+                border-radius: 5px;
+                margin-top: 10px;
+                &.cur{
+                    background: #ff6a6e;
+                    color:#fff
+                }
+            }
+        }
+
+        .more{
+            text-align: center;
+            padding: 15px 0 5px 0;
+        }
+    }
+
+    .p4th{
+        background: #fff;
+        margin-top: 15px;
+        .item-wrap{
+
+        }
+        .item{
+            @include flexbox((
+                display: box // 盒子模型 子元素默认水平左对齐
+               
+            ));
+            padding: 12px 15px;
+            .lbox{
+                width:72px;
+            }
+            .rbox{
+                @include flexbox((
+                    display: box,  // 
+                    box-flex: 1 //占有空间比例
+                ));
+            }
+        }
+        .more{
+            text-align: center;
+            padding: 15px 0 15px 0;
+        }
+
+    }
+
+    .p5th{
+        background: #fff;
+        margin-top: 15px;
+        .p-a{
+            padding: 15px 15px 0px 15px;
+
+
+        }
+        .p-b{
+            .user-info-item{
+                padding-left: 0px;
+                padding-right: 0 ;
+            }
+            .ui-user-info-mod{
+                margin-left: 15px;
+                margin-right: 15px;
+                .place{
+                    position: absolute;
+                    right: 15px;
+                    top: 35px;
+                }
+                
+               
+            }
+            .item{
+                background: none;
+                padding-left: 0px;
+                padding-right: 0 ;
+                
+            }
+            .des{
+                padding: 5px 15px 15px 15px;
+                line-height: 24px;
+            }
+
+            .user-info-con{
+                .title{
+                    width: 120px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+    .p6th-wrap{
+        padding-bottom: 75px;
+    }
+    .p6th{
+        background: #fff;
+        margin-top: 15px;
+        padding-bottom: 15px;
+        // margin-bottom: 100px;
+        .nav{
+            .list{
+                @include flexbox((
+                    display: box  // 盒子模型 
+                ));
+
+                li{
+                    @include flexbox((
+                      
+                        box-flex: 1 //占有空间比例
+                    ));
+                    text-align: center;
+                    background: #fbfbfb;
+                    text-align: center;
+                    border: 1px solid #dddddd;
+                    height: 44px;
+                    @include box-sizing(border-box);
+                    line-height: 44px;
+                    font-size: 14px;
+                    color:#666666;
+                    border-left: none;
+
+                    &.cur{
+                        border-top: 2px solid #333333;
+                        background: none;
+                        color:#333;
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+
+        .content-box{
+            // padding-bottom: 10px;
+            // margin-bottom: 50px;
+        }
+
+        .act-des{
+            padding: 15px;
+            line-height: 26px;
+            img{
+                width: 100%;
+            }
+        }
+
+        .act-user{
+            .list{
+                padding-bottom: 15px;
+                li{
+                    margin: 15px 15px 0px 15px;
+                    border: 1px solid #ddd;
+                    padding: 13px;
+                    border-radius: 5px;
+                    .p2{
+                        padding-top: 5px;
+                    }
+                    &.cur{
+                        background: #f9f9f9;
+                    }
+                }
+            }
+        }
+
+        .act-hg{
+            padding: 15px;
+            line-height: 26px;
+            .no-content{
+                text-align: center;
+            }
+            .icon-32x32-error{
+                background: url(../../image/icon-32x32-error.png); 
+                width: 16px;
+                height: 16px;
+                display: inline-block;
+                background-size: 16px 16px;
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+        }
+    }
+
+
+    .btn-area{
+        height:55px;
+        border-top: 1px solid #ddd;
+        background: #fafafa;
+        position: fixed;
+        bottom:0;
+        left:0;
+        width: 100%;
+        @include box-sizing(border-box);
+        padding: 8px 25px 0 25px;
+    }
+}

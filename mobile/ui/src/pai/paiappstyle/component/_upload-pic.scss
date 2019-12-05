@@ -1,0 +1,88 @@
+/* .content-body{
+  padding: 20px 9px 0 20px;
+} */
+  .upload-pic-list {
+      font-size: 0;
+      & > div {
+          display: inline-block;
+          position: relative;
+          margin: 0 11px 10px 0;
+          @include box-sizing(border-box);
+          vertical-align: top;
+          width: 96px;
+          height: 96px;
+          &:nth-child(3n){
+            margin-right: 0;
+          };
+      }
+
+
+      .upload-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-position: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include border-radius($border-radius);
+        &.no-radius {
+            @include border-radius(0 !important);
+        }
+      }
+
+
+      .cover-image{
+        padding: 0;
+        display: block;
+        margin: 0 auto;
+        img{
+          margin: 0 auto;
+        }
+
+      }
+      .add-btn-out{
+        display: table;
+        .add-btn{
+          display: table-cell;
+          //width: 96%;
+          //height: 100%;
+          color: #aaaaaa;
+          @include border-radius(5px);
+          @include box-sizing(border-box);
+          border: 2px dashed #aaaaaa;
+          text-align: center;
+          vertical-align: middle;
+          font-size: 75px;
+        }
+      }
+
+      .close-out{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: -5px;
+        right: -5px;
+        z-index: 999;
+      }
+
+      .close-btn{
+        position: absolute; 
+        top:0;
+        right:0;
+        @include get-icon('close-40x40',true,block);
+        &:active{
+          @include get-icon('close-40x40-hover',true,block);
+        }
+
+      }
+  }
+  .upload-cover{
+    position: relative;
+    .upload-cover-txt{
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #aaa;
+    }
+  }
+  

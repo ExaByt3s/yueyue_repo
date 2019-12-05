@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://css-tricks.com/examples/LazyLoading/ -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>Lazy Loading</title>
+
+    <link rel="stylesheet" href="./LazyLoading_files/index.css">
+    <script type="text/javascript" src="./lazyload.js"></script>
+    <style>
+        .lazy {
+            margin: 400px 0;
+            display: block;
+        }
+    </style>
+
+    <script type="text/javascript" src="./LazyLoading_files/jquery.min.js"></script>
+
+<body>
+<h1>Lazy Loading Image</h1>
+<div class="zone">
+        <div><img width="100%" height="" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/69662015060516560045182192.png" src="" class="lazy"></div>
+        <img width="100%" height="" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/13132015060516593641687084.png" src="" class="lazy">
+        <div style="width:100%;height:150px;background-size: cover;" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/51062015060516583459286619.png" src="" class="lazy"></div>
+        <div style="width:100%;height:150px;background-size: cover;" data-preurl="http://img5.poco.cn/yueyue/cms/20150605/921720150605165855436022.png" src="" class="lazy"></div>
+</div>
+
+
+<script>
+    var LZ = new LazyLoading;
+    LZ.init($('body'));
+    //LZ.freshELE();
+
+</script>
+</body>
+</html>

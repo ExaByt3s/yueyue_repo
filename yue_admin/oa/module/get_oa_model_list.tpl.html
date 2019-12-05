@@ -1,0 +1,70 @@
+
+      <div class="table-list" style="margin-top:10px">
+        <table width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              
+              <th width="126">商家用户ID</th>
+              <th width="156">商家昵称</th>
+              <th width="243">可拍摄时间</th>
+              <th width="243">拍摄价格</th>
+              <th width="243">手机</th>
+              <th width="257">备注</th>
+              <th width="257">查看商家库</th>
+              <th width="257">推荐时间</th>
+              <th width="257">状态</th>
+              <th width="257">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- BEGIN model_list -->
+            <tr>
+              
+              <td align="center">{user_id}</td>
+              <td align="center">{nickname}</td>
+              <td align="center">{date_time}</td>
+              <td align="center">{price}</td>
+              <td align="center">{cellphone}</td>
+              <td align="center">{remark}</td>
+              <td align="center"><a href="http://www.yueus.com/yue_admin/model_audit/model_detail.php?uid={user_id}" target="_blank">查看</a></td>
+              <td align="center">{add_time}</td>
+              <td align="center"><!-- IF status="0" -->待确认<!-- ELSEIF status="1" -->合适<!-- ELSEIF status="2" -->不合适<!-- ENDIF --></td>
+              <td align="center"><!-- IF top.oa_role="operate" --><!-- IF status="0" --><a href="javascript:void(0);" onclick="update_recommend_status({id},{order_id},1)">合适</a>
+              <a href="javascript:void(0);" onclick="update_recommend_status({id},{order_id},2)">不合适</a>
+              <!-- ENDIF -->
+              <!-- IF status="1" --><a href="javascript:void(0);" onclick="update_recommend_status({id},{order_id},2)">不合适</a> <!-- ENDIF -->
+              <!-- IF status="2" --> <a href="javascript:void(0);" onclick="update_recommend_status({id},{order_id},1)">合适</a><!-- ENDIF -->
+              <!-- ENDIF -->
+              <!-- IF top.oa_role="expand" -->
+              <a href="javascript:void(0);" onclick="del_recommend({id},{order_id})">删除</a><!-- ENDIF --></td>
+              <!-- END model_list --> 
+            </tr>
+          </tbody>
+        </table>
+</div>
+      <div class="table-list">
+      <!-- IF model_list -->
+        <div class="btn">
+         <!-- IF oa_role="expand" -->
+        <div class="btn">
+        <input type="button" value="返回" class="button" onclick="history.go(-1);">
+         <input type="button" value="完成推荐" class="button" onclick="frame.location.href='model_match.php?order_id={order_id}&complete_recommend=1'">
+     
+        </div>
+        <!-- ENDIF -->
+        <!-- IF oa_role="operate" -->
+        <div class="btn">
+         <input type="button" value="返回" class="button" onclick="history.go(-1);">
+        &nbsp;&nbsp;
+        <input type="button" value="完成推荐" class="button" onclick="frame.location.href='model_match.php?order_id={order_id}&complete_recommend=1'">
+          &nbsp;&nbsp;
+         <input type="button" value="打回推荐" class="button" onclick="frame.location.href='model_match.php?order_id={order_id}&confirm_order=1'">
+          
+        &nbsp;&nbsp;
+        <input type="button" value="通知摄影确认" class="button" onclick="frame.location.href='model_match.php?order_id={order_id}&shoot_confirm=1'">
+        </div>
+        <!-- ENDIF -->
+        </div>
+        <!-- ENDIF -->
+      </div>
+    

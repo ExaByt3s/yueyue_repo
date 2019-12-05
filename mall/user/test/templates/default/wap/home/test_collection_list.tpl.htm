@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>商家列表</title>
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/home/collection_list.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/list/list.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+</head>
+<body>
+<main role="main">
+    <header class="global-header">
+        <div class="wbox clearfix">
+            <a href="javascript:void(0);">
+                <div id="back" class="back" data-role="page-back">
+                    <i class="icon-back"></i>
+                </div>
+            </a>
+            <h3 class="title">
+                <div class="list-type">
+                    <a href="{seller_url}">
+                        <div  class="header-btn <!-- IF target_type = "seller" --> cur<!-- ENDIF -->" data-role="seller-btn">商家</div>
+                    </a>
+                    <a href="{goods_url}">
+                        <div class="header-btn <!-- IF target_type = "goods" --> cur<!-- ENDIF -->" data-role="service-btn">服务</div>
+                    </a>
+                </div>
+            </h3>
+        </div>
+    </header>
+    <div class="page-view list_container" data-role="page-container">
+        <div class="ui-form ">
+        <div class="operate">
+            <div class="category ui-border-r" data-role="category">
+                <span data-role="col-name">所有品类</span>
+                <i class="tag" data-role="tag"></i></div>
+            <div class="category" data-role="sort-btn">
+                <span data-role="sort-name">默认排序</span>
+                <i class="tag" data-role="sort-tag"></i>
+            </div>
+        </div>
+
+        <div class="menu top006" data-role="category-m">
+            <div class="subtag">
+            <!-- BEGIN type_data -->
+            <div class="submenu ui-border-b" data-role="btn-col" id="{id}">{name}</div>
+            <!-- END type_data -->
+            </div>
+        </div>
+
+            <div class="menu top006" data-role="sort" style="height:18%;">
+                <div class="subtag">
+                <!-- BEGIN sort_data -->
+                <div class="submenu ui-border-b" data-role="btn-sort" data-type="{sort_by}">{name}</div>
+                <!-- END sort_data -->
+                </div>
+            </div>
+
+        <div class="collection-list-page">
+            <div class="collection_list" data-role="collection-list">
+                <div id="render_ele"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</main>
+</body>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/list/list.js"></script>
+<script>
+
+    var $ = require('components/zepto/zepto.js');
+    var header = require('common/widget/header/main');
+    var utility = require('common/utility/index');
+    var page_params = {page_params}.result_data;
+    var page_filter_page_params = {page_filter_page_params}.result_data;
+    console.log(page_filter_page_params);
+    var id = {type_id};
+    var sort_by = "{sort_by}";
+    var target_type = "{target_type}";
+
+
+    $(document).ready(function() {
+        //头部返回按钮
+        var $back = $('#back');
+        $back.on('click',function()
+        {
+            if(document.referrer)
+            {
+                window.history.back();
+            }
+            else
+            {
+                window.location.href = "http://yp.yueus.com/mall/user/test/index.php" ;
+            }
+        });
+
+        //品类选项弹出选项框
+        var triangle = $('[data-role="tag"]');
+        var $category = $('[data-role="category"]');
+        var mune = $('[data-role="category-m"]');
+        $category.on('click',function(ev)
+        {
+            ev.stopPropagation();
+            if(mune.hasClass("top006")){
+                mune.removeClass("top006");
+                mune.addClass("top46");
+                triangle.addClass("tag-trfm");
+                $(this).addClass("ui-tips-success");
+                sort.removeClass("top46");
+                sort.addClass("top006");
+                triangle_sort.removeClass("tag-trfm");
+                $sort_btn.removeClass("ui-tips-success");
+            }else
+            {
+                mune.removeClass("top46");
+                mune.addClass("top006");
+                triangle.removeClass("tag-trfm");
+                $(this).removeClass("ui-tips-success");
+            }
+        });
+
+        //排序选项点击弹出选项框
+        var $sort_btn = $('[data-role="sort-btn"]');
+        var sort = $('[data-role="sort"]');
+        var triangle_sort = $('[data-role="sort-tag"]');
+
+        $sort_btn.on('click',function(ev)
+        {
+            ev.stopPropagation();
+            if(sort.hasClass("top006")){
+                sort.removeClass("top006");
+                sort.addClass("top46");
+                triangle_sort.addClass("tag-trfm");
+                $(this).addClass("ui-tips-success");
+                mune.removeClass("top46");
+                mune.addClass("top006");
+                triangle.removeClass("tag-trfm");
+                $category.removeClass("ui-tips-success");
+            }else
+            {
+                sort.removeClass("top46");
+                sort.addClass("top006");
+                triangle_sort.removeClass("tag-trfm");
+                $(this).removeClass("ui-tips-success");
+            }
+        });
+        //点击页面收起选项框
+        $(document).on('click',function()
+        {
+            mune.removeClass("top46");
+            mune.addClass("top006");
+            triangle.removeClass("tag-trfm");
+            $category.removeClass("ui-tips-success");
+            sort.removeClass("top46");
+            sort.addClass("top006");
+            triangle_sort.removeClass("tag-trfm");
+            $sort_btn.removeClass("ui-tips-success");
+        });
+
+        //安装事件
+        function setupevent ()
+        {
+            var target_type = "{target_type}";
+            var operate  = 'unfollow';
+            var $uncollect = $('[data-role="del"]');
+
+            //点击取消收藏
+            $uncollect.on('click',function(ev)
+            {
+                ev.preventDefault();
+                var $cur_btn = $(ev.currentTarget);
+                var target_id = $(this).attr('data-user-id');
+                var data =
+                    {
+                        target_id : target_id ,
+                        target_type : target_type,
+                        operate : operate
+                    };
+                var dialog = utility.dialog
+                ({
+                    "content" :　"确定要删除该收藏吗？",
+                    "buttom" : ["取消","确定"]
+                });
+                dialog.on('confirm',function()
+                {
+                    var uncollect_ajax_obj = utility.ajax_request
+                    ({
+                        url: '../ajax/collect.php',
+                        data: data,
+                        type: 'POST',
+                        beforeSend: function()
+                        {
+                            self.config = false ;
+                            self.$loading = $.loading
+                            ({
+                                content:'加载中...'
+                            });
+                        },
+                        success: function(data)
+                        {
+                            // debugger;
+                            self.$loading.loading("hide");
+                            self.config = true ;
+
+                            $cur_btn.parents('.item').remove();
+                            var ret = data.result_data.data ;
+                            console.log(ret);
+
+                        },
+                        error: function()
+                        {
+                            self.$loading.loading("hide");
+                            self.config = true ;
+                            $.tips({
+                                content:'网络异常',
+                                stayTime:3000,
+                                type:'warn'
+                            });
+
+                        },
+                        complete: function()
+                        {
+                            self.$loading.loading("hide");
+                            self.config = true ;
+
+                        }
+                    });
+                });
+
+
+            });
+        };
+
+
+        //列表
+
+        var COLLECTION_AJAX_URL = window.$__ajax_domain+'get_tarde_collection_list.php';
+        <!-- IF target_type ="seller" -->
+        var template = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n        <a href=\"";
+  if (helper = helpers.link) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.link); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n            <div class=\"item \">\r\n                <p class=\"del icon\" data-role=\"del\" data-user-id=\"";
+  if (helper = helpers.seller_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.seller_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"></p>\r\n                <div class=\"layout_box ui-searchbar-input ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.is_close), "==", 1, options) : helperMissing.call(depth0, "compare", (depth0 && depth0.is_close), "==", 1, options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\">\r\n               <div class=\"lbox \">\r\n                   <i data-lazyload-url=\"";
+  if (helper = helpers.cover) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.cover); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"  class=\"img image-img min-height\"></i>\r\n               </div>\r\n\r\n               <div class=\"rbox \">\r\n               	<div class=\"msg\">\r\n                    <h3 class=\"title color-000 f16 fb\">";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h3>\r\n                    <div>";
+  if (helper = helpers.location) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.location); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n               </div>\r\n               <div>\r\n                   ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.is_close), "==", 1, options) : helperMissing.call(depth0, "compare", (depth0 && depth0.is_close), "==", 1, options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n                   <div class=\"sidebar\">\r\n                       <div>评价：</div>\r\n                        <div class=\"stars-all-mod\">\r\n                           <div class=\"ui-stars-grey\">\r\n                           </div>\r\n                               <div class=\"ui-stars-yellow\" style=\"width:"
+    + escapeExpression((helper = helpers.percent || (depth0 && depth0.percent),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.score), "5", options) : helperMissing.call(depth0, "percent", (depth0 && depth0.score), "5", options)))
+    + "\">\r\n                           </div>\r\n                        </div>\r\n                   </div>\r\n                   <div class=\"msg\">\r\n                        <p class=\"num color-333 f12\">";
+  if (helper = helpers.goods_num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.goods_num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n\r\n                   </div>\r\n               </div>\r\n               </div>\r\n                </div>\r\n            </div>\r\n        </a>\r\n\r\n    ";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  
+  return "opacity4";
+  }
+
+function program4(depth0,data) {
+  
+  
+  return "\r\n                   <div class=\"is-show\">\r\n                       <i class=\"tags\">!</i>\r\n                       <span class=\"tips\">暂停服务</span>\r\n                   </div>\r\n                   ";
+  }
+
+  buffer += "<div class=\"item-list\">\r\n    ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n</div>";
+  return buffer;
+  });
+        <!-- ELSEIF target_type="goods" -->
+        var template = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += " \r\n<a href=\"";
+  if (helper = helpers.link) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.link); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-role=\"items\">\r\n    <div class=\"item\" >\r\n    <p class=\"del icon\" data-role=\"del\" data-user-id=\"";
+  if (helper = helpers.goods_id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.goods_id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"></p>\r\n    <div class=\"layout_box ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.is_show), "==", 2, options) : helperMissing.call(depth0, "compare", (depth0 && depth0.is_show), "==", 2, options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\">\r\n        <div class=\"lbox \">\r\n            <i data-lazyload-url=\""
+    + escapeExpression((helper = helpers.change_img_size || (depth0 && depth0.change_img_size),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.images), "260", options) : helperMissing.call(depth0, "change_img_size", (depth0 && depth0.images), "260", options)))
+    + "\" class=\"img image-img min-height\"></i>\r\n        </div>\r\n\r\n        <div class=\"rbox \">\r\n            <h3 class=\"title color-000 f14\">";
+  if (helper = helpers.titles) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.titles); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h3>\r\n            <div>\r\n                ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.is_show), "==", 2, options) : helperMissing.call(depth0, "compare", (depth0 && depth0.is_show), "==", 2, options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n                <div class=\"msg\">\r\n                    <p class=\"price color-ff6\" style=\"";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(6, program6, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.is_show), "==", 2, options) : helperMissing.call(depth0, "compare", (depth0 && depth0.is_show), "==", 2, options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\">";
+  if (helper = helpers.prices) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.prices); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n                    <p class=\"num color-999 f12\">\r\n                    </p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    </div>\r\n</a>\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  
+  return "opacity4";
+  }
+
+function program4(depth0,data) {
+  
+  
+  return "\r\n                <div class=\"is-show\">\r\n                    <i class=\"tags\">!</i>\r\n                    <span class=\"tips\">已下架</span>\r\n                </div>\r\n                ";
+  }
+
+function program6(depth0,data) {
+  
+  
+  return "color:#000;";
+  }
+
+  buffer += "<div class=\"hp\">\r\n";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " \r\n</div>";
+  return buffer;
+  });
+        <!-- ENDIF -->
+        var list_item_class = require('list');
+        var list_obj = new list_item_class(
+        {
+            //渲染目标
+            ele : $('#render_ele'),
+            //请求地址
+            url : COLLECTION_AJAX_URL,
+            //传递参数
+            params : page_params,
+            //模板
+            template : template,
+            //lz是否开启参数
+            is_open_lz_opts : false
+        });
+
+        list_obj.$el.on('list_render:after',function(event,el,data)
+        {
+            setupevent();
+        });
+        //品类选项跳转
+        var $btn_col = $('[data-role="btn-col"]');
+        var col_name = $('[data-role="col-name"]');
+        $btn_col.on('click',function(){
+            var id = $(this).attr("id");
+            var sort_by = "add_time";
+            var params = {
+                type_id : id,
+                target_type : target_type,
+                sort_by : sort_by
+            };
+            list_obj.refresh(params);
+            $btn_col.css('color','#000');
+            $(this).css('color','red');
+            col_name.text($(this).text());
+        })
+        //排序选项跳转
+        var $btn_sort = $('[data-role="btn-sort"]');
+        $btn_sort.on('click',function(){
+            var sort_by = $(this).attr("data-type");
+            var sort_name = $('[data-role="sort-name"]');
+            var params = {
+                target_type : target_type,
+                sort_by : sort_by
+            };
+            list_obj.refresh(params);
+            $btn_sort.css('color','#000');
+            $(this).css('color','red');
+            sort_name.text($(this).text());
+        })
+        document.body.addEventListener('touchstart',function(){});
+    });
+
+
+</script>
+</html>

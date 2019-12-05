@@ -1,0 +1,18 @@
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  border: 1px solid #cecece;
+  background: none;
+  display: -webkit-box; }
+
+.swiper-pagination-bullet-active {
+  background: #ff6a6e;
+  border: none;
+  height: 4px;
+  width: 12px; }
+
+.swiper-pagination {
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  width: 100%; }

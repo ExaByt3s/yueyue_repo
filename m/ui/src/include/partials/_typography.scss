@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+body, button, input, select, textarea {
+    font: #{$default-base-font-weight} #{$default-base-font-size}/#{$default-base-line-height} #{$default-base-font-family};
+}
+
+body {
+    background-color: $default-base-body-bg;
+    color: $default-base-text-color;
+}
+
+a {
+    @include link-colors($default-base-link-color, $default-base-link-hover-color);
+}

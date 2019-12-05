@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>详细介绍</title>
+    {pc_global_top}
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/seller/index.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_WX_SDK/I_WX_SDK.js"></script>
+</head>
+<body class="cor-bg-fff">
+
+<section id="global-header"></section>
+
+<div class="seller-detail-page mt45" id="seller-detail-page">
+    <div class="des" id="see-max-pic-ele">{info}</div>
+</div>
+{wap_global_footer}
+    
+</body>
+
+
+
+<script>
+var $ = require('components/zepto/zepto.js');
+var header = require('common/widget/header/main');
+var WeiXinSDK = require('common/I_WX_SDK/I_WX_SDK');
+
+$(document).ready(function() {
+
+
+    // 渲染头部
+    header.init({
+        ele : $("#global-header"), //头部渲染的节点
+        title:"详细介绍",
+        header_show : true , //是否显示头部
+        mt_0_ele : $('#seller-detail-page'), //如果头部隐藏，要把当前页节点margin-top改为0
+        right_icon_show : false, //是否显示右边的按钮
+        share_icon : 
+        {
+            show :false,  //是否显示分享按钮icon
+            content:""
+        },
+        omit_icon :
+        {
+            show :false,  //是否显示三个圆点icon
+            content:""
+        },
+        show_txt :
+        {
+            show :true,  //是否显示文字
+            content:"编辑"  //显示文字内容
+        }
+    })
+
+
+    // 微信显示大图操作
+    var src_list = [];
+    var img_list = $('#see-max-pic-ele').find('img');
+    img_list.each(function(index, item) {
+        src_list.push($(item).attr('src'))
+    });
+
+
+    $('#see-max-pic-ele img').on('click', function() {
+        var cur_img = $(this).attr('src');
+
+        console.log(src_list);
+        if (WeiXinSDK.isWeiXin())
+        {
+
+            WeiXinSDK.imagePreview(cur_img,src_list);
+        }
+    });
+
+
+});
+
+
+
+
+</script>
+
+
+</html>

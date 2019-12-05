@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>商家服务主页</title>
+    {pc_global_top}
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/seller/index.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/collect/collect.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/pic_list/pic_list.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_WX_SDK/I_WX_SDK.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/collect/collect.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/pic_list/pic_list.js"></script>
+</head>
+<body class="">
+
+<main role="main">
+    <section id="global-header"></section>
+    <div class="seller-index-page">
+
+
+        <!-- <div class="render-ele" id="render-ele"></div> -->
+        <div class="p1th">
+
+            <div class="img-box" style='background-image: url({cover})'>
+            </div>
+            <div class="ui-avatar-icon ui-avatar-icon-l">
+                <span style="background-image:url({avatar})"></span>
+            </div>
+        </div>
+
+        <div class="p2th f14">
+            <div class="p1 color-666 ">{location}</div>
+            <div class="p2 color-333 ">
+                {introduce}
+            </div>
+
+
+            <div class="more tc">
+
+                <a href="{detail}" class="color-ff6">
+                    <button class="ui-button  ui-button-block  ui-button-size-m ui-button-bd-ff6 mr10">
+                        <span class="ui-button-content">查看详细介绍</span>
+                    </button>
+                </a>
+
+                
+
+
+                <div id="collect" class="dib"></div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        
+        <!-- 摄影师相关 -->
+
+        <!-- IF property -->               
+            <div class="camera-info" >
+                
+
+              
+                <!-- BEGIN property -->
+
+                    <div class="col-item">
+                        <div class="main-title"><span class="icon-title"  style="background-image: url({image}) " ></span>{title}</div>
+                        <!-- IF bwh -->  
+                            <!-- 模特相关 -->
+                            <div class="model-info" >
+                                <div class="title tc f16 color-333 fb">{bwh.title}</div>
+                                <ul class="list  f14 color-666 ">
+                                    <li>
+                                        <div class="icon icon-h"></div>
+                                        <p>{bwh.value.m_height}</p>
+                                    </li>
+                                    <li>
+                                        <div class="icon icon-w"></div>
+                                        <p>{bwh.value.m_weight}</p>
+                                    </li>
+                                    <li>
+                                        <div class="icon icon-c"></div>
+                                        <p>{bwh.value.m_cups}</p>
+                                    </li>
+                                    <li>
+                                        <div class="icon icon-m"></div>
+                                        <p>{bwh.value.m_bwh}</p>
+                                    </li>
+                                </ul>     
+                            </div>
+                            
+                        <!-- ENDIF -->
+                
+                        <!-- BEGIN description -->
+                            <div class="item">
+                                <div class="title tc f16 color-333 fb">{title}</div>
+                                <p class="p1 tc color-666">{value}</p>
+                            </div>
+                        <!-- END description -->
+                    </div>
+
+                <!-- END property -->
+
+            </div>
+        <!-- ENDIF -->
+
+        <div class="p4th">
+            <div class="title tc f16 color-333 fb">{business.merit.title}</div>
+            <div class="stars-all-mod">
+                    <div class="ui-stars-grey">
+                        
+                    </div>
+                    <div class="ui-stars-yellow" style="width:{stars_width}">
+                        
+                    </div>
+            </div>
+
+            <div class="tc">
+                <a class="db" href="{business.request}">
+                    <button class="ui-button  ui-button-block  ui-button-size-m ui-button-bd-ff6">
+                        <span class="ui-button-content">{business.totaltrade.title} {business.totaltrade.value}</span>
+                    </button>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="p5th">
+           
+
+            <div class="item-title">{showtitle}</div>
+            <div id="pic_list"></div>
+
+
+            <!-- IF morecase -->
+            <div  id="btn-more" class="more tc  color-555"><a href="{morecase_url}" class="color-555">查看更多</a></div>
+			<!-- ENDIF -->
+
+
+
+        </div>
+
+    </div> 
+    {wap_global_footer}
+    
+</main>
+
+</body>
+
+
+
+
+
+<script>
+
+var $ = require('components/zepto/zepto.js');
+var header = require('common/widget/header/main');
+var WeiXinSDK =  require('common/I_WX_SDK/I_WX_SDK');
+
+var collect = require('collect');
+
+
+
+var share = {share}.result_data;
+
+
+
+$(function() {
+
+    /**** 调用微信分享 ****/
+    if(WeiXinSDK.isWeiXin())
+    {
+        // 朋友圈
+        var WeiXin_data_Timeline =
+        {
+            title: share.title, // 分享标题
+            link: share.url, // 分享链接
+            imgUrl: share.img, // 分享图标
+            success: function ()
+            {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function ()
+            {
+                // 用户取消分享后执行的回调函数
+            }
+        };
+
+        // 好友、QQ
+        var WeiXin_data =
+        {
+            title: share.title, // 分享标题
+            desc: share.content, // 分享描述
+            link: share.url, // 分享链接
+            imgUrl: share.img, // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function ()
+            {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function ()
+            {
+                // 用户取消分享后执行的回调函数
+            }
+        };
+
+        WeiXinSDK.ready(function()
+        {
+            WeiXinSDK.ready(function()
+            {
+                WeiXinSDK.ShareToFriend(WeiXin_data);
+
+                WeiXinSDK.ShareTimeLine(WeiXin_data_Timeline);
+
+                WeiXinSDK.ShareQQ(WeiXin_data);
+            });
+
+        });
+    }
+    /**** 调用微信分享 ****/
+
+    // 渲染头部
+    header.init({
+        ele : $("#global-header"), //头部渲染的节点
+        title: '{name}',
+        header_show : true , //是否显示头部
+        right_icon_show : false, //是否显示右边的按钮
+        share_icon :
+        {
+            show :true,  //是否显示分享按钮icon
+            content:""
+        },
+        omit_icon :
+        {
+            show :false,  //是否显示三个圆点icon
+            content:""
+        },
+        show_txt :
+        {
+            show :false,  //是否显示文字
+            content:"编辑"  //显示文字内容
+        }
+    })
+
+
+    // 收藏操作
+    var collect_obj = new collect({
+        ele : $("#collect"),
+        target_id : '{user_id}' , //操作对象ID, 商家ID或商品ID
+        target_type : 'seller', // seller/goods
+        value : {favor.value}  //是否收藏的值，接口出
+
+    })
+
+    // 载入图片列表组件
+    var pic_list = require('common/widget/pic_list/pic_list');
+    // 初始化
+    var pic_list_obj = new pic_list({
+        ele : $("#pic_list") //头部渲染的节点
+    });
+
+    var  list_img_data = {list_img_data}.result_data;
+    console.log(list_img_data);
+    var arr = [] ;
+    for (var i = 0; i < list_img_data.length; i++)
+    {
+        arr.push({
+            img_1 : list_img_data[i].pic,
+            txt_2 : list_img_data[i].prices,
+            txt_3 : list_img_data[i].title,
+            link_1 : list_img_data[i].link,
+            abate : list_img_data[i].abate,
+            notice : list_img_data[i].notice
+        })
+    };
+
+
+    if (!arr.length)
+    {
+        $('#btn-more').addClass('fn-hide')
+    }
+
+    setTimeout(function()
+    {
+        // 渲染数据
+        pic_list_obj.render_html(arr,'append');
+    },500);
+
+});
+
+</script>
+</html>

@@ -1,0 +1,43 @@
+.edit-center .clearfix {
+  clear: both; }
+.edit-center .bg-fff {
+  background: #FFFFFF; }
+.edit-center .text-r {
+  text-align: right; }
+.edit-center .uoload-portrait {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: center;
+  padding: 20px; }
+  .edit-center .uoload-portrait .icon-portrait {
+    background: url("http://static.yueus.com/mall/user/test/static/wap/image/pai/icon-unload.png") no-repeat;
+    width: 80px;
+    height: 80px;
+    display: block;
+    background-size: cover;
+    margin-bottom: 15px; }
+    .edit-center .uoload-portrait .icon-portrait .avatar {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px; }
+.edit-center .upload-picture {
+  padding: 15px 15px 20px 15px; }
+  .edit-center .upload-picture .upload-picture-tips {
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    margin-bottom: 15px; }
+    .edit-center .upload-picture .upload-picture-tips .lbox-tips {
+      font-size: 14px;
+      color: #333; }
+    .edit-center .upload-picture .upload-picture-tips .rbox-tips {
+      color: #aaaaaa; }
+  .edit-center .upload-picture .ui-upload-pic {
+    overflow: hidden; }
+    .edit-center .upload-picture .ui-upload-pic .ui-btn-add {
+      background: url(http://static.yueus.com/mall/user/test/static/wap/image/pai/add.png) no-repeat;
+      background-size: cover;
+      display: block;
+      height: 90px;
+      width: 90px;
+      float: left;
+      margin: 0 15px 15px 0; }

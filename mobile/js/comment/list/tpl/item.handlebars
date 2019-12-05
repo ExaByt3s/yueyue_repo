@@ -1,0 +1,25 @@
+
+    {{#each datas}} 
+        <div class="item">
+            <div class="box1">
+                <div class="lbox fldi">{{nickname}}</div>
+                <div class="rbox fldi">
+                    {{#each stars_list}} 
+                        {{#if is_red}}
+                            <i class="icon icon-stat-s-y"></i>
+                        {{^}}
+                            <i class="icon icon-stat-s-g"></i>
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+            <div class="box2">
+                {{{comment}}}
+            </div>
+            <p class="time">{{add_time}}</p>
+        </div>
+    {{/each}}
+
+
+
+      

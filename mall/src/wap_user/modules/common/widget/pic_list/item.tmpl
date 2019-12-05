@@ -1,0 +1,27 @@
+
+{{#each data}}
+    <div class="item">
+        <div class="item-area">
+            <a href="{{link_1}}">
+                <div class="img-box">
+                    {{#if abate}}
+                    <div class="bar">
+                        <p class="tag">{{abate}}</p>
+                        <p class="triangle"></p>
+                    </div>
+                    {{/if }}
+                    <i style="background-image:url({{img_1}})"></i>
+                </div>
+            </a>
+            <div class="txt-area">
+                <p class="price">{{txt_2}}</p>
+                <div class="dj">
+                    <p class="des">{{txt_3}}</p>
+                    {{#if abate}}
+                    <span class="tags">´Ù</span>
+                    {{/if }}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}

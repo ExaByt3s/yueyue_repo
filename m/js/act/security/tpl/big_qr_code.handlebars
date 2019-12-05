@@ -1,0 +1,10 @@
+<div class="qr" data-role="qr" style="width:{{pic_w_h}}px;height:{{out_height}}px">
+    <div>
+        {{#each qr_code_arr}}
+            <div class="number">密码：<em>{{code}}</em></div>
+            <div class="picture" data-role="picture" style="width:{{pic_w_h}}px;height:{{out_height}}px" data-role="close">
+                <img src="{{qr_code}}">
+            </div>
+        {{/each}}
+    </div>
+</div>

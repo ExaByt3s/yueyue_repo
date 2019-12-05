@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class app_cmt_class</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class app_cmt_class</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+		<p class="notes">
+			Located in <a class="field" href="_model_app_cmt_class_inc_php.html">/app_cmt_class.inc.php</a> (line <span class="field">11</span>)
+		</p>
+		
+				
+		<pre>cmt_topic_cmt_class
+   |
+   --app_cmt_class</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+											<span class="method-result">app_cmt_class</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#delete_cmt_by_cmt_id" title="details" class="method-name">delete_cmt_by_cmt_id</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$cmt_id</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$b_deletefromtabel</span> = <span class="var-default">false</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$is_admin</span> = <span class="var-default">false</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#get_author_last_cmts" title="details" class="method-name">get_author_last_cmts</a>
+											([<span class="var-type">bool</span>&nbsp;<span class="var-name">$b_selectcount</span> = <span class="var-default">false</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">""</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$max_cache_count</span> = <span class="var-default">50</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$where_str</span> = <span class="var-default">""</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$read_state</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$is_reply</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#get_channel_last_cmts" title="details" class="method-name">get_channel_last_cmts</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$b_selectcount</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$channel_id</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">"0,20"</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#get_cmt_data_list_by_topic_id" title="details" class="method-name">get_cmt_data_list_by_topic_id</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">"0,10"</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$b_sort_asc</span> = <span class="var-default">false</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$limit</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#get_cmt_info_by_cmt_id" title="details" class="method-name">get_cmt_info_by_cmt_id</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$cmt_id</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$no_cache</span> = <span class="var-default">false</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$b_get_reply_list</span> = <span class="var-default">false</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#get_cmt_list_by_act_id" title="details" class="method-name">get_cmt_list_by_act_id</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$act_id</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">'0,20'</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$b_select_count</span> = <span class="var-default">false</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#get_cmt_list_by_topic_id" title="details" class="method-name">get_cmt_list_by_topic_id</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">'0,20'</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$b_select_count</span> = <span class="var-default">false</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#get_last_cmts_cache" title="details" class="method-name">get_last_cmts_cache</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$b_selectcount</span> = <span class="var-default">false</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">"0,20"</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$channel_id</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">unknown</span>
+										<a href="#get_last_err_msg" title="details" class="method-name">get_last_err_msg</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#get_topic_cmt_count" title="details" class="method-name">get_topic_cmt_count</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$nocache</span> = <span class="var-default">false</span>])
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#get_topic_id" title="details" class="method-name">get_topic_id</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#new_cmt_by_act_id" title="details" class="method-name">new_cmt_by_act_id</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$act_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$cmt_user_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_title</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_content</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#new_cmt_by_topic_id" title="details" class="method-name">new_cmt_by_topic_id</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$user_nickname</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_title</span> = <span class="var-default">''</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$comment</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$custom_data</span> = <span class="var-default">array()</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$add_time</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$user_nick_name</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#new_space_cmt" title="details" class="method-name">new_space_cmt</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$user_nickname</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$cmt_user_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_user_nickname</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_title</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_content</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#register_topic" title="details" class="method-name">register_topic</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$title</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$user_name</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$b_can_register</span> = <span class="var-default">true</span>], <span class="var-type">bool</span>&nbsp;<span class="var-name">$b_can_register
+</span>)
+									</div>
+								
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#reply_cmt_by_topic_id" title="details" class="method-name">reply_cmt_by_topic_id</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$cmt_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$user_name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$title</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$content</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">23</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">¹¹Ôìº¯Êý</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">app_cmt_class</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methoddelete_cmt_by_cmt_id" id="delete_cmt_by_cmt_id"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">delete_cmt_by_cmt_id</span> (line <span class="line-number">225</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">¸ù¾ÝTOPIC_IDºÍCMT_IDÉ¾³ýÁôÑÔ</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			delete_cmt_by_cmt_id
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$cmt_id</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$b_deletefromtabel</span> = <span class="var-default">false</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$is_admin</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$topic_id</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$cmt_id</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$b_deletefromtabel</span><span class="var-description">: ÊÇ·ñ´ÓÆÀÂÛ±íÖÐÉ¾³ýÊý¾Ý(Ò»°ãÖ»¶ÔÉ¾³ý¼ÇÂ¼×÷±êÊ¶£¬²»×÷É¾³ý²Ù×÷)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$user_id</span><span class="var-description">: ÓÃ»§ID</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$is_admin</span><span class="var-description">: ÊÇ·ñ¿ª·ÅÓÀ¾ÃÉ¾³ýÈ¨ÏÞ</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodget_author_last_cmts" id="get_author_last_cmts"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">get_author_last_cmts</span> (line <span class="line-number">305</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">È¡Ä³ÓÃ»§ËùÓÐµÄ×îÐÂÆÀÂÛ</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			get_author_last_cmts
+		</span>
+					([<span class="var-type">bool</span>&nbsp;<span class="var-name">$b_selectcount</span> = <span class="var-default">false</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">""</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$max_cache_count</span> = <span class="var-default">50</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$where_str</span> = <span class="var-default">""</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$read_state</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$is_reply</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$b_selectcount</span><span class="var-description">: //ÊÇ·ñÈ¡×ÜÊý</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$user_id</span><span class="var-description">: //×÷Õßid</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$limitstr</span><span class="var-description">: //limit</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$max_cache_count</span><span class="var-description">: //×î´ó»º´æµÄÊýÁ¿(±¾²ÎÊýÎÞ×÷ÓÃ)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$where_str</span><span class="var-description">: //ÆäËüwhereÌõ¼þ</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$read_state</span><span class="var-description">: //ÊÇ·ñÈ¡Î´¶Á»òÒÑ¶Á (1:ÒÑ¶Á 0:Î´¶Á)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$is_reply</span><span class="var-description">: //»Ø¸´×´Ì¬(Ä¬ÈÏ:È«²¿£¬1:»Ø¸´µÄ£¬0:·Ç»Ø¸´µÄ)</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodget_channel_last_cmts" id="get_channel_last_cmts"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">get_channel_last_cmts</span> (line <span class="line-number">275</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">´ÓcacheÖÐÈ¡Ä³ÆµµÀËùÓÐ×îÐÂµÄÁôÑÔ</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> or int</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			get_channel_last_cmts
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$b_selectcount</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$channel_id</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">"0,20"</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$b_selectcount</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$channel_id</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$limitstr</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodget_cmt_data_list_by_topic_id" id="get_cmt_data_list_by_topic_id"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">get_cmt_data_list_by_topic_id</span> (line <span class="line-number">366</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">È¡ÁôÑÔÁÐ±íÊý¾Ý</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			get_cmt_data_list_by_topic_id
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">"0,10"</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$b_sort_asc</span> = <span class="var-default">false</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$limit</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$topic_id</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$limit</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$b_sort_asc</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodget_cmt_info_by_cmt_id" id="get_cmt_info_by_cmt_id"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">get_cmt_info_by_cmt_id</span> (line <span class="line-number">246</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">¸ù¾ÝTOPIC_IDºÍCMT_IDÈ¡ÁôÑÔÐÅÏ¢</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			get_cmt_info_by_cmt_id
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$cmt_id</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$no_cache</span> = <span class="var-default">false</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$b_get_reply_list</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$topic_id</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$cmt_id</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$no_cache</span><span class="var-description">: ÊÇ·ñÈ¡»º´æ</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodget_cmt_list_by_act_id" id="get_cmt_list_by_act_id"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">get_cmt_list_by_act_id</span> (line <span class="line-number">102</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">¸ù¾ÝACT»ñÈ¡ÆÀÂÛÁÐ±í</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			get_cmt_list_by_act_id
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$act_id</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">'0,20'</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$b_select_count</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$act_id</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$limitstr</span><span class="var-description">: ¿ÉÒÔÊÇÖ¸¶¨Êý×Ö»òÕß'0,20'¸ñÊ½</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$b_select_count</span><span class="var-description">: ÊÇ·ñÈ¡×ÜÊý</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodget_cmt_list_by_topic_id" id="get_cmt_list_by_topic_id"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">get_cmt_list_by_topic_id</span> (line <span class="line-number">158</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">ÓÃtopic_id»ñÈ¡ÆÀÂÛÁÐ±í</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			get_cmt_list_by_topic_id
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">'0,20'</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$b_select_count</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$topic_id</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$limitstr</span><span class="var-description">: ¿ÉÒÔÊÇÖ¸¶¨Êý×Ö»òÕß'0,20'¸ñÊ½</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$b_select_count</span><span class="var-description">: ÊÇ·ñÈ¡×ÜÊý</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodget_last_cmts_cache" id="get_last_cmts_cache"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">get_last_cmts_cache</span> (line <span class="line-number">319</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">È¡Ä³ÈË×î½ü·¢±í¹ýµÄÆÀÂÛ£¬ÓÉÓÚget_author_last_cmts()»úÖÆ£¬ËùÒÔÈ¡³öµÄÊý¾Ý¿ÉÄÜ²»Ò»¶¨100%ÓÐ</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> or int</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			get_last_cmts_cache
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$b_selectcount</span> = <span class="var-default">false</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$limitstr</span> = <span class="var-default">"0,20"</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$channel_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$b_selectcount</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$limitstr</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$channel_id</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodget_last_err_msg" id="get_last_err_msg"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">get_last_err_msg</span> (line <span class="line-number">353</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">·µ»Ø´íÎóÐÅÏ¢</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">unknown</span>
+		<span class="method-name">
+			get_last_err_msg
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodget_topic_cmt_count" id="get_topic_cmt_count"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">get_topic_cmt_count</span> (line <span class="line-number">287</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">È¡µÃÖ÷Ìâ»Ø¸´Êý</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			get_topic_cmt_count
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$nocache</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$topic_id</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$nocache</span><span class="var-description">: ÊÇ·ñÈ¡cache</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodget_topic_id" id="get_topic_id"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">get_topic_id</span> (line <span class="line-number">209</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">È¡topic_id</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> topic_id</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			get_topic_id
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$url</span><span class="var-description">: urlµØÖ·</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodnew_cmt_by_act_id" id="new_cmt_by_act_id"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">new_cmt_by_act_id</span> (line <span class="line-number">132</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Í¨¹ýact_id·¢±í×÷Æ·ÁôÑÔ»Ø¸´</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			new_cmt_by_act_id
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$act_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$cmt_user_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_title</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_content</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$act_id</span><span class="var-description">: act_id</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$cmt_user_id</span><span class="var-description">: »Ø¸´ÓÃ»§id</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$cmt_title</span><span class="var-description">: »Ø¸´±êÌâ</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$cmt_content</span><span class="var-description">: »Ø¸´ÄÚÈÝ</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodnew_cmt_by_topic_id" id="new_cmt_by_topic_id"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">new_cmt_by_topic_id</span> (line <span class="line-number">78</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">¸ù¾Ýtopic_id·¢±íÆÀÂÛ</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			new_cmt_by_topic_id
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$user_nickname</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_title</span> = <span class="var-default">''</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$comment</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$custom_data</span> = <span class="var-default">array()</span>], <span class="var-type">int</span>&nbsp;<span class="var-name">$add_time</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$user_nick_name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$user_id</span><span class="var-description">: ·¢±íÆÀÂÛµÄÓÃ»§ID</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$user_nick_name</span><span class="var-description">: ·¢±íÆÀÂÛÓÃ»§µÄêÇ³Æ</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$topic_id</span><span class="var-description">: Ö÷ÌâID</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$comment</span><span class="var-description">: ÄÚÈÝ</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$cmt_title</span><span class="var-description">: ±êÌâ</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$add_time</span><span class="var-description">: ÊÇ·ñÖ¸¶¨ÁôÑÔÊ±¼ä£¬Ä¬ÈÏÎª0£¬²»Ö¸¶¨</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodnew_space_cmt" id="new_space_cmt"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">new_space_cmt</span> (line <span class="line-number">47</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Ìí¼Ó¿Õ¼äÁôÑÔ</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			new_space_cmt
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$user_nickname</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$cmt_user_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_user_nickname</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_title</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cmt_content</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$user_id</span><span class="var-description">: ÓÃ»§ID</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$user_nickname</span><span class="var-description">: ÓÃ»§Ãû³Æ</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$cmt_user_id</span><span class="var-description">: ·¢±íÈËID</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$cmt_user_nickname</span><span class="var-description">: ·¢±íÈËêÇ³Æ</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$cmt_title</span><span class="var-description">: ÆÀÂÛ±êÌâ</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$cmt_content</span><span class="var-description">: ÆÀÂÛÄÚÈÝ</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodregister_topic" id="register_topic"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">register_topic</span> (line <span class="line-number">198</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">×¢²átopic</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> topic_id</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			register_topic
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$title</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$user_name</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$b_can_register</span> = <span class="var-default">true</span>], <span class="var-type">bool</span>&nbsp;<span class="var-name">$b_can_register
+</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$url</span><span class="var-description">: urlµØÖ·</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$title</span><span class="var-description">: Ö÷Ìâ±êÌâ</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$user_id</span><span class="var-description">: ÓÃ»§id</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$user_name</span><span class="var-description">: ÓÃ»§Ãû</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$b_can_register
+</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodreply_cmt_by_topic_id" id="reply_cmt_by_topic_id"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">reply_cmt_by_topic_id</span> (line <span class="line-number">335</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">¼òµ¥µÄ»Ø¸´½Ó¿Ú</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			reply_cmt_by_topic_id
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$topic_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$cmt_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$user_name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$title</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$content</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$topic_id</span><span class="var-description">: Ö÷Ìâid</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$cmt_id</span><span class="var-description">: »Ø¸´µÄÆÀÂÛid</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$user_id</span><span class="var-description">: ÓÃ»§id</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$user_name</span><span class="var-description">: ÓÃ»§Ãû</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$title</span><span class="var-description">: »Ø¸´±êÌâ£¨Ä¬ÈÏÎª¿Õ£©</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$content</span><span class="var-description">: »Ø¸´ÄÚÈÝ</span>			</li>
+				</ul>
+		
+		
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 10 Jul 2012 10:39:12 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

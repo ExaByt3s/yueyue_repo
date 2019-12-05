@@ -1,0 +1,59 @@
+
+{{#if header_show}}
+    <!-- header start -->
+    <header class="global-header">
+        <div class="wbox clearfix">
+
+            {{#if left_icon_show}}
+                {{#if left_side_html}}     
+                    {{{left_side_html}}}
+                {{else}}
+                    <a href="javascript:void(0);" >
+                        <div class="back" data-role="page-back">
+                            <i class="icon-back"></i>
+                        </div>
+                    </a>
+                {{/if}}
+            {{/if}}
+            
+
+            <h3 class="title">{{title}}</h3>
+
+            {{#if right_icon_show}}
+
+                {{#if share_icon.show}}
+                    <!-- 分享按钮 -->
+                    <div class="share" data-role="right-btn">
+                        <i class="icon-share"></i>
+                    </div>
+                    <!-- 分享按钮 end -->
+                {{/if}}
+
+                {{#if omit_icon.show}}
+                    <!-- 三点 -->
+                    <div class="omit" data-role="right-btn">
+                        <i class="icon-omit"></i>
+                    </div>
+                    <!-- 三点 end -->
+                {{/if}}
+        
+                {{#if show_txt.show}}
+                    <!-- 文字 -->
+                    <div class="side-txt" style="{{show_txt.style}}" data-role="right-btn">
+                        {{show_txt.content}}
+                    </div>
+                    <!-- end -->
+                {{/if}}
+
+                {{#if search_icon.show}}
+                    <div class="search" data-role="right-btn">
+                        <i class="icon-search"></i>
+                    </div>
+                {{/if}}
+                    
+            {{/if}}
+
+        </div>
+    </header>
+    <!-- header end -->
+{{/if}}

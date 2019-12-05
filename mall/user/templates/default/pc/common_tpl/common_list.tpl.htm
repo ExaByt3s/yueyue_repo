@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{data_list.title}</title>
+<!-- 公共css，js引入 -->
+{pc_global_top}
+
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/lib/mod_327a0b0.js"></script>
+<!-- <link rel="import" href="../page/webcontrol/head.tpl.htm?__inline"> -->
+
+<!-- 当前页css -->
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/user/static/pc/style/goods/category-list-page_cfaa2ea.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/components/jquery/jquery_27c977b.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/user/static/pc/modules/common/img_center/img_center_4b3bca1.js"></script>
+</head>
+
+<body>
+
+<!-- bar -->
+{global_top_bar}
+<!-- bar end -->
+
+
+
+<div class="category-list-page">
+
+
+
+    <div class="p3th">
+        <h3 class="mod-title  font_wryh">{title}</h3>
+        <div class="wrap-box">
+        <div class="item-wrap clearfix">
+            <ul class="list" >
+            <!-- BEGIN data_list.goods -->
+                <a href="{link}">
+                    <li>
+                        <div class="img-con">
+                            <div class="img"><img src="{images}"  data-role="img-cen" /></div>
+         
+                        </div>
+                        <div class="txt-con">
+                            <p class="sj-id fb">{titles}</p>
+                            <div class="star clearfix">
+                                <div class="fl">{prices}</div>
+
+                                <span>{seller}</span>
+                            </div>
+                        </div>
+                    </li>
+                </a>
+            <!-- END data_list.goods -->
+             
+
+
+
+            </ul>
+        </div>
+        
+      <div class="page">{page}</div>  
+
+        </div>
+    </div>
+
+
+   {down_app_area}
+
+
+</div>
+
+{footer}
+
+
+<script type="text/javascript">
+var $ = require('components/jquery/jquery.js');
+
+// 引入图片居中处理组件
+var img_cen = require('common/img_center/img_center');
+$('[data-role="img-cen"]').on('load', function() {
+    img_cen.init($(this)[0],$(this).attr('src'),320,220);
+});
+
+
+// var carouFredSel = require('../../../../modules/common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0');
+
+// $(function() 
+// {
+//     $('#foo2').carouFredSel({
+//         prev: '#prev2',
+//         next: '#next2',
+//         pagination: "#pager2",
+//         auto: false
+//     });
+// });
+
+
+</script>
+
+</body>
+
+</html>
+
+		

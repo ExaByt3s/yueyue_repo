@@ -1,0 +1,34 @@
+<div class="items_container" data-role="items_container">
+    <div class="ticket_head">
+        <div class="left {{#if data._is_available}}{{^}}unavailable{{/if}}">
+            <div class="top">
+                <div class="inside"></div>
+            </div>
+            <div class="price">
+                <div class="unit">{{data.coin}}</div>
+                <div class="real_price">{{data.face_value}}</div>
+            </div>
+            <div class="bottom">
+                <div class="inside"></div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="name">
+                <div class="ticket_name">{{data.scope_module_type_name}}</div>
+                <div class="ticket_condition">满{{{data.scope_order_total_amount}}}元可使用</div>
+            </div>
+            <div class="notice">{{data.batch_name}}</div>
+        </div>
+
+    </div>
+    <div class="ticket_body">
+        {{#if data.coupon_sn}}<div class="ticket_code">消费码：{{data.coupon_sn}}</div>{{/if}}
+        {{#if data._notice_text}}<div class="ticket_status">{{data._notice_text}}</div>{{/if}}
+        <div class="ticket_notice">
+            <div class="title">使用说明：</div>
+            <div class="content">{{{data.batch_desc}}}</div>
+        </div>
+    </div>
+</div>
+
+

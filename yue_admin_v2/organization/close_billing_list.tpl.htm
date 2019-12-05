@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="../resources/js/admin.js"></script>
+<script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+<title>机构管理系统</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+	    <a href="javascript:void(0);" class="on">已结算记录</a>
+	</ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+	<tbody>
+		<tr>
+			<td class="search">
+				<form  method="get" id="myform" action="?">
+					<table class="table-list-search" id="quick_search" width="900">
+					      <tbody>
+							       <tr>
+										<td width="260">划账日期: <input type="text" class="input-text Wate" name="start_settle_date" value="{start_settle_date}" onFocus="WdatePicker()" style="width:80px;"/>~ <input type="text" class="input-text Wate" name="end_settle_date" value="{end_settle_date}" onFocus="WdatePicker()" style="width:80px;" />
+										</td>
+									   <td>
+									    <p><input type="submit" class="button" value="查找"></p>
+									   </td>
+									</tr>
+							</tbody>
+					</table>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--search form end-->
+<form name="list_form" id="myform" action="" method="post">
+	<div class="table-list">
+		<div class="btn">
+			符合条件的条数:{total_count}
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				  <th>划账日期</th>
+				  <th>起止日期</th>
+				  <th>划账金额</th>
+				  <th>订单详情</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+				<td align="center">
+				{settle_date}
+				</td>
+				<td align="center">{subject}</td>
+				<td align="center">{total_settle_amount}</td>
+				<td align="center"><a href="close_billing_detail_v2.php?settle_id={settle_id}" target="main">查看</a></td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+		<!--list end-->
+	</div>
+</form>
+<div id="pages" class="page">
+	{page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		//排序
+		$("#sort").change(function(){
+			var $oUrl = window.location.href.toString();
+			var $re = eval('/(sort=)([^&]*)/gi');
+			//var $res = /sort=/gi;
+			var $search = window.location.search;
+			if ($search == null || $search == '') 
+			{
+				window.location.href = $oUrl+"?sort="+$(this).val();
+			}
+			else
+			{
+				if ($re.test($search)) 
+				{
+					window.location.href = $oUrl.replace($re , "sort="+$(this).val());
+				}
+				else
+				{
+					window.location.href = $oUrl+"&sort="+$(this).val();
+				}
+				
+			}
+		});
+	});
+    //导出触动
+	function org_audit($url)
+	{
+		//$("#myform").attr("method", $method);
+		$("#myform").attr("action", $url);
+		//return;
+		$("#myform").submit();
+	}
+</script>
+</html>

@@ -1,0 +1,16 @@
+.agree-page .p1th .listitem {
+  text-align: center;
+  font-size: 26px; }
+.agree-page .p1th .item-wrap .item {
+  margin-top: 40px; }
+  .agree-page .p1th .item-wrap .item h3.title {
+    font-size: 18px;
+    font-weight: normal;
+    color: #333; }
+  .agree-page .p1th .item-wrap .item p.txt {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 15px;
+    color: #333; }
+.agree-page .p1th .item-wrap .item-tips p.txt {
+  text-indent: 2em; }

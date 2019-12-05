@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="gbk">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>代运营后台</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../css/sb-admin.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div id="wrapper"> 
+  
+  <!-- Navigation -->
+  {MOBILE_ADMIN_TOP}
+  <div id="page-wrapper">
+    <div class="container-fluid">
+      
+      <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                       
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="seller_list.php">商家列表</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-edit"></i> 添加/编辑
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+      <div class="row">
+        <div class="col-md-3">
+          <iframe name="frame" id="frame" style="display:none"></iframe>
+          <form action="" method="post" role="form" target="frame">
+           
+            <div class="form-group">
+              <label for="">商家ID</label>
+              <input type="text" name="seller_user_id" class="form-control" id="" placeholder="商家ID" value="{seller_user_id}" <!-- IF act="edit" -->readonly<!-- ENDIF -->>
+            </div>
+            
+            <div class="form-group">
+             <label for="">管理员</label>
+              <select name="admin_user_id" class="form-control">
+              {select}
+              </select>
+            </div>
+            <div class="form-group">
+             <label for="">运营开始时间</label>
+              <input type="text" name="begin_time" class="form-control form_date"  placeholder="开始时间" value="{begin_time}">
+            </div>
+            <div class="form-group">
+             <label for="">运营结束时间</label>
+              <input type="text" name="end_time" class="form-control form_date" id="" placeholder="结束时间" value="{end_time}">
+            </div>
+            <div class="form-group">
+            <label for="">状态</label>
+              <select name="status" class="form-control">
+              <option value="0" <!-- IF status="0" -->selected<!-- ENDIF -->>首次</option>
+              <option value="1" <!-- IF status="1" -->selected<!-- ENDIF -->>续费</option>
+              </select>
+            </div>
+            <div class="form-group">
+             <label for="">备注</label>
+              <textarea class="form-control" name="remark" cols="" rows="5">{remark}</textarea>
+            </div>
+           
+            <input type="hidden" name="act" value="{act}" />
+            <button name="" type="submit" class="btn btn-success">提交</button>
+          </form>
+        </div>
+        <!-- /.col-md-12 --> 
+      </div>
+      <!-- /.row --> 
+      
+    </div>
+    <!-- /.container-fluid --> 
+    
+  </div>
+  <!-- /#page-wrapper --> 
+  
+</div>
+<!-- /#wrapper --> 
+
+<!-- jQuery --> 
+<script src="../js/jquery.min.js"></script> 
+<!-- Bootstrap Core JavaScript --> 
+<script src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+    $('.form_date').datetimepicker({
+        language:  'zh-CN',
+		format: 'yyyy-mm-dd',
+		weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+</script>
+
+
+</body>
+</html>

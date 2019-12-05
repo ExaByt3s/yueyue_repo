@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "file": "footer.css",
+    "sources": [
+        "/style/common/footer.scss"
+    ],
+    "sourcesContent": [
+        ".footer{ background:#333; height:45px; color: #999; text-align: center; font-size: 14px; padding-top: 26px;}\n.footer a{ color: #999}"
+    ],
+    "mappings": "AAAA,AAAS,AAAW,AAAO,AAAO,AAAM,AAAO,AAAO,AAAY,AAAS,AAAW,AAAM,AAAa,AACzG,AAAQ,AAAG,AAAO",
+    "names": []
+}

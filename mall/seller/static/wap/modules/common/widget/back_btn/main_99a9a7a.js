@@ -1,0 +1,1 @@
+define("common/widget/back_btn/main",function(n,e,t){"use strict";t.exports={render:function(){var n=Handlebars.template(function(n,e,t,a,r){return this.compilerInfo=[4,">= 1.0.0"],t=this.merge(t,n.helpers),r=r||{},'<a class="left-button-wrap"  data-role="page-back">\n	<i class="icon icon-back"></i>\n</a>\n'});return n()}}});

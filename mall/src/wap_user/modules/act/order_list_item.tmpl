@@ -1,0 +1,155 @@
+
+<div class="child" data-role="event-item" data-enroll-id="{{data.enroll_id}}" data-event_id="{{data.event_id}}" data-view-type="{{data.view_type}}" data-audit_status="{{data.audit_status}}">
+    <div class="lists" data-role="lists-to-info" data-org-id="{{data.user_id}}" data-enroll-id="{{data.enroll_id}}" data-event_id="{{data.event_id}}" data-view-type="{{data.view_type}}" data-audit_status="{{data.audit_status}}">
+        {{#if_equal data.event_id 0}}
+            <a class="db" href="javascript:;">
+        {{else}}
+            <a class="db" href="./detail.php?event_id={{data.event_id}}" >
+        {{/if_equal}}        
+            <i class="child-img " style="background-image: url('{{data.cover_image}}')">
+
+                {{#if data.is_authority}}
+                    <div class="tips-con-red">
+                        <div class="tips">官方</div>
+                        <div class="delta"></div>
+                    </div>
+                {{/if}}
+                {{#if data.is_free}}
+                    <div class="tips-con-green">
+                        <div class="tips">免费</div>
+                        <div class="delta"></div>
+                    </div>
+                {{/if}}
+                {{#if data.is_recommend}}
+                    <div class="tips-con-orange">
+                        <div class="tips">推荐</div>
+                        <div class="delta"></div>
+                    </div>
+                {{/if}}
+                {{#if data.pic_show_reject}}
+                    <div class="pic-fade"></div>
+                    <div class="icon icon-pic-reject pic-logo-reject"></div>
+                {{/if}}
+                {{#if data.pic_show_no_reject}}
+                    <div class="pic-fade" style="text-align:center;line-height:100px;color:#fff;">活动审核中</div>
+                    <div class="icon icon-pic-no-reject pic-logo-no-reject" ></div>
+                {{/if}}
+
+
+            </i>
+        </a>
+
+        <div class="child-text">
+            {{#if_equal data.event_id 0}}
+                <a class="db" href="javascript:;">
+            {{else}}
+                <a class="db" href="./order_detail.php?enroll_id={{data.enroll_id}}&event_id={{data.event_id}}">
+            {{/if_equal}}
+            
+                <p class="title">{{data.title}}</p>
+                <p class="detail">
+                    <i class="icon icon-act-list-athor"></i>
+                    {{data.nickname}}</p>
+                <p class="detail">
+                    <i class="icon icon-act-list-date"></i>
+                    {{data.start_time}}</p>
+                <p class="detail">
+                    <i class="icon icon-act-list-price"></i>
+                    ￥{{data.budget}}/人</p>
+                {{#if data.is_end}}
+                    {{#if data.is_comment}}
+                        {{#if data.stars_list}}
+                            <p class="detail">
+                                <i class="icon icon-act-list-starts"></i>
+                                {{#each data.stars_list}}
+                                    {{#if is_red}}
+                                        <i class="icon icon-stat-s-y"></i>
+                                    {{^}}
+                                        <i class="icon icon-stat-s-g"></i>
+                                    {{/if}}
+                                {{/each}}
+                            </p>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+                <p class="detail"><i class="icon icon-act-list-join-num"></i>{{data.event_join}}人</p>
+                {{#if data.pub_btn_notice}}
+                    <!--p class="detail" data-role="pub_notice">{{data.pub_btn_notice_text}}</p-->
+                {{/if}}
+            </a>
+        </div>
+
+    </div>
+
+    <div class="list-btns" data-role="list-btns" {{#if data.hide_line}}style="border-top: none"{{/if}}>
+        {{#if data.enroll_pay_button}}
+
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6" data-prev-default="1" data-role="btn_unpaid_pay" data-event-id="{{data.event_id}}" data-enroll-id="{{data.enroll_id}}">
+                <span class="ui-button-content">支付</span>
+            </button>
+        {{/if}}
+        {{#if data.enroll_cancel_button}}
+            <button class="ui-button ui-button-block ui-button-size-x ui-button-bd-aaa" data-prev-default="1" data-role="btn_unpaid_delete" data-event-id="{{data.event_id}}" data-enroll-id="{{data.enroll_id}}">
+                <span class="ui-button-content">取消</span>
+            </button>
+        {{/if}}
+        {{#if data.enroll_code_button}}
+            <button class="ui-button ui-button-block ui-button-size-x ui-button-bd-555" data-event-id="{{data.event_id}}" data-enroll-id="{{data.enroll_id}}" data-role="btn_pub_show_ewm">
+                <span class="ui-button-content">出示活动券</span>
+            </button>
+        {{/if}}
+        {{#if data.enroll_comment_button}}
+            <button class="ui-button ui-button-block ui-button-size-x ui-button-bd-555" data-can-comment="1" data-prev-default="1" data-table-id="{{data.table_id}}"  data-to-date-id="{{data.to_date_id}}" data-event-id="{{data.event_id}}" data-role="btn_paid_commit">
+                <span class="ui-button-content">评价活动</span>
+            </button>
+        {{/if}}
+        {{#if data.event_finish_button}}
+            <button class="ui-button ui-button-block ui-button-size-x ui-button-bd-555" data-prev-default="1" data-event-id="{{data.event_id}}" data-role="btn_pub_finnish">
+                <span class="ui-button-content">完成活动</span>
+            </button>
+        {{/if}}
+        {{#if data.event_scan_button}}
+            <button class="ui-button ui-button-block ui-button-size-x ui-button-bd-555" data-prev-default="1" data-event-id="{{data.event_id}}" data-role="btn_pub_scan">
+                <span class="ui-button-content">扫码签到</span>
+            </button>
+        {{/if}}
+
+
+        {{#if data.btn_type_unpaid}}
+            <div class="btn_unpaid_container">
+
+
+            </div>
+        {{/if}}
+        {{#if data.btn_type_paid}}
+            <div class="btn_paid_container">
+                {{#if data.is_end}}
+                    {{#if data.show_comment_btn}}
+                        {{#if data.is_comment}}
+                        {{^}}
+
+                        {{/if}}
+                    {{/if}}
+                {{^}}
+                    {{#if data.show_scan_btn}}
+
+                    {{/if}}
+                {{/if}}
+            </div>
+        {{/if}}
+        {{#if data.btn_type_pub}}
+            <div class="btn_pub_container">
+                {{#if data.event_finish_button}}
+
+                {{/if}}
+                {{#if data.event_scan_button}}
+
+                {{/if}}
+
+            </div>
+        {{/if}}
+    </div>
+</div>
+
+
+

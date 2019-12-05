@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>优惠券详情</title>
+
+    <meta charset="gbk">
+    {wap_global_top}
+    <!-- libjs 必须引用 -->
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/coupon/detail.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view page-view-coupon-detail" data-role="page-container">
+        <div data-role="wrapper" class="pt15">
+
+        </div>
+
+
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+
+</html>
+<script type="text/javascript">
+
+    var $ = require('components/zepto/zepto.js');
+
+    var abnormal = require('common/widget/abnormal/index');
+
+    var frozen = require('yue_ui/frozen');
+
+    var coupon_tmp = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "";
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  
+  return "unavailable";
+  }
+
+function program5(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "<div class=\"ticket_code\">消费码："
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.coupon_sn)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>";
+  return buffer;
+  }
+
+function program7(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "<div class=\"ticket_status\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1._notice_text)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>";
+  return buffer;
+  }
+
+  buffer += "<div class=\"items_container\" data-role=\"items_container\">\r\n    <div class=\"ticket_head\">\r\n        <div class=\"left ";
+  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1._is_available), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\">\r\n            <div class=\"top\">\r\n                <div class=\"inside\"></div>\r\n            </div>\r\n            <div class=\"price\">\r\n                <div class=\"unit\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.coin)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>\r\n                <div class=\"real_price\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.face_value)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>\r\n            </div>\r\n            <div class=\"bottom\">\r\n                <div class=\"inside\"></div>\r\n            </div>\r\n        </div>\r\n        <div class=\"right\">\r\n            <div class=\"name\">\r\n                <div class=\"ticket_name\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.scope_module_type_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>\r\n                <div class=\"ticket_condition\">满";
+  stack1 = ((stack1 = ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.scope_order_total_amount)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "元可使用</div>\r\n            </div>\r\n            <div class=\"notice\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.batch_name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</div>\r\n        </div>\r\n\r\n    </div>\r\n    <div class=\"ticket_body\">\r\n        ";
+  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.coupon_sn), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        ";
+  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1._notice_text), {hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        <div class=\"ticket_notice\">\r\n            <div class=\"title\">使用说明：</div>\r\n            <div class=\"content\">";
+  stack1 = ((stack1 = ((stack1 = (depth0 && depth0.data)),stack1 == null || stack1 === false ? stack1 : stack1.batch_desc)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n";
+  return buffer;
+  });
+
+    var header = require('common/widget/header/main');
+
+    var data = {data}
+
+    data = data.result_data
+
+    if(data.tab == 'available')
+    {
+        data = $.extend(true,{},data,{_is_available:true,_notice_text:"有效期：" + data.start_time_str + "-" + data.end_time_str});
+
+        self.$('[data-role="btn_footer"]').removeClass('fn-hide');
+
+        self.$('[data-role="use"]').removeClass('fn-hide');
+    }
+    else if(data.tab == 'used')
+    {
+        data = $.extend(true,{},data,{_is_used:true,_notice_text:data.used_time_str + " 已使用"});
+    }
+    else if(data.tab == 'expired')
+    {
+        data = $.extend(true,{},data,{_is_used:true,_notice_text:data.end_time_str + " 已过期"});
+    }
+
+    var str = coupon_tmp({data:data})
+    $('[data-role="wrapper"]').html(str);
+
+    $(document).ready(function() {
+    header.init({
+        ele : $("#global-header"), //头部渲染的节点
+        title:"优惠券详情",
+        header_show : true , //是否显示头部
+        right_icon_show : true, //是否显示右边的按钮
+        share_icon :
+        {
+            show :false,  //是否显示分享按钮icon
+            content:""
+        },
+        omit_icon :
+        {
+            show :false,  //是否显示三个圆点icon
+            content:""
+        },
+        show_txt :
+        {
+            show :false,  //是否显示文字
+            content:"编辑"  //显示文字内容
+        }
+    })
+    });
+
+</script>

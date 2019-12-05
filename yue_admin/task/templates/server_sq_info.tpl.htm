@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>商家服务申请详情</title>
+</head>
+<style>
+    img {width:200px ! important;}
+</style>
+<script src="js/shadowbox/shadowbox.js" type="text/javascript"></script>
+<link href="js/shadowbox/shadowbox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"> 
+Shadowbox.init({ 
+    handleOversize: "drag", 
+	overlayColor: '#000',
+    modal: true,
+    displayNav: true,
+//	onClose: function(){location.reload();},
+	displayCounter: false
+}); 
+Shadowbox.setup();
+</script>
+<body>
+    
+{global_header_html}
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:100%;">          
+          <fieldset>
+            <legend>商家服务申请详情</legend>
+                <table width="90%" align="center">
+                    <!-- BEGIN info -->
+                                    <tr>
+                                       <td width="26%" height="25">用户id</td>
+                                       <td width="74%" height="25">
+                                          {user_id}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="26%" height="25">基础认证情况</td>
+                                        <td width="74%" height="25">
+                                            {basic_info.status_name}
+                                            <br/>
+                                            <a style='color:red;' rel="shadowbox[seller_sq_info]" href="seller_sq.php?action=info&basic_id={basic_info.basic_id}">查询基础认证详情</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">用户名</td>
+                                       <td width="74%" height="25">
+                                          {user_name}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">城市</td>
+                                       <td width="74%" height="25">
+                                          {city_name}
+                                       </td>
+                                    </tr>
+									
+                                    <tr>
+                                       <td width="26%" height="25">操作时间</td>
+                                       <td width="74%" height="25">
+                                          {update_time}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">服务类型</td>
+                                       <td width="74%" height="25">
+                                          {service_type}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">操作人名</td>
+                                       <td width="74%" height="25">
+                                          {operator_id}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">状态</td>
+                                       <td width="74%" height="25">
+                                          {status}
+                                       </td>
+                                    </tr>
+                            <!-- IF service_type="model" --> 
+                                    <tr>
+                                         <td width="26%" height="25">性别</td>
+                                         <td width="74%" height="25">
+                                            {sex}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">高度</td>
+                                         <td width="74%" height="25">
+                                            {height}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">重量</td>
+                                         <td width="74%" height="25">
+                                            {weight}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">胸围</td>
+                                         <td width="74%" height="25">
+                                            {bust}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">腰围</td>
+                                         <td width="74%" height="25">
+                                            {waist}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">臀围</td>
+                                         <td width="74%" height="25">
+                                            {hips}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">cup类型</td>
+                                         <td width="74%" height="25">
+                                            {cup_type}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">自我描述</td>
+                                         <td width="74%" height="25">
+                                            {self_desc}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">微信/qq</td>
+                                         <td width="74%" height="25">
+                                            {weixin_qq}
+                                         </td>
+                                    </tr>
+                                    
+                            <!-- ELSEIF service_type="cameror" --> 
+                                    <tr>
+                                       <td width="26%" height="25">年限</td>
+                                       <td width="74%" height="25">
+                                          {years}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">团队构成</td>
+                                       <td width="74%" height="25">
+                                          {team}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">月均订单收入</td>
+                                       <td width="74%" height="25">
+                                          {order_income}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                         <td width="26%" height="25">常用的拍摄器材</td>
+                                         <td width="74%" height="25">
+                                            {often_equipment}
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">常用的社交帐号(微信|QQ)</td>
+                                       <td width="74%" height="25">
+                                          {society_num}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">作品连接</td>
+                                       <td width="74%" height="25">
+                                          {zone_num}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">个人经历介绍</td>
+                                       <td width="74%" height="25">
+                                          {self_desc}
+                                       </td>
+                                    </tr>
+                                    <!-- BEGIN author_content -->
+                                           <tr>
+                                              <td width="26%" height="25">作品集id</td>
+                                              <td width="74%" height="25">
+                                                 {work_type_id}
+                                              </td>
+                                           </tr>
+<!--                                           <tr>
+                                              <td width="26%" height="25">作品集名称</td>
+                                              <td width="74%" height="25">
+                                                 {work_name}
+                                              </td>
+                                           </tr>
+                                           <tr>
+                                              <td width="26%" height="25">作品风格</td>
+                                              <td width="74%" height="25">
+                                                 {work_style}
+                                              </td>
+                                           </tr>
+                                           <tr>
+                                              <td width="26%" height="25">作品集描述</td>
+                                              <td width="74%" height="25">
+                                                 {work_desc}
+                                              </td>
+                                           </tr>-->
+                                           <tr>
+                                              <td width="26%" height="25">作品图片</td>
+                                              <td width="74%" height="25">
+                                                  {work_img_data}
+                                             　</td>    
+                                           </tr>
+                                    <!-- END author_content -->
+                                    
+                            <!-- ELSEIF service_type="dresser" --> 
+                                    <tr>
+                                       <td width="26%" height="25">年限</td>
+                                       <td width="74%" height="25">
+                                          {years}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">是否有地方</td>
+                                       <td width="74%" height="25">
+                                          {has_place}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">化妆师描述</td>
+                                       <td width="74%" height="25">
+                                          {dresser_desc}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">接单方式</td>
+                                       <td width="74%" height="25">
+                                          {order_way}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">团队规模</td>
+                                       <td width="74%" height="25">
+                                          {team_num}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">擅长妆容</td>
+                                       <td width="74%" height="25">
+                                          {do_well}
+                                       </td>
+                                    </tr>
+                            <!-- ELSEIF service_type="diet" -->
+                                    <tr>
+                                       <td width="26%" height="25">职业</td>
+                                       <td width="74%" height="25">
+                                          {diet_job}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">网络名称</td>
+                                       <td width="74%" height="25">
+                                          {diet_web_name}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">自媒体地址</td>
+                                       <td width="74%" height="25">
+                                          {diet_media_address}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">年限</td>
+                                       <td width="74%" height="25">
+                                          {diet_years}
+                                       </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                       <td width="26%" height="25">最大转发量</td>
+                                       <td width="74%" height="25">
+                                          {diet_max_forward}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">被认证的身证</td>
+                                       <td width="74%" height="25">
+                                          {diet_identification}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">自我描述</td>
+                                       <td width="74%" height="25">
+                                          {diet_self_desc}
+                                       </td>
+                                    </tr>
+                            <!-- ELSEIF service_type="other" -->
+                                    <tr>
+                                       <td width="26%" height="25">自我描述</td>
+                                       <td width="74%" height="25">
+                                          {other_self_desc}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">身份标签</td>
+                                       <td width="74%" height="25">
+                                          {other_identifine}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">其它身份标签</td>
+                                       <td width="74%" height="25">
+                                          {other_other_identifine}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">独立职业</td>
+                                       <td width="74%" height="25">
+                                          {other_job}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">服务描述</td>
+                                       <td width="74%" height="25">
+                                          {other_service_desc}
+                                       </td>
+                                    </tr>
+                            <!-- ELSEIF service_type="studio" -->
+                                    <tr>
+                                       <td width="26%" height="25">影棚介绍</td>
+                                       <td width="74%" height="25">
+                                          {studio_desc}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">影棚地址</td>
+                                       <td width="74%" height="25">
+                                          {studio_place}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">影棚面积(手动输入)</td>
+                                       <td width="74%" height="25">
+                                          {studio_area_input}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">影棚面积</td>
+                                       <td width="74%" height="25">
+                                          {studio_area}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">可拍摄类型</td>
+                                       <td width="74%" height="25">
+                                          {can_photo_type}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%" height="25">拍摄类型</td>
+                                       <td width="74%" height="25">
+                                          {photo_type}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="26%">灯光设备</td> 
+                                        <td width="74%" height="25">
+                                           {lighter}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%">其他配套</td> 
+                                       <td width="74%" height="25">
+                                          {other}
+                                       </td>
+                                    </tr>
+                            
+                             <!-- ELSEIF service_type="teacher" -->
+                                    <tr>
+                                       <td width="26%">年限</td> 
+                                       <td width="74%" height="25">
+                                          {years}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%">培训类型</td> 
+                                       <td width="74%" height="25">
+                                          {teacher_train_type}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%">讲师类型</td> 
+                                       <td width="74%" height="25">
+                                          {teacher_type}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%">课程特色</td> 
+                                       <td width="74%" height="25">
+                                          {course_special}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%">能学到什么</td> 
+                                       <td width="74%" height="25">
+                                          {can_learn}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%">社交帐号</td> 
+                                       <td width="74%" height="25">
+                                          {society_num}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%">上课方式</td> 
+                                       <td width="74%" height="25">
+                                          {class_way}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%">师资数量</td> 
+                                       <td width="74%" height="25">
+                                          {teacher_num}
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td width="26%">学生数量</td> 
+                                       <td width="74%" height="25">
+                                          {student_num}
+                                       </td>
+                                    </tr>
+                             
+                                     <!-- BEGIN author_content -->
+                                           <tr>
+                                              <td width="26%" height="25">作品集id</td>
+                                              <td width="74%" height="25">
+                                                 {work_type_id}
+                                              </td>
+                                           </tr>
+                                           <tr>
+                                              <td width="26%" height="25">作品集名称</td>
+                                              <td width="74%" height="25">
+                                                 {work_name}
+                                              </td>
+                                           </tr>
+                                           <tr>
+                                              <td width="26%" height="25">作品风格</td>
+                                              <td width="74%" height="25">
+                                                 {work_style}
+                                              </td>
+                                           </tr>
+                                           <tr>
+                                              <td width="26%" height="25">作品集描述</td>
+                                              <td width="74%" height="25">
+                                                 {work_desc}
+                                              </td>
+                                           </tr>
+                                           <tr>
+                                              <td width="26%" height="25">作品图片</td>
+                                              <td width="74%" height="25">
+                                                  {work_img_data}
+                                              </td>    
+                                           </tr>
+                                    <!-- END author_content -->
+                                
+                                <!-- ELSE -->     
+                                     <!-- BEGIN service_params_data -->
+                                           <tr>
+                                              <td width="26%" height="25">{text}</td>
+                                              <td width="74%" height="25">
+                                                 {value}
+                                              </td>
+                                           </tr>
+                                    <!-- END service_params_data -->
+                                    <!-- BEGIN service_author_content_data -->
+                                           <tr>
+                                              <td width="26%" height="25">{text}</td>
+                                              <td width="74%" height="25">
+                                                 {value}
+                                              </td>
+                                           </tr>
+                                    <!-- END service_author_content_data -->
+                                        
+                                <!-- ENDIF -->
+                                
+                                    <!-- IF imgs_data -->
+                                        <tr>
+                                            <td width="26%" height="25">图片</td>
+                                            <td width="74%" height="25">
+                                                {imgs_data}
+                                            </td>
+                                        </tr>
+                                    <!-- ENDIF imgs_data --> 
+
+                    <!-- END info -->
+               </table>
+           </fieldset>
+        </div>
+      </div>
+    </div>   
+</div>
+</div>
+</body>
+</html>
+<script>
+    $(function(){
+        var len = $("td p img").length;
+        for(var i = 0; i < len;i++)
+        {
+            var src = $("td p img").eq(i).attr("src");
+            $("td p img").eq(i).wrap("<a href='"+src+"' target='_blank' ></a>");
+        }
+        
+    });
+</script>

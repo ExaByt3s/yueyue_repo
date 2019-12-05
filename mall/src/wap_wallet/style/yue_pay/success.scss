@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.success-page{
+
+    .p1th{
+        margin-top: 80px;
+        text-align: center;
+        .icon-success{
+            background: url(../../image/pai/recharge-success-100x100.png);
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            margin: 0 auto;
+            background-size: 50px 50px;
+        }
+        .p1{
+            margin: 20px 0 20px 0;
+        }
+        .tips{
+            margin: 20px 0 20px 0;
+        }
+    }
+
+    .p2th{
+        margin-top: 40px;
+        .ui-button{
+            width: 130px;
+            margin: 30px  auto 0 auto;
+        }
+    }
+}

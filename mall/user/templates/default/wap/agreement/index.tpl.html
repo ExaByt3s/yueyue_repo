@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>协议</title>
+    {wap_global_top}
+    <link charset="utf-8" rel="stylesheet" href="../../../../style//.scss">
+    <script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_79cae42.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view agreement" data-role="page-container">
+        <div style="padding: 10px;">{ret}</div>
+    </div>
+</main>
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+    var header = require('common/widget/header/main');
+    var App = require('common/I_APP/I_APP');
+    $(document).ready(function() {
+
+        App.isPaiApp && App.showtopmenu(false);
+
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"协议",
+            header_show : true , //是否显示头部
+            mt_0_ele : $("#seller-list-page"), //如果头部隐藏，要把当前页节点margin-top改为0
+            right_icon_show : true, //是否显示右边的按钮
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :true,  //是否显示文字
+                content:""  //显示文字内容
+            }
+        });
+
+    });
+</script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <!-- BEGIN JS_FILES -->
+        <script type="text/javascript" src="{js_link}?{top._dev}"></script>
+    <!-- END JS_FILES -->
+    <!-- BEGIN STYLE_FILES -->
+        <link rel="stylesheet" type="text/css" href="{css_link}?{top._dev}">
+    <!-- END STYLE_FILES -->
+    <script src="../js/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" language="javascript" src="../js/jquery.min.js"></script>
+    <title>群发任务列表 Powered by xzwu - Powered by xzwu</title>
+</head>
+<body>
+    <div class="mainbox">
+        <div id="nav" class="mainnav_title">
+            <ul>
+                <a href="./mass_send.php" class="on">任务列表</a>|
+                <a href="./mass_send.php?act=new">新增任务</a>|
+            </ul>
+        </div>
+        <iframe id="mcfrm" name="mcfrm" frameborder="0" width="0" height="0" src="" style="display:none;"></iframe>
+        <table class="search_table" width="100%">
+            <tbody>
+            <tr>
+                <td class="search">
+                    <form action="mass_send.php" method="get">
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <form name="list_form" id="list_form" action="" method="post">
+            <div class="table-list">
+                <table width="100%" cellspacing="0">
+                    <thead>
+                        <tr align = 'center'>
+                            <th width="40">任务ID</th>
+                            <th width="90">信息media_id</th>
+                            <th width="40">群发数</th>
+                            <th width="40">成功数</th>
+                            <th width="300">任务描述</th>
+                            <th width="60">处理状态</th>
+                            <th width="50">处理时间</th>
+                            <th width="60">错误信息</th>
+                            <th width="90">子任务状态</th>
+                            <th width="90">提交时间</th>
+                            <th>备注</th>
+                            <th width="70">添加时间</th>
+                            <th width="70">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- IF mission_list -->
+                    <!-- BEGIN mission_list -->
+                    <tr>
+                        <td align="center">{mission_id}</td>
+                        <td title="">{media_id}</td>
+                        <td align = 'center'>{user_count}</td>
+                        <td align = 'center'>{success_count}</td>
+                        <td>{mission_desc}</td>
+                        <td align = 'center'>{status_show}</td>
+                        <td align = 'center'>{handle_time_str}</td>
+                        <td align = 'center'>{err_msg}</td>
+                        <td align = 'center'>
+                            <!-- BEGIN sub_mission_status_list -->
+                            {sub_mission_status_show}<br />
+                            <!-- END sub_mission_status_list -->
+                        </td>
+                        <td align = 'center'>{mulit_time_str}</td>
+                        <td>{remark}</td>
+                        <td align = 'center'>{add_time_str}</td>
+                         <td align = 'center'>
+                             <a style='display:block' href="mass_send.php?act=cancel_mission&mission_id={mission_id}" target="mcfrm">取消任务</a>
+                            <!-- 
+                            <a style='display:block' href="mass_send.php?act=force_send" onClick = ''>更新并发送</a>
+                            -->
+                        </td> 
+                    </tr>
+                    <!-- END mission_list -->
+                    <!-- ELSE -->
+                    暂无数据
+                    <!-- ENDIF -->
+                    </tbody>
+                </table>
+            </div>
+        </form>
+        <div id="pages" class="page">
+            {page_select}
+        </div>
+    </div>
+</body>
+</html>

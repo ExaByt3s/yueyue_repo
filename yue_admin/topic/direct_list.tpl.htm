@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: '',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        })
+    })
+    </script>
+
+<title></title>
+
+</head>
+<body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+
+<div class="mainbox">
+<table class="search_table" width="100%">
+	<tbody>
+		
+        <tr> 
+			<td class="search">
+<input type="button" value="添加化妆服务" class="button" onclick="location.href='direct_edit.php?type_id=3'" />&nbsp;&nbsp;
+<input type="button" value="添加影棚租赁" class="button" onclick="location.href='direct_edit.php?type_id=12'" />&nbsp;&nbsp;
+<input type="button" value="添加摄影培训" class="button" onclick="location.href='direct_edit.php?type_id=5'" />&nbsp;&nbsp;
+<input type="button" value="添加模特服务" class="button" onclick="location.href='direct_edit.php?type_id=31'" />&nbsp;&nbsp;
+<input type="button" value="添加摄影服务" class="button" onclick="location.href='direct_edit.php?type_id=40'" />&nbsp;&nbsp;
+<input type="button" value="添加约有趣" class="button" onclick="location.href='direct_edit.php?type_id=43'" />&nbsp;&nbsp;
+			</td>
+		</tr>
+
+        <form action="" method="get">
+        <tr> 
+			<td class="search">类型：
+			  <select name="type_id" id="type_id">
+              <option value="">请选择</option>
+			    <option value="3" <!-- IF type_id="3" -->selected="selected"<!-- ENDIF -->>化妆服务</option>
+                <option value="12" <!-- IF type_id="12" -->selected="selected"<!-- ENDIF -->>影棚租赁</option>
+                <option value="5" <!-- IF type_id="5" -->selected="selected"<!-- ENDIF -->>摄影培训</option>
+                <option value="31" <!-- IF type_id="31" -->selected="selected"<!-- ENDIF -->>模特服务</option>
+                <option value="40" <!-- IF type_id="40" -->selected="selected"<!-- ENDIF -->>摄影服务</option>
+                <option value="43" <!-- IF type_id="43" -->selected="selected"<!-- ENDIF -->>约有趣</option>
+	          </select>
+		    <input type="submit" name="button" id="button" value="提交" /></td>
+		</tr>
+        </form>
+	</tbody>
+</table>
+<a href='http://yp.yueus.com/mobile/tool/form.php?id=119' target='_blank'>测试</a>
+  <form name="add_form" id="add_form" action="" method="post" target="frame">
+    <div id="tabs">
+    <div class="tabbox">
+      <div class="table-list">
+        <table width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>ID</th>
+             
+              <th>商品代码</th>
+			  <th>商品名称</th>
+              <th>类型</th>
+              <th>是否自动同意</th>
+             <th>是否自动签到</th>
+              <th>操作</th>
+			  <th>记住用APP扫哦</th>
+                </tr>
+          </thead>
+          <tbody>
+            <!-- BEGIN list -->
+            <tr>
+              <td align="center"><a href="topic_iframe.php?id={id}" target="_blank">{id}</a></td>
+             
+              <td align="center">{goods_id}</td>
+			  <td align="center">{goods_name}</td>
+              <td align="center">{type_name}</td>
+              <td align="center"><!-- IF is_auto_accept="1" -->是<!-- ELSE -->否<!-- ENDIF --></td>
+              <td align="center"><!-- IF is_auto_sign="1" -->是<!-- ELSE -->否<!-- ENDIF --></td>
+              <td align="center"><a href="direct_edit.php?type_id={type_id}&id={id}&act=edit">编辑 </a>|
+                <a href="http://yp.yueus.com/mall/user/order/confirm.php?goods_id={goods_id}&direct_order_id={id}" target='_blank'> 预览 </a> | <a href="http://www.yueus.com/yue_admin/topic/direct_list.php?act=del&id={id}">删除</a><br />
+                <a href="http://www.yueus.com/mobile/tool/topic_v2.php?url={web_url}" target='_blank'>生成网页按钮</a><br />
+                <a href="http://www.yueus.com/mobile/tool/topic_v2.php?url={app_url}" target='_blank'>生成APP按钮</a></td>
+<td align="center"><img src='{qrcode_img}' width=150 height=150></td>
+			  
+             <!-- END list --> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="pages" class="page"> {page} </div>
+  </form>
+</div>
+</body>
+</html>

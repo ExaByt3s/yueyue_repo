@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>OA</title>
+<style type="text/css">
+.input-text {
+	width:500px;
+}
+.table-list {
+	clear: both;
+}
+.table-list .input-text {
+	width: 500px;
+}
+.table-list .table {
+	float: left;
+	margin-top: 20px;
+ +margin-left:5px;
+}
+.box {
+	position:absolute;
+	width:600px;
+	left:50%;
+	height:auto;
+	z-index:100;
+	background-color:#fff;
+	border:1px #8FA4F5 solid;
+	padding:1px;
+}
+.box h2 {
+	height:25px;
+	font-size:14px;
+	background-color:#3366cc;
+	position:relative;
+	padding-left:10px;
+	line-height:25px;
+	color:#fff;
+}
+.box h2 a {
+	position:absolute;
+	right:5px;
+	font-size:12px;
+	color:#fff;
+}
+.box .mainlist {
+	padding:10px;
+}
+.box .mainlist li {
+	height:24px;
+	line-height:24px;
+	list-style:none
+}
+.box .mainlist li span {
+	margin:0 5px 0 0;
+	font-family:"宋体";
+	font-size:12px;
+	font-weight:400;
+	color:#ddd;
+}
+#TB_overlayBG {
+	background-color:#666;
+	position:absolute;
+	z-index:99;
+	left:0;
+	top:0;
+	display:none;
+	width:100%;
+	height:100%;
+	opacity:0.5;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+}
+.ajax_load {
+	height:100px;
+}
+.ajax_load img {
+	margin:30px 0 0 180px;
+}
+</style>
+</head>
+<body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+<div id="TB_overlayBG"></div>
+<div class="box" style="display:none" id="box">
+  <h2>添加商家<a href="javascript:void(0);" class="close">关闭</a></h2>
+  <div class="table-list">
+    <table width="100%" border="0">
+      <tbody>
+        <tr>
+          <td width="24%">商家用户ID:</td>
+          <td width="76%"><input type="text" name="user_id" id="user_id" /></td>
+        </tr>
+        <tr>
+          <td>可拍摄时间:</td>
+          <td><input type="text" name="date_time" id="date_time" readonly="readonly" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss' })" /></td>
+        </tr>
+        <tr>
+          <td>价格:</td>
+          <td><input type="text" name="price" id="price" /></td>
+        </tr>
+        <tr>
+          <td>备注:</td>
+          <td><textarea name="remark" id="remark" cols="45" rows="5"></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center"><br />
+            <input name="" type="button" value="添加" onclick="submit_recommend()" />
+            <br /></td>
+        </tr>
+      <input type="hidden" name="order_id" id="order_id" value="{order_id}" />
+        </tbody>
+      
+    </table>
+  </div>
+</div>
+<div class="mainbox">
+  <div id="tabs" style="margin-top:10px;">
+    <div class="tabbox">
+      <div class="table-list">
+        <div class="table" style="width:50%;">
+           <fieldset>
+            <legend>问卷</legend>
+            <!--list-->
+            <table  cellspacing="10" width="100%">
+              <tbody>
+                 <!-- BEGIN question.data -->              
+                <tr>
+                  <td >{titles}:</td>
+                  <td >
+                  <!-- BEGIN data -->
+                  {titles}<br>
+                  <!-- BEGIN data -->
+                  &nbsp;&nbsp;->{titles}<br>
+                  <!-- END data -->
+                  <!-- END data -->
+                  </td>                  
+                </tr>                
+                <!-- END question.data -->
+                
+              </tbody>
+            </table>
+          </fieldset>
+        </div>
+        <div class="table" style="width:50%;">
+       <fieldset>
+            <legend>用户信息</legend>
+            <!--list-->
+            <table  cellspacing="10" width="100%">
+              <tbody>
+                <tr>
+                  <td width="179">用户昵称:</td>
+                  <td width="1089">{order.cameraman_nickname}</td>
+                </tr>
+                <tr>
+                  <td>联系电话:</td>
+                  <td>{order.cameraman_phone}</td>
+                </tr>
+                 <tr>
+                  <td>拍摄预算:</td>
+                  <td>{order.budget}</td>
+                </tr>
+                 <tr>
+                  <td>应收金额:</td>
+                  <td>{order.receivable_amount}元</td>
+                </tr>
+                <tr>
+                  <td>应付金额:</td>
+                  <td>{order.payable_amount}元</td>
+                </tr>
+                <tr>
+                   <td>备注:</td>
+                   <td>{order.date_remark}</td>
+                </tr>
+              </tbody>
+            </table>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div class="table-list">
+        <div class="btn">
+       
+     
+        </div>
+        </div>
+   <div class="table-list" style="margin-top:10px">
+        <table width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              
+              <th width="126">商家用户ID</th>
+              <th width="156">商家昵称</th>
+              <th width="243">可拍摄时间</th>
+              <th width="243">拍摄价格</th>
+              <th width="243">手机</th>
+              <th width="257">备注</th>
+              <th width="257">查看商家库</th>
+              <th width="257">推荐时间</th>
+              <th width="257">状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- BEGIN model_list -->
+            <tr>
+              
+              <td align="center">{user_id}</td>
+              <td align="center">{nickname}</td>
+              <td align="center">{date_time}</td>
+              <td align="center">{price}</td>
+              <td align="center">{cellphone}</td>
+              <td align="center">{remark}</td>
+              <td align="center"><a href="http://www.yueus.com/yue_admin/model_audit/model_detail.php?uid={user_id}" target="_blank">查看</a></td>
+              <td align="center">{add_time}</td>
+               <td align="center"><!-- IF status="0" -->待确认<!-- ELSEIF status="1" -->合适<!-- ELSEIF status="2" -->不合适<!-- ENDIF --></td>
+              <!-- END model_list --> 
+            </tr>
+          </tbody>
+        </table>
+</div>
+
+	   <div class="table-list">
+       <div class="btn">
+        <input type="button" value="返回" class="button" onclick="history.go(-1);">
+<!-- IF order.source="4" -->
+<!-- IF order.order_status="close" -->
+<!-- ELSE -->
+<input type="button" value="结单" class="button" onclick="frame.location.href='order_view.php?order_id={order.order_id}&close_order=1'">
+<!-- ENDIF -->
+<!-- ENDIF -->
+        </div>
+   
+              </div>
+
+  
+  </div>
+</div>
+</body>
+</html>

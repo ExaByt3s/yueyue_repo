@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>服务订单</title>
+    <!--link rel="import" href="../webcontrol/head.tpl.html?__inline"-->
+    {wap_global_top}
+    <link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/order/order_bfa15bb.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/lib/lib_0df1370.js"></script>
+<link type="text/css" rel="stylesheet" href="http://cb-d.poco.cn/assets/yueyue/static/wap/style/libs/common_79cae42.css">
+<script type="text/javascript" charset="gbk" src="http://cb-d.poco.cn/assets/yueyue/static/wap/js/common/common_dacc877.js"></script>
+</head>
+<body style="background: #f2f2f2;">
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view page-name-order-list" data-role="page-container">
+        <div class="taps_container">
+            <div class="inner_tap" data-role="tap" data-status="0" >
+                <!-- IF red_dot.wait_pay !="0" --><div class="red_dot"></div><!-- ENDIF -->
+                <p>待付款</p>
+
+            </div>
+                <div class="inner_tap" data-role="tap" data-status="1">
+                    <!-- IF red_dot.wait_confirm !="0" --><div class="red_dot"></div><!-- ENDIF -->
+                    <p>待确认</p>
+                </div>
+                <div class="inner_tap" data-role="tap" data-status="2">
+                    <p>待签到</p>
+                </div>
+                <div class="inner_tap" data-role="tap" data-status="8">
+                    <p>已完成</p>
+                </div>
+                <div class="inner_tap" data-role="tap" data-status="7">
+                    <p>已关闭</p>
+                </div>
+            </div>
+                <div class="order_list_container" data-role="list_container">
+                    <!-- BEGIN data -->
+                    <div class="child" order_id="{order_id}" order_sn="{order_sn}" goods_id="{detail_list}">
+                        <!-- BEGIN code_list -->
+                        <div data-role-code="contain" style="display: none">
+                            <input type="hidden" data-code-url="{qr_code_url}">
+                            <input type="hidden" data-code-number="{code_sn}">
+                            <input type="hidden" data-code-name="{name}">
+                        </div>
+
+                        <!-- END code_list -->
+                        <!-- BEGIN detail_list -->
+                        <input type="hidden" data-goods-id="{goods_id}">
+                        <!-- END detail_list -->
+                        <div class="item_info" data-role="item_info">
+                            <div class="pics">
+                                <img src="{goods_images}"/>
+                            </div>
+                            <div class="notice_contain">
+                                <div class="notice">{goods_name}</div>
+                                <div class="o_price">￥{total_amount}</div>
+
+                            </div>
+                        </div>
+                        <div class="r_pay ui-border-t">
+                            <div class="info">
+                                <p class="tex">实付：</p>
+                                <p class="re_price">￥{pending_amount}</p>
+                            </div>
+                        </div>
+                        <div class="btns ui-border-t">
+                            <!-- BEGIN btn_action -->
+                            <!-- IF request="close" -->
+                            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="close" data-role="2">
+                                <span class="">关闭</span>
+                            </button>
+                            <!-- ELSEIF request="pay" -->
+                            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good" data-action-type="pay" data-role="3">
+                                <span class="">支付</span>
+                            </button>
+                            <!-- ELSEIF request="cancel" -->
+                            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="cancel" data-role="1">
+                                <span class="">取消订单</span>
+                            </button>
+                            <!-- ELSEIF request="refund" -->
+                            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="refund" data-role="4">
+                                <span class="">申请退款</span>
+                            </button>
+                            <!-- ELSEIF request="sign" -->
+                            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good" data-action-type="ewm" data-role="5">
+                                <span class="">出示二维码</span>
+                            </button>
+                            <!-- ELSEIF request="delete" -->
+                            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-aaa bad" data-action-type="delete" data-role="7">
+                                <span class="">删除订单</span>
+                            </button>
+                            <!-- ELSEIF request="appraise" -->
+                            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6 good" data-action-type="comment" data-role="6">
+                                <span class="">评价</span>
+                            </button>
+                            <!-- ENDIF -->
+                            <!-- END btn_action -->
+                        </div>
+                    </div>
+                    <!-- END data -->
+                </div>
+                <div class="next_page_btn fn-hide" data-role="next_page_btn">
+                    <p>加载下一页</p>
+                </div>
+                <!-- IF date_tesing="1" -->
+                <div class="next_page_btn" data-role-date-test="test">
+                    <p>调用组件</p>
+                </div>
+                <!-- ENDIF -->
+            </div>
+{wap_global_footer}
+    
+</main>
+<input id="page" type="hidden" data="{current_page}"/>
+<input id="type_id" type="hidden" data="{type_id}"/>
+<input id="has_next_page" type="hidden" data="{has_next_page}"/>
+<input id="status" type="hidden" data="{current_status}"/>
+<input id="data_length" type="hidden" data="{data_length}"/>
+
+</body>
+<script>
+
+    var $ = require('components/zepto/zepto.js');
+
+    var APP = require('common/I_APP/I_APP');
+
+    var utility = require('common/utility/index');
+
+    var abnormal = require('common/widget/abnormal/index');
+
+    //var Picker = require('../../../../modules/date_picker/index');
+
+    var fastclick = require('components/fastclick/fastclick.js');
+
+
+    if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+            fastclick.attach(document.body);
+        }, false);
+    }
+
+    //picker._init_frame();
+    //
+    // 渲染头部
+    var header = require('common/widget/header/main');
+    header.init({
+        ele : $("#global-header"), //头部渲染的节点
+        title:"服务订单",
+        header_show : true , //是否显示头部
+        right_icon_show : false, //是否显示右边的按钮
+
+        share_icon : 
+        {
+            show :false,  //是否显示分享按钮icon
+            content:""
+        },
+        omit_icon :
+        {
+            show :false,  //是否显示三个圆点icon
+            content:""
+        },
+        show_txt :
+        {
+            show :true,  //是否显示文字
+            content:"编辑"  //显示文字内容
+        }
+    })
+
+
+    $(function()
+    {
+
+        var data_length = $('#data_length').attr('data');
+
+        if(data_length == '0' ){
+            abnormal.render($('[data-role="list_container"]')[0],{});
+        }
+
+        var current_page = $('#page').attr('data');
+
+        var current_status = $('#status').attr('data');
+
+        var type_id = $('#type_id').attr('data');
+
+        $('[data-status="'+ current_status + '"]').addClass('cur');
+
+        $('[data-role="item_info"]').on('click',function(){
+
+            location.href = './detail.php?order_sn=' + $(this).parents('.child').attr('order_sn');
+        })
+
+        //栏目切换
+        $('[data-role="tap"]').on('click',function(){
+
+            $(this).addClass('cur').siblings().removeClass('cur');
+
+            current_status = $(this).attr('data-status');
+
+            fresh();
+        });
+        //ajax请求
+        function ajax_control(data,success,error,complete){
+            $.ajax
+            ({
+                url: window.$__config.ajax_url.list_control,
+                data : data,
+                dataType: 'json',
+                type: 'POST',
+                cache: false,
+                beforeSend: function()
+                {
+
+                    window.$loading = $.loading
+                    ({
+                        content:'发送中...'
+                    });
+                },
+                success: function(data)
+                {
+                    $loading.loading("hide");
+
+                    if(data.result_data.data.result == 1){
+                        //成功 后刷页
+                        alert(data.result_data.data.message)
+                        location.reload();
+                    }
+                    else{
+                        //
+
+                        alert(data.result_data.data.message)
+                    }
+                },
+                error: function(data)
+                {
+                    $loading.loading("hide");
+
+                    alert('请求失败，请重试');
+                },
+                complete: function()
+                {
+
+                }
+            });
+        }
+        var ajax_control_type;//请求类型
+
+        $('[data-role="1"]').on('click',function(){
+            ajax_control_type = 'cancel';
+
+            var $con = $(this);
+
+            var dialog = utility.dialog({
+                title : '',
+                content : '确认取消？'
+            });
+
+            dialog.on('confirm',function(event,args)
+            {
+                var data = {order_sn: $con.parents('.child').attr('order_sn'),type:ajax_control_type}
+                ajax_control(data);
+            });
+        });
+
+        $('[data-role="2"]').on('click',function(){
+            ajax_control_type = 'close';
+
+            var $con = $(this);
+
+            var dialog = utility.dialog({
+                title : '',
+                content : '确认关闭？'
+            });
+
+            dialog.on('confirm',function(event,args)
+            {
+                var data = {order_sn: $con.parents('.child').attr('order_sn'),type:ajax_control_type}
+                ajax_control(data);
+            });
+        });
+
+        $('[data-role="3"]').on('click',function(){
+
+            var $con = $(this);
+
+            var dialog = utility.dialog({
+                title : '',
+                content : '去支付？'
+            });
+
+            dialog.on('confirm',function(event,args)
+            {
+                $.ajax
+                ({
+                    url: window.$__config.ajax_url.list_pay_judge,
+                    data : {order_sn: $con.parents('.child').attr('order_sn')},
+                    dataType: 'json',
+                    type: 'POST',
+                    cache: false,
+                    beforeSend: function()
+                    {
+                        window.$loading = $.loading
+                        ({
+                            content:'请求支付中...'
+                        });
+                    },
+                    success: function(data)
+                    {
+                        $loading.loading("hide");
+
+                        if(data.result_data.data.result == 1){
+                            //成功 后刷页
+                            if(data.result_data.data.message != '')
+                            {
+                                alert(data.result_data.data.message);
+                            }
+
+                            window.location.href = "{pay_url}" + $con.parents('.child').attr('order_sn');
+                        }
+                        else{
+                            //
+                            alert(data.result_data.data.message)
+                        }
+                    },
+                    error: function(data)
+                    {
+                        $loading.loading("hide");
+
+                        alert('请求失败，请重试');
+                    },
+                    complete: function()
+                    {
+
+                    }
+                });
+            });
+        });
+
+        $('[data-role="4"]').on('click',function(){
+            ajax_control_type = 'refund';
+
+            var $con = $(this);
+
+            var dialog = utility.dialog({
+                title : '',
+                content : '确认申请退款？'
+            });
+
+            dialog.on('confirm',function(event,args)
+            {
+                var data = {order_sn:$con.parents('.child').attr('order_sn'),type:ajax_control_type}
+                ajax_control(data);
+            });
+
+        });
+
+        $('[data-role="5"]').on('click',function(){
+            var this_parent = $(this).parents('.child');
+            var qrcodes = [];
+            $.each(this_parent.find('[data-role-code="contain"]'),function(i,obj)
+            {
+                var inner_obj =
+                {
+                    url : $(obj).find('[data-code-url]').attr('data-code-url'),
+                    number : $(obj).find('[data-code-number]').attr('data-code-number'),
+                    name : $(obj).find('[data-code-name]').attr('data-code-name')
+                }
+
+                qrcodes.push(inner_obj);
+            })
+
+            console.log(qrcodes);
+
+            if(APP.isPaiApp){
+                APP.qrcodeshow(qrcodes,0,function(){});
+            }
+        });
+
+        $('[data-role="6"]').on('click',function(){
+            console.log('评价');
+
+            var $con = $(this);
+            var id = $con.parents('.child').find('[data-goods-id]').attr('data-goods-id');
+            var sn = $con.parents('.child').attr('order_sn');
+            console.log(id,sn);
+
+            window.location.href = '../comment/index.php?order_sn='+sn;
+        });
+
+        $('[data-role="7"]').on('click',function(){
+            ajax_control_type = 'delete';
+
+            var $con = $(this);
+
+            var dialog = utility.dialog({
+                title : '',
+                content : '确认删除？'
+            });
+
+            dialog.on('confirm',function(event,args)
+            {
+                var data = {order_sn:$con.parents('.child').attr('order_sn'),type:ajax_control_type}
+
+                ajax_control(data);
+
+            });
+
+        });
+
+        //下一页按钮显隐
+        var next_page_obj = $('#has_next_page');
+
+        var next_btn = $('[data-role="next_page_btn"]');
+        if(next_page_obj.attr('data') == '1'){
+            console.log(next_page_obj.attr('data'))
+            next_btn.removeClass('fn-hide');
+        }
+        //加载更多
+        next_btn.on('click',function(){
+
+            current_page++;
+
+            fresh();
+        })
+        //页面刷新函数
+        function fresh(){
+
+            window.$page_loading = $.loading
+            ({
+                content:'请求发送中...'
+            });
+
+            location.href = './list.php?type_id='+ type_id + '&status=' + current_status + '&page=' + current_page
+        }
+
+        /*var pick = new Picker
+        ({
+            CAN_NOT_CHOOSE_A_DAY_BEFORE:'2015-03-20',
+            CHOOSE_PAST_DAYS : true,
+            DEFAULT_DAY : '2015-07-24',
+            MONTH_RANGE : ['2015-03','2015-10'],
+            RETURN_SEPARATOR : '-',
+            SKIP_DAYS : ['2015-08-15~2015-09-15','2015-09-20']
+        })
+
+        pick.get_obj().on('finish',function(event,str)
+        {
+            console.log(str);
+        })
+
+
+        $('[data-role-date-test="test"]').on('click',function()
+        {
+
+
+            pick.slide_show();
+        })*/
+
+        /*
+        pick.get_obj().on('click',function()
+        {
+            pick.slide_hide()
+        })
+        */
+
+
+    });
+</script>
+</html>

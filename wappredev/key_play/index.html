@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+    #root{
+      display: -webkit-box;
+    }
+    #notice{
+      margin-left: 200px;
+    }
+    #notice p{
+      padding: 0px;
+      margin: 0px;
+      font-size: 14px;
+      font-family: '微软雅黑';
+
+    }
+    .hori_box{
+      display: -webkit-box;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #cccccc;
+    }
+    .verti_box{
+      display: -webkit-box;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #cccccc;
+      -webkit-box-orient:vertical;
+    }
+    .pack_start{
+      -webkit-box-pack:start;
+    }
+    .pack_end{
+      -webkit-box-pack:end;
+    }
+    .pack_justify{
+      -webkit-box-pack:justify;
+    }
+    .pack_center{
+      -webkit-box-pack:center;
+    }
+    .box_flex{
+      -webkit-box-flex:1;
+    }
+    #result{
+      margin: 0 auto;
+      color: #fff;
+      background: steelblue;
+      width: 100px;
+      text-align: center;
+      line-height: 30px;
+      height: 30px;
+    }
+    #re_css{
+      -webkit-box-flex:1;
+      overflow: scroll;
+      height: 300px;
+      width: 200px
+    }
+    #re_html{
+      -webkit-box-flex:1;
+      overflow: scroll;
+      height: 300px;
+      width: 200px
+    }
+    </style>
+    <script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/key_play/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/wappredev/key_play/keypress-2.1.0.min.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+    <div class="hori_box">
+      <div id="re_css"></div>
+      <div id="re_html"></div>
+    </div>
+    <div id="result">生 成</div>
+    <div id='notice'>
+      <p>==操作说明==</p>
+      <p>当前元素父级操作ctrl</p>
+      <p>当前元素操作space</p>
+      <p>ctrl/space +</p>
+      <p>enter 增加子元素/增加兄弟元素</p>
+      <p>< 父元素/当前元素横向布局并start排列</p>
+      <p>> 父元素/当前元素横向布局并end排列</p>
+      <p>^ 父元素/当前元素纵向布局并start排列</p>
+      <p>v 父元素/当前元素纵向布局并end排列</p>
+      <p>j 父元素/当前元素排列justify</p>
+      <p>c 父元素/当前元素排列center</p>
+      <p>x 父元素/当前元素flex:1</p>
+    </div>
+   <script type="text/javascript">
+$(function()
+{
+  var this_box = $('#root');
+  var supper_box = $('body');
+  var box_indexex = 0;
+
+  var h_box_str = '<div class="hori_box" data-role="ctrls"></div>'
+  //var v_box_str = '<div class="verti_box" data-role="ctrls"></div>'
+
+  var listener = new window.keypress.Listener();
+  /*
+    当前元素父级操作ctrl 
+    当前元素操作space
+
+    ctrl/space +
+    enter 增加子元素/增加兄弟元素
+    < 父元素/当前元素横向布局并start排列
+    > 父元素/当前元素横向布局并end排列
+    ^ 父元素/当前元素纵向布局并start排列
+    v 父元素/当前元素纵向布局并end排列
+    j 父元素/当前元素排列justify
+    c 父元素/当前元素排列center
+    x 父元素/当前元素flex:1
+  */
+  listener.simple_combo("ctrl enter", function() {
+    var type = 'supper';
+    creatAnBox(type);
+  });
+
+  listener.simple_combo("ctrl left", function() {
+    supper_box
+      .removeClass()
+      .addClass('hori_box')
+      .css('-webkit-box-pack','start');
+  });
+
+  listener.simple_combo("ctrl right", function() {
+    supper_box
+      .removeClass()
+      .addClass('hori_box')
+      .css('-webkit-box-pack','end');
+  });
+
+  listener.simple_combo("ctrl up", function() {
+    supper_box
+      .removeClass()
+      .addClass('verti_box')
+      .css('-webkit-box-pack','start');
+  });
+
+  listener.simple_combo("ctrl down", function() {
+    supper_box
+      .removeClass()
+      .addClass('verti_box')
+      .css('-webkit-box-pack','end');
+  });
+
+  listener.simple_combo("ctrl j", function() {
+    supper_box.css('-webkit-box-pack','justify');
+  });
+
+  listener.simple_combo("ctrl c", function() {
+    supper_box.css('-webkit-box-pack','center');
+  });
+
+  listener.simple_combo("ctrl x", function() {
+    supper_box.addClass('box_flex');
+  });
+
+  listener.simple_combo("ctrl backspace", function() {
+    if($('[data-role="ctrls"]').length > 1 )
+    {
+      this_box = supper_box.parent('[data-role="ctrls"]');
+      supper_box.remove();
+      supper_box = this_box.parent('[data-role="ctrls"]');
+      moveFouse();
+    }
+    else
+    {
+      console.info('no more supper_box') 
+    }
+       
+  });
+
+  listener.simple_combo("space enter", function() {
+    var type = 'this';
+    creatAnBox(type);
+  });
+
+  listener.simple_combo("space up", function() {
+    this_box
+      .removeClass()
+      .addClass('verti_box')
+      .css('-webkit-box-pack','start');
+  });
+
+  listener.simple_combo("space down", function() {
+    this_box
+      .removeClass()
+      .addClass('verti_box')
+      .css('-webkit-box-pack','end');
+  });
+
+  listener.simple_combo("space left", function() {
+    this_box
+      .removeClass()
+      .addClass('hori_box')
+      .css('-webkit-box-pack','start');
+  });
+
+  listener.simple_combo("space right", function() {
+    this_box
+      .removeClass()
+      .addClass('hori_box')
+      .css('-webkit-box-pack','end');
+  });
+
+  listener.simple_combo("space j", function() {
+    this_box.css('-webkit-box-pack','justify');
+  });
+
+  listener.simple_combo("space c", function() {
+    this_box.css('-webkit-box-pack','center');
+  });
+
+  listener.simple_combo("space x", function() {
+    this_box.addClass('box_flex');
+  });
+
+  listener.simple_combo("space backspace", function() {
+    if($('[data-role="ctrls"]').length > 0 )
+    {
+      this_box.remove();
+      this_box = supper_box;
+      supper_box = this_box.parent('[data-role="ctrls"]');
+      moveFouse();
+    }
+    else
+    {
+      console.info('no more this_box') 
+    }
+  });
+
+function moveFouse()
+{
+
+  $('[data-role="ctrls"]').css('border','1px solid #cccccc');
+  this_box.css('border','1px solid red');
+}
+function creatAnBox(type)
+{
+  box_indexex++;
+  var new_ele = $(h_box_str).attr('index',box_indexex);
+  switch (type)
+  {
+    case 'supper':
+      console.log('this is supper_enter');
+      this_box.append(new_ele);
+      supper_box = this_box;
+      break;
+    case 'this':
+      console.log('this is this_enter');
+      new_ele.insertAfter(this_box);
+      break;
+  } 
+  this_box = new_ele;
+  moveFouse();
+}
+
+function deleteThisBox()
+{
+  this_box.remove();
+  this_box = supper_box;
+  moveFouse();
+}
+
+
+function enter()
+   {
+    creatAnBox();
+    console.log("enter!")
+   }
+
+   function backSpace()
+   {
+    deleteThisBox();
+    console.log("back!")
+   }   
+
+var name_list = ['container','inner','inside','notice','con'];
+
+$('body').on('click',function(event)
+{
+
+  var click_obj = $(event.path[0]);
+  if(click_obj.attr('data-role') != 'ctrls'){return}
+  this_box = click_obj;
+  moveFouse();
+})
+$('#result').on('click',function()
+{
+  var parse_obj = document.getElementById('root');
+  
+  var map = document.defaultView.getComputedStyle;
+
+  var aa = reverse(parse_obj,map).css_str;
+  var ss = reverse(parse_obj,map).html_str;
+  document.getElementById('re_css').innerHTML = aa;
+  document.getElementById('re_html').innerText = ss.toString();
+})
+
+var className = "container_";
+
+function reverse(obj,map)
+{
+  var css_str = '';
+  var html_str = '';
+  var flex_str = '';
+
+  map(obj)['-webkit-box-flex'] == 0 ? flex_str = '' : flex_str = "-webkit-box-flex:" + map(obj)['-webkit-box-flex'] + ";";
+
+  var self_str = "display:" + map(obj)['display'] + ";</br>"
+                + "-webkit-box-orient:" + map(obj)['-webkit-box-orient'] + ";</br>"
+                + "-webkit-box-pack:" + map(obj)['-webkit-box-pack'] + ";</br>"
+                + flex_str;
+
+  if(obj.children.length > 0){
+    var insert_str = '';
+    for(var i = 0;i < obj.children.length;i++)
+    {
+      css_str = css_str + reverse(obj.children[i],map).css_str
+      html_str = html_str  + reverse(obj.children[i],map).html_str
+    }
+    css_str = "." + className + obj.getAttribute('index') + "{" + "</br>"
+              + self_str
+              + css_str 
+              + "</br>}";
+    html_str = "<div class='" + className + obj.getAttribute('index') + "'>" + html_str +  "</div>" 
+  }
+  else{
+    css_str = "</br>." + className + obj.getAttribute('index') + "{" + "</br>" 
+              + self_str
+              + "}";
+    html_str = "<div class='" + className + obj.getAttribute('index') + "'>" + "</div>" ;
+  }
+  return {css_str:css_str,html_str:html_str}
+}
+});
+   </script>
+  </body>
+</html>

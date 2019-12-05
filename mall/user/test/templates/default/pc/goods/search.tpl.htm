@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{key_current.title_key}</title>
+    <meta name="keywords" content="{key_current.keywords_key}">
+    <meta name="description" content="{key_current.description_key}">
+<!-- 公共css，js引入 -->
+{pc_global_top}
+
+<!-- <link rel="import" href="../page/webcontrol/head.tpl.htm?__inline"> -->
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/lib/mod.js"></script>
+<!-- 当前页css -->
+<link type="text/css" rel="stylesheet" href="../../../../style/goods/search-page.scss">
+
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/modules/common/search/search.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/modules/yue_ui/selectbox/ui-selectbox.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/pc/modules/common/go_top/go_top.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/jquery/jquery.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/placeholder/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/yue_ui/selectbox/popup.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/yue_ui/selectbox/selectbox.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/search/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/pc/modules/common/go_top/go_top.js"></script>
+</head>
+
+<body>
+
+<!-- bar -->
+{global_top_bar}
+<!-- bar end -->
+
+<div class="w1000">
+    <div class="mod-nav"><a href="{index_url}">首页</a> > <span class="cur">搜索</span></div>
+</div>
+<!-- 首页 -->
+<div class="search-page">
+
+    <div class="w1000" >
+        <div class="search_con_1 ui-search-com" >
+            <div class="font_wryh search_input" data-role="search-input"></div>
+
+			<div class="font_wryh search-filter mt15" data-role="search-filter"></div>
+
+			<div class="font_wryh  mt15" data-role="search-sort"></div>
+        </div>
+    </div>
+
+
+
+    
+
+    <div class="list-img-320-mod pt20" data-role="search_list">
+        <ul class="list" id="img_cen" >
+            <!-- IF is_seller == "1" -->
+                <!-- IF list_data.list.total -->
+                    <!-- BEGIN list_data.list.data -->
+                    <!--商家列表-->
+                    <a href="../seller/index.php?seller_user_id={seller_user_id}" target="_blank">
+                        <li>
+                            <div class="img-con">
+                                <div class="fade-box"></div>
+                                <div class="img"><img data-lazyload-url="{yueus_img_resize:images,'320'}" /></div>
+                            </div>
+                            <div class="search_seller_info">                                                                
+                                <div class="item-li clearfix">
+                                    <div class="fldi">
+                                        <img src="{avatar}" style="border-radius: 50%;" class="ui-avatar-icon-sm" />
+                                    </div>
+                                    <div class="fldi seller-info-1">
+                                        <div class="f20 seller-name">{seller}</div>
+                                        <div class="f16">{buy_num}</div>
+                                    </div>
+                                    <div class="frdi seller-info-2">
+                                        <div class="f16 color-aaa child-1">{step}</div>  
+                                        <div class="f16 color-aaa child-2">{titles}</div>  
+                                    </div>
+                                </div>
+                            
+                            </div>                    
+                        </li>
+                    </a>
+                    <!-- END list_data.list.data -->
+                <!-- ELSE -->
+           
+
+            <!-- ENDIF -->
+
+
+            <!-- ELSE -->
+
+                <!-- IF list_data.list.total -->
+                    <!-- BEGIN list_data.list.data -->
+                    <a href="./service_detail.php?goods_id={goods_id}" target="_blank">
+                        <li>
+
+                        
+                            <div class="img-con">
+                                <div class="fade-box"></div>
+                                <div class="img"><img data-lazyload-url="{yueus_img_resize:images,'320'}" /></div>
+                            </div>
+                            <div class="search_seller_info">
+                                <div class="item-li clearfix">
+                                    <div class="left fldi ">
+                                        <span class="f26-color-ff5959">{prices}</span>
+                                    </div>
+                                    <div class="right frdi span-1">
+                                        <span class="f14 color-aaa ">{step}</span>  
+                                    </div>
+                                </div>
+                                <div class="item-li clearfix title f14">
+                                    {titles}
+                                </div>
+                                <div class="item-li clearfix">
+                                    <div class="left fldi">
+                                        <img src="{seller_img}" style="border-radius: 50%;" class="ui-avatar-icon-ss" />
+                                        <span class="name">{seller}</span>
+                                    </div>
+                                    <div class="right frdi span-1">
+                                        <span class="f14 color-aaa">{bill_finish_num}</span>  
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </li>
+                    </a>
+                    <!-- END list_data.list.data -->                
+               
+
+                <!-- ENDIF -->
+            <!-- ENDIF -->
+
+
+
+
+
+
+        </ul>
+    </div>
+
+    <div class="page">{page}</div>  
+
+
+
+    {down_app_area}
+
+
+</div>
+
+{footer}
+
+
+<script type="text/javascript">
+
+var $ = require('components/jquery/jquery.js');
+var search = require('common/search/index');
+
+var lazyload = require('common/lazyload/lazyload');
+
+// 引入返回顶部组件
+var go_top = require('common/go_top/go_top');
+
+
+$(function() 
+{    
+
+	var go_top_obj = new go_top({
+	    render_ele: $('body') // 后加载的父容器
+	});
+
+	// 图片后加载处理
+	var lazyload_obj = new lazyload({
+		contain: $('#img_cen'), // 后加载的父容器
+		size: '320', // 可传可不传，压位
+		img_center: {
+			is_open : true,  //是否开启图片居中功能
+			width : '320',   //图片居中盒子的宽
+			height : '220'  //图片居中盒子的高
+		}
+	});
+
+	
+	var page_data = {page_data}.result_data || {};
+
+	console.log(page_data);
+
+	var search_obj = search.init
+	({
+		total_data : page_data,
+        select_use_change : true,
+		icon_search : 'http://static.yueus.com/mall/user/test/static/pc/images/search-20x20.png',
+        icon_tips : 'http://static.yueus.com/mall/user/test/static/pc/images/search-empty-24x22.png',
+		input_container : $('[data-role="search-input"]'),
+		filt_data_container : $('[data-role="search-filter"]'),
+		sort_btn_list: $('[data-role="search-sort"]')
+	});
+
+    if(get_hash())
+    {
+        window.scrollTo(0, $('[data-role="search-filter"]').offset().top);
+    }
+    
+
+    function get_hash() 
+    {
+        return window.location.hash.substr(1);
+    }
+});
+
+
+
+</script>
+
+</body>
+
+</html>
+
+		

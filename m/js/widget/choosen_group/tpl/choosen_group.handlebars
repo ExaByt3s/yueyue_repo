@@ -1,0 +1,22 @@
+<style>
+    .status_txt{
+        color:#ff0052;
+        margin-left: 5px;
+    }
+    .normal_status_txt{
+        color:#333;
+    }
+    .light_status_txt{
+        color:#aaa;
+    }
+</style>
+<div class="ui-choosen-group" data-role="ui-choosen-group" data-group-name="{{group_name}}" style="{{style}}" >
+    {{#each list}}
+        <div class="ui-choosen-line" style="{{#with ../this}}margin:{{line_margin}};{{/with}};position: relative;">
+            {{#each this}}
+                {{#if normal_status}}<div class="inline-block fn-hide" style="width: 20px;height: 20px;background-color: #FF4978;position: absolute;left: -10px;bottom: -10px;font-size: 8px;line-height: 20px;color: #fff;border-radius: 10px;text-align: center;">{{status_txt}}</div>{{/if}}
+                <div style="text-align: left;padding-left: 15px;{{#with ../../this}}width:{{btn_width}};{{/with}}" class="ui-choosen-btn {{#if readonly}} readonly{{/if}} {{#if selected}} current{{/if}}{{#if disabled}} disabled{{/if}}{{#if normal_status}} normal_status{{/if}}" data-normal_status="{{normal_status}}" data-disabled="{{#if disabled}}1{{/if}}" data-selected-value="{{text}}" data-selected-id="{{id}}" data-selected-params="{{params}}" data-selected-remark="{{remark}}" data-selected-price="{{price}}" data-readonly="{{readonly}}" data-role="ui-choosen-btn" >{{{text}}}</div>
+            {{/each}}
+        </div>
+    {{/each}}
+</div>

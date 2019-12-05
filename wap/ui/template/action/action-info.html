@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="gb2312">
+<title>POCO约约 - 发布活动</title>
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link charset="utf-8" rel="stylesheet" href="../../../css/pai/paiappstyle.css">
+</head>
+
+<body>
+<div id="page-container" >
+    <div class="apps_page">
+        <main role="main" class="action-info wryh">
+
+            <header class="page-header wryh">
+                <div class="page-back" data-role="page-back"><i class="icon icon-back-40x40"></i></div>
+                发布活动
+            </header>
+            <div class="content-body">
+                <div class="procedure-header-mod">
+                    <ul class="step">
+                        <li class="current">活动信息</li>
+                        <li>活动介绍</li>
+                        <li>场次安排</li>
+                    </ul>
+                    <ul class="num">
+                        <li class="common current">
+                            <i class="num-icon">1</i>
+                            <div class="line-grey"></div>
+                            <div class="line-red"></div>
+                        </li>
+                        <li class="common">
+                            <i class="num-icon">2</i>
+                            <div class="line-grey"></div>
+                            <div class="line-red"></div>
+                        </li>
+                        <li class="common">
+                            <i class="num-icon">3</i>
+                            <div class="line-grey"></div>
+                            <div class="line-red"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="action-info-content">
+                    <div class="wrap-box">
+                        <div class="action-info-inside">
+                            <div class="info">
+                                <div class="title">
+                                    <p>标题：</p>
+                                    <div class="input">
+                                        <input class="input-title" type="text" value="32" data-role="title"/>
+                                    </div>
+                                </div>
+                                <div class="time">
+                                    <p>时间：</p>
+                                    <div class="input">
+                                        <div class="left">
+                                            <div class="input-time-from" data-role="time-from"></div>
+                                            <div class="input-time-to" data-role="time-to"></div>
+                                        </div>
+                                        <div class="right">
+                                            <div class="font">至</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="address">
+                                    <p>地址：</p>
+                                    <div class="input">
+                                        <div class="input-address-con" data-role="address"></div>
+                                        <input class="input-address" type="text" placeholder="请输入详细地址" data-role="address-input"/>
+                                    </div>
+                                </div>
+                                <div class="bar">
+                                    <p>俱乐部：</p>
+                                    <div class="input">
+                                        <div class="input-bar-con" data-role="bar"></div>
+
+                                    </div>
+                                </div>
+                                <div class="fee">
+                                    <p>费用：</p>
+                                    <div class="input">
+                                        <input class="input-fee" type="text" value="50" data-role="fee-input"/>
+                                    </div>
+                                </div>
+                                <div class="notice">
+                                    <p></p>
+                                    <div class="input">
+                                        <div class="notice-tap current" data-role="notice-tap">
+                                            支持：随时退款、过期退款
+                                        </div>
+                                        <div class="tj">(推荐)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-con">
+                                <div class="btn" data-role="next">下一步</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script>
+    window.onload = function(){
+        var click_or_not = false;
+        var a = document.getElementsByClassName("more-select-drop")[0];
+        document.getElementsByClassName("select-drop-trigger")[0].onclick = function(){
+            if(!click_or_not) {
+                a.style.webkitAnimation = '0.6s index-select forwards';
+                click_or_not = true;
+            }
+            else{
+                a.style.webkitAnimation = '0.6s index-select-back forwards';
+                click_or_not = false;
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

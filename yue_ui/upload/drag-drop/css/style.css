@@ -1,0 +1,15 @@
+@charset "GB2312";
+.clearfix{clear: both;}
+.ui-item .ui-btn{margin:10px;float: left;position: relative;}
+.ui-item .ui-btn a{display: block;height:130px;width: 130px;text-align: center;}
+.bg-color{background:#ddd;}
+/*上传完成*/
+.ui-item .ui-upload .close-img{background:url(../img/close.png) no-repeat; width:23px;height:20px;position: absolute;right: 10px;top: 8px;}
+.ui-item .ui-upload .ui-upload-shadow{display:none;width: 130px;height: 35px;position: absolute;left: 0px;bottom: 0px;background: rgba(0, 0, 0, 0.5)!important;z-index: 99;filter: alpha(opacity=50);background: #000;text-align: center;line-height: 130px;cursor: pointer;}
+.ui-item .show .ui-upload-shadow{display:block;}
+/*上传进行中*/
+.ui-upload-ongo{}
+.ui-item .ui-btn .ui-upload-progress{width: 130px;height: 130px;position: absolute;left: 0;top: 0;  background: rgba(0, 0, 0, 0.5)!important;z-index: 99;filter: alpha(opacity=50);background: #000;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;text-align: center;line-height: 130px;}
+
+/*拖拽*/
+.glyphicon-move {cursor: move;cursor: -webkit-grabbing;}

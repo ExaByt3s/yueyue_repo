@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<script type="text/javascript">
+function sub_pay(id)
+{
+	if(!confirm('是否确认打款？'))
+	{
+	   return;
+	}
+	$.ajax( {    
+	url:'?action=pay&request_id='+id,
+	type:'post',    
+	cache:false,    
+	dataType:'json',    
+	success:function(data) {    
+		if(data.result){    
+			alert('确认打款成功');
+		}else{    
+			alert("确认打款失败！");  
+		}    
+	 },    
+	 error : function() {    
+		  alert("异常！");
+	 }    
+});  
+}
+$(function () {
+	$(".ui_timepicker").datetimepicker({
+		//showOn: "button",
+		//buttonImage: "./css/images/icon_calendar.gif",
+		//buttonImageOnly: true,
+		showSecond: true,
+		timeFormat: '',
+		stepHour: 1,
+		stepMinute: 1,
+		stepSecond: 1
+	});
+})
+</script>
+<title>订单列表</title>
+</head>
+<body>
+<div class="mainbox">
+<table class="search_table" width="100%">
+	<tbody>
+		
+        <tr>
+			<td width="81%" class="search">
+			  <form action="?" method="get">
+                                  
+                    订单状态:
+                <select name="status" id="status">                      
+                       <option value="-1" <!-- IF status="-1" -->selected="selected"<!-- ENDIF -->>全部</option>
+					   <option value="0" <!-- IF status="0" -->selected="selected"<!-- ENDIF -->>未雇佣</option>
+					   <option value="1" <!-- IF status="1" -->selected="selected"<!-- ENDIF -->>已雇佣</option>
+                       <option value="2" <!-- IF status="2" -->selected="selected"<!-- ENDIF -->>已支付</option>                        
+                       <option value="3" <!-- IF status="3" -->selected="selected"<!-- ENDIF -->>已评价</option>                        
+		          	  </select>
+                       &nbsp;&nbsp;&nbsp;&nbsp;服务类型:
+                       <select name="service_id" id="service_id">
+                         <option value="all" <!-- IF service_id="0" -->selected="selected"<!-- ENDIF -->>全部</option>
+                         <!-- BEGIN service_list -->
+                         <option value="{service_id}" <!-- IF selected -->selected="selected"<!-- ENDIF -->>{service_name}</option>
+                         <!-- END service_list -->
+                       </select>
+&nbsp;&nbsp;&nbsp;
+                      
+                    
+				 操作时间:
+                  <input id="begin_time" type="text" size="14" name="begin_time" value="{begin_time}" class="ui_timepicker">
+					至
+					<input id="end_time" type="text" size="14" name="end_time" value="{end_time}" class="ui_timepicker" />
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="button" name="button" id="button" onclick="this.form.target='_self';$('#action').attr('value','');this.form.submit();" value="查询" />
+					<input type="button" name="button2" id="button2" value="导出数据" onclick="this.form.target='_blank';$('#action').attr('value','export');this.form.submit();"/>
+                <input type="hidden" name="action" id="action" />
+			  </form>
+			</td>
+			<td width="19%" class="search">
+
+            </td>
+		</tr>
+	</tbody>
+</table>
+ 
+    <div id="tabs">
+    <div class="tabbox">
+      <div class="table-list">
+        <!-- IF status="0" -->
+        <table width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th width="10%">用户D</th>
+                <th>昵称</th>
+                <th width="10%">电话</th>
+                <th width="10%">服务类型</th>
+                <th width="15%">地区</th>
+                <th width="15%">过期时间</th>
+                <th width="8%">订单状态</th>
+                <th width="8%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- BEGIN list -->
+              <tr>
+                <td width="10%" align="center">{user_id}</td>
+                <td align="center">{nickname}</td>
+                <td width="10%" align="center">{cellphone}</td>
+                <td width="10%" align="center">{service_name}</td>
+                <td width="15%" align="center">{where_str}</td>
+                <td width="15%" align="center">{action_time}</td>
+                <td width="8%" align="center">{select_name}</td>
+                <td width="8%" align="center"><a href="bill_detail.php?request_id={request_id}">查看</a></td>                  
+              </tr>
+              <!-- END list -->
+            </tbody>
+        </table>
+        <!-- ELSEIF status="1" -->
+        <table width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th width="10%">用户D</th>
+                <th>昵称</th>
+                <th width="10%">电话</th>
+                <th width="10%">服务类型</th>
+                <th width="15%">地区</th>
+                <th width="15%">雇佣时间</th>
+                <th width="8%">订单状态</th>
+                <th width="8%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- BEGIN list -->
+              <tr>
+                <td width="10%" align="center">{user_id}</td>
+                <td align="center">{nickname}</td>
+                <td width="10%" align="center">{cellphone}</td>
+                <td width="10%" align="center">{service_name}</td>
+                <td width="15%" align="center">{where_str}</td>
+                <td width="15%" align="center">{action_time}</td>
+                <td width="8%" align="center">{select_name}</td>
+                <td width="8%" align="center"><a href="bill_detail.php?request_id={request_id}">查看</a></td>                  
+              </tr>
+              <!-- END list -->
+            </tbody>
+        </table>
+        <!-- ELSEIF status="2" -->
+        <table width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th width="10%">用户D</th>
+                <th>昵称</th>
+                <th width="10%">电话</th>
+                <th width="10%">服务类型</th>
+                <th width="15%">地区</th>
+                <th width="15%">支付时间</th>
+                <th width="8%">订单状态</th>
+                <th width="8%">付款金额</th>
+                <th width="8%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- BEGIN list -->
+              <tr>
+                <td width="10%" align="center">{user_id}</td>
+                <td align="center">{nickname}</td>
+                <td width="10%" align="center">{cellphone}</td>
+                <td width="10%" align="center">{service_name}</td>
+                <td width="15%" align="center">{where_str}</td>
+                <td width="15%" align="center">{action_time}</td>
+                <td width="8%" align="center">{select_name}</td>
+                <td width="8%" align="right">{pay_amount}</td>
+                <td width="8%" align="center"><a href="bill_detail.php?request_id={request_id}">查看</a></td>                  
+              </tr>
+              <!-- END list -->
+            </tbody>
+        </table>
+        <!-- ELSEIF status="3" -->
+        <table width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th width="5%">用户D</th>
+                <th>昵称</th>
+                <th width="10%">电话</th>
+                <th width="10%">服务类型</th>
+                <th width="10%">地区</th>
+                <th width="15%">评价时间</th>
+                <th width="8%">订单状态</th>
+                <th width="15%">付款信息</th>
+                <th width="8%">查看</th>
+                <th width="8%">打款</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- BEGIN list -->
+              <tr>
+                <td width="5%" align="center">{user_id}</td>
+                <td align="center">{nickname}</td>
+                <td width="10%" align="center">{cellphone}</td>
+                <td width="10%" align="center">{service_name}</td>
+                <td width="10%" align="center">{where_str}</td>
+                <td width="15%" align="center">{action_time}</td>
+                <td width="8%" align="center">{select_name}</td>
+                <td width="15%" align="left">
+                付款ID:{quotes_id}<br>
+                用户ID:{pay_user_id}<br>
+                支付日期:{user_pay_time}<br>                
+                付款金额:<strong>{pay_amount}</strong><br>
+                </td>
+                <td width="8%" align="center">
+                <a href="bill_detail.php?request_id={request_id}">查看</a>
+                </td>
+                <td width="8%" align="center">
+                <!-- IF is_paytouser -->
+                打款时间<br>{paytouser_time}
+                <!-- ELSE -->
+                <a href="javascript:sub_pay({request_id})">确认打款</a>
+                <!-- ENDIF -->
+                </td>                  
+              </tr>
+              <!-- END list -->
+            </tbody>
+        </table>
+        <!-- ENDIF -->
+      </div>
+    </div>
+    <div id="pages" class="page"> {page} </div>  
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+@charset "UTF-8";
+// ------------------------------
+// POCO约拍app - 活动 我的活动劵
+// ------------------------------
+.event-info-page-container{
+  display: -webkit-box;
+  background: #eeeeee;
+  -webkit-box-orient: vertical;
+  .refresh-container{
+    display: -webkit-box;
+    height: 44px;
+  }
+}
+.event-info-page{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  margin-top: 15px;
+  .title{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    padding: 10px;
+    background: #fff;
+    border-bottom: 1px solid #dddddd;
+    .title-in{
+      display: -webkit-box;
+      .title-pic-container{
+        display: -webkit-box;
+        .title-pic{
+          width: 75px;
+          height: 75px;
+        }
+      }
+      .title-describe{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-box-flex:1;
+        padding-left: 20px;
+        font:{
+          size: 16px;
+        }
+        .describe_title{
+          display: -webkit-box;
+          margin-bottom: 12px;
+        }
+        .describe_price{
+          display: -webkit-box;
+          color: #ff5000;
+          font:{
+            size: 14px;
+          }
+          .bla{
+            color: #666666;
+            font: {
+              size:10px;
+            };
+          }
+        }
+      }
+      .an-arrow{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-box-pack:center;
+        margin-left: 20px;
+        .icon{
+        }
+      }
+    }
+
+  }
+  .button{
+    display: -webkit-box;
+    background: #fff;
+    padding: 10px;
+    box-shadow:1px 1px 2px #d2d2d2;
+  }
+  .exp{
+    -webkit-box-flex:1;
+  }
+  .block{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    background: #fff;
+    padding: 10px;
+    margin-top: 15px;
+    box-shadow:1px 1px 2px #d2d2d2;
+    .describe{
+      color: #ff4978;
+      border-bottom: 1px solid #dddddd;
+      padding-bottom: 10px;
+      margin-bottom:8px;
+      font:{
+        size: 14px;
+      }
+    }
+    .describe-info{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      .describe-info-line{
+        display: -webkit-box;
+        margin-top: 4px;
+        color: #666666;
+        font:
+        {
+          size:14px;
+        }
+      }
+      .tel{
+        margin: 14px 0px 14px 0px;
+      }
+      .notice{
+        margin-right: 10px;
+      }
+      .notice-inside{
+        -webkit-box-flex:1;
+      }
+    }
+  }
+}

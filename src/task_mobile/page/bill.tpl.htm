@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>账单</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/bill/bill.scss">
+    <script src="../lib/lib.js"></script>
+</head>
+<body style="background: #fff">
+<main>
+    <div class="page-view" data-role="page-container">
+        <link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+        <!--select id="province">
+            <option value=""> -- </option>
+        </select>
+        <select id="city">
+            <option value=""> -- </option>
+        </select-->
+        <div class="bill_tap">
+            <div class="child cur" data-role="bill_tap" data-tap-type="trade">交易</div>
+            <div class="child" data-role="bill_tap" data-tap-type="recharge">充值</div>
+            <div class="child" data-role="bill_tap" data-tap-type="withdraw">提现</div>
+            <div class="child" data-role="bill_tap" data-tap-type="repay">退款</div>
+        </div>
+        <div class="bill_container" data-role="bill_container">
+            <div class="outer " data-con-type="trade"></div>
+            <div class="outer fn-hide" data-con-type="recharge"></div>
+            <div class="outer fn-hide" data-con-type="withdraw"></div>
+            <div class="outer fn-hide" data-con-type="repay"></div>
+        </div>
+        <div class="bill_tips fn-hide" data-role="bill_tips">
+            <h1 style="text-align: center">加载中...</h1>
+        </div>
+        <div class="bill_tips fn-hide" data-role="nodata_tips">
+            <h1 style="text-align: center">暂无内容</h1>
+        </div>
+
+    </div>
+</main>
+</body>
+<script>
+
+$(function()
+{
+    var ques_tmpl = __inline('../modules/bill/bill.tmpl');
+
+    var requesting = false;
+
+    request('trade',$('[data-con-type="trade"]'))
+
+    $('[data-role="bill_tap"]').on('click',function()
+    {
+        var type = $(this).attr('data-tap-type');
+
+        var obj = $('[data-con-type='+type+']');
+
+        $(this).addClass('cur').siblings().removeClass('cur');
+
+        hide_all_con();
+
+        show_con(type);
+
+        request(type,obj);
+    })
+
+    function show_con(type)
+    {
+        $('[data-con-type='+type+']').removeClass('fn-hide');
+    }
+
+    function hide_all_con()
+    {
+        $('[data-con-type]').addClass('fn-hide');
+    }
+
+    function request(type,obj)
+    {
+        if(requesting){return}
+
+        requesting = true;
+
+        $(obj).html("");
+        $('[data-role="bill_tips"]').removeClass('fn-hide');
+        $('[data-role="nodata_tips"]').addClass('fn-hide');
+
+        $.ajax
+        ({
+            url : '../ajax/bill_act.php',
+            data:{type:type,page:'1'},
+            type: 'POST',
+            cache: false,
+            dataType : 'json',
+            beforeSend: function()
+            {
+
+            },
+            success: function(data)
+            {
+                console.log(data.result_data);
+                if(data.result_data.data.length == 0)
+                {
+                    $('[data-role="nodata_tips"]').removeClass('fn-hide');
+                }
+                else
+                {
+                    render(data.result_data,obj);
+                }
+
+
+            },
+            error: function()
+            {
+
+            },
+            complete: function()
+            {
+                requesting = false;
+                $('[data-role="bill_tips"]').addClass('fn-hide');
+            }
+        });
+    }
+    function render (data,obj)
+    {
+        var ques_html = ques_tmpl({data: data},{helper:{compare:'compare'}});
+        $(obj).html(ques_html);
+    }
+
+});
+</script>
+</html>

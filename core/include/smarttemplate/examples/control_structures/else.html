@@ -1,0 +1,29 @@
+<!-- IF username -->
+ 
+    <H3> Welcome, {username} </H3>
+ 
+<!-- ENDIF -->
+ 
+ 
+ 
+<!-- IF picture -->
+ 
+    <img src="{picture}">
+ 
+<!-- ELSE -->
+ 
+    Picture not available! <br>
+ 
+<!-- ENDIF picture -->
+ 
+ 
+ 
+<!-- IF usergroup="ADMIN" -->
+ 
+    <a href="admin.php"> ADMIN Login </a><br>
+ 
+<!-- ELSE -->
+ 
+    You are in guest mode!
+ 
+<!-- ENDIF usergroup -->

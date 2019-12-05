@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>约约首页</title>
+    <link rel="import" href="./webcontrol/head.tpl.html?__inline">
+    <link charset="utf-8" rel="stylesheet" href="../style/front/front.scss">
+    <script src="../lib/lib.js"></script>
+</head>
+<body class="body_color">
+<main>
+    <div class="page-view page-name-front" data-role="page-container">
+        <link rel="import" href="./webcontrol/top_nav.tpl.html?__inline">
+        <div class="page-begin" data-role="page-begin">
+            <div class='container_null'>
+                <div class='container_1'>
+                    <div class='container_2'>
+                        <div class='container_3 list exp'>
+                            <img style="width:100%;" src="../image/front.png"/>
+                            <div class="notice"><div class="yueyue"></div><p>最高效的摄影服务平台</p></div>
+                        </div>
+                    </div>
+                    <div class='container_7'>
+                        <div class='container_8' data-role="down_apple">
+                            <div class="apple">
+
+                            </div>
+                            <div class="notice">
+                                <p>iPhone版</p>
+                                <p class="exp">v {app_ver}</p>
+                            </div>
+                        </div>
+                        <div class='container_9' data-role="down_apple_v2">
+                            <div class="android">
+
+                            </div>
+                            <div class="notice">
+                                <p>Android版</p>
+                                <p class="exp">v {app_ver}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='container_4'>
+                        <div class='container_5' data-role="down_android">iPhone备用版下载</div>
+                        <div class='container_6' data-role="down_android_v2">Android备用版下载</div>
+                    </div>
+                    <div class='container_10'>
+                        <div class='container_11'><p>寻找一种体验</p></div>
+                        <div class='container_12'><p>在约约可以解决掉你所有的摄影需求</p></div>
+                        <div class='container_12'><p>找模特？找活动？找场地？找化妆？找培训？</p></div>
+                        <div class='container_12'><p>再也不需要一个个分开来找</p></div>
+                        <div class='container_12'><p>再也不用头疼怎么才能找到合适</p></div>
+                    </div>
+                    <!-- BEGIN topic_data -->
+                    <div class='container_13 list' data-mark="{b_id}">
+                        <i class="slide-items-bg" style="background-image: url('{wap_img}');background-size: cover;"><div class="notice"><p>{title}</p></div></i>
+                    </div>
+                    <!-- END topic_data -->
+
+                </div>
+            </div>
+            {footer_html}
+        </div>
+    </div>
+</main>
+</body>
+<script>
+    var utility = require('../modules/common/utilitys/index');
+    var $ = require('zepto');
+    $(function()
+    {
+        $('[data-role="down_apple"]').on('click',function()
+        {
+            location.href = 'http://yp.yueus.com/download/download_iphone_plist.php';
+        })
+
+        $('[data-role="down_apple_2"]').on('click',function()
+        {
+            location.href = 'http://yp.yueus.com/download/download_iphone_plist_v2.php';
+        })
+
+        $('[data-role="down_android"]').on('click',function()
+        {
+            location.href = 'http://yp.yueus.com/download/download_android.php';
+        })
+
+        $('[data-role="down_android_v2"]').on('click',function()
+        {
+            location.href = 'http://yp.yueus.com/download/download_android_v2.php';
+        })
+
+        $('[data-mark]').on('click',function()
+        {
+            location.href = './category.php?b_id=' + $(this).attr('data-mark');
+        })
+
+        console.log(utility.get_view_port_height("nav"))
+        $('[data-role="page-begin"]').height(utility.get_view_port_height());
+
+    });
+</script>
+</html>

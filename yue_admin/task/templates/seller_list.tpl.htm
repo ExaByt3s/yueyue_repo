@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+
+
+<script src="js/shadowbox/shadowbox.js" type="text/javascript"></script>
+<link href="js/shadowbox/shadowbox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"> 
+$(function () {
+	$(".ui_timepicker").datetimepicker({
+		//showOn: "button",
+		//buttonImage: "./css/images/icon_calendar.gif",
+		//buttonImageOnly: true,
+		showSecond: true,
+		timeFormat: '',
+		stepHour: 1,
+		stepMinute: 1,
+		stepSecond: 1
+	});
+})
+
+Shadowbox.init({ 
+    handleOversize: "drag", 
+	overlayColor: '#000',
+    modal: true,
+    displayNav: true,
+//	onClose: function(){location.reload();},
+	displayCounter: false
+}); 
+Shadowbox.setup();
+</script>
+<script type="text/javascript">
+
+function change_status(id,status)
+{
+	if(!confirm('是否确认修改状态？'))
+	{
+	   return;
+	}
+	$.ajax( {    
+			url:'?action=chsellerstatus&id='+id+'&status='+status,
+			type:'post',    
+			cache:false,    
+			dataType:'json',    
+			success:function(data) {    
+				if(data.result==1){    
+					alert('修改成功');
+					location.reload();
+				}else{    
+					alert("修改失败");  
+				}    
+			 },    
+			 error : function() {    
+				  alert("异常！");
+			 }    
+	});  
+}
+</script>
+<title>OA</title>
+</head>
+<body>
+<div class="mainbox">
+<table class="search_table" width="100%">
+	<tbody>
+		
+        <tr>
+			<td width="81%" class="search">
+			  <form action="?" method="get">
+			    商家状态:
+                <select name="status" id="status">                      
+                       <!-- BEGIN seller_status_name -->
+                       <option value="{key}" <!-- IF selected = "1" -->selected="selected"<!-- ENDIF -->>{name}</option>
+                       <!-- END seller_status_name -->
+		          	  </select>
+                商家类型:
+                <select name="basic_type" id="basic_type">
+                       <option value=''>全部</option>
+                       <option value="company" <!-- IF basic_type = "company" -->selected="selected"<!-- ENDIF -->>企业</option>
+                       <option value="person" <!-- IF basic_type = "person" -->selected="selected"<!-- ENDIF -->>个人</option>
+                </select>
+               
+                      &nbsp;&nbsp;&nbsp;&nbsp;审核时间:
+                      <input id="begin_time" type="text" size="10" name="begin_time" value="{begin_time}" class="ui_timepicker" readonly="readonly">
+					  至
+					  <input id="end_time" type="text" size="10" name="end_time" value="{end_time}" class="ui_timepicker" readonly="readonly"/>
+                      &nbsp;&nbsp;&nbsp;&nbsp;关键字:
+                      <input name="keyword" type="text" id="keyword" style="width:150px;"  value="{keyword}" placeholder="用户id/商家名称" />
+                      机构:
+                      <select name="org_user_id">
+                          <option value="">请选择</option>
+                           <!-- BEGIN org_list -->
+                                <option value="{user_id}" <!-- IF selected = "1" -->selected="selected"<!-- ENDIF -->>{nick_name}</option>
+                            <!-- END org_list -->
+                      </select>
+                <input type="button" name="button" id="button" onclick="this.form.target='_self';$('#action').attr('value','seller_list');this.form.submit();" value="查询" />
+				<input type="button" name="button2" id="button2" value="导出数据" onclick="if(confirm('确定导出?')){this.form.target='_blank';$('#action').attr('value','seller_export');this.form.submit();}"/>
+			    <input name="action" type="hidden" id="action" value="seller_list" />
+			  </form>
+			</td>
+			<td width="10%" align="center" class="search">
+<!--            <a rel="shadowbox[seller_add]" href="?action=addseller">
+            添加
+            </a>
+-->            </td>
+		</tr>
+	</tbody>
+</table>
+ 
+    <div id="tabs">
+    <div class="tabbox">
+      <div class="table-list">
+        <table width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th width="5%">用户ID</th>
+                <th>商家名称</th>
+                <th width="8%" align="center">地区</th>
+                <th width="14%">添加人</th>
+                <th width="14%">审核时间</th>
+                <th width="6%">状态</th>
+                <th width="6%">上架/总数</th>
+                <th width="28%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- BEGIN list -->
+              <tr>
+                <td width="5%" align="center" title="{scalping_titile}"><a rel="shadowbox[user_scalping_{user_id}];" href="seller_scalping.php?user_id={user_id}"  >{user_id}</a><!-- IF is_flush="1" --><font class="is_flush"></font> <!-- ENDIF --></td>
+                <td align="center">{name}</td>
+                <td width="8%" align="center">{location_name}</td>
+                <td width="14%" align="center">{user_name}</td>
+                <td width="14%" align="center">{add_time}</td>
+                <td width="6%" align="center">{status_name}</td>
+                <td width="6%" align="center">{onsale_num}/{goods_num}</td>
+                <td width="28%" align="center">
+                <a rel="shadowbox[seller_service_{seller_id}]" href="server_sq.php?seller_user_id={user_id}">
+                服务申请</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a rel="shadowbox[seller_edit_{seller_id}]" href="?action=editseller&id={seller_id}">
+                修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- IF status = "1" -->
+                <a rel="shadowbox[company_list_{seller_id}]" href="goods_search.php?action=usergoodslist&store_id={store_id}&status=10">
+                商品管理</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- IF top.admin_ac -->
+                <a href="javascript:change_status({seller_id},2)">
+                关闭</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- ENDIF -->   
+                <a rel="shadowbox[edit_profile_{seller_id}]" href="?action=editprofile&id={seller_id}&user_id={user_id}">
+                详情</a>
+                <!-- ELSE -->
+                <!-- IF top.admin_ac -->
+                <a href="javascript:change_status({seller_id},1)">
+                启用</a>
+                <!-- ENDIF -->   
+                <!-- ENDIF -->               
+                </td>                  
+              </tr>
+              <!-- END list -->
+            </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="pages" class="page"> {page} </div>  
+</div>
+</body>
+</html>

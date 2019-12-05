@@ -1,0 +1,120 @@
+.personal-center {
+  color: #999; }
+  .personal-center .po-r {
+    position: relative; }
+  .personal-center .d-box {
+    display: -webkit-box; }
+  .personal-center .v-c {
+    -webkit-box-align: center; }
+  .personal-center .ui-tips-r {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    padding-right: 14px; }
+  .personal-center .ui-line-item-mod {
+    margin-top: 15px; }
+    .personal-center .ui-line-item-mod .height-80 {
+      height: 80px; }
+    .personal-center .ui-line-item-mod .available_balance {
+      position: absolute;
+      right: 30px;
+      top: 0;
+      color: #ff6a6e; }
+    .personal-center .ui-line-item-mod .item {
+      border: none;
+      -webkit-box-pack: justify; }
+      .personal-center .ui-line-item-mod .item .user-info-item {
+        display: -webkit-box;
+        width: 100%;
+        -webkit-box-align: center; }
+        .personal-center .ui-line-item-mod .item .user-info-item .order-item {
+          -webkit-box-flex: 1;
+          text-align: center;
+          display: -webkit-box;
+          -webkit-box-orient: horizontal;
+          -webkit-box-pack: center; }
+          .personal-center .ui-line-item-mod .item .user-info-item .order-item .tips-num {
+            display: block;
+            position: absolute;
+            right: -6px;
+            top: 0px;
+            border: solid 1px red;
+            border-radius: 10px;
+            width: 16px;
+            height: 16px;
+            color: red;
+            background-color: #fff;
+            line-height: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 12px; }
+          .personal-center .ui-line-item-mod .item .user-info-item .order-item .icon-order-item {
+            padding: 5px;
+            margin: 0;
+            display: inline-block; }
+      .personal-center .ui-line-item-mod .item .icon-ui:before {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        vertical-align: middle; }
+      .personal-center .ui-line-item-mod .item .icon-ui-top {
+        width: 30px;
+        height: 30px; }
+      .personal-center .ui-line-item-mod .item .icon-ui-top:before {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        vertical-align: middle; }
+      .personal-center .ui-line-item-mod .item .lineh {
+        line-height: 44px; }
+      .personal-center .ui-line-item-mod .item .order-icon:before {background-repeat: no-repeat;}
+      .personal-center .ui-line-item-mod .item .wallet-icon:before {background-repeat: no-repeat;}
+      .personal-center .ui-line-item-mod .item .icon-collect:before {background-repeat: no-repeat;}
+      .personal-center .ui-line-item-mod .item .icon-coupons:before {background-repeat: no-repeat;}
+      .personal-center .ui-line-item-mod .item .icon-sign:before {background-repeat: no-repeat;}
+      .personal-center .ui-line-item-mod .item .icon-order:before {background-repeat: no-repeat;}
+      .personal-center .ui-line-item-mod .item .icon-activity:before {background-repeat: no-repeat;}
+      .personal-center .ui-line-item-mod .item .icon-exit:before {background-repeat: no-repeat;}
+      .personal-center .ui-line-item-mod .item .border-b {
+        width: 100%;
+        border-bottom: 1px solid #f2f2f2;
+        display: -webkit-box; }
+      .personal-center .ui-line-item-mod .item .justify {
+        -webkit-box-pack: justify;
+        width: 100%; }
+      .personal-center .ui-line-item-mod .item .item-r-txt {
+        padding-right: 15px;
+        color: #ff6a6e; }
+      .personal-center .ui-line-item-mod .item .top-35 {
+        top: 35px; }
+      .personal-center .ui-line-item-mod .item .left {
+        display: -webkit-box;
+        -webkit-box-align: center; }
+        .personal-center .ui-line-item-mod .item .left .icon-f {
+          margin-left: 15px; }
+        .personal-center .ui-line-item-mod .item .left .icon-f-t {
+          display: -webkit-box;
+          font-size: 15px;
+          font-weight: bold;
+          color: #000; }
+        .personal-center .ui-line-item-mod .item .left .ui-avatar-icon-m .bar-img {
+          background-color: #ccc; }
+    .personal-center .ui-line-item-mod .b-b {
+      border-bottom: 1px solid #f2f2f2; }
+    .personal-center .ui-line-item-mod .h80 {
+      height: 80px;
+      padding: 0; }
+  .personal-center .c999 {
+    color: #999; }
+  .personal-center .c333 {
+    color: #333; }
+  .personal-center a:link {
+    color: #999;
+    -webkit-box-flex: 1; }
+  .personal-center a:visited {
+    color: #999;
+    -webkit-box-flex: 1; }
+  .personal-center a:active {
+    color: #999;
+    -webkit-box-flex: 1; }
+.personal-center .ui-line-item-mod .item .order-icon:before{background-position:-10px 0px}.personal-center .ui-line-item-mod .item .wallet-icon:before{background-position:-10px -25px}.personal-center .ui-line-item-mod .item .icon-collect:before{background-position:-10px -50px}.personal-center .ui-line-item-mod .item .icon-coupons:before{background-position:-10px -75px}.personal-center .ui-line-item-mod .item .icon-sign:before{background-position:0px -100px}.personal-center .ui-line-item-mod .item .icon-order:before{background-position:0px -135px}.personal-center .ui-line-item-mod .item .icon-activity:before{background-position:-10px -170px}.personal-center .ui-line-item-mod .item .icon-exit:before{background-position:-10px -195px}.personal-center .ui-line-item-mod .item .order-icon:before,.personal-center .ui-line-item-mod .item .wallet-icon:before,.personal-center .ui-line-item-mod .item .icon-collect:before,.personal-center .ui-line-item-mod .item .icon-coupons:before,.personal-center .ui-line-item-mod .item .icon-sign:before,.personal-center .ui-line-item-mod .item .icon-order:before,.personal-center .ui-line-item-mod .item .icon-activity:before,.personal-center .ui-line-item-mod .item .icon-exit:before{background-size: 30px 215px;background-image: url(http://static.yueus.com/mall/user/test/static/wap/style/home/index_0.5_z.png)}

@@ -1,0 +1,88 @@
+.activity-sign-name-page {
+  padding: 50px 100px; }
+  .activity-sign-name-page .item-wrap {
+    margin-top: 30px; }
+    .activity-sign-name-page .item-wrap h4.title {
+      margin-bottom: 8px; }
+    .activity-sign-name-page .item-wrap .item {
+      padding: 9px 0px 9px 20px;
+      margin: 0px 0px 20px 0px;
+      border: 1px solid #dddddd;
+      border-radius: 3px;
+      position: relative; }
+      .activity-sign-name-page .item-wrap .item .ui-triangle-bottom-min-grey {
+        border-width: 5px 5px 0px 5px;
+        border-color: #ccc transparent transparent transparent;
+        left: auto;
+        right: 14px;
+        top: 17px; }
+      .activity-sign-name-page .item-wrap .item .ui-triangle-top-min-grey {
+        border-width: 0px 5px 5px 5px;
+        border-color: transparent transparent  #ccc transparent;
+        left: auto;
+        right: 14px;
+        top: 17px; }
+      .activity-sign-name-page .item-wrap .item .ui-triangle-item {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        cursor: pointer; }
+      .activity-sign-name-page .item-wrap .item .item-title span.number-txt {
+        margin: 0px 25px 0px 0px; }
+      .activity-sign-name-page .item-wrap .item .item-title span.sign-name-txt {
+        margin: 0px 30px 0px 40px; }
+      .activity-sign-name-page .item-wrap .item .item-title .ui-triangle-bottom-min-grey {
+        border-width: 5px 5px 0px 5px;
+        border-color: #ccc transparent transparent transparent;
+        left: auto;
+        right: 14px;
+        top: 17px; }
+      .activity-sign-name-page .item-wrap .item .item-con {
+        margin: 12px 0px; }
+        .activity-sign-name-page .item-wrap .item .item-con .head-title {
+          background: #fafafa; }
+        .activity-sign-name-page .item-wrap .item .item-con table.sign-name-table {
+          position: relative;
+          width: 748px; }
+          .activity-sign-name-page .item-wrap .item .item-con table.sign-name-table tr th {
+            border: 1px solid #dddddd;
+            border-collapse: collapse;
+            background: #fafafa;
+            height: 38px;
+            font-weight: normal; }
+          .activity-sign-name-page .item-wrap .item .item-con table.sign-name-table tr td {
+            text-align: center;
+            padding: 14px 0px;
+            border: 1px solid #dddddd;
+            border-collapse: collapse; }
+          .activity-sign-name-page .item-wrap .item .item-con table.sign-name-table tr .remark-txt {
+            position: relative;
+            width: 130px; }
+            .activity-sign-name-page .item-wrap .item .item-con table.sign-name-table tr .remark-txt .remark-txt-con {
+              position: relative;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden; }
+            .activity-sign-name-page .item-wrap .item .item-con table.sign-name-table tr .remark-txt .more-txt {
+              padding: 10px;
+              border: 1px solid #dddddd;
+              z-index: 99999;
+              background: #ffffff;
+              position: absolute;
+              border-radius: 3px;
+              width: 200px;
+              max-width: 200px;
+              height: auto;
+              top: 22px;
+              text-align: left;
+              right: 0px;
+              word-break: break-all; }
+              .activity-sign-name-page .item-wrap .item .item-con table.sign-name-table tr .remark-txt .more-txt .triangle-icon-bg {
+                width: 14px;
+                height: 8px;
+                background: url(http://static.yueus.com/mall/seller/test/static/pc/images/triangle-icon-16x8.png) no-repeat center;
+                position: absolute;
+                right: 60px;
+                top: -8px; }

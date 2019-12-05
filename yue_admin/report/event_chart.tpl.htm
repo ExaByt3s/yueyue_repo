@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+    <title>月销走势图</title>
+
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/highcharts/highcharts.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $('#container').highcharts({
+                title: {//走势图标题
+                    text: '订单月流水(月)',
+                    x: 20 ,
+                    //style:{display:"none"}可隐藏
+                },
+                subtitle: {//走势图来源
+                    text: 'Source:yp.yueus.com',
+                    x: 20,
+                    style:{display:"none"}//可隐藏
+                },
+                xAxis: {//X轴分类
+                    categories: [ {categories} ]
+                },
+                yAxis: {//Y轴会根据series的data数值自动分格并划分上下限
+                    title: {
+                        text: '元',//Y轴表示的文本
+                        //style:{display:"none"}可隐藏
+                    }
+                },
+                tooltip: {
+                    valueSuffix: '元'//数据的后辍
+                },
+                legend:{//线条所表示的品种分类
+                    enabled:0,//0为隐藏1为显示
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                credits:{//制作人；可作为本站水印
+                    text:"",
+                    href:"yp.yueus.com",
+                    position:{x:-250,y:-180},
+                    style:{"z-index":"999"}
+                },
+                /*series: [{//可以为多个品种
+                 name: '铟',
+                 data: [4200, 4300, 4400, 4350, 4550]
+                 },{
+                 name: '铜',
+                 data: [4100, 4400, 4600, 4150, 4250]
+                 }]*/
+
+                series: [{//可以为多个品种
+                    type: 'column',
+                    // type: 'column表示图表,'pie'饼图,//没有表示走势图
+                    name: '月流水',
+                    data: [ {data} ]
+                }]
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+
+<div id="container" style="width:1000px;height:600px;margin:10px auto"></div>
+
+</body>
+</html>

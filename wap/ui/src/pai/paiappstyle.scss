@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+// ------------------------------
+// POCO约拍app
+// ------------------------------
+ 
+
+$supported-browsers: ("android", "android-chrome", "chrome", "ios-safari", "safari","ie");
+
+$default-base-body-bg: #fff;
+
+$maxZIndex: 20000;
+
+$border-radius: 2px;
+
+@import "../mobile-common"; 
+ 
+// ===========拼图=============     
+@import "paiappstyle/icons";
+
+    
+// 通用
+@import "./paiappstyle/include";
+
+// ===========组件=============   
+@import "paiappstyle/component";   
+
+ 
+

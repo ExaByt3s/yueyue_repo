@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>敏感字管理</title>
+</head>
+
+<body>
+<table border="1" width="100%" cellspacing=0 cellpadding=0 bgcolor='#6A71A3'>
+	<form action="main.php?action=wrongful" method="post" name="addkey">
+	<tr>
+		<td align="left" colspan="4" bgcolor='#F5F5FF'>&nbsp;&nbsp;&nbsp;添加敏感字：<input name="addwrongful" type="text" value="" size="8">&nbsp;&nbsp;&nbsp;<input type="hidden" name="addtype" value="add"><input type="submit" value="提交"></td>
+	</tr>
+	</form>
+	<tr>
+		<td width="100%" align="left" colspan="4" valign="top" bgcolor="#F5F5FF">{TOP_BAR}&nbsp;{UP_BAR}&nbsp;{NUM_BAR}&nbsp;{NEXT_BAR}&nbsp;{END_BAR}&nbsp;&nbsp;&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="10%" align="center" bgcolor='#F5F5FF'>编号</td>
+		<td width="40%" align="center" bgcolor='#F5F5FF'>敏感字</td>
+		<td width="40%" align="center" bgcolor='#F5F5FF'>时间</td>
+		<td width="10%" align="center" bgcolor='#F5F5FF'>操作</td>
+	</tr>
+	<!-- DEFINE BLOCK MSG_LIST -->
+	<tr>
+		<td width="10%" align="center" bgcolor='#F5F5FF'>{DELID}</td>
+		<td width="40%" align="center" bgcolor='#F5F5FF'>{BLACK_WORD}</td>
+		<td width="40%" align="center" bgcolor='#F5F5FF'>{TITLENAME}</td>
+		<td width="10%" align="center" bgcolor='#F5F5FF'><a href="main.php?action=wrongful&gotype=del&delid={DELID}"><font color="blue">删除</font></a></td>
+	</tr>
+	<!-- ENDDEF BLOCK MSG_LIST -->
+	<tr>
+		<td width="100%" align="left" colspan="4" valign="top" bgcolor="#F5F5FF">{TOP_BAR}&nbsp;{UP_BAR}&nbsp;{NUM_BAR}&nbsp;{NEXT_BAR}&nbsp;{END_BAR}&nbsp;&nbsp;&nbsp;</td>
+	</tr>
+</table>
+</body>
+</html>

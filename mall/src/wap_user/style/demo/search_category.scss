@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+.search-category {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 100%;
+	width: 100%;
+	height: 100%;
+	padding: 0 35px;
+	box-sizing: border-box;
+	background: #fff;
+	transition: left 1s;
+	-moz-transition: left 1s;	/* Firefox 4 */
+	-webkit-transition: left 1s;	/* Safari 和 Chrome */
+	-o-transition: left 1s;
+
+	.categroy {
+		text-align: center;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+
+		.categroy-bg {
+			position: fixed;
+			z-index: 98;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			-webkit-filter: blur(33px);
+			-moz-filter: blur(10px);
+			-ms-filter: blur(10px);
+			filter: blur(10px);
+		}
+		.title {
+			padding: 15px 0;
+			font-size: 18px;
+			text-align: center;
+			color: #666;
+		}
+		.categroy-content {
+			margin-top: 30px;
+			display: -webkit-box;
+			-webkit-box-pack: center;
+
+			.box {
+				width: 100%;
+
+				.menu {
+					display: inline-block;
+					width: 49%;
+					height: 60px;
+					line-height: 60px;
+					text-align: left;
+					font-size: 18px;
+					box-sizing: border-box;
+					float: left;
+
+					.icon {
+						display: inline-block;
+						width: 35px;
+						height: 35px;
+					}
+					.msg {
+						padding-left: 8px;
+						line-height: 36px;
+						color: #666;
+						display: inline-block;
+						width: 75px;
+						text-align: left;
+					}
+					.y-mt {
+						background: url("../../image/y-mt-70x70.png?__sprite");
+					}
+					.y-px {
+						background: url("../../image/y-px-70x70.png?__sprite");
+					}
+					.y-hz {
+						background: url("../../image/y-hz-70x70.png?__sprite");
+					}
+					.y-dz {
+						background: url("../../image/y-dz-70x70.png?__sprite");
+					}
+					.y-hd {
+						background: url("../../image/y-hd-70x70.png?__sprite");
+					}
+					.y-sy {
+						background: url("../../image/y-sy-70x70.png?__sprite");
+					}
+					.y-ms {
+						background: url("../../image/y-ms-70x70.png?__sprite");
+					}
+					.y-yx {
+						background: url("../../image/y-yx-70x70.png?__sprite");
+					}
+				}
+			}
+		}
+		.close-icon {
+			background: url("../../image/close-page-70x70.png?__sprite");
+		}
+		.close-icon:active {
+			background: url("../../image/close-page-70x70-active.png?__sprite");
+		}
+		.icon {
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+		}
+	}
+}

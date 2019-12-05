@@ -1,0 +1,81 @@
+.ui-button {
+  border-radius: 4px;
+  font-size: 16px;
+  color: #fff; }
+  .ui-button:hover {
+    cursor: pointer;
+    color: #fff; }
+    .ui-button:hover span {
+      text-decoration: none; }
+
+.ui-button-block {
+  display: block; }
+
+.ui-button-100per {
+  width: 100%; }
+
+.ui-button-primary {
+  background: #4092f1; }
+  .ui-button-primary:hover {
+    background: #66a8f4; }
+
+.ui-button-color2 {
+  background: #f5f5f5;
+  color: #000;
+  border: 1px solid #cccccc; }
+  .ui-button-color2:hover {
+    background: #fafafa;
+    color: #000; }
+
+.ui-button-size-min {
+  height: 30px;
+  font-size: 12px; }
+  .ui-button-size-min .ui-button-content {
+    padding: 0px 15px; }
+  .ui-button-size-min .icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: -4px;
+    margin-right: 8px; }
+  .ui-button-size-min .icon-demo {
+    background: #666; }
+
+.ui-button-size-middle {
+  height: 40px; }
+  .ui-button-size-middle .ui-button-content {
+    padding: 0px 30px; }
+
+.ui-button-size-s-large {
+  height: 50px; }
+  .ui-button-size-s-large .ui-button-content {
+    padding: 0px 30px; }
+
+.ui-button-size-large {
+  height: 60px; }
+  .ui-button-size-large .ui-button-content {
+    padding: 0px 50px; }
+  .ui-button-size-large .icon {
+    width: 20px;
+    height: 20px;
+    margin: 3px auto 2px auto; }
+  .ui-button-size-large .icon-demo {
+    background: #666; }
+
+.ui-input {
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.ui-input-block {
+  display: block; }
+
+.ui-input-100per {
+  width: 100%; }
+
+.ui-input-size-middle {
+  height: 30px;
+  line-height: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px; }

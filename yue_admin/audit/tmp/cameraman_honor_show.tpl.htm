@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/cameraman.js"></script>
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoom.js"></script> 
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoomHTML.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<!--uploadify-->
+<script language="javascript" type="text/javascript">  
+    //防止客户端缓存文件，造成uploadify.js不更新  
+    document.write("<script type='text/javascript' "  
+            + "src='js/uploadify/jquery.uploadify.min.js?" + new Date()  
+            + "'></s" + "cript>");  
+</script>
+<link rel="stylesheet" type="text/css" href="js/uploadify/uploadify.css">
+<!--uploadify-->
+<title>约约APP后台</title>
+<style type="text/css">
+.table-list ul li 
+{
+   margin-left: 20px;
+   float: left;
+   width: 20%;
+   overflow: hidden;
+   text-align: center;
+   min-height: 292px;
+}
+.table-list ul li img
+{
+	width: 145px;
+	height: 145px;
+}
+.table-list .btn{
+	clear: both;
+}
+/*上传图片按钮*/
+.uploadify 
+{
+	margin-top: 10px;
+}
+#file_upload_thumb object
+{
+	left: 0px;
+}
+.uploadify-button {
+background:url('resources/images/uploadify.png');
+height: 28px;
+width: 75px;
+border-radius:inherit;
+border:none;
+}
+.uploadify:hover .uploadify-button {
+background:url('resources/images/uploadify.png');
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="#" class="on">摄影师荣誉展示页</a>
+	</ul>
+</div>
+<form name="list_form" id="list_form" action="" method="post">
+	<div class="table-list">
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<th width="120">
+					<input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');">全选/全不选
+				</th>
+				<th width="50">
+					<input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="delCameramanpic('cameraman_pic_del.php?uid={uid}&act=honor')"/>
+				</th>
+				<th><input id="file_upload_thumb" name="opus" type="file" multiple="true" onclick="javascript:$('#uploadify').uploadifyUpload()" />
+				</th>
+				<th><p id="pic_queue"></p></th>
+				</tr>
+		</table>
+		<!--list-->
+			<ul id="ulPic">
+				<!-- BEGIN list -->
+				<li>
+					<p><input class="inputcheckbox " name="ids[]" value="{id}" type="checkbox"></p>
+					<p><a href="{img}"><img src="{img_url}"></a></p>
+					<p>添加时间:{add_time}</p>
+					<p>UID:{uid}</p>
+				</li>
+				<!-- END list -->
+			</ul>
+		<!--list end-->
+		<div class="btn">
+			<input type="button" class="button" name="dosubmit" value="删除" class="pic_del" onclick="delModelpic('model_pic_del.php?uid={uid}')"> 
+		</div>
+	</div>
+</form>
+<div id="pages" class="page">
+	{page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	var uid = {uid};
+		$(function() {
+			//头像上传
+			$("#file_upload_thumb").uploadify({
+				'swf'   : 'js/uploadify/uploadify.swf',
+				'uploader' : 'http://imgup-yue.yueus.com/ultra_upload_service/yueyue_upload_act.php',
+				'file_post_name' : 'opus',
+				'queueID'  : 'pic_queue',
+				'fileExt':'*.gif;*.jpg;*.jpeg;*.png',
+				'buttonText':"上传荣誉",
+				'cancelImage' : 'js/uploadify/uploadify-cancel.png',
+				'width': 75,
+				'height':28,
+				'multi': true,
+				'onComplete':function(file, data, response)
+				{
+					//window.alert('onComplete');
+					//var array_data = JSON.parse(data);
+					//add_model_pic('thumb',array_data.url);
+				},
+				'onUploadSuccess' : function(file, data, response) 
+				{
+					//window.alert('onUploadSuccess');
+					var array_data = (typeof(JSON) == 'undefined') ? eval("("+data+")") : JSON.parse(data);
+					add_model_pic('honor',array_data.url);
+					//$("#img_show").attr({ src: array_data.url});
+				}
+			});
+
+			//图片放大
+			setupZoom();
+		});
+//把图片添加进
+function add_model_pic($act, $img_url)
+{
+	$.ajax({
+			type : "POST",
+			url  : "cameraman_add_pic.php",
+			dataType : 'json',
+			data : {'act': $act, 'img_url': $img_url, 'uid': uid},
+			success:function(data)
+			{
+				//window.alert(data);
+				if (data.ret) 
+				{
+					$ret  = data.ret;
+					$img  = $ret['img'];
+					$time = $ret['add_time'];
+					$id   = $ret['id'];
+					//window.alert($time);
+					var $str = "";
+					$str += "<li><p><input class='inputcheckbox' name='ids[]' value='"+$id+"' type='checkbox'></p><p><a href='"+$img+"'><img src='"+$img_url+"'></a></p><p>添加时间:"+$time+"</p><p>UID:"+uid+"</p></li></li>"; 
+					//$str += "<li><p><input class='inputcheckbox' name='ids[]' value='"+$id+"' type='checkbox'></p><p><a href='"+img_url+"'><img src='"+img_url+"'></a></p><p>添加时间:"+$time+"</p><p>UID:"+uid+"</p></li>";
+					//window.alert($str);
+					//console.log($str);
+					$("#ulPic").append($str);
+				}
+				setupZoom();
+			},
+			error:function(data)
+			{
+
+			}
+			});
+
+}
+</script>
+</html>

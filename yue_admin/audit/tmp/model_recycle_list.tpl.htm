@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<script type="text/javascript" src="resources/js/user_layer.js"></script> 
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<script type="text/javascript" src="resources/js/model.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+<style type="text/css">
+#quick_search .input-text
+{
+	width: 60px;
+}
+#quick_search tr
+{
+	line-height: 30px;
+}
+
+.table-list-search td
+{
+	padding-left: 10px;
+}
+.table-list-search .button_search
+{
+	width: 100px;
+	height: 50px;
+}
+#quick_search .table_search
+{
+	border-bottom: 1px solid #eee;
+}
+#list_form td a:visited{
+	color:red;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+	<ul>
+		<a href="javascript:void(0);" class="on">回收站</a>
+	</ul>
+</div>
+<!--top-->
+<form name="list_form" id="list_form" action="model_export.php" method="post">
+	<div class="table-list">
+		<div class="btn">
+			符合条件的人数为:{total_count}
+			<span style="position: absolute;right:20px;">
+			    排序:
+				<select name="sort" id="sort">
+					<option value="uid_asc"   {sort_1}>默认</option>
+					<option value="ptime_asc" {sort_2}>录入时间升序</option>
+					<option value="ptime_desc" {sort_3}>录入时间降序</option>
+				</select>
+			</span> 
+		</div>
+		<!--list-->
+		<table width="100%" cellspacing="0">
+			<thead>
+				<tr>
+				<!-- <th width="120"><input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');" checked="true"></th> -->
+				<th>姓名</th>
+				<th>昵称</th>
+				<th>app用户名</th>
+				<th>手机</th>
+				<th>QQ</th>
+				<th>微信</th>
+				<th>UID</th>
+				<th>常驻城市</th>
+				<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <!-- BEGIN list -->
+				<tr>
+				<!-- <td align="center"><input class="inputcheckbox " name="ids[]" value="{uid}" type="checkbox" checked="true" /></td> -->
+				<td align="center">{name}</td>
+				<td align="center">{nick_name}</td>
+				<td align="center">{app_name}</td>
+				<td align="center">{phone}</td>
+				<td align="center">{qq}</td>
+				<td align="center">{weixin_id}</td>
+				<td align="center">{uid}</td>
+				<td align="center">{city}</td>
+				<td align="center"><a href="model_detail.php?uid={uid}" target="_blank">查看</a></td>
+				</tr> 
+				<!-- END list -->     	
+			</tbody>
+		</table>
+		<!--list end-->
+	</div>
+</form>
+<div id="pages" class="page">
+	{page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		//排序
+		$("#sort").change(function(){
+			var $oUrl = window.location.href.toString();
+			var $re = eval('/(sort=)([^&]*)/gi');
+			//var $res = /sort=/gi;
+			var $search = window.location.search;
+			if ($search == null || $search == '') 
+			{
+				window.location.href = $oUrl+"?sort="+$(this).val();
+			}
+			else
+			{
+				if ($re.test($search)) 
+				{
+					window.location.href = $oUrl.replace($re , "sort="+$(this).val());
+				}
+				else
+				{
+					window.location.href = $oUrl+"&sort="+$(this).val();
+				}
+				
+			}
+		});
+	});
+</script>
+</html>

@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+// -------------------
+// 箭头
+// -------------------
+@mixin angle($direction, $size, $line-size, $line-color, $background-color) {
+    $direction: quote($direction);
+
+    %base-style {
+        @include triangle($direction, $size);
+    }
+    
+    // 线
+    em {
+        @extend %base-style;
+
+        @if $direction == 'top' {
+            top: -#{$line-size};
+            border-bottom-color: $line-color;
+        } @else if $direction == 'right' {
+            left: $line-size;
+            border-left-color: $line-color;
+        } @else if $direction == 'bottom' {
+            top: $line-size;
+            border-top-color: $line-color;
+        } @else if $direction == 'left' {
+            left: -#{$line-size};
+            border-right-color: $line-color;
+        }
+    }
+
+    // 背景
+    span {
+        @extend %base-style;
+
+        @if $direction == 'top' {
+            border-bottom-color: $background-color;
+        } @else if $direction == 'right' {
+            border-left-color: $background-color;
+        } @else if $direction == 'bottom' {
+            border-top-color: $background-color;
+        } @else if $direction == 'left' {
+            border-right-color: $background-color;
+        }
+    }
+}

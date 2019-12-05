@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>选择充值方式</title>
+
+	<meta charset="gbk">
+	{head_html}
+	<!-- libjs 必须引用 -->
+	<script src="/lib/lib.js"></script>	
+
+	<link type="text/css" rel="stylesheet" href="../../style/recharge/index.scss">
+
+</head>
+	<body>
+		<main role="main">							
+			<div class="page-view recharge-list" data-role="page-container">
+                <div class="container mt25 pt25">
+                    <ul class="ui-list ui-list-text ui-list-link ">
+                        <li class="ui-border-t" data-link="card.php">
+                            <div class="ui-txt-default ">充值卡充值</div>
+                        </li>
+                        <li class="ui-border-t" data-link="online.php">
+                            <div class="ui-txt-default ">在线充值</div>
+                        </li>
+                    </ul>
+
+                    <div class="mt25 p-text">
+                        <p>
+                            注意：<br>
+                            1、充值后金额将打入钱包，可用于所有约约服务<br>
+                            2、充值金额暂时不支持提现<br>
+                        </p>
+                    </div>
+
+                </div>
+			</div>
+		</main>
+
+	</body>
+	
+</html>
+<script type="text/javascript">
+    require('recharge');
+</script>   

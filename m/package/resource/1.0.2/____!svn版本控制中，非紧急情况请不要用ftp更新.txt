@@ -1,0 +1,30 @@
+############################################################
+# 当前svn节点位置：http://svn.poco.cn:8088/repos/htdocs232_repo/poco/pai/mobile/package/resource/1.0.2
+############################################################
+# 控制的文件列表（本列表由系统自动生成）
+############################################################
+
+add.png
+app-debug.js
+app.js
+app.zip
+avatar-error-min.png
+cacheConfig.json
+crossd_iframe.html
+front.jpg
+guide_camera_1.png
+guide_camera_2.png
+guide_camera_3.png
+guide_model_1.png
+guide_model_2.png
+guide_model_3.png
+icons-sdeeabad127.png
+index-beta.html
+index.html
+paiappstyle.css
+pop-modelcar-tips.png
+sea-package.js
+utility-package-debug.js
+utility-package.js
+
+--EOF--

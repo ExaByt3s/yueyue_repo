@@ -1,0 +1,33 @@
+{{#each list}} 
+        <div class="item">
+                <div class="title-top ui-border-b f14">
+                    <p class="p1 txt-long-cut">{{name}}</p>
+                    <p class="p2 color-aaa">{{time}}</p>
+                </div>
+                <div class="con">
+                    <ul class="list clearfix">
+            
+                        {{#each tickets}} 
+                                <li>
+                                    <div class="l f14">{{name}}<span class="color-ff6">{{number_code}}</span></div>
+                                    <div class="r">
+                                        <button data-role="btn_show_qrcode" class="ui-button  ui-button-block  ui-button-size-m ui-button-bd-555" data-img="{{qrcode}}" data-num="{{number_code}}">
+                                                <span class="ui-button-content">出示二维码</span>
+                                        </button>
+                                    </div>
+                                </li>
+                        {{/each}} 
+
+                    </ul>        
+                </div>
+            </div> 
+{{/each}}
+
+
+
+
+
+
+
+
+

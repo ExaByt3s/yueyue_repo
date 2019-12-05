@@ -1,0 +1,18 @@
+.go-top-mod a {width: 45px;
+  height: 45px;
+  display: block;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  text-decoration: none;
+  color: #fff;
+  
+  width: 45px;
+  height: 45px;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;background-repeat: no-repeat;}
+  .go-top-mod a:hover {background-repeat: no-repeat;}
+.go-top-mod a{background-position:0px 0px}.go-top-mod a:hover{background-position:0px -55px}.go-top-mod a,.go-top-mod a:hover{background-image: url(http://static.yueus.com/mall/user/test/static/pc/modules/common/go_top/go_top_z.png)}

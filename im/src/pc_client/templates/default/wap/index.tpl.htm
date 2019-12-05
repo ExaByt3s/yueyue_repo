@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>代运营wap-登录</title>
+    <meta charset="gbk">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="wap-font-scale" content="no">
+    <link href="../../../style/base.scss" rel="stylesheet" type="text/css">
+    <link href="../../../style/index-m/index.scss" rel="stylesheet" type="text/css">
+    <script src="../../../lib/mod.js"></script>
+
+</head>
+<body>
+<main class="page-main" role="main" style="padding:0">
+    <div class="login-page ds-box orient-v pack-center">
+        <div class="login-block ds-box orient-v pack-center">
+            <img class="img ds-box" src="../../../image/yue_icon/yueyue-icon-86x86.png" style="width: 86px;height: 86px">
+            <!--p class="sub_title"></p-->
+            <input class="inputs ds-box" placeholder="代理ID" data-role="input_id">
+            <input class="inputs ds-box" type="password" placeholder="登录密码" data-role="input_pw">
+
+            <div class="btn_white login_btn ds-box" data-role="login">登录</div>
+            <div class="modd ds-box orient-h pack-justify"  style="margin-top: 20px;font-size: 10px">
+                <div data-role="mod-login" data-mod-id="100008">模拟登录100008</div>
+                <div data-role="mod-login" data-mod-id="100049">模拟登录100049</div>
+            </div>
+
+        </div>
+    </div>
+</main>
+</body>
+<script>
+
+window.__test__str = /test/.test(window.location.href)?'test/':'';
+
+window.$__ajax_domain = 'http://www.yueus.com/im/client/'+__test__str + 'ajax/';
+
+var $ = require('jquery');
+
+$(function(){
+    $('[data-role="login"]').on('click',function()
+    {
+        location.href = './face/face.php';
+
+        return
+
+        var id = $('[data-role="input_id"]').val();
+
+        var pw = $('[data-role="input_pw"]').val();
+
+        if(!id||!pw)
+        {
+            alert('请输入账号密码')
+        }
+
+        $.ajax
+        ({
+            url: window.$__ajax_domain + 'agent_login.php',
+            data : {login_id :id,pw: pw},
+            dataType: 'json',
+            type: 'POST',
+            cache: false,
+            beforeSend: function()
+            {
+
+            },
+            success: function(data)
+            {
+                var code = data.result_data.result;
+
+                var message = data.result_data.message;
+
+                if(code == 1)
+                {
+                    location.href = './face/face.php';
+                }
+                else{
+                    alert(message)
+                }
+            },
+            error: function(data)
+            {
+
+            },
+            complete: function()
+            {
+
+            }
+        });
+    })
+
+    $('[data-role="mod-login"]').on('click',function()
+    {
+        var id = $(this).attr('data-mod-id');
+
+        location.href = 'http://yp.yueus.com/_yp_login.php?user_id=' + id
+    })
+
+
+});
+
+</script>
+</html>

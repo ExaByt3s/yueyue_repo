@@ -1,0 +1,43 @@
+<div class="item-list">
+    {{#each list}}
+        <a href="{{link}}">
+            <div class="item ">
+                <p class="del icon" data-role="del" data-user-id="{{seller_id}}"></p>
+                <div class="layout_box ui-searchbar-input {{#compare is_close "==" 1}}opacity4{{/compare}}">
+               <div class="lbox ">
+                   <i data-lazyload-url="{{cover}}"  class="img image-img min-height"></i>
+               </div>
+
+               <div class="rbox ">
+               	<div class="msg">
+                    <h3 class="title color-000 f16 fb">{{name}}</h3>
+                    <div>{{location}}</div>
+               </div>
+               <div>
+                   {{#compare is_close "==" 1}}
+                   <div class="is-show">
+                       <i class="tags">!</i>
+                       <span class="tips">ÔÝÍ£·þÎñ</span>
+                   </div>
+                   {{/compare}}
+                   <div class="sidebar">
+                       <div>ÆÀ¼Û£º</div>
+                        <div class="stars-all-mod">
+                           <div class="ui-stars-grey">
+                           </div>
+                               <div class="ui-stars-yellow" style="width:{{percent score "5"}}">
+                           </div>
+                        </div>
+                   </div>
+                   <div class="msg">
+                        <p class="num color-333 f12">{{goods_num}}</p>
+
+                   </div>
+               </div>
+               </div>
+                </div>
+            </div>
+        </a>
+
+    {{/each}}
+</div>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>付款</title>
+	<meta charset="gbk">
+	{head_html}	
+	<!-- libjs 必须引用 -->
+	<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2predev/static/style/pay_tt/pay_tt.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2predev/static/style/frozen/frozen.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2predev/static/modules/coupon/list-coupon.css">
+<link type="text/css" rel="stylesheet" href="http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/yueyue_header/header.css">
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/back_btn/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/coupon/list.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/common/widget/yueyue_header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://yp.yueus.com/mobile/m2predev/static/modules/pay_tt/pay_tt.js"></script>
+</head>
+	<input type="hidden" id="quotes_id" value="{quotes_id}"/>
+	<body>
+		<main role="main">
+			<header class="nav-header fn-hide" id="nav-header">				
+				<div class="title">付款</div>
+			</header>								
+			<div class="page-view pay-tt " data-role="page-container">
+				
+				
+			</div>
+            <div class="coupon-list-container fn-hide" data-role="coupon-list-wrap">
+                <div data-role="nav-header"></div>
+                <div class="list-coupon mt15 pl15 pr15 pb15" data-role="coupon-list-container"></div>
+            </div>
+
+		</main>
+			 
+	</body>
+	
+</html>
+
+<script type="text/javascript">
+    require('pay_tt');
+</script>

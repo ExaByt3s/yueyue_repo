@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>订单信息</title>
+    <meta charset="gbk">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+
+<!-- modjs 必须引用 -->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/m/static/lib/mod_327a0b0.js"></script>
+<!--基础样式 START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/m/static/style/libs/common_64aa9a1.css">
+<!--基础样式 END-->
+
+<!--tt START-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/m/static/style/task-m_d02a0dc.css">
+<!--tt END-->
+
+
+<!--配置全局变量-->
+<script>
+	window.$__romain = window.location.origin;
+	window.$__config = 
+	{				
+		ajax_url : '../ajax/'
+	};
+    console.log(window.localStorage.getItem("$__storage_first_tips"))
+    if(window.localStorage.getItem("$__storage_first_tips"))
+    {
+        console.log("in")
+    }
+    else
+    {
+        console.log("in2")
+        var data =
+        {
+            "details_1":1,
+            "details_2":1,
+            "submit_1":1,
+            "pay_1":1,
+            "talk_1":1
+        }
+        window.localStorage.setItem("$__storage_first_tips",JSON.stringify(data));
+    }
+</script>  
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/m/static/style/talk/index_0c9f994.css">
+<body>
+
+<main role="main" >
+    <div class="page-view order-list" data-role="page-container">
+        <div class="common_menu" >
+    <div class="common_logo"><i class="icon icon-top-logo"></i></div>
+	<div class="common_btn" data-role="common_btn_menu"><i class="icon icon-right-menu-logo"></i></div>
+    
+</div>
+<div class="common_menu_open layout_box_v fn-hide" data-role="common_menu_open">
+    <a data-role="common_menu_open_business" href="list.php">生意机会</a>
+    <a data-role="common_menu_open_list" href="order_list.php?type=pending">订单列表</a>
+    <a data-role="common_menu_open_mine" href="profile.php">个人中心</a>
+    <a data-role="common_menu_open_log_out" href="logout.php">退出登录</a>
+</div>
+<!--modjs hack 特殊处理，增加head标记-->
+<head>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/m/static/js/common/common_fd06c3c.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/m/components/zepto/zepto_9261738.js"></script>
+</head>
+<!--modjs hack 特殊处理，增加head标记-->
+<script type="text/javascript">
+	
+	var cookie = require('common/cookie/index');
+	var $ = require('components/zepto/zepto.js');	
+
+	(function($,window)
+	{
+		var self = this;
+
+		var no_login = '{no_login}';
+
+		var $common_menu_open = $('[data-role="common_menu_open"]');
+		var $common_btn_menu  = $('[data-role="common_btn_menu"]');
+		var $common_menu_open_log_out = $('[data-role="common_menu_open_log_out"]');
+
+		if(!parseInt(cookie.get('yue_member_id')))
+		{
+			$common_btn_menu.hide();
+		}
+
+		$common_btn_menu.on('click',function()
+		{	
+			if(!parseInt(cookie.get('yue_member_id')))
+			{
+				return;
+			}
+			
+			$common_menu_open.toggleClass("fn-hide");
+		});
+
+		$common_menu_open_log_out.on('click',function()
+		{
+			$.ajax
+			({
+				url: window.$__config.ajax_url + 'login_out.php',
+				type: 'POST',
+				cache: false,
+				dataType: 'json',
+				beforeSend: function () {
+
+				},
+				success: function (data) {
+					window.location.href = './login.php';
+
+				},
+				error: function () {
+
+				},
+				complete: function () {
+
+				}
+			})
+    })
+
+	})($,window);
+</script> 
+        <div class="talk_title">{request_detail_info.title}</div>
+
+
+        <!-- IF is_archive="1" -->
+        <div class="talk_btn_con">
+            <div class="common_control_btn" data-role="no_collection">已收藏</div>
+        </div>
+        <!-- ELSE -->
+        <div class="talk_btn_con">
+            <div class="common_control_btn" data-role="collection">收藏</div>
+        </div>
+        <!-- ENDIF -->
+
+        <div class="talk_status"><div style="word-break: break-all">{feed_info.message_content}</div></div>
+        <div class="talk_send_con layout_box mgb20">
+            <!-- BEGIN quote_info -->
+            <div class="talk_send_icon layout_box">
+                <img src="{user_icon}"/>
+            </div>
+            <div class="talk_send_input layout_box_v">
+                <!--div class="talk_input_content"><input /></div-->
+                <textarea data-role="talk_content_input" class="talk_content_input" type="text" placeholder="回复给 {buyer_nickname}"></textarea>
+                <div class="talk_btn" data-role="talk_btn">发送</div>
+            </div>
+            <!-- END quote_info -->
+        </div>
+        <div class="common_first_tips fn-hide" data-role="common_first_tips" storage-value="talk_1">
+            <div class="con">
+                <div class="delta bot"></div>
+                <div class="txt">若顾客确认了你的报价，雇佣了你，我们将会通过短信通知你。</div>
+                <div class="del" data-role="common_first_close"><div class="inn"></div></div>
+            </div>
+        </div>
+        <!-- BEGIN answer_list -->
+        <!-- IF message_type="declined" -->
+        <div class="talk_tips_gray layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="refund_coins" -->
+        <div class="talk_tips_green layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="earnest" -->
+        <div class="talk_tips_orange layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="hired" -->
+        <div class="talk_tips_green layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="read_profile" -->
+        <div class="talk_tips_white layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="read_quotes" -->
+        <div class="talk_tips_blue layout_box">
+            <p class="tips_content">{message_content}</p>
+            <p class="tips_time">{add_time_str}</p>
+        </div>
+        <!-- ELSEIF message_type="message" -->
+        <div class="talk_send_con layout_box">
+            <div class="talk_send_icon layout_box">
+                <img src="{from_user_icon}"/>
+            </div>
+            <div class="talk_send_input layout_box_v">
+                <p>{from_user_nickname}</p>
+                <p>{nl2br:message_content}</p>
+            </div>
+        </div>
+        <!-- ENDIF -->
+        <!-- END answer_list -->
+        <!-- BEGIN answer_list -->
+        <!-- IF message_type="quotes" -->
+        <div class="talk_send_con layout_box mgb50">
+
+            <div class="talk_send_icon layout_box">
+                <img src="{from_user_icon}"/>
+            </div>
+
+            <div class="talk_send_input layout_box_v">
+                <div class="inner_name layout_box"><div>{from_user_nickname}</div><div>{add_time_str}</div></div>
+                <div class="inner_title">报价估算：</div>
+                <div class="inner_content">{quotes_content}</div>
+                <div class="inner_title mgt25">信息：</div>
+                <div class="inner_content">{message_content}</div>
+            </div>
+
+        </div>
+        <!-- ENDIF -->
+        <!-- END answer_list -->
+        <div class="talk_send_con layout_box bd_or bd_gray">
+
+            <div class="talk_send_icon layout_box">
+                <!-- BEGIN quote_info -->
+                <img src="{buyer_user_icon}"/>
+                <!-- END quote_info -->
+            </div>
+            <div class="talk_send_input layout_box_v">
+                <!-- BEGIN quote_info -->
+                <div class="quests_name">{buyer_nickname}</div>
+                <!-- END quote_info -->
+                <div class="details_request" style="padding: 0px">
+                    <!-- BEGIN single -->
+                    <div class="details_request_title">
+                        <p class="exp">{titles}</p>
+                        <!-- BEGIN data -->
+                        <div class="details_request_answer">
+                            <p>{titles}</p>
+                        </div>
+                        <!-- END data -->
+                    </div>
+                    <!-- END single -->
+                    <!-- BEGIN more -->
+                    <div class="details_request_title">
+                        <p class="exp">{titles}</p>
+                        <!-- BEGIN data -->
+                        <div class="details_request_answer">
+                            <p><img src="http://static.yueus.com/task/m/static/image/task/yes-22x16_e168ad5.png"/><span>{titles}</span></p>
+                        </div>
+                        <!-- END data -->
+                    </div>
+                    <!-- END more -->
+                    <!-- IF quote_info.is_pay_coins=1 -->
+                    <div class="details_request_title">
+                        <p class="exp">{request_detail_info.nickname} 的联系方式</p>
+                        <div class="details_request_answer">
+                            <p>{request_detail_info.cellphone}</p>
+                        </div>
+                    </div>
+                    <!-- ENDIF -->
+
+                </div>
+            </div>
+
+        </div>
+        <!-- BEGIN quote_info -->
+        <div id="quotes_id" style="display: none" data-quote_id="{quotes_id}"></div>
+        <!-- END quote_info -->
+        <div class="common_copyright_bottom">
+            <p>Copyright?2003-2015 YUEUS.COM</p>
+        </div>
+    </div>
+</main>
+
+
+</body>
+
+<script>
+    window.onload = function()
+    {
+        var details = JSON.parse(window.localStorage.getItem("$__storage_first_tips"));
+        console.log(details);
+        console.log(details.talk_1);
+
+        if(details && (details.talk_1 == 1))
+        {
+            $('[data-role="common_first_tips"]').removeClass('fn-hide')
+        }
+
+        $('[data-role="common_first_close"]').on('click',function()
+        {
+            $(this).parents('[data-role="common_first_tips"]').addClass('fn-hide');
+
+            details.talk_1 = 0;
+
+            window.localStorage.setItem("$__storage_first_tips",JSON.stringify(details));
+        })
+
+       var quote_id = $("#quotes_id").attr('data-quote_id');
+
+
+        $('[data-role="collection"]').on('click',function()
+        {
+            var data =
+            {
+                quotes_id:quote_id
+            };
+
+            if(window.confirm('要收藏该需求吗?'))
+            {
+                $.ajax
+                ({
+                    url : window.$__config.ajax_url+'collection.php',
+                    data:data,
+                    type: 'POST',
+                    dataType : 'json',
+                    cache: false,
+                    beforeSend: function()
+                    {
+
+                    },
+                    success: function(data)
+                    {
+                        if(data.result_data)
+                        {
+                            alert("收藏成功");
+                        }
+                        else{
+                            alert("已经收藏过了");
+                        }
+                        console.log(data);
+                    },
+                    error: function()
+                    {
+
+                    },
+                    complete: function()
+                    {
+
+                    }
+                });
+            }
+        })
+
+        $('[data-role="talk_btn"]').on('click',function()
+        {
+            var content = $('[data-role="talk_content_input"]').val();
+
+            if(content.trim() == ""){
+                alert("发送内容不能为空！");
+                return;
+            }
+
+            var data =
+            {
+                quotes_id:quote_id,
+                content : content
+            };
+
+            console.log(data);
+
+            if(window.confirm('确定发送？'))
+            {
+                $.ajax
+                ({
+                    url : window.$__config.ajax_url+'submit_message.php',
+                    data:data,
+                    type: 'POST',
+                    dataType : 'json',
+                    cache: false,
+                    beforeSend: function()
+                    {
+
+                    },
+                    success: function(data)
+                    {
+                        console.log(data);
+                        window.location.reload();
+                    },
+                    error: function()
+                    {
+
+                    },
+                    complete: function()
+                    {
+
+                    }
+                });
+            }
+        })
+    }
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9fa08589aee02a0d763d50fe4dca33cd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</html>

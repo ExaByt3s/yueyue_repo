@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+
+
+<title>联动效果</title>
+</head>
+<body>
+<form method="post" action="">
+<div class="lian_dong" >
+    分类:
+    <select id="first" name="type_id" onchange="get_second(this)">
+        
+    </select>
+</div>
+<p>
+    <input type="submit" value="提交" />
+</p>
+</form>
+<p>
+<span>{info}</span>&nbsp;</p>
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <!-- BEGIN compare_data -->
+      <tr>
+        <td height="30">{info}</td>
+        <td height="30">{type_id}</td>
+        <td height="30">{type_md5}</td>
+      </tr>
+    <!-- END compare_data  -->
+</table>
+<p>&nbsp;<br>
+</p>
+</body>
+</html>
+<script>
+    
+    var post = {post};
+    
+    var type_id = '';
+    
+    var property_content_id = '';
+    
+    if(post['type_id'] > 0 )
+    {
+       type_id = post['type_id'];
+    }
+    
+    $("#first").empty();
+    $("#first").append("<option value=''>全部</option>");
+    $.each({json_data},function(i,item){
+        $("#first").append("<option id='"+item.id+"' value='"+item.id+"'>"+item.name+"</option>");
+
+    });
+    
+    get_second("",type_id);
+    
+    function get_second(obj,type_id)
+    {
+         $(".lian_dong select:eq(0)").siblings().remove();
+         $(".lian_dong span").remove();
+        var property = {json_data};
+        var id = type_id >0 ? type_id : $(obj).val();
+        if(id > 0)
+        {
+            $.each(property[id]['property'],function(i,item)
+            {
+                $(".lian_dong").append("<span>"+item.name+":</span>"+"<select class='"+item.id+"' name='detail["+item.id+"]' onchange='get_child(this)'></select><div style='display:inline;'  class='"+item.id+"_div'></div>"+"<span>&nbsp;&nbsp;</span>");
+                
+				if( count(item['property_content']) > 0 )
+				{
+					$("."+item.id+"_div").remove();
+					$("."+item.id).append("<option value='0' class='0' >请选择</option>");
+					$.each(item['property_content'],function(i2,item2){
+						$("."+item.id).append("<option class='"+item2['id']+"' value='"+item2['id']+"'>"+item2['name']+"</option>");
+					});
+				}else
+				{
+					
+					$("."+item.id).remove();
+					
+					var input_val = '';
+					
+					if(type_id > 0)
+					{
+						if( count(post['detail'][item.id]) > 0 )  
+						{
+							var input_val = post['detail'][item.id];
+						}
+					}
+					$("."+item.id+"_div").html("<input type='text' name='detail["+item.id+"]'  value='"+input_val+"'/>");
+				}
+				
+			});
+        }
+        if(type_id > 0)
+        {
+			$("#"+type_id).attr("selected","selected");
+            $.each(post['detail'],function(i,item){
+				if( item !=0 )
+				{
+					$("."+item).attr("selected","selected");
+				}
+                
+				get_child(false,i,item,type_id);
+				
+			});
+		}
+        
+        
+        
+    }
+    
+    function get_child(obj,third_id,parent_id,type_id)
+    {
+		var json_data = {json_data};
+		//alert(type_id);
+		//return false;
+		//alert(json_data['40']['property']['90']['property_content']['112']['id']);
+		//return false;
+		
+		
+        var id = $(obj).val();
+		
+		if(id)
+		{
+			var property_id = $(obj).attr("class");
+		
+			var parent_id = $(obj).val();
+			
+			var type_id = $("#first").val();
+			
+			var third_id = property_id;
+		}
+		
+		if( ! obj)
+		{
+			var id = parent_id;
+		}
+		
+        if( ! id )
+        {
+			return false;
+        }
+		
+		//
+		if( count(json_data[type_id]['property'][third_id]['property_content'][parent_id]['property_content_third']) > 0 )
+		{
+			var html = "<select id='"+id+"' name='third["+id+"]'><option value=''>请选择</option></select>";
+			if(obj)
+			{
+				$(obj).next().html(html);
+			}
+			if(third_id)
+			{
+				$("."+third_id).next().html(html);
+			}
+			
+			$("#"+id).empty();
+			$("#"+id).append("<option value=''>请选择</option>");
+			$.each(json_data[type_id]['property'][third_id]['property_content'][parent_id]['property_content_third'], function(i,item){
+			  $("#"+id).append("<option class='"+item.id+"' value='"+item.id+"'>"+item.name+"</option>");
+			});
+			
+			//第三级回选
+			$.each(post['third'],function(i2,item2){
+				$("."+item2).attr("selected","selected");
+			});
+			
+		}else
+		{
+			var html = '';
+			$(obj).next().html(html);
+		}
+		
+    }
+	
+	function count(o)
+	{
+		var t = typeof o;
+		if(t == 'string')
+		{
+			return o.legnth;
+		}else if( t == 'object')
+		{
+			var n = 0;
+			for( var i in o)
+			{
+				n++;
+			}
+			return n;
+		}
+		
+		return false;
+		
+	}
+	
+
+   
+    
+</script>

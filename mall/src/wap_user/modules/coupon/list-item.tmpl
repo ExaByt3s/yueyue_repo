@@ -1,0 +1,36 @@
+{{#each data}}
+    <div class="widget-coupon {{#if _class_for_available}}{{^}}unavailable{{/if}} {{#if ../no_choose_btn}}no_choose_btn{{/if}}" data-coupon_sn="{{coupon_sn}}">
+        <div class="left-border">
+            <div class="inside"></div>
+        </div>
+        <div class="price" data-role="to_ticket_details_price">
+            <div class="type">{{scope_module_type_name}}</div>
+            <div class="contain">
+                <div class="contain-left">{{coin}}</div>
+                <div class="contain-right">{{face_value}}</div>
+            </div>
+        </div>
+        <div class="split">
+            <div class="top"></div>
+            <div class="mid"><div class="mid-in"></div></div>
+            <div class="bottom"></div>
+        </div>
+        <div class="details" data-role="to_ticket_details">
+            <div class="notice">{{{batch_name}}}</div>
+            <div class="date">{{start_time_str}}-{{end_time_str}}</div>
+        </div>
+        <div class="choosen_btn {{#if can_select}}{{else}}fn-hide{{/if}}" data-role="choosen_btn">
+            <div class="tap" data-role="tap">
+                <div class="tap-in">
+                    <i class="icon icon-right-24x16 fn-hide"></i>
+                    <label class="ui-yue-checkbox">
+                        <i data-role="cb-btn" {{#if selected}}{{else}}class="no-selected" checked=""{{/if}} type="checkbox"  ></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="right-border">
+            <div class="inside"></div>
+        </div>
+    </div>
+{{/each}}

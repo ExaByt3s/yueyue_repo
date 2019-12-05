@@ -1,0 +1,139 @@
+@import "../../sass/compass";
+$tap-active-color : #f9f9f9;
+.popup {
+    position: fixed;
+    z-index: 99;
+    background: #fff;
+    width: 90%;
+    height: 100%;
+    //transition: right .2s;
+    //-webkit-transition: right opacity .2s ease-in-out; /* Safari 和 Chrome */
+    
+    top: 0;
+
+    .popup-header {
+        height: 45px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border-bottom: 1px solid #cdcdd1;
+        position: relative;
+        z-index: 9;
+        background: #fafafa;
+        width: 100%;
+        top: 0;
+        left: 0;
+
+        .header-btn {
+            width: 50px;
+            height: 44px;
+            display: block;
+            position: absolute;
+            top: 0;
+            text-align: center;
+            line-height: 44px;
+            font-size: 18px;
+        }
+        .title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 45px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 60%;
+            margin: 0 auto;
+        }
+        .left0 {
+            left: 0;
+        }
+        .right0 {
+            right: 0;
+        }
+    }
+    .wrapper{
+        height: 100%;
+        padding-bottom : 45px;
+        @include flexbox((display: box, box-pack:justify,box-orient: vertical));
+        @include box-sizing(border-box);
+        .content{
+            -webkit-box-flex: 1;
+            box-flex: 1;
+            .colorff6a6e {
+                color: #ff6a6e;                
+            }
+            // filter-a start
+            .filter-a {
+                .boxflex {
+                    -webkit-box-flex: 1;
+                }
+                .name {
+                    position: relative;                    
+                    padding: 15px;                
+                    @include flexbox((display: box, box-pack:justify));
+                    &:active{
+                        background-color:$tap-active-color;
+                    }
+                    .filter-ab-name {
+                        width: 200px;
+                        display: -webkit-box;
+                        -webkit-box-pack: end;
+                        margin-right: 14px;
+                    }
+                    
+                    .icon-filter { 
+                        position: absolute;
+                        right: 14px;
+                        top: 20px;
+                        z-index: 1;
+                    }
+                }
+                // filter-b start
+                .filter-b {
+                    
+                    padding-left: 15px;
+
+                    .item {
+                        padding-left: 15px;
+
+                        .item-name {
+                            @include flexbox((display: box, box-pack:justify));
+                            &:active{
+                                background-color:$tap-active-color;
+                            }
+
+                        }
+                        .nav-content {
+                            padding: 15px 0 0;
+
+                            .search-type-btn {
+                                margin: 0 10px 15px 0;
+                                font-size: 14px;
+                                padding: 0 15px;
+                            }
+                            .on-btn {
+                                background: #ff6a6e;
+                                color: #fff;
+                                border: 1px solid #ff6a6e;
+                            }
+                        }
+                    }
+                }
+                // filter-b end
+            }
+            // filter-a end
+        }
+    }
+    
+}
+.anim_fade {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.popup-hide {
+    right: -90%;
+}
+.popup-show {
+    right: 0
+}

@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/layer/layer.min.js"></script>
+<script type="text/javascript" src="js/layer/extend/layer.ext.js"></script>
+<script type="text/javascript" src="resources/js/audit.js"></script>
+<script type="text/javascript" src="resources/js/admin.js"></script>
+<!--图片放大-->
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoom.js"></script> 
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoomHTML.js"></script> 
+<!--图片放大-->
+<script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>模特审核后台</title>
+<style type="text/css">
+#quick_search .input-text
+{
+  width: 60px;
+}
+#quick_search tr
+{
+  line-height: 30px;
+}
+
+.table-list-search td
+{
+  padding-left: 10px;
+}
+.table-list-search .button_search
+{
+  width: 100px;
+  height: 50px;
+}
+#quick_search .table_search
+{
+  border-bottom: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<!--top-->
+<div id="nav" class="mainnav_title">
+  <ul>
+    <a href="#" class="on">{title}</a>
+  </ul>
+</div>
+<!--top-->
+<!--search form-->
+<table class="search_table" width="100%">
+  <tbody>
+    <tr>
+      <td class="search">
+        <form action="model_audit_list.php" method="get" id="myform">
+          <table class="table-list-search" id="quick_search" width="100%">
+              <!--身材部分-->
+                <tr>
+                 <td class="table_search">
+                  <table width="990">
+                  <tbody>
+                   <tr>
+                      <td width="300">手机号码:
+                      <input type="text" class="input-text" name="phone" value="{phone}" style="width:100px;" id="phone" />
+                      </td>
+                      <td>用户ID: <input type="text" class="input-text" name="user_id"  value="{user_id}" style="width:100px;"/>
+                      </td>
+                      <td>注册时间:<input type="text" class="input-text Wdate" name="start_add_time" value="{start_add_time}" onFocus="WdatePicker()" style="width:80px;"/>~<input type="text " class="input-text Wdate" name="end_add_time" value="{end_add_time}" onFocus="WdatePicker()" style="width:80px;"/></td>
+                      <td rowspan="2">
+                        <input type="button" class="button_search" value="查找" onclick="com_export('list')">
+                        <input type="button" class="button" value="导出" onclick="com_export('export')">
+                          <!-- IF is_approval="1" --><!--<a href="model_audit_export.php">导出审核通过模特数据</a>--><!-- ENDIF is_approval-->
+                      </td>
+                   </tr>
+                   <tr>
+                     <td>操作时间:<input type="text" class="input-text Wdate" name="start_audit_time" value="{start_audit_time}" onFocus="WdatePicker()" style="width:80px;"/>~<input type="text" class="input-text Wdate" onFocus="WdatePicker()" name="end_audit_time" value="{end_audit_time}" style="width:80px;"/></td>
+                     <td>
+                           <!-- IF aut_location -->
+                           <!-- ELSE -->
+                                                                               城市:<select class="prov" name="province">
+                                <option value="0">请选择</option>
+                                <!-- BEGIN province_list -->
+                                <option value="{c_id}" {selected_prov}>{c_name}</option>
+                                <!-- END province_list -->
+                              </select>
+                              <select class="city" name="location_id">
+                                  <option value="0">请选择</option>
+                                  <!-- BEGIN city_list -->
+                                  <option value="{c_id}" {selected_city}>{c_name}</option>
+                                  <!-- END city_list -->
+                              </select>
+                          <!-- ENDIF -->
+                     </td>
+                     <td>&nbsp;</td>
+                   </tr>
+                </tbody>
+                </table>
+                 </td>
+                 </tr>
+                <!--身材部分 END-->
+              </tbody>
+          </table>
+          <input type="hidden" name="is_org" value="{is_org}" />
+          <input type="hidden" name="is_approval" value="{is_approval}" />
+          <input type="hidden" name="act" value="list" id="act" />
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--search form end-->
+<form name="list_form" id="list_form" action="model_export.php" method="post">
+  <div class="table-list">
+    <div class="btn">
+      符合条件的人数为:{total_count}
+    </div>
+    <!--list-->
+    <table width="100%" cellspacing="0" style="min-width: 900px;">
+      <thead>
+        <tr>
+        <!-- <th width="120"><input type="checkbox" value="" id="check_box" onclick="select_all('ids[]', 'check_box');" checked="true"></th> -->
+        <th>用户ID</th>
+        <th>app用户名</th>
+        <th>手机</th>
+        <th>注册时间</th>
+        <th>U头像</th>
+        <th>资料是否完整</th>
+        <th>是否入库</th>
+        <th>城市</th>
+        <th>操作者</th>
+        <th>操作时间</th>
+        <th>状态</th>
+        <th>备注</th>
+        <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+          <!-- BEGIN list -->
+        <tr>
+        <!-- <td align="center"><input class="inputcheckbox " name="ids[]" value="{uid}" type="checkbox" checked="true" /></td> -->
+        <td align="center">{user_id}</td>
+        <td align="center">{nickname}</td>
+        <td align="center">{cellphone}</td>
+        <td align="center">{add_time}</td>
+        <td align="center"><a href="{user_thumb}"><img src="{user_icon}"></a></td>
+        <td align="center"><!-- IF is_complete --><span style='color:red;'>是</span><!-- ELSE -->否<!-- ENDIF --></td>
+        <td align="center"><!-- IF is_set --><span style='color:red;'>{is_set}</span><!-- ELSE -->否<!-- ENDIF --></td>
+        <td align="center">{city}</td>
+        <td align="center">{audit_name}</td>
+        <td align="center">{audit_time}</td>
+        <td align="center"><!-- IF is_approval="0" --><span style='color:red;'>待审核</span><!-- ELSEIF is_approval="1" --><span style='color:red;'>审核通过</span><!-- ELSEIF is_approval="2" --><span style='color:red;'>审核不通过</span><!-- ENDIF --></td>
+        <td align="center">
+          <span style='color:red;'>{reason}</span>
+        </td>
+        <td align="center">
+           [<a href="model_audit_edit.php?user_id={user_id}" target="_blank">查看</a>] | [<a href="javascript:void(0);" onclick="subcheck('model_audit_list.php?act=approval&is_approval={is_approval}&user_id={user_id}')">添加备注</a>]<br/>
+           <!-- IF is_approval="0" -->
+           [<a href="javascript:void(0);" onclick="subcheck('model_audit_list.php?act=approval&is_approval=1&user_id={user_id}')">通过</a>] | [<a href="javascript:void(0);" onclick="subcheck('model_audit_list.php?act=approval&is_approval=2&user_id={user_id}')">不通过</a>]
+           <!-- ELSEIF is_approval="1" -->
+            [<a href="javascript:void(0);" onclick="subcheck('model_audit_list.php?act=approval&is_approval=0&user_id={user_id}')">待审核</a>] | 
+            [<a href="javascript:void(0);" onclick="subcheck('model_audit_list.php?act=approval&is_approval=2&user_id={user_id}')">不通过</a>] 
+           <!-- ELSEIF is_approval="2" -->
+           [<a href="javascript:void(0);" onclick="subcheck('model_audit_list.php?act=approval&is_approval=0&user_id={user_id}')">待审核</a>] | 
+           [<a href="javascript:void(0);" onclick="subcheck('model_audit_list.php?act=approval&is_approval=1&user_id={user_id}')">通过</a>]
+           <!-- ENDIF -->
+        </td>
+        </tr> 
+        <!-- END list -->       
+      </tbody>
+    </table>
+    <!--list end-->
+  </div>
+</form>
+<div id="pages" class="page">
+  {page}
+</div>
+</div>
+</body>
+<script type="text/javascript">
+  $(function(){
+    //图片放大
+    setupZoom();
+    //排序
+    $("#sort").change(function(){
+      var $oUrl = window.location.href.toString();
+      var $re = eval('/(sort=)([^&]*)/gi');
+      //var $res = /sort=/gi;
+      var $search = window.location.search;
+      if ($search == null || $search == '') 
+      {
+        window.location.href = $oUrl+"?sort="+$(this).val();
+      }
+      else
+      {
+        if ($re.test($search)) 
+        {
+          window.location.href = $oUrl.replace($re , "sort="+$(this).val());
+        }
+        else
+        {
+          window.location.href = $oUrl+"&sort="+$(this).val();
+        }
+        
+      }
+    });
+    //获取城市数据
+    $(".prov").change(function(){
+      var $prov_val = $(this).val();
+      $.ajax({
+         type:"POST",
+         url:"get_city.php",
+         dataType: 'json',
+         data : {'prov_id': $prov_val},
+         success:function(data)
+        {
+          if (data.ret) 
+          {
+            var $ret = data.ret;
+            var $str = "<option value='0'>请选择</option>";
+            for (var i = 0; i < $ret.length; i++) 
+            {
+              $str +="<option value='"+$ret[i]['c_id']+"'>"+$ret[i]['c_name']+"</option>";    
+            }
+            $(".city").html($str);
+
+          }
+
+        },
+        error:function(data)
+       {
+
+       }
+      });
+    });
+
+  });
+ //导出和查询触动
+  function com_export($actval)
+  {
+    $("#act").val($actval);
+  //$("#myform").attr("action", $url);
+  //return;
+  $("#myform").submit();
+ }
+</script>
+</html>

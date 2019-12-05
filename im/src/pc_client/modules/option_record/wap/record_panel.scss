@@ -1,0 +1,62 @@
+
+.options_service_panel{
+  position: absolute;
+  top: -272px;
+  left: 15px;
+  height: 274px;
+  width: 482px;
+  background: #fff;
+  border: 1px solid #dedede;
+  overflow: auto;
+  .service_part_empty{
+    margin-top: 100px;
+    text-align: center;
+    color: #ccc;
+  }
+  .inner_service_item{
+    min-height: 56px;
+    border-bottom: 1px solid #dedede;
+    padding: 10px 0px;
+    margin: 0px 15px;
+    color: #333;
+    &:last-child{
+      border-bottom: 0px;
+    }
+    .info-main{
+      .info-con{
+        font-size: 13px;
+        margin-left: 10px;
+        .p-g-con{
+          margin-top: 4px;
+        }
+        .title{
+          font-size: 16px;
+          font-weight: 600;
+        }
+        .prices{
+          color: #ff6600;
+          padding-right: 10px;
+        }
+        .goods_id{
+          padding: 0px 10px;
+        }
+      }
+    }
+    .service_btn{
+      width: 50px;
+      text-align: center;
+      font-size: 12px;
+      .ways{
+        background: #2e3238;
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
+
+        &:hover{
+          background: #3A3F45;
+        }
+      }
+    }
+  }
+
+}

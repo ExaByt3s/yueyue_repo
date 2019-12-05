@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <title>举报管理系统</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="javascript:void(0);" class="on">屏蔽列表</a>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="900">
+                        <tbody>
+                        <tr>
+                            <td>屏蔽日期: <input type="text" class="input-text Wate" name="start_date" value="{start_date}" onFocus="WdatePicker()" style="width:80px;" readonly="true" size="10"/>~ <input type="text" class="input-text Wate" name="end_date" value="{end_date}" onFocus="WdatePicker()" readonly="true" size="10"/>
+                            </td>
+                            <td>被屏蔽ID:
+                                <input type="text" class="input-text" name="user_id" value="{user_id}" size="10"/>
+                            </td>
+                            <td>操作者ID:
+                                <input type="text" class="input-text" name="audit_id" value="{audit_id}" size="10" />
+                            </td>
+                            <td>
+                                <p><input type="submit" class="button" value="查找"/></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <div class="table-list" id="table-list">
+        <div class="btn">
+            总条数:{total_count}
+        </div>
+        <!--list-->
+        <table width="100%" cellspacing="0">
+            <thead>
+            <tr>
+                <th width="120">屏蔽时间</th>
+                <th width="100">被屏蔽者ID</th>
+                <th width="100">被屏蔽者昵称</th>
+                <th width="100">操作者ID</th>
+                <th width="100">操作者昵称</th>
+                <th>原因</th>
+                <th width="60">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center">{dateformat:add_time,'Y-m-d H:i:s'}</td>
+                <td align="center">{user_id}</td>
+                <td align="center">{nickname}</td>
+                <td align="center">{audit_id}</td>
+                <td align="center">{auditname}</td>
+                <td align="center">{reason}</td>
+                <td align="center"><a href="?act=remove&id={id}">移除屏蔽</a></td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/admin.js"></script>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="../js/preview/preview.js"></script>
+    <script type="text/javascript" src="../js/preview/preview_load.js"></script>
+    <link rel="stylesheet" type="text/css" href="../js/preview/css/preview.css">
+    <script type="text/javascript" src="../js/selectlocal.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/table.css">
+    <title>榜单管理系统</title>
+</head>
+<body>
+<div class="mainbox">
+    <!--top-->
+    <div id="nav" class="mainnav_title">
+        <ul>
+            <a href="javascript:void(0);" class="on">榜单列表</a>
+            <a href="rank_event_location_edit.php">榜单添加</a>
+        </ul>
+    </div>
+    <!--top-->
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="900">
+                        <tbody>
+                        <tr>
+                            <td>
+                                位置:
+                                <select name="place">
+                                    <option value="">全部</option>
+                                    <option value="index" <!-- IF place="index" -->selected='true'<!-- ENDIF -->>首页</option>
+                                    <option value="list" <!-- IF place="list" -->selected='true'<!-- ENDIF -->>列表页</option>
+                                </select>
+                            </td>
+                            <td>
+                                分类:
+                                <select name="cat_id">
+                                    <option value="">全部</option>
+                                    <!-- BEGIN cat_list -->
+                                    <option value="{cat_id}" <!-- IF selected -->selected="selected"<!-- ENDIF -->>{cat_name}</option>
+                                    <!-- END cat_list -->
+                                </select>
+                            </td>
+                            <td>
+                                版本:
+                                <select name="versions_id">
+                                    <!-- BEGIN versions_list -->
+                                    <option value="{versions_id}" <!-- IF selected -->selected="selected"<!-- ENDIF -->>{name}</option>
+                                    <!-- END versions_list -->
+                                </select>
+                            </td>
+                            <td rowspan="2">
+                                <p><input type="submit" class="button" value="查找"/></p>
+                            </td>
+                        </tr>
+                        <!--<td>
+                            模式:
+                            <select name="type">
+                                <option value="-1">全部</option>
+                                <option value="0" &lt;!&ndash; IF type="0" &ndash;&gt;selected='true'&lt;!&ndash; ENDIF &ndash;&gt; >全自动</option>
+                                               <option value="1" &lt;!&ndash; IF type="1" &ndash;&gt;selected='true'&lt;!&ndash; ENDIF &ndash;&gt; >榜单</option>
+                                           </select>
+                                       </td>-->
+                        <tr>
+                            <td>添加者UID:
+                                <input type="text" class="input-text" name="add_id" value="{add_id}" size="6"/>
+                            </td>
+                            <td>
+                                添加日期: <input type="text" class="input-text" size="12" name="start_add_time" value="{start_add_time}" onFocus="WdatePicker()" size="12" readonly="true"/>~ <input type="text" class="input-text Wate" name="end_add_time" value="{end_add_time}" onFocus="WdatePicker()" size="12" readonly="true"/>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+    <div class="table-list" id="table-list">
+        <div class="btn">
+            总条数:{total_count}
+        </div>
+        <!--list-->
+        <table width="100%" cellspacing="0" style="min-width: 1025px;">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>排序</th>
+                <th>版本</th>
+                <th>位置</th>
+                <th>地区</th>
+                <th>模式</th>
+                <th>榜单ID[榜单名]/url</th>
+                <th>封面图</th>
+                <th>大标题</th>
+                <th>小标题</th>
+                <th>落点PID</th>
+                <th>APP排序</th>
+                <th>说明</th>
+                <th>添加时间</th>
+                <th>添加者ID</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN list -->
+            <tr>
+                <td align="center" width="40">{id}</td>
+                <td align="center" width="40">{sort_order}</td>
+                <td align="center" width="40">{versions_name}</td>
+                <td align="center" width="50"><!-- IF place="index" -->首页<!-- ELSEIF place="list" -->列表页<!-- ENDIF --></td>
+                <td align="center" width="80">{city}</td>
+                <td align="center" width="40"><!-- IF type="1" --><font color="red">榜单</font><!-- ELSE --><font color="green">全自动</font><!-- ENDIF --></td>
+                <td align="center" width="160"><!-- IF type="1" -->{rank_id}[{rank_name}]<!-- ELSE --><a href="javascript:void(0);" class="desc" data="{url}">{url_cut}</a><!-- ENDIF --></td>
+                <td align="center" width="50"><a href="javascript:void(0);" path="{thumb_img}" class="preview"><img src="{145_img}" width="32"/></a></td>
+                <td align="center" width="100"><a href="javascript:void(0);" class="desc" data="{headtile}">{headtile_cut}</a></td>
+                <td align="center" width="100"><a href="javascript:void(0);" class="desc" data="{subtitle}">{subtitle_cut}</a></td>
+                <td align="center" width="58"><!-- IF pid="1220101" -->1列小图<!-- ELSEIF pid="1220122" -->1列大图<!-- ELSEIF pid="1220128" -->2列<!-- ENDIF --></td>
+                <td align="center" width="60"><!-- IF app_sort="1" -->数值正序<!-- ELSEIF app_sort="2" -->数值倒序<!-- ELSE -->默认<!-- ENDIF app_sort --></td>
+                <td align="center"><a href="javascript:void(0);" class="desc" data="{rank_desc}">{rank_desc_cut}</a></td>
+                <td align="center" width="120">{dateformat:add_time,'Y-m-d H:i:s'}</td>
+                <td align="center" width="50">{add_id}</td>
+                <td align="center" width="80"><a href="rank_event_location_edit.php?act=edit&id={id}&location_id={location_id}">修改</a> | <a href="javascript:void(0);" onclick="del('rank_event_location_edit.php?act=del&id={id}&location_id={location_id}')">删除</a></td>
+            </tr>
+            <!-- END list -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pages" class="page">
+        {page}
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        //显示所有文字
+        $("#table-list tbody td").find(".desc").mouseover(function(){
+            var $dmid_desc = $(this).attr('data');
+            layer.tips($dmid_desc, this, {
+                style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+                //maxWidth:185,
+                time: 3,
+                closeBtn:[0, false]
+            });
+        });
+        $("#table-list tbody td").find(".desc").mouseleave(function(){
+            layer.closeTips();
+        });
+        //url
+        $("#table-list tbody td").find(".url").mouseover(function(){
+            var $dmid_desc = $(this).attr('data');
+            layer.tips($dmid_desc, this, {
+                style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+                //maxWidth:185,
+                time: 3,
+                closeBtn:[0, false]
+            });
+        });
+        $("#table-list tbody td").find(".url").mouseleave(function(){
+            layer.closeTips();
+        });
+    });
+    function del($url)
+    {
+        $.layer
+        ({
+            shade: [0.3, '#000'],
+            area: ['auto','auto'],
+            dialog:
+            {
+                msg: '您确定要删除该数据？',
+                btns: 2,
+                type: 4,
+                btn: ['确定','取消'],
+                yes: function()
+                {
+                    //layer.msg('重要', 1, 1);
+                    //$("#myform").submit();
+                    location.href = $url;
+                },
+                no: function()
+                {
+                    layer.msg('取消成功', 1, 1);
+                }
+            }
+        });
+    }
+</script>
+</html>

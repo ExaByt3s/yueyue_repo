@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/model_audit.css">
+<!--图片放大-->
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoom.js"></script> 
+<script type="text/javascript" src="js/FancyZoom/js-global/FancyZoomHTML.js"></script> 
+<!--图片放大-->
+<title>模特审核后台</title>
+<style type="text/css">
+.table-list
+{
+	min-width: 990px;
+	margin-bottom: 20px;
+}
+.table-list tbody td
+{
+
+	/* border: #eee 1px solid; */
+	border-left: #eee 1px solid;
+}
+.album img
+{
+	margin:2px;
+}
+.button
+{
+	background: url('resources/images/uploadify.png');
+	height: 28px;
+	width: 75px;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	text-shadow:none;
+	box-shadow:none;
+}
+</style>
+</head>
+<body>
+<div class="mainbox">
+<div class="table-list">
+       <h1><b><a  onclick="history.go(-1)" style="cursor:pointer">返回</a></b><span>Hi[<font color="red">{nickname}</font>]</span></h1>
+	   <div class="table" style="width:98%;" id="occu">
+		    <!--list-->
+		    <table cellspacing="0" width="100%" style="border-top: #eee 1px solid;border-right: #eee 1px solid;">
+		    	<tbody>
+				<tr>
+				<td width="80">头像:</td>
+				<td>
+				 <a href="{user_thumb}"><img src="{user_icon}"></a>
+				</td>
+				</tr>
+				<tr>
+				<td>昵称:</td>
+				<td>
+				 {nickname}
+				</td>
+				</tr>
+				<tr>
+				<td>身高:</td>
+				<td>
+				{height}
+				</td>
+				</tr> 
+				<tr>
+				<td>体重:</td>
+				<td>
+				 {weight}
+				</td>
+				</tr>
+				<tr>
+				<td>cup:</td>
+				<td>
+				 {cup}
+				</td>
+				</tr> 
+				<tr>
+				<td>三围:</td>
+				<td>
+				 {chest}-{waist}-{hip}
+				</td>
+				</tr> 
+				<tr>
+				<td>城市:</td>
+				<td>
+				 {city_name}
+				</td>
+				</tr> 
+				<tr>
+				<td>风格:</td>
+				<td>
+			    <!-- BEGIN model_style_v2 -->
+			    <b>风格</b>：{style}  &nbsp;<b>价格</b>：{price} &nbsp;<b>时长</b>：{hour} &nbsp;<b>加钟</b>：{continue_price}<br />
+			    <!-- END model_style_v2 -->
+				</td>
+				</tr>
+				<tr>
+				<td>摄影师要求:</td>
+				<td>
+			    V{level_require}
+				</td>
+				</tr>
+				<tr>
+				<td>图片:</td>
+				<td class="album">
+			    <!-- BEGIN model_pic --><a href="{img_url}"><img src="{img}" width="260" height="260"> </a><!-- END model_pic -->
+				</td>
+				</tr> 	
+			    </tbody>
+		    </table>
+	   </div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		//图片放大
+        setupZoom();
+	});
+</script>
+</html>

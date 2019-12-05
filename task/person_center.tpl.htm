@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{user_nickname}_个人中心</title>
+<!-- 公共css，js引入 -->
+{pc_task_top}
+
+<!-- 当前页面css-->
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/static/style/person_center/index_8c03e81.css">
+<!-- js 库-->
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/static/lib/lib_880856d.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/task/static/modules/common/widget/header/header_92eca4d.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/components/jquery/jquery_27c977b.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/task/static/js/common/common_d86a122.js"></script>
+</head>
+<body>
+
+{pc_global_nav}
+
+
+
+
+<div class="person-center-page ">
+
+    <div class="w960">
+    <div class="p1th">
+        <div class="wbox clearfix">
+            <div class="lbox fldi"><img src="{user_icon}" /></div>
+            <div class="cbox fldi">
+                <h3 class="font_wryh">{user_nickname}</h3>
+                <p class="p1 "></p>
+                <p class="p2 font_wryh"></p>
+                <div class="dtable">
+
+                <!-- BEGIN profile_info -->
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="380"><i class="icon-com icon-phone"></i>{cellphone}</td>
+                            <td><i class="icon-com icon-place"></i>{address}</td>
+                        </tr>
+                       <!-- <tr>
+                            <td><i class="icon-com icon-experience fl"></i><span class="long-txt-cut">{experience}</span></td>
+                            <td><i class="icon-com icon-need-person"></i></td>
+                        </tr>-->
+                        <tr>
+                            <td><i class="icon-com icon-url"></i>{website}</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                <!-- END profile_info -->
+                </div>
+            </div>
+            <div class="rbox frdi">
+                <div class="start-wrap">
+
+                    <!-- BEGIN starts -->
+                        <!-- IF start = "1" -->         
+                            <i class="icon-start"></i>
+                        <!-- ELSE -->
+                            <i class="start-gray"></i>
+                        <!-- ENDIF -->
+                            
+                    <!-- END starts -->
+                    {profile_info.0.reviews}条评论
+                </div>  
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+        <div class="p2th">
+             <div class="scrollBox">
+                <ul class="img_list clearfix" id="foo2">
+                <!-- BEGIN pic_arr -->
+                    <li>
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="310" height="380" align="center" valign="middle">
+                                    <img src="{img}">
+                                </td>
+                            </tr>
+                        </table>
+                    
+                    </li>
+                <!-- END pic_arr -->
+                </ul>
+                <div class="page-wrap clearfix">
+                  <a href="#" class="pre fl" id="prev2"></a>
+    <!--               <div class="page-box fl" id="pager2"><a href="#"></a><a href="#"></a><a href="#"></a></div> -->
+                  <a href="#" class="next fl" id="next2"></a>
+                </div>
+            </div>
+
+
+        <div class="des">
+            <p class="title">关于我</p>
+
+            <!-- BEGIN profile_info -->
+            <p class="info">{nl2br:bio_content}</p>
+            <!-- END profile_info -->
+        </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="p3th f14">
+        <div class="son-wrap w960" >
+            <div class="title">深入了解我</div>
+
+         
+           <div class="item-wrap2 clearfix">
+            <div class="item">
+                <ul class="list clearfix">
+
+                <!-- BEGIN faq -->
+                    <li>
+                        <div class="h4">{title}</div>
+                        <div class="des">
+                            {nl2br:content}
+                        </div>
+                    </li>
+                <!-- END faq -->
+
+                </ul>        
+            </div>
+
+            
+            
+
+
+
+            
+
+
+        </div>
+
+
+        </div>
+        
+    </div>
+
+
+    <div class="p4th w960 f14">
+        <div class="title">评论</div>
+        <ul class="list clearfix">
+           
+        <!-- BEGIN msg_list -->
+            <li>
+                <div class="wbox clearfix">
+                    <div class="lbox fldi"><img src="{from_user_icon}" /></div>
+                    <div class="rbox fldi">
+                        <div class="start-wrap">
+                        <!-- BEGIN starts_list -->
+                            
+
+                            <!-- IF new_start = "1" -->         
+                                <i class="icon-start"></i>
+                            <!-- ELSE -->
+                                <i class="start-gray"></i>
+                            <!-- ENDIF -->
+
+                            
+                        <!-- END starts_list -->
+                        {add_time}
+
+                        </div> 
+                        <p class="p1">{nl2br:content}</p>
+                        <p class="p2">{from_nickname}</p>
+                    </div>
+                </div>
+            </li>
+        <!-- END msg_list -->
+
+
+        </ul>        
+    </div>
+
+
+    <div class="p5th  f14">
+        <div class="w960">
+            <div class="title">最近的工作</div>
+            <ul class="list clearfix">
+
+            <!-- BEGIN recently_works -->
+                <li>
+                    <h4>{title}</h4>
+                    <p>{dateformat:pay_time,'Y年m月d日'}</p>
+                </li>
+            <!-- END recently_works -->
+               
+            </ul> 
+
+            <div class="np-tips f14">
+                目前暂不支持编辑资料功能，如需修改请拨打服务热线：4000-82-9003
+
+            </div>    
+        </div>   
+
+
+       
+    </div>
+
+
+</div>
+
+{footer_html}
+
+<script type="text/javascript">
+
+	var $ = require('components/jquery/jquery.js');
+	var header = require('common/widget/header/main');
+	var carouFredSel = require('common/jquery.carouFredSel/5.5.0/jquery.carouFredSel-5.5.0');
+
+	$(function() 
+	{
+		// 渲染头部
+		var $header_container = $('#yue-topbar-userinfo-container');
+		header.render($header_container[0]);
+
+		$('#foo2').carouFredSel({
+                prev: '#prev2',
+                next: '#next2',
+                pagination: "#pager2",
+                auto: false
+        });
+		
+	});
+
+</script>
+
+
+</body>
+</html>

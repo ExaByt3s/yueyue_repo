@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<title>约约APP后台</title>
+</head>
+<body>
+<div class="mainbox">
+<form name="list_form" id="list_form" action="?uid={uid}" method="post">
+	<div class="table-list">
+	   <div class="table">
+	   	 <table  cellspacing="0">
+		    	<tbody class="tbody">
+				<tr>
+				<td><img src="{img_url}" id="user_icon"></td>
+				</tr>
+			    </tbody>
+		    </table>
+	   </div>
+	   <div class="btn">
+			<input type="button" class="button" name="dosubmit" value="取消" id="close_layer"/>
+			&nbsp;&nbsp;
+			<input type="button" class="button" name="dosubmit" value="同步" id="send_layer"/> 
+		</div>
+	</div>
+</form>
+</div>
+</body>
+<script type="text/javascript">
+	var $uid = {uid};
+	var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+	//window.alert(parent.uid);
+	$('#close_layer').on('click', function(){
+      parent.layer.close(index); //执行关闭
+     });
+	//提交获取数据
+	$('#send_layer').on('click', function(){
+	 var $img_url = $("#user_icon").attr("src");
+	 $.ajax({
+   		type:"POST",
+		dataType: "json",
+		data : {'act': 'send_icon', 'uid': $uid, 'img_url':$img_url},
+		success:function(data)
+		{
+			//parent.$('#stand_follow_data').append(str);
+			parent.$('#img_show').attr({'src': $img_url});
+			parent.layer.msg("同步成功!");
+            parent.layer.close(index);
+		},
+		error:function(data)
+		{
+			parent.layer.msg("同步失败!");
+			parent.layer.close(index);
+		}
+   	})
+   	 //window.alert("ok"); 	
+});
+</script>
+</html>

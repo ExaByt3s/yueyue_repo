@@ -1,0 +1,25 @@
+.checkins-page{
+  //background: #f2f2f2;
+  .box1{
+
+    //background: #fff;
+    //border-bottom: 1px solid #cccccc;
+    padding: 0px 20px;
+    padding-top: 20px;
+    .input-text{
+
+      width: 96%;
+      padding: 15px 2%;
+      @include border-radius($border-radius);
+      border: 1px solid #cccccc;
+      background: #fff;
+
+    }
+  }
+
+  .box2{
+    padding: 10px 20px 20px 20px;
+    .ui-button-size-large {
+    }
+  }
+}

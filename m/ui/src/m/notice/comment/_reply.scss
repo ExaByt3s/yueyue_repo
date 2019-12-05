@@ -1,0 +1,48 @@
+.reply-area {
+    .textarea-placeholder {
+        display: block;
+        width: 515px;
+        height: 28px;
+        line-height: 28px;
+        border: 1px solid #eeeeee;
+        padding: 0 9px;
+        background: #f6f6f6;
+        
+        &, &:hover {
+            color: #cacaca;
+            text-decoration: none;
+        }
+    }
+
+    .reply-input {
+        width: 515px;
+        height: 108px;
+        line-height: 18px;
+        border: 1px solid #e0e0e0;
+        padding: 5px 4px;
+        margin-bottom: 10px;
+        
+        font-size: 12px;
+        word-wrap: break-word;
+        outline: none;
+    }
+
+    .reply-action-buttons {
+        text-align: right;
+    }
+    .reply-input, .reply-action-buttons {
+        display: none;
+    }
+}
+.reply-area-active {
+    .textarea-placeholder {
+        display: none;
+    }
+    .reply-input, .reply-action-buttons {
+        display: block;
+    }
+    .submit-reply,.submit-cancel{
+        _height: 25px;
+        _margin: 8px 0 0 3px;
+    }
+}

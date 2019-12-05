@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>约约 上传组件</title>
+    <meta charset="gbk">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--不是上传组件必须使用的样式文件-->
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        .fn-hide{
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="upload-container ui-item" >
+
+</div>
+
+
+
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="http://static.yueus.com/yue_ui/layer/1.0.0/layer/layer.js" ></script>
+
+<script src="http://static.yueus.com/yue_ui/upload/drag-drop/js/core.js" type="text/javascript"></script>
+<script src="http://static.yueus.com/yue_ui/upload/drag-drop/js/widget.js" type="text/javascript"></script>
+<script src="http://static.yueus.com/yue_ui/upload/drag-drop/js/mouse.js" type="text/javascript"></script>
+<script src="http://static.yueus.com/yue_ui/upload/drag-drop/js/sortable.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="webuploader.min.js"></script>
+<script type="text/javascript" src="yueyue_uploader.js?123"></script>
+
+</body>
+</html>
+<script >
+
+
+$(function()
+{
+
+
+    //todo 使用之前要确定userid是否传递进去
+
+    var yue_upload_obj = new yue_upload_class
+    ({
+        upload_total_limit : 9,
+        upload_container : $('.upload-container'),
+        multiple : true,
+        sortable : true,
+        imgs : ['http://image16.poco.cn/yueyue/20150630/20150630112821_654649_100000_5526_260.jpg?425x212_120',
+        'http://image16.poco.cn/yueyue/20150630/20150630112821_853196_100000_5527_260.jpg?426x428_120']
+    });
+
+
+
+    $('#popup').on('click', function()
+    {
+        first_layer = layer.open
+        ({
+            type: 1,
+            area: ['800px', '450px'],
+            fix: false, //不固定
+            title:'上传图片',
+            maxmin: true,
+            content: yue_upload_obj.tpl,
+            success : function($el,index)
+            {
+                var sec_layer = null;
+                var index = index;
+
+                setTimeout(function()
+                {
+                    var upload_obj = yue_upload_obj.init_upload($el);
+
+                    upload_obj.on('uploadProgress',function()
+                        {
+
+                        })
+                        .on('fileQueued',function(file)
+                        {
+
+                        })
+                        .on('fileDequeued',function(file)
+                        {
+
+                        })
+                        .on('uploadSuccess',function(file,response)
+                        {
+                            // response 服务端返回数据
+                        })
+                        .on('uploadError',function()
+                        {
+
+                        })
+                        .on('uploadFinished',function()
+                        {
+                            layer.close(index);
+                        })
+                },300);
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+})
+</script>
+

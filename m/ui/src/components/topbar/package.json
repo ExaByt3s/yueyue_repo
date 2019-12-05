@@ -1,0 +1,9 @@
+{
+  "name": "topbar",
+  "version": "1.0.3",
+  "build": {
+    "output": {
+        "topbar.css": "topbar.scss"
+    }
+  }
+}

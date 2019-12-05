@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>editor</title>
+	<!--link rel="import" href="./webcontrol/head.tpl.html?__inline"-->
+	<!--script src="../lib/lib.js"></script-->
+    <link rel="stylesheet" href="../modules/common/editor/jquery.cleditor.css" />
+    <script src="../modules/common/editor/jquery-1.8.2.min.js"></script>
+    <script src="../modules/common/editor/jquery.cleditor.min.js"></script>
+    
+</head>
+<body>
+    <textarea id="input" name="input"></textarea>
+    
+    <script>
+    	$(function(){
+    		//var $ = require('../modules/common/editor/jquery.cleditor.min');
+ 
+    		$(document).ready(function () { $("#input").cleditor(); });
+    	})
+    		
+    </script>
+</body> 
+</html>

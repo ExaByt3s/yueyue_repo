@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>优惠券列表</title>
+
+    <meta charset="gbk">
+    {wap_global_top}
+    <!-- libjs 必须引用 -->
+    <script src="/lib/lib.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../../../../style/coupon/list.scss">
+    <link type="text/css" rel="stylesheet" href="../../../../modules/coupon/list-coupon.scss">
+    <style type="text/css">
+    .widget-coupon .price{
+      width: 110px;
+    }
+    </style>
+</head>
+<body style="overflow: hidden;">
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view page-view-coupon-list" data-role="page-container">
+        <div class="taps_container">
+            <div class="inner_tap cur" data-role="tap" data-tap-type="available">
+                <p>可使用</p>
+            </div>
+            <div class="inner_tap" data-role="tap" data-tap-type="used">
+                <p>已使用</p>
+            </div>
+            <div class="inner_tap" data-role="tap" data-tap-type="expired">
+                <p>已过期</p>
+            </div>
+        </div>
+        <div>
+            <section class="coupon_con" data-role="coupon_con">
+
+            </section>
+        </div>
+        <div class="next_page_btn fn-hide" data-role="next_page_btn">
+            <p>加载更多</p>
+        </div>
+        <div class="ui-button-submit-area">
+            <button class="ui-button  ui-button-block  ui-button-size-x ui-button-bd-ff6" style="margin: 10px auto;width: 150px;" data-role="nav-to-code">
+                <span class="ui-button-content">兑换优惠券</span>
+            </button>
+        </div>
+    </div>
+    {wap_global_footer}
+    
+</main>
+
+</body>
+<script type="text/javascript">
+    var $ = require('zepto');
+
+    var abnormal = require('../../../../modules/common/widget/abnormal/index');
+
+    var frozen = require('../../../../modules/yue_ui/frozen');
+
+    var coupon_tmp = __inline('../../../../modules/coupon/list-item.tmpl');
+
+    var header = require('../../../../modules/common/widget/header/main');
+
+    var scroll = require('../../../../modules/common/scroll/index');
+
+    var utility = require('../../../../modules/common/utility/index');
+
+    var App = require('../../../../modules/common/I_APP/I_APP');
+
+    var page = 1;
+
+    var tab = 'available';
+
+    var data =
+    {
+        tab:tab,
+        page:1
+    };
+
+    var _self = $({});
+
+    _self.$scroll_wrapper = $('[data-role="coupon_con"]');
+    _self.scroll_view_obj = scroll(_self.$scroll_wrapper);
+
+    var c_height = App.isPaiApp ? 91 : 136;
+
+    _self.$scroll_wrapper.height(window.innerHeight - c_height);
+
+    _self.scroll_view_obj.on('success:drag_down_load',function(e,dragger)
+    {
+        var data =
+        {
+            tab:tab,
+            page:1
+        };
+
+        fresh(data)
+    });
+
+    _self.scroll_view_obj.on('success:drag_up_load',function(e,dragger)
+    {
+        var data =
+        {
+            tab:tab,
+            page:++page
+        };
+        fresh(data)
+    });
+
+    fresh(data)
+
+    //栏目切换
+    $('[data-role="tap"]').on('click',function(){
+
+        var $con = $(this);
+
+        $con.addClass('cur').siblings().removeClass('cur');
+
+        tab = $con.attr('data-tap-type');
+
+        var data =
+        {
+            tab:$con.attr('data-tap-type'),
+            page:1
+        }
+        fresh(data)
+
+    });
+
+
+    $('[data-role="nav-to-code"]').on('click',function()
+    {
+        window.location.href = './code.php';
+    });
+
+    function fresh(submit_data)
+    {
+        var ajax_obj =$.ajax
+        ({
+            url: window.$__ajax_domain + 'get_user_coupon_list_by_tab.php',
+            data : submit_data,
+            dataType: 'json',
+            type: 'GET',
+            cache: false,
+            beforeSend: function()
+            {
+
+                 window.$loading = $.loading
+                 ({
+                 content:'发送中...'
+                 });
+
+            },
+            success: function(data)
+            {
+
+                var $btn = $('[data-role="next_page_btn"]');
+
+                $btn.addClass('fn-hide');
+
+
+
+                if(!data.result_data.list.length && submit_data.page == 1 ){
+                    abnormal.render($('[data-role="coupon_con"]')[0],{});
+                    return
+                }
+
+                submit_data
+
+                page = data.result_data.page;
+
+                 $loading.loading("hide");
+
+                $.each(data.result_data.list,function(i,obj)
+                {
+                    console.log(obj);
+                    if(obj.tab == 'available')
+                    {
+                        obj._class_for_available = true
+                    }
+                    else if (obj.tab == 'used'){
+                        obj._class_for_used = true
+                    }
+                    else if (obj.tab == 'expired') {
+                        obj._class_for_expired = true
+                    }
+                })
+
+                var str = coupon_tmp({data:data.result_data.list})
+                if(submit_data.page == 1)
+                {
+                    $('[data-role="coupon_con"]').html(str);
+
+                    window.scrollTo(0,0);
+                }
+                else
+                {
+                    $('[data-role="coupon_con"]').append(str);
+                    //$('[data-role="coupon_con"]').html(str);
+                }
+
+
+
+                if(data.result_data.has_next_page)
+                {
+                    $btn.removeClass('fn-hide');
+                }
+
+                $('[data-role="to_ticket_details"]').on('click',function()
+                {
+                    console.log("123213")
+                    var sn = $(this).parent().attr('data-coupon_sn');
+
+                    location.href = './detail.php?sn=' + sn;
+                });
+
+                _self.scroll_view_obj && _self.scroll_view_obj.dragger.reset();
+            },
+            error: function(data)
+            {
+                $loading.loading("hide");
+
+
+                _self.scroll_view_obj && _self.scroll_view_obj.dragger.reset();
+            },
+            complete: function()
+            {
+                $loading.loading("hide");
+            }
+        });
+
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"优惠券列表",
+            header_show : true , //是否显示头部
+            right_icon_show : true, //是否显示右边的按钮
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        })
+
+    }
+
+
+
+
+
+
+</script>
+</html>

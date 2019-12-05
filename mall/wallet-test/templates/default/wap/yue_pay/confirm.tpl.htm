@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>直接付款</title>
+     {wap_global_top}
+    <!-- <link rel="import" href="../webcontrol/head.tpl.html?__inline"> -->
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/wallet-test/static/wap/style/yue_pay/confirm.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/widget/header/header.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/wallet-test/static/wap/modules/common/widget/header/main.js"></script>
+</head>
+<body>
+<main role="main">
+    <section id="global-header"></section>
+    <div class="page-view topic-end-page ">
+      
+        <div class="confirm-page">
+            <div class="p1th">
+                <div class="wbox clearfix">
+                    <div class="lbox fldi ">
+                        <span class="bar-img" style="background-image:url('{seller_user_img}')"></span>
+                    </div>
+                    <div class="rbox fldi">
+                        <p class="f16 name">{seller_user_name}</p>
+                        <p class="id color-aaa">ID：{seller_user_id}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p2th f14 color-333">
+                <div class="wbox clearfix">
+                    <div class="lbox fldi ">支付金额</div>
+                    <div class="cbox fldi ui-border-r"></div>
+                    <div class="rbox fldi"><input type="number" id="price"  placeholder="请输入支付金额" class="input-text" /></div>
+                </div>
+            </div>
+
+
+            <div class="p3th f14 color-333">
+                <div class="wbox ">
+                    <div class="lbox  ">留&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言</div>
+                    <div class="cbox  ui-border-r"></div>
+                    <div class="rbox "><textarea name=" " id="mark"  class="textarea-class" placeholder="留言请不要超过200个字哦" ></textarea></div>
+                </div>
+            </div>
+
+            <div class="p4th">
+                <button id="btn" class="ui-button  ui-button-block ui-button-100per ui-button-size-xl ui-button-bg-btn-555">
+                    <span class="ui-button-content">确认支付</span>
+                </button>
+            </div>
+
+
+
+        </div>
+    </div>
+</main>
+ {wap_global_footer} 
+    
+</body>
+<script>
+    var $ = require('components/zepto/zepto.js');
+    var utility = require('common/utility/index');
+    var header = require('common/widget/header/main');
+
+    var yue_ui = require('yue_ui/frozen');
+
+    $(document).ready(function() {
+
+        // 渲染头部
+        header.init({
+            ele : $("#global-header"), //头部渲染的节点
+            title:"直接付款",
+            header_show : true , //是否显示头部
+            right_icon_show : false, //是否显示右边的按钮
+
+            share_icon :
+            {
+                show :false,  //是否显示分享按钮icon
+                content:""
+            },
+            omit_icon :
+            {
+                show :false,  //是否显示三个圆点icon
+                content:""
+            },
+            show_txt :
+            {
+                show :false,  //是否显示文字
+                content:"编辑"  //显示文字内容
+            }
+        });
+
+
+        var config = true ;
+
+
+
+
+        $('#price').blur(function(event) {
+            var val = $(this).val().trim();
+            if (val) 
+            {
+                $('#btn').addClass('can-btn');
+            }
+            else
+            {
+                $('#btn').removeClass('can-btn');
+            }
+        });
+
+        $('#btn').on('click', function(event) {
+
+            var price = $('#price').val().trim();
+            var is_nan_res = isNaN(price);
+
+            if (!price) 
+            {
+                $.tips({
+                    content:'请输入支付金额！',
+                    stayTime:2000,
+                    type:'warn'
+                });
+                return ;
+            }
+
+            if (is_nan_res)
+            {
+                $.tips({
+                    content:'金额只能输入数字哦！',
+                    stayTime:2000,
+                    type:'warn'
+                });
+
+                return ;
+            };
+
+
+            if (parseFloat(price) === 0) 
+            {
+                // alert('输入金额不能为0哦！') ;
+                $.tips({
+                    content:'输入金额不能为0哦！',
+                    stayTime:2000,
+                    type:'warn'
+                });
+                return ;
+            }
+
+            var mark_val = $('#mark').val().trim() ;
+            if (mark_val.length > 200) 
+            {
+                $.tips({
+                    content:'留言请不要超过200个字哦!',
+                    stayTime:2000,
+                    type:'warn'
+                });
+                return ;
+            }
+
+            var data = 
+            {
+                price : price ,
+                mark : mark_val,
+                seller_user_id : {seller_user_id}
+
+            }
+            console.log(data);
+            if (config) 
+            {
+                // 提交表单
+                utility.ajax_request({
+                    // url: '../ajax/yue_fu_submit_order.php',
+                    url: window.$__ajax_domain+'yue_fu_submit_order.php',
+                    data: data,
+                    type : 'POST' ,
+                    cache: true,
+                    beforeSend: function() 
+                    {
+                        config = false ;
+                        self.$loading = $.loading
+                        ({
+                            content:'加载中...'
+                        });
+                    },
+                    success: function(ret) 
+                    {
+                        config = true ;
+                        console.log(ret);
+
+                        var data = ret.result_data ;
+                        if (data.result == 1 ) 
+                        {
+                            
+                            var order_sn = data.order_sn;
+                            var redirect_url = encodeURIComponent('{redirect_url}');
+
+                            if (IS_PUBLISH_MODEL == 0) 
+                            {
+                               console.log('测试版本');
+                               location.href = '{G_MALL_PROJECT_USER_ROOT}/pay/?order_sn='+order_sn+'&redirect_url='+redirect_url;
+                               // http://yp.yueus.com/mall/user/test/pay/?order_sn=351749044&redirect_url=
+                            }
+                            else
+                            {
+                                console.log('正式版');
+                                location.href = '{G_MALL_PROJECT_USER_ROOT}/pay/?order_sn='+order_sn+'&redirect_url='+redirect_url;
+                            }
+
+                        }
+                        else
+                        {
+                            utility.dialog_show({
+                                content : data.message
+                            })
+                        }
+                    },    
+                    error: function() 
+                    {
+                        config = true ;
+                        self.$loading.loading("hide");
+                     
+                    },    
+                    complete: function() 
+                    {
+                        config = true ;
+                        self.$loading.loading("hide");
+                       
+                    } 
+                });
+            }
+
+            
+        });
+
+
+
+
+
+    });
+</script>
+</html>

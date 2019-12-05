@@ -1,0 +1,103 @@
+<div  data-role="container-img-list" class="grid-pic-content">
+
+</div>
+
+<div class="p2th">
+    <div class="avatar">
+        <a data-role="profile">
+            <i class="img avatar-img" style="background-image: url('{{user_icon}}')"></i>
+        </a>
+    </div>
+    <div class="meta-info">
+
+        <div class="level-area">
+            <h2 class="nickname inline-block">{{nickname}}</h2>
+            {{#if user_level}}
+            <label data-role="cameraman-require">
+                <i class="icon icon-v{{user_level}}-cam-r"></i>
+            </label>
+            {{/if}}
+        </div>
+
+        <div class="user-data">
+            <span class="area">ID：{{user_id}}</span> <span class="line">|</span>  <span class="place">{{city_name}}</span>
+        </div>
+        <div data-role="follow-wrapper"></div>
+
+    </div>
+</div>
+
+<section class="score-info">
+    <a><em>Lv{{user_level}}</em>会员等级</a>
+    <a data-role="fans" data-user-id="{{user_id}}"><em>{{fans}}</em>粉丝</a>
+    <a data-role="follow" data-user-id="{{user_id}}"><em>{{follow}}</em>关注</a>
+</section>
+
+
+<section class="p3th">
+    <h3 class="title">约拍过的模特</h3>
+    <ul class="list" data-role="ph_contain">
+        {{#each date_log}}
+            <li data-user-id="{{user_id}}" data-role="nav-to-model-card">
+                <div class="avatar-size-mod avatar-size-mod-50">
+                    <span class="icon avatar-size-area"></span>
+                    <i class="avatar-size-img" style="background-image: url('{{user_icon}}'); background-size:cover"></i>
+                </div>
+                <h4>{{score}}魅力</h4>
+            </li>
+        {{/each}}
+    </ul>
+</section>
+
+<section class="p4th">
+    <div class="item mgbt_none bdbt_none pdbt_exp" data-role="">
+        <ul class="info">
+            <i class="icon icon-r-16x26-cur"></i>
+
+            <li data-role="nav-to-comment-list">
+                <div class="lbox ">综合评价</div>
+                <div class="rbox fldi">
+                    <span data-role="starts">
+                        {{#each comment_stars_list}}
+                            {{#if is_red}}
+                            <i class="icon icon-stat-s-y"></i>
+                            {{else}}
+                            <i class="icon icon-start-m-1"></i>
+                            {{/if}}
+                        {{/each}}
+                    </span>
+                    <span class="cor-5" data-role="" >{{comment_score}}分</span>
+                </div>
+            </li>
+
+            {{#if take_photo_times}}
+            <li data-role="nav-to-comment-list">
+                <div class="lbox ">拍片次数</div>
+                <div class="rbox fldi" data-role="">{{take_photo_times}}</div>
+            </li>
+            {{/if}}
+
+            {{#if attendance}}
+            <li>
+                <div class="lbox ">出勤率</div>
+                <div class="rbox fldi" data-role="">{{attendance}}%</div>
+            </li>
+            {{/if}}
+
+            {{#if style_like}}
+                <li>
+                    <div class="lbox ">风格偏好</div>
+                    <div class="rbox fldi" data-role="">{{style_like}}</div>
+                </li>
+            {{/if}}
+
+            {{#if intro}}
+            <li>
+                <div class="lbox ">备注</div>
+                <div class="rbox fldi" data-role="">{{intro}}</div>
+            </li>
+            {{/if}}
+
+        </ul>
+    </div>
+</section>

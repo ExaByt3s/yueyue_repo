@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>无标题文档</title>
+    <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+    <!-- 当前页css -->
+    <!-- <link type="text/css" rel="stylesheet" href="../style/login-page.scss">-->
+</head>
+
+<body>
+    <div class="global-top-bar global-top-bar-seller" id="global-top-bar-seller">
+
+        <div class="top-bar clearfix w1000 font_wryh">
+
+            <div class="logo fldi">
+                <a href="#"></a>
+            </div>
+
+            <div class="nav clearfix">
+                <div class="item">
+                    <a href="#">服务管理</a>
+                </div>
+                <div class="item "   menu-item-trigger>
+                    <!-- 触发样式 dropdown-menu-hover -->
+
+                    <a href="#">
+                        <span class="txt">账户管理</span> <b class="ui-triangle ui-triangle-bottom-min-white"></b>
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul class="list clearfix">
+                            <li>
+                                <a href="#">账户余额：￥5000.00</a>
+                            </li>
+                            <li>
+                                <a href="#">提现</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav clearfix seller-info">
+                <div class="item "  menu-item-trigger>
+                    <!-- 触发样式 dropdown-menu-hover -->
+                    <a href="#"><span class="txt">商家用户名</span> <b class="ui-triangle ui-triangle-bottom-min-white"></b></a>
+                    
+                    <div class="dropdown-menu">
+                        <ul class="list clearfix">
+                            <li>
+                                <a href="#">个人中心</a>
+                            </li>
+                            <li>
+                                <a href="#">认证中心</a>
+                            </li>
+                            <li>
+                                <a href="#">约约首页</a>
+                            </li>
+                            <li>
+                                <a href="#">退出</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="content w1000">
+
+        <div class="mod-nav-item font_wryh">
+            <a href="#">约约商家主页</a>
+            &gt;
+            <span>XX</span>
+        </div>
+
+        <!-- 模板start -->
+        <div class="mod-check-page content-bg  font_wryh">
+            模板
+            <br />
+            <br />
+            <br />
+
+        </div>
+        <!-- 模板end -->
+
+    </div>
+
+
+
+    <div class="footer font_wryh">
+        <a href="#" class="mr10">关于约约</a>
+        |
+        <span class="ml10">Copyright &copy; 2003-2015 YUEUS.COM</span>
+    </div>
+
+
+<script type="text/javascript">
+    // 头部
+    require('../../../modules/common/global-top-bar/global-top-bar');
+    
+    
+    // 弹窗口
+    require('../../../modules/common/layer/layer');
+
+	console.log(layer);
+
+	// layer.alert('这里是测试内容');
+
+    $('#btn').on('click', function(event) {
+        layer.alert('这里是测试内容');
+    });
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>约约第三季活动</title>
+<link href="css/zt.css" type="text/css" rel="stylesheet" />
+<script src="js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.carouFredSel-5.5.0.js"></script>
+<script language="javascript" type="text/javascript">
+var interval = 1000; 
+function ShowCountDown(year,month,day,hour) 
+{ 
+var now = new Date(); 
+var endDate = new Date(year, month-1, day, hour); 
+var leftTime=endDate.getTime()-now.getTime(); 
+var leftsecond = parseInt(leftTime/1000); 
+//var day1=parseInt(leftsecond/(24*60*60*6)); 
+var day1=Math.floor(leftsecond/(60*60*24)); 
+var hour=Math.floor((leftsecond-day1*24*60*60)/3600); 
+var minute=Math.floor((leftsecond-day1*24*60*60-hour*3600)/60); 
+var second=Math.floor(leftsecond-day1*24*60*60-hour*3600-minute*60); 
+
+if(day1 < 0)
+{
+    day1    =0;
+    hour    =0;
+    minute  =0;
+    second  =0;
+}
+document.getElementById('in_day').innerHTML     = day1; 
+document.getElementById('in_hour').innerHTML    = hour;
+document.getElementById('in_minute').innerHTML  = minute;
+document.getElementById('in_second').innerHTML  = second;
+} 
+window.setInterval(function(){ShowCountDown(2014,12,4,12);}, interval); 
+</script>
+</head>
+<body>
+
+
+<div class="header-v2">
+  <div class="banner-v2">
+    <div class="scrollBox">
+      <ul class="img_list clearfix" id="foo2">
+        <li class="banner-position" style="background-image:url(images/ty-img-70.jpg)" onclick="javascript:location.href='cameraman.php'"> </li>
+        <li class="banner-position" style="background-image:url(images/ad1.jpg)" onclick="javascript:location.href='model.php'"> </li>
+      </ul>
+      <div class="page-wrap clearfix"> <a href="#" class="pre fl" id="prev2"></a> <a href="#" class="next fl" id="next2"></a> </div>
+    </div>
+  </div>
+</div>
+
+<div class="new-index-page">
+
+    <div class="new-p1th-wrap">
+        <div class="new-p1th w1002">
+
+            <div class="gong-bu-none">
+                <h3>活动结束倒计时</h3>
+                <ul class="list clearfix">
+                        <li class="num"><div id="in_day"></div></li>
+                        <li class="font_wryh">天</li>
+                        <li class="num"><div id="in_hour"></div></li>
+                        <li class="font_wryh">时</li>
+                        <li class="num"><div id="in_minute"></div></li>
+                        <li class="font_wryh">分</li>
+                        <li class="num"><div id="in_second"></div></li>
+                        <li class="font_wryh">秒</li>   
+                </ul>
+            </div>
+
+            <div class="box2"><img src="images/ty-img-56.png" /></div>
+            <div class="ul-wrap">
+                <ul class="list2 clearfix">
+                    <!-- BEGIN list -->
+                    <li>
+                        <div class="img"><a href="model_detail.php?id={id}" target="_blank"><img src="{img_5}" /></a></div>
+                        <div class="txt font_wryh">
+                            <p><a href="model_detail.php?id={id}" target="_blank">{username}</a></p>
+                        </div>
+                    </li>
+                    <!-- END list --> 
+                </ul>     
+            </div> 
+
+            <div class="imgbox"><!--<img src="images/ty-img-58.png" />--></div>
+
+        </div>
+    </div>
+
+    <div class="new-p2th-wrap">
+        <div class="new-p2th w1002">
+            <div class="dl-wrap font_wryh">
+                <dl class="dl-class ">
+                    <dt>活动流程</dt>
+                    <dd>1.  点击模特头像，模特卡页面扫码关注官方微信，发送“bm”报名；<br />
+                        2.  11月28日中午2点准时抢约，20个名额，先到先得；<br />
+                        3.  工作人员联系并指导安装“约”APP；<br />
+                        4.  约拍心仪模特，能否约拍成功，全凭实力；<br />
+                        5.  带上你的小伙伴，与女神来个约会吧。
+                    </dd>
+                </dl>
+
+                <dl class="dl-class">
+                    <dt>活动报名规则</dt>
+                    <dd>
+                        1.  通过活动页面扫二维码，关注官方微信，发送“bm”报名；<br />
+                        2.  报名需提交真实个人资料（真实姓名、联系电话、个人作品5张、个人作品空间链接）<br />
+                             完成即代表报名成功；<br />
+                        3.  报名成功将获得抢约资格，11月28日中午将通知你来抢约。
+                    </dd>
+                </dl>
+
+                <dl class="dl-class">
+                    <dt>成功约拍即可获得</dt>
+                    <dd>1.  自动成为约约体验师论坛成员；<br />
+                        2.  在POCO空间获得约约体验师勋章；  <br />
+                        3.  作品可获POCO首页专区展示机会； <br />
+                        4.  获约APP优先使用权，自由约拍心仪女神； <br />
+                        5.  加入"约"第三季摄影师微信交流群，跟工作人员零距离接触，解答你的疑问。
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="new-p3th-wrap">
+        <div class="new-p3th w1002">
+                <div class="imgbox"><img src="images/ty-img-60.png" /></div>
+                <div class="btn"><a href="model.php"></a></div>
+        </div>
+
+        <div class="new-footer w1002 font_wryh  ">
+        <div class="txt">Copyright 2003-2013 YUEUS.COM&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../about_us/about.html">公司介绍</a> </div>
+        </div>
+    </div>
+
+
+    
+</div>
+
+<script type="text/javascript">
+    //  Scrolled by user interaction
+    $('#foo2').carouFredSel({
+        prev: '#prev2',
+        next: '#next2',
+        pagination: "#pager2",
+        auto: true
+    });
+</script>
+</body>
+</html>

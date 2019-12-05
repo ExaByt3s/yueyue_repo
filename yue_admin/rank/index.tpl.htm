@@ -1,0 +1,127 @@
+{YUE_ADMIN_TOP}
+<style type="text/css">
+#leftMenu dd i
+{
+	width: 155px;
+    height: 29px;
+    padding-left: 35px;
+   line-height: 29px;
+   text-align: left;
+}
+</style>
+<!--main-->
+<div id="Main_content">
+	<div id="MainBox">
+	    <div class="main_box">
+			<iframe name="main" id="Main" src="main.htm" frameborder="false" scrolling="hidden" width="100%" allowtransparency="true" height="700"></iframe>
+		</div>
+    </div>
+	<div id="leftMenuBox">
+    	<div id="leftMenu" style="height: 231px; display: block;">
+			<div style="padding-left:12px;_padding-left:10px;">				
+				<dl id="nav_1" style="display: block;" class="nav_info">
+					<dt>榜单模块</dt>
+					<dd class="off">
+						<span><a href="rank_event.php" target="main">榜单列表</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="rank_event.php?act=add" target="main">榜单添加</a></span>
+					</dd>
+                    <!-- IF location_id_root -->
+                    <!-- ELSE -->
+					<dd class="off">
+						<span><a href="rank_event_log.php" target="main">榜单log列表</a></span>
+					</dd>
+                    <!-- ENDIF -->
+				</dl>
+				<dl id="nav_2" style="display: none;" class="nav_info">
+					<dt>促销模块</dt>
+					<dd class="off">
+						<span><a href="dmid_for.php" target="main">促销列表</a></span>
+					</dd>
+					<dd class="off">
+						<span><a href="dmid_for.php?act=add" target="main">促销ID申请</a></span>
+					</dd>	
+				</dl>
+				<dl id="nav_3" style="display: none;" class="nav_info">
+					<dt>榜单内容展示</dt>
+					<dd class="off">
+						<span><a href="rank_info_list.php" target="main">榜单内容展示列表</a></span>
+					</dd>
+				</dl>
+                <dl id="nav_4" style="display: none;" class="nav_info">
+                    <dt>版本开通</dt>
+                    <dd class="off">
+                        <span><a href="version_open.php" target="main">版本列表</a></span>
+                    </dd>
+                    <dd class="off">
+                        <span><a href="location_open.php" target="main">地区列表</a></span>
+                    </dd>
+                </dl>
+			</div>
+		</div>
+		<div id="Main_drop">
+			<a href="javascript:toggle_leftbar(1);" class="on" style="display: inline;"><img src="resources/images/admin_barclose.gif" width="11" height="60" border="0"></a>   
+			<a href="javascript:toggle_leftbar(0);" class="off" style="display: none;"><img src="resources/images/admin_baropen.gif" width="11" height="60" border="0"></a>  
+		</div>
+    </div>
+</div>
+<!--main-->
+
+<script type="text/javascript">
+$(function(){
+	//选择那一个
+	$(".nav_info").find("a").click(function(){
+		$(".nav_info dd").addClass('off').removeClass('on');
+		$(this).parent("span").parent("dd").removeClass('off').addClass('on');
+	});
+});
+if(!Array.prototype.map){
+	Array.prototype.map = function(fn,scope) {
+	  var result = [],ri = 0;
+	  for (var i = 0,n = this.length; i < n; i++){
+		if(i in this){
+		  result[ri++]  = fn.call(scope ,this[i],i,this);
+		}
+	  }
+		return result;
+	};
+}
+var getWindowWH = function(){
+	  return ["Height","Width"].map(function(name){
+	  return window["inner"+name] ||
+		document.compatMode === "CSS1Compat" && document.documentElement[ "client" + name ] || document.body[ "client" + name ]
+	});
+}
+
+window.onload = function (){
+	if(!+"\v1" && !document.querySelector) { 
+		//IE6 IE7
+		document.body.onresize = resize;
+		
+	} 
+	else {
+	
+	  window.onresize = resize;
+	  
+	}
+	function resize() {
+	
+		wSize();
+		return false;
+		
+	}
+}
+function wSize(){
+	var str=getWindowWH();
+	var strs= new Array();
+	strs=str.toString().split(","); //字符串分割
+	var h = strs[0] - 95-30;
+	$('#leftMenu').height(h);
+	$('#Main').height(h); 
+}
+wSize();
+
+</script>
+</body>
+</html>

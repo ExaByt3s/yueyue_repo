@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <title>用户数量分布图</title>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+    <script src="../js/echarts2/dist/echarts.js" charset="utf-8"></script>
+</head>
+<body>
+
+<div class="mainbox" style="width:1024px;margin:10px auto">
+    <!--search form-->
+    <table class="search_table" width="100%">
+        <tbody>
+        <tr>
+            <td class="search">
+                <form  method="get" id="myform">
+                    <table class="table-list-search" id="quick_search" width="400">
+                        <tbody>
+                        <tr>
+                            <td>
+                                日期:
+                                <input type="text" name="start_date" class="input-text" value="{start_date}" size="10" onfocus="WdatePicker()" readonly="true"/> ~
+                                <input type="text" name="end_date" class="input-text" value="{end_date}" size="10" onfocus="WdatePicker()" readonly="true" />
+                            </td>
+                            <td>
+                                <p><input type="submit" class="button" value="查看"/></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--search form end-->
+</div>
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="height:600px;margin-left: 10px;margin-top: 20px;"></div>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths:{
+            echarts: '../js/echarts2/dist'
+        }
+    });
+
+
+    // 使用
+    require(
+            [
+                'echarts',
+                'echarts/chart/line',
+                'echarts/chart/bar',
+                'echarts/chart/map'
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main'));
+
+                var option = {
+                    title : {
+                        text: '用户数量',
+                        subtext: '用户分布图',
+                        x:'center'
+                    },
+                    tooltip : {
+                        trigger: 'item'
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        x:'left',
+                        data:['用户数量']
+                    },
+                    dataRange: {
+                        x: 'left',
+                        y: 'bottom',
+                        splitList: [
+                            {start: 100000},
+                            {start: 50000, end: 100000},
+                            {start: 10000, end: 50000},
+                            {start: 5000, end: 10000},
+                            //{start: 1000, end: 5000, label: '10 到 200（自定义label）'},
+                            {start: 1000, end: 5000},
+                            //{start: 5, end: 5, label: '5（自定义特殊颜色）', color: 'black'},
+                            {start: 500, end: 1000},
+                            {start: 100, end: 500},
+                            {start: 10, end: 100},
+                            {end: 10}
+                        ],
+                        //color: ['#E0022B', '#E09107', '#A3E00B']
+                        color: ['#E62F0D', '#EFC612','#26A226']
+                    },
+                    toolbox: {
+                        show: true,
+                        orient : 'vertical',
+                        x: 'right',
+                        y: 'center',
+                        feature : {
+                            //mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    roamController: {
+                        show: true,
+                        x: 'right',
+                        mapTypeControl: {
+                            'china': true
+                        }
+                    },
+                    series : [
+                        {
+                            name: '用户数量',
+                            type: 'map',
+                            mapType: 'china',
+                            roam: false,
+                            itemStyle:{
+                                normal:{
+                                    label:{
+                                        show:true,
+                                        textStyle: {
+                                            color: "rgb(249, 249, 249)"
+                                        }
+                                    }
+                                },
+                                emphasis:{
+                                    color: "rgb(100,149,237)",
+                                    label:{show:true}
+                                }
+                            },
+                            data:[
+                                {data}
+                            ]
+                        }
+                    ]
+                };
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            }
+    );
+
+</script>
+</body>

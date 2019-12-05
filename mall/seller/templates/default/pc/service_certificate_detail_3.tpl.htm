@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{page_title}</title>
+
+    <!-- <link rel="import" href="./webcontrol/head.tpl.htm?__inline">
+    -->
+    <!-- 公共css，js引入 -->{pc_global_top}<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/modules/common/layer/skin/layer_d032379.css">
+<link type="text/css" rel="stylesheet" href="http://static-c.yueus.com/mall/seller/static/pc/modules/common/upload/1.0.0/css/style_26e92d7.css">
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/components/jquery/jquery_27c977b.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/js/common/common_26d9479.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/layer/layer_906feb7.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/core_83840a8.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/widget_4835767.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/mouse_6ef99af.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/sortable/sortable_65d00c0.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static-c.yueus.com/mall/seller/static/pc/modules/common/upload/1.0.0/yueyue_uploader_f4eddec.js"></script>
+</head>
+<body >
+
+{global_top_bar}
+
+
+<iframe id="form_iframe" name="form_iframe" style="display:none;"></iframe>
+<form action="./module/pai_mall_certificate_service_op.php" method="post"  name="publish_form" id="publish_form" target="form_iframe">
+    <div class="content">
+        <div class="choose-type-page  w1000 font_wryh">
+            <!--<div class="mod-choose-step-zone">
+                <ul>
+                    <li class="cur">
+                        <i class="icon-radius ">1</i>
+                        <a href="javascript:;" class="step-1" onclick="return false">选择类型</a>
+                    </li>
+                    <li class="cur">
+                        <i class="icon-radius ">2</i>
+                        <a href="javascript:;" class="step-2" onclick="return false">服务标准</a>
+                    </li>
+                    <li>
+                        <i class="icon-radius ">3</i>
+                        <a href="javascript:;" class="step-3" onclick="return false">开通</a>
+                    </li>
+                </ul>
+            </div>-->
+            <div class="mod-nav-item">
+                <a href="./">约约商家主页</a>
+                &gt;
+                <a href="./normal_certificate_choose.php">认证中心</a>
+                &gt;
+                <a href="./normal_certificate_choose.php">品类认证</a>
+                &gt;
+                <span>{page_type_name}认证</span>
+            </div>
+            <div class="service-page mod-attest-page content-bg">
+                <div class="mod-listItem">
+                    <span>{page_type_name}认证</span>
+                </div>
+                <div class="form-warp" id="form-warp">
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>入行年限</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-select-item photo-select-item">
+                                <select name="years" class="font_wryh" valid-rule="**1-100" valid-index='1'>
+                                    <option value="">请选择</option>
+                                    <!-- BEGIN certificate_common_years -->
+                                    <option value="{value}">{value_name}</option>
+                                    <!-- END certificate_common_years -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>化妆场地</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-radio-item font_wryh clearfix">
+                                <!-- BEGIN certificate_dresser_has_place -->
+                                <label>
+                                    <input type="radio" name="has_place" value="{value}" <!-- IF ROWCNT=="0" -->checked="checked"<!-- ENDIF ROWCNT -->/>
+                                    {value_name}
+                                </label>
+                                <!-- END certificate_dresser_has_place -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>化妆师/机构介绍</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="textarea-item">
+                                <textarea name="dresser_desc" class="textarea-txt textarea-txt-1 font_wryh" placeholder="化妆师/机构介绍" valid-rule="**1-1000" valid-index='2' tabindex="1"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>接单方式</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-radio-item font_wryh clearfix">
+                                <!-- BEGIN certificate_dresser_order_way -->
+                                <label>
+                                    <input type="radio" name="order_way" value="{value}" <!-- IF ROWCNT=="0" -->checked="checked"<!-- ENDIF ROWCNT -->/>
+                                    {value_name}
+                                </label>
+                                <!-- END certificate_dresser_order_way -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>团队规模</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-radio-item font_wryh clearfix">
+                                <!-- BEGIN certificate_dresser_team_num -->
+                                <label>
+                                    <input type="radio" name="team_num" value="{value}" <!-- IF ROWCNT=="0" -->checked="checked"<!-- ENDIF ROWCNT -->/>
+                                    {value_name}
+                                </label>
+                                <!-- END certificate_dresser_team_num -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>擅长的妆容（多选）</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="mod-checkbox-item font_wryh clearfix J_checkbox_div">
+                                <!-- BEGIN certificate_dresser_do_well -->
+                                <label>
+                                    <input class="J_checkbox" type="checkbox" name="do_well[]" value="{value}" <!-- IF ROWCNT=="0" -->checked="checked"<!-- ENDIF ROWCNT -->/>
+                                    {value_name}
+                                </label>
+                                <!-- END certificate_dresser_do_well -->
+                                <label>
+                                    <input class="checkbox-input font_wryh f14 ml10" type="text" name="do_well_other" value="" placeholder="其他" tabindex="2">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mod-form-title">
+                            <span>作品上传</span>
+                            <span style="padding-left:20px;font-size: 14px;color:#aaa">（上传5到20张图片，能让工作人员更好的了解你。文件格式为jpg、jpeg、png，每张图片大小不超过3M）</span>
+                        </div>
+                        <div class="item-con">
+                            <div class="J_upload-container_1 ui-item" style="overflow:hidden;" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-item">
+                        <a href="javascript:;" class="ui-btn ui-btn-blue" id="J_form_submit" data-lock="unlock">提交审核</a>
+                    </div>
+                    <div style="text-align:center;color:#333;padding-top:10px;font-size:16px">等待审核过程中，可先发布服务</div>
+                    <div style="text-align:center;color:#333;padding-top:10px;font-size:14px">若有问题，请联系客服4000-82-9003</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="{type_id}" name="type_id"/>
+
+</form>
+<input type="hidden" value="{user_id}" id="J_user_id">
+{footer}
+
+<script type="text/javascript" src="http://static.yueus.com/yue_ui/upload/1.0.0/webuploader.min.js"></script>
+<script type="text/javascript">
+    // 头部
+    require('common/global-top-bar/global-top-bar');
+
+    require('common/layer/layer');
+
+    //初始化作品上传
+    require('common/upload/1.0.0/yueyue_uploader');
+
+
+
+    // 表达验证类
+    var VA = require('common/valid/index');
+    // 设置容器
+    var valid = new VA($('#form-warp'));
+
+    add_collection("J_upload-container_1","1");
+
+    function error_tips(ele,str)
+    {
+        $("html,body").animate({scrollTop:ele.offset().top},300);
+        layer.alert(str);
+        return false;
+    }
+
+
+
+    fresh_bind();
+
+    function fresh_bind(){
+        //绑定事件
+        valid.pushfunctions
+                ([
+                    {
+                        index:'1',
+                        ValidError : function(){
+                            error_tips($("[valid-index='1']").parents(".item"),'请选择摄影年限');
+                        }
+                    },
+                    {
+                        index:'2',
+                        ValidError : function(){
+                            error_tips($("[valid-index='2']").parents(".item"),'请正确填入化妆师介绍');
+                        }
+                    }
+
+                ]);
+    }
+
+
+    //提交form
+    $("#J_form_submit").on("click",function(){
+
+        //获取验证结果
+        var resault = valid.checkValid();
+
+        if(resault.isPass)
+        {
+            if(!$(".J_checkbox:checked").val())
+            {
+                error_tips($('.J_checkbox_div').parents(".item"), '请勾选擅长妆容');
+                return
+            }
+
+            //判断图片
+            if(!$(".J_upload-container_1 input").val())
+            {
+                error_tips($('.J_upload-container_1').parents(".item"), '请传入作品图');
+                return
+            }
+            //判断图片张数是否够5张
+            if($(".J_upload-container_1 input").val())
+            {
+                var img_len = $(".J_upload-container_1 input").length;
+                if(img_len<5)
+                {
+                    error_tips($('.J_upload-container_1').parents(".item"), '请传入大于等于5张作品图');
+                    return
+                }
+            }
+
+
+            var data_lock = $(this).attr("data-lock");
+            if(data_lock!="lock")
+            {
+                $(this).attr("data-lock","lock");//锁住
+                layer.msg("正在提交中...");
+                $("#publish_form").submit();
+            }
+            else
+            {
+                layer.msg("正在提交中...");
+                return false;
+            }
+        }
+
+    })
+
+    //添加作品集
+    /*
+     *ele_container:容器
+     *part_id：模块标记值
+     */
+    function add_collection(ele_container,part_id)
+    {
+        $(function()
+        {
+
+
+            //todo 使用之前要确定userid是否传递进去
+            var user_id = $("#J_user_id").val();
+            var yue_upload_obj = new yue_upload_class
+            ({
+                upload_total_limit : 20,
+                upload_container : $('.'+ele_container),
+                user_id :  user_id,
+                multiple : true,
+                imgs : [],
+                fileSizeLimit: 60 * 1024 * 1024,    // 60 M 总文件大小
+                fileSingleSizeLimit: 3 * 1024 * 1024,    // 3 M 单文件大小
+                gid : part_id
+            });
+
+            $('#popup_'+part_id).on('click', function()
+            {
+                var upload_obj = {};
+                first_layer = layer.open
+                ({
+                    type: 1,
+                    area: ['800px', '450px'],
+                    fix: false, //不固定
+                    title:'上传图片',
+                    maxmin: false,
+                    content: yue_upload_obj.tpl,
+                    success : function($el,index)
+                    {
+                        var sec_layer = null;
+                        var index = index;
+
+
+                        setTimeout(function()
+                        {
+                            upload_obj = yue_upload_obj.init_upload($el);
+
+                            upload_obj.on('uploadProgress',function()
+                            {
+
+                            })
+                                    .on('fileQueued',function(file)
+                                    {
+
+                                    })
+                                    .on('fileDequeued',function(file)
+                                    {
+
+                                    })
+                                    .on('uploadSuccess',function(file,response)
+                                    {
+                                        // response 服务端返回数据
+                                        //console.log(response);
+                                    })
+                                    .on('uploadError',function()
+                                    {
+
+                                    })
+                                    .on('uploadFinished',function()
+                                    {
+                                        layer.close(index);
+                                    })
+                        },500);
+                    },
+                    cancel : function()
+                    {
+                        if(!confirm('注意！关闭弹窗会终止上传图片'))
+                        {
+                            return false;
+                        }
+
+                        upload_obj && upload_obj.stop(true);
+                    }
+                });
+            });
+        });
+    }
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/selectlocal.js"></script>
+<script language="javascript" type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link type="text/css" href="css/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-zh-CN.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".ui_timepicker").datetimepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: '',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        })
+    })
+    </script>
+
+<title></title>
+
+</head>
+<body>
+<iframe name="frame" id="frame" style="display:none"></iframe>
+
+<div class="mainbox">
+<table class="search_table" width="100%">
+	<tbody>
+		
+        <tr> 
+			<td class="search">
+				
+                <input type="button" value="添加" class="button" onclick="location.href='task_topic_edit.php'" />
+			</td>
+		</tr>
+	</tbody>
+</table>
+ 
+  
+  <table class="search_table" width="100%">
+	<tbody>
+		
+        <tr> 
+			<td class="search">
+				
+              <form name="add_form" id="add_form" action="" method="get" >
+      标题：
+        
+        <input type="text" name="title" id="title" value="{title}" />
+       &nbsp;发布人ID：
+       <input type="text" name="add_user_id" id="add_user_id" value="{add_user_id}" />
+&nbsp;
+              日期：
+        
+              <input id="begin_time" type="text" size="14" name="begin_time" value="{begin_time}" class="ui_timepicker" />
+&nbsp;到
+<input id="end_time" type="text" size="14" name="end_time" value="{end_time}" class="ui_timepicker" />
+&nbsp;&nbsp;
+               品类:
+              <select name="type">
+                <option value="">全部品类</option>
+                 <option value="模特服务" <!-- IF type="模特服务" -->selected="selected"<!-- ENDIF -->>模特服务</option>
+                  <option value="化妆服务" <!-- IF type="化妆服务" -->selected="selected"<!-- ENDIF -->>化妆服务</option>
+                  <option value="摄影培训" <!-- IF type="摄影培训" -->selected="selected"<!-- ENDIF -->>摄影培训</option>
+                  <option value="摄影服务" <!-- IF type="摄影服务" -->selected="selected"<!-- ENDIF -->>摄影服务</option>
+                  <option value="影棚租赁" <!-- IF type="影棚租赁" -->selected="selected"<!-- ENDIF -->>影棚租赁</option>
+                </select>
+              &nbsp;&nbsp;状态:
+              <select name="status">
+               <option value="all">全部</option>
+               <option value="up" <!-- IF status="up" -->selected="selected"<!-- ENDIF -->>上架</option>
+               <option value="down" <!-- IF status="down" -->selected="selected"<!-- ENDIF -->>下架</option>
+              </select>
+              <input type="submit" id="button" value="查找" />
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.yueus.com/yue_admin/topic/task_topic_list.php?begin_time={begin_time}&end_time={end_time}&type={type}&status={status}&output=1" target="_blank">导出</a>
+              </form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+ 
+    <div id="tabs">
+    <div class="tabbox">
+      <div class="table-list">
+        <table width="100%" cellspacing="0">
+          <thead>
+            <tr>
+			<th>ID</th>
+              <th>标题</th>
+              <th>品类</th>
+              <th>报名人数</th>
+              <th>添加时间</th>
+              <th>当前状态</th>
+              <th>发布人ID</th>
+				<th>预览链接</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- BEGIN list -->
+            <tr>
+			<td align="center">{id}</td>
+              <td align="center">{title}</td>
+              <td align="center">{type}</td>
+              <td align="center">{count_enroll}</td>
+              <td align="center">{add_time}</td>
+              <td align="center"><!-- IF status="1" -->上架<!-- ELSE --><span style="color:#F00">下架</span><!-- ENDIF --></td>
+              <td align="center">{add_user_id}</td>
+			  <td align="center"><a href='http://yp.yueus.com/mall/seller/trade/detail.php?topic_id={id}' target='_blank'>预览</a></td>
+              <td align="center">
+              <!-- IF status="1" -->
+              <input type="button" value="下架" class="button" onclick="location.href='task_topic_list.php?act=act&status=0&id={id}'" />
+              <!-- ELSE -->
+              <input type="button" value="上架" class="button" onclick="location.href='task_topic_list.php?act=act&status=1&id={id}'" />
+              <!-- ENDIF -->
+              
+              <input type="button" value="编辑" class="button" onclick="location.href='task_topic_edit.php?act=edit&id={id}'" /></td>
+             <!-- END list --> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="pages" class="page"> {page} </div>
+  
+</div>
+</body>
+</html>

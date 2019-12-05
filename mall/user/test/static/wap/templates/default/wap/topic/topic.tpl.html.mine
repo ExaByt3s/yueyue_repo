@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{ret.title}</title>
+    {wap_global_top}
+    <link charset="utf-8" rel="stylesheet" href="../../../../style/topic/topic.scss">
+</head>
+<body>
+<main role="main">
+    <div id="global-header"></div>
+    <div class="topic-end-page ">
+        <section class="topic-info-container">
+            {ret.content}
+        </section>
+    </div>
+</main>
+</body>
+<script>
+    var $ = require('zepto');
+
+    $(function()
+    {
+
+    });
+</script>
+</html>

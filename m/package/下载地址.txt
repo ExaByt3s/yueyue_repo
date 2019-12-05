@@ -1,0 +1,17 @@
+http://yp.yueus.com/mobile/package/info_ios.json
+
+http://yp.yueus.com/mobile/package/info_android.json
+
+http://yp.yueus.com/mobile/package/resource/1.0.2/app.zip
+
+http://yp.yueus.com/mobile/dist/1.0.2/app.js
+
+http://yp-wifi.yueus.com/mobile/package/info_ios.json
+
+http://yp-wifi.yueus.com/mobile/package/info_android.json
+
+http://yp-wifi.yueus.com/mobile/package/resource/1.0.2/app.zip
+
+http://yp-wifi.yueus.com/mobile/dist/1.0.2/app.js
+
+

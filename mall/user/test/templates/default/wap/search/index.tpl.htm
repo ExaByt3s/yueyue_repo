@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head >
+    <title>搜索列表</title>
+    
+    {wap_global_top}    
+    <link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/style/search/index.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/lib/lib.js"></script>
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/header.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/search/search_popup.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/list/list.css">
+<link type="text/css" rel="stylesheet" href="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/main.css">
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/zepto/zepto.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/cookie/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/ua/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/yue_ui/frozen.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_APP/I_APP.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/utility/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/header/main.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/I_WX_SDK/I_WX_SDK.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/search/search_popup.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/components/fastclick/fastclick.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/widget/abnormal/index.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/common/lazyload/lazyload.js"></script>
+<script type="text/javascript" charset="gbk" src="http://static.yueus.com/mall/user/test/static/wap/modules/list/list.js"></script>
+</head>
+<body  class="<!-- IF search_type ="goods" -->cor-bg-fff<!-- ENDIF --> ">
+
+<div class="fade fn-hide anim_fade" style="z-index:10;" data-role="fade"></div>
+
+<!--搜索表单-->
+<main role="main" data-role="search-form-container" class="fn-hide">
+    <div class="page-view " data-role="page-container">
+        <div class="search">
+            <header class="global-header">
+                <div class="wbox clearfix">
+                    <a href="javascript:void(0);">
+                        <div class="back" data-role="page-back">
+                            <i class="icon-back"></i>
+                        </div>
+                    </a>
+                    <div class="search-head title ">
+                        <div class="search-box">
+                            <div class="search-type" data-role="search-type">
+                                <input value="服务" readonly="readonly" class="search-type-btn">
+                                <input value="" type="text" id="search-type-init" style="display: none;">
+                                <i class="r-icon"></i>
+                            </div>
+                            <input type="text" style="color: #000;" placeholder="请输入关键词" value="" class="search-text" data-role="search-text">
+                        </div>
+                    </div>
+
+                    <div class="side-txt" style="" data-role="right-btn">
+                        搜索
+                    </div>
+                </div>
+                <div class="type-select fn-hide" id="type-select">
+                    <i class="type-select-i"></i>
+                    <span class="t-span type-select-span" data-role="type-btn" data-type="seller">商家名称</span>
+                    <span class="b-span type-select-span" data-role="type-btn" data-type="goods">服务名称</span>
+                </div>
+            </header>
+            <div class="seach-content">
+                <div class="hot seach-title fn-hide" data-role="hot">
+                    <p class="hot-title ">热门</p>
+                    <div data-role="hot-service-content">
+
+                    </div>
+                    <div data-role="hot-seller-content" class="fn-hide">
+
+                    </div>
+                </div>
+                <!--搜索历史-->
+                <div class="history seach-title fn-hide" data-role="history" >
+                    <p class="hot-title">历史搜索</p>
+                    <div data-role="history-service-content">
+
+                    </div>
+                    <div data-role="history-seller-content" class="fn-hide">
+
+                    </div>
+                </div>
+                <!--清空历史-->
+                <button class="ui-button ui-button-size-x ui-button-bg-fff empty fn-hide" data-role="empty" >
+                    <span class="ui-button-content">清空搜索历史</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<!--搜索结果列表-->
+<main role="main" data-role="search-list-container" class="search-list-container" style="padding-top: 0">
+    <header class="global-header">
+        <div class="wbox clearfix">
+            <a href="javascript:void(0);">
+                <div class="back" data-role="page-back">
+                    <i class="icon-back"></i>
+                </div>
+            </a>
+            <form method="GET" action="./">
+                <div class="search-head title ">
+                    <div class="search-box">
+                        <i class="icon-search"></i>
+                        <input type="search" style="color: #000;" placeholder="请输入关键词" name="keywords" value="{keywords}" class="search-text" data-role="search-text" id="rel-input">
+                        <input type="hidden" name="search_type" value="{search_type}" />
+                        <input type="hidden" name="type_id" value="{type_id}" />
+                    </div>
+                </div>
+                <div class="side-txt" style="" data-role="right-btn">
+                    
+                </div>
+            </form>
+        </div>
+        
+    </header>
+    <div class="page-view" data-role="page-container">
+        <div>
+            <!-- IF search_type ="goods" -->
+            <div class="search-list-tab ui-border-b">
+                <div class="ui-border-r tab filter_tab" data-role="filter">
+                    <span>筛选</span>
+                </div>
+                <div class="tab sort_tab" data-role="sort">
+                    <span>排序</span>
+                </div>
+            </div>
+            <!-- ENDIF -->
+            <div class="search-list-page {search_type}" >   
+                <div class="service_list" data-role="service_list">
+
+                    <div id="render_ele"></div>
+
+                </div>
+
+                <div data-role="list_container"></div>
+            </div>    
+  
+            <div class="order_list_container" data-role="list_container"></div>
+
+        </div>
+    </div>
+</main>
+
+
+</body>
+<script>
+
+var $ = require('components/zepto/zepto.js');
+var utility = require('common/utility/index');
+var header = require('common/widget/header/main');
+var frozen = require('yue_ui/frozen');
+var WeiXinSDK =  require('common/I_WX_SDK/I_WX_SDK');
+var search_popup = require('search/search_popup');
+var header = require('common/widget/header/main');
+var fastclick = require('components/fastclick/fastclick.js');
+
+window.addEventListener('load',function()
+{
+    fastclick.attach(document.body);
+});
+window.onload = function()
+{
+    var page_data = {page_data}.result_data;
+    var page_params = {page_params}.result_data;
+    console.log(page_params)
+    // 转码
+    //page_params.keywords = decodeURIComponent(page_params.keywords);
+    console.log(page_params.keywords)
+    console.log(page_data);
+
+    <!-- IF search_type="goods" -->
+        
+        <!-- IF order_type="detail" -->
+        var template  = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n        <a href=\"";
+  if (helper = helpers.link) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.link); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n            <div class=\"item\">\r\n               <div class=\"lbox \">\r\n                   <i data-lazyload-url=\""
+    + escapeExpression((helper = helpers.change_img_size || (depth0 && depth0.change_img_size),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.images), "260", options) : helperMissing.call(depth0, "change_img_size", (depth0 && depth0.images), "260", options)))
+    + "\" class=\"img image-img min-height\"></i>\r\n               </div>\r\n\r\n               <div class=\"rbox \">\r\n                   <h3 class=\"title color-000 f14\">";
+  if (helper = helpers.titles) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.titles); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h3>\r\n                   <div>\r\n                       <p class=\"price color-ff6\">";
+  if (helper = helpers.prices) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.prices); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\r\n                           ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.abate), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n                       </p>\r\n                       <div class=\"num color-999 f12\">\r\n                           <p>";
+  if (helper = helpers.buy_num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.buy_num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n                           ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.notice), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n                       </div>\r\n                   </div>\r\n               </div>\r\n            </div>\r\n        </a>\r\n\r\n    ";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n                               <span class=\"price-tips\">";
+  if (helper = helpers.abate) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.abate); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</span>\r\n                           ";
+  return buffer;
+  }
+
+function program4(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n                               <div class=\"ml15\">\r\n                                   <span class=\"tags\">醯</span><span class=\"msg\">";
+  if (helper = helpers.notice) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.notice); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</span>\r\n                               </div>\r\n                           ";
+  return buffer;
+  }
+
+  buffer += "<div class=\"item-list\">\r\n    ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n</div>";
+  return buffer;
+  });
+        <!-- ELSEIF order_type="activity" -->
+        var template  = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n        <a href=\"";
+  if (helper = helpers.link) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.link); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-role=\"items\">\r\n            <div class=\"item\">\r\n                <div class=\"lbox \">\r\n                ";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.is_finish), "==", 1, options) : helperMissing.call(depth0, "compare", (depth0 && depth0.is_finish), "==", 1, options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n                    <i data-lazyload-url=\""
+    + escapeExpression((helper = helpers.change_img_size || (depth0 && depth0.change_img_size),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.images), "145", options) : helperMissing.call(depth0, "change_img_size", (depth0 && depth0.images), "145", options)))
+    + "\" class=\"lbox-icon img image-img min-height\" style=\"min-height: 100px; !important;\"></i>\r\n                    ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.sign), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n                </div>\r\n\r\n                <div class=\"rbox \">\r\n                    <h3 class=\"title color-000 f14\">";
+  if (helper = helpers.titles) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.titles); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h3>\r\n\r\n                    <p class=\"price color-ff6\">";
+  if (helper = helpers.prices) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.prices); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\r\n                    ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.unit), {hash:{},inverse:self.noop,fn:self.program(6, program6, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n                    </p> \r\n                    <p class=\"color-999\">";
+  if (helper = helpers.start_time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.start_time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n                    <div class=\"num color-999 f12\">\r\n                        <p>";
+  if (helper = helpers.buy_num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.buy_num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n                        <div class=\"layout_box_v act-box-item\">\r\n                            <p class=\"c666 act-seller-name\">";
+  if (helper = helpers.seller) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.seller); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n                            <i class=\"icon icon-act-name\"></i>\r\n                        </div>\r\n                    </div> \r\n                </div>\r\n            </div>\r\n        </a>\r\n    ";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  
+  return "\r\n                    <div class=\"boxre\">\r\n                        <i class=\"icon-show\"></i>\r\n                    </div>\r\n                ";
+  }
+
+function program4(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n                    <div class=\"ui-tips-list\">\r\n                        <i class=\"ui-tips-content\">";
+  if (helper = helpers.sign) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.sign); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</i>\r\n                        <i class=\"ui-tips-triangle\"></i>\r\n                    </div>\r\n                    ";
+  return buffer;
+  }
+
+function program6(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n                        <!-- <span class=\"color-999 f12\">/</span> -->\r\n                        <span class=\"color-999 f12\">";
+  if (helper = helpers.unit) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.unit); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</span>\r\n                    ";
+  return buffer;
+  }
+
+  buffer += "<div class=\"act_item\">\r\n    ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n</div>\r\n";
+  return buffer;
+  });
+        <!-- ENDIF -->
+    <!-- ELSEIF search_type="seller" -->
+    var template  = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n    <div class=\"child\" data-goods-id=\"2115510\">\r\n        <div class=\"pics_con\" data-url=\"\">\r\n            <a href=\"";
+  if (helper = helpers.link) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.link); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"db\">\r\n                <i data-lazyload-url=\"";
+  if (helper = helpers.cover) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.cover); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"img image-img min-height loaded\" style=\"height: 212px;\"></i>\r\n            </a>\r\n        </div>\r\n        <div class=\"notice\">\r\n            <div class=\"price\">\r\n                <p class=\"p1\">";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n                <p class=\"p2\">";
+  if (helper = helpers.trade_num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.trade_num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n            </div>\r\n            <div class=\"rbox\">\r\n                <div class=\"stars-all-mod\">\r\n                        <div class=\"ui-stars-grey\">\r\n                        </div>\r\n                        <div class=\"ui-stars-yellow\" style=\"width:"
+    + escapeExpression((helper = helpers.percent || (depth0 && depth0.percent),options={hash:{},data:data},helper ? helper.call(depth0, (depth0 && depth0.score), "5", options) : helperMissing.call(depth0, "percent", (depth0 && depth0.score), "5", options)))
+    + "\">\r\n                        </div>\r\n                </div>\r\n                <p class=\"p1\">";
+  if (helper = helpers.goods_num) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.goods_num); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n            </div>\r\n            \r\n        </div>\r\n    </div>\r\n\r\n";
+  return buffer;
+  }
+
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.list), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n";
+  return buffer;
+  });
+    <!-- ENDIF -->
+
+
+    // 渲染列表
+    var SELLER_AJAX_URL = window.$__ajax_domain+'get_search_ret.php';
+    var search_list_class = require('list');
+    var search_list_obj = new search_list_class(
+            {
+                ele : $('#render_ele'),
+                url : SELLER_AJAX_URL,
+                params : page_params,
+                template : template,
+                ajax_type : 'POST',
+                is_open_lz_opts : false
+            })
+
+    /**
+     * 搜索类，包含调用列表刷新、筛选和排序功能
+     * @param  {[type]} options [description]
+     * @return {[type]}         [description]
+     */
+    var search_class = function(options)
+    {
+        var self = this;
+
+        self.init(options);
+    };
+
+    search_class.prototype =
+    {
+        /**
+         * 初始化
+         * @param  {[type]} options [description]
+         * @return {[type]}         [description]
+         */
+        init : function(options)
+        {
+            var self = this;
+
+            self.options = options = options || {};
+
+            self.$el = self.options.$el || {};
+
+            self.search_filter_popup_obj = search_popup.init
+            ({
+                data:page_data,
+                page_params : page_params,
+                popup_type : 'filter'
+            });
+
+            self.search_sort_popup_obj = search_popup.init
+            ({
+                data:page_data,
+                page_params : page_params,
+                popup_type : 'sort'
+            });
+
+            // 安装事件
+            self.setup_event();
+        },
+        render : function()
+        {
+            var self = this;
+        },
+        setup_event : function()
+        {
+            var self = this;
+
+            //筛选按钮弹出框
+            self.$btn_filter = self.$el.find('[data-role="filter"]');
+            self.$btn_filter.on('click',function()
+            {
+                self.search_filter_popup_obj.toggle();
+            });
+
+            //排序按钮弹出框
+            self.$btn_sort = self.$el.find('[data-role="sort"]');
+            self.$btn_sort.on('click',function()
+            {
+                self.search_sort_popup_obj.toggle();
+            });
+
+            //返回按钮
+            $('[data-role="page-back"]').on('click',function()
+            {
+                if(document.referrer)
+                {
+                    window.history.back();
+                }
+                else
+                {
+                    window.location.href = "../index.php" ;
+                }
+            });
+
+
+
+        }
+
+    };
+
+    var search_obj = new search_class
+    ({
+        $el : $('[data-role="search-list-container"]'),
+        data : page_data
+    });
+
+    $(window).scroll(function()
+    {
+        /*var h = $(this).scrollTop();
+
+        console.log(h)
+
+        if(h>300)
+        {
+            $('.global-header').removeClass('fixed-header');
+            $('.search-list-tab').removeClass('fixed-tab');
+        }
+        else
+        {
+            $('.global-header').addClass('fixed-header');
+            $('.search-list-tab').addClass('fixed-tab');
+        }*/
+    });
+}
+
+
+
+</script>
+</html>

@@ -1,0 +1,201 @@
+
+// --------------------------------------------------
+// 公共 - 用户名片 - 箭头
+// --------------------------------------------------
+@mixin usercard-arrow($direction) {
+    $direction: quote($direction);
+
+    @include angle($direction,
+        $usercard-arrow-size, 1px,
+        $usercard-container-border-color, $usercard-container-bg-color
+    );
+}
+
+// 箭头
+.ui-usercard-arrow {
+    position: absolute;
+    z-index: 10;
+    *zoom: 1;
+}
+// 箭头在上边 左上,右上
+%arrow-top-style {
+    @include usercard-arrow('top');
+}
+.ui-usercard-arrow-tl {
+    @extend %arrow-top-style;
+    left: $usercard-arrow-size * 4;
+    top: -#{$usercard-arrow-size};
+}
+.ui-usercard-arrow-tr {
+    @extend %arrow-top-style;
+
+    right: $usercard-arrow-size * 2 + $usercard-arrow-size * 4;
+    top: -#{$usercard-arrow-size};
+}
+// 箭头在右边 右上,右下
+%arrow-right-style {
+    @include usercard-arrow('right');
+}
+.ui-usercard-arrow-rt {
+    @extend %arrow-right-style;
+
+    top: $usercard-arrow-size * 4;
+    right: 0;
+}
+.ui-usercard-arrow-rb {
+    @extend %arrow-right-style;
+
+    bottom: $usercard-arrow-size * 2 + $usercard-arrow-size * 4;
+    right: 0;
+}
+// 箭头在下边 左下,右下
+%arrow-bottom-style {
+    @include usercard-arrow('bottom');
+}
+.ui-usercard-arrow-bl {
+    @extend %arrow-bottom-style;
+
+    left: $usercard-arrow-size * 4;
+    bottom: 0;
+}
+.ui-usercard-arrow-br {
+    @extend %arrow-bottom-style;
+
+    right: $usercard-arrow-size * 2 + $usercard-arrow-size * 4;
+    bottom: 0;
+}
+// 箭头在左边 左上,左下
+%arrow-left-style {
+    @include usercard-arrow('left');
+}
+.ui-usercard-arrow-lt {
+    @extend %arrow-left-style;
+
+    top: $usercard-arrow-size * 4;
+    left: -#{$usercard-arrow-size};
+}
+.ui-usercard-arrow-lb {
+    @extend %arrow-left-style;
+
+    bottom: $usercard-arrow-size * 2 + $usercard-arrow-size * 4;
+    left: -#{$usercard-arrow-size};
+}
+
+
+// 箭头
+// .ui-usercard-arrow {
+//     position: absolute;
+//     z-index: 10;
+//     *zoom: 1;
+
+//     em, span {
+//         position: absolute;
+//         *zoom: 1;
+//         top: 0;
+//         left: 0;
+
+//         width: 0;
+//         height: 0;
+//         border-width: $usercard-arrow-size;
+//         border-color: rgba(#fff, 0);
+//         border-color: transparent\0;
+//         *border-color: transparent;
+//         _border-color: tomato;
+//         _filter: chroma(color=tomato);
+//         border-style: solid;
+
+//         overflow: hidden;
+//     }
+// }
+// // 箭头在上边 左上,右上
+// %arrow-top-style-em {
+//     border-top-width: 0;
+//     border-bottom-color: $usercard-container-border-color;
+//     top: -1px;
+//     left: 0;
+// }
+// %arrow-top-style-span {
+//     border-top-width: 0;
+//     border-bottom-color: $usercard-container-bg-color;
+// }
+// .ui-usercard-arrow-tl {
+//     left: $usercard-arrow-size * 4;
+//     top: -#{$usercard-arrow-size};
+//     em {@extend %arrow-top-style-em;}
+//     span {@extend %arrow-top-style-span;}
+// }
+// .ui-usercard-arrow-tr {
+//     right: $usercard-arrow-size * 2 + $usercard-arrow-size * 4;
+//     top: -#{$usercard-arrow-size};
+//     em {@extend %arrow-top-style-em;}
+//     span {@extend %arrow-top-style-span;}
+// }
+// // 箭头在右边 右上,右下
+// %arrow-right-style-em {
+//     border-right-width: 0;
+//     border-left-color: $usercard-container-border-color;
+//     top: 0;
+//     left: 1px;
+// }
+// %arrow-right-style-span {
+//     border-right-width: 0;
+//     border-left-color: $usercard-container-bg-color;
+// }
+// .ui-usercard-arrow-rt {
+//     top: $usercard-arrow-size * 4;
+//     right: 0;
+//     em {@extend %arrow-right-style-em;}
+//     span {@extend %arrow-right-style-span;}
+// }
+// .ui-usercard-arrow-rb {
+//     bottom: $usercard-arrow-size * 2 + $usercard-arrow-size * 4;
+//     right: 0;
+//     em {@extend %arrow-right-style-em;}
+//     span {@extend %arrow-right-style-span;}
+// }
+// // 箭头在下边 左下,右下
+// %arrow-bottom-style-em {
+//     border-bottom-width: 0;
+//     border-top-color: $usercard-container-border-color;
+//     top: 1px;
+//     left: 0;
+// }
+// %arrow-bottom-style-span {
+//     border-bottom-width: 0;
+//     border-top-color: $usercard-container-bg-color;
+// }
+// .ui-usercard-arrow-bl {
+//     left: $usercard-arrow-size * 4;
+//     bottom: 0;
+//     em {@extend %arrow-bottom-style-em;}
+//     span {@extend %arrow-bottom-style-span;}
+// }
+// .ui-usercard-arrow-br {
+//     right: $usercard-arrow-size * 2 + $usercard-arrow-size * 4;
+//     bottom: 0;
+//     em {@extend %arrow-bottom-style-em;}
+//     span {@extend %arrow-bottom-style-span;}
+// }
+// // 箭头在左边 左上,左下
+// %arrow-left-style-em {
+//     border-left-width: 0;
+//     border-right-color: $usercard-container-border-color;
+//     top: 0;
+//     left: -1px;
+// }
+// %arrow-left-style-span {
+//     border-left-width: 0;
+//     border-right-color: $usercard-container-bg-color;
+// }
+// .ui-usercard-arrow-lt {
+//     top: $usercard-arrow-size * 4;
+//     left: -#{$usercard-arrow-size};
+//     em {@extend %arrow-left-style-em;}
+//     span {@extend %arrow-left-style-span;}
+// }
+// .ui-usercard-arrow-lb {
+//     bottom: $usercard-arrow-size * 2 + $usercard-arrow-size * 4;
+//     left: -#{$usercard-arrow-size};
+//     em {@extend %arrow-left-style-em;}
+//     span {@extend %arrow-left-style-span;}
+// }

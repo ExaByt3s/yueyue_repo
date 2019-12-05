@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>无标题文档</title>
+    <script type="text/javascript" src="http://static-c.yueus.com/yue_ui/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://static-c.yueus.com/yue_ui/handlebars/3.0.3/handlebars-v3.0.3.js"></script>
+    <link href="css/pcsp.css" type="text/css" rel="stylesheet">
+    <style>
+        .topic{
+            width: 940px;
+            margin: 50px auto 0;
+        }
+        table tr{
+            line-height: 50px;
+        }
+        .from-type{
+            border-right: 1px solid #c3c3c3;
+            border-top: 1px solid #9a9a9a;
+            border-left: 1px solid #9a9a9a;
+            border-bottom: 1px solid #c3c3c3;
+            position: relative;
+            padding: 10px;
+            margin-top: 50px;
+        }
+        .from-num{
+            float:right;  width: 20px;
+            position: absolute;
+            right: 10px;
+        }
+        .entry{
+            margin:30px 0;
+        }
+    </style>
+</head>
+
+<script id="normal-form-template" type="text/x-handlebars-template">
+    <div class="entry" data-view-id="{{id}}" data-tpl-name="{{tpl_type}}">
+        <select name="type" data-role="normal-select">
+            <option name="type" value="img">图片模版</option>
+            <option name="type" value="text">文案模版</option>
+            <option name="type" value="goods1">商品模版一</option>
+            <option name="type" value="goods2">商品模版二</option>
+            <option name="type" value="goods3">商品模版三</option>
+            <option name="type" value="list1">列表模版一</option>
+            <option name="type" value="list2">列表模版二</option>
+            <option name="type" value="goods-attr">商品属性模版</option>
+
+        </select>
+
+        <div data-role="from-type" class="from-type">
+            <input type="text" value="1" class="from-num" data-role="form-num">
+            <div data-role="child-item-tpl-container"></div>
+            <input type="button" value="添加" data-role="add" />
+            <input type="button" value="删除" data-role="remove" data-normal-num="{{id}}"/>
+        </div>
+    </div>
+</script>
+
+<script id="img-template" type="text/x-handlebars-template">
+	 <table  border="0"  cellpadding="10">
+        <tr>
+            <td width="78" align="right">（图片模版）</td>
+            <td width="324"><label for="textfield"></label>
+            图片链接: <input type="text" name="img_tpl[]" id="textfield" value="{{url}}"/></td>
+			 <td width="84">排序:<input type="text" name="img_tpl_sort[]" id="textfield" value="1" size="5"/></td>
+        </tr>
+    </table>
+</script>
+
+<script id="text-template" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td width="146" align="right">（文案模版）文案内容:</td>
+            <td width="848"><label for="textarea"></label>
+                <textarea name="text_tpl_text[]" id="textarea" cols="45" rows="5" value="{{value}}"></textarea>
+                <label for="textfield"></label>
+            </td>
+			<td width="84">排序:<input type="text" name="text_tpl_sort[]" id="textfield" value="1" size="5"/></td>
+        </tr>
+    </table>
+</script>
+
+
+<!--商品模版1一-->
+<script id="goods1-template" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10" data-role="tb">
+        <tr>
+            <td align="right">（商品模版一）</td>
+            <td colspan="3"><input type="button" name="button" data-role="add-goods-child" value="点击新增商品" />排序:<input type="text" name="goods_tpl1_sort[]" id="textfield" value="1" size="5"/></td>
+			
+        </tr>
+
+    </table>
+</script>
+<!--商品模版1-子模板-->
+<script id="goods1-child-template" type="text/x-handlebars-template">
+   {{#each tr_list}}
+   <tr data-row-id="{{id}}" data-name="goods">
+		<td align="right" data-role="goods_sort">商品{{name}}：</td>
+		<td width="252"><label for="goods_tpl1_id[{{id}}][]"></label>
+			商品ID:
+			<input type="text" name="goods_tpl1_id[{{id}}][]"  /></td>
+		<td width="284">促销文案:
+			<input type="text" name="goods_tpl1_text[{{id}}][]"  /></td>
+		<td width="268">角标:
+			<label for="select"></label>
+			<select name="goods_tpl1_tag[{{id}}][]" id="select">
+				<option value="新版">新版</option>
+			</select>
+			<button data-role="del-items" data-num="{{id}}">删除</button>
+		</td>
+	</tr>
+   {{/each}}
+</script>
+
+<!--商品模版2一-->
+<script id="goods2-template" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td align="right">（商品模版二）</td>
+            <td>排序:<input type="text" name="goods_tpl2_sort[]" id="textfield" value="1" size="5"/></td>
+        </tr>
+        <tr>
+            <td align="right">商品ID:</td>
+            <td><input type="text" name="goods_tpl2_id[]" id="textfield3" /></td>
+        </tr>
+        <tr>
+            <td width="146" align="right">促销文案:</td>
+            <td width="848"><label for="textfield">
+                <input type="text" name="goods_tpl2_text[]" id="textfield5" />
+            </label></td>
+        </tr>
+    </table>
+</script>
+<script id="goods3-template" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td align="right">（商品模版三）</td>
+            <td>排序:<input type="text" name="goods_tpl3_sort[]" id="textfield" value="1" size="5"/></td>
+        </tr>
+        <tr>
+            <td align="right">商品ID:</td>
+            <td><input type="text" name="goods_tpl3_id[]" id="textfield3" /></td>
+        </tr>
+        <tr>
+            <td width="146" align="right">促销文案:</td>
+            <td width="848"><label for="textfield">
+                <input type="text" name="goods_tpl3_text[]" id="textfield5" />
+            </label></td>
+        </tr>
+    </table>
+</script>
+<script id="list1-template" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td align="right">（列表模版一）</td>
+            <td>排序:<input type="text" name="list_tpl1_sort[]" id="textfield" value="1" size="5"/></td>
+        </tr>
+        <tr>
+            <td align="right">图片链接:</td>
+            <td><input type="text" name="list_tpl1_img[]" id="textfield3" /></td>
+        </tr>
+        <tr>
+            <td align="right">主标题:</td>
+            <td><input type="text" name="list_tpl1_title[]" id="textfield6" /></td>
+        </tr>
+        <tr>
+            <td width="146" align="right">副标题:</td>
+            <td width="848"><label for="textfield">
+                <input type="text" name="list_tpl1_subtitle[]" id="textfield5" />
+            </label></td>
+        </tr>
+    </table>
+</script>
+
+<script id="list2-template" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td align="right">（列表模版二）</td>
+            <td>排序:<input type="text" name="list_tpl2_sort[]" id="textfield" value="1" size="5"/></td>
+        </tr>
+        <tr>
+            <td align="right">图片链接:</td>
+            <td><input type="text" name="list_tpl2_img[]" id="textfield3" /></td>
+        </tr>
+        <tr>
+            <td align="right">主标题:</td>
+            <td><input type="text" name="list_tpl2_title[]" id="textfield6" /></td>
+        </tr>
+
+        <tr>
+            <td width="146" align="right">副标题:</td>
+            <td width="848"><label for="textfield">
+                <input type="text" name="list_tpl2_subtitle[]" id="textfield5" />
+            </label></td>
+        </tr>
+        <tr>
+            <td align="right">跳转按钮链接:</td>
+            <td><input type="text" name="list_tpl2_button[]" id="textfield7" /></td>
+        </tr>
+    </table>
+</script>
+
+<script id="goods-attr-template" type="text/x-handlebars-template">
+    <table  border="0"  cellpadding="10">
+        <tr>
+            <td width="162" align="right">（商品属性模版）商品ID:</td>
+            <td width="832"><label for="textfield"></label>
+                <input type="text" name="attr_goods_id_tpl[]" id="textfield" /></td>
+				排序:<input type="text" name="attr_tpl_sort[]" id="textfield" value="1" size="5"/>
+        </tr>
+    </table>
+</script>
+<body >
+<form action="http://www.yueus.com/yue_admin/topic/mall_topic_edit.php?act=edit" method="post" class="topic">
+
+<input type="submit" name='submit' value="提交"  />
+</form>
+</body>
+<script>
+    var num = 0;
+    var form_tpl_class = function($el,options)
+    {
+        var self = this;
+
+        options = options || {};
+
+        self.$el = $el;
+
+        self.options = options;
+
+        self.init();
+
+    };
+
+    form_tpl_class.prototype =
+    {
+        /**
+         *初始化
+         */
+        init : function()
+        {
+            var self = this;
+			var id = self.create_view_id();
+			var type = self.options.child_type || '';
+            var data = self.options.child_data || '';
+
+			self.options.normal_tpl_data = self.options.normal_tpl_data || {};
+			self.options.normal_tpl_data.id = id;
+			self.options.normal_tpl_data.tpl_type = type;
+
+            // 生成大模板
+            self.normal_tpl = self.render_normal_tpl();
+            self.$el.append(self.normal_tpl);
+
+            // 生成子模板            
+            self.child_tpl = self.render_child_item_tpl(type,data);
+
+			// 大模板元素
+			self.$normal_el = self.$el.find('[data-view-id="'+id+'"]');
+
+            // 插入子模板到大模板
+			self.setup_child(self.child_tpl);
+
+			// 安装大模板需要事件
+			self.setup_normal_tpl_event();
+
+
+
+        },
+        /**
+         *附加id
+         */
+		create_view_id : function()
+		{
+			if(!window.c_view_id)
+			{
+				window.c_view_id = 0;
+			}
+
+			return window.c_view_id++;
+		},
+        /**
+         *大模板
+         */
+        render_normal_tpl : function()
+        {
+            var self = this;
+
+            var source   = $("#normal-form-template").html();
+            var template = Handlebars.compile(source);
+            var context = self.options.normal_tpl_data || {};
+
+            var html    = template(context);
+
+            return html;
+        },
+        /**
+         *子模板
+         */
+        render_child_item_tpl : function(type,data)
+        {
+            var self = this;
+
+			self.type = type;
+
+			// 生成子模板
+            var source   = $(type).html();
+            var template = Handlebars.compile(source);
+            var context = data || {};
+            var html    = template(context);
+
+            return html;
+        },
+		/**
+         *特殊处理，商品模板1子项
+         */
+        render_goods1_items_tpl : function(data)
+        {
+            var self = this;
+
+			// 生成子模板
+            var source   = $('#goods1-child-template').html();
+            var template = Handlebars.compile(source);
+            var context = data || {};
+			console.log(data)
+            var html    = template(context);
+
+            return html;
+        },
+		setup_child : function(html)
+		{
+			var self = this;
+
+			self.$child_container = self.$normal_el.find('[data-role="child-item-tpl-container"]');
+            self.$child_container.html(html);
+
+			if(self.type == '#goods1-template')
+			{
+				self.time = new Date().getTime();
+
+				var g1c_items_arr = [{id : self.time,name:1},{id :self.time,name:2},{id :self.time,name:3}];
+				var g1c_tpl = self.render_goods1_items_tpl
+				({
+					tr_list: g1c_items_arr
+				});
+
+				self.$child_container.find('[data-role="tb"]').append(g1c_tpl);
+                //商品表单添加项目
+				self.$child_container.find('[data-role="add-goods-child"]').on('click',function()
+				{
+					var $last_obj = self.$child_container.find('[data-role="tb"]').find('[data-row-id]').last();
+					var id = parseInt($last_obj.index());
+					var g1c_tpl = self.render_goods1_items_tpl
+					({
+						tr_list: [{id : self.time ,name : id+1}]
+					});
+					self.$child_container.find('[data-role="tb"]').append(g1c_tpl);
+
+
+				});
+                //商品表单删除项目
+                self.$child_container.on('click','[data-role="del-items"]',function(ev)
+                {
+
+                    var del_num = $(this).attr('data-num');   
+					
+					if(self.$child_container.find('[data-row-id='+del_num+']').length == 1)
+					{
+						return;
+					}
+					
+
+                    $(ev.currentTarget).parents('[data-name="goods"]').remove();
+
+					self.$child_container.find('[data-row-id='+del_num+']').each(function(i,obj)
+                    {
+                        $(obj).find('[data-role="goods_sort"]').html("商家"+(i+1)+"：");                       
+                    });
+                    
+                });
+			}
+
+		},
+        /**
+         *下拉select事件
+         */
+        setup_normal_tpl_event : function()
+        {
+            var self = this;
+
+			self.$normal_el.find('[data-role="normal-select"]').on('change',function()
+			{
+				var type = $(this).val();
+				var html_str = self.render_child_item_tpl('#'+type+'-template',{});
+
+				// 插入子模板到大模板
+				self.setup_child(html_str);
+			});
+
+			self.setup_add();
+            self.setup_del();
+        },
+        /**
+         *添加
+         */
+        setup_add : function()
+		{
+            var self = this;
+
+
+            self.$normal_el.find('[data-role="add"]').on('click',function()
+			{
+				var form_obj = new form_tpl_class(self.$el,
+				{
+					child_type : '#img-template',
+					child_data :
+					{
+						value : ''
+					}
+				});
+			});
+            self.setup_sort_add();
+        },
+        setup_del : function()
+		{
+            var self = this;
+            self.$normal_el.find('[data-role="remove"]').on('click',function()
+            {
+                if($('[data-role="remove"]').length>1)
+                {
+                    //$(this).parent().parent().remove();
+
+                    var del_num = $(this).attr('data-normal-num');
+                    $('[data-view-id='+del_num+']').remove();
+                    self.setup_sort_minus();
+                };
+
+            });
+        },
+        setup_sort_add : function()
+        {
+            var self = this;
+            num++;
+            self.$normal_el.find('[data-role="form-num"]').val(num);
+        },
+        setup_sort_minus : function()
+        {
+            var self = this;
+            num--;
+            self.$normal_el.find('[data-role="form-num"]').val(num);
+        }
+    };
+
+    var text_form_obj = new form_tpl_class($('.topic'),
+	{
+		child_type : '#goods1-template',
+		child_data :
+		{
+			value : 'hudingwen',
+			url : 'http://xxxxxx'
+		}
+	});
+
+</script>
+</html>

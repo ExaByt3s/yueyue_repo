@@ -1,0 +1,72 @@
+<div class="rows-title">
+    <h1>POSTMAN数据上传&nbsp;<small><small>@willike</small></small></h1>
+</div>
+<div class="post-info" style="display: none;">
+    <span>立刻更新API数据？</span>
+    <span class="glyphicon glyphicon-retweet"></span>
+</div>
+<div class="tab-pane fade in">
+	<form target="upload_iframe" action="?c=postman&callback=act.upPic"  method="POST" id="myform" 
+		enctype="multipart/form-data" class="margin-base-vertical" role="form">
+		<div class="input-group">
+		  	<span class="input-group-addon" id="basic-addon1">POSTMAN文件</span>
+		  	<input type="file" class="form-control" id="input-file" name="input-file" />
+		</div>
+    </form>
+    <iframe id="upload_iframe" name="upload_iframe" border="0" style="display:none;"></iframe>
+</div>
+<hr>
+<div class="tab-pane fade in">
+   	<span class="label label-info">或者，</span>&nbsp;<span>使用json数据更新接口。</span>
+</div>
+<div class="tab-pane fade in">
+	<form id="jform" method="POST" role="form">
+        <textarea name="pjson" class="form-control" placeholder="请拷贝POSTMAN json数据" style="min-height: 300px;"></textarea>
+        <button type="submit" class="btn btn-block btn-primary">提&nbsp;交</button>
+    </form>
+</div>
+<script type="application/javascript">
+	$("#input-file").on("change", function () {
+        var filesize = Math.ceil(this.files[0].size/1024);
+        if(filesize < 1) {
+            alert("文件不能为空!");
+            return false;
+        } else {
+            $("#myform")[0].submit();
+        }
+    });
+    var mkey = "";
+	window.act = {
+        upPic: function (result) {
+            if (result.code == 1) {
+            	$(".post-info").show();
+            	mkey = result.mkey;
+            }
+            alert(result.message);
+            return false;
+        }
+    };
+    $("#jform").submit(function(e){
+    	e.preventDefault();
+    	var data = $(this).serialize();
+    	var BTN_ = $("button.btn-primary");BTN_.html("上传中").attr("disabled","disabled");
+	    $.post("#", data, function (D) {
+	    	BTN_.html("提&nbsp;交").removeAttr("disabled");
+	        if(D === '' || D === undefined || D === null || !D){
+	            return false;
+	        }
+	        if (D.code === 1) {
+	        	$(".post-info").show();
+            	mkey = D.data.mkey;
+	        }
+	        alert(D.msg);
+	        return;
+	    });
+    });
+    $(".post-info").on("click",function(){
+    	if(mkey === '' || mkey === undefined || mkey === "undefined"){
+    		mkey = '';
+    	}
+    	comfunc.jump("?c=api&mkey=" + mkey);
+    });
+</script>

@@ -1,0 +1,83 @@
+.sales-detail-page{
+	.item-wrap{
+		padding-bottom: 50px;
+		.item{
+			margin-bottom: 25px;
+			background:#fff;
+			.txt-item{
+				padding:8px 12px 12px 15px;
+			}	
+		}
+		.item-1{
+			.img-item{
+				
+
+				.img{
+					width: 100%;
+					img{
+						width: 100%;
+					}
+					// display: block;
+					// width: 100%;
+					// height: 100%;
+					// position: relative;
+					// overflow: hidden;
+					// background-color: #fafafa;
+					// -webkit-background-size: 100% auto;
+					// background-repeat: no-repeat;
+					// background-position: 50%;
+					// -webkit-box-sizing: border-box;
+					// box-sizing: border-box;
+					// background-size: cover;
+					// background-image: url(../../image/sales/640x513.jpg);
+				}
+			}
+			.txt-item{
+				h3.title{
+					padding-bottom: 7px;
+				}
+			}
+		}
+		.item-2{
+			.txt-item{
+				.txt-con{
+					margin-bottom: 8px;
+					display:-webkit-box;
+					span.title{
+						display:block;
+						width:72px;
+					}
+					span.txt{
+						display:block;
+						-webkit-box-flex:1;
+					}
+					&:nth-last-of-type(1){
+						margin-bottom: 0px;
+					}
+					.p1{
+						-webkit-box-flex:1;
+					}
+				}
+			}
+		}
+		.item-3{
+			.txt-item{
+				h3.title{
+					padding-bottom: 7px;
+				}
+				.txt-con{
+					p.txt{
+						line-height: 22px;
+					}
+				}
+			}
+		}	
+	}
+	.sign-name-item{
+		width:100%;
+		height:50px;
+		position:fixed;
+		left:0px;
+		bottom:0px;
+	}
+}
